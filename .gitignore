@@ -1,0 +1,13 @@
+/CMake*/
+/ipch/
+/bin/
+*.cmake
+cmake_install.cmake
+[mM]akefile
+CMakeFiles
+CMakeCache.txt
+!Readme
+!CMakeLists.txt
+!/CMake/
+!/CMake/internal_utils.cmake
+
