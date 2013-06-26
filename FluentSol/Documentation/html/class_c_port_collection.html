@@ -1,0 +1,732 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Dokumentacja klasy CPortCollection</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Lista&nbsp;klas</span></a></li>
+      <li><a href="classes.html"><span>Indeks&nbsp;klas</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchia&nbsp;klas</span></a></li>
+      <li><a href="functions.html"><span>Składowe&nbsp;klas</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja klasy CPortCollection</h1><!-- doxytag: class="CPortCollection" -->
+<p><code>#include &lt;<a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagram współpracy dla CPortCollection:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c_port_collection__coll__graph.png" border="0" usemap="#_c_port_collection_coll__map" alt="Collaboration graph"/></div>
+<map name="_c_port_collection_coll__map" id="_c_port_collection_coll__map">
+<area shape="rect" id="node2" href="class_c___error.html" title="Klasa do obsługi błędów." alt="" coords="5,85,72,115"/><area shape="rect" id="node4" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych." alt="" coords="5,5,72,35"/><area shape="rect" id="node7" href="interface_i_port.html" title="IPort" alt="" coords="96,85,144,115"/></map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legenda</a>]</span></center></div>
+
+<p><a href="class_c_port_collection-members.html">Lista wszystkich składowych.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Metody publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#aa16f76eb3269dba8bc37fce5e9d54ed1">CPortCollection</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#ab58cb553df2e8f1428e3f7c8e68d8f18">~CPortCollection</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">HRESULT&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a5e69d2d14ea2a7b61b54de2d8546e913">FinalConstruct</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a991a56aa1ba101afcf4b1b675393d831">FinalRelease</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a93236bab90cfdb8462bed244acbc334b">AddError</a> (VARIANT *in)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a48f3f1f9f0b0efff07192d2b8567e85a">debugfile</a> (VARIANT *in)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#adfedd4860842bb947340d3c04d52e06e">AddPort2</a> (IDispatch *disp)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#ac0fb2473e43bbece9c9327aecd1d1dfb">RemovePort</a> (LONG index)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a2086b1cce07ecff95fb26da546d3f9a4">get_name</a> (BSTR *name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a4f5405e00dfd37c019b9d123d5b0b82e">get_code</a> (long *code)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a29f55f3161b94c6824771494eb2fc3e3">get_description</a> (BSTR *description)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a636342e9e9012df66c5bc290f3fd5a87">get_scope</a> (BSTR *scope)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a6f3c2cb46398c26daa91e513032edb44">get_interfaceName</a> (BSTR *interfaceName)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a7769f8fe4dd436d5f1e9492849bf9e00">get_operation</a> (BSTR *operation)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a7f0ea04561b0aaa5427ff259648348c2">get_moreInfo</a> (BSTR *moreInfo)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#ab3e73b58a1ad157be8d88b4f7f4a6d74">Item</a> (VARIANT id, LPDISPATCH *Item)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a1e8fed1105600ce5d12f63db72b13afa">Count</a> (long *itemsCount)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#abcafc657e087bee2e07ea7f4acf0bc19">get_ComponentName</a> (BSTR *name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a52190ebc6e1b83e5763a2c254308a4f0">put_ComponentName</a> (BSTR name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#ae81c9ff5c90e925adb036dd429f5ff1b">get_ComponentDescription</a> (BSTR *desc)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a7925588abf2c55351e7b1c435d688d46">put_ComponentDescription</a> (BSTR desc)</td></tr>
+<tr><td colspan="2"><h2>Metody prywatne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a97424f309b801b77fdca99f95cc5ea91">SetError</a> (BSTR desc, BSTR interf, BSTR scope)</td></tr>
+<tr><td colspan="2"><h2>Atrybuty prywatne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#aa41c08d0d7869296fe1f246ed58c5b50">errDesc</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a9fa4412a841465d120b5120e51e3e146">errInterface</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#af184322d9130b19a9a1425053e350839">errScope</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_i_port.html">IPort</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a5cd1166060bf66f178e82420b26d4049">ports</a> [NUM_OF_INPUTS+NUM_OF_OUTPUTS]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">FILE *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a9e188443383db6fcaed7545aa2d53dad">mystream</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a58719605d709047b3f118a47519772fa">myName</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a85a1a49805f60eb98868dff6897583aa">myDesc</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a6868f144db96da380096032dbf5e37a5">portCount</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c___error.html">C_Error</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_port_collection.html#a4d76b29eca0f7996295b0ea7860b48c6">err</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00017">17</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+<hr/><h2>Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="aa16f76eb3269dba8bc37fce5e9d54ed1"></a><!-- doxytag: member="CPortCollection::CPortCollection" ref="aa16f76eb3269dba8bc37fce5e9d54ed1" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CPortCollection::CPortCollection </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8cpp_source.html#l00008">8</a> pliku <a class="el" href="_port_collection_8cpp_source.html">PortCollection.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_port_collection_8h_source.html#l00215">errDesc</a>, <a class="el" href="_port_collection_8h_source.html#l00216">errInterface</a>, <a class="el" href="_port_collection_8h_source.html#l00217">errScope</a>, <a class="el" href="_port_collection_8h_source.html#l00222">myDesc</a>, <a class="el" href="_port_collection_8h_source.html#l00221">myName</a>, <a class="el" href="_port_collection_8h_source.html#l00223">portCount</a> i <a class="el" href="_parameter_collection_8h.html#aab630676ad19aeead24092b0361c7c93">SetOaNoCache()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c_port_collection_aa16f76eb3269dba8bc37fce5e9d54ed1_cgraph.png" border="0" usemap="#class_c_port_collection_aa16f76eb3269dba8bc37fce5e9d54ed1_cgraph_map" alt=""></div>
+<map name="class_c_port_collection_aa16f76eb3269dba8bc37fce5e9d54ed1_cgraph_map" id="class_c_port_collection_aa16f76eb3269dba8bc37fce5e9d54ed1_cgraph">
+<area shape="rect" id="node3" href="_parameter_collection_8h.html#aab630676ad19aeead24092b0361c7c93" title="SetOaNoCache" alt="" coords="264,5,376,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab58cb553df2e8f1428e3f7c8e68d8f18"></a><!-- doxytag: member="CPortCollection::~CPortCollection" ref="ab58cb553df2e8f1428e3f7c8e68d8f18" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CPortCollection::~CPortCollection </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8cpp_source.html#l00021">21</a> pliku <a class="el" href="_port_collection_8cpp_source.html">PortCollection.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_port_collection_8h_source.html#l00215">errDesc</a>, <a class="el" href="_port_collection_8h_source.html#l00216">errInterface</a>, <a class="el" href="_port_collection_8h_source.html#l00217">errScope</a>, <a class="el" href="_port_collection_8h_source.html#l00222">myDesc</a>, <a class="el" href="_port_collection_8h_source.html#l00221">myName</a> i <a class="el" href="_port_collection_8h_source.html#l00220">mystream</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="a93236bab90cfdb8462bed244acbc334b"></a><!-- doxytag: member="CPortCollection::AddError" ref="a93236bab90cfdb8462bed244acbc334b" args="(VARIANT *in)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHODIMP CPortCollection::AddError </td>
+          <td>(</td>
+          <td class="paramtype">VARIANT *&nbsp;</td>
+          <td class="paramname"> <em>in</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8cpp_source.html#l00038">38</a> pliku <a class="el" href="_port_collection_8cpp_source.html">PortCollection.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_port_collection_8h_source.html#l00224">err</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adfedd4860842bb947340d3c04d52e06e"></a><!-- doxytag: member="CPortCollection::AddPort2" ref="adfedd4860842bb947340d3c04d52e06e" args="(IDispatch *disp)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHODIMP CPortCollection::AddPort2 </td>
+          <td>(</td>
+          <td class="paramtype">IDispatch *&nbsp;</td>
+          <td class="paramname"> <em>disp</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8cpp_source.html#l00054">54</a> pliku <a class="el" href="_port_collection_8cpp_source.html">PortCollection.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_cape2_fluent__i_8h_source.html#l00460">IID_IPort</a>, <a class="el" href="_port_collection_8h_source.html#l00220">mystream</a>, <a class="el" href="_port_collection_8h_source.html#l00223">portCount</a> i <a class="el" href="_port_collection_8h_source.html#l00219">ports</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1e8fed1105600ce5d12f63db72b13afa"></a><!-- doxytag: member="CPortCollection::Count" ref="a1e8fed1105600ce5d12f63db72b13afa" args="(long *itemsCount)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CPortCollection::Count </td>
+          <td>(</td>
+          <td class="paramtype">long *&nbsp;</td>
+          <td class="paramname"> <em>itemsCount</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00168">168</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a48f3f1f9f0b0efff07192d2b8567e85a"></a><!-- doxytag: member="CPortCollection::debugfile" ref="a48f3f1f9f0b0efff07192d2b8567e85a" args="(VARIANT *in)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHODIMP CPortCollection::debugfile </td>
+          <td>(</td>
+          <td class="paramtype">VARIANT *&nbsp;</td>
+          <td class="paramname"> <em>in</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8cpp_source.html#l00045">45</a> pliku <a class="el" href="_port_collection_8cpp_source.html">PortCollection.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_port_collection_8h_source.html#l00220">mystream</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5e69d2d14ea2a7b61b54de2d8546e913"></a><!-- doxytag: member="CPortCollection::FinalConstruct" ref="a5e69d2d14ea2a7b61b54de2d8546e913" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HRESULT CPortCollection::FinalConstruct </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00048">48</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a991a56aa1ba101afcf4b1b675393d831"></a><!-- doxytag: member="CPortCollection::FinalRelease" ref="a991a56aa1ba101afcf4b1b675393d831" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CPortCollection::FinalRelease </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00053">53</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4f5405e00dfd37c019b9d123d5b0b82e"></a><!-- doxytag: member="CPortCollection::get_code" ref="a4f5405e00dfd37c019b9d123d5b0b82e" args="(long *code)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CPortCollection::get_code </td>
+          <td>(</td>
+          <td class="paramtype">long *&nbsp;</td>
+          <td class="paramname"> <em>code</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00080">80</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae81c9ff5c90e925adb036dd429f5ff1b"></a><!-- doxytag: member="CPortCollection::get_ComponentDescription" ref="ae81c9ff5c90e925adb036dd429f5ff1b" args="(BSTR *desc)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CPortCollection::get_ComponentDescription </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>desc</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00197">197</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abcafc657e087bee2e07ea7f4acf0bc19"></a><!-- doxytag: member="CPortCollection::get_ComponentName" ref="abcafc657e087bee2e07ea7f4acf0bc19" args="(BSTR *name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CPortCollection::get_ComponentName </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>name</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00179">179</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a29f55f3161b94c6824771494eb2fc3e3"></a><!-- doxytag: member="CPortCollection::get_description" ref="a29f55f3161b94c6824771494eb2fc3e3" args="(BSTR *description)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CPortCollection::get_description </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>description</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00088">88</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6f3c2cb46398c26daa91e513032edb44"></a><!-- doxytag: member="CPortCollection::get_interfaceName" ref="a6f3c2cb46398c26daa91e513032edb44" args="(BSTR *interfaceName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CPortCollection::get_interfaceName </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>interfaceName</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00106">106</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7f0ea04561b0aaa5427ff259648348c2"></a><!-- doxytag: member="CPortCollection::get_moreInfo" ref="a7f0ea04561b0aaa5427ff259648348c2" args="(BSTR *moreInfo)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CPortCollection::get_moreInfo </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>moreInfo</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00126">126</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2086b1cce07ecff95fb26da546d3f9a4"></a><!-- doxytag: member="CPortCollection::get_name" ref="a2086b1cce07ecff95fb26da546d3f9a4" args="(BSTR *name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CPortCollection::get_name </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>name</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00066">66</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7769f8fe4dd436d5f1e9492849bf9e00"></a><!-- doxytag: member="CPortCollection::get_operation" ref="a7769f8fe4dd436d5f1e9492849bf9e00" args="(BSTR *operation)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CPortCollection::get_operation </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>operation</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00115">115</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a636342e9e9012df66c5bc290f3fd5a87"></a><!-- doxytag: member="CPortCollection::get_scope" ref="a636342e9e9012df66c5bc290f3fd5a87" args="(BSTR *scope)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CPortCollection::get_scope </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>scope</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00097">97</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab3e73b58a1ad157be8d88b4f7f4a6d74"></a><!-- doxytag: member="CPortCollection::Item" ref="ab3e73b58a1ad157be8d88b4f7f4a6d74" args="(VARIANT id, LPDISPATCH *Item)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CPortCollection::Item </td>
+          <td>(</td>
+          <td class="paramtype">VARIANT&nbsp;</td>
+          <td class="paramname"> <em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LPDISPATCH *&nbsp;</td>
+          <td class="paramname"> <em>Item</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00139">139</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_cape2_fluent__i_8h_source.html#l00460">IID_IPort</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7925588abf2c55351e7b1c435d688d46"></a><!-- doxytag: member="CPortCollection::put_ComponentDescription" ref="a7925588abf2c55351e7b1c435d688d46" args="(BSTR desc)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CPortCollection::put_ComponentDescription </td>
+          <td>(</td>
+          <td class="paramtype">BSTR&nbsp;</td>
+          <td class="paramname"> <em>desc</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00205">205</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a52190ebc6e1b83e5763a2c254308a4f0"></a><!-- doxytag: member="CPortCollection::put_ComponentName" ref="a52190ebc6e1b83e5763a2c254308a4f0" args="(BSTR name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CPortCollection::put_ComponentName </td>
+          <td>(</td>
+          <td class="paramtype">BSTR&nbsp;</td>
+          <td class="paramname"> <em>name</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00187">187</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac0fb2473e43bbece9c9327aecd1d1dfb"></a><!-- doxytag: member="CPortCollection::RemovePort" ref="ac0fb2473e43bbece9c9327aecd1d1dfb" args="(LONG index)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHODIMP CPortCollection::RemovePort </td>
+          <td>(</td>
+          <td class="paramtype">LONG&nbsp;</td>
+          <td class="paramname"> <em>index</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8cpp_source.html#l00067">67</a> pliku <a class="el" href="_port_collection_8cpp_source.html">PortCollection.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="definicje_8h_source.html#l00013">NUM_OF_INPUTS</a>, <a class="el" href="definicje_8h_source.html#l00014">NUM_OF_OUTPUTS</a>, <a class="el" href="_port_collection_8h_source.html#l00223">portCount</a> i <a class="el" href="_port_collection_8h_source.html#l00219">ports</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a97424f309b801b77fdca99f95cc5ea91"></a><!-- doxytag: member="CPortCollection::SetError" ref="a97424f309b801b77fdca99f95cc5ea91" args="(BSTR desc, BSTR interf, BSTR scope)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CPortCollection::SetError </td>
+          <td>(</td>
+          <td class="paramtype">BSTR&nbsp;</td>
+          <td class="paramname"> <em>desc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BSTR&nbsp;</td>
+          <td class="paramname"> <em>interf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BSTR&nbsp;</td>
+          <td class="paramname"> <em>scope</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8cpp_source.html#l00080">80</a> pliku <a class="el" href="_port_collection_8cpp_source.html">PortCollection.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_port_collection_8h_source.html#l00215">errDesc</a>, <a class="el" href="_port_collection_8h_source.html#l00216">errInterface</a>, <a class="el" href="_port_collection_8h_source.html#l00217">errScope</a> i <a class="el" href="_port_collection_8h_source.html#l00220">mystream</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja atrybutów składowych</h2>
+<a class="anchor" id="a4d76b29eca0f7996295b0ea7860b48c6"></a><!-- doxytag: member="CPortCollection::err" ref="a4d76b29eca0f7996295b0ea7860b48c6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c___error.html">C_Error</a>* <a class="el" href="class_c_port_collection.html#a4d76b29eca0f7996295b0ea7860b48c6">CPortCollection::err</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00224">224</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_port_collection_8cpp_source.html#l00038">AddError()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa41c08d0d7869296fe1f246ed58c5b50"></a><!-- doxytag: member="CPortCollection::errDesc" ref="aa41c08d0d7869296fe1f246ed58c5b50" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c_port_collection.html#aa41c08d0d7869296fe1f246ed58c5b50">CPortCollection::errDesc</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00215">215</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_port_collection_8cpp_source.html#l00008">CPortCollection()</a>, <a class="el" href="_port_collection_8cpp_source.html#l00080">SetError()</a> i <a class="el" href="_port_collection_8cpp_source.html#l00021">~CPortCollection()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9fa4412a841465d120b5120e51e3e146"></a><!-- doxytag: member="CPortCollection::errInterface" ref="a9fa4412a841465d120b5120e51e3e146" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c_port_collection.html#a9fa4412a841465d120b5120e51e3e146">CPortCollection::errInterface</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00216">216</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_port_collection_8cpp_source.html#l00008">CPortCollection()</a>, <a class="el" href="_port_collection_8cpp_source.html#l00080">SetError()</a> i <a class="el" href="_port_collection_8cpp_source.html#l00021">~CPortCollection()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af184322d9130b19a9a1425053e350839"></a><!-- doxytag: member="CPortCollection::errScope" ref="af184322d9130b19a9a1425053e350839" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c_port_collection.html#af184322d9130b19a9a1425053e350839">CPortCollection::errScope</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00217">217</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_port_collection_8cpp_source.html#l00008">CPortCollection()</a>, <a class="el" href="_port_collection_8cpp_source.html#l00080">SetError()</a> i <a class="el" href="_port_collection_8cpp_source.html#l00021">~CPortCollection()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a85a1a49805f60eb98868dff6897583aa"></a><!-- doxytag: member="CPortCollection::myDesc" ref="a85a1a49805f60eb98868dff6897583aa" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c_port_collection.html#a85a1a49805f60eb98868dff6897583aa">CPortCollection::myDesc</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00222">222</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_port_collection_8cpp_source.html#l00008">CPortCollection()</a> i <a class="el" href="_port_collection_8cpp_source.html#l00021">~CPortCollection()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a58719605d709047b3f118a47519772fa"></a><!-- doxytag: member="CPortCollection::myName" ref="a58719605d709047b3f118a47519772fa" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c_port_collection.html#a58719605d709047b3f118a47519772fa">CPortCollection::myName</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00221">221</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_port_collection_8cpp_source.html#l00008">CPortCollection()</a> i <a class="el" href="_port_collection_8cpp_source.html#l00021">~CPortCollection()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9e188443383db6fcaed7545aa2d53dad"></a><!-- doxytag: member="CPortCollection::mystream" ref="a9e188443383db6fcaed7545aa2d53dad" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILE* <a class="el" href="class_c_port_collection.html#a9e188443383db6fcaed7545aa2d53dad">CPortCollection::mystream</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00220">220</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_port_collection_8cpp_source.html#l00054">AddPort2()</a>, <a class="el" href="_port_collection_8cpp_source.html#l00045">debugfile()</a>, <a class="el" href="_port_collection_8cpp_source.html#l00080">SetError()</a> i <a class="el" href="_port_collection_8cpp_source.html#l00021">~CPortCollection()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6868f144db96da380096032dbf5e37a5"></a><!-- doxytag: member="CPortCollection::portCount" ref="a6868f144db96da380096032dbf5e37a5" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_c_port_collection.html#a6868f144db96da380096032dbf5e37a5">CPortCollection::portCount</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00223">223</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_port_collection_8cpp_source.html#l00054">AddPort2()</a>, <a class="el" href="_port_collection_8cpp_source.html#l00008">CPortCollection()</a> i <a class="el" href="_port_collection_8cpp_source.html#l00067">RemovePort()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5cd1166060bf66f178e82420b26d4049"></a><!-- doxytag: member="CPortCollection::ports" ref="a5cd1166060bf66f178e82420b26d4049" args="[NUM_OF_INPUTS+NUM_OF_OUTPUTS]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="interface_i_port.html">IPort</a>* <a class="el" href="class_c_port_collection.html#a5cd1166060bf66f178e82420b26d4049">CPortCollection::ports</a>[NUM_OF_INPUTS+NUM_OF_OUTPUTS]<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_port_collection_8h_source.html#l00219">219</a> pliku <a class="el" href="_port_collection_8h_source.html">PortCollection.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_port_collection_8cpp_source.html#l00054">AddPort2()</a> i <a class="el" href="_port_collection_8cpp_source.html#l00067">RemovePort()</a>.</p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li><a class="el" href="_port_collection_8h_source.html">PortCollection.h</a></li>
+<li><a class="el" href="_port_collection_8cpp_source.html">PortCollection.cpp</a></li>
+</ul>
+</div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:38 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

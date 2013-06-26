@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Plik źródłowy Cape2Fluent_i.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
+    </ul>
+  </div>
+<h1>Cape2Fluent_i.c</h1><a href="_cape2_fluent__i_8c.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00002"></a>00002 
+<a name="l00003"></a>00003 <span class="comment">/* this ALWAYS GENERATED file contains the IIDs and CLSIDs */</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 <span class="comment">/* link this file in with the server and any clients */</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 
+<a name="l00008"></a>00008  <span class="comment">/* File created by MIDL compiler version 7.00.0500 */</span>
+<a name="l00009"></a>00009 <span class="comment">/* at Sun Oct 31 16:17:40 2010</span>
+<a name="l00010"></a>00010 <span class="comment"> */</span>
+<a name="l00011"></a>00011 <span class="comment">/* Compiler settings for .\Cape2Fluent.idl:</span>
+<a name="l00012"></a>00012 <span class="comment">    Oicf, W1, Zp8, env=Win32 (32b run)</span>
+<a name="l00013"></a>00013 <span class="comment">    protocol : dce , ms_ext, c_ext, robust</span>
+<a name="l00014"></a>00014 <span class="comment">    error checks: stub_data </span>
+<a name="l00015"></a>00015 <span class="comment">    VC __declspec() decoration level: </span>
+<a name="l00016"></a>00016 <span class="comment">         __declspec(uuid()), __declspec(selectany), __declspec(novtable)</span>
+<a name="l00017"></a>00017 <span class="comment">         DECLSPEC_UUID(), MIDL_INTERFACE()</span>
+<a name="l00018"></a>00018 <span class="comment">*/</span>
+<a name="l00019"></a>00019 <span class="comment">//@@MIDL_FILE_HEADING(  )</span>
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 <span class="preprocessor">#pragma warning( disable: 4049 )  </span><span class="comment">/* more than 64k source lines */</span>
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00025"></a>00025 <span class="preprocessor"></span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span>{
+<a name="l00026"></a>00026 <span class="preprocessor">#endif </span>
+<a name="l00027"></a>00027 <span class="preprocessor"></span>
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="preprocessor">#include &lt;rpc.h&gt;</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include &lt;rpcndr.h&gt;</span>
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="preprocessor">#ifdef _MIDL_USE_GUIDDEF_</span>
+<a name="l00033"></a>00033 <span class="preprocessor"></span>
+<a name="l00034"></a>00034 <span class="preprocessor">#ifndef INITGUID</span>
+<a name="l00035"></a>00035 <span class="preprocessor"></span><span class="preprocessor">#define INITGUID</span>
+<a name="l00036"></a>00036 <span class="preprocessor"></span><span class="preprocessor">#include &lt;guiddef.h&gt;</span>
+<a name="l00037"></a>00037 <span class="preprocessor">#undef INITGUID</span>
+<a name="l00038"></a>00038 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00039"></a>00039 <span class="preprocessor"></span><span class="preprocessor">#include &lt;guiddef.h&gt;</span>
+<a name="l00040"></a>00040 <span class="preprocessor">#endif</span>
+<a name="l00041"></a>00041 <span class="preprocessor"></span>
+<a name="l00042"></a>00042 <span class="preprocessor">#define MIDL_DEFINE_GUID(type,name,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8) \</span>
+<a name="l00043"></a>00043 <span class="preprocessor">        DEFINE_GUID(name,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8)</span>
+<a name="l00044"></a>00044 <span class="preprocessor"></span>
+<a name="l00045"></a>00045 <span class="preprocessor">#else // !_MIDL_USE_GUIDDEF_</span>
+<a name="l00046"></a>00046 <span class="preprocessor"></span>
+<a name="l00047"></a>00047 <span class="preprocessor">#ifndef __IID_DEFINED__</span>
+<a name="l00048"></a><a class="code" href="_cape2_fluent__i_8c.html#a7f5cd0c3db50bb23786ff5c28bd27f84">00048</a> <span class="preprocessor"></span><span class="preprocessor">#define __IID_DEFINED__</span>
+<a name="l00049"></a>00049 <span class="preprocessor"></span>
+<a name="l00050"></a><a class="code" href="struct___i_i_d.html">00050</a> <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="struct___i_i_d.html">_IID</a>
+<a name="l00051"></a>00051 {
+<a name="l00052"></a><a class="code" href="struct___i_i_d.html#add28d3db785dd98f1178f7ea88f5495c">00052</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="struct___i_i_d.html#add28d3db785dd98f1178f7ea88f5495c">x</a>;
+<a name="l00053"></a><a class="code" href="struct___i_i_d.html#a23024837c1b267b2fe58b64d57b509da">00053</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="struct___i_i_d.html#a23024837c1b267b2fe58b64d57b509da">s1</a>;
+<a name="l00054"></a><a class="code" href="struct___i_i_d.html#afbdacab5216098be663859a1d2764de7">00054</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="struct___i_i_d.html#afbdacab5216098be663859a1d2764de7">s2</a>;
+<a name="l00055"></a><a class="code" href="struct___i_i_d.html#a075b5d7c1adb4b54b329cef0d43dc3c0">00055</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>  <a class="code" href="struct___i_i_d.html#a075b5d7c1adb4b54b329cef0d43dc3c0">c</a>[8];
+<a name="l00056"></a>00056 } <a class="code" href="struct___i_i_d.html">IID</a>;
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058 <span class="preprocessor">#endif // __IID_DEFINED__</span>
+<a name="l00059"></a>00059 <span class="preprocessor"></span>
+<a name="l00060"></a>00060 <span class="preprocessor">#ifndef CLSID_DEFINED</span>
+<a name="l00061"></a><a class="code" href="_cape2_fluent__i_8c.html#a0af1405593caa7a5b2e6c619e74c5f3b">00061</a> <span class="preprocessor"></span><span class="preprocessor">#define CLSID_DEFINED</span>
+<a name="l00062"></a><a class="code" href="_cape2_fluent__i_8c.html#a2ab123f47f26d717283dbd5db694e130">00062</a> <span class="preprocessor"></span><span class="keyword">typedef</span> <a class="code" href="struct___i_i_d.html">IID</a> <a class="code" href="struct___i_i_d.html">CLSID</a>;
+<a name="l00063"></a>00063 <span class="preprocessor">#endif // CLSID_DEFINED</span>
+<a name="l00064"></a>00064 <span class="preprocessor"></span>
+<a name="l00065"></a><a class="code" href="_cape2_fluent__i_8c.html#ac06d82f944ddc76f7ac5f8aae6a90d82">00065</a> <span class="preprocessor">#define MIDL_DEFINE_GUID(type,name,l,w1,w2,b1,b2,b3,b4,b5,b6,b7,b8) \</span>
+<a name="l00066"></a>00066 <span class="preprocessor">        const type name = {l,w1,w2,{b1,b2,b3,b4,b5,b6,b7,b8}}</span>
+<a name="l00067"></a>00067 <span class="preprocessor"></span>
+<a name="l00068"></a>00068 <span class="preprocessor">#endif !_MIDL_USE_GUIDDEF_</span>
+<a name="l00069"></a>00069 <span class="preprocessor"></span>
+<a name="l00070"></a>00070 <a class="code" href="_cape2_fluent__i_8c.html#ac06d82f944ddc76f7ac5f8aae6a90d82">MIDL_DEFINE_GUID</a>(<a class="code" href="struct___i_i_d.html">IID</a>, <a class="code" href="_cape2_fluent__i_8h.html#acc1a3f721d3b139ddd6890f44e010015">IID_IComponentRegistrar</a>,0xa817e7a2,0x43fa,0x11d0,0x9e,0x44,0x00,0xaa,0x00,0xb6,0x77,0x0a);
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073 <a class="code" href="_cape2_fluent__i_8c.html#ac06d82f944ddc76f7ac5f8aae6a90d82">MIDL_DEFINE_GUID</a>(<a class="code" href="struct___i_i_d.html">IID</a>, <a class="code" href="_cape2_fluent__i_8h.html#ab3749202ea4c5cdc311d957fb661d2a6">IID_IUnitOperation</a>,0x439937D7,0xDF7A,0x4A90,0x97,0x2E,0x77,0x98,0x24,0xDC,0x8C,0x76);
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076 <a class="code" href="_cape2_fluent__i_8c.html#ac06d82f944ddc76f7ac5f8aae6a90d82">MIDL_DEFINE_GUID</a>(<a class="code" href="struct___i_i_d.html">IID</a>, <a class="code" href="_cape2_fluent__i_8h.html#a0bd830eab95ba4531a52e9e8d1c5a299">IID_IPort</a>,0x7369F1D6,0xFC5C,0x4671,0x83,0x2D,0xE2,0xB0,0xE5,0x95,0xC7,0x07);
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 <a class="code" href="_cape2_fluent__i_8c.html#ac06d82f944ddc76f7ac5f8aae6a90d82">MIDL_DEFINE_GUID</a>(<a class="code" href="struct___i_i_d.html">IID</a>, <a class="code" href="_cape2_fluent__i_8h.html#a08bfdca7340f1a9459dff9308ce34641">IID_IParameterCollection</a>,0x4B96ACBB,0xFF51,0x4DE7,0xB2,0x1A,0xE3,0x68,0x44,0x6C,0x89,0x7D);
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082 <a class="code" href="_cape2_fluent__i_8c.html#ac06d82f944ddc76f7ac5f8aae6a90d82">MIDL_DEFINE_GUID</a>(<a class="code" href="struct___i_i_d.html">IID</a>, <a class="code" href="_cape2_fluent__i_8h.html#aaa217aaa5f73898a9ed72525e7629569">IID_IPortCollection</a>,0x711072EC,0x6409,0x44EF,0x87,0x5A,0x11,0xA9,0x88,0xC0,0xB2,0x5C);
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085 <a class="code" href="_cape2_fluent__i_8c.html#ac06d82f944ddc76f7ac5f8aae6a90d82">MIDL_DEFINE_GUID</a>(<a class="code" href="struct___i_i_d.html">IID</a>, <a class="code" href="_cape2_fluent__i_8h.html#aa9b92d42fa6f4f5205051373c3845d4c">LIBID_Cape2FluentLib</a>,0xA41DD893,0x4E3F,0x45A6,0xBB,0xEF,0x42,0x5E,0xCE,0x7F,0xA6,0x37);
+<a name="l00086"></a>00086 
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088 <a class="code" href="_cape2_fluent__i_8c.html#ac06d82f944ddc76f7ac5f8aae6a90d82">MIDL_DEFINE_GUID</a>(CLSID, <a class="code" href="_cape2_fluent__i_8h.html#a9d8f49922b5c08b88dde5411886acb04">CLSID_CompReg</a>,0x72A2CC99,0x2D19,0x4E9F,0x89,0xC4,0xC3,0x0C,0x98,0x39,0xDB,0x87);
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091 <a class="code" href="_cape2_fluent__i_8c.html#ac06d82f944ddc76f7ac5f8aae6a90d82">MIDL_DEFINE_GUID</a>(CLSID, <a class="code" href="_cape2_fluent__i_8h.html#aa9c71eff702a7d24fecace388134b9cc">CLSID_UnitOperation</a>,0x687728BA,0x9FC0,0x4F97,0xA1,0x43,0xEB,0xEE,0x07,0x35,0xC1,0x8F);
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094 <a class="code" href="_cape2_fluent__i_8c.html#ac06d82f944ddc76f7ac5f8aae6a90d82">MIDL_DEFINE_GUID</a>(CLSID, <a class="code" href="_cape2_fluent__i_8h.html#a823e2aeaa6f18eadf216e08b3fde58a0">CLSID_Port</a>,0x4C56EFAA,0xDE81,0x47B4,0x85,0xD6,0x6E,0x87,0xEF,0xBC,0x36,0xEC);
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 <a class="code" href="_cape2_fluent__i_8c.html#ac06d82f944ddc76f7ac5f8aae6a90d82">MIDL_DEFINE_GUID</a>(CLSID, <a class="code" href="_cape2_fluent__i_8h.html#ae6b13be2a40aa0e13ea9971bafc6d3b6">CLSID_ParameterCollection</a>,0x7C2975A7,0x663A,0x4BAD,0xA9,0x9E,0x07,0x5A,0xF4,0x78,0xAC,0x51);
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100 <a class="code" href="_cape2_fluent__i_8c.html#ac06d82f944ddc76f7ac5f8aae6a90d82">MIDL_DEFINE_GUID</a>(CLSID, <a class="code" href="_cape2_fluent__i_8h.html#a68014f0a6f158f0406ab9be4e35ff335">CLSID_PortCollection</a>,0x821998BE,0x7720,0x4F7F,0x97,0x78,0x52,0xC6,0x1D,0xDA,0x28,0x88);
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103 <a class="code" href="_cape2_fluent__i_8c.html#ac06d82f944ddc76f7ac5f8aae6a90d82">MIDL_DEFINE_GUID</a>(<a class="code" href="struct___i_i_d.html">IID</a>, <a class="code" href="_cape2_fluent__i_8h.html#ad7a2a70d6028b2e1eacadb155f1409e4">DIID_I_myDialog</a>,0x2B01BBFA,0xBEB6,0x47AB,0xB9,0xF5,0x17,0x4F,0x58,0x98,0xA6,0x97);
+<a name="l00104"></a>00104 
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106 <a class="code" href="_cape2_fluent__i_8c.html#ac06d82f944ddc76f7ac5f8aae6a90d82">MIDL_DEFINE_GUID</a>(CLSID, <a class="code" href="_cape2_fluent__i_8h.html#a92874b753376f5257f7e97babb85b223">CLSID__myDialog</a>,0xA899055E,0x2A8D,0x4E3F,0x9D,0xA4,0x5D,0x9F,0x01,0xE6,0xE2,0xF0);
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108 <span class="preprocessor">#undef MIDL_DEFINE_GUID</span>
+<a name="l00109"></a>00109 <span class="preprocessor"></span>
+<a name="l00110"></a>00110 <span class="preprocessor">#ifdef __cplusplus</span>
+<a name="l00111"></a>00111 <span class="preprocessor"></span>}
+<a name="l00112"></a>00112 <span class="preprocessor">#endif</span>
+<a name="l00113"></a>00113 <span class="preprocessor"></span>
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115 
+</pre></div></div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:22 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

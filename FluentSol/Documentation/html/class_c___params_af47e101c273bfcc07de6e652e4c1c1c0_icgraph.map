@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_c__my_run_process.html#af04033e23f541696c736ef795e864392" title="Tworzy środowisko do uruchomienia fluenta &#45; generuje scm oraz journalC_Params." alt="" coords="241,5,436,35"/>
+<area shape="rect" id="node5" href="$class_c__my_run_process.html#a50bbb31558e2dc254c1583521bb291ec" title="pobiera parametry z klasy na zewnątrz &#45; wersja starsza" alt="" coords="239,59,439,88"/>
+<area shape="rect" id="node7" href="$class_c__my_run_process.html#a92c79daa78da34aa38f14ec7f4f8a1ac" title="wpisuje parametry do klasy, wersja starsza" alt="" coords="239,112,439,141"/>
+</map>

@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Fluent_sciezki</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li class="current"><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+
+
+<h1><a class="anchor" id="Fs">Fluent_sciezki </a></h1><p>Opis drogi postępowania we Fluencie dla dwóch wejść - dwóch faz</p>
+<div class="fragment"><pre class="fragment">Dla dwóch faz - pliki F:\data\reaktor-artykul-lam-zmiana-URANS-kwas-faza-ciagla_0_133s.cas
+h3po4 - primary
+nh3 - rozproszona
+---------------------------------------------------
+gęstość nh3 -  0.6894 [kg/m3]
+masa mol nh3 17.03 [g/mol] 58.719906048150322959483264826776 molperkg
+gęstosć h3po4 1362.885 [kg/m3]
+masa mol h3po4 98 [g/mol] 10.204081632653061224489795918367 moleperkg
+------------- <a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49babc1e15cc4a1ee864210dbada3bda6842" title="równania energii włączeone">ENERGY</a> OFF --------------------------
+velocity-inlet
+zone <span class="keywordtype">id</span>/name [wlotnh3] wlotnh3
+domain <span class="keywordtype">id</span>/name [mixture] mixture
+-----------------------------------
+velocity-inlet
+zone <span class="keywordtype">id</span>/name [wlotnh3]             wlotnh3
+domain <span class="keywordtype">id</span>/name [mixture]            nh3
+Velocity Specification Method: Magnitude and Direction [no]   no
+Velocity Specification Method: Components [no]       no
+Velocity Specification Method: Magnitude, Normal to Boundary [yes]  yes
+Reference Frame: Absolute [yes]          yes
+Use Profile <span class="keywordflow">for</span> Velocity Magnitude? [no]        no
+Velocity Magnitude (m/s) [25]           25
+Use Profile <span class="keywordflow">for</span> Volume Fraction? [no]         no
+Volume Fraction [1]             1
+-----------------------------------
+velocity-inlet
+zone <span class="keywordtype">id</span>/name [wlotnh3]             wlotnh3
+domain <span class="keywordtype">id</span>/name [mixture]            h3po4
+Velocity Specification Method: Magnitude and Direction [no]   no
+Velocity Specification Method: Components [no]       no
+Velocity Specification Method: Magnitude, Normal to Boundary [yes]  yes
+Reference Frame: Absolute [yes]          yes
+Use Profile <span class="keywordflow">for</span> Velocity Magnitude? [no]        no
+Velocity Magnitude (m/s) [0]           0
+----------------------------------------------------------------------------
+velocity-inlet
+zone <span class="keywordtype">id</span>/name [wlotnh3]             wloth3po4
+domain <span class="keywordtype">id</span>/name [mixture]            nh3
+Velocity Specification Method: Magnitude and Direction [no]   no
+Velocity Specification Method: Components [no]       no
+Velocity Specification Method: Magnitude, Normal to Boundary [yes]  yes
+Reference Frame: Absolute [yes]          yes
+Use Profile <span class="keywordflow">for</span> Velocity Magnitude? [no]        no
+Velocity Magnitude (m/s) [0]           0
+Use Profile <span class="keywordflow">for</span> Volume Fraction? [no]         no
+Volume Fraction [0]             0
+-----------------------------------
+zone <span class="keywordtype">id</span>/name [wlotnh3]             wloth3po4
+domain <span class="keywordtype">id</span>/name [mixture]            h3po4
+Velocity Specification Method: Magnitude and Direction [no]   no
+Velocity Specification Method: Components [no]       no
+Velocity Specification Method: Magnitude, Normal to Boundary [yes]  yes
+Reference Frame: Absolute [yes]          yes
+Use Profile <span class="keywordflow">for</span> Velocity Magnitude? [no]        no
+Velocity Magnitude (m/s) [20]           20
+</pre></div><p>Opis drogi postępowania we Fluencie dla dwóch wejść - dwóch faz</p>
+<div class="fragment"><pre class="fragment">Dla dwóch faz - pliki F:\data\reaktor-k-eps-URANS-amoniak-F_ciagla-<span class="keyword">new</span>-22-00530.cas
+nh3 - primary
+h3po4 - rozpr
+---------------------------------------------------
+gęstość nh3 -  6.894 [kg/m3]
+masa mol nh3 17.03 [g/mol] 58.719906048150322959483264826776 molperkg
+gęstosć h3po4 1362.885 [kg/m3]
+masa mol h3po4 98 [g/mol] 10.204081632653061224489795918367 moleperkg
+------------- <a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49babc1e15cc4a1ee864210dbada3bda6842" title="równania energii włączeone">ENERGY</a> OFF --------------------------
+velocity-inlet
+zone <span class="keywordtype">id</span>/name [wlotnh3] wlotnh3
+domain <span class="keywordtype">id</span>/name [mixture] mixture
+-----------------------------------
+velocity-inlet
+zone <span class="keywordtype">id</span>/name [wlotnh3]             wlotnh3
+domain <span class="keywordtype">id</span>/name [mixture]            nh3
+Velocity Specification Method: Magnitude and Direction [no]   no
+Velocity Specification Method: Components [no]       no
+Velocity Specification Method: Magnitude, Normal to Boundary [yes]  yes
+Reference Frame: Absolute [yes]          yes
+Use Profile <span class="keywordflow">for</span> Velocity Magnitude? [no]        no
+Velocity Magnitude (m/s) [25]           25
+Turbulent Specification Method: K and Epsilon [yes]     yes
+Use Profile <span class="keywordflow">for</span> Turbulent Kinetic Energy? [no]      no
+Turbulent Kinetic Energy (m2/s2) [0.01]        0.01
+Use Profile <span class="keywordflow">for</span> Turbulent Dissipation Rate? [no]     no
+Turbulent Dissipation Rate (m2/s3) [0.01]       0.01
+-----------------------------------
+velocity-inlet
+zone <span class="keywordtype">id</span>/name [wlotnh3]             wlotnh3
+domain <span class="keywordtype">id</span>/name [mixture]            h3po4
+Velocity Specification Method: Magnitude and Direction [no]   no
+Velocity Specification Method: Components [no]       no
+Velocity Specification Method: Magnitude, Normal to Boundary [yes]  yes
+Reference Frame: Absolute [yes]          yes
+Use Profile <span class="keywordflow">for</span> Velocity Magnitude? [no]        no
+Velocity Magnitude (m/s) [0]           0
+Turbulent Specification Method: K and Epsilon [yes]     yes
+Use Profile <span class="keywordflow">for</span> Turbulent Kinetic Energy? [no]      no
+Turbulent Kinetic Energy (m2/s2) [0]        0
+Use Profile <span class="keywordflow">for</span> Turbulent Dissipation Rate? [no]     no
+Turbulent Dissipation Rate (m2/s3) [0]        0
+Use Profile <span class="keywordflow">for</span> Volume Fraction? [no]        n
+Volume Fraction [0]             0
+----------------------------------------------------------------------------
+velocity-inlet
+zone <span class="keywordtype">id</span>/name [wlotnh3]             wloth3po4
+domain <span class="keywordtype">id</span>/name [mixture]            nh3
+Velocity Specification Method: Magnitude and Direction [no]   no
+Velocity Specification Method: Components [no]       no
+Velocity Specification Method: Magnitude, Normal to Boundary [yes]  yes
+Reference Frame: Absolute [yes]          yes
+Use Profile <span class="keywordflow">for</span> Velocity Magnitude? [no]        no
+Velocity Magnitude (m/s) [0]           0
+Turbulent Specification Method: K and Epsilon [yes]     yes
+Use Profile <span class="keywordflow">for</span> Turbulent Kinetic Energy? [no]      no
+Turbulent Kinetic Energy (m2/s2) [0]        0
+Use Profile <span class="keywordflow">for</span> Turbulent Dissipation Rate? [no]     no
+Turbulent Dissipation Rate (m2/s3) [0]        0
+-----------------------------------
+zone <span class="keywordtype">id</span>/name [wlotnh3]             wloth3po4
+domain <span class="keywordtype">id</span>/name [mixture]            h3po4
+Velocity Specification Method: Magnitude and Direction [no]   no
+Velocity Specification Method: Components [no]       no
+Velocity Specification Method: Magnitude, Normal to Boundary [yes]  yes
+Reference Frame: Absolute [yes]          yes
+Use Profile <span class="keywordflow">for</span> Velocity Magnitude? [no]        no
+Velocity Magnitude (m/s) [20]           2.07
+Turbulent Specification Method: K and Epsilon [yes]     yes
+Use Profile <span class="keywordflow">for</span> Turbulent Kinetic Energy? [no]      no
+Turbulent Kinetic Energy (m2/s2) [0]        0.01
+Use Profile <span class="keywordflow">for</span> Turbulent Dissipation Rate? [no]     no
+Turbulent Dissipation Rate (m2/s3) [0]        0.01
+Use Profile <span class="keywordflow">for</span> Volume Fraction? [no]        no
+Volume Fraction [1]             1
+--------------------------------------------------------------------------
+solve
+dual-time-iterate
+Number of physical time steps [1]         1 (ilosc kroków czasowych)
+Number of iterations per time step [1]        1
+</pre></div> </div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:29 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

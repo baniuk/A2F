@@ -1,0 +1,26 @@
+HKCR
+{
+	CCF1.Port.1 = s 'Port Class'
+	{
+		CLSID = s '{2447B9B3-F326-4EFF-864D-41DC22111B4A}'
+	}
+	CCF1.Port = s 'Port Class'
+	{
+		CLSID = s '{2447B9B3-F326-4EFF-864D-41DC22111B4A}'
+		CurVer = s 'CCF1.Port.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {2447B9B3-F326-4EFF-864D-41DC22111B4A} = s 'Port Class'
+		{
+			ProgID = s 'CCF1.Port.1'
+			VersionIndependentProgID = s 'CCF1.Port'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{57DD3450-4BD1-485B-AD22-B0057D38191D}'
+		}
+	}
+}

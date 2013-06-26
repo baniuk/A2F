@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Plik źródłowy definicje.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
+    </ul>
+  </div>
+<h1>definicje.h</h1><a href="definicje_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a><a class="code" href="definicje_8h.html#a842ed03f27719bc87666bfd1f75415b8">00001</a> <span class="preprocessor">#define MAX_LINE 128 </span>
+<a name="l00002"></a><a class="code" href="definicje_8h.html#abb508ea8227673f419e9fe3a86c30d8e">00002</a> <span class="preprocessor">#define FAIL FALSE</span>
+<a name="l00003"></a><a class="code" href="definicje_8h.html#aba51915c87d64af47fb1cc59348961c9">00003</a> <span class="preprocessor"></span><span class="preprocessor">#define OK TRUE</span>
+<a name="l00004"></a><a class="code" href="definicje_8h.html#ab5187269936538ffb8ccbbe7115ffdbc">00004</a> <span class="preprocessor"></span><span class="preprocessor">#define MAX_STRING 512 </span>
+<a name="l00005"></a><a class="code" href="definicje_8h.html#a2088367026f360e5b7099098f4b9d39c">00005</a> <span class="preprocessor">#define MAX_EXPORTS 10 </span>
+<a name="l00006"></a><a class="code" href="definicje_8h.html#a5f54fd55f983a2e33ce076cd9f587e82">00006</a> <span class="preprocessor">#define MAX_SPACES 10 </span>
+<a name="l00007"></a><a class="code" href="definicje_8h.html#a2fe9a8782e90393f8fa3ce89ddc2a3d6">00007</a> <span class="preprocessor">#define MAX_CALLERS 1024 </span>
+<a name="l00008"></a><a class="code" href="definicje_8h.html#a7c213cc89d01ec9cdbaa3356698a86ce">00008</a> <span class="preprocessor">#define MAX_ERROR 1024</span>
+<a name="l00009"></a><a class="code" href="definicje_8h.html#acc9b1bd01cdf0e7263e33cdc91db9963">00009</a> <span class="preprocessor"></span><span class="preprocessor">#define MAX_COMPONENT_NAME 128</span>
+<a name="l00010"></a><a class="code" href="definicje_8h.html#a041ab6978aad33e05b0879b615c2835e">00010</a> <span class="preprocessor"></span><span class="preprocessor">#define MAX_INPUT_PORTS 9 </span>
+<a name="l00011"></a><a class="code" href="definicje_8h.html#a67ea8592b7ced96ca53dec58434397e8">00011</a> <span class="preprocessor">#define MAX_INPUTS MAX_INPUT_PORTS </span>
+<a name="l00012"></a><a class="code" href="definicje_8h.html#afbdc3f2525ffa8a2c7a49bd198bc4691">00012</a> <span class="preprocessor">#define MAX_LENGTH_NODE MAX_ERROR </span>
+<a name="l00013"></a><a class="code" href="definicje_8h.html#ab9b46eb9758bbc4b8e25c0d59516f035">00013</a> <span class="preprocessor">#define NUM_OF_INPUTS 2    </span>
+<a name="l00014"></a><a class="code" href="definicje_8h.html#a1faaf898e177de217f5e4845ca941bff">00014</a> <span class="preprocessor">#define NUM_OF_OUTPUTS 1   </span>
+<a name="l00015"></a>00015 <span class="preprocessor">// obsługiwane makra:</span>
+<a name="l00016"></a>00016 <span class="preprocessor"></span><span class="comment">//#define NO_CONFIG //nie wczytuje konfigu z pliku params.txt</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#ifndef _DEBUG</span>
+<a name="l00018"></a><a class="code" href="definicje_8h.html#abc2917d6db1dcab4fb4a58d071d8c6c4">00018</a> <span class="preprocessor"></span><span class="preprocessor">#define NO_REGISTRY</span>
+<a name="l00019"></a>00019 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00020"></a>00020 <span class="preprocessor"></span><span class="comment">//#define NO_REGISTRY // nie używa rejestru do znalezienia pliku params.txt</span>
+<a name="l00021"></a>00021 <span class="comment">//#define PRINTOUT // drukuje do loga</span>
+<a name="l00022"></a><a class="code" href="definicje_8h.html#a894bcd616988df522cf4db4cb9b0d760">00022</a> <span class="preprocessor">#define NO_MATLAB // kompiluje bez matlaba</span>
+<a name="l00023"></a>00023 <span class="preprocessor"></span>
+<a name="l00025"></a><a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49b">00025</a> <span class="keyword">enum</span> <a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49b" title="Służy do walidacji różnych kombinacji danych wejściowych.">tryby_pracy</a> {
+<a name="l00027"></a><a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49ba13c45196813cb44e6e81e9c48a5ec1b4">00027</a>  <a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49ba13c45196813cb44e6e81e9c48a5ec1b4" title="scieżki">BASIC</a>,  
+<a name="l00029"></a><a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49ba99aa3cfd42d906f6767e9cf05c35c261">00029</a>  <a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49ba99aa3cfd42d906f6767e9cf05c35c261" title="sciezki oraz parametry wywołania fluenta">PARAMS</a>,  
+<a name="l00031"></a><a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49ba9c9b14644e9370719a51b7342bbc9c4d">00031</a>  <a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49ba9c9b14644e9370719a51b7342bbc9c4d" title="dodatkowo plik case istnieje">CASE</a>,  
+<a name="l00033"></a><a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49ba8bd13967f07373740a1a2bb84cf5636f">00033</a>  <a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49ba8bd13967f07373740a1a2bb84cf5636f" title="istnieją dyrektywy do exportu">EXPORTS</a>, 
+<a name="l00035"></a><a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49bac316e590c580d8a8d214c6e5e4e04e86">00035</a>  <a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49bac316e590c580d8a8d214c6e5e4e04e86" title="miesznina wielofazowa">PHASES</a>,   
+<a name="l00037"></a><a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49ba0c59cc493a9319efba18d8b9b6808169">00037</a>  <a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49ba0c59cc493a9319efba18d8b9b6808169" title="wiele powierzchni wejsciowych w ramach jednego wejscia">MULTIIN</a>,  
+<a name="l00039"></a><a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49ba49c462317b47c1fe0d3cc1e73d3778d6">00039</a>  <a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49ba49c462317b47c1fe0d3cc1e73d3778d6" title="czy sa wszystkie rzeczy do velocity? (gestosc i powierzchnia)">VELOCITY_INLET</a>, 
+<a name="l00041"></a><a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49bacc9672aca5e5a0d33bb1edce2430d4a8">00041</a>  <a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49bacc9672aca5e5a0d33bb1edce2430d4a8" title="do mass flow inlet">MASS_FLOW_INLET</a>,  
+<a name="l00043"></a><a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49babc1e15cc4a1ee864210dbada3bda6842">00043</a>  <a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49babc1e15cc4a1ee864210dbada3bda6842" title="równania energii włączeone">ENERGY</a>,
+<a name="l00045"></a><a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49ba2ff2c16a2d3f2e5599be85abb90e0c3d">00045</a>  <a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49ba2ff2c16a2d3f2e5599be85abb90e0c3d" title="Problem 0 - jeden wlot (dwie powierzchnie), wylot, dwa komponenty w strumieniu.">PROBLEM0</a>
+<a name="l00046"></a>00046 };
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 
+<a name="l00050"></a><a class="code" href="definicje_8h.html#a506b3685b3eb05aac751f9e14cbed93b">00050</a> <span class="preprocessor">#define SAFE_DELETE_ARRAY(p) { if(p) { delete[] (p);   (p)=NULL; } }</span>
+<a name="l00051"></a><a class="code" href="definicje_8h.html#a9bbcd82e77c41df827c09759def05c9a">00051</a> <span class="preprocessor"></span><span class="preprocessor">#define SAFE_DELETE(p) { if(p) { delete (p);   (p)=NULL; } }</span>
+<a name="l00052"></a>00052 <span class="preprocessor"></span>
+<a name="l00053"></a><a class="code" href="definicje_8h.html#a8f4ea5fa21d42f950b5f95a91e9ff227">00053</a> <span class="preprocessor">#define CL &#39;{687728BA-9FC0-4F97-A143-EBEE0735C18F}&#39;</span>
+</pre></div></div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:22 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

@@ -1,0 +1,26 @@
+HKCR
+{
+	CCF1.ParameterCollection.1 = s 'ParameterCollection Class'
+	{
+		CLSID = s '{423EC7B2-0159-4EA7-8751-C44F7203A214}'
+	}
+	CCF1.ParameterCollection = s 'ParameterCollection Class'
+	{
+		CLSID = s '{423EC7B2-0159-4EA7-8751-C44F7203A214}'
+		CurVer = s 'CCF1.ParameterCollection.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {423EC7B2-0159-4EA7-8751-C44F7203A214} = s 'ParameterCollection Class'
+		{
+			ProgID = s 'CCF1.ParameterCollection.1'
+			VersionIndependentProgID = s 'CCF1.ParameterCollection'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{57DD3450-4BD1-485B-AD22-B0057D38191D}'
+		}
+	}
+}

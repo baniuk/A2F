@@ -1,0 +1,88 @@
+/*! @page Fs Fluent_sciezki
+Opis drogi postêpowania we Fluencie dla dwóch wejœæ - dwóch faz
+
+\code
+Dla dwóch faz - pliki F:\data\reaktor-k-eps-URANS-amoniak-F_ciagla-new-22-00530.cas
+nh3 - primary
+h3po4 - rozpr
+---------------------------------------------------
+gêstoœæ nh3 - 	6.894 [kg/m3]
+masa mol nh3 17.03 [g/mol] 58.719906048150322959483264826776 molperkg
+gêstosæ h3po4	1362.885 [kg/m3]
+masa mol h3po4 98 [g/mol] 10.204081632653061224489795918367 moleperkg
+------------- ENERGY OFF --------------------------
+velocity-inlet
+zone id/name [wlotnh3] wlotnh3
+domain id/name [mixture] mixture
+-----------------------------------
+velocity-inlet
+zone id/name [wlotnh3] 												wlotnh3
+domain id/name [mixture] 											nh3
+Velocity Specification Method: Magnitude and Direction [no] 		no
+Velocity Specification Method: Components [no] 						no
+Velocity Specification Method: Magnitude, Normal to Boundary [yes] 	yes
+Reference Frame: Absolute [yes] 									yes
+Use Profile for Velocity Magnitude? [no] 							no
+Velocity Magnitude (m/s) [25] 										25
+Turbulent Specification Method: K and Epsilon [yes]					yes
+Use Profile for Turbulent Kinetic Energy? [no]						no
+Turbulent Kinetic Energy (m2/s2) [0.01]								0.01
+Use Profile for Turbulent Dissipation Rate? [no]					no
+Turbulent Dissipation Rate (m2/s3) [0.01]							0.01
+-----------------------------------
+velocity-inlet
+zone id/name [wlotnh3] 												wlotnh3
+domain id/name [mixture] 											h3po4
+Velocity Specification Method: Magnitude and Direction [no] 		no
+Velocity Specification Method: Components [no] 						no
+Velocity Specification Method: Magnitude, Normal to Boundary [yes] 	yes
+Reference Frame: Absolute [yes] 									yes
+Use Profile for Velocity Magnitude? [no] 							no
+Velocity Magnitude (m/s) [0] 										0
+Turbulent Specification Method: K and Epsilon [yes]					yes
+Use Profile for Turbulent Kinetic Energy? [no]						no
+Turbulent Kinetic Energy (m2/s2) [0]								0
+Use Profile for Turbulent Dissipation Rate? [no]					no
+Turbulent Dissipation Rate (m2/s3) [0]								0
+Use Profile for Volume Fraction? [no]								n
+Volume Fraction [0]													0
+----------------------------------------------------------------------------
+velocity-inlet
+zone id/name [wlotnh3] 												wloth3po4
+domain id/name [mixture] 											nh3
+Velocity Specification Method: Magnitude and Direction [no] 		no
+Velocity Specification Method: Components [no] 						no
+Velocity Specification Method: Magnitude, Normal to Boundary [yes] 	yes
+Reference Frame: Absolute [yes] 									yes
+Use Profile for Velocity Magnitude? [no] 							no
+Velocity Magnitude (m/s) [0] 										0
+Turbulent Specification Method: K and Epsilon [yes]					yes
+Use Profile for Turbulent Kinetic Energy? [no]						no
+Turbulent Kinetic Energy (m2/s2) [0]								0
+Use Profile for Turbulent Dissipation Rate? [no]					no
+Turbulent Dissipation Rate (m2/s3) [0]								0
+-----------------------------------
+zone id/name [wlotnh3] 												wloth3po4
+domain id/name [mixture] 											h3po4
+Velocity Specification Method: Magnitude and Direction [no] 		no
+Velocity Specification Method: Components [no] 						no
+Velocity Specification Method: Magnitude, Normal to Boundary [yes] 	yes
+Reference Frame: Absolute [yes] 									yes
+Use Profile for Velocity Magnitude? [no] 							no
+Velocity Magnitude (m/s) [20] 										2.07
+Turbulent Specification Method: K and Epsilon [yes]					yes
+Use Profile for Turbulent Kinetic Energy? [no]						no
+Turbulent Kinetic Energy (m2/s2) [0]								0.01
+Use Profile for Turbulent Dissipation Rate? [no]					no
+Turbulent Dissipation Rate (m2/s3) [0]								0.01
+Use Profile for Volume Fraction? [no]								no
+Volume Fraction [1]													1
+--------------------------------------------------------------------------
+solve
+dual-time-iterate
+Number of physical time steps [1]									1	(ilosc kroków czasowych)
+Number of iterations per time step [1]								1
+
+
+\endcode
+*/

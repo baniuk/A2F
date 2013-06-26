@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Plik źródłowy C_Params.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
+    </ul>
+  </div>
+<h1>C_Params.h</h1><a href="_c___params_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#ifndef NO_MATLAB</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="preprocessor">#include &lt;myparser.h&gt;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#endif</span>
+<a name="l00005"></a>00005 <span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="_data___to___read_8h.html">Data_To_Read.h</a>&quot;</span>
+<a name="l00006"></a>00006 
+<a name="l00007"></a><a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fc">00007</a> <span class="keyword">enum</span> <a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fc">enumparams</a> { <span class="comment">// kolejnosc taka jak w m, ERR zawsze ostatni - tylko dla przypadku użycia interpretera z matlaba - nie aktualny teraz</span>
+<a name="l00008"></a><a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fca4acfba519fba33e89a33b3e0d3ee332a">00008</a>  <a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fca4acfba519fba33e89a33b3e0d3ee332a">FLUENT_PATH</a>,
+<a name="l00009"></a><a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fca72204a8adf992cbd19f4205b9ccdee97">00009</a>  <a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fca72204a8adf992cbd19f4205b9ccdee97">val_FLUENT_PATH</a>,
+<a name="l00010"></a><a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fca97282043847b4201cb2d4392e2ba03d2">00010</a>  <a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fca97282043847b4201cb2d4392e2ba03d2">DATA_PATH</a>,
+<a name="l00011"></a><a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fcaab73b7f62be7039e9d966e3ca77a3755">00011</a>  <a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fcaab73b7f62be7039e9d966e3ca77a3755">val_DATA_PATH</a>,
+<a name="l00012"></a><a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fca51ea6cef7febafedd668094708bd83d1">00012</a>  <a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fca51ea6cef7febafedd668094708bd83d1">COMMAND_LINE</a>,
+<a name="l00013"></a><a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fca45ef8a42f64e7ffbc3aae2fd04a8c345">00013</a>  <a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fca45ef8a42f64e7ffbc3aae2fd04a8c345">val_COMMAND_LINE</a>,
+<a name="l00014"></a><a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fca0c325b5a506e57f036af250774aab3bf">00014</a>  <a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fca0c325b5a506e57f036af250774aab3bf">CASE_NAME</a>,
+<a name="l00015"></a><a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fcac527eb4440da851968ad2acf85127999">00015</a>  <a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fcac527eb4440da851968ad2acf85127999">val_CASE_NAME</a>,
+<a name="l00016"></a><a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fca0f886785b600b91048fcdc434c6b4a8e">00016</a>  <a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fca0f886785b600b91048fcdc434c6b4a8e">ERR</a>,
+<a name="l00017"></a><a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fca338d5916b43654b73789ef85b06cc3a8">00017</a>  <a class="code" href="_c___params_8h.html#a6dc6589508260dbdd571628c95a305fca338d5916b43654b73789ef85b06cc3a8">val_ERR</a>
+<a name="l00018"></a>00018 };
+<a name="l00019"></a>00019 
+<a name="l00021"></a><a class="code" href="_c___params_8h.html#afb924e136e034239095f7592b57bd8ec">00021</a> <span class="keyword">enum</span> <a class="code" href="_c___params_8h.html#afb924e136e034239095f7592b57bd8ec">pola_komponentow</a> {  <span class="comment">// nazwy poszczególnych pól, ważne bo komponenty jest trzymane w Data_To_Read i jest używanba funkcja GetSubString, która za parametr przyjmuje numer podciągu do wycięcia. Dzięki temu jestesmy niezaleni w kodzie w zalezności cio chcemy wyciąć.</span>
+<a name="l00022"></a><a class="code" href="_c___params_8h.html#afb924e136e034239095f7592b57bd8ecaac6154b66d6befe494a950522bed86e6">00022</a>  <a class="code" href="_c___params_8h.html#afb924e136e034239095f7592b57bd8ecaac6154b66d6befe494a950522bed86e6">COMPONENTS_NAZWA</a>,
+<a name="l00023"></a><a class="code" href="_c___params_8h.html#afb924e136e034239095f7592b57bd8ecab7ae8443f2b290b7b97e7ec2d118fbff">00023</a>  <a class="code" href="_c___params_8h.html#afb924e136e034239095f7592b57bd8ecab7ae8443f2b290b7b97e7ec2d118fbff">COMPONENTS_GESTOSC</a>,
+<a name="l00024"></a><a class="code" href="_c___params_8h.html#afb924e136e034239095f7592b57bd8eca9d7baa5fc3af7791ff7c3436caf41948">00024</a>  <a class="code" href="_c___params_8h.html#afb924e136e034239095f7592b57bd8eca9d7baa5fc3af7791ff7c3436caf41948">COMPONENTS_MOLEPERKG</a>
+<a name="l00025"></a>00025 };
+<a name="l00026"></a>00026 
+<a name="l00028"></a><a class="code" href="_c___params_8h.html#aeab5e3f05378e5eb5ec519993130e19b">00028</a> <span class="keyword">enum</span> <a class="code" href="_c___params_8h.html#aeab5e3f05378e5eb5ec519993130e19b">pola_exports</a> {
+<a name="l00030"></a><a class="code" href="_c___params_8h.html#aeab5e3f05378e5eb5ec519993130e19bae9512f35a1716117567676eef5bba7ea">00030</a>  <a class="code" href="_c___params_8h.html#aeab5e3f05378e5eb5ec519993130e19bae9512f35a1716117567676eef5bba7ea" title="nazwa funkcji exportowalej z Fluenta">EXPORT_NAME</a>, 
+<a name="l00032"></a><a class="code" href="_c___params_8h.html#aeab5e3f05378e5eb5ec519993130e19badf4bb6bec69e8fcb216d21dbdd616ddb">00032</a>  <a class="code" href="_c___params_8h.html#aeab5e3f05378e5eb5ec519993130e19badf4bb6bec69e8fcb216d21dbdd616ddb" title="jako co to mamy traktować? - wpisy dozwolone opisane w dokumentacji skryptu">EXPORT_PROP</a>,   
+<a name="l00034"></a><a class="code" href="_c___params_8h.html#aeab5e3f05378e5eb5ec519993130e19baab9911b5579ea04f3d52cdf824f2f5ef">00034</a>  <a class="code" href="_c___params_8h.html#aeab5e3f05378e5eb5ec519993130e19baab9911b5579ea04f3d52cdf824f2f5ef" title="jakiego komponentu sie dotyczy">EXPORT_COMPONENTS_NAZWA</a>
+<a name="l00035"></a>00035 };
+<a name="l00036"></a><a class="code" href="_c___params_8h.html#ad561bf88c5eba4807b29ed7384a152fe">00036</a> <span class="keyword">enum</span> <a class="code" href="_c___params_8h.html#ad561bf88c5eba4807b29ed7384a152fe">pola_input</a> {
+<a name="l00037"></a><a class="code" href="_c___params_8h.html#ad561bf88c5eba4807b29ed7384a152fea01910b80a3290017bbcf77ee863160cb">00037</a>  <a class="code" href="_c___params_8h.html#ad561bf88c5eba4807b29ed7384a152fea01910b80a3290017bbcf77ee863160cb">SURF_NAME</a>,
+<a name="l00038"></a><a class="code" href="_c___params_8h.html#ad561bf88c5eba4807b29ed7384a152fea96d69fb38efa1ee2442fc8a08095e05d">00038</a>  <a class="code" href="_c___params_8h.html#ad561bf88c5eba4807b29ed7384a152fea96d69fb38efa1ee2442fc8a08095e05d">SURF_AREA</a>
+<a name="l00039"></a>00039 };
+<a name="l00040"></a>00040 
+<a name="l00042"></a><a class="code" href="_c___params_8h.html#adb778f9c8bbe99555b27719ef42f0a97">00042</a> <span class="keyword">enum</span> <a class="code" href="_c___params_8h.html#adb778f9c8bbe99555b27719ef42f0a97">pola_assigns</a> {
+<a name="l00043"></a><a class="code" href="_c___params_8h.html#adb778f9c8bbe99555b27719ef42f0a97a5412f41e0ca92fdb3faff46bf390d943">00043</a>  <a class="code" href="_c___params_8h.html#adb778f9c8bbe99555b27719ef42f0a97a5412f41e0ca92fdb3faff46bf390d943">ASSIGN_COMPONENTS_NAZWA</a>, 
+<a name="l00044"></a><a class="code" href="_c___params_8h.html#adb778f9c8bbe99555b27719ef42f0a97ae2594cac7c9c8316fe9ebe0ec204d151">00044</a>  <a class="code" href="_c___params_8h.html#adb778f9c8bbe99555b27719ef42f0a97ae2594cac7c9c8316fe9ebe0ec204d151">ASSIGN_INPUTID</a>,  
+<a name="l00045"></a><a class="code" href="_c___params_8h.html#adb778f9c8bbe99555b27719ef42f0a97a7247cd4d1a5ee45dbf990c5d0b51e6db">00045</a>  <a class="code" href="_c___params_8h.html#adb778f9c8bbe99555b27719ef42f0a97a7247cd4d1a5ee45dbf990c5d0b51e6db">ASSIGN_SURF_NAME</a>, 
+<a name="l00046"></a>00046 };
+<a name="l00047"></a>00047 
+<a name="l00049"></a>00049 
+<a name="l00061"></a><a class="code" href="class_c___params.html">00061</a> <span class="keyword">class </span><a class="code" href="class_c___params.html" title="Klasa do obsługi jezyka skryptowego do przekazaywnia parametrów z wykorzystaniem...">C_Params</a>
+<a name="l00062"></a>00062 {
+<a name="l00063"></a>00063 <span class="keyword">public</span>:
+<a name="l00064"></a>00064  <a class="code" href="class_c___params.html#acd3f44b0a94efae478d7c3c621c66a41">C_Params</a>(<a class="code" href="class_c___error.html" title="Klasa do obsługi błędów.">C_Error</a>* perr);
+<a name="l00065"></a>00065  <a class="code" href="class_c___params.html#a4a598974c6feaa4a3ed5c530b3edc932">~C_Params</a>(<span class="keywordtype">void</span>);
+<a name="l00066"></a><a class="code" href="class_c___params.html#a5406690efa34ca3a0e317fc466dea430">00066</a>  <span class="keywordtype">char</span> <a class="code" href="class_c___params.html#a6c738e091cc2c800b10ee3f0ddaf1d59">bFLUENT_PATH</a>[<a class="code" href="definicje_8h.html#ab5187269936538ffb8ccbbe7115ffdbc">MAX_STRING</a>];  BOOL <a class="code" href="class_c___params.html#a5406690efa34ca3a0e317fc466dea430">sFLUENT_PATH</a>;
+<a name="l00067"></a><a class="code" href="class_c___params.html#a3a4af84d596ddc3e83a19bd1b677d65f">00067</a>  <span class="keywordtype">char</span> <a class="code" href="class_c___params.html#a0988678eee07dae110bea7b760adfc73">bDATA_PATH</a>[<a class="code" href="definicje_8h.html#ab5187269936538ffb8ccbbe7115ffdbc">MAX_STRING</a>];  BOOL <a class="code" href="class_c___params.html#a3a4af84d596ddc3e83a19bd1b677d65f">sDATA_PATH</a>;
+<a name="l00068"></a><a class="code" href="class_c___params.html#a76499461772ba1f4f2bf7cd2ada4cc25">00068</a>  <span class="keywordtype">char</span> <a class="code" href="class_c___params.html#a950507f8d48b037a9e12999354017c13">bERR</a>[<a class="code" href="definicje_8h.html#ab5187269936538ffb8ccbbe7115ffdbc">MAX_STRING</a>];    BOOL <a class="code" href="class_c___params.html#a76499461772ba1f4f2bf7cd2ada4cc25">sERR</a>;
+<a name="l00069"></a><a class="code" href="class_c___params.html#a50eb587f52fe286378297fd31a54b35f">00069</a>  <span class="keywordtype">char</span> <a class="code" href="class_c___params.html#a30980f639a5d7faa1d0eb3dfb1a81f26">bCOMMAND_LINE</a>[<a class="code" href="definicje_8h.html#ab5187269936538ffb8ccbbe7115ffdbc">MAX_STRING</a>];  BOOL <a class="code" href="class_c___params.html#a50eb587f52fe286378297fd31a54b35f">sCOMMAND_LINE</a>;
+<a name="l00070"></a><a class="code" href="class_c___params.html#a3e84a468605f0d094b299e67d2ecd4fd">00070</a>  <span class="keywordtype">char</span> <a class="code" href="class_c___params.html#adfb69d14da610b8179cf615fa30c92ea">bCASE_NAME</a>[<a class="code" href="definicje_8h.html#ab5187269936538ffb8ccbbe7115ffdbc">MAX_STRING</a>];  BOOL <a class="code" href="class_c___params.html#a3e84a468605f0d094b299e67d2ecd4fd">sCASE_NAME</a>;
+<a name="l00071"></a><a class="code" href="class_c___params.html#af4c299ad4b272cdec5f71e230a164d99">00071</a>  <a class="code" href="class_data___to___read.html" title="Klasa sluzy do przechowywania danych jesli jest ich kilka do jednego rozkazu.">Data_To_Read</a> <a class="code" href="class_c___params.html#a16ebed72b96272e07962716263599271">bEXPORTS</a>;    BOOL <a class="code" href="class_c___params.html#af4c299ad4b272cdec5f71e230a164d99">sEXPORTS</a>;
+<a name="l00072"></a><a class="code" href="class_c___params.html#ad0354e0e132510531c844c217af8ebc0">00072</a>  <a class="code" href="class_data___to___read.html" title="Klasa sluzy do przechowywania danych jesli jest ich kilka do jednego rozkazu.">Data_To_Read</a> <a class="code" href="class_c___params.html#ad5c614b66d7b7bb32a8d1b67f25c7a31">bINPUT_SURFACE</a>;  BOOL <a class="code" href="class_c___params.html#ad0354e0e132510531c844c217af8ebc0">sINPUT_SURFACE</a>;
+<a name="l00073"></a><a class="code" href="class_c___params.html#a4e8657abd931b4beaae9108c576bf154">00073</a>  <a class="code" href="class_data___to___read.html" title="Klasa sluzy do przechowywania danych jesli jest ich kilka do jednego rozkazu.">Data_To_Read</a> <a class="code" href="class_c___params.html#a40e2d5c41b5e45ab7da608872331c33d">bOUTPUT_SURFACE</a>;  BOOL <a class="code" href="class_c___params.html#a4e8657abd931b4beaae9108c576bf154">sOUTPUT_SURFACE</a>;
+<a name="l00074"></a><a class="code" href="class_c___params.html#adbcbad8603c2b76d6f4622ddcfdce9e5">00074</a>  <a class="code" href="class_data___to___read.html" title="Klasa sluzy do przechowywania danych jesli jest ich kilka do jednego rozkazu.">Data_To_Read</a> <a class="code" href="class_c___params.html#a0f52ddebff9d847a93fc389ab91fcb6c">bASSIGNS</a>;    BOOL <a class="code" href="class_c___params.html#adbcbad8603c2b76d6f4622ddcfdce9e5">sASSIGNS</a>;
+<a name="l00075"></a><a class="code" href="class_c___params.html#abac7b8761f4e8f41ee610f4709a6647e">00075</a>  <span class="keywordtype">char</span> <a class="code" href="class_c___params.html#a0e930ef00f35044a8a11dca5be4e3a92">bBOUND_COND</a>[<a class="code" href="definicje_8h.html#ab5187269936538ffb8ccbbe7115ffdbc">MAX_STRING</a>];  BOOL <a class="code" href="class_c___params.html#abac7b8761f4e8f41ee610f4709a6647e">sBOUND_COND</a>;
+<a name="l00076"></a><a class="code" href="class_c___params.html#a5e87da1e2ac5cfe4e56c9795b6e97fc9">00076</a>  <span class="keywordtype">char</span> <a class="code" href="class_c___params.html#a126de6d5ba14fc1e8b2e623678eef8b7">bENERGY_EQ</a>[<a class="code" href="definicje_8h.html#ab5187269936538ffb8ccbbe7115ffdbc">MAX_STRING</a>];  BOOL <a class="code" href="class_c___params.html#a5e87da1e2ac5cfe4e56c9795b6e97fc9">sENERGY_EQ</a>;
+<a name="l00077"></a><a class="code" href="class_c___params.html#a6fbe89d31743093e83e0ced278f2cd66">00077</a>  <span class="keywordtype">char</span> <a class="code" href="class_c___params.html#ad24e9e1a6fc1c087e52e938aefe337cf">bSUBPROCNAME</a>[<a class="code" href="definicje_8h.html#ab5187269936538ffb8ccbbe7115ffdbc">MAX_STRING</a>];  BOOL <a class="code" href="class_c___params.html#a6fbe89d31743093e83e0ced278f2cd66">sSUBPROCNAME</a>;
+<a name="l00078"></a><a class="code" href="class_c___params.html#a7dbb2bd7e96b865ab97c99f5a3e7b0f3">00078</a>  <span class="keywordtype">int</span> <a class="code" href="class_c___params.html#a6d9d530e65df616072346697bb51885f">bNUMOFITER</a>;      BOOL <a class="code" href="class_c___params.html#a7dbb2bd7e96b865ab97c99f5a3e7b0f3">sNUMOFITER</a>;
+<a name="l00079"></a><a class="code" href="class_c___params.html#a18e086e6ea120dbdffe65ff667e00fb3">00079</a>  <span class="keywordtype">int</span> <a class="code" href="class_c___params.html#a003fd797038b0834243e5a65ad892de7">bNUMOFTIMESTEPS</a>;    BOOL <a class="code" href="class_c___params.html#a18e086e6ea120dbdffe65ff667e00fb3">sNUMOFTIMESTEPS</a>;
+<a name="l00080"></a><a class="code" href="class_c___params.html#ad1750f882843a1f00ed020efecbc25a8">00080</a>  <span class="keywordtype">int</span> <a class="code" href="class_c___params.html#a3412da59508d9d12b997d2c84395e910">bNUMOFPORTS</a>;     BOOL <a class="code" href="class_c___params.html#ad1750f882843a1f00ed020efecbc25a8">sNUMOFPORTS</a>;
+<a name="l00081"></a><a class="code" href="class_c___params.html#adde5b8b4a257c7a32e92aad9f512ca4f">00081</a>  <a class="code" href="class_data___to___read.html" title="Klasa sluzy do przechowywania danych jesli jest ich kilka do jednego rozkazu.">Data_To_Read</a> <a class="code" href="class_c___params.html#a71e66a7080523ea24396e590e5ff3117">bMOLEPERKG</a>;   BOOL <a class="code" href="class_c___params.html#adde5b8b4a257c7a32e92aad9f512ca4f">sMOLEPERKG</a>;
+<a name="l00082"></a><a class="code" href="class_c___params.html#a98b11b8e40d017e6b2b1300ef8afa19d">00082</a>  <a class="code" href="class_data___to___read.html" title="Klasa sluzy do przechowywania danych jesli jest ich kilka do jednego rozkazu.">Data_To_Read</a> <a class="code" href="class_c___params.html#ae54ad1f94c5d33db56436e556a2ed9f9">bCOMPONENTS</a>;   BOOL <a class="code" href="class_c___params.html#a98b11b8e40d017e6b2b1300ef8afa19d">sCOMPONENTS</a>;
+<a name="l00084"></a><a class="code" href="class_c___params.html#a31a2ca80c791c72b5ed97410266a1945">00084</a>  <span class="keywordtype">int</span> <a class="code" href="class_c___params.html#a31a2ca80c791c72b5ed97410266a1945" title="liczba wszystkich możliwych parametrów">numofparams</a>; 
+<a name="l00086"></a>00086  <span class="keywordtype">int</span> <a class="code" href="class_c___params.html#a0759f84bf2bc14b48e2fbf3242f588d4" title="aby sprawdzić czy czytanie pliku powiodło się nalezy sprawdzić wartość sERR...">readfile</a>(<span class="keywordtype">char</span>* filename); 
+<a name="l00087"></a>00087 <span class="keyword">private</span>:
+<a name="l00088"></a><a class="code" href="class_c___params.html#aa3f974afafa346ec64cbabd8901e0b21">00088</a>  <a class="code" href="class_c___error.html" title="Klasa do obsługi błędów.">C_Error</a> *<a class="code" href="class_c___params.html#aa3f974afafa346ec64cbabd8901e0b21">err</a>;
+<a name="l00089"></a>00089 <span class="preprocessor">#ifndef NO_MATLAB</span>
+<a name="l00090"></a>00090 <span class="preprocessor"></span> <span class="keywordtype">void</span> <a class="code" href="class_c___params.html#a080084f7918e7a6b6e8b955ac3ca06e0">AddFiledData</a>(char16_t *in,<span class="keywordtype">int</span> ile,<span class="keywordtype">int</span> p);
+<a name="l00091"></a>00091 <span class="preprocessor">#endif</span>
+<a name="l00092"></a>00092 <span class="preprocessor"></span>
+<a name="l00093"></a>00093 
+<a name="l00098"></a>00098  BOOL <a class="code" href="class_c___params.html#ad0c993db154ff1beae793a917ecc0605" title="Wczytuje jedną linię skryptu i dokonuje konwersji do dużych liter.">LoadOneLine</a>(FILE *pFile, <span class="keywordtype">char</span>* bufor);
+<a name="l00099"></a>00099 <span class="keyword">public</span>:
+<a name="l00101"></a>00101 
+<a name="l00106"></a>00106  BOOL <a class="code" href="class_c___params.html#a96db4b5bc8d67d374eb52b3d4b90446d" title="Dokonuje sprawdzenia czy spełnione są określone warunki.">ValidateParams</a>(<a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49b" title="Służy do walidacji różnych kombinacji danych wejściowych.">tryby_pracy</a> mode);
+<a name="l00107"></a>00107 
+<a name="l00109"></a>00109 
+<a name="l00114"></a>00114  BOOL <a class="code" href="class_c___params.html#ab65d753c172afbdef6828a2804e88b91" title="Wczytuje i analizuje plik konfiguracyjny.">Creadfile</a>(<span class="keywordtype">char</span>* filename);
+<a name="l00115"></a>00115 };
+</pre></div></div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:21 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

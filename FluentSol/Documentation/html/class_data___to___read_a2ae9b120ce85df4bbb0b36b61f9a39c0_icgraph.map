@@ -1,0 +1,13 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_c___params.html#ab65d753c172afbdef6828a2804e88b91" title="Wczytuje i analizuje plik konfiguracyjny." alt="" coords="320,59,461,88"/>
+<area shape="rect" id="node7" href="$class_data___to___read.html#a6a3deab57b0e9d8e040ab3c548595bf9" title="Zwraca wskaźnik do podciągu." alt="" coords="295,189,487,219"/>
+<area shape="rect" id="node5" href="$class_c_unit_operation.html#a3e8877612e6772acf65ea50f198f91d8" title="CUnitOperation::CUnitOperation" alt="" coords="537,5,743,35"/>
+<area shape="rect" id="node9" href="$class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="1044,163,1215,192"/>
+<area shape="rect" id="node11" href="$class_c__my_run_process.html#af04033e23f541696c736ef795e864392" title="Tworzy środowisko do uruchomienia fluenta &#45; generuje scm oraz journalC_Params." alt="" coords="796,268,991,297"/>
+<area shape="rect" id="node14" href="$class_data___to___read.html#a1f2247e03f494d45dd2bacf4fde00c92" title="Zwraca numer linii zawierającej dany ciąg tekstowy na danej pozycji podciągu...." alt="" coords="545,317,735,347"/>
+<area shape="rect" id="node19" href="$class_c__my_run_process.html#a7511e1d0a3cb9056ff87bd4a4cd4c886" title="pobiera parametry z klasy na zewnątrz &#45; wersja nowsza" alt="" coords="793,215,993,244"/>
+<area shape="rect" id="node21" href="$class_c__my_run_process.html#a96de0e119537f9f36f3cfaa8da96280f" title="Wczytuje dane z Fluenta." alt="" coords="541,59,739,88"/>
+<area shape="rect" id="node24" href="$class_c__my_run_process.html#a92c79daa78da34aa38f14ec7f4f8a1ac" title="wpisuje parametry do klasy, wersja starsza" alt="" coords="793,111,993,140"/>
+<area shape="rect" id="node27" href="$class_c___params.html#a96db4b5bc8d67d374eb52b3d4b90446d" title="Dokonuje sprawdzenia czy spełnione są określone warunki." alt="" coords="549,163,731,192"/>
+<area shape="rect" id="node17" href="$class_c__my_run_process.html#a8bf8241f0ff9398a64c00176022d677d" title="wpisuje parametry do klasy, wersja nowsza" alt="" coords="793,321,993,351"/>
+</map>

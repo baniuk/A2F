@@ -1,0 +1,730 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Dokumentacja klasy C_Parameter_Container</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Lista&nbsp;klas</span></a></li>
+      <li><a href="classes.html"><span>Indeks&nbsp;klas</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchia&nbsp;klas</span></a></li>
+      <li><a href="functions.html"><span>Składowe&nbsp;klas</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja klasy C_Parameter_Container</h1><!-- doxytag: class="C_Parameter_Container" -->
+<p>Klasa jest kontainerem z parametrami opisującymi poszczególne materiały, parametry powiązane z danymi uzyskanymi z ASPENA oraz ze skryptu.  
+<a href="#_details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_c___parameter___container_8h_source.html">C_Parameter_Container.h</a>&gt;</code></p>
+
+<p>Dziedziczona przez <a class="el" href="class_c___port_parameter___container.html">C_PortParameter_Container</a>.</p>
+<div class="dynheader">
+Diagram współpracy dla C_Parameter_Container:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___parameter___container__coll__graph.png" border="0" usemap="#_c___parameter___container_coll__map" alt="Collaboration graph"/></div>
+<map name="_c___parameter___container_coll__map" id="_c___parameter___container_coll__map">
+<area shape="rect" id="node2" href="class_c___parameters___set.html" title="Przechowuje zbiór podstawowych parametrów. Enum musi się zgadzać z przechowywanymi..." alt="" coords="20,5,151,35"/></map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legenda</a>]</span></center></div>
+
+<p><a href="class_c___parameter___container-members.html">Lista wszystkich składowych.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Metody publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___parameter___container.html#a9451048e7a30bc5a0a768fd25a9a6ef3">C_Parameter_Container</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___parameter___container.html#ae79e254353b23c0c10a46fceed2d1795">~C_Parameter_Container</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___parameter___container.html#a1572fb9ba2f2ed524e0c6d908d4035c2">RegisterComponent</a> (char *compName)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___parameter___container.html#a63e07ec8f12b69a7fe3abbe03f896542">GetNumOfComponents</a> (void)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zwraca ilosc przechowywanych komponentów w klasie.  <a href="#a63e07ec8f12b69a7fe3abbe03f896542"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___parameter___container.html#a9c253d28313ba83391397c031b2b4249">GetComponentName</a> (unsigned int CompID)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zwraca nazwę komponentu po podaniu jego id, lub NULL gdy go nie ma.  <a href="#a9c253d28313ba83391397c031b2b4249"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___parameter___container.html#afb7cef66e701ffc8600352ffcce0b006">AssignParamToComp</a> (unsigned int CompID, <a class="el" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889d">nazwy_parametrow</a> paramID, double paramVal)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Dodaje parametr do komponentu - rozpoznaje po id.  <a href="#afb7cef66e701ffc8600352ffcce0b006"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___parameter___container.html#a4019893d512b8da7f9208a94e0fb7524">AssignParamToComp</a> (char *compName, <a class="el" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889d">nazwy_parametrow</a> paramID, double paramVal)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Dodaje parametr do komponentu - rozpoznaje po nazwie.  <a href="#a4019893d512b8da7f9208a94e0fb7524"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___parameter___container.html#accb414d013c6b9d04596c01b1b19a008">GetCompID</a> (char *compName)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zwraca id komponentu na podstawie nazwy, lub -1 gdy nie ma go.  <a href="#accb414d013c6b9d04596c01b1b19a008"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___parameter___container.html#a3025843a154aec4c2e75a412ec81385e">GetParameter</a> (char *compName, <a class="el" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889d">nazwy_parametrow</a> paramID, double &amp;paramVal)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zwraca parametr komponentu - rozpoznaje po nazwie.  <a href="#a3025843a154aec4c2e75a412ec81385e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___parameter___container.html#ad2d052ba248de520d907fbc68c2c1b3f">GetParameter</a> (unsigned int CompID, <a class="el" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889d">nazwy_parametrow</a> paramID, double &amp;paramVal)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zwraca parametr komponentu - rozpoznaje po id.  <a href="#ad2d052ba248de520d907fbc68c2c1b3f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___parameter___container.html#ab196d93942c6d400b84af39e68ede81b">ClearAll</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Kasuje zawartość klasy - wszystkich danych.  <a href="#ab196d93942c6d400b84af39e68ede81b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___parameter___container.html#ab713e9a3ba582fc32576ec724076cd1b">PrintParams</a> (FILE *fid)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Drukuje zawartość portów do pliku.  <a href="#ab713e9a3ba582fc32576ec724076cd1b"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Atrybuty chronione</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___parameter___container.html#a2b2edefc40e1c2c4733c0fde7801f4bb">ile</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">ile jest aktualnie przechowywanych komponentów  <a href="#a2b2edefc40e1c2c4733c0fde7801f4bb"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Atrybuty prywatne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c___parameters___set.html">C_Parameters_Set</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___parameter___container.html#aa5153be3ddcf0cf446ab7716ccc42417">ParametersContainer</a> [MAX_EXPORTS]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___parameter___container.html#a237f3bf2dbe560f7438a32cc9e09e966">compNames</a> [MAX_EXPORTS]</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+<p>Klasa jest kontainerem z parametrami opisującymi poszczególne materiały, parametry powiązane z danymi uzyskanymi z ASPENA oraz ze skryptu. </p>
+<p>Klasa przechowująca parametry dla poszczególnych składników strumienia. Powiązana z ASPENEM, wypełniana głównie w klasie <a class="el" href="_c__my_run_process_8h.html">C_myRunProcess.h</a>. Powiązana jest także z parametrami ze skryptu. Niektóre parametry w tej klasie są brane ze skryptu też. </p>
+
+<p>Definicja w linii <a class="el" href="_c___parameter___container_8h_source.html#l00010">10</a> pliku <a class="el" href="_c___parameter___container_8h_source.html">C_Parameter_Container.h</a>.</p>
+<hr/><h2>Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="a9451048e7a30bc5a0a768fd25a9a6ef3"></a><!-- doxytag: member="C_Parameter_Container::C_Parameter_Container" ref="a9451048e7a30bc5a0a768fd25a9a6ef3" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">C_Parameter_Container::C_Parameter_Container </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___parameter___container_8cpp_source.html#l00004">4</a> pliku <a class="el" href="_c___parameter___container_8cpp_source.html">C_Parameter_Container.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___parameter___container_8h_source.html#l00017">compNames</a>, <a class="el" href="definicje_8h_source.html#l00005">MAX_EXPORTS</a> i <a class="el" href="_c___parameter___container_8h_source.html#l00016">ParametersContainer</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae79e254353b23c0c10a46fceed2d1795"></a><!-- doxytag: member="C_Parameter_Container::~C_Parameter_Container" ref="ae79e254353b23c0c10a46fceed2d1795" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">C_Parameter_Container::~C_Parameter_Container </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___parameter___container_8cpp_source.html#l00013">13</a> pliku <a class="el" href="_c___parameter___container_8cpp_source.html">C_Parameter_Container.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___parameter___container_8h_source.html#l00017">compNames</a>, <a class="el" href="definicje_8h_source.html#l00005">MAX_EXPORTS</a>, <a class="el" href="_c___parameter___container_8h_source.html#l00016">ParametersContainer</a>, <a class="el" href="definicje_8h_source.html#l00051">SAFE_DELETE</a> i <a class="el" href="definicje_8h_source.html#l00050">SAFE_DELETE_ARRAY</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="a4019893d512b8da7f9208a94e0fb7524"></a><!-- doxytag: member="C_Parameter_Container::AssignParamToComp" ref="a4019893d512b8da7f9208a94e0fb7524" args="(char *compName, nazwy_parametrow paramID, double paramVal)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL C_Parameter_Container::AssignParamToComp </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>compName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889d">nazwy_parametrow</a>&nbsp;</td>
+          <td class="paramname"> <em>paramID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>paramVal</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Dodaje parametr do komponentu - rozpoznaje po nazwie. </p>
+<p>Funkcja dodaje parametr do materiału. Parametr to jedna z wlaściwości fizycznych zdefinowana w klasie <a class="el" href="_c___parameters___set_8h.html">C_Parameters_Set.h</a> </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>compName</em>&nbsp;</td><td>nazwa komponentu - materiału </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>paramID</em>&nbsp;</td><td>nazwa parametru do dodania zgodna z definicja w <a class="el" href="_c___parameters___set_8h.html">C_Parameters_Set.h</a> </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>paramVal</em>&nbsp;</td><td>wartość parametru</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>FAIL</em>&nbsp;</td><td>Jeśli błąd - nie znaleziono nazwy komponentu lub paramID nie prawidłowy </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>OK</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c___parameter___container_8cpp_source.html#l00103">103</a> pliku <a class="el" href="_c___parameter___container_8cpp_source.html">C_Parameter_Container.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___parameter___container_8cpp_source.html#l00064">AssignParamToComp()</a>, <a class="el" href="definicje_8h_source.html#l00002">FAIL</a> i <a class="el" href="_c___parameter___container_8cpp_source.html#l00115">GetCompID()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___parameter___container_a4019893d512b8da7f9208a94e0fb7524_cgraph.png" border="0" usemap="#class_c___parameter___container_a4019893d512b8da7f9208a94e0fb7524_cgraph_map" alt=""></div>
+<map name="class_c___parameter___container_a4019893d512b8da7f9208a94e0fb7524_cgraph_map" id="class_c___parameter___container_a4019893d512b8da7f9208a94e0fb7524_cgraph">
+<area shape="rect" id="node3" href="class_c___parameter___container.html#afb7cef66e701ffc8600352ffcce0b006" title="Dodaje parametr do komponentu &#45; rozpoznaje po id." alt="" coords="351,5,644,35"/><area shape="rect" id="node5" href="class_c___parameter___container.html#accb414d013c6b9d04596c01b1b19a008" title="Zwraca id komponentu na podstawie nazwy, lub &#45;1 gdy nie ma go." alt="" coords="380,59,615,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="afb7cef66e701ffc8600352ffcce0b006"></a><!-- doxytag: member="C_Parameter_Container::AssignParamToComp" ref="afb7cef66e701ffc8600352ffcce0b006" args="(unsigned int CompID, nazwy_parametrow paramID, double paramVal)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL C_Parameter_Container::AssignParamToComp </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>CompID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889d">nazwy_parametrow</a>&nbsp;</td>
+          <td class="paramname"> <em>paramID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>paramVal</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Dodaje parametr do komponentu - rozpoznaje po id. </p>
+<p>Funkcja dodaje parametr do materiału. Parametr to jedna z wlaściwości fizycznych zdefinowana w klasie <a class="el" href="_c___parameters___set_8h.html">C_Parameters_Set.h</a> </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>CompID</em>&nbsp;</td><td>numer komponentu </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>paramID</em>&nbsp;</td><td>nazwa parametru do dodania zgodna z definicja w <a class="el" href="_c___parameters___set_8h.html">C_Parameters_Set.h</a> </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>paramVal</em>&nbsp;</td><td>wartość parametru</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Dodaje parametr do komponentu - rozpoznaje po nazwie. Ustawia także pole bXX w klasie przechowującej parametry <a class="el" href="class_c___parameters___set.html" title="Przechowuje zbiór podstawowych parametrów. Enum musi się zgadzać z przechowywanymi...">C_Parameters_Set</a> na OK co znaczy ze coś tam jest </p>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>FAIL</em>&nbsp;</td><td>Jeśli błąd - CompID większy niż ilość przechowywanych komponentów lub paramVal nie prawidłowy </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>OK</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c___parameter___container_8cpp_source.html#l00064">64</a> pliku <a class="el" href="_c___parameter___container_8cpp_source.html">C_Parameter_Container.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___parameters___set_8h_source.html#l00041">C_Parameters_Set::bDensity</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00038">C_Parameters_Set::bMoleFlow</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00040">C_Parameters_Set::bMoleFraction</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00042">C_Parameters_Set::bmoleperkg</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00039">C_Parameters_Set::bPressure</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00037">C_Parameters_Set::bTemperature</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00033">C_Parameters_Set::Density</a>, <a class="el" href="definicje_8h_source.html#l00002">FAIL</a>, <a class="el" href="_c___parameter___container_8h_source.html#l00026">ile</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00027">C_Parameters_Set::MoleFlow</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00031">C_Parameters_Set::MoleFraction</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00035">C_Parameters_Set::moleperkg</a>, <a class="el" href="definicje_8h_source.html#l00003">OK</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00010">PARAM_DENSITY</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00007">PARAM_MOLEFLOW</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00009">PARAM_MOLEFRACTION</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00011">PARAM_MOLEPERKG</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00008">PARAM_PRESSURE</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00006">PARAM_TEMPERATURE</a>, <a class="el" href="_c___parameter___container_8h_source.html#l00016">ParametersContainer</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00029">C_Parameters_Set::Pressure</a> i <a class="el" href="_c___parameters___set_8h_source.html#l00025">C_Parameters_Set::Temperature</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___parameter___container_8cpp_source.html#l00103">AssignParamToComp()</a>, <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00058">C_PortParameter_Container::AssignParamToCompP()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00596">C_myRunProcess::ImportData()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___parameter___container_afb7cef66e701ffc8600352ffcce0b006_icgraph.png" border="0" usemap="#class_c___parameter___container_afb7cef66e701ffc8600352ffcce0b006_icgraph_map" alt=""></div>
+<map name="class_c___parameter___container_afb7cef66e701ffc8600352ffcce0b006_icgraph_map" id="class_c___parameter___container_afb7cef66e701ffc8600352ffcce0b006_icgraph">
+<area shape="rect" id="node3" href="class_c___parameter___container.html#a4019893d512b8da7f9208a94e0fb7524" title="Dodaje parametr do komponentu &#45; rozpoznaje po nazwie." alt="" coords="367,5,660,35"/><area shape="rect" id="node5" href="class_c___port_parameter___container.html#a0084a3c896460b40ff0ae1505ba069ec" title="Dodaje parametr do komponentu &#45; rozpoznaje po id." alt="" coords="351,59,676,88"/><area shape="rect" id="node11" href="class_c__my_run_process.html#a96de0e119537f9f36f3cfaa8da96280f" title="Wczytuje dane z Fluenta." alt="" coords="415,112,612,141"/><area shape="rect" id="node7" href="class_c__my_run_process.html#a7511e1d0a3cb9056ff87bd4a4cd4c886" title="pobiera parametry z klasy na zewnątrz &#45; wersja nowsza" alt="" coords="727,5,927,35"/><area shape="rect" id="node9" href="class_c__my_run_process.html#a8bf8241f0ff9398a64c00176022d677d" title="wpisuje parametry do klasy, wersja nowsza" alt="" coords="727,59,927,88"/><area shape="rect" id="node13" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="741,112,912,141"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab196d93942c6d400b84af39e68ede81b"></a><!-- doxytag: member="C_Parameter_Container::ClearAll" ref="ab196d93942c6d400b84af39e68ede81b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void C_Parameter_Container::ClearAll </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Kasuje zawartość klasy - wszystkich danych. </p>
+<p>Kasuje zawartość klasy - wszystkich danych </p>
+
+<p>Definicja w linii <a class="el" href="_c___parameter___container_8cpp_source.html#l00187">187</a> pliku <a class="el" href="_c___parameter___container_8cpp_source.html">C_Parameter_Container.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___parameter___container_8cpp_source.html#l00039">GetNumOfComponents()</a> i <a class="el" href="_c___parameter___container_8h_source.html#l00016">ParametersContainer</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00111">C_PortParameter_Container::ClearAllP()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00596">C_myRunProcess::ImportData()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___parameter___container_ab196d93942c6d400b84af39e68ede81b_cgraph.png" border="0" usemap="#class_c___parameter___container_ab196d93942c6d400b84af39e68ede81b_cgraph_map" alt=""></div>
+<map name="class_c___parameter___container_ab196d93942c6d400b84af39e68ede81b_cgraph_map" id="class_c___parameter___container_ab196d93942c6d400b84af39e68ede81b_cgraph">
+<area shape="rect" id="node3" href="class_c___parameter___container.html#a63e07ec8f12b69a7fe3abbe03f896542" title="Zwraca ilosc przechowywanych komponentów w klasie." alt="" coords="268,5,569,35"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___parameter___container_ab196d93942c6d400b84af39e68ede81b_icgraph.png" border="0" usemap="#class_c___parameter___container_ab196d93942c6d400b84af39e68ede81b_icgraph_map" alt=""></div>
+<map name="class_c___parameter___container_ab196d93942c6d400b84af39e68ede81b_icgraph_map" id="class_c___parameter___container_ab196d93942c6d400b84af39e68ede81b_icgraph">
+<area shape="rect" id="node3" href="class_c___port_parameter___container.html#a9ad1d472e32f73bbcc3687194a8cecbd" title="Kasuje zawartość klasy &#45; wszystkich danych wszystkich wejść." alt="" coords="268,5,513,35"/><area shape="rect" id="node7" href="class_c__my_run_process.html#a96de0e119537f9f36f3cfaa8da96280f" title="Wczytuje dane z Fluenta." alt="" coords="292,59,489,88"/><area shape="rect" id="node5" href="class_c__my_run_process.html#a7511e1d0a3cb9056ff87bd4a4cd4c886" title="pobiera parametry z klasy na zewnątrz &#45; wersja nowsza" alt="" coords="564,5,764,35"/><area shape="rect" id="node9" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="579,59,749,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="accb414d013c6b9d04596c01b1b19a008"></a><!-- doxytag: member="C_Parameter_Container::GetCompID" ref="accb414d013c6b9d04596c01b1b19a008" args="(char *compName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int C_Parameter_Container::GetCompID </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>compName</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Zwraca id komponentu na podstawie nazwy, lub -1 gdy nie ma go. </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>compName</em>&nbsp;</td><td>nazwa komponentu - materiału</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>-1</em>&nbsp;</td><td>Jeśli błąd - nie znaleziono nazwy komponentu </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>liczba</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c___parameter___container_8cpp_source.html#l00115">115</a> pliku <a class="el" href="_c___parameter___container_8cpp_source.html">C_Parameter_Container.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___parameter___container_8h_source.html#l00017">compNames</a>, <a class="el" href="_c___parameter___container_8h_source.html#l00026">ile</a> i <a class="el" href="definicje_8h_source.html#l00009">MAX_COMPONENT_NAME</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___parameter___container_8cpp_source.html#l00103">AssignParamToComp()</a>, <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00079">C_PortParameter_Container::GetCompIDP()</a> i <a class="el" href="_c___parameter___container_8cpp_source.html#l00135">GetParameter()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___parameter___container_accb414d013c6b9d04596c01b1b19a008_icgraph.png" border="0" usemap="#class_c___parameter___container_accb414d013c6b9d04596c01b1b19a008_icgraph_map" alt=""></div>
+<map name="class_c___parameter___container_accb414d013c6b9d04596c01b1b19a008_icgraph_map" id="class_c___parameter___container_accb414d013c6b9d04596c01b1b19a008_icgraph">
+<area shape="rect" id="node3" href="class_c___parameter___container.html#a4019893d512b8da7f9208a94e0fb7524" title="Dodaje parametr do komponentu &#45; rozpoznaje po nazwie." alt="" coords="289,5,583,35"/><area shape="rect" id="node5" href="class_c___port_parameter___container.html#a0735236e3d03fc4d7890f9d604778788" title="Zwraca id komponentu na podstawie nazwy, lub &#45;1 gdy nie ma go." alt="" coords="303,59,569,88"/><area shape="rect" id="node7" href="class_c___parameter___container.html#a3025843a154aec4c2e75a412ec81385e" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="312,112,560,141"/><area shape="rect" id="node9" href="class_c___port_parameter___container.html#a40f71af3c7efa9ae20bad902f781f7d0" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="632,60,915,89"/><area shape="rect" id="node15" href="class_c__my_run_process.html#a7511e1d0a3cb9056ff87bd4a4cd4c886" title="pobiera parametry z klasy na zewnątrz &#45; wersja nowsza" alt="" coords="995,112,1195,141"/><area shape="rect" id="node20" href="class_c___parameter___container.html#ab713e9a3ba582fc32576ec724076cd1b" title="Drukuje zawartość portów do pliku." alt="" coords="653,165,893,195"/><area shape="rect" id="node11" href="class_c__my_run_process.html#af04033e23f541696c736ef795e864392" title="Tworzy środowisko do uruchomienia fluenta &#45; generuje scm oraz journalC_Params." alt="" coords="1303,33,1497,63"/><area shape="rect" id="node17" href="class_c__my_run_process.html#a8bf8241f0ff9398a64c00176022d677d" title="wpisuje parametry do klasy, wersja nowsza" alt="" coords="995,59,1195,88"/><area shape="rect" id="node13" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="1575,112,1745,141"/><area shape="rect" id="node22" href="class_c___port_parameter___container.html#af7ff20d9bcd1cd8a2f927b8cb7679ea8" title="Drukuje zawartość portów do pliku." alt="" coords="963,165,1227,195"/><area shape="rect" id="node24" href="class_c__my_run_process.html#aef8a141a9982779c57bb5931d87d710b" title="Drukuje zawartość portów do pliku." alt="" coords="1275,112,1525,141"/><area shape="rect" id="node27" href="class_c__my_run_process.html#ae6b5f57310ae330f061f867d0582ee4e" title="Drukuje zawartość portów do pliku." alt="" coords="1276,165,1524,195"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a9c253d28313ba83391397c031b2b4249"></a><!-- doxytag: member="C_Parameter_Container::GetComponentName" ref="a9c253d28313ba83391397c031b2b4249" args="(unsigned int CompID)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * C_Parameter_Container::GetComponentName </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>CompID</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Zwraca nazwę komponentu po podaniu jego id, lub NULL gdy go nie ma. </p>
+<p>Funkcja zwraca nazwę komponentu po podaniu jego id, czyli numeru w kolejności dodania przez RegisterComponent. NAzwa najczęściej będzie pochodziła z ASPENA </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>CompID</em>&nbsp;</td><td>numer komponentu</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>NULL</em>&nbsp;</td><td>Jeśli błąd - CompID większy niż ilość przechowywanych komponentów </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>ptr</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c___parameter___container_8cpp_source.html#l00046">46</a> pliku <a class="el" href="_c___parameter___container_8cpp_source.html">C_Parameter_Container.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___parameter___container_8h_source.html#l00017">compNames</a> i <a class="el" href="_c___parameter___container_8h_source.html#l00026">ile</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00048">C_PortParameter_Container::GetComponentNameP()</a> i <a class="el" href="_c___parameter___container_8cpp_source.html#l00196">PrintParams()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___parameter___container_a9c253d28313ba83391397c031b2b4249_icgraph.png" border="0" usemap="#class_c___parameter___container_a9c253d28313ba83391397c031b2b4249_icgraph_map" alt=""></div>
+<map name="class_c___parameter___container_a9c253d28313ba83391397c031b2b4249_icgraph_map" id="class_c___parameter___container_a9c253d28313ba83391397c031b2b4249_icgraph">
+<area shape="rect" id="node3" href="class_c___port_parameter___container.html#a9387e0928fc98503d64896203631771c" title="Zwraca nazwę komponentu po podaniu jego id, lub NULL gdy go nie ma." alt="" coords="344,5,667,35"/><area shape="rect" id="node5" href="class_c___parameter___container.html#ab713e9a3ba582fc32576ec724076cd1b" title="Drukuje zawartość portów do pliku." alt="" coords="385,59,625,88"/><area shape="rect" id="node7" href="class_c___port_parameter___container.html#af7ff20d9bcd1cd8a2f927b8cb7679ea8" title="Drukuje zawartość portów do pliku." alt="" coords="715,59,979,88"/><area shape="rect" id="node9" href="class_c__my_run_process.html#aef8a141a9982779c57bb5931d87d710b" title="Drukuje zawartość portów do pliku." alt="" coords="1027,32,1277,61"/><area shape="rect" id="node13" href="class_c__my_run_process.html#ae6b5f57310ae330f061f867d0582ee4e" title="Drukuje zawartość portów do pliku." alt="" coords="1028,85,1276,115"/><area shape="rect" id="node11" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="1327,59,1497,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a63e07ec8f12b69a7fe3abbe03f896542"></a><!-- doxytag: member="C_Parameter_Container::GetNumOfComponents" ref="a63e07ec8f12b69a7fe3abbe03f896542" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int C_Parameter_Container::GetNumOfComponents </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Zwraca ilosc przechowywanych komponentów w klasie. </p>
+<p>Funkcja zwraca ilosc przechowywanych komponentów (materiałów) w klasie</p>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>UINT</em>&nbsp;</td><td>Ilość przechowywanych komponentów </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c___parameter___container_8cpp_source.html#l00039">39</a> pliku <a class="el" href="_c___parameter___container_8cpp_source.html">C_Parameter_Container.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___parameter___container_8h_source.html#l00026">ile</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___parameter___container_8cpp_source.html#l00187">ClearAll()</a>, <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00037">C_PortParameter_Container::GetNumOfComponentsP()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00596">C_myRunProcess::ImportData()</a> i <a class="el" href="_c___parameter___container_8cpp_source.html#l00196">PrintParams()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___parameter___container_a63e07ec8f12b69a7fe3abbe03f896542_icgraph.png" border="0" usemap="#class_c___parameter___container_a63e07ec8f12b69a7fe3abbe03f896542_icgraph_map" alt=""></div>
+<map name="class_c___parameter___container_a63e07ec8f12b69a7fe3abbe03f896542_icgraph_map" id="class_c___parameter___container_a63e07ec8f12b69a7fe3abbe03f896542_icgraph">
+<area shape="rect" id="node3" href="class_c___parameter___container.html#ab196d93942c6d400b84af39e68ede81b" title="Kasuje zawartość klasy &#45; wszystkich danych." alt="" coords="419,7,632,36"/><area shape="rect" id="node9" href="class_c__my_run_process.html#a96de0e119537f9f36f3cfaa8da96280f" title="Wczytuje dane z Fluenta." alt="" coords="775,59,972,88"/><area shape="rect" id="node13" href="class_c___port_parameter___container.html#a4843cad88f2204d3934f1f62d2a0abe9" title="Zwraca ilosc przechowywanych komponentów w klasie dla danego wejscia." alt="" coords="359,111,692,140"/><area shape="rect" id="node16" href="class_c___parameter___container.html#ab713e9a3ba582fc32576ec724076cd1b" title="Drukuje zawartość portów do pliku." alt="" coords="405,164,645,193"/><area shape="rect" id="node5" href="class_c___port_parameter___container.html#a9ad1d472e32f73bbcc3687194a8cecbd" title="Kasuje zawartość klasy &#45; wszystkich danych wszystkich wejść." alt="" coords="751,5,996,35"/><area shape="rect" id="node7" href="class_c__my_run_process.html#a7511e1d0a3cb9056ff87bd4a4cd4c886" title="pobiera parametry z klasy na zewnątrz &#45; wersja nowsza" alt="" coords="1079,5,1279,35"/><area shape="rect" id="node11" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="1353,111,1524,140"/><area shape="rect" id="node18" href="class_c___port_parameter___container.html#af7ff20d9bcd1cd8a2f927b8cb7679ea8" title="Drukuje zawartość portów do pliku." alt="" coords="741,164,1005,193"/><area shape="rect" id="node20" href="class_c__my_run_process.html#aef8a141a9982779c57bb5931d87d710b" title="Drukuje zawartość portów do pliku." alt="" coords="1053,111,1304,140"/><area shape="rect" id="node23" href="class_c__my_run_process.html#ae6b5f57310ae330f061f867d0582ee4e" title="Drukuje zawartość portów do pliku." alt="" coords="1055,164,1303,193"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad2d052ba248de520d907fbc68c2c1b3f"></a><!-- doxytag: member="C_Parameter_Container::GetParameter" ref="ad2d052ba248de520d907fbc68c2c1b3f" args="(unsigned int CompID, nazwy_parametrow paramID, double &amp;paramVal)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL C_Parameter_Container::GetParameter </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>CompID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889d">nazwy_parametrow</a>&nbsp;</td>
+          <td class="paramname"> <em>paramID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&nbsp;</td>
+          <td class="paramname"> <em>paramVal</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Zwraca parametr komponentu - rozpoznaje po id. </p>
+<p>Funkcja zwraca parametr do materiału. Parametr to jedna z wlaściwości fizycznych zdefinowana w klasie <a class="el" href="_c___parameters___set_8h.html">C_Parameters_Set.h</a> </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>CompID</em>&nbsp;</td><td>id komponentu - materiału </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>paramID</em>&nbsp;</td><td>nazwa parametru do dodania zgodna z definicja w <a class="el" href="_c___parameters___set_8h.html">C_Parameters_Set.h</a> </td></tr>
+    <tr><td valign="top"><tt>[out]</tt>&nbsp;</td><td valign="top"><em>paramVal</em>&nbsp;</td><td>wartość parametru</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>FAIL</em>&nbsp;</td><td>Jeśli błąd - nie znaleziono odpowiednika paramID lub CompID jest &gt; niż ilość przechowywanych komponentów, lub zwracany komponent nie był nigdy zainicjalizowany </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>OK</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c___parameter___container_8cpp_source.html#l00146">146</a> pliku <a class="el" href="_c___parameter___container_8cpp_source.html">C_Parameter_Container.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___parameters___set_8h_source.html#l00041">C_Parameters_Set::bDensity</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00038">C_Parameters_Set::bMoleFlow</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00040">C_Parameters_Set::bMoleFraction</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00042">C_Parameters_Set::bmoleperkg</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00039">C_Parameters_Set::bPressure</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00037">C_Parameters_Set::bTemperature</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00033">C_Parameters_Set::Density</a>, <a class="el" href="definicje_8h_source.html#l00002">FAIL</a>, <a class="el" href="_c___parameter___container_8h_source.html#l00026">ile</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00027">C_Parameters_Set::MoleFlow</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00031">C_Parameters_Set::MoleFraction</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00035">C_Parameters_Set::moleperkg</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00010">PARAM_DENSITY</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00007">PARAM_MOLEFLOW</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00009">PARAM_MOLEFRACTION</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00011">PARAM_MOLEPERKG</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00008">PARAM_PRESSURE</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00006">PARAM_TEMPERATURE</a>, <a class="el" href="_c___parameter___container_8h_source.html#l00016">ParametersContainer</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00029">C_Parameters_Set::Pressure</a> i <a class="el" href="_c___parameters___set_8h_source.html#l00025">C_Parameters_Set::Temperature</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3025843a154aec4c2e75a412ec81385e"></a><!-- doxytag: member="C_Parameter_Container::GetParameter" ref="a3025843a154aec4c2e75a412ec81385e" args="(char *compName, nazwy_parametrow paramID, double &amp;paramVal)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL C_Parameter_Container::GetParameter </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>compName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889d">nazwy_parametrow</a>&nbsp;</td>
+          <td class="paramname"> <em>paramID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&nbsp;</td>
+          <td class="paramname"> <em>paramVal</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Zwraca parametr komponentu - rozpoznaje po nazwie. </p>
+<p>Funkcja zwraca parametr do materiału. Parametr to jedna z wlaściwości fizycznych zdefinowana w klasie <a class="el" href="_c___parameters___set_8h.html">C_Parameters_Set.h</a> </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>compName</em>&nbsp;</td><td>nazwa komponentu - materiału </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>paramID</em>&nbsp;</td><td>nazwa parametru do dodania zgodna z definicja w <a class="el" href="_c___parameters___set_8h.html">C_Parameters_Set.h</a> </td></tr>
+    <tr><td valign="top"><tt>[out]</tt>&nbsp;</td><td valign="top"><em>paramVal</em>&nbsp;</td><td>wartość parametru</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>FAIL</em>&nbsp;</td><td>Jeśli błąd - nie znaleziono odpowiednika paramID lub CompID jest &gt; niż ilość przechowywanych komponentów lub nie znaleziono nazwy komponentu </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>OK</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c___parameter___container_8cpp_source.html#l00135">135</a> pliku <a class="el" href="_c___parameter___container_8cpp_source.html">C_Parameter_Container.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="definicje_8h_source.html#l00002">FAIL</a> i <a class="el" href="_c___parameter___container_8cpp_source.html#l00115">GetCompID()</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00089">C_PortParameter_Container::GetParameterP()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00854">C_myRunProcess::GetParams()</a> i <a class="el" href="_c___parameter___container_8cpp_source.html#l00196">PrintParams()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___parameter___container_a3025843a154aec4c2e75a412ec81385e_cgraph.png" border="0" usemap="#class_c___parameter___container_a3025843a154aec4c2e75a412ec81385e_cgraph_map" alt=""></div>
+<map name="class_c___parameter___container_a3025843a154aec4c2e75a412ec81385e_cgraph_map" id="class_c___parameter___container_a3025843a154aec4c2e75a412ec81385e_cgraph">
+<area shape="rect" id="node3" href="class_c___parameter___container.html#accb414d013c6b9d04596c01b1b19a008" title="Zwraca id komponentu na podstawie nazwy, lub &#45;1 gdy nie ma go." alt="" coords="304,5,539,35"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___parameter___container_a3025843a154aec4c2e75a412ec81385e_icgraph.png" border="0" usemap="#class_c___parameter___container_a3025843a154aec4c2e75a412ec81385e_icgraph_map" alt=""></div>
+<map name="class_c___parameter___container_a3025843a154aec4c2e75a412ec81385e_icgraph_map" id="class_c___parameter___container_a3025843a154aec4c2e75a412ec81385e_icgraph">
+<area shape="rect" id="node3" href="class_c___port_parameter___container.html#a40f71af3c7efa9ae20bad902f781f7d0" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="304,32,587,61"/><area shape="rect" id="node9" href="class_c__my_run_process.html#a7511e1d0a3cb9056ff87bd4a4cd4c886" title="pobiera parametry z klasy na zewnątrz &#45; wersja nowsza" alt="" coords="667,84,867,113"/><area shape="rect" id="node14" href="class_c___parameter___container.html#ab713e9a3ba582fc32576ec724076cd1b" title="Drukuje zawartość portów do pliku." alt="" coords="325,137,565,167"/><area shape="rect" id="node5" href="class_c__my_run_process.html#af04033e23f541696c736ef795e864392" title="Tworzy środowisko do uruchomienia fluenta &#45; generuje scm oraz journalC_Params." alt="" coords="975,5,1169,35"/><area shape="rect" id="node11" href="class_c__my_run_process.html#a8bf8241f0ff9398a64c00176022d677d" title="wpisuje parametry do klasy, wersja nowsza" alt="" coords="667,31,867,60"/><area shape="rect" id="node7" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="1247,84,1417,113"/><area shape="rect" id="node16" href="class_c___port_parameter___container.html#af7ff20d9bcd1cd8a2f927b8cb7679ea8" title="Drukuje zawartość portów do pliku." alt="" coords="635,137,899,167"/><area shape="rect" id="node18" href="class_c__my_run_process.html#aef8a141a9982779c57bb5931d87d710b" title="Drukuje zawartość portów do pliku." alt="" coords="947,84,1197,113"/><area shape="rect" id="node21" href="class_c__my_run_process.html#ae6b5f57310ae330f061f867d0582ee4e" title="Drukuje zawartość portów do pliku." alt="" coords="948,137,1196,167"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab713e9a3ba582fc32576ec724076cd1b"></a><!-- doxytag: member="C_Parameter_Container::PrintParams" ref="ab713e9a3ba582fc32576ec724076cd1b" args="(FILE *fid)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void C_Parameter_Container::PrintParams </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&nbsp;</td>
+          <td class="paramname"> <em>fid</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Drukuje zawartość portów do pliku. </p>
+<p>Zapisuje wszystkie parametry trzymane w klasie dla wszystkich wejsć do pliku </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>fid</em>&nbsp;</td><td>identyfikator pliku gdzie ma być zapisane</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Drukuje zawartość tak naprawdę klasy <a class="el" href="class_c___parameters___set.html" title="Przechowuje zbiór podstawowych parametrów. Enum musi się zgadzać z przechowywanymi...">C_Parameters_Set</a> </p>
+
+<p>Reimplementowana w <a class="el" href="class_c___port_parameter___container.html#af7ff20d9bcd1cd8a2f927b8cb7679ea8">C_PortParameter_Container</a>.</p>
+
+<p>Definicja w linii <a class="el" href="_c___parameter___container_8cpp_source.html#l00196">196</a> pliku <a class="el" href="_c___parameter___container_8cpp_source.html">C_Parameter_Container.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___parameter___container_8cpp_source.html#l00046">GetComponentName()</a>, <a class="el" href="_c___parameter___container_8cpp_source.html#l00039">GetNumOfComponents()</a>, <a class="el" href="_c___parameter___container_8cpp_source.html#l00135">GetParameter()</a>, <a class="el" href="definicje_8h_source.html#l00003">OK</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00010">PARAM_DENSITY</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00007">PARAM_MOLEFLOW</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00009">PARAM_MOLEFRACTION</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00011">PARAM_MOLEPERKG</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00008">PARAM_PRESSURE</a> i <a class="el" href="_c___parameters___set_8h_source.html#l00006">PARAM_TEMPERATURE</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00124">C_PortParameter_Container::PrintParams()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___parameter___container_ab713e9a3ba582fc32576ec724076cd1b_cgraph.png" border="0" usemap="#class_c___parameter___container_ab713e9a3ba582fc32576ec724076cd1b_cgraph_map" alt=""></div>
+<map name="class_c___parameter___container_ab713e9a3ba582fc32576ec724076cd1b_cgraph_map" id="class_c___parameter___container_ab713e9a3ba582fc32576ec724076cd1b_cgraph">
+<area shape="rect" id="node3" href="class_c___parameter___container.html#a9c253d28313ba83391397c031b2b4249" title="Zwraca nazwę komponentu po podaniu jego id, lub NULL gdy go nie ma." alt="" coords="301,5,589,35"/><area shape="rect" id="node5" href="class_c___parameter___container.html#a63e07ec8f12b69a7fe3abbe03f896542" title="Zwraca ilosc przechowywanych komponentów w klasie." alt="" coords="295,59,596,88"/><area shape="rect" id="node7" href="class_c___parameter___container.html#a3025843a154aec4c2e75a412ec81385e" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="321,112,569,141"/><area shape="rect" id="node9" href="class_c___parameter___container.html#accb414d013c6b9d04596c01b1b19a008" title="Zwraca id komponentu na podstawie nazwy, lub &#45;1 gdy nie ma go." alt="" coords="645,112,880,141"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___parameter___container_ab713e9a3ba582fc32576ec724076cd1b_icgraph.png" border="0" usemap="#class_c___parameter___container_ab713e9a3ba582fc32576ec724076cd1b_icgraph_map" alt=""></div>
+<map name="class_c___parameter___container_ab713e9a3ba582fc32576ec724076cd1b_icgraph_map" id="class_c___parameter___container_ab713e9a3ba582fc32576ec724076cd1b_icgraph">
+<area shape="rect" id="node3" href="class_c___port_parameter___container.html#af7ff20d9bcd1cd8a2f927b8cb7679ea8" title="Drukuje zawartość portów do pliku." alt="" coords="293,32,557,61"/><area shape="rect" id="node5" href="class_c__my_run_process.html#aef8a141a9982779c57bb5931d87d710b" title="Drukuje zawartość portów do pliku." alt="" coords="605,5,856,35"/><area shape="rect" id="node9" href="class_c__my_run_process.html#ae6b5f57310ae330f061f867d0582ee4e" title="Drukuje zawartość portów do pliku." alt="" coords="607,59,855,88"/><area shape="rect" id="node7" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="905,32,1076,61"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a1572fb9ba2f2ed524e0c6d908d4035c2"></a><!-- doxytag: member="C_Parameter_Container::RegisterComponent" ref="a1572fb9ba2f2ed524e0c6d908d4035c2" args="(char *compName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL C_Parameter_Container::RegisterComponent </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>compName</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Dodaje komponent (materiał) o danej nazwie do listy przechowywanych. Komponenety są numerowane od 0 w kolejności dodawania Przed użyciem nalezy zarejestrować komponenty. Ponowna rejestracja nie jest w tej wersji możliwa!! Komponenty są przechowywane w kolejnosci rejestrowania</p>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>FAIL</em>&nbsp;</td><td>Jeśli błąd - dodajemy kolejny komponent a nie ma już miejsca (MAX_EXPORTS) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>OK</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c___parameter___container_8cpp_source.html#l00023">23</a> pliku <a class="el" href="_c___parameter___container_8cpp_source.html">C_Parameter_Container.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___parameter___container_8h_source.html#l00017">compNames</a>, <a class="el" href="definicje_8h_source.html#l00002">FAIL</a>, <a class="el" href="_c___parameter___container_8h_source.html#l00026">ile</a>, <a class="el" href="definicje_8h_source.html#l00009">MAX_COMPONENT_NAME</a>, <a class="el" href="definicje_8h_source.html#l00005">MAX_EXPORTS</a>, <a class="el" href="definicje_8h_source.html#l00003">OK</a> i <a class="el" href="_c___parameter___container_8h_source.html#l00016">ParametersContainer</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00596">C_myRunProcess::ImportData()</a> i <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00022">C_PortParameter_Container::RegisterComponentP()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___parameter___container_a1572fb9ba2f2ed524e0c6d908d4035c2_icgraph.png" border="0" usemap="#class_c___parameter___container_a1572fb9ba2f2ed524e0c6d908d4035c2_icgraph_map" alt=""></div>
+<map name="class_c___parameter___container_a1572fb9ba2f2ed524e0c6d908d4035c2_icgraph_map" id="class_c___parameter___container_a1572fb9ba2f2ed524e0c6d908d4035c2_icgraph">
+<area shape="rect" id="node3" href="class_c__my_run_process.html#a96de0e119537f9f36f3cfaa8da96280f" title="Wczytuje dane z Fluenta." alt="" coords="395,5,592,35"/><area shape="rect" id="node7" href="class_c___port_parameter___container.html#a05afe498977802765e4c562acd8f7214" title="C_PortParameter_Container::RegisterComponentP" alt="" coords="336,59,651,88"/><area shape="rect" id="node5" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="715,5,885,35"/><area shape="rect" id="node9" href="class_c__my_run_process.html#a7511e1d0a3cb9056ff87bd4a4cd4c886" title="pobiera parametry z klasy na zewnątrz &#45; wersja nowsza" alt="" coords="700,59,900,88"/><area shape="rect" id="node11" href="class_c__my_run_process.html#a8bf8241f0ff9398a64c00176022d677d" title="wpisuje parametry do klasy, wersja nowsza" alt="" coords="700,112,900,141"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja atrybutów składowych</h2>
+<a class="anchor" id="a237f3bf2dbe560f7438a32cc9e09e966"></a><!-- doxytag: member="C_Parameter_Container::compNames" ref="a237f3bf2dbe560f7438a32cc9e09e966" args="[MAX_EXPORTS]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* <a class="el" href="class_c___parameter___container.html#a237f3bf2dbe560f7438a32cc9e09e966">C_Parameter_Container::compNames</a>[MAX_EXPORTS]<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___parameter___container_8h_source.html#l00017">17</a> pliku <a class="el" href="_c___parameter___container_8h_source.html">C_Parameter_Container.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___parameter___container_8cpp_source.html#l00004">C_Parameter_Container()</a>, <a class="el" href="_c___parameter___container_8cpp_source.html#l00115">GetCompID()</a>, <a class="el" href="_c___parameter___container_8cpp_source.html#l00046">GetComponentName()</a>, <a class="el" href="_c___parameter___container_8cpp_source.html#l00023">RegisterComponent()</a> i <a class="el" href="_c___parameter___container_8cpp_source.html#l00013">~C_Parameter_Container()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2b2edefc40e1c2c4733c0fde7801f4bb"></a><!-- doxytag: member="C_Parameter_Container::ile" ref="a2b2edefc40e1c2c4733c0fde7801f4bb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="class_c___parameter___container.html#a2b2edefc40e1c2c4733c0fde7801f4bb">C_Parameter_Container::ile</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>ile jest aktualnie przechowywanych komponentów </p>
+
+<p>Definicja w linii <a class="el" href="_c___parameter___container_8h_source.html#l00026">26</a> pliku <a class="el" href="_c___parameter___container_8h_source.html">C_Parameter_Container.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___parameter___container_8cpp_source.html#l00064">AssignParamToComp()</a>, <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00111">C_PortParameter_Container::ClearAllP()</a>, <a class="el" href="_c___parameter___container_8cpp_source.html#l00115">GetCompID()</a>, <a class="el" href="_c___parameter___container_8cpp_source.html#l00046">GetComponentName()</a>, <a class="el" href="_c___parameter___container_8cpp_source.html#l00039">GetNumOfComponents()</a>, <a class="el" href="_c___parameter___container_8cpp_source.html#l00146">GetParameter()</a>, <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00124">C_PortParameter_Container::PrintParams()</a>, <a class="el" href="_c___parameter___container_8cpp_source.html#l00023">RegisterComponent()</a> i <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00022">C_PortParameter_Container::RegisterComponentP()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa5153be3ddcf0cf446ab7716ccc42417"></a><!-- doxytag: member="C_Parameter_Container::ParametersContainer" ref="aa5153be3ddcf0cf446ab7716ccc42417" args="[MAX_EXPORTS]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c___parameters___set.html">C_Parameters_Set</a>* <a class="el" href="class_c___parameter___container.html#aa5153be3ddcf0cf446ab7716ccc42417">C_Parameter_Container::ParametersContainer</a>[MAX_EXPORTS]<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___parameter___container_8h_source.html#l00016">16</a> pliku <a class="el" href="_c___parameter___container_8h_source.html">C_Parameter_Container.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___parameter___container_8cpp_source.html#l00064">AssignParamToComp()</a>, <a class="el" href="_c___parameter___container_8cpp_source.html#l00004">C_Parameter_Container()</a>, <a class="el" href="_c___parameter___container_8cpp_source.html#l00187">ClearAll()</a>, <a class="el" href="_c___parameter___container_8cpp_source.html#l00146">GetParameter()</a>, <a class="el" href="_c___parameter___container_8cpp_source.html#l00023">RegisterComponent()</a> i <a class="el" href="_c___parameter___container_8cpp_source.html#l00013">~C_Parameter_Container()</a>.</p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li><a class="el" href="_c___parameter___container_8h_source.html">C_Parameter_Container.h</a></li>
+<li><a class="el" href="_c___parameter___container_8cpp_source.html">C_Parameter_Container.cpp</a></li>
+</ul>
+</div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:29 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

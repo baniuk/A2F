@@ -1,0 +1,134 @@
+// CCF1.idl : IDL source for CCF1
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (CCF1.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+[
+	object,
+	uuid(a817e7a2-43fa-11d0-9e44-00aa00b6770a),
+	dual,
+	helpstring("IComponentRegistrar Interface"),
+	pointer_default(unique)
+]
+interface IComponentRegistrar : IDispatch
+{
+	[id(1)]	HRESULT Attach([in] BSTR bstrPath);
+	[id(2)]	HRESULT RegisterAll();
+	[id(3)]	HRESULT UnregisterAll();
+	[id(4)]	HRESULT GetComponents([out] SAFEARRAY(BSTR)* pbstrCLSIDs, [out] SAFEARRAY(BSTR)* pbstrDescriptions);
+	[id(5)]	HRESULT RegisterComponent([in] BSTR bstrCLSID);
+	[id(6)] HRESULT UnregisterComponent([in] BSTR bstrCLSID);
+};
+
+[
+	object,
+	uuid(1ABD43ED-339F-43ED-9087-396904A85206),
+	dual,
+	nonextensible,
+	helpstring("IUnitOperation Interface"),
+	pointer_default(unique)
+]
+interface IUnitOperation : IDispatch{
+	[id(1), helpstring("method InvalidateUnit")] HRESULT InvalidateUnit(void);
+};
+[
+	object,
+	uuid(8B172D11-6ECB-4EF6-82DD-0B36F5ED68AE),
+	dual,
+	nonextensible,
+	helpstring("IPort Interface"),
+	pointer_default(unique)
+]
+interface IPort : IDispatch{
+	[propget, id(1), helpstring("property mydirection")] HRESULT mydirection([out, retval] BYTE* pVal);
+	[propput, id(1), helpstring("property mydirection")] HRESULT mydirection([in] BYTE newVal);
+	[propget, id(2), helpstring("property myName")] HRESULT myName([out, retval] BSTR* pVal);
+	[propput, id(2), helpstring("property myName")] HRESULT myName([in] BSTR newVal);
+	[propget, id(3), helpstring("property myDesc")] HRESULT myDesc([out, retval] BSTR* pVal);
+	[propput, id(3), helpstring("property myDesc")] HRESULT myDesc([in] BSTR newVal);
+	[propput, id(4), helpstring("property unit")] HRESULT unit([in] IDispatch* newVal);
+	[id(5), helpstring("method debugfile")] HRESULT debugfile(VARIANT* in);
+	[id(6), helpstring("method AddError")] HRESULT AddError([in] VARIANT* in);
+};
+[
+	object,
+	uuid(C3576B00-A36A-4C58-9311-3F25C0185E2B),
+	dual,
+	nonextensible,
+	helpstring("IPortCollection Interface"),
+	pointer_default(unique)
+]
+interface IPortCollection : IDispatch{
+	[id(1), helpstring("method AddPort2")] HRESULT AddPort2([in] IDispatch* disp);
+	[id(2), helpstring("method debugfile")] HRESULT debugfile(VARIANT* in);
+	[id(3), helpstring("method RemovePort")] HRESULT RemovePort([in] LONG index);
+	[id(4), helpstring("method AddError")] HRESULT AddError([in] VARIANT* in);
+};
+[
+	object,
+	uuid(F9FC8344-8D41-4784-A491-925120E09B06),
+	dual,
+	nonextensible,
+	helpstring("IParameterCollection Interface"),
+	pointer_default(unique)
+]
+interface IParameterCollection : IDispatch{
+	[id(1), helpstring("method AddParameter")] HRESULT AddParameter([in] IDispatch* p);
+	[id(2), helpstring("method RemoveParameter")] HRESULT RemoveParameter([in] LONG index);
+	[id(3), helpstring("method debugfile")] HRESULT debugfile([in] VARIANT* in);
+	[id(4), helpstring("method AddError")] HRESULT AddError([in] VARIANT* in);
+};
+[
+	uuid(57DD3450-4BD1-485B-AD22-B0057D38191D),
+	version(1.0),
+	helpstring("CCF1 1.0 Type Library"),
+	custom(a817e7a1-43fa-11d0-9e44-00aa00b6770a,"{4E8E6E1F-6001-40D7-A6D5-77C10C0413C8}")
+]
+library CCF1Lib
+{
+	importlib("stdole2.tlb");
+
+	[
+		uuid(4E8E6E1F-6001-40D7-A6D5-77C10C0413C8),
+		helpstring("ComponentRegistrar Class")
+	]
+	coclass CompReg
+	{
+		[default] interface IComponentRegistrar;
+	};
+	[
+		uuid(060E165D-4FCF-49CB-96B6-427A5CFCB57A),
+		helpstring("UnitOperation Class")
+	]
+	coclass UnitOperation
+	{
+		[default] interface IUnitOperation;
+	};
+	[
+		uuid(2447B9B3-F326-4EFF-864D-41DC22111B4A),
+		helpstring("Port Class")
+	]
+	coclass Port
+	{
+		[default] interface IPort;
+	};
+	[
+		uuid(AD8CC3DF-932C-40ED-A6B9-48036BF2C4DE),
+		helpstring("PortCollection Class")
+	]
+	coclass PortCollection
+	{
+		[default] interface IPortCollection;
+	};
+	[
+		uuid(423EC7B2-0159-4EA7-8751-C44F7203A214),
+		helpstring("ParameterCollection Class")
+	]
+	coclass ParameterCollection
+	{
+		[default] interface IParameterCollection;
+	};
+};

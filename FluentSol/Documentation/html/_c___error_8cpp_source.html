@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Plik źródłowy C_Error.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
+    </ul>
+  </div>
+<h1>C_Error.cpp</h1><a href="_c___error_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="stdafx_8h.html">StdAfx.h</a>&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &quot;<a class="code" href="_c___error_8h.html">C_Error.h</a>&quot;</span>
+<a name="l00003"></a>00003 
+<a name="l00004"></a><a class="code" href="class_c___error.html#a3e7833582416737065bb80b2eaed898d">00004</a> <a class="code" href="class_c___error.html#a3e7833582416737065bb80b2eaed898d">C_Error::C_Error</a>(<span class="keywordtype">void</span>):<a class="code" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych.">C_Node</a>()
+<a name="l00005"></a>00005 {
+<a name="l00006"></a>00006  <a class="code" href="class_c___error.html#a042008d36fc7830a128929c94f9059f9" title="Ta zmienna jest ustawiana na TRUE jeśli od ostatniego czyszczenia lub nagrania na...">changes</a> = FALSE;
+<a name="l00007"></a>00007 }
+<a name="l00008"></a>00008 
+<a name="l00009"></a><a class="code" href="class_c___error.html#a493679c4cad164dadce1b2e3a82e550d">00009</a> <a class="code" href="class_c___error.html#a3e7833582416737065bb80b2eaed898d">C_Error::C_Error</a>(<span class="keywordtype">char</span>* edata):<a class="code" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych.">C_Node</a>(edata)
+<a name="l00010"></a>00010 {
+<a name="l00011"></a>00011  <a class="code" href="class_c___error.html#a042008d36fc7830a128929c94f9059f9" title="Ta zmienna jest ustawiana na TRUE jeśli od ostatniego czyszczenia lub nagrania na...">changes</a> = FALSE;
+<a name="l00012"></a>00012 }
+<a name="l00013"></a>00013 
+<a name="l00014"></a><a class="code" href="class_c___error.html#ad24b9c0338bf8b19f4f419e790442bc8">00014</a> <a class="code" href="class_c___error.html#ad24b9c0338bf8b19f4f419e790442bc8">C_Error::~C_Error</a>(<span class="keywordtype">void</span>)
+<a name="l00015"></a>00015 {
+<a name="l00016"></a>00016 }
+<a name="l00017"></a>00017 
+<a name="l00018"></a><a class="code" href="class_c___error.html#a8b7364721f28a4ec024f2d9541619452">00018</a> <span class="keywordtype">void</span> <a class="code" href="class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy.">C_Error::AddError</a>(<span class="keywordtype">char</span>* error)
+<a name="l00019"></a>00019 {
+<a name="l00020"></a>00020  <a class="code" href="class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy.">Add_Next</a>(error);
+<a name="l00021"></a>00021  <a class="code" href="class_c___error.html#a042008d36fc7830a128929c94f9059f9" title="Ta zmienna jest ustawiana na TRUE jeśli od ostatniego czyszczenia lub nagrania na...">changes</a> = TRUE;
+<a name="l00022"></a>00022 }
+<a name="l00023"></a>00023 
+<a name="l00024"></a><a class="code" href="class_c___error.html#accf210fb142275680f7b1be63fc90cb6">00024</a> <span class="keywordtype">void</span> <a class="code" href="class_c___error.html#accf210fb142275680f7b1be63fc90cb6" title="Czyści wszystkie komunikaty.">C_Error::ClearErrorStatus</a>(<span class="keywordtype">void</span>)
+<a name="l00025"></a>00025 {
+<a name="l00026"></a>00026  <a class="code" href="class_c___node.html#a063a587f5dd7736b9b924879b80d133c" title="Kasuje wszyskie wezły.">Clear_All</a>();
+<a name="l00027"></a>00027  <a class="code" href="class_c___error.html#a042008d36fc7830a128929c94f9059f9" title="Ta zmienna jest ustawiana na TRUE jeśli od ostatniego czyszczenia lub nagrania na...">changes</a> = FALSE;
+<a name="l00028"></a>00028 }
+<a name="l00029"></a>00029 
+<a name="l00030"></a><a class="code" href="class_c___error.html#ac88832708e7110c890f78f7c9348c2bd">00030</a> <span class="keywordtype">void</span> <a class="code" href="class_c___error.html#ac88832708e7110c890f78f7c9348c2bd" title="Zgrywa wszystkie błedy na dysk.">C_Error::PrintAll</a>(<span class="keywordtype">void</span>)
+<a name="l00031"></a>00031 {
+<a name="l00032"></a>00032  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ilenode,a;
+<a name="l00033"></a>00033  <a class="code" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych.">C_Node</a>* tmp;
+<a name="l00034"></a>00034  FILE* fid;
+<a name="l00035"></a>00035  <span class="keywordtype">char</span> timeline[26];
+<a name="l00036"></a>00036  <span class="keyword">struct </span>_timeb timebuffer;
+<a name="l00037"></a>00037  _ftime_s( &amp;timebuffer );
+<a name="l00038"></a>00038  ctime_s( timeline, 26, &amp; ( timebuffer.time ) );
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040  <span class="keywordflow">if</span>(<a class="code" href="class_c___error.html#a042008d36fc7830a128929c94f9059f9" title="Ta zmienna jest ustawiana na TRUE jeśli od ostatniego czyszczenia lub nagrania na...">changes</a> == TRUE) <span class="comment">// zgrywam tylko jesli były zmiany</span>
+<a name="l00041"></a>00041  {
+<a name="l00042"></a>00042   fopen_s(&amp;fid,<span class="stringliteral">&quot;c:\\ErrorLog.txt&quot;</span>,<span class="stringliteral">&quot;a+&quot;</span>);
+<a name="l00043"></a>00043   fprintf(fid,<span class="stringliteral">&quot;\n-- %.19s.%hu %s&quot;</span>, timeline, timebuffer.millitm, &amp;timeline[18] );
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045   tmp = <span class="keyword">this</span>;
+<a name="l00046"></a>00046   ilenode = <a class="code" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów.">Get_Num_of_Nodes</a>();
+<a name="l00047"></a>00047   <span class="keywordflow">for</span>(a=0;a&lt;ilenode;a++)
+<a name="l00048"></a>00048   {
+<a name="l00049"></a>00049    fprintf(fid,<span class="stringliteral">&quot;%s\n&quot;</span>,tmp-&gt;<a class="code" href="class_c___node.html#a324eeeec704e2f579104eb0d44f32dbe">data</a>);
+<a name="l00050"></a>00050    tmp = tmp-&gt;<a class="code" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego.">Get_Next</a>();
+<a name="l00051"></a>00051   }
+<a name="l00052"></a>00052   fclose(fid);
+<a name="l00053"></a>00053   <a class="code" href="class_c___error.html#a042008d36fc7830a128929c94f9059f9" title="Ta zmienna jest ustawiana na TRUE jeśli od ostatniego czyszczenia lub nagrania na...">changes</a> = FALSE;
+<a name="l00054"></a>00054  }
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056 }
+</pre></div></div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:21 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

@@ -1,0 +1,1419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Dokumentacja klasy CUnitOperation</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Lista&nbsp;klas</span></a></li>
+      <li><a href="classes.html"><span>Indeks&nbsp;klas</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchia&nbsp;klas</span></a></li>
+      <li><a href="functions.html"><span>Składowe&nbsp;klas</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja klasy CUnitOperation</h1><!-- doxytag: class="CUnitOperation" -->
+<p>Klasa implementująca interfejs <a class="el" href="interface_i_unit_operation.html">IUnitOperation</a>.  
+<a href="#_details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagram współpracy dla CUnitOperation:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c_unit_operation__coll__graph.png" border="0" usemap="#_c_unit_operation_coll__map" alt="Collaboration graph"/></div>
+<map name="_c_unit_operation_coll__map" id="_c_unit_operation_coll__map">
+<area shape="rect" id="node2" href="class_c___error.html" title="Klasa do obsługi błędów." alt="" coords="5,101,72,131"/><area shape="rect" id="node9" href="class_c___params.html" title="Klasa do obsługi jezyka skryptowego do przekazaywnia parametrów z wykorzystaniem..." alt="" coords="93,283,176,312"/><area shape="rect" id="node16" href="class_c__my_run_process.html" title="Klasa służąca do obsługi fluenta. Trzyma dane związane z strumieniami, obrabia..." alt="" coords="373,429,499,459"/><area shape="rect" id="node4" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych." alt="" coords="5,5,72,35"/><area shape="rect" id="node7" href="interface_i_port.html" title="IPort" alt="" coords="29,429,77,459"/><area shape="rect" id="node12" href="class_data___to___read.html" title="Klasa sluzy do przechowywania danych jesli jest ich kilka do jednego rozkazu." alt="" coords="96,101,203,131"/><area shape="rect" id="node14" href="class_c__my_dialog_param.html" title="C_myDialogParam" alt="" coords="219,429,349,459"/><area shape="rect" id="node20" href="class_c___port_parameter___container.html" title="Klasa przechowuje kontainery z parametrami dla poszczególnych wejsc, parametry powiązane..." alt="" coords="344,283,528,312"/><area shape="rect" id="node22" href="class_c___parameter___container.html" title="Klasa jest kontainerem z parametrami opisującymi poszczególne materiały, parametry..." alt="" coords="355,101,515,131"/><area shape="rect" id="node24" href="class_c___parameters___set.html" title="Przechowuje zbiór podstawowych parametrów. Enum musi się zgadzać z przechowywanymi..." alt="" coords="369,5,500,35"/></map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legenda</a>]</span></center></div>
+
+<p><a href="class_c_unit_operation-members.html">Lista wszystkich składowych.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Metody publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a3e8877612e6772acf65ea50f198f91d8">CUnitOperation</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">HRESULT&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a53c3a02153a166bd1ff7d93164e0e767">FinalConstruct</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a619ea0f87e1912c401264741b9c7c636">FinalRelease</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a38144a0107f211806bc5fcb40258ea96">InvalidateUnit</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a675da2f8d13358cda8421843b4ce45aa">get_name</a> (BSTR *name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a4bfe2ad0b8242539420d1510c09b1070">get_code</a> (long *code)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#ab9c28d0bba9fa065d01d3061248bd087">get_description</a> (BSTR *description)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a5d481e815f512d505a903be546f97531">get_scope</a> (BSTR *scope)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a9a5bade79f0894bbb89c6e186ca167a9">get_interfaceName</a> (BSTR *interfaceName)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#acc62d7c97f73317a8e165a5ac173d95a">get_operation</a> (BSTR *operation)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a4f3796bc6048de829e11f1c3484f4fd3">get_moreInfo</a> (BSTR *moreInfo)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#aba3242118bd4c9f0066a43ef4863b48e">get_ComponentName</a> (BSTR *name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a77a14e0b6572977e2c8b6314da44ba6f">put_ComponentName</a> (BSTR name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a3288c9c1625d4584b9d7e7eeb23b2c70">get_ComponentDescription</a> (BSTR *desc)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a7b970a24c084e890415f3ed06147b856">put_ComponentDescription</a> (BSTR desc)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a767a22f0c99e578edad6d9fd9961f3bf">get_ports</a> (LPDISPATCH *ports)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#aa617b452dc387810f8ef61766af01bd8">get_ValStatus</a> (CapeValidationStatus *ValStatus)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d">Calculate</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Główna funkcja obliczająca, wywoływana przez ASPENA.  <a href="#ae5e93605f18ca571d37dd289b06a345d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a1007e0ec8586a8292b22b802a7eaf21c">Validate</a> (BSTR *message, VARIANT_BOOL *isValid)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#aa452f4976e5168fbc93df41abda5f765">get_reports</a> (VARIANT *reports)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#af257e74b8c82099c9b3dd58e9d7b652f">get_selectedReport</a> (BSTR *report)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a5a692924ab79e5bcfb90cf82dc0b352c">put_selectedReport</a> (BSTR report)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#aedc851750a89fb7b28b6d2106e12cd7a">ProduceReport</a> (BSTR *message)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a565c563bf441cd494a2591059c3d7f2e">get_parameters</a> (LPDISPATCH *parameters)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#ae2a6edfb54b5e453f133e0995c39bc7f">put_simulationContext</a> (LPDISPATCH rhs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a9816d797f32a2d1738eae7899536921a">Initialize</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a7036afb274624cc7bdd159e34165299c">Terminate</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a0cadb4b8cb9feba7cc1231e663694a8d">Edit</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a5742dcfc6765c1d5e5095050ccc13bb5">~CUnitOperation</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#ad4f3bf66d981249d68dcd0a83bd9eb1c">SendMsgToHistory</a> (BSTR message)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#aa970f0b8bbcbba1bfbcb8691d220e56f">SendMsgToTerminal</a> (BSTR message)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a918b5d083bd2db43dbf7445a700faf23">RaiseError</a> (ErrorSeverity severity, BSTR context, BSTR message)</td></tr>
+<tr><td colspan="2"><h2>Metody prywatne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#ad79f0a5cce9ea31bde9d88b8232d025a">SetError</a> (BSTR desc, BSTR interf, BSTR scope)</td></tr>
+<tr><td colspan="2"><h2>Atrybuty prywatne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a022b8d0eba3abf6b69df624f00aa2244">errDesc</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a721cbb91fddd7cbbca57b09fdd6f7aa3">errInterface</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a5df43f8f9c48a203cee59609a078bd5a">errScope</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a52fe9b66e68c2bb54fe241f8ca80ab21">myName</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a1b4c9c68f0e6c29527faeb06d0170bea">myDesc</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#ad668681d96e3c5f237a727902c6a4f48">externalError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#ab23aa59fbff5867d14b6690707934bcc">rep</a> [2]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">SAFEARRAY *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a866ab3b0b6e0824e3f84c21bd8c36130">rep1</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">SAFEARRAYBOUND&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a280ca3e36accc82ee243af003ad793f0">rgsabound</a> [1]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">VARIANT&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#ab64a729c2831c044f4ff3f2a2c4d582a">v_rep</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CapeValidationStatus&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a31a07ab0b8a875aaf8f7d4aaf76cff13">myvalStatus</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a0146906d84500ff5d31a27d006fae295">reportIndex</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">LPDISPATCH&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a7ac9cbf18d51a4fa6b577c5c37b823f3">simulationContext</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">IPortCollectionPtr&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a9fa8ce37f31cd45991dc0ff8312a2f96">myports</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_i_port.html">IPort</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a8147e6fdecda7488e7740659c91f0ca2">p</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_i_port.html">IPort</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a4a765c9c494dd3b2af5daf91f25f5a55">p1</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_i_port.html">IPort</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#ad06b6c250b9522ce0f0e5f59ed786fe3">pout</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">IParameterCollectionPtr&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a8dc99e02629c8c6936db466c0a2a4a5a">myparams</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">VARIANT&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#aed59be8e1a636ee31871b1bf387ca6a0">dopliku</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">VARIANT&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a8218a1706003210e6410a01092e5cd0a">varerr</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#aedca09080f6673119cd96400cd57941b">filename</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a426829ea1f993ce96209069694a5416b">dirp</a> [MAX_STRING]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a1bf64d59de2ffe526a37aee19c9069b6">czyASPEN</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a7f8c5ea9bcca6f6405839d33881f5315">czyValidate</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c__my_run_process.html">C_myRunProcess</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#ae0d47afb40d14415e5ff5ae79ba528fa">runfluent</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c___error.html">C_Error</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a103375c2fb6f9096f1b3df6858dc9686">err</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c___params.html">C_Params</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c__my_dialog_param.html">C_myDialogParam</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#a22e29dacd3c80360887db17ce3f06f91">mydialog</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">long&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_unit_operation.html#aa040b47501232212ddc54f17a87be2a7">ileportow</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+<p>Klasa implementująca interfejs <a class="el" href="interface_i_unit_operation.html">IUnitOperation</a>. </p>
+<p>Główna klasa implementuja IUnitOpeartion. zawiera podstawowe funkcje od których zaczyna działać program </p>
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00026">26</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+<hr/><h2>Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="a3e8877612e6772acf65ea50f198f91d8"></a><!-- doxytag: member="CUnitOperation::CUnitOperation" ref="a3e8877612e6772acf65ea50f198f91d8" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUnitOperation::CUnitOperation </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><dl class="warning"><dt><b>Ostrzeżenie:</b></dt><dd>zmiana ilości portów musi być tu uwzględniona</dd></dl>
+<p>nazwy portów są ważne</p>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000004">Błąd:</a></b></dt><dd>mozliwy problem jesli bedie wiecej wyjsc!!! </dd></dl>
+</p>
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8cpp_source.html#l00009">9</a> pliku <a class="el" href="_unit_operation_8cpp_source.html">UnitOperation.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___error_8cpp_source.html#l00018">C_Error::AddError()</a>, <a class="el" href="_c___params_8h_source.html#l00068">C_Params::bERR</a>, <a class="el" href="_c___params_8h_source.html#l00080">C_Params::bNUMOFPORTS</a>, <a class="el" href="_cape2_fluent__i_8h_source.html#l00982">CLSID_Port</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">C_Params::Creadfile()</a>, <a class="el" href="_unit_operation_8h_source.html#l00464">czyASPEN</a>, <a class="el" href="_unit_operation_8h_source.html#l00465">czyValidate</a>, <a class="el" href="_unit_operation_8h_source.html#l00463">dirp</a>, <a class="el" href="_unit_operation_8h_source.html#l00458">dopliku</a>, <a class="el" href="_unit_operation_8h_source.html#l00468">err</a>, <a class="el" href="_unit_operation_8h_source.html#l00444">externalError</a>, <a class="el" href="definicje_8h_source.html#l00002">FAIL</a>, <a class="el" href="_unit_operation_8h_source.html#l00462">filename</a>, <a class="el" href="_cape2_fluent__i_8h_source.html#l00460">IID_IPort</a>, <a class="el" href="_unit_operation_8h_source.html#l00472">ileportow</a>, <a class="el" href="definicje_8h_source.html#l00004">MAX_STRING</a>, <a class="el" href="_unit_operation_8h_source.html#l00469">my_params</a>, <a class="el" href="_unit_operation_8h_source.html#l00443">myDesc</a>, <a class="el" href="_unit_operation_8h_source.html#l00470">mydialog</a>, <a class="el" href="_unit_operation_8h_source.html#l00442">myName</a>, <a class="el" href="_unit_operation_8h_source.html#l00457">myparams</a>, <a class="el" href="_unit_operation_8h_source.html#l00451">myports</a>, <a class="el" href="_unit_operation_8h_source.html#l00447">myvalStatus</a>, <a class="el" href="_c___node_8cpp_source.html#l00045">C_Node::Node_Init()</a>, <a class="el" href="definicje_8h_source.html#l00013">NUM_OF_INPUTS</a>, <a class="el" href="_unit_operation_8h_source.html#l00454">p</a>, <a class="el" href="_unit_operation_8h_source.html#l00455">p1</a>, <a class="el" href="_unit_operation_8h_source.html#l00456">pout</a>, <a class="el" href="_unit_operation_8h_source.html#l00445">rep</a>, <a class="el" href="_unit_operation_8h_source.html#l00467">runfluent</a>, <a class="el" href="_c___params_8h_source.html#l00068">C_Params::sERR</a>, <a class="el" href="_parameter_collection_8h.html#aab630676ad19aeead24092b0361c7c93">SetOaNoCache()</a>, <a class="el" href="_c___params_8h_source.html#l00080">C_Params::sNUMOFPORTS</a> i <a class="el" href="_unit_operation_8h_source.html#l00459">varerr</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c_unit_operation_a3e8877612e6772acf65ea50f198f91d8_cgraph.png" border="0" usemap="#class_c_unit_operation_a3e8877612e6772acf65ea50f198f91d8_cgraph_map" alt=""></div>
+<map name="class_c_unit_operation_a3e8877612e6772acf65ea50f198f91d8_cgraph_map" id="class_c_unit_operation_a3e8877612e6772acf65ea50f198f91d8_cgraph">
+<area shape="rect" id="node3" href="class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy." alt="" coords="508,5,633,35"/><area shape="rect" id="node12" href="class_c___params.html#ab65d753c172afbdef6828a2804e88b91" title="Wczytuje i analizuje plik konfiguracyjny." alt="" coords="261,59,403,88"/><area shape="rect" id="node21" href="class_c___node.html#a470c6ae493f150409e14d27e7703929e" title="Inicjalizacja listy, powinno być użyte jako pierwsze." alt="" coords="267,112,397,141"/><area shape="rect" id="node23" href="_parameter_collection_8h.html#aab630676ad19aeead24092b0361c7c93" title="SetOaNoCache" alt="" coords="276,165,388,195"/><area shape="rect" id="node5" href="class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy." alt="" coords="739,5,872,35"/><area shape="rect" id="node7" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego." alt="" coords="1160,5,1291,35"/><area shape="rect" id="node9" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów." alt="" coords="920,31,1112,60"/><area shape="rect" id="node15" href="class_data___to___read.html#ab55dda5b5ca867ef21c887e4b87c7614" title="Dodaje pozycję podciągu w ciągu głównym do tablicy pozycji. Zlicza także ilość..." alt="" coords="461,59,680,88"/><area shape="rect" id="node17" href="class_data___to___read.html#a2ae9b120ce85df4bbb0b36b61f9a39c0" title="Zwraca ilosc podciągów." alt="" coords="451,112,691,141"/><area shape="rect" id="node19" href="class_c___params.html#ad0c993db154ff1beae793a917ecc0605" title="Wczytuje jedną linię skryptu i dokonuje konwersji do dużych liter." alt="" coords="488,165,653,195"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5742dcfc6765c1d5e5095050ccc13bb5"></a><!-- doxytag: member="CUnitOperation::~CUnitOperation" ref="a5742dcfc6765c1d5e5095050ccc13bb5" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUnitOperation::~CUnitOperation </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8cpp_source.html#l00187">187</a> pliku <a class="el" href="_unit_operation_8cpp_source.html">UnitOperation.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_unit_operation_8h_source.html#l00468">err</a>, <a class="el" href="_unit_operation_8h_source.html#l00439">errDesc</a>, <a class="el" href="_unit_operation_8h_source.html#l00440">errInterface</a>, <a class="el" href="_unit_operation_8h_source.html#l00441">errScope</a>, <a class="el" href="_unit_operation_8h_source.html#l00469">my_params</a>, <a class="el" href="_unit_operation_8h_source.html#l00443">myDesc</a>, <a class="el" href="_unit_operation_8h_source.html#l00470">mydialog</a>, <a class="el" href="_unit_operation_8h_source.html#l00442">myName</a>, <a class="el" href="_unit_operation_8h_source.html#l00457">myparams</a>, <a class="el" href="_unit_operation_8h_source.html#l00451">myports</a>, <a class="el" href="definicje_8h_source.html#l00013">NUM_OF_INPUTS</a>, <a class="el" href="_unit_operation_8h_source.html#l00454">p</a>, <a class="el" href="_unit_operation_8h_source.html#l00455">p1</a>, <a class="el" href="_unit_operation_8h_source.html#l00456">pout</a>, <a class="el" href="_c___error_8cpp_source.html#l00030">C_Error::PrintAll()</a>, <a class="el" href="_unit_operation_8h_source.html#l00445">rep</a> i <a class="el" href="_unit_operation_8h_source.html#l00467">runfluent</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c_unit_operation_a5742dcfc6765c1d5e5095050ccc13bb5_cgraph.png" border="0" usemap="#class_c_unit_operation_a5742dcfc6765c1d5e5095050ccc13bb5_cgraph_map" alt=""></div>
+<map name="class_c_unit_operation_a5742dcfc6765c1d5e5095050ccc13bb5_cgraph_map" id="class_c_unit_operation_a5742dcfc6765c1d5e5095050ccc13bb5_cgraph">
+<area shape="rect" id="node3" href="class_c___error.html#ac88832708e7110c890f78f7c9348c2bd" title="Zgrywa wszystkie błedy na dysk." alt="" coords="271,5,385,35"/><area shape="rect" id="node5" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego." alt="" coords="675,5,805,35"/><area shape="rect" id="node7" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów." alt="" coords="435,31,627,60"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="ae5e93605f18ca571d37dd289b06a345d"></a><!-- doxytag: member="CUnitOperation::Calculate" ref="ae5e93605f18ca571d37dd289b06a345d" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHODIMP CUnitOperation::Calculate </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Główna funkcja obliczająca, wywoływana przez ASPENA. </p>
+<p>Funkcja wywołuje Fluenta, oraz wykonuje cały proces obliczeń - konwertuje dane z ASPENA, wywołuje wyjątki w nim, kontroluje Fluenta</p>
+<p>Z Aspena zawsze wychodzą mieszaniny jeśli jest więcej niż jeden materiał, co najwyżej można ustawić udział molowy 0-1 jeśli chcemy mieć strumień pojedyńczego materiału.</p>
+<p>W tej funkcji następuje także nagranie parametrów na dysk w katalogu c: </p>
+<dl class="return"><dt><b>Zwraca:</b></dt><dd>Funkcja wywołuje wyjątek w przypadku jakiegokolwiek błędu zwróconego przez funkcje przez nią wywoływane. Wyjątek jest obsługiwany lokalnie (nagranie błędu do pliku) oraz jest wypychany dalej do ASPENA </dd></dl>
+<dl><dt><b>Wyjątki:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>CComBSTR</em>&nbsp;</td><td>W przypadku błędu w ciągu znajduje się opis błędu, który jest następnie nagrywany na dysk do logu i przekazywany dalej do ASPENA </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><dl class="warning"><dt><b>Ostrzeżenie:</b></dt><dd></dd></dl>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000005">Błąd:</a></b></dt><dd>Moze byc problem tu przy wiekszej ilosci portow </dd></dl>
+<p>Zmiana ilości portów musi być uwzględniona tu </p>
+<div class="fragment"><pre class="fragment"> VariantInit(&amp;<span class="keywordtype">id</span>);
+ VariantInit(&amp;avialprops);
+ herr = <a class="code" href="class_c_unit_operation.html#a7ac9cbf18d51a4fa6b577c5c37b823f3">simulationContext</a>-&gt;QueryInterface(IID_IATCapeXDiagnostic,(<span class="keywordtype">void</span>**)&amp;ASPEN_diag);
+ <a class="code" href="class_c_unit_operation.html#a9fa8ce37f31cd45991dc0ff8312a2f96">myports</a>-&gt;QueryInterface(IID_ICapeCollection,(<span class="keywordtype">void</span>**)&amp;capecol);
+ <span class="keywordflow">for</span>(a=0;a&lt;<a class="code" href="class_c_unit_operation.html#aa040b47501232212ddc54f17a87be2a7">ileportow</a>;a++) {
+  sprintf_s(nbuff,2,<span class="stringliteral">&quot;%d&quot;</span>,a+1);
+  numery_portow = nbuff;
+  nazwa_port = <span class="stringliteral">&quot;Inlet port &quot;</span>;
+  nazwa_port.Append(numery_portow);
+  <span class="keywordtype">id</span>.vt = VT_BSTR; <span class="keywordtype">id</span>.bstrVal = nazwa_port;
+  capecol-&gt;Item(<span class="keywordtype">id</span>,&amp;disp); disp-&gt;QueryInterface(IID_ICapeUnitPort,(<span class="keywordtype">void</span>**)&amp;inletPort[a]); disp-&gt;Release();
+  inletPort[a]-&gt;get_connectedObject(&amp;disp3);
+  disp3-&gt;QueryInterface(IID_ICapeThermoMaterialObject,(<span class="keywordtype">void</span>**)&amp;inletMaterials[a]); disp3-&gt;Release();
+
+
+  numery_portow.Empty();
+ }
+
+ CComBSTR nazwa_port_out = <span class="stringliteral">&quot;Outlet port 1&quot;</span>;
+ <span class="keywordtype">id</span>.vt = VT_BSTR; <span class="keywordtype">id</span>.bstrVal = nazwa_port_out;
+ capecol-&gt;Item(<span class="keywordtype">id</span>,&amp;disp2); disp2-&gt;QueryInterface(IID_ICapeUnitPort,(<span class="keywordtype">void</span>**)&amp;outletPort); disp2-&gt;Release();
+
+ outletPort-&gt;get_connectedObject(&amp;disp4);
+ disp4-&gt;QueryInterface(IID_ICapeThermoMaterialObject,(<span class="keywordtype">void</span>**)&amp;outletMaterial); disp4-&gt;Release();
+</pre></div><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Do zrobienia:</a></b></dt><dd>usunąć to </dd></dl>
+<p>zrzut wszystkich parametrów wejściowych przechowywanych w obiekcie <a class="el" href="class_c__my_run_process.html#ac47af15c899f84dde717500688440bd9">C_myRunProcess::Parameters</a> </p>
+<div class="fragment"><pre class="fragment">  <a class="code" href="class_c_unit_operation.html#ae0d47afb40d14415e5ff5ae79ba528fa">runfluent</a>-&gt;<a class="code" href="class_c__my_run_process.html#ae6b5f57310ae330f061f867d0582ee4e" title="Drukuje zawartość portów do pliku.">PrintPutParameters</a>(<span class="stringliteral">&quot;c:\\inParameters.txt&quot;</span>);
+</pre></div><dl class="warning"><dt><b>Ostrzeżenie:</b></dt><dd>Tablice o rozmiarze odpowiadającym ilosci komponentów <div class="fragment"><pre class="fragment">  siz[0].lLbound = 0;
+  siz[0].cElements = num;
+  newT.parray = SafeArrayCreate(VT_R8, 1, siz);
+  newp.parray = SafeArrayCreate(VT_R8, 1, siz);
+  newX.parray = SafeArrayCreate(VT_R8, 1, siz);
+  newf.parray = SafeArrayCreate(VT_R8, 1, siz);
+</pre></div></dd></dl>
+<p>zrzut wszystkich parametrów wyjściowych przechowywanych w obiekcie <a class="el" href="class_c__my_run_process.html#ac47af15c899f84dde717500688440bd9">C_myRunProcess::Parameters</a> </p>
+<div class="fragment"><pre class="fragment">  <a class="code" href="class_c_unit_operation.html#ae0d47afb40d14415e5ff5ae79ba528fa">runfluent</a>-&gt;<a class="code" href="class_c__my_run_process.html#aef8a141a9982779c57bb5931d87d710b" title="Drukuje zawartość portów do pliku.">PrintGetParameters</a>(<span class="stringliteral">&quot;c:\\outParameters.txt&quot;</span>);
+</pre></div> </p>
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8cpp_source.html#l00257">257</a> pliku <a class="el" href="_unit_operation_8cpp_source.html">UnitOperation.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___error_8cpp_source.html#l00018">C_Error::AddError()</a>, <a class="el" href="definicje_8h_source.html#l00027">BASIC</a>, <a class="el" href="_c___params_8h_source.html#l00082">C_Params::bCOMPONENTS</a>, <a class="el" href="definicje_8h_source.html#l00031">CASE</a>, <a class="el" href="_c___params_8h_source.html#l00022">COMPONENTS_NAZWA</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a>, <a class="el" href="_unit_operation_8h_source.html#l00464">czyASPEN</a>, <a class="el" href="_c___node_8h_source.html#l00056">C_Node::data</a>, <a class="el" href="_unit_operation_8h_source.html#l00468">err</a>, <a class="el" href="definicje_8h_source.html#l00033">EXPORTS</a>, <a class="el" href="definicje_8h_source.html#l00002">FAIL</a>, <a class="el" href="_c___node_8cpp_source.html#l00023">C_Node::Get_Next()</a>, <a class="el" href="_c___node_8cpp_source.html#l00050">C_Node::Get_Num_of_Nodes()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00712">C_myRunProcess::GetParams()</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00058">Data_To_Read::GetSubString()</a>, <a class="el" href="_unit_operation_8h_source.html#l00472">ileportow</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00596">C_myRunProcess::ImportData()</a>, <a class="el" href="definicje_8h_source.html#l00005">MAX_EXPORTS</a>, <a class="el" href="definicje_8h_source.html#l00010">MAX_INPUT_PORTS</a>, <a class="el" href="definicje_8h_source.html#l00011">MAX_INPUTS</a>, <a class="el" href="_unit_operation_8h_source.html#l00469">my_params</a>, <a class="el" href="_unit_operation_8h_source.html#l00451">myports</a>, <a class="el" href="_unit_operation_8h_source.html#l00447">myvalStatus</a>, <a class="el" href="definicje_8h_source.html#l00003">OK</a>, <a class="el" href="_unit_operation_8h_source.html#l00454">p</a>, <a class="el" href="_c___error_8cpp_source.html#l00030">C_Error::PrintAll()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l01084">C_myRunProcess::PrintGetParameters()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l01061">C_myRunProcess::PrintPutParameters()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00942">C_myRunProcess::PutParams()</a>, <a class="el" href="_unit_operation_8h_source.html#l00467">runfluent</a>, <a class="el" href="_c___params_8h_source.html#l00068">C_Params::sERR</a>, <a class="el" href="_unit_operation_8cpp_source.html#l00237">SetError()</a>, <a class="el" href="_unit_operation_8h_source.html#l00449">simulationContext</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00022">C_myRunProcess::StartFluent()</a> i <a class="el" href="_c___params_8cpp_source.html#l00154">C_Params::ValidateParams()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c_unit_operation_ae5e93605f18ca571d37dd289b06a345d_cgraph.png" border="0" usemap="#class_c_unit_operation_ae5e93605f18ca571d37dd289b06a345d_cgraph_map" alt=""></div>
+<map name="class_c_unit_operation_ae5e93605f18ca571d37dd289b06a345d_cgraph_map" id="class_c_unit_operation_ae5e93605f18ca571d37dd289b06a345d_cgraph">
+<area shape="rect" id="node3" href="class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy." alt="" coords="1289,782,1415,812"/><area shape="rect" id="node7" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego." alt="" coords="2075,577,2205,606"/><area shape="rect" id="node9" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów." alt="" coords="1835,629,2027,658"/><area shape="rect" id="node12" href="class_c__my_run_process.html#af04033e23f541696c736ef795e864392" title="Tworzy środowisko do uruchomienia fluenta &#45; generuje scm oraz journalC_Params." alt="" coords="255,366,449,396"/><area shape="rect" id="node19" href="class_data___to___read.html#a6a3deab57b0e9d8e040ab3c548595bf9" title="Zwraca wskaźnik do podciągu." alt="" coords="908,210,1100,240"/><area shape="rect" id="node32" href="class_c___params.html#a96db4b5bc8d67d374eb52b3d4b90446d" title="Dokonuje sprawdzenia czy spełnione są określone warunki." alt="" coords="576,210,757,240"/><area shape="rect" id="node38" href="class_c__my_run_process.html#a50bbb31558e2dc254c1583521bb291ec" title="pobiera parametry z klasy na zewnątrz &#45; wersja starsza" alt="" coords="252,420,452,449"/><area shape="rect" id="node41" href="class_c__my_run_process.html#a96de0e119537f9f36f3cfaa8da96280f" title="Wczytuje dane z Fluenta." alt="" coords="568,578,765,608"/><area shape="rect" id="node55" href="class_c___error.html#ac88832708e7110c890f78f7c9348c2bd" title="Zgrywa wszystkie błedy na dysk." alt="" coords="1612,418,1727,448"/><area shape="rect" id="node59" href="class_c__my_run_process.html#aef8a141a9982779c57bb5931d87d710b" title="Drukuje zawartość portów do pliku." alt="" coords="227,526,477,556"/><area shape="rect" id="node69" href="class_c__my_run_process.html#ae6b5f57310ae330f061f867d0582ee4e" title="Drukuje zawartość portów do pliku." alt="" coords="228,473,476,502"/><area shape="rect" id="node72" href="class_c__my_run_process.html#a92c79daa78da34aa38f14ec7f4f8a1ac" title="wpisuje parametry do klasy, wersja starsza" alt="" coords="252,210,452,240"/><area shape="rect" id="node76" href="class_c_unit_operation.html#ad79f0a5cce9ea31bde9d88b8232d025a" title="CUnitOperation::SetError" alt="" coords="269,810,435,840"/><area shape="rect" id="node78" href="class_c__my_run_process.html#a4c5555e8dc1c88ff665e247f371f73ef" title="C_myRunProcess::StartFluent" alt="" coords="253,757,451,786"/><area shape="rect" id="node5" href="class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy." alt="" coords="1603,733,1736,762"/><area shape="rect" id="node15" href="class_data___to___read.html#acf5b344c1a44480144bb3d1a93f138b2" title="Zwraca ilosc wpisów &#45; danych przechowywanych." alt="" coords="929,314,1079,344"/><area shape="rect" id="node17" href="class_data___to___read.html#a1f2247e03f494d45dd2bacf4fde00c92" title="Zwraca numer linii zawierającej dany ciąg tekstowy na danej pozycji podciągu...." alt="" coords="572,264,761,293"/><area shape="rect" id="node23" href="class_c___port_parameter___container.html#a40f71af3c7efa9ae20bad902f781f7d0" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="525,368,808,397"/><area shape="rect" id="node30" href="class_c__my_run_process.html#afe8240365804cc09bf7df066c64859a6" title="funkcja usuwa podwójnego slaska do ściezek, modyfikuje ciąg wejściowy" alt="" coords="540,421,793,450"/><area shape="rect" id="node21" href="class_data___to___read.html#a2ae9b120ce85df4bbb0b36b61f9a39c0" title="Zwraca ilosc podciągów." alt="" coords="1232,210,1472,240"/><area shape="rect" id="node25" href="class_c___parameter___container.html#a3025843a154aec4c2e75a412ec81385e" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="1228,314,1476,344"/><area shape="rect" id="node27" href="class_c___parameter___container.html#accb414d013c6b9d04596c01b1b19a008" title="Zwraca id komponentu na podstawie nazwy, lub &#45;1 gdy nie ma go." alt="" coords="1552,472,1787,501"/><area shape="rect" id="node44" href="class_c___parameter___container.html#afb7cef66e701ffc8600352ffcce0b006" title="Dodaje parametr do komponentu &#45; rozpoznaje po id." alt="" coords="857,578,1151,608"/><area shape="rect" id="node46" href="class_c___parameter___container.html#ab196d93942c6d400b84af39e68ede81b" title="Kasuje zawartość klasy &#45; wszystkich danych." alt="" coords="897,421,1111,450"/><area shape="rect" id="node48" href="class_c___parameter___container.html#a63e07ec8f12b69a7fe3abbe03f896542" title="Zwraca ilosc przechowywanych komponentów w klasie." alt="" coords="1201,421,1503,450"/><area shape="rect" id="node53" href="class_c___parameter___container.html#a1572fb9ba2f2ed524e0c6d908d4035c2" title="C_Parameter_Container::RegisterComponent" alt="" coords="863,525,1145,554"/><area shape="rect" id="node61" href="class_c___port_parameter___container.html#af7ff20d9bcd1cd8a2f927b8cb7679ea8" title="Drukuje zawartość portów do pliku." alt="" coords="535,525,799,554"/><area shape="rect" id="node63" href="class_c___parameter___container.html#ab713e9a3ba582fc32576ec724076cd1b" title="Drukuje zawartość portów do pliku." alt="" coords="884,368,1124,397"/><area shape="rect" id="node65" href="class_c___parameter___container.html#a9c253d28313ba83391397c031b2b4249" title="Zwraca nazwę komponentu po podaniu jego id, lub NULL gdy go nie ma." alt="" coords="1208,368,1496,397"/><area shape="rect" id="node81" href="class_c__my_run_process.html#a06bdfb895da68f5d45e769f4986a43c5" title="C_myRunProcess::WaitForStart" alt="" coords="563,834,771,864"/><area shape="rect" id="node84" href="class_c__my_run_process.html#ac445542726d5877bef97f4f34fde85cd" title="C_myRunProcess::WaitForProcess" alt="" coords="889,885,1119,914"/><area shape="rect" id="node87" href="class_c__my_run_process.html#af50c79d461121acff30f150025386622" title="C_myRunProcess::PrintProcessNameAndID" alt="" coords="1213,885,1491,914"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a0cadb4b8cb9feba7cc1231e663694a8d"></a><!-- doxytag: member="CUnitOperation::Edit" ref="a0cadb4b8cb9feba7cc1231e663694a8d" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::Edit </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00415">415</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="definicje_8h_source.html#l00002">FAIL</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a53c3a02153a166bd1ff7d93164e0e767"></a><!-- doxytag: member="CUnitOperation::FinalConstruct" ref="a53c3a02153a166bd1ff7d93164e0e767" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HRESULT CUnitOperation::FinalConstruct </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00062">62</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a619ea0f87e1912c401264741b9c7c636"></a><!-- doxytag: member="CUnitOperation::FinalRelease" ref="a619ea0f87e1912c401264741b9c7c636" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CUnitOperation::FinalRelease </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00067">67</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4bfe2ad0b8242539420d1510c09b1070"></a><!-- doxytag: member="CUnitOperation::get_code" ref="a4bfe2ad0b8242539420d1510c09b1070" args="(long *code)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::get_code </td>
+          <td>(</td>
+          <td class="paramtype">long *&nbsp;</td>
+          <td class="paramname"> <em>code</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00092">92</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3288c9c1625d4584b9d7e7eeb23b2c70"></a><!-- doxytag: member="CUnitOperation::get_ComponentDescription" ref="a3288c9c1625d4584b9d7e7eeb23b2c70" args="(BSTR *desc)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::get_ComponentDescription </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>desc</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00168">168</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aba3242118bd4c9f0066a43ef4863b48e"></a><!-- doxytag: member="CUnitOperation::get_ComponentName" ref="aba3242118bd4c9f0066a43ef4863b48e" args="(BSTR *name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::get_ComponentName </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>name</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00147">147</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab9c28d0bba9fa065d01d3061248bd087"></a><!-- doxytag: member="CUnitOperation::get_description" ref="ab9c28d0bba9fa065d01d3061248bd087" args="(BSTR *description)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::get_description </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>description</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00100">100</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9a5bade79f0894bbb89c6e186ca167a9"></a><!-- doxytag: member="CUnitOperation::get_interfaceName" ref="a9a5bade79f0894bbb89c6e186ca167a9" args="(BSTR *interfaceName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::get_interfaceName </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>interfaceName</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00116">116</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4f3796bc6048de829e11f1c3484f4fd3"></a><!-- doxytag: member="CUnitOperation::get_moreInfo" ref="a4f3796bc6048de829e11f1c3484f4fd3" args="(BSTR *moreInfo)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::get_moreInfo </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>moreInfo</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00134">134</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a675da2f8d13358cda8421843b4ce45aa"></a><!-- doxytag: member="CUnitOperation::get_name" ref="a675da2f8d13358cda8421843b4ce45aa" args="(BSTR *name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::get_name </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>name</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00077">77</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acc62d7c97f73317a8e165a5ac173d95a"></a><!-- doxytag: member="CUnitOperation::get_operation" ref="acc62d7c97f73317a8e165a5ac173d95a" args="(BSTR *operation)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::get_operation </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>operation</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00124">124</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a565c563bf441cd494a2591059c3d7f2e"></a><!-- doxytag: member="CUnitOperation::get_parameters" ref="a565c563bf441cd494a2591059c3d7f2e" args="(LPDISPATCH *parameters)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::get_parameters </td>
+          <td>(</td>
+          <td class="paramtype">LPDISPATCH *&nbsp;</td>
+          <td class="paramname"> <em>parameters</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00366">366</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_cape2_fluent__i_8h_source.html#l00661">IID_IParameterCollection</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a767a22f0c99e578edad6d9fd9961f3bf"></a><!-- doxytag: member="CUnitOperation::get_ports" ref="a767a22f0c99e578edad6d9fd9961f3bf" args="(LPDISPATCH *ports)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::get_ports </td>
+          <td>(</td>
+          <td class="paramtype">LPDISPATCH *&nbsp;</td>
+          <td class="paramname"> <em>ports</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00188">188</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_cape2_fluent__i_8h_source.html#l00812">IID_IPortCollection</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa452f4976e5168fbc93df41abda5f765"></a><!-- doxytag: member="CUnitOperation::get_reports" ref="aa452f4976e5168fbc93df41abda5f765" args="(VARIANT *reports)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::get_reports </td>
+          <td>(</td>
+          <td class="paramtype">VARIANT *&nbsp;</td>
+          <td class="paramname"> <em>reports</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00297">297</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5d481e815f512d505a903be546f97531"></a><!-- doxytag: member="CUnitOperation::get_scope" ref="a5d481e815f512d505a903be546f97531" args="(BSTR *scope)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::get_scope </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>scope</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00108">108</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af257e74b8c82099c9b3dd58e9d7b652f"></a><!-- doxytag: member="CUnitOperation::get_selectedReport" ref="af257e74b8c82099c9b3dd58e9d7b652f" args="(BSTR *report)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::get_selectedReport </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>report</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00323">323</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa617b452dc387810f8ef61766af01bd8"></a><!-- doxytag: member="CUnitOperation::get_ValStatus" ref="aa617b452dc387810f8ef61766af01bd8" args="(CapeValidationStatus *ValStatus)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::get_ValStatus </td>
+          <td>(</td>
+          <td class="paramtype">CapeValidationStatus *&nbsp;</td>
+          <td class="paramname"> <em>ValStatus</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00198">198</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9816d797f32a2d1738eae7899536921a"></a><!-- doxytag: member="CUnitOperation::Initialize" ref="a9816d797f32a2d1738eae7899536921a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::Initialize </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00400">400</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a38144a0107f211806bc5fcb40258ea96"></a><!-- doxytag: member="CUnitOperation::InvalidateUnit" ref="a38144a0107f211806bc5fcb40258ea96" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHODIMP CUnitOperation::InvalidateUnit </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8cpp_source.html#l00226">226</a> pliku <a class="el" href="_unit_operation_8cpp_source.html">UnitOperation.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_unit_operation_8h_source.html#l00447">myvalStatus</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aedc851750a89fb7b28b6d2106e12cd7a"></a><!-- doxytag: member="CUnitOperation::ProduceReport" ref="aedc851750a89fb7b28b6d2106e12cd7a" args="(BSTR *message)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::ProduceReport </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>message</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00351">351</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7b970a24c084e890415f3ed06147b856"></a><!-- doxytag: member="CUnitOperation::put_ComponentDescription" ref="a7b970a24c084e890415f3ed06147b856" args="(BSTR desc)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::put_ComponentDescription </td>
+          <td>(</td>
+          <td class="paramtype">BSTR&nbsp;</td>
+          <td class="paramname"> <em>desc</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00176">176</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a77a14e0b6572977e2c8b6314da44ba6f"></a><!-- doxytag: member="CUnitOperation::put_ComponentName" ref="a77a14e0b6572977e2c8b6314da44ba6f" args="(BSTR name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::put_ComponentName </td>
+          <td>(</td>
+          <td class="paramtype">BSTR&nbsp;</td>
+          <td class="paramname"> <em>name</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00157">157</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5a692924ab79e5bcfb90cf82dc0b352c"></a><!-- doxytag: member="CUnitOperation::put_selectedReport" ref="a5a692924ab79e5bcfb90cf82dc0b352c" args="(BSTR report)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::put_selectedReport </td>
+          <td>(</td>
+          <td class="paramtype">BSTR&nbsp;</td>
+          <td class="paramname"> <em>report</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00335">335</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae2a6edfb54b5e453f133e0995c39bc7f"></a><!-- doxytag: member="CUnitOperation::put_simulationContext" ref="ae2a6edfb54b5e453f133e0995c39bc7f" args="(LPDISPATCH rhs)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::put_simulationContext </td>
+          <td>(</td>
+          <td class="paramtype">LPDISPATCH&nbsp;</td>
+          <td class="paramname"> <em>rhs</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00379">379</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a918b5d083bd2db43dbf7445a700faf23"></a><!-- doxytag: member="CUnitOperation::RaiseError" ref="a918b5d083bd2db43dbf7445a700faf23" args="(ErrorSeverity severity, BSTR context, BSTR message)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::RaiseError </td>
+          <td>(</td>
+          <td class="paramtype">ErrorSeverity&nbsp;</td>
+          <td class="paramname"> <em>severity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BSTR&nbsp;</td>
+          <td class="paramname"> <em>context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BSTR&nbsp;</td>
+          <td class="paramname"> <em>message</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00487">487</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad4f3bf66d981249d68dcd0a83bd9eb1c"></a><!-- doxytag: member="CUnitOperation::SendMsgToHistory" ref="ad4f3bf66d981249d68dcd0a83bd9eb1c" args="(BSTR message)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::SendMsgToHistory </td>
+          <td>(</td>
+          <td class="paramtype">BSTR&nbsp;</td>
+          <td class="paramname"> <em>message</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00479">479</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa970f0b8bbcbba1bfbcb8691d220e56f"></a><!-- doxytag: member="CUnitOperation::SendMsgToTerminal" ref="aa970f0b8bbcbba1bfbcb8691d220e56f" args="(BSTR message)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::SendMsgToTerminal </td>
+          <td>(</td>
+          <td class="paramtype">BSTR&nbsp;</td>
+          <td class="paramname"> <em>message</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00483">483</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad79f0a5cce9ea31bde9d88b8232d025a"></a><!-- doxytag: member="CUnitOperation::SetError" ref="ad79f0a5cce9ea31bde9d88b8232d025a" args="(BSTR desc, BSTR interf, BSTR scope)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CUnitOperation::SetError </td>
+          <td>(</td>
+          <td class="paramtype">BSTR&nbsp;</td>
+          <td class="paramname"> <em>desc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BSTR&nbsp;</td>
+          <td class="paramname"> <em>interf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BSTR&nbsp;</td>
+          <td class="paramname"> <em>scope</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8cpp_source.html#l00237">237</a> pliku <a class="el" href="_unit_operation_8cpp_source.html">UnitOperation.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_unit_operation_8h_source.html#l00439">errDesc</a>, <a class="el" href="_unit_operation_8h_source.html#l00440">errInterface</a> i <a class="el" href="_unit_operation_8h_source.html#l00441">errScope</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">Calculate()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c_unit_operation_ad79f0a5cce9ea31bde9d88b8232d025a_icgraph.png" border="0" usemap="#class_c_unit_operation_ad79f0a5cce9ea31bde9d88b8232d025a_icgraph_map" alt=""></div>
+<map name="class_c_unit_operation_ad79f0a5cce9ea31bde9d88b8232d025a_icgraph_map" id="class_c_unit_operation_ad79f0a5cce9ea31bde9d88b8232d025a_icgraph">
+<area shape="rect" id="node3" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="223,5,393,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a7036afb274624cc7bdd159e34165299c"></a><!-- doxytag: member="CUnitOperation::Terminate" ref="a7036afb274624cc7bdd159e34165299c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::Terminate </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00407">407</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1007e0ec8586a8292b22b802a7eaf21c"></a><!-- doxytag: member="CUnitOperation::Validate" ref="a1007e0ec8586a8292b22b802a7eaf21c" args="(BSTR *message, VARIANT_BOOL *isValid)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CUnitOperation::Validate </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIANT_BOOL *&nbsp;</td>
+          <td class="paramname"> <em>isValid</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00213">213</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja atrybutów składowych</h2>
+<a class="anchor" id="a1bf64d59de2ffe526a37aee19c9069b6"></a><!-- doxytag: member="CUnitOperation::czyASPEN" ref="a1bf64d59de2ffe526a37aee19c9069b6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c_unit_operation.html#a1bf64d59de2ffe526a37aee19c9069b6">CUnitOperation::czyASPEN</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00464">464</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">Calculate()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7f8c5ea9bcca6f6405839d33881f5315"></a><!-- doxytag: member="CUnitOperation::czyValidate" ref="a7f8c5ea9bcca6f6405839d33881f5315" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c_unit_operation.html#a7f8c5ea9bcca6f6405839d33881f5315">CUnitOperation::czyValidate</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00465">465</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a426829ea1f993ce96209069694a5416b"></a><!-- doxytag: member="CUnitOperation::dirp" ref="a426829ea1f993ce96209069694a5416b" args="[MAX_STRING]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char <a class="el" href="class_c_unit_operation.html#a426829ea1f993ce96209069694a5416b">CUnitOperation::dirp</a>[MAX_STRING]<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00463">463</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aed59be8e1a636ee31871b1bf387ca6a0"></a><!-- doxytag: member="CUnitOperation::dopliku" ref="aed59be8e1a636ee31871b1bf387ca6a0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VARIANT <a class="el" href="class_c_unit_operation.html#aed59be8e1a636ee31871b1bf387ca6a0">CUnitOperation::dopliku</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00458">458</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a103375c2fb6f9096f1b3df6858dc9686"></a><!-- doxytag: member="CUnitOperation::err" ref="a103375c2fb6f9096f1b3df6858dc9686" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c___error.html">C_Error</a>* <a class="el" href="class_c_unit_operation.html#a103375c2fb6f9096f1b3df6858dc9686">CUnitOperation::err</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00468">468</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">Calculate()</a>, <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00187">~CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a022b8d0eba3abf6b69df624f00aa2244"></a><!-- doxytag: member="CUnitOperation::errDesc" ref="a022b8d0eba3abf6b69df624f00aa2244" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c_unit_operation.html#a022b8d0eba3abf6b69df624f00aa2244">CUnitOperation::errDesc</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00439">439</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00237">SetError()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00187">~CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a721cbb91fddd7cbbca57b09fdd6f7aa3"></a><!-- doxytag: member="CUnitOperation::errInterface" ref="a721cbb91fddd7cbbca57b09fdd6f7aa3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c_unit_operation.html#a721cbb91fddd7cbbca57b09fdd6f7aa3">CUnitOperation::errInterface</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00440">440</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00237">SetError()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00187">~CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5df43f8f9c48a203cee59609a078bd5a"></a><!-- doxytag: member="CUnitOperation::errScope" ref="a5df43f8f9c48a203cee59609a078bd5a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c_unit_operation.html#a5df43f8f9c48a203cee59609a078bd5a">CUnitOperation::errScope</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00441">441</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00237">SetError()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00187">~CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad668681d96e3c5f237a727902c6a4f48"></a><!-- doxytag: member="CUnitOperation::externalError" ref="ad668681d96e3c5f237a727902c6a4f48" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c_unit_operation.html#ad668681d96e3c5f237a727902c6a4f48">CUnitOperation::externalError</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00444">444</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aedca09080f6673119cd96400cd57941b"></a><!-- doxytag: member="CUnitOperation::filename" ref="aedca09080f6673119cd96400cd57941b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* <a class="el" href="class_c_unit_operation.html#aedca09080f6673119cd96400cd57941b">CUnitOperation::filename</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00462">462</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa040b47501232212ddc54f17a87be2a7"></a><!-- doxytag: member="CUnitOperation::ileportow" ref="aa040b47501232212ddc54f17a87be2a7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long <a class="el" href="class_c_unit_operation.html#aa040b47501232212ddc54f17a87be2a7">CUnitOperation::ileportow</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00472">472</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">Calculate()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adb271b0b109fe5cf62607b18de38234e"></a><!-- doxytag: member="CUnitOperation::my_params" ref="adb271b0b109fe5cf62607b18de38234e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c___params.html">C_Params</a>* <a class="el" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">CUnitOperation::my_params</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00469">469</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">Calculate()</a>, <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00187">~CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1b4c9c68f0e6c29527faeb06d0170bea"></a><!-- doxytag: member="CUnitOperation::myDesc" ref="a1b4c9c68f0e6c29527faeb06d0170bea" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c_unit_operation.html#a1b4c9c68f0e6c29527faeb06d0170bea">CUnitOperation::myDesc</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00443">443</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00187">~CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a22e29dacd3c80360887db17ce3f06f91"></a><!-- doxytag: member="CUnitOperation::mydialog" ref="a22e29dacd3c80360887db17ce3f06f91" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c__my_dialog_param.html">C_myDialogParam</a>* <a class="el" href="class_c_unit_operation.html#a22e29dacd3c80360887db17ce3f06f91">CUnitOperation::mydialog</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00470">470</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00187">~CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a52fe9b66e68c2bb54fe241f8ca80ab21"></a><!-- doxytag: member="CUnitOperation::myName" ref="a52fe9b66e68c2bb54fe241f8ca80ab21" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c_unit_operation.html#a52fe9b66e68c2bb54fe241f8ca80ab21">CUnitOperation::myName</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00442">442</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00187">~CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8dc99e02629c8c6936db466c0a2a4a5a"></a><!-- doxytag: member="CUnitOperation::myparams" ref="a8dc99e02629c8c6936db466c0a2a4a5a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IParameterCollectionPtr <a class="el" href="class_c_unit_operation.html#a8dc99e02629c8c6936db466c0a2a4a5a">CUnitOperation::myparams</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00457">457</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00187">~CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9fa8ce37f31cd45991dc0ff8312a2f96"></a><!-- doxytag: member="CUnitOperation::myports" ref="a9fa8ce37f31cd45991dc0ff8312a2f96" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IPortCollectionPtr <a class="el" href="class_c_unit_operation.html#a9fa8ce37f31cd45991dc0ff8312a2f96">CUnitOperation::myports</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00451">451</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">Calculate()</a>, <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00187">~CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a31a07ab0b8a875aaf8f7d4aaf76cff13"></a><!-- doxytag: member="CUnitOperation::myvalStatus" ref="a31a07ab0b8a875aaf8f7d4aaf76cff13" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CapeValidationStatus <a class="el" href="class_c_unit_operation.html#a31a07ab0b8a875aaf8f7d4aaf76cff13">CUnitOperation::myvalStatus</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00447">447</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">Calculate()</a>, <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00226">InvalidateUnit()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8147e6fdecda7488e7740659c91f0ca2"></a><!-- doxytag: member="CUnitOperation::p" ref="a8147e6fdecda7488e7740659c91f0ca2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="interface_i_port.html">IPort</a>* <a class="el" href="class_c_unit_operation.html#a8147e6fdecda7488e7740659c91f0ca2">CUnitOperation::p</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00454">454</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">Calculate()</a>, <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00187">~CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4a765c9c494dd3b2af5daf91f25f5a55"></a><!-- doxytag: member="CUnitOperation::p1" ref="a4a765c9c494dd3b2af5daf91f25f5a55" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="interface_i_port.html">IPort</a>* <a class="el" href="class_c_unit_operation.html#a4a765c9c494dd3b2af5daf91f25f5a55">CUnitOperation::p1</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00455">455</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00187">~CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad06b6c250b9522ce0f0e5f59ed786fe3"></a><!-- doxytag: member="CUnitOperation::pout" ref="ad06b6c250b9522ce0f0e5f59ed786fe3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="interface_i_port.html">IPort</a>* <a class="el" href="class_c_unit_operation.html#ad06b6c250b9522ce0f0e5f59ed786fe3">CUnitOperation::pout</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00456">456</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00187">~CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab23aa59fbff5867d14b6690707934bcc"></a><!-- doxytag: member="CUnitOperation::rep" ref="ab23aa59fbff5867d14b6690707934bcc" args="[2]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c_unit_operation.html#ab23aa59fbff5867d14b6690707934bcc">CUnitOperation::rep</a>[2]<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00445">445</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00187">~CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a866ab3b0b6e0824e3f84c21bd8c36130"></a><!-- doxytag: member="CUnitOperation::rep1" ref="a866ab3b0b6e0824e3f84c21bd8c36130" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SAFEARRAY* <a class="el" href="class_c_unit_operation.html#a866ab3b0b6e0824e3f84c21bd8c36130">CUnitOperation::rep1</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00445">445</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0146906d84500ff5d31a27d006fae295"></a><!-- doxytag: member="CUnitOperation::reportIndex" ref="a0146906d84500ff5d31a27d006fae295" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_c_unit_operation.html#a0146906d84500ff5d31a27d006fae295">CUnitOperation::reportIndex</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00448">448</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a280ca3e36accc82ee243af003ad793f0"></a><!-- doxytag: member="CUnitOperation::rgsabound" ref="a280ca3e36accc82ee243af003ad793f0" args="[1]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SAFEARRAYBOUND <a class="el" href="class_c_unit_operation.html#a280ca3e36accc82ee243af003ad793f0">CUnitOperation::rgsabound</a>[1]<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00445">445</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae0d47afb40d14415e5ff5ae79ba528fa"></a><!-- doxytag: member="CUnitOperation::runfluent" ref="ae0d47afb40d14415e5ff5ae79ba528fa" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c__my_run_process.html">C_myRunProcess</a>* <a class="el" href="class_c_unit_operation.html#ae0d47afb40d14415e5ff5ae79ba528fa">CUnitOperation::runfluent</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00467">467</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">Calculate()</a>, <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00187">~CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7ac9cbf18d51a4fa6b577c5c37b823f3"></a><!-- doxytag: member="CUnitOperation::simulationContext" ref="a7ac9cbf18d51a4fa6b577c5c37b823f3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LPDISPATCH <a class="el" href="class_c_unit_operation.html#a7ac9cbf18d51a4fa6b577c5c37b823f3">CUnitOperation::simulationContext</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00449">449</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">Calculate()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab64a729c2831c044f4ff3f2a2c4d582a"></a><!-- doxytag: member="CUnitOperation::v_rep" ref="ab64a729c2831c044f4ff3f2a2c4d582a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VARIANT <a class="el" href="class_c_unit_operation.html#ab64a729c2831c044f4ff3f2a2c4d582a">CUnitOperation::v_rep</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00446">446</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8218a1706003210e6410a01092e5cd0a"></a><!-- doxytag: member="CUnitOperation::varerr" ref="a8218a1706003210e6410a01092e5cd0a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VARIANT <a class="el" href="class_c_unit_operation.html#a8218a1706003210e6410a01092e5cd0a">CUnitOperation::varerr</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_unit_operation_8h_source.html#l00459">459</a> pliku <a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li><a class="el" href="_unit_operation_8h_source.html">UnitOperation.h</a></li>
+<li><a class="el" href="_unit_operation_8cpp_source.html">UnitOperation.cpp</a></li>
+</ul>
+</div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:39 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

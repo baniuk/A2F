@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy." alt="" coords="508,5,633,35"/>
+<area shape="rect" id="node12" href="$class_c___params.html#ab65d753c172afbdef6828a2804e88b91" title="Wczytuje i analizuje plik konfiguracyjny." alt="" coords="261,59,403,88"/>
+<area shape="rect" id="node21" href="$class_c___node.html#a470c6ae493f150409e14d27e7703929e" title="Inicjalizacja listy, powinno być użyte jako pierwsze." alt="" coords="267,112,397,141"/>
+<area shape="rect" id="node23" href="$_parameter_collection_8h.html#aab630676ad19aeead24092b0361c7c93" title="SetOaNoCache" alt="" coords="276,165,388,195"/>
+<area shape="rect" id="node5" href="$class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy." alt="" coords="739,5,872,35"/>
+<area shape="rect" id="node7" href="$class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego." alt="" coords="1160,5,1291,35"/>
+<area shape="rect" id="node9" href="$class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów." alt="" coords="920,31,1112,60"/>
+<area shape="rect" id="node15" href="$class_data___to___read.html#ab55dda5b5ca867ef21c887e4b87c7614" title="Dodaje pozycję podciągu w ciągu głównym do tablicy pozycji. Zlicza także ilość..." alt="" coords="461,59,680,88"/>
+<area shape="rect" id="node17" href="$class_data___to___read.html#a2ae9b120ce85df4bbb0b36b61f9a39c0" title="Zwraca ilosc podciągów." alt="" coords="451,112,691,141"/>
+<area shape="rect" id="node19" href="$class_c___params.html#ad0c993db154ff1beae793a917ecc0605" title="Wczytuje jedną linię skryptu i dokonuje konwersji do dużych liter." alt="" coords="488,165,653,195"/>
+</map>

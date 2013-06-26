@@ -1,0 +1,26 @@
+HKCR
+{
+	Cape2Fluent.UnitOperation.1 = s 'UnitOperation Class'
+	{
+		CLSID = s '{687728BA-9FC0-4F97-A143-EBEE0735C18F}'
+	}
+	Cape2Fluent.UnitOperation = s 'UnitOperation Class'
+	{
+		CLSID = s '{687728BA-9FC0-4F97-A143-EBEE0735C18F}'
+		CurVer = s 'Cape2Fluent.UnitOperation.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {687728BA-9FC0-4F97-A143-EBEE0735C18F} = s 'UnitOperation Class'
+		{
+			ProgID = s 'Cape2Fluent.UnitOperation.1'
+			VersionIndependentProgID = s 'Cape2Fluent.UnitOperation'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{A41DD893-4E3F-45A6-BBEF-425ECE7FA637}'
+		}
+	}
+}

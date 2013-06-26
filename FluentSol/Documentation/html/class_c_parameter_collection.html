@@ -1,0 +1,726 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Dokumentacja klasy CParameterCollection</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Lista&nbsp;klas</span></a></li>
+      <li><a href="classes.html"><span>Indeks&nbsp;klas</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchia&nbsp;klas</span></a></li>
+      <li><a href="functions.html"><span>Składowe&nbsp;klas</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja klasy CParameterCollection</h1><!-- doxytag: class="CParameterCollection" -->
+<p><code>#include &lt;<a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagram współpracy dla CParameterCollection:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c_parameter_collection__coll__graph.png" border="0" usemap="#_c_parameter_collection_coll__map" alt="Collaboration graph"/></div>
+<map name="_c_parameter_collection_coll__map" id="_c_parameter_collection_coll__map">
+<area shape="rect" id="node2" href="class_c___error.html" title="Klasa do obsługi błędów." alt="" coords="45,85,112,115"/><area shape="rect" id="node4" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych." alt="" coords="45,5,112,35"/></map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legenda</a>]</span></center></div>
+
+<p><a href="class_c_parameter_collection-members.html">Lista wszystkich składowych.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Metody publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#a361dfd2113d80eaefdda7dd0ad3abd92">CParameterCollection</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#a69537db39312d42af380c16b1779912c">~CParameterCollection</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">HRESULT&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#a51aa4d8058bfdf043a9dfa223f2ee8e8">FinalConstruct</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#af73df028780828b30eca4e6205b7a7b3">FinalRelease</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#aa8d5a728ee17a1af4f2e0c2af6d57aad">AddError</a> (VARIANT *in)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#aceee2bccdf4dc677446f48eda7fcb0b6">debugfile</a> (VARIANT *in)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#a2817bc520355b7975784e681f6a51476">AddParameter</a> (IDispatch *p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#afa7a0c5e1e59dac6e3ee5d40b90cb0d9">RemoveParameter</a> (LONG index)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#a756e2c8993e0b0e9809f5b30199b19e3">get_name</a> (BSTR *name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#a0d1903c8f17a0caa8582f5f9fbfbe042">get_code</a> (long *code)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#a107f65577f09ada6f9927dab4e345fe0">get_description</a> (BSTR *description)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#ac1870a672988cd10126df9f366aebecc">get_scope</a> (BSTR *scope)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#a40b19309013299510437874dcc0eff96">get_interfaceName</a> (BSTR *interfaceName)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#a006ecdee96650352c6e4b299d812fb02">get_operation</a> (BSTR *operation)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#a62b35a7a7e2ec6be343cd1799d807dba">get_moreInfo</a> (BSTR *moreInfo)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#aa0aadbfa61b3f672f06cde52981b58f2">Item</a> (VARIANT id, LPDISPATCH *Item)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#ac7d85ac6887724e46e6ae93a4c6c8913">Count</a> (long *itemsCount)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#a6a757757ffffdee86f90d8308b23aa29">get_ComponentName</a> (BSTR *name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#a031024231cfa7b42864f6a0c934fe633">put_ComponentName</a> (BSTR name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#a3627438411eb0a0e078fc8e5b0ae6526">get_ComponentDescription</a> (BSTR *desc)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDMETHOD()&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#a2e86a4f11dbf2cfe01e9b72e05fd5259">put_ComponentDescription</a> (BSTR desc)</td></tr>
+<tr><td colspan="2"><h2>Metody prywatne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#aa353da0a5fc1bc27e4c36d2e0eb84f26">SetError</a> (BSTR desc, BSTR interf, BSTR scope)</td></tr>
+<tr><td colspan="2"><h2>Atrybuty prywatne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#af3802dd1e3be6beeceb63dfaea641685">errDesc</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#a318a59de74bd33f7825f6051df55a3d4">errInterface</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#a7a285cd7d9a8f33f0255b76557ab23dc">errScope</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#ab9896b5153fa96a1dbb7cf9b2a8373ec">myName</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#a9dc0c5802113b449eab2b54305659a8f">myDesc</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#a10786d7f574ac4e0e0e740eec13222c0">parameterCount</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">ICapeParameter *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#a42f8509e453e98edb8ad24e14e3fa0d5">parameters</a> [10]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">FILE *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#a2e4734a33144190ef0f03c2bb8dd0bbd">mystream</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c___error.html">C_Error</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_parameter_collection.html#acd3ab6979a94892b720fdb8b5dd101e8">err</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00017">17</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+<hr/><h2>Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="a361dfd2113d80eaefdda7dd0ad3abd92"></a><!-- doxytag: member="CParameterCollection::CParameterCollection" ref="a361dfd2113d80eaefdda7dd0ad3abd92" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CParameterCollection::CParameterCollection </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8cpp_source.html#l00007">7</a> pliku <a class="el" href="_parameter_collection_8cpp_source.html">ParameterCollection.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_parameter_collection_8h_source.html#l00207">errDesc</a>, <a class="el" href="_parameter_collection_8h_source.html#l00208">errInterface</a>, <a class="el" href="_parameter_collection_8h_source.html#l00209">errScope</a>, <a class="el" href="_parameter_collection_8h_source.html#l00212">parameterCount</a> i <a class="el" href="_parameter_collection_8h.html#aab630676ad19aeead24092b0361c7c93">SetOaNoCache()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c_parameter_collection_a361dfd2113d80eaefdda7dd0ad3abd92_cgraph.png" border="0" usemap="#class_c_parameter_collection_a361dfd2113d80eaefdda7dd0ad3abd92_cgraph_map" alt=""></div>
+<map name="class_c_parameter_collection_a361dfd2113d80eaefdda7dd0ad3abd92_cgraph_map" id="class_c_parameter_collection_a361dfd2113d80eaefdda7dd0ad3abd92_cgraph">
+<area shape="rect" id="node3" href="_parameter_collection_8h.html#aab630676ad19aeead24092b0361c7c93" title="SetOaNoCache" alt="" coords="336,5,448,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a69537db39312d42af380c16b1779912c"></a><!-- doxytag: member="CParameterCollection::~CParameterCollection" ref="a69537db39312d42af380c16b1779912c" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CParameterCollection::~CParameterCollection </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8cpp_source.html#l00017">17</a> pliku <a class="el" href="_parameter_collection_8cpp_source.html">ParameterCollection.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_parameter_collection_8h_source.html#l00207">errDesc</a>, <a class="el" href="_parameter_collection_8h_source.html#l00208">errInterface</a> i <a class="el" href="_parameter_collection_8h_source.html#l00209">errScope</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="aa8d5a728ee17a1af4f2e0c2af6d57aad"></a><!-- doxytag: member="CParameterCollection::AddError" ref="aa8d5a728ee17a1af4f2e0c2af6d57aad" args="(VARIANT *in)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHODIMP CParameterCollection::AddError </td>
+          <td>(</td>
+          <td class="paramtype">VARIANT *&nbsp;</td>
+          <td class="paramname"> <em>in</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8cpp_source.html#l00034">34</a> pliku <a class="el" href="_parameter_collection_8cpp_source.html">ParameterCollection.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_parameter_collection_8h_source.html#l00215">err</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2817bc520355b7975784e681f6a51476"></a><!-- doxytag: member="CParameterCollection::AddParameter" ref="a2817bc520355b7975784e681f6a51476" args="(IDispatch *p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHODIMP CParameterCollection::AddParameter </td>
+          <td>(</td>
+          <td class="paramtype">IDispatch *&nbsp;</td>
+          <td class="paramname"> <em>p</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8cpp_source.html#l00052">52</a> pliku <a class="el" href="_parameter_collection_8cpp_source.html">ParameterCollection.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_parameter_collection_8h_source.html#l00212">parameterCount</a> i <a class="el" href="_parameter_collection_8h_source.html#l00213">parameters</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac7d85ac6887724e46e6ae93a4c6c8913"></a><!-- doxytag: member="CParameterCollection::Count" ref="ac7d85ac6887724e46e6ae93a4c6c8913" args="(long *itemsCount)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CParameterCollection::Count </td>
+          <td>(</td>
+          <td class="paramtype">long *&nbsp;</td>
+          <td class="paramname"> <em>itemsCount</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00158">158</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aceee2bccdf4dc677446f48eda7fcb0b6"></a><!-- doxytag: member="CParameterCollection::debugfile" ref="aceee2bccdf4dc677446f48eda7fcb0b6" args="(VARIANT *in)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHODIMP CParameterCollection::debugfile </td>
+          <td>(</td>
+          <td class="paramtype">VARIANT *&nbsp;</td>
+          <td class="paramname"> <em>in</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8cpp_source.html#l00043">43</a> pliku <a class="el" href="_parameter_collection_8cpp_source.html">ParameterCollection.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_parameter_collection_8h_source.html#l00214">mystream</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a51aa4d8058bfdf043a9dfa223f2ee8e8"></a><!-- doxytag: member="CParameterCollection::FinalConstruct" ref="a51aa4d8058bfdf043a9dfa223f2ee8e8" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HRESULT CParameterCollection::FinalConstruct </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00048">48</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af73df028780828b30eca4e6205b7a7b3"></a><!-- doxytag: member="CParameterCollection::FinalRelease" ref="af73df028780828b30eca4e6205b7a7b3" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CParameterCollection::FinalRelease </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00053">53</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0d1903c8f17a0caa8582f5f9fbfbe042"></a><!-- doxytag: member="CParameterCollection::get_code" ref="a0d1903c8f17a0caa8582f5f9fbfbe042" args="(long *code)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CParameterCollection::get_code </td>
+          <td>(</td>
+          <td class="paramtype">long *&nbsp;</td>
+          <td class="paramname"> <em>code</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00080">80</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3627438411eb0a0e078fc8e5b0ae6526"></a><!-- doxytag: member="CParameterCollection::get_ComponentDescription" ref="a3627438411eb0a0e078fc8e5b0ae6526" args="(BSTR *desc)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CParameterCollection::get_ComponentDescription </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>desc</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00187">187</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6a757757ffffdee86f90d8308b23aa29"></a><!-- doxytag: member="CParameterCollection::get_ComponentName" ref="a6a757757ffffdee86f90d8308b23aa29" args="(BSTR *name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CParameterCollection::get_ComponentName </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>name</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00169">169</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a107f65577f09ada6f9927dab4e345fe0"></a><!-- doxytag: member="CParameterCollection::get_description" ref="a107f65577f09ada6f9927dab4e345fe0" args="(BSTR *description)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CParameterCollection::get_description </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>description</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00088">88</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a40b19309013299510437874dcc0eff96"></a><!-- doxytag: member="CParameterCollection::get_interfaceName" ref="a40b19309013299510437874dcc0eff96" args="(BSTR *interfaceName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CParameterCollection::get_interfaceName </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>interfaceName</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00107">107</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a62b35a7a7e2ec6be343cd1799d807dba"></a><!-- doxytag: member="CParameterCollection::get_moreInfo" ref="a62b35a7a7e2ec6be343cd1799d807dba" args="(BSTR *moreInfo)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CParameterCollection::get_moreInfo </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>moreInfo</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00126">126</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a756e2c8993e0b0e9809f5b30199b19e3"></a><!-- doxytag: member="CParameterCollection::get_name" ref="a756e2c8993e0b0e9809f5b30199b19e3" args="(BSTR *name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CParameterCollection::get_name </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>name</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00066">66</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a006ecdee96650352c6e4b299d812fb02"></a><!-- doxytag: member="CParameterCollection::get_operation" ref="a006ecdee96650352c6e4b299d812fb02" args="(BSTR *operation)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CParameterCollection::get_operation </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>operation</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00115">115</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac1870a672988cd10126df9f366aebecc"></a><!-- doxytag: member="CParameterCollection::get_scope" ref="ac1870a672988cd10126df9f366aebecc" args="(BSTR *scope)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CParameterCollection::get_scope </td>
+          <td>(</td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"> <em>scope</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00098">98</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa0aadbfa61b3f672f06cde52981b58f2"></a><!-- doxytag: member="CParameterCollection::Item" ref="aa0aadbfa61b3f672f06cde52981b58f2" args="(VARIANT id, LPDISPATCH *Item)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CParameterCollection::Item </td>
+          <td>(</td>
+          <td class="paramtype">VARIANT&nbsp;</td>
+          <td class="paramname"> <em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LPDISPATCH *&nbsp;</td>
+          <td class="paramname"> <em>Item</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00139">139</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2e86a4f11dbf2cfe01e9b72e05fd5259"></a><!-- doxytag: member="CParameterCollection::put_ComponentDescription" ref="a2e86a4f11dbf2cfe01e9b72e05fd5259" args="(BSTR desc)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CParameterCollection::put_ComponentDescription </td>
+          <td>(</td>
+          <td class="paramtype">BSTR&nbsp;</td>
+          <td class="paramname"> <em>desc</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00196">196</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a031024231cfa7b42864f6a0c934fe633"></a><!-- doxytag: member="CParameterCollection::put_ComponentName" ref="a031024231cfa7b42864f6a0c934fe633" args="(BSTR name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHOD() CParameterCollection::put_ComponentName </td>
+          <td>(</td>
+          <td class="paramtype">BSTR&nbsp;</td>
+          <td class="paramname"> <em>name</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00177">177</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afa7a0c5e1e59dac6e3ee5d40b90cb0d9"></a><!-- doxytag: member="CParameterCollection::RemoveParameter" ref="afa7a0c5e1e59dac6e3ee5d40b90cb0d9" args="(LONG index)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDMETHODIMP CParameterCollection::RemoveParameter </td>
+          <td>(</td>
+          <td class="paramtype">LONG&nbsp;</td>
+          <td class="paramname"> <em>index</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8cpp_source.html#l00061">61</a> pliku <a class="el" href="_parameter_collection_8cpp_source.html">ParameterCollection.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_parameter_collection_8h_source.html#l00212">parameterCount</a> i <a class="el" href="_parameter_collection_8h_source.html#l00213">parameters</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa353da0a5fc1bc27e4c36d2e0eb84f26"></a><!-- doxytag: member="CParameterCollection::SetError" ref="aa353da0a5fc1bc27e4c36d2e0eb84f26" args="(BSTR desc, BSTR interf, BSTR scope)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CParameterCollection::SetError </td>
+          <td>(</td>
+          <td class="paramtype">BSTR&nbsp;</td>
+          <td class="paramname"> <em>desc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BSTR&nbsp;</td>
+          <td class="paramname"> <em>interf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BSTR&nbsp;</td>
+          <td class="paramname"> <em>scope</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8cpp_source.html#l00026">26</a> pliku <a class="el" href="_parameter_collection_8cpp_source.html">ParameterCollection.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_parameter_collection_8h_source.html#l00207">errDesc</a>, <a class="el" href="_parameter_collection_8h_source.html#l00208">errInterface</a> i <a class="el" href="_parameter_collection_8h_source.html#l00209">errScope</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja atrybutów składowych</h2>
+<a class="anchor" id="acd3ab6979a94892b720fdb8b5dd101e8"></a><!-- doxytag: member="CParameterCollection::err" ref="acd3ab6979a94892b720fdb8b5dd101e8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c___error.html">C_Error</a>* <a class="el" href="class_c_parameter_collection.html#acd3ab6979a94892b720fdb8b5dd101e8">CParameterCollection::err</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00215">215</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_parameter_collection_8cpp_source.html#l00034">AddError()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af3802dd1e3be6beeceb63dfaea641685"></a><!-- doxytag: member="CParameterCollection::errDesc" ref="af3802dd1e3be6beeceb63dfaea641685" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c_parameter_collection.html#af3802dd1e3be6beeceb63dfaea641685">CParameterCollection::errDesc</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00207">207</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_parameter_collection_8cpp_source.html#l00007">CParameterCollection()</a>, <a class="el" href="_parameter_collection_8cpp_source.html#l00026">SetError()</a> i <a class="el" href="_parameter_collection_8cpp_source.html#l00017">~CParameterCollection()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a318a59de74bd33f7825f6051df55a3d4"></a><!-- doxytag: member="CParameterCollection::errInterface" ref="a318a59de74bd33f7825f6051df55a3d4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c_parameter_collection.html#a318a59de74bd33f7825f6051df55a3d4">CParameterCollection::errInterface</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00208">208</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_parameter_collection_8cpp_source.html#l00007">CParameterCollection()</a>, <a class="el" href="_parameter_collection_8cpp_source.html#l00026">SetError()</a> i <a class="el" href="_parameter_collection_8cpp_source.html#l00017">~CParameterCollection()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7a285cd7d9a8f33f0255b76557ab23dc"></a><!-- doxytag: member="CParameterCollection::errScope" ref="a7a285cd7d9a8f33f0255b76557ab23dc" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c_parameter_collection.html#a7a285cd7d9a8f33f0255b76557ab23dc">CParameterCollection::errScope</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00209">209</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_parameter_collection_8cpp_source.html#l00007">CParameterCollection()</a>, <a class="el" href="_parameter_collection_8cpp_source.html#l00026">SetError()</a> i <a class="el" href="_parameter_collection_8cpp_source.html#l00017">~CParameterCollection()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9dc0c5802113b449eab2b54305659a8f"></a><!-- doxytag: member="CParameterCollection::myDesc" ref="a9dc0c5802113b449eab2b54305659a8f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c_parameter_collection.html#a9dc0c5802113b449eab2b54305659a8f">CParameterCollection::myDesc</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00211">211</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab9896b5153fa96a1dbb7cf9b2a8373ec"></a><!-- doxytag: member="CParameterCollection::myName" ref="ab9896b5153fa96a1dbb7cf9b2a8373ec" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c_parameter_collection.html#ab9896b5153fa96a1dbb7cf9b2a8373ec">CParameterCollection::myName</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00210">210</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2e4734a33144190ef0f03c2bb8dd0bbd"></a><!-- doxytag: member="CParameterCollection::mystream" ref="a2e4734a33144190ef0f03c2bb8dd0bbd" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILE* <a class="el" href="class_c_parameter_collection.html#a2e4734a33144190ef0f03c2bb8dd0bbd">CParameterCollection::mystream</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00214">214</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_parameter_collection_8cpp_source.html#l00043">debugfile()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a10786d7f574ac4e0e0e740eec13222c0"></a><!-- doxytag: member="CParameterCollection::parameterCount" ref="a10786d7f574ac4e0e0e740eec13222c0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_c_parameter_collection.html#a10786d7f574ac4e0e0e740eec13222c0">CParameterCollection::parameterCount</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00212">212</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_parameter_collection_8cpp_source.html#l00052">AddParameter()</a>, <a class="el" href="_parameter_collection_8cpp_source.html#l00007">CParameterCollection()</a> i <a class="el" href="_parameter_collection_8cpp_source.html#l00061">RemoveParameter()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a42f8509e453e98edb8ad24e14e3fa0d5"></a><!-- doxytag: member="CParameterCollection::parameters" ref="a42f8509e453e98edb8ad24e14e3fa0d5" args="[10]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ICapeParameter* <a class="el" href="class_c_parameter_collection.html#a42f8509e453e98edb8ad24e14e3fa0d5">CParameterCollection::parameters</a>[10]<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_parameter_collection_8h_source.html#l00213">213</a> pliku <a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_parameter_collection_8cpp_source.html#l00052">AddParameter()</a> i <a class="el" href="_parameter_collection_8cpp_source.html#l00061">RemoveParameter()</a>.</p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li><a class="el" href="_parameter_collection_8h_source.html">ParameterCollection.h</a></li>
+<li><a class="el" href="_parameter_collection_8cpp_source.html">ParameterCollection.cpp</a></li>
+</ul>
+</div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:36 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

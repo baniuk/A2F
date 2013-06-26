@@ -1,0 +1,8 @@
+(ti-menu-load-string "!del nazwa.prof")
+(ti-menu-load-string "file/read-case-data rura.cas")
+(ti-menu-load-string "define/boundary-conditions/zone-type wlot mass-flow-inlet")
+(ti-menu-load-string "define/boundary-conditions/mass-flow-inlet wlot yes 1.1 no 0 yes yes yes no 0 no 0 no 1")
+(ti-menu-load-string "solve/iterate 100")
+(ti-menu-load-string "file/write-profile nazwa.prof wylot , z-velocity")
+(ti-menu-load-string "/")
+(ti-menu-load-string "exit yes")

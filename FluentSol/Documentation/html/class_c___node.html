@@ -1,0 +1,508 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Dokumentacja klasy C_Node</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Lista&nbsp;klas</span></a></li>
+      <li><a href="classes.html"><span>Indeks&nbsp;klas</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchia&nbsp;klas</span></a></li>
+      <li><a href="functions.html"><span>Składowe&nbsp;klas</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja klasy C_Node</h1><!-- doxytag: class="C_Node" -->
+<p>Prosta klasa do obsługi list jednokierunkowych.  
+<a href="#_details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_c___node_8h_source.html">C_Node.h</a>&gt;</code></p>
+
+<p>Dziedziczona przez <a class="el" href="class_c___error.html">C_Error</a>.</p>
+<div class="dynheader">
+Diagram współpracy dla C_Node:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___node__coll__graph.png" border="0" usemap="#_c___node_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legenda</a>]</span></center></div>
+
+<p><a href="class_c___node-members.html">Lista wszystkich składowych.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Metody publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___node.html#a3305d9f8e6b8979674b9f0f2028a5f99">C_Node</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___node.html#a2c66c87b7d3631d341ba5fc9b20b41d9">C_Node</a> (char *pdata)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___node.html#abfde820e5ee169af3fad1c08cc1ba7ef">~C_Node</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c___node.html">C_Node</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d">Get_Next</a> (void)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zwraca adres kolejnego węzła w stosunku do aktualnego.  <a href="#ad4c482dc1682b579298cc92da4b3f92d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33">Add_Next</a> (char *pdata)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Dodaje kolejny wpis do listy.  <a href="#a8107d8b76f39b68cba074ab7ed128b33"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___node.html#a470c6ae493f150409e14d27e7703929e">Node_Init</a> (void)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Inicjalizacja listy, powinno być użyte jako pierwsze.  <a href="#a470c6ae493f150409e14d27e7703929e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c">Get_Num_of_Nodes</a> (void)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zwraca ilosc węzłów.  <a href="#a9fda439cab1b86c0287da99014ba363c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___node.html#a063a587f5dd7736b9b924879b80d133c">Clear_All</a> (void)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Kasuje wszyskie wezły.  <a href="#a063a587f5dd7736b9b924879b80d133c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___node.html#a56d05ff5055470c48d45636cdb0e1ea0">GetNthNodeData</a> (unsigned int nr)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zwraca ciąg dla nth węzła.  <a href="#a56d05ff5055470c48d45636cdb0e1ea0"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Atrybuty publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___node.html#a324eeeec704e2f579104eb0d44f32dbe">data</a> [MAX_LENGTH_NODE]</td></tr>
+<tr><td colspan="2"><h2>Atrybuty prywatne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c___node.html">C_Node</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___node.html#a38532fd247747e2f7dd8352a32751a3c">next</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___node.html#a1bc348f556da5104147d2d5f4534e0eb">nodenr</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+<p>Prosta klasa do obsługi list jednokierunkowych. </p>
+<p>Prosta klasa do obsługi list. W każdym węźle jest tablica z danymi i adres do następnego węzła. Dodawanie kolejnych węzłow poprzez obiekt główny. Generalnie trzeba uważać na to na który wezeł pokauje bierzący odres. Zawsze powinien to być pierwszy obiekt Przed użyciem trzeba zainicjalizować pierwszy obiekt funkcją <a class="el" href="class_c___node.html#a470c6ae493f150409e14d27e7703929e" title="Inicjalizacja listy, powinno być użyte jako pierwsze.">C_Node::Node_Init</a></p>
+<div class="fragment"><pre class="fragment"> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ilenode,a;
+ <a class="code" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych.">C_Node</a> node(<span class="stringliteral">&quot;node 1&quot;</span>);
+ node.Node_Init();
+ <a class="code" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych.">C_Node</a>* tmp;
+
+ node.Add_Next(<span class="stringliteral">&quot;node 2&quot;</span>);
+ node.Add_Next(<span class="stringliteral">&quot;node 3&quot;</span>);
+
+ ilenode = node.Get_Num_of_Nodes();
+
+ tmp = &amp;node;
+ <span class="keywordflow">for</span>(a=0;a&lt;ilenode;a++)
+ {
+  printf(<span class="stringliteral">&quot;%s\n&quot;</span>,tmp-&gt;<a class="code" href="class_c___node.html#a324eeeec704e2f579104eb0d44f32dbe">data</a>);
+  tmp = tmp-&gt;<a class="code" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego.">Get_Next</a>();
+ }
+
+ node.<a class="code" href="class_c___node.html#a063a587f5dd7736b9b924879b80d133c" title="Kasuje wszyskie wezły.">Clear_All</a>();
+ 
+ tmp = &amp;node;
+ ilenode = node.<a class="code" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów.">Get_Num_of_Nodes</a>();
+ <span class="keywordflow">for</span>(a=0;a&lt;ilenode;a++)
+ {
+  printf(<span class="stringliteral">&quot;%s\n&quot;</span>,tmp-&gt;<a class="code" href="class_c___node.html#a324eeeec704e2f579104eb0d44f32dbe">data</a>);
+  tmp = tmp-&gt;<a class="code" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego.">Get_Next</a>();
+ }
+ 
+ node.<a class="code" href="class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy.">Add_Next</a>(<span class="stringliteral">&quot;node 2a&quot;</span>);
+
+ tmp = &amp;node;
+ ilenode = node.<a class="code" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów.">Get_Num_of_Nodes</a>();
+ <span class="keywordflow">for</span>(a=0;a&lt;ilenode;a++)
+ {
+  printf(<span class="stringliteral">&quot;%s\n&quot;</span>,tmp-&gt;<a class="code" href="class_c___node.html#a324eeeec704e2f579104eb0d44f32dbe">data</a>);
+  tmp = tmp-&gt;<a class="code" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego.">Get_Next</a>();
+ }
+
+ _getch();
+ <span class="keywordflow">return</span> 0;
+</pre></div> 
+<p>Definicja w linii <a class="el" href="_c___node_8h_source.html#l00050">50</a> pliku <a class="el" href="_c___node_8h_source.html">C_Node.h</a>.</p>
+<hr/><h2>Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="a3305d9f8e6b8979674b9f0f2028a5f99"></a><!-- doxytag: member="C_Node::C_Node" ref="a3305d9f8e6b8979674b9f0f2028a5f99" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">C_Node::C_Node </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___node_8cpp_source.html#l00004">4</a> pliku <a class="el" href="_c___node_8cpp_source.html">C_Node.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___node_8h_source.html#l00096">next</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2c66c87b7d3631d341ba5fc9b20b41d9"></a><!-- doxytag: member="C_Node::C_Node" ref="a2c66c87b7d3631d341ba5fc9b20b41d9" args="(char *pdata)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">C_Node::C_Node </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>pdata</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___node_8cpp_source.html#l00009">9</a> pliku <a class="el" href="_c___node_8cpp_source.html">C_Node.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___node_8h_source.html#l00056">data</a>, <a class="el" href="definicje_8h_source.html#l00012">MAX_LENGTH_NODE</a> i <a class="el" href="_c___node_8h_source.html#l00096">next</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abfde820e5ee169af3fad1c08cc1ba7ef"></a><!-- doxytag: member="C_Node::~C_Node" ref="abfde820e5ee169af3fad1c08cc1ba7ef" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">C_Node::~C_Node </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___node_8cpp_source.html#l00015">15</a> pliku <a class="el" href="_c___node_8cpp_source.html">C_Node.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___node_8h_source.html#l00096">next</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="a8107d8b76f39b68cba074ab7ed128b33"></a><!-- doxytag: member="C_Node::Add_Next" ref="a8107d8b76f39b68cba074ab7ed128b33" args="(char *pdata)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void C_Node::Add_Next </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>pdata</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Dodaje kolejny wpis do listy. </p>
+<p>Dodaje kolejny wpis do listy. </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>pdata</em>&nbsp;</td><td>ciąg tekstowy z wpisem o długości MAX_LENGTH_NODE w <a class="el" href="definicje_8h.html">definicje.h</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c___node_8cpp_source.html#l00030">30</a> pliku <a class="el" href="_c___node_8cpp_source.html">C_Node.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___node_8h_source.html#l00056">data</a>, <a class="el" href="_c___node_8cpp_source.html#l00023">Get_Next()</a>, <a class="el" href="_c___node_8cpp_source.html#l00050">Get_Num_of_Nodes()</a>, <a class="el" href="definicje_8h_source.html#l00012">MAX_LENGTH_NODE</a>, <a class="el" href="_c___node_8h_source.html#l00096">next</a> i <a class="el" href="_c___node_8h_source.html#l00097">nodenr</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___error_8cpp_source.html#l00018">C_Error::AddError()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___node_a8107d8b76f39b68cba074ab7ed128b33_cgraph.png" border="0" usemap="#class_c___node_a8107d8b76f39b68cba074ab7ed128b33_cgraph_map" alt=""></div>
+<map name="class_c___node_a8107d8b76f39b68cba074ab7ed128b33_cgraph_map" id="class_c___node_a8107d8b76f39b68cba074ab7ed128b33_cgraph">
+<area shape="rect" id="node3" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego." alt="" coords="427,5,557,35"/><area shape="rect" id="node5" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów." alt="" coords="187,31,379,60"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___node_a8107d8b76f39b68cba074ab7ed128b33_icgraph.png" border="0" usemap="#class_c___node_a8107d8b76f39b68cba074ab7ed128b33_icgraph_map" alt=""></div>
+<map name="class_c___node_a8107d8b76f39b68cba074ab7ed128b33_icgraph_map" id="class_c___node_a8107d8b76f39b68cba074ab7ed128b33_icgraph">
+<area shape="rect" id="node3" href="class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy." alt="" coords="187,199,312,228"/><area shape="rect" id="node5" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="1145,199,1316,228"/><area shape="rect" id="node7" href="class_c___params.html#ab65d753c172afbdef6828a2804e88b91" title="Wczytuje i analizuje plik konfiguracyjny." alt="" coords="404,71,545,100"/><area shape="rect" id="node9" href="class_c_unit_operation.html#a3e8877612e6772acf65ea50f198f91d8" title="CUnitOperation::CUnitOperation" alt="" coords="640,96,845,125"/><area shape="rect" id="node11" href="class_c__my_run_process.html#af04033e23f541696c736ef795e864392" title="Tworzy środowisko do uruchomienia fluenta &#45; generuje scm oraz journalC_Params." alt="" coords="899,172,1093,201"/><area shape="rect" id="node15" href="class_c__my_run_process.html#a96de0e119537f9f36f3cfaa8da96280f" title="Wczytuje dane z Fluenta." alt="" coords="644,224,841,253"/><area shape="rect" id="node18" href="class_c__my_run_process.html#a4c5555e8dc1c88ff665e247f371f73ef" title="C_myRunProcess::StartFluent" alt="" coords="897,276,1095,305"/><area shape="rect" id="node21" href="class_c__my_run_process.html#ac445542726d5877bef97f4f34fde85cd" title="C_myRunProcess::WaitForProcess" alt="" coords="360,328,589,357"/><area shape="rect" id="node23" href="class_c__my_run_process.html#a06bdfb895da68f5d45e769f4986a43c5" title="C_myRunProcess::WaitForStart" alt="" coords="639,328,847,357"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a063a587f5dd7736b9b924879b80d133c"></a><!-- doxytag: member="C_Node::Clear_All" ref="a063a587f5dd7736b9b924879b80d133c" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void C_Node::Clear_All </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Kasuje wszyskie wezły. </p>
+<p>Kasuje wszyskie wezły od tego dla którego zostało wywołane (kasuje w dół do końca). Czyści listę </p>
+
+<p>Definicja w linii <a class="el" href="_c___node_8cpp_source.html#l00064">64</a> pliku <a class="el" href="_c___node_8cpp_source.html">C_Node.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___node_8h_source.html#l00096">next</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___error_8cpp_source.html#l00024">C_Error::ClearErrorStatus()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___node_a063a587f5dd7736b9b924879b80d133c_icgraph.png" border="0" usemap="#class_c___node_a063a587f5dd7736b9b924879b80d133c_icgraph_map" alt=""></div>
+<map name="class_c___node_a063a587f5dd7736b9b924879b80d133c_icgraph_map" id="class_c___node_a063a587f5dd7736b9b924879b80d133c_icgraph">
+<area shape="rect" id="node3" href="class_c___error.html#accf210fb142275680f7b1be63fc90cb6" title="Czyści wszystkie komunikaty." alt="" coords="181,5,352,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad4c482dc1682b579298cc92da4b3f92d"></a><!-- doxytag: member="C_Node::Get_Next" ref="ad4c482dc1682b579298cc92da4b3f92d" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c___node.html">C_Node</a> * C_Node::Get_Next </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Zwraca adres kolejnego węzła w stosunku do aktualnego. </p>
+<p>Zwraca adres kolejnego węzła w stosunku do aktualnego, lub NULL gdy jest to węzeł ostatni</p>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych.">C_Node</a></em>&nbsp;</td><td>*ptr Adres kolejnego węzła </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>NULL</em>&nbsp;</td><td>Jeśli nie ma następnego już </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c___node_8cpp_source.html#l00023">23</a> pliku <a class="el" href="_c___node_8cpp_source.html">C_Node.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___node_8h_source.html#l00096">next</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___node_8cpp_source.html#l00030">Add_Next()</a>, <a class="el" href="_unit_operation_8cpp_source.html#l00257">CUnitOperation::Calculate()</a>, <a class="el" href="_c___node_8cpp_source.html#l00050">Get_Num_of_Nodes()</a>, <a class="el" href="_c___node_8cpp_source.html#l00073">GetNthNodeData()</a> i <a class="el" href="_c___error_8cpp_source.html#l00030">C_Error::PrintAll()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___node_ad4c482dc1682b579298cc92da4b3f92d_icgraph.png" border="0" usemap="#class_c___node_ad4c482dc1682b579298cc92da4b3f92d_icgraph_map" alt=""></div>
+<map name="class_c___node_ad4c482dc1682b579298cc92da4b3f92d_icgraph_map" id="class_c___node_ad4c482dc1682b579298cc92da4b3f92d_icgraph">
+<area shape="rect" id="node3" href="class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy." alt="" coords="445,406,579,436"/><area shape="rect" id="node7" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="1697,152,1868,181"/><area shape="rect" id="node30" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów." alt="" coords="184,458,376,488"/><area shape="rect" id="node34" href="class_c___node.html#a56d05ff5055470c48d45636cdb0e1ea0" title="Zwraca ciąg dla nth węzła." alt="" coords="425,564,599,593"/><area shape="rect" id="node36" href="class_c___error.html#ac88832708e7110c890f78f7c9348c2bd" title="Zgrywa wszystkie błedy na dysk." alt="" coords="455,510,569,540"/><area shape="rect" id="node5" href="class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy." alt="" coords="693,252,819,281"/><area shape="rect" id="node9" href="class_c___params.html#ab65d753c172afbdef6828a2804e88b91" title="Wczytuje i analizuje plik konfiguracyjny." alt="" coords="956,252,1097,281"/><area shape="rect" id="node11" href="class_c_unit_operation.html#a3e8877612e6772acf65ea50f198f91d8" title="CUnitOperation::CUnitOperation" alt="" coords="1192,238,1397,268"/><area shape="rect" id="node13" href="class_c__my_run_process.html#af04033e23f541696c736ef795e864392" title="Tworzy środowisko do uruchomienia fluenta &#45; generuje scm oraz journalC_Params." alt="" coords="1451,100,1645,129"/><area shape="rect" id="node17" href="class_c__my_run_process.html#a96de0e119537f9f36f3cfaa8da96280f" title="Wczytuje dane z Fluenta." alt="" coords="1196,150,1393,180"/><area shape="rect" id="node20" href="class_c__my_run_process.html#a4c5555e8dc1c88ff665e247f371f73ef" title="C_myRunProcess::StartFluent" alt="" coords="1449,317,1647,346"/><area shape="rect" id="node23" href="class_c__my_run_process.html#ac445542726d5877bef97f4f34fde85cd" title="C_myRunProcess::WaitForProcess" alt="" coords="912,356,1141,385"/><area shape="rect" id="node25" href="class_c__my_run_process.html#a06bdfb895da68f5d45e769f4986a43c5" title="C_myRunProcess::WaitForStart" alt="" coords="1191,317,1399,346"/><area shape="rect" id="node39" href="class_c_unit_operation.html#a5742dcfc6765c1d5e5095050ccc13bb5" title="CUnitOperation::~CUnitOperation" alt="" coords="649,510,863,540"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a9fda439cab1b86c0287da99014ba363c"></a><!-- doxytag: member="C_Node::Get_Num_of_Nodes" ref="a9fda439cab1b86c0287da99014ba363c" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int C_Node::Get_Num_of_Nodes </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Zwraca ilosc węzłów. </p>
+<p>Zwraca ilosc węzłów przechowywanych w liście</p>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>num</em>&nbsp;</td><td>Ilość węzłów </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c___node_8cpp_source.html#l00050">50</a> pliku <a class="el" href="_c___node_8cpp_source.html">C_Node.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___node_8cpp_source.html#l00023">Get_Next()</a>, <a class="el" href="_c___node_8h_source.html#l00096">next</a> i <a class="el" href="_c___node_8h_source.html#l00097">nodenr</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___node_8cpp_source.html#l00030">Add_Next()</a>, <a class="el" href="_unit_operation_8cpp_source.html#l00257">CUnitOperation::Calculate()</a>, <a class="el" href="_c___node_8cpp_source.html#l00073">GetNthNodeData()</a> i <a class="el" href="_c___error_8cpp_source.html#l00030">C_Error::PrintAll()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___node_a9fda439cab1b86c0287da99014ba363c_cgraph.png" border="0" usemap="#class_c___node_a9fda439cab1b86c0287da99014ba363c_cgraph_map" alt=""></div>
+<map name="class_c___node_a9fda439cab1b86c0287da99014ba363c_cgraph_map" id="class_c___node_a9fda439cab1b86c0287da99014ba363c_cgraph">
+<area shape="rect" id="node3" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego." alt="" coords="245,5,376,35"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___node_a9fda439cab1b86c0287da99014ba363c_icgraph.png" border="0" usemap="#class_c___node_a9fda439cab1b86c0287da99014ba363c_icgraph_map" alt=""></div>
+<map name="class_c___node_a9fda439cab1b86c0287da99014ba363c_icgraph_map" id="class_c___node_a9fda439cab1b86c0287da99014ba363c_icgraph">
+<area shape="rect" id="node3" href="class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy." alt="" coords="267,268,400,297"/><area shape="rect" id="node7" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="1519,220,1689,249"/><area shape="rect" id="node30" href="class_c___node.html#a56d05ff5055470c48d45636cdb0e1ea0" title="Zwraca ciąg dla nth węzła." alt="" coords="247,449,420,478"/><area shape="rect" id="node32" href="class_c___error.html#ac88832708e7110c890f78f7c9348c2bd" title="Zgrywa wszystkie błedy na dysk." alt="" coords="276,502,391,532"/><area shape="rect" id="node5" href="class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy." alt="" coords="515,192,640,221"/><area shape="rect" id="node9" href="class_c___params.html#ab65d753c172afbdef6828a2804e88b91" title="Wczytuje i analizuje plik konfiguracyjny." alt="" coords="777,38,919,68"/><area shape="rect" id="node11" href="class_c_unit_operation.html#a3e8877612e6772acf65ea50f198f91d8" title="CUnitOperation::CUnitOperation" alt="" coords="1013,64,1219,93"/><area shape="rect" id="node13" href="class_c__my_run_process.html#af04033e23f541696c736ef795e864392" title="Tworzy środowisko do uruchomienia fluenta &#45; generuje scm oraz journalC_Params." alt="" coords="1272,141,1467,170"/><area shape="rect" id="node17" href="class_c__my_run_process.html#a96de0e119537f9f36f3cfaa8da96280f" title="Wczytuje dane z Fluenta." alt="" coords="1017,193,1215,222"/><area shape="rect" id="node20" href="class_c__my_run_process.html#a4c5555e8dc1c88ff665e247f371f73ef" title="C_myRunProcess::StartFluent" alt="" coords="1271,245,1468,274"/><area shape="rect" id="node23" href="class_c__my_run_process.html#ac445542726d5877bef97f4f34fde85cd" title="C_myRunProcess::WaitForProcess" alt="" coords="733,294,963,324"/><area shape="rect" id="node25" href="class_c__my_run_process.html#a06bdfb895da68f5d45e769f4986a43c5" title="C_myRunProcess::WaitForStart" alt="" coords="1012,297,1220,326"/><area shape="rect" id="node35" href="class_c_unit_operation.html#a5742dcfc6765c1d5e5095050ccc13bb5" title="CUnitOperation::~CUnitOperation" alt="" coords="471,502,684,532"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a56d05ff5055470c48d45636cdb0e1ea0"></a><!-- doxytag: member="C_Node::GetNthNodeData" ref="a56d05ff5055470c48d45636cdb0e1ea0" args="(unsigned int nr)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * C_Node::GetNthNodeData </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>nr</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Zwraca ciąg dla nth węzła. </p>
+<p>Zwraca ciąg przechowywany w nth węźle (liczone od 0) </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>nr</em>&nbsp;</td><td>numer węzła</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>*ptr</em>&nbsp;</td><td>Wskaźnik do danych przechowywanych w nr węźle </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>NULL</em>&nbsp;</td><td>Jeśli odwołujemy się do nieistniejącego węzła </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c___node_8cpp_source.html#l00073">73</a> pliku <a class="el" href="_c___node_8cpp_source.html">C_Node.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___node_8h_source.html#l00056">data</a>, <a class="el" href="_c___node_8cpp_source.html#l00023">Get_Next()</a>, <a class="el" href="_c___node_8cpp_source.html#l00050">Get_Num_of_Nodes()</a> i <a class="el" href="_c___node_8h_source.html#l00097">nodenr</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___node_a56d05ff5055470c48d45636cdb0e1ea0_cgraph.png" border="0" usemap="#class_c___node_a56d05ff5055470c48d45636cdb0e1ea0_cgraph_map" alt=""></div>
+<map name="class_c___node_a56d05ff5055470c48d45636cdb0e1ea0_cgraph_map" id="class_c___node_a56d05ff5055470c48d45636cdb0e1ea0_cgraph">
+<area shape="rect" id="node3" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego." alt="" coords="469,5,600,35"/><area shape="rect" id="node5" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów." alt="" coords="229,31,421,60"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a470c6ae493f150409e14d27e7703929e"></a><!-- doxytag: member="C_Node::Node_Init" ref="a470c6ae493f150409e14d27e7703929e" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void C_Node::Node_Init </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Inicjalizacja listy, powinno być użyte jako pierwsze. </p>
+<p>Inicjalizacja listy, powinno być użyte jako pierwsze </p>
+
+<p>Definicja w linii <a class="el" href="_c___node_8cpp_source.html#l00045">45</a> pliku <a class="el" href="_c___node_8cpp_source.html">C_Node.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___node_8h_source.html#l00097">nodenr</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation::CUnitOperation()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___node_a470c6ae493f150409e14d27e7703929e_icgraph.png" border="0" usemap="#class_c___node_a470c6ae493f150409e14d27e7703929e_icgraph_map" alt=""></div>
+<map name="class_c___node_a470c6ae493f150409e14d27e7703929e_icgraph_map" id="class_c___node_a470c6ae493f150409e14d27e7703929e_icgraph">
+<area shape="rect" id="node3" href="class_c_unit_operation.html#a3e8877612e6772acf65ea50f198f91d8" title="CUnitOperation::CUnitOperation" alt="" coords="185,5,391,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja atrybutów składowych</h2>
+<a class="anchor" id="a324eeeec704e2f579104eb0d44f32dbe"></a><!-- doxytag: member="C_Node::data" ref="a324eeeec704e2f579104eb0d44f32dbe" args="[MAX_LENGTH_NODE]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char <a class="el" href="class_c___node.html#a324eeeec704e2f579104eb0d44f32dbe">C_Node::data</a>[MAX_LENGTH_NODE]</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>dane tekstowe przechowywane w pojedyńczym węźle <a class="el" href="definicje_8h.html">definicje.h</a> - długość </p>
+
+<p>Definicja w linii <a class="el" href="_c___node_8h_source.html#l00056">56</a> pliku <a class="el" href="_c___node_8h_source.html">C_Node.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___node_8cpp_source.html#l00030">Add_Next()</a>, <a class="el" href="_c___node_8cpp_source.html#l00009">C_Node()</a>, <a class="el" href="_unit_operation_8cpp_source.html#l00257">CUnitOperation::Calculate()</a>, <a class="el" href="_c___node_8cpp_source.html#l00073">GetNthNodeData()</a> i <a class="el" href="_c___error_8cpp_source.html#l00030">C_Error::PrintAll()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a38532fd247747e2f7dd8352a32751a3c"></a><!-- doxytag: member="C_Node::next" ref="a38532fd247747e2f7dd8352a32751a3c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c___node.html">C_Node</a>* <a class="el" href="class_c___node.html#a38532fd247747e2f7dd8352a32751a3c">C_Node::next</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>adres następnego albo NULL jesli nie ma </p>
+
+<p>Definicja w linii <a class="el" href="_c___node_8h_source.html#l00096">96</a> pliku <a class="el" href="_c___node_8h_source.html">C_Node.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___node_8cpp_source.html#l00030">Add_Next()</a>, <a class="el" href="_c___node_8cpp_source.html#l00004">C_Node()</a>, <a class="el" href="_c___node_8cpp_source.html#l00064">Clear_All()</a>, <a class="el" href="_c___node_8cpp_source.html#l00023">Get_Next()</a>, <a class="el" href="_c___node_8cpp_source.html#l00050">Get_Num_of_Nodes()</a> i <a class="el" href="_c___node_8cpp_source.html#l00015">~C_Node()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1bc348f556da5104147d2d5f4534e0eb"></a><!-- doxytag: member="C_Node::nodenr" ref="a1bc348f556da5104147d2d5f4534e0eb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="class_c___node.html#a1bc348f556da5104147d2d5f4534e0eb">C_Node::nodenr</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>numer wezła liczony od 0 </p>
+
+<p>Definicja w linii <a class="el" href="_c___node_8h_source.html#l00097">97</a> pliku <a class="el" href="_c___node_8h_source.html">C_Node.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___node_8cpp_source.html#l00030">Add_Next()</a>, <a class="el" href="_c___node_8cpp_source.html#l00050">Get_Num_of_Nodes()</a>, <a class="el" href="_c___node_8cpp_source.html#l00073">GetNthNodeData()</a> i <a class="el" href="_c___node_8cpp_source.html#l00045">Node_Init()</a>.</p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li><a class="el" href="_c___node_8h_source.html">C_Node.h</a></li>
+<li><a class="el" href="_c___node_8cpp_source.html">C_Node.cpp</a></li>
+</ul>
+</div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:29 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

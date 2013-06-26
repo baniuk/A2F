@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_c___parameter___container.html#a4019893d512b8da7f9208a94e0fb7524" title="Dodaje parametr do komponentu &#45; rozpoznaje po nazwie." alt="" coords="367,5,660,35"/>
+<area shape="rect" id="node5" href="$class_c___port_parameter___container.html#a0084a3c896460b40ff0ae1505ba069ec" title="Dodaje parametr do komponentu &#45; rozpoznaje po id." alt="" coords="351,59,676,88"/>
+<area shape="rect" id="node11" href="$class_c__my_run_process.html#a96de0e119537f9f36f3cfaa8da96280f" title="Wczytuje dane z Fluenta." alt="" coords="415,112,612,141"/>
+<area shape="rect" id="node7" href="$class_c__my_run_process.html#a7511e1d0a3cb9056ff87bd4a4cd4c886" title="pobiera parametry z klasy na zewnątrz &#45; wersja nowsza" alt="" coords="727,5,927,35"/>
+<area shape="rect" id="node9" href="$class_c__my_run_process.html#a8bf8241f0ff9398a64c00176022d677d" title="wpisuje parametry do klasy, wersja nowsza" alt="" coords="727,59,927,88"/>
+<area shape="rect" id="node13" href="$class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="741,112,912,141"/>
+</map>

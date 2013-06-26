@@ -1,0 +1,584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Dokumentacja klasy Data_To_Read</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Lista&nbsp;klas</span></a></li>
+      <li><a href="classes.html"><span>Indeks&nbsp;klas</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchia&nbsp;klas</span></a></li>
+      <li><a href="functions.html"><span>Składowe&nbsp;klas</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja klasy Data_To_Read</h1><!-- doxytag: class="Data_To_Read" -->
+<p>Klasa sluzy do przechowywania danych jesli jest ich kilka do jednego rozkazu.  
+<a href="#_details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_data___to___read_8h_source.html">Data_To_Read.h</a>&gt;</code></p>
+
+<p><a href="class_data___to___read-members.html">Lista wszystkich składowych.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Metody publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data___to___read.html#a4caae180c6c54f05568aae25496faca0">Data_To_Read</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data___to___read.html#aa55bc4f719e845a3fbfcfd183f1d9195">~Data_To_Read</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data___to___read.html#ab55dda5b5ca867ef21c887e4b87c7614">AddSubStringPoz</a> (unsigned int line, unsigned int poz)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Dodaje pozycję podciągu w ciągu głównym do tablicy pozycji. Zlicza także ilość tych podciagów co odpowiada ilości spacji-1.  <a href="#ab55dda5b5ca867ef21c887e4b87c7614"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data___to___read.html#a2ae9b120ce85df4bbb0b36b61f9a39c0">GetNumOfSubStrings</a> (unsigned int line)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zwraca ilosc podciągów.  <a href="#a2ae9b120ce85df4bbb0b36b61f9a39c0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data___to___read.html#a6a3deab57b0e9d8e040ab3c548595bf9">GetSubString</a> (unsigned int line, unsigned int nr)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zwraca wskaźnik do podciągu.  <a href="#a6a3deab57b0e9d8e040ab3c548595bf9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data___to___read.html#acf5b344c1a44480144bb3d1a93f138b2">GetIle</a> (void)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zwraca ilosc wpisów - danych przechowywanych.  <a href="#acf5b344c1a44480144bb3d1a93f138b2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data___to___read.html#a1f2247e03f494d45dd2bacf4fde00c92">GetLineIndex</a> (char *paramName, unsigned int nr)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zwraca numer linii zawierającej dany ciąg tekstowy na danej pozycji podciągu. Jeśli nie znalezione to zwraca -1.  <a href="#a1f2247e03f494d45dd2bacf4fde00c92"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data___to___read.html#a09b95bb5f3a5175305fa55b962695254">GetLineIndex</a> (char *paramName, unsigned int nr, int *tab)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zwraca numery linii zawierających dany ciąg tekstowy na danej pozycji podciągu. Jeśli nie znalezione to zwraca -1.  <a href="#a09b95bb5f3a5175305fa55b962695254"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Atrybuty publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data___to___read.html#aaf4b8dc4cee9738f28bb25ecbb92673b">pojemnosc</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data___to___read.html#a0127dc66bbc041af9b172b81e9ae8520">DATA_CONTAINER</a> [MAX_EXPORTS]</td></tr>
+<tr><td colspan="2"><h2>Atrybuty prywatne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned short&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data___to___read.html#a2cfdba699409fdcd62e433284f18fba1">ile_poz</a> [MAX_EXPORTS]</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">ile czesci parametru dla kazdej linii  <a href="#a2cfdba699409fdcd62e433284f18fba1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data___to___read.html#ac4ebd4efad00674fe7063d8cb9a0bcc4">pozycje</a> [MAX_EXPORTS]</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">tu są przechowywane pozycje początków ciągów jeśli w datacontainer występuje kilka ciągów jako jeden (zamias spacji to 0) tak naprawdę są tu pozycje zer w ciągu głównym!! numeracja od zera  <a href="#ac4ebd4efad00674fe7063d8cb9a0bcc4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data___to___read.html#a4278b63e6608e7ebdab60cc9f2357660">ile</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">ilosc przechowywanych linii  <a href="#a4278b63e6608e7ebdab60cc9f2357660"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data___to___read.html#a4e8ba7d812819d9cf2e135d34523458d">ktore</a> [MAX_EXPORTS]</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">służy do rozpoznania czy na danej pozycji 'line' jest wpis czy go nie ma. Jeśli nowy wpis to zwiększam ile  <a href="#a4e8ba7d812819d9cf2e135d34523458d"></a><br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+<p>Klasa sluzy do przechowywania danych jesli jest ich kilka do jednego rozkazu. </p>
+<p>Klasa slozy do przechowywania danych jesli jest ich kilka do jednego rozkazu, wszystko domyslnie jest konwertowane do dużych liter juz w momencie wczytywania Umożliwia łatwy dostęp do poszczeglnych składowych rozkazu </p>
+
+<p>Definicja w linii <a class="el" href="_data___to___read_8h_source.html#l00008">8</a> pliku <a class="el" href="_data___to___read_8h_source.html">Data_To_Read.h</a>.</p>
+<hr/><h2>Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="a4caae180c6c54f05568aae25496faca0"></a><!-- doxytag: member="Data_To_Read::Data_To_Read" ref="a4caae180c6c54f05568aae25496faca0" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Data_To_Read::Data_To_Read </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_data___to___read_8cpp_source.html#l00004">4</a> pliku <a class="el" href="_data___to___read_8cpp_source.html">Data_To_Read.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_data___to___read_8h_source.html#l00014">DATA_CONTAINER</a>, <a class="el" href="_data___to___read_8h_source.html#l00022">ile</a>, <a class="el" href="_data___to___read_8h_source.html#l00018">ile_poz</a>, <a class="el" href="_data___to___read_8h_source.html#l00024">ktore</a>, <a class="el" href="definicje_8h_source.html#l00005">MAX_EXPORTS</a>, <a class="el" href="definicje_8h_source.html#l00006">MAX_SPACES</a>, <a class="el" href="definicje_8h_source.html#l00004">MAX_STRING</a>, <a class="el" href="_data___to___read_8h_source.html#l00013">pojemnosc</a> i <a class="el" href="_data___to___read_8h_source.html#l00020">pozycje</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa55bc4f719e845a3fbfcfd183f1d9195"></a><!-- doxytag: member="Data_To_Read::~Data_To_Read" ref="aa55bc4f719e845a3fbfcfd183f1d9195" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Data_To_Read::~Data_To_Read </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_data___to___read_8cpp_source.html#l00018">18</a> pliku <a class="el" href="_data___to___read_8cpp_source.html">Data_To_Read.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_data___to___read_8h_source.html#l00014">DATA_CONTAINER</a>, <a class="el" href="_data___to___read_8h_source.html#l00013">pojemnosc</a>, <a class="el" href="_data___to___read_8h_source.html#l00020">pozycje</a> i <a class="el" href="definicje_8h_source.html#l00050">SAFE_DELETE_ARRAY</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="ab55dda5b5ca867ef21c887e4b87c7614"></a><!-- doxytag: member="Data_To_Read::AddSubStringPoz" ref="ab55dda5b5ca867ef21c887e4b87c7614" args="(unsigned int line, unsigned int poz)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL Data_To_Read::AddSubStringPoz </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>poz</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Dodaje pozycję podciągu w ciągu głównym do tablicy pozycji. Zlicza także ilość tych podciagów co odpowiada ilości spacji-1. </p>
+<p>Dodaje pozycję podciągu w ciągu głównym do tablicy pozycji. Zlicza także ilość tych podciagów co odpowiada ilości spacji-1 </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>line</em>&nbsp;</td><td>Index linii w bloku skryptu (pomiędzy INSTR a END) </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>poz</em>&nbsp;</td><td>Index pozycji na którą dodajemy (index 0 w ciągu)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>FAIL</em>&nbsp;</td><td>Jeśli odwołanie do większej linii niż jest przechowywanych albo jeśli dodajemy więcej podciągów niż dozwolone </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>OK</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_data___to___read_8cpp_source.html#l00029">29</a> pliku <a class="el" href="_data___to___read_8cpp_source.html">Data_To_Read.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="definicje_8h_source.html#l00002">FAIL</a>, <a class="el" href="_data___to___read_8h_source.html#l00022">ile</a>, <a class="el" href="_data___to___read_8h_source.html#l00018">ile_poz</a>, <a class="el" href="_data___to___read_8h_source.html#l00024">ktore</a>, <a class="el" href="definicje_8h_source.html#l00006">MAX_SPACES</a>, <a class="el" href="definicje_8h_source.html#l00003">OK</a>, <a class="el" href="_data___to___read_8h_source.html#l00013">pojemnosc</a> i <a class="el" href="_data___to___read_8h_source.html#l00020">pozycje</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params::C_Params()</a> i <a class="el" href="_c___params_8cpp_source.html#l00251">C_Params::Creadfile()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_data___to___read_ab55dda5b5ca867ef21c887e4b87c7614_icgraph.png" border="0" usemap="#class_data___to___read_ab55dda5b5ca867ef21c887e4b87c7614_icgraph_map" alt=""></div>
+<map name="class_data___to___read_ab55dda5b5ca867ef21c887e4b87c7614_icgraph_map" id="class_data___to___read_ab55dda5b5ca867ef21c887e4b87c7614_icgraph">
+<area shape="rect" id="node3" href="class_c___params.html#acd3f44b0a94efae478d7c3c621c66a41" title="C_Params::C_Params" alt="" coords="272,5,424,35"/><area shape="rect" id="node5" href="class_c___params.html#ab65d753c172afbdef6828a2804e88b91" title="Wczytuje i analizuje plik konfiguracyjny." alt="" coords="277,59,419,88"/><area shape="rect" id="node7" href="class_c_unit_operation.html#a3e8877612e6772acf65ea50f198f91d8" title="CUnitOperation::CUnitOperation" alt="" coords="473,59,679,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="acf5b344c1a44480144bb3d1a93f138b2"></a><!-- doxytag: member="Data_To_Read::GetIle" ref="acf5b344c1a44480144bb3d1a93f138b2" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Data_To_Read::GetIle </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Zwraca ilosc wpisów - danych przechowywanych. </p>
+
+<p>Definicja w linii <a class="el" href="_data___to___read_8h_source.html#l00051">51</a> pliku <a class="el" href="_data___to___read_8h_source.html">Data_To_Read.h</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_data___to___read_8h_source.html#l00022">ile</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00596">C_myRunProcess::ImportData()</a> i <a class="el" href="_c___params_8cpp_source.html#l00154">C_Params::ValidateParams()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_data___to___read_acf5b344c1a44480144bb3d1a93f138b2_icgraph.png" border="0" usemap="#class_data___to___read_acf5b344c1a44480144bb3d1a93f138b2_icgraph_map" alt=""></div>
+<map name="class_data___to___read_acf5b344c1a44480144bb3d1a93f138b2_icgraph_map" id="class_data___to___read_acf5b344c1a44480144bb3d1a93f138b2_icgraph">
+<area shape="rect" id="node3" href="class_c__my_run_process.html#af04033e23f541696c736ef795e864392" title="Tworzy środowisko do uruchomienia fluenta &#45; generuje scm oraz journalC_Params." alt="" coords="455,57,649,87"/><area shape="rect" id="node7" href="class_c__my_run_process.html#a96de0e119537f9f36f3cfaa8da96280f" title="Wczytuje dane z Fluenta." alt="" coords="204,5,401,35"/><area shape="rect" id="node10" href="class_c___params.html#a96db4b5bc8d67d374eb52b3d4b90446d" title="Dokonuje sprawdzenia czy spełnione są określone warunki." alt="" coords="212,111,393,140"/><area shape="rect" id="node5" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="703,111,873,140"/><area shape="rect" id="node14" href="class_c__my_run_process.html#a7511e1d0a3cb9056ff87bd4a4cd4c886" title="pobiera parametry z klasy na zewnątrz &#45; wersja nowsza" alt="" coords="452,111,652,140"/><area shape="rect" id="node16" href="class_c__my_run_process.html#a92c79daa78da34aa38f14ec7f4f8a1ac" title="wpisuje parametry do klasy, wersja starsza" alt="" coords="452,164,652,193"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a09b95bb5f3a5175305fa55b962695254"></a><!-- doxytag: member="Data_To_Read::GetLineIndex" ref="a09b95bb5f3a5175305fa55b962695254" args="(char *paramName, unsigned int nr, int *tab)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Data_To_Read::GetLineIndex </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>paramName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>nr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&nbsp;</td>
+          <td class="paramname"> <em>tab</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Zwraca numery linii zawierających dany ciąg tekstowy na danej pozycji podciągu. Jeśli nie znalezione to zwraca -1. </p>
+<p>Zwraca numery linii zawierających dany ciąg tekstowy na danej pozycji podciągu. Jeśli nie znalezione to zwraca -1 Ta funkcja jest przystosowana do sytuacji gdy kilka linii może zawierać taki samy ciąg na danej pozycji. Tablica z wynikami musi być zaalokowana na zewnątrz i mieć rozmiar najbezpieczniej ilości linii w rozkazie </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>paramName</em>&nbsp;</td><td>Ciag tekstowy, którego szukamy w wszystkich liniach przechowywanych </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>nr</em>&nbsp;</td><td>Nazwa pozycji podciągu na którym szukamy parName zdefiniowana w <a class="el" href="_c___params_8h.html#afb924e136e034239095f7592b57bd8ec">C_Params::pola_komponentow</a> </td></tr>
+    <tr><td valign="top"><tt>[out]</tt>&nbsp;</td><td valign="top"><em>tab</em>&nbsp;</td><td>Tablica z wynikami</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>-1</em>&nbsp;</td><td>w tablicy tab jeśli nie znajdzie parametru o danej nazwie (index tab=indexowi linii) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>index</em>&nbsp;</td><td>Jeśli znajdzie </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_data___to___read_8cpp_source.html#l00095">95</a> pliku <a class="el" href="_data___to___read_8cpp_source.html">Data_To_Read.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_data___to___read_8cpp_source.html#l00058">GetSubString()</a>, <a class="el" href="_data___to___read_8h_source.html#l00022">ile</a> i <a class="el" href="definicje_8h_source.html#l00009">MAX_COMPONENT_NAME</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_data___to___read_a09b95bb5f3a5175305fa55b962695254_cgraph.png" border="0" usemap="#class_data___to___read_a09b95bb5f3a5175305fa55b962695254_cgraph_map" alt=""></div>
+<map name="class_data___to___read_a09b95bb5f3a5175305fa55b962695254_cgraph_map" id="class_data___to___read_a09b95bb5f3a5175305fa55b962695254_cgraph">
+<area shape="rect" id="node3" href="class_data___to___read.html#a6a3deab57b0e9d8e040ab3c548595bf9" title="Zwraca wskaźnik do podciągu." alt="" coords="247,5,439,35"/><area shape="rect" id="node5" href="class_data___to___read.html#a2ae9b120ce85df4bbb0b36b61f9a39c0" title="Zwraca ilosc podciągów." alt="" coords="488,5,728,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a1f2247e03f494d45dd2bacf4fde00c92"></a><!-- doxytag: member="Data_To_Read::GetLineIndex" ref="a1f2247e03f494d45dd2bacf4fde00c92" args="(char *paramName, unsigned int nr)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Data_To_Read::GetLineIndex </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>paramName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>nr</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Zwraca numer linii zawierającej dany ciąg tekstowy na danej pozycji podciągu. Jeśli nie znalezione to zwraca -1. </p>
+<p>Zwraca numer linii zawierającej dany ciąg tekstowy na danej pozycji podciągu. Jeśli nie znalezione to zwraca -1 </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>paramName</em>&nbsp;</td><td>Ciag tekstowy, którego szukamy w wszystkich liniach przechowywanych </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>nr</em>&nbsp;</td><td>Nazwa pozycji podciągu na którym szukamy parName zdefiniowana w <a class="el" href="_c___params_8h.html#afb924e136e034239095f7592b57bd8ec">C_Params::pola_komponentow</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>-1</em>&nbsp;</td><td>Jeśli nie znajdzie parametru o danej nazwie </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>index</em>&nbsp;</td><td>Jeśli znajdzie </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><dl class="warning"><dt><b>Ostrzeżenie:</b></dt><dd>Ta funkcja zwraca pierwszy znaleziony parametr!! Nie sprawdza czy są następne </dd></dl>
+</p>
+
+<p>Definicja w linii <a class="el" href="_data___to___read_8cpp_source.html#l00075">75</a> pliku <a class="el" href="_data___to___read_8cpp_source.html">Data_To_Read.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_data___to___read_8cpp_source.html#l00058">GetSubString()</a>, <a class="el" href="_data___to___read_8h_source.html#l00022">ile</a> i <a class="el" href="definicje_8h_source.html#l00009">MAX_COMPONENT_NAME</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00963">C_myRunProcess::PutParams()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_data___to___read_a1f2247e03f494d45dd2bacf4fde00c92_cgraph.png" border="0" usemap="#class_data___to___read_a1f2247e03f494d45dd2bacf4fde00c92_cgraph_map" alt=""></div>
+<map name="class_data___to___read_a1f2247e03f494d45dd2bacf4fde00c92_cgraph_map" id="class_data___to___read_a1f2247e03f494d45dd2bacf4fde00c92_cgraph">
+<area shape="rect" id="node3" href="class_data___to___read.html#a6a3deab57b0e9d8e040ab3c548595bf9" title="Zwraca wskaźnik do podciągu." alt="" coords="247,5,439,35"/><area shape="rect" id="node5" href="class_data___to___read.html#a2ae9b120ce85df4bbb0b36b61f9a39c0" title="Zwraca ilosc podciągów." alt="" coords="488,5,728,35"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_data___to___read_a1f2247e03f494d45dd2bacf4fde00c92_icgraph.png" border="0" usemap="#class_data___to___read_a1f2247e03f494d45dd2bacf4fde00c92_icgraph_map" alt=""></div>
+<map name="class_data___to___read_a1f2247e03f494d45dd2bacf4fde00c92_icgraph_map" id="class_data___to___read_a1f2247e03f494d45dd2bacf4fde00c92_icgraph">
+<area shape="rect" id="node3" href="class_c__my_run_process.html#af04033e23f541696c736ef795e864392" title="Tworzy środowisko do uruchomienia fluenta &#45; generuje scm oraz journalC_Params." alt="" coords="248,5,443,35"/><area shape="rect" id="node7" href="class_c__my_run_process.html#a8bf8241f0ff9398a64c00176022d677d" title="wpisuje parametry do klasy, wersja nowsza" alt="" coords="245,59,445,88"/><area shape="rect" id="node5" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="495,5,665,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a2ae9b120ce85df4bbb0b36b61f9a39c0"></a><!-- doxytag: member="Data_To_Read::GetNumOfSubStrings" ref="a2ae9b120ce85df4bbb0b36b61f9a39c0" args="(unsigned int line)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Data_To_Read::GetNumOfSubStrings </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>line</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Zwraca ilosc podciągów. </p>
+<p>Zwraca ilosc podciągów </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>line</em>&nbsp;</td><td>Index linii w bloku skryptu (pomiędzy INSTR a END)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>0</em>&nbsp;</td><td>Jeśli podamy linię większą niz ilość przechowywanych </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>ile</em>&nbsp;</td><td>Jeśli ok </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_data___to___read_8cpp_source.html#l00047">47</a> pliku <a class="el" href="_data___to___read_8cpp_source.html">Data_To_Read.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_data___to___read_8h_source.html#l00018">ile_poz</a> i <a class="el" href="_data___to___read_8h_source.html#l00013">pojemnosc</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00251">C_Params::Creadfile()</a> i <a class="el" href="_data___to___read_8cpp_source.html#l00058">GetSubString()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_data___to___read_a2ae9b120ce85df4bbb0b36b61f9a39c0_icgraph.png" border="0" usemap="#class_data___to___read_a2ae9b120ce85df4bbb0b36b61f9a39c0_icgraph_map" alt=""></div>
+<map name="class_data___to___read_a2ae9b120ce85df4bbb0b36b61f9a39c0_icgraph_map" id="class_data___to___read_a2ae9b120ce85df4bbb0b36b61f9a39c0_icgraph">
+<area shape="rect" id="node3" href="class_c___params.html#ab65d753c172afbdef6828a2804e88b91" title="Wczytuje i analizuje plik konfiguracyjny." alt="" coords="320,59,461,88"/><area shape="rect" id="node7" href="class_data___to___read.html#a6a3deab57b0e9d8e040ab3c548595bf9" title="Zwraca wskaźnik do podciągu." alt="" coords="295,189,487,219"/><area shape="rect" id="node5" href="class_c_unit_operation.html#a3e8877612e6772acf65ea50f198f91d8" title="CUnitOperation::CUnitOperation" alt="" coords="537,5,743,35"/><area shape="rect" id="node9" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="1044,163,1215,192"/><area shape="rect" id="node11" href="class_c__my_run_process.html#af04033e23f541696c736ef795e864392" title="Tworzy środowisko do uruchomienia fluenta &#45; generuje scm oraz journalC_Params." alt="" coords="796,268,991,297"/><area shape="rect" id="node14" href="class_data___to___read.html#a1f2247e03f494d45dd2bacf4fde00c92" title="Zwraca numer linii zawierającej dany ciąg tekstowy na danej pozycji podciągu...." alt="" coords="545,317,735,347"/><area shape="rect" id="node19" href="class_c__my_run_process.html#a7511e1d0a3cb9056ff87bd4a4cd4c886" title="pobiera parametry z klasy na zewnątrz &#45; wersja nowsza" alt="" coords="793,215,993,244"/><area shape="rect" id="node21" href="class_c__my_run_process.html#a96de0e119537f9f36f3cfaa8da96280f" title="Wczytuje dane z Fluenta." alt="" coords="541,59,739,88"/><area shape="rect" id="node24" href="class_c__my_run_process.html#a92c79daa78da34aa38f14ec7f4f8a1ac" title="wpisuje parametry do klasy, wersja starsza" alt="" coords="793,111,993,140"/><area shape="rect" id="node27" href="class_c___params.html#a96db4b5bc8d67d374eb52b3d4b90446d" title="Dokonuje sprawdzenia czy spełnione są określone warunki." alt="" coords="549,163,731,192"/><area shape="rect" id="node17" href="class_c__my_run_process.html#a8bf8241f0ff9398a64c00176022d677d" title="wpisuje parametry do klasy, wersja nowsza" alt="" coords="793,321,993,351"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a6a3deab57b0e9d8e040ab3c548595bf9"></a><!-- doxytag: member="Data_To_Read::GetSubString" ref="a6a3deab57b0e9d8e040ab3c548595bf9" args="(unsigned int line, unsigned int nr)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * Data_To_Read::GetSubString </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>nr</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Zwraca wskaźnik do podciągu. </p>
+<p>Zwraca wskaźnik do podciągu </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>line</em>&nbsp;</td><td>Index linii w bloku skryptu (pomiędzy INSTR a END) </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>nr</em>&nbsp;</td><td>Index pozycji - numer podciągu (lub jego nazwa) zdefiniowana w <a class="el" href="_c___params_8h.html#afb924e136e034239095f7592b57bd8ec">C_Params::pola_komponentow</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>NULL</em>&nbsp;</td><td>Jeśli nie znajdzie podciągu o danym nr w danej linii </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>ptr</em>&nbsp;</td><td>Jeśli znajdzie </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_data___to___read_8cpp_source.html#l00058">58</a> pliku <a class="el" href="_data___to___read_8cpp_source.html">Data_To_Read.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_data___to___read_8h_source.html#l00014">DATA_CONTAINER</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00047">GetNumOfSubStrings()</a>, <a class="el" href="_data___to___read_8h_source.html#l00022">ile</a>, <a class="el" href="_data___to___read_8h_source.html#l00013">pojemnosc</a> i <a class="el" href="_data___to___read_8h_source.html#l00020">pozycje</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">CUnitOperation::Calculate()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00075">GetLineIndex()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00854">C_myRunProcess::GetParams()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00596">C_myRunProcess::ImportData()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00942">C_myRunProcess::PutParams()</a> i <a class="el" href="_c___params_8cpp_source.html#l00154">C_Params::ValidateParams()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_data___to___read_a6a3deab57b0e9d8e040ab3c548595bf9_cgraph.png" border="0" usemap="#class_data___to___read_a6a3deab57b0e9d8e040ab3c548595bf9_cgraph_map" alt=""></div>
+<map name="class_data___to___read_a6a3deab57b0e9d8e040ab3c548595bf9_cgraph_map" id="class_data___to___read_a6a3deab57b0e9d8e040ab3c548595bf9_cgraph">
+<area shape="rect" id="node3" href="class_data___to___read.html#a2ae9b120ce85df4bbb0b36b61f9a39c0" title="Zwraca ilosc podciągów." alt="" coords="248,5,488,35"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_data___to___read_a6a3deab57b0e9d8e040ab3c548595bf9_icgraph.png" border="0" usemap="#class_data___to___read_a6a3deab57b0e9d8e040ab3c548595bf9_icgraph_map" alt=""></div>
+<map name="class_data___to___read_a6a3deab57b0e9d8e040ab3c548595bf9_icgraph_map" id="class_data___to___read_a6a3deab57b0e9d8e040ab3c548595bf9_icgraph">
+<area shape="rect" id="node3" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="748,107,919,136"/><area shape="rect" id="node5" href="class_c__my_run_process.html#af04033e23f541696c736ef795e864392" title="Tworzy środowisko do uruchomienia fluenta &#45; generuje scm oraz journalC_Params." alt="" coords="500,212,695,241"/><area shape="rect" id="node8" href="class_data___to___read.html#a1f2247e03f494d45dd2bacf4fde00c92" title="Zwraca numer linii zawierającej dany ciąg tekstowy na danej pozycji podciągu...." alt="" coords="253,261,443,291"/><area shape="rect" id="node13" href="class_c__my_run_process.html#a7511e1d0a3cb9056ff87bd4a4cd4c886" title="pobiera parametry z klasy na zewnątrz &#45; wersja nowsza" alt="" coords="497,159,697,188"/><area shape="rect" id="node15" href="class_c__my_run_process.html#a96de0e119537f9f36f3cfaa8da96280f" title="Wczytuje dane z Fluenta." alt="" coords="249,316,447,345"/><area shape="rect" id="node18" href="class_c__my_run_process.html#a92c79daa78da34aa38f14ec7f4f8a1ac" title="wpisuje parametry do klasy, wersja starsza" alt="" coords="497,55,697,84"/><area shape="rect" id="node21" href="class_c___params.html#a96db4b5bc8d67d374eb52b3d4b90446d" title="Dokonuje sprawdzenia czy spełnione są określone warunki." alt="" coords="257,107,439,136"/><area shape="rect" id="node11" href="class_c__my_run_process.html#a8bf8241f0ff9398a64c00176022d677d" title="wpisuje parametry do klasy, wersja nowsza" alt="" coords="497,265,697,295"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja atrybutów składowych</h2>
+<a class="anchor" id="a0127dc66bbc041af9b172b81e9ae8520"></a><!-- doxytag: member="Data_To_Read::DATA_CONTAINER" ref="a0127dc66bbc041af9b172b81e9ae8520" args="[MAX_EXPORTS]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* <a class="el" href="class_data___to___read.html#a0127dc66bbc041af9b172b81e9ae8520">Data_To_Read::DATA_CONTAINER</a>[MAX_EXPORTS]</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_data___to___read_8h_source.html#l00014">14</a> pliku <a class="el" href="_data___to___read_8h_source.html">Data_To_Read.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params::C_Params()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">C_Params::Creadfile()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00004">Data_To_Read()</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00058">GetSubString()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00942">C_myRunProcess::PutParams()</a> i <a class="el" href="_data___to___read_8cpp_source.html#l00018">~Data_To_Read()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4278b63e6608e7ebdab60cc9f2357660"></a><!-- doxytag: member="Data_To_Read::ile" ref="a4278b63e6608e7ebdab60cc9f2357660" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="class_data___to___read.html#a4278b63e6608e7ebdab60cc9f2357660">Data_To_Read::ile</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>ilosc przechowywanych linii </p>
+
+<p>Definicja w linii <a class="el" href="_data___to___read_8h_source.html#l00022">22</a> pliku <a class="el" href="_data___to___read_8h_source.html">Data_To_Read.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_data___to___read_8cpp_source.html#l00029">AddSubStringPoz()</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00004">Data_To_Read()</a>, <a class="el" href="_data___to___read_8h_source.html#l00051">GetIle()</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00075">GetLineIndex()</a> i <a class="el" href="_data___to___read_8cpp_source.html#l00058">GetSubString()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2cfdba699409fdcd62e433284f18fba1"></a><!-- doxytag: member="Data_To_Read::ile_poz" ref="a2cfdba699409fdcd62e433284f18fba1" args="[MAX_EXPORTS]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short <a class="el" href="class_data___to___read.html#a2cfdba699409fdcd62e433284f18fba1">Data_To_Read::ile_poz</a>[MAX_EXPORTS]<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>ile czesci parametru dla kazdej linii </p>
+
+<p>Definicja w linii <a class="el" href="_data___to___read_8h_source.html#l00018">18</a> pliku <a class="el" href="_data___to___read_8h_source.html">Data_To_Read.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_data___to___read_8cpp_source.html#l00029">AddSubStringPoz()</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00004">Data_To_Read()</a> i <a class="el" href="_data___to___read_8cpp_source.html#l00047">GetNumOfSubStrings()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4e8ba7d812819d9cf2e135d34523458d"></a><!-- doxytag: member="Data_To_Read::ktore" ref="a4e8ba7d812819d9cf2e135d34523458d" args="[MAX_EXPORTS]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_data___to___read.html#a4e8ba7d812819d9cf2e135d34523458d">Data_To_Read::ktore</a>[MAX_EXPORTS]<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>służy do rozpoznania czy na danej pozycji 'line' jest wpis czy go nie ma. Jeśli nowy wpis to zwiększam ile </p>
+
+<p>Definicja w linii <a class="el" href="_data___to___read_8h_source.html#l00024">24</a> pliku <a class="el" href="_data___to___read_8h_source.html">Data_To_Read.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_data___to___read_8cpp_source.html#l00029">AddSubStringPoz()</a> i <a class="el" href="_data___to___read_8cpp_source.html#l00004">Data_To_Read()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaf4b8dc4cee9738f28bb25ecbb92673b"></a><!-- doxytag: member="Data_To_Read::pojemnosc" ref="aaf4b8dc4cee9738f28bb25ecbb92673b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="class_data___to___read.html#aaf4b8dc4cee9738f28bb25ecbb92673b">Data_To_Read::pojemnosc</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_data___to___read_8h_source.html#l00013">13</a> pliku <a class="el" href="_data___to___read_8h_source.html">Data_To_Read.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_data___to___read_8cpp_source.html#l00029">AddSubStringPoz()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">C_Params::Creadfile()</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00004">Data_To_Read()</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00047">GetNumOfSubStrings()</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00058">GetSubString()</a> i <a class="el" href="_data___to___read_8cpp_source.html#l00018">~Data_To_Read()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac4ebd4efad00674fe7063d8cb9a0bcc4"></a><!-- doxytag: member="Data_To_Read::pozycje" ref="ac4ebd4efad00674fe7063d8cb9a0bcc4" args="[MAX_EXPORTS]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int* <a class="el" href="class_data___to___read.html#ac4ebd4efad00674fe7063d8cb9a0bcc4">Data_To_Read::pozycje</a>[MAX_EXPORTS]<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>tu są przechowywane pozycje początków ciągów jeśli w datacontainer występuje kilka ciągów jako jeden (zamias spacji to 0) tak naprawdę są tu pozycje zer w ciągu głównym!! numeracja od zera </p>
+
+<p>Definicja w linii <a class="el" href="_data___to___read_8h_source.html#l00020">20</a> pliku <a class="el" href="_data___to___read_8h_source.html">Data_To_Read.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_data___to___read_8cpp_source.html#l00029">AddSubStringPoz()</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00004">Data_To_Read()</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00058">GetSubString()</a> i <a class="el" href="_data___to___read_8cpp_source.html#l00018">~Data_To_Read()</a>.</p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li><a class="el" href="_data___to___read_8h_source.html">Data_To_Read.h</a></li>
+<li><a class="el" href="_data___to___read_8cpp_source.html">Data_To_Read.cpp</a></li>
+</ul>
+</div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:39 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

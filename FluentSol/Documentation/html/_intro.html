@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Introduction</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li class="current"><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+
+
+<h1><a class="anchor" id="Intro">Introduction </a></h1><p>Wszystkie parametry strumieni trzymane są w klasie <a class="el" href="class_c___parameter___container.html" title="Klasa jest kontainerem z parametrami opisującymi poszczególne materiały, parametry...">C_Parameter_Container</a> lub wyprowadzonej z niej klasie <a class="el" href="class_c___port_parameter___container.html" title="Klasa przechowuje kontainery z parametrami dla poszczególnych wejsc, parametry powiązane...">C_PortParameter_Container</a>. Ta druga różni się jedynie tym że jest w stanie przechować obiekty klasy <a class="el" href="class_c___parameter___container.html" title="Klasa jest kontainerem z parametrami opisującymi poszczególne materiały, parametry...">C_Parameter_Container</a> przez co możliwa jest obsługa wielu wejść na przykład. W klasie <a class="el" href="class_c___parameter___container.html" title="Klasa jest kontainerem z parametrami opisującymi poszczególne materiały, parametry...">C_Parameter_Container</a> przechowywane są poszczególne związki oraz skojarzone z nimi parametry fizyczne (zdefiniowane w klasie <a class="el" href="class_c___parameters___set.html" title="Przechowuje zbiór podstawowych parametrów. Enum musi się zgadzać z przechowywanymi...">C_Parameters_Set</a> ). Dostęp do nich jest za pomocą nazwy związku lub jego numeru nadawanego poczas rejestracji. Parametry związków są trzymane w <a class="el" href="class_c__my_run_process.html#ac47af15c899f84dde717500688440bd9">C_myRunProcess::Parameters</a> i wypełniane najpierw w funkcji <a class="el" href="class_c__my_run_process.html#a92c79daa78da34aa38f14ec7f4f8a1ac" title="wpisuje parametry do klasy, wersja starsza">C_myRunProcess::PutParams</a> gdzie tworzone i rejestrowane są komponenty i dodawane są parametry odczytane z ASPENA (po przeliczeniu jednostek) oraz niektóre parametry podawane w skrypcie. Następnie w <a class="el" href="class_c__my_run_process.html#af04033e23f541696c736ef795e864392" title="Tworzy środowisko do uruchomienia fluenta - generuje scm oraz journalC_Params.">C_myRunProcess::CreateEnv</a> są wykorzystywane razem z parametrami ze skryptu (skrypt obsługiwany przez klasę <a class="el" href="class_c___params.html" title="Klasa do obsługi jezyka skryptowego do przekazaywnia parametrów z wykorzystaniem...">C_Params</a> oraz <a class="el" href="class_c__my_run_process.html#a2a8bbae97812661f19f491305f212319" title="kopia klasy zawierającej parametry ze skryptu (nie modyfiować tu)">C_myRunProcess::copyparams</a>) do tworzenia pliku dla Fluenta. W klasie <a class="el" href="class_c__my_run_process.html#a96de0e119537f9f36f3cfaa8da96280f" title="Wczytuje dane z Fluenta.">C_myRunProcess::ImportData</a> zaimportowane właściowości fizycze z fluenta są trzymane w dwóch obiektach klasy <a class="el" href="class_c___port_parameter___container.html" title="Klasa przechowuje kontainery z parametrami dla poszczególnych wejsc, parametry powiązane...">C_PortParameter_Container</a> - SUM i SR Finalnie mamy w <a class="el" href="class_c__my_run_process.html#ac47af15c899f84dde717500688440bd9">C_myRunProcess::Parameters</a> własciwości fizyczne z ASPENA a w <a class="el" href="class_c__my_run_process.html#a043667b22534fee299f3e8847c8a83b0" title="tu przechowuję zaimportowane parametry, - suma z zaimportowanych dla wszystkich...">C_myRunProcess::SUM</a> i <a class="el" href="class_c__my_run_process.html" title="Klasa służąca do obsługi fluenta. Trzyma dane związane z strumieniami, obrabia...">C_myRunProcess</a>:SR właściwości fizyczne z Fluenta. Odpowiedniego kopiowania do ASPENA dokonuje się poprzez funkcję <a class="el" href="class_c__my_run_process.html#a50bbb31558e2dc254c1583521bb291ec" title="pobiera parametry z klasy na zewnątrz - wersja starsza">C_myRunProcess::GetParams</a> która zwraca wartości albo te policzone albo te oryginalne, jeśli nie były liczone. PRzelicza także odpowiednio jednostki. Jeśli oryginalne to domyślnie brane jest wejscie 0 jako to ważniejsze. Wartosć przepływu moilowego jest przeliczana przy uwzględnieniu udziału molowego materiałów na wejściu - w aspenie podaje siętylko przepływ mieszaniny, w klasie <a class="el" href="class_c__my_run_process.html#ac47af15c899f84dde717500688440bd9">C_myRunProcess::Parameters</a> trzymane są już poszczególne składniki <br/>
+<br/>
+</p>
+<p>Dane z pliku konfiguracyjnego przechowywane są jako całe tekstowe linie a dostęp do poszczególnych parametrów w lini jest realizowany za pomocą oznaczenia tych parametrów odpowiednimi słowami kluczowymi. Zarządza tym klasa <a class="el" href="class_c___params.html" title="Klasa do obsługi jezyka skryptowego do przekazaywnia parametrów z wykorzystaniem...">C_Params</a> (poprez <a class="el" href="class_data___to___read.html" title="Klasa sluzy do przechowywania danych jesli jest ich kilka do jednego rozkazu.">Data_To_Read</a>), gdzie zdefinowane są nazwy pól dla poszczególnych rozkazów. Wszystkie rozkazy które mają więcej linijek (z instrukcją END) trzymaja dane w klasie <a class="el" href="class_data___to___read.html" title="Klasa sluzy do przechowywania danych jesli jest ich kilka do jednego rozkazu.">Data_To_Read</a> która obsługuje zwracanie ilości linii oraz zwracanie posczególnych częsci rozkazów. Informacje na temat poszczególncy częsci (czyli spacji) są wypełniane w klasie <a class="el" href="class_c___params.html#ab65d753c172afbdef6828a2804e88b91" title="Wczytuje i analizuje plik konfiguracyjny.">C_Params::Creadfile</a>, podczas interpretacji kodu. <br/>
+ Przykłady odwołań do posczególnych pól i klas: <br/>
+ </p>
+<div class="fragment"><pre class="fragment">tmpsurf = copyparams-&gt;bASSIGNS.GetSubString(line,<a class="code" href="_c___params_8h.html#adb778f9c8bbe99555b27719ef42f0a97a7247cd4d1a5ee45dbf990c5d0b51e6db">ASSIGN_SURF_NAME</a>); <span class="comment">// nazwa powierzchni skojarzona z materiałem</span>
+tmpin = copyparams-&gt;bASSIGNS.GetSubString(line,<a class="code" href="_c___params_8h.html#adb778f9c8bbe99555b27719ef42f0a97ae2594cac7c9c8316fe9ebe0ec204d151">ASSIGN_INPUTID</a>);  <span class="comment">// index wejscia w ASPENIE do którego podłączony jest dany materiał (numeracja od 1!!)</span>
+
+ret = Parameters.GetParameterP(tmpmat,<a class="code" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889da120683c83b270c0e909b69e4c4f9f0fc">PARAM_MOLEFLOW</a>,paramVal1,atoi(tmpin)-1);
+ret = SR.GetParameter(pszB,<a class="code" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889da43e7da8f7f179c0faed10562b3a552ed">PARAM_TEMPERATURE</a>,val);
+</pre></div><p>W przypadku zmiany portów za pomocą instrukcji ACTIVEPORTS zmiana jest dokonywana w głównej klasie <a class="el" href="_unit_operation_8cpp.html">UnitOperation.cpp</a> zaraz po odczycie danych. Polega na skasowaniu ostatnich portów tak aby zgadzała się ilość. Tworzenie portów jest zrealizowane pół na pół - max ilosc ustala sie w programie MAX_INPUTS, a później w skrypcie można zejsc w dół. NUM_OF_INPUTS występuje tylko w konstruktorze i destruktorze CUnitOperation.cpp i także służy do okreslenia rozmiarów tablicy ports[] oraz w funkcji removePorts</p>
+<p>W trybie debug brany jest plik "f:\\FluentSol\\parsertest\\Matlab\\params.txt"; oraz katalog z danymi zdefiniowany w tym pliku. Dodatkowo w funkcji UnitOperation::Calculate() są zapisywane wszystkie parametry strumieni do pliku na c:\</p>
+<p>/ </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Do zrobienia:</a></b></dt><dd><p class="startdd">Dodać numery stron w helpie / </p>
+<p>Usunąć referencje do moleperkg w rozdziale Błędy numeryczne / </p>
+<p>dodano funkcję activeports do zmiany ilosci portów w programie - zmiana tylko w dół i bez zabezpieczeń jeśli chodzi o wyzerowanie lub porty ujemne! / </p>
+<p>zmienic w helpie wymagania co do \ w nazwach / </p>
+<p class="enddd">dodac info o kolejnosci przepisywania niezainicjlizowanych parametrów</p>
+</dd></dl>
+<dl class="warning"><dt><b>Ostrzeżenie:</b></dt><dd>nazwa fluent.exe i nazwa procesu sa wrażliwe na wielkosć liter. narazie w <a class="el" href="_c___params_8cpp.html">C_Params.cpp</a> na siłe sa zmniejszane litery ale to nie będzie diałać jeśli będzie treba gdzieś dużą literę. To samo w EXPORTS / </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Do zrobienia:</a></b></dt><dd>dodac info o używaniu tylko małych liter lub tak jak we fluencie / </dd></dl>
+</div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:29 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

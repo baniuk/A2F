@@ -1,0 +1,612 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Plik źródłowy UnitOperation.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
+    </ul>
+  </div>
+<h1>UnitOperation.cpp</h1><a href="_unit_operation_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// UnitOperation.cpp : Implementation of CUnitOperation</span>
+<a name="l00002"></a>00002 
+<a name="l00003"></a>00003 <span class="preprocessor">#include &quot;<a class="code" href="stdafx_8h.html">stdafx.h</a>&quot;</span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="_unit_operation_8h.html">UnitOperation.h</a>&quot;</span>
+<a name="l00005"></a>00005 
+<a name="l00006"></a>00006 
+<a name="l00007"></a>00007 <span class="comment">// CUnitOperation</span>
+<a name="l00008"></a>00008 
+<a name="l00009"></a><a class="code" href="class_c_unit_operation.html#a3e8877612e6772acf65ea50f198f91d8">00009</a> <a class="code" href="class_c_unit_operation.html#a3e8877612e6772acf65ea50f198f91d8">CUnitOperation::CUnitOperation</a>()
+<a name="l00010"></a>00010 { 
+<a name="l00011"></a>00011  <a class="code" href="class_c_unit_operation.html#a103375c2fb6f9096f1b3df6858dc9686">err</a> = <span class="keyword">new</span> <a class="code" href="class_c___error.html" title="Klasa do obsługi błędów.">C_Error</a>(<span class="stringliteral">&quot;CUnitOperation&quot;</span>);
+<a name="l00012"></a>00012  <a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a> = <span class="keyword">new</span> <a class="code" href="class_c___params.html" title="Klasa do obsługi jezyka skryptowego do przekazaywnia parametrów z wykorzystaniem...">C_Params</a>(<a class="code" href="class_c_unit_operation.html#a103375c2fb6f9096f1b3df6858dc9686">err</a>);
+<a name="l00013"></a>00013  <a class="code" href="class_c_unit_operation.html#ae0d47afb40d14415e5ff5ae79ba528fa">runfluent</a> = <span class="keyword">new</span> <a class="code" href="class_c__my_run_process.html" title="Klasa służąca do obsługi fluenta. Trzyma dane związane z strumieniami, obrabia...">C_myRunProcess</a>(<a class="code" href="class_c_unit_operation.html#a103375c2fb6f9096f1b3df6858dc9686">err</a>,<a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>);
+<a name="l00014"></a>00014  <a class="code" href="class_c_unit_operation.html#a1bf64d59de2ffe526a37aee19c9069b6">czyASPEN</a> = TRUE;
+<a name="l00015"></a>00015  <a class="code" href="class_c_unit_operation.html#a7f8c5ea9bcca6f6405839d33881f5315">czyValidate</a> = FALSE;
+<a name="l00016"></a>00016  <a class="code" href="class_c_unit_operation.html#a103375c2fb6f9096f1b3df6858dc9686">err</a>-&gt;<a class="code" href="class_c___node.html#a470c6ae493f150409e14d27e7703929e" title="Inicjalizacja listy, powinno być użyte jako pierwsze.">Node_Init</a>();
+<a name="l00017"></a>00017  <a class="code" href="_parameter_collection_8h.html#aab630676ad19aeead24092b0361c7c93">SetOaNoCache</a>();
+<a name="l00018"></a>00018  LONG lResult;
+<a name="l00019"></a>00019  HKEY hKey;
+<a name="l00020"></a>00020  DWORD dwSize = <span class="keyword">sizeof</span>(<a class="code" href="class_c_unit_operation.html#a426829ea1f993ce96209069694a5416b">dirp</a>) - 1;
+<a name="l00021"></a>00021  TCHAR dirptmp[<a class="code" href="definicje_8h.html#ab5187269936538ffb8ccbbe7115ffdbc">MAX_STRING</a>];
+<a name="l00022"></a>00022  <a class="code" href="class_c_unit_operation.html#aedca09080f6673119cd96400cd57941b">filename</a> = <span class="stringliteral">&quot;params.txt&quot;</span>;
+<a name="l00023"></a>00023  <a class="code" href="class_c_unit_operation.html#a22e29dacd3c80360887db17ce3f06f91">mydialog</a> = NULL;
+<a name="l00024"></a>00024 <span class="preprocessor">#ifdef PRINTOUT</span>
+<a name="l00025"></a>00025 <span class="preprocessor"></span> <span class="keywordtype">char</span> timeline[26];
+<a name="l00026"></a>00026  <span class="keyword">struct </span>_timeb timebuffer;
+<a name="l00027"></a>00027  _ftime_s( &amp;timebuffer );
+<a name="l00028"></a>00028  ctime_s( timeline, 26, &amp; ( timebuffer.time ) );
+<a name="l00029"></a>00029  fopen_s(&amp;mystream,<span class="stringliteral">&quot;CCF1Debug1.txt&quot;</span>,<span class="stringliteral">&quot;a+&quot;</span>);
+<a name="l00030"></a>00030  fprintf(mystream,<span class="stringliteral">&quot;\n-- %.19s.%hu %s&quot;</span>, timeline, timebuffer.millitm, &amp;timeline[18] );
+<a name="l00031"></a>00031  VariantInit(&amp;<a class="code" href="class_c_unit_operation.html#aed59be8e1a636ee31871b1bf387ca6a0">dopliku</a>);
+<a name="l00032"></a>00032  <a class="code" href="class_c_unit_operation.html#aed59be8e1a636ee31871b1bf387ca6a0">dopliku</a>.vt = VT_BYREF;
+<a name="l00033"></a>00033  <a class="code" href="class_c_unit_operation.html#aed59be8e1a636ee31871b1bf387ca6a0">dopliku</a>.byref = (<span class="keywordtype">void</span>*)mystream;
+<a name="l00034"></a>00034  fprintf(mystream,<span class="stringliteral">&quot;CUnitOperation::CUnitOperation()\n&quot;</span>);
+<a name="l00035"></a>00035  fprintf(mystream,<span class="stringliteral">&quot; - %p\n&quot;</span>,<span class="keyword">this</span>);
+<a name="l00036"></a>00036 <span class="preprocessor">#endif</span>
+<a name="l00037"></a>00037 <span class="preprocessor"></span> <a class="code" href="class_c_unit_operation.html#ad668681d96e3c5f237a727902c6a4f48">externalError</a>.Empty();
+<a name="l00038"></a>00038 <span class="preprocessor">#ifndef NO_REGISTRY</span>
+<a name="l00039"></a>00039 <span class="preprocessor"></span> <span class="keywordtype">char</span> *ttmp = <span class="stringliteral">&quot;f:\\FluentSol\\parsertest\\Matlab\\params.txt&quot;</span>; <span class="comment">// to można z rejestru, katalog instalacyjny na przykład</span>
+<a name="l00040"></a>00040  strcpy_s(<a class="code" href="class_c_unit_operation.html#a426829ea1f993ce96209069694a5416b">dirp</a>,<a class="code" href="definicje_8h.html#ab5187269936538ffb8ccbbe7115ffdbc">MAX_STRING</a>,ttmp);
+<a name="l00041"></a>00041 <span class="preprocessor">#else</span>
+<a name="l00042"></a>00042 <span class="preprocessor"></span> dirptmp[0] = 0;
+<a name="l00043"></a>00043  lResult = RegOpenKeyEx(HKEY_CURRENT_USER, TEXT(<span class="stringliteral">&quot;Software\\Cape2Fluent&quot;</span>), 0, KEY_READ, &amp;hKey);
+<a name="l00044"></a>00044  <span class="keywordflow">if</span> (lResult != ERROR_SUCCESS) 
+<a name="l00045"></a>00045     {
+<a name="l00046"></a>00046   MessageBox(NULL,L<span class="stringliteral">&quot;Registry key not found. Install C2P again&quot;</span>,L<span class="stringliteral">&quot;ERROR&quot;</span>,MB_OK);
+<a name="l00047"></a>00047   <a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>-&gt;<a class="code" href="class_c___params.html#a76499461772ba1f4f2bf7cd2ada4cc25">sERR</a> = 1;
+<a name="l00048"></a>00048   strcpy_s(<a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>-&gt;<a class="code" href="class_c___params.html#a950507f8d48b037a9e12999354017c13">bERR</a>,<a class="code" href="definicje_8h.html#ab5187269936538ffb8ccbbe7115ffdbc">MAX_STRING</a>,<span class="stringliteral">&quot;Registry key not found. Install C2P again&quot;</span>);
+<a name="l00049"></a>00049   <a class="code" href="class_c_unit_operation.html#a103375c2fb6f9096f1b3df6858dc9686">err</a>-&gt;<a class="code" href="class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy.">AddError</a>(<span class="stringliteral">&quot;Registry key not found. Install C2P again&quot;</span>);
+<a name="l00050"></a>00050  } <span class="keywordflow">else</span> {
+<a name="l00051"></a>00051 <span class="comment">//  lResult = RegGetValue(hKey,NULL,&quot;InstallDir&quot;,RRF_RT_REG_SZ,NULL,dirp,&amp;dwSize);</span>
+<a name="l00052"></a>00052   lResult = RegQueryValueEx(hKey,L<span class="stringliteral">&quot;InstallDir&quot;</span>,NULL,NULL,(LPBYTE)dirptmp,&amp;dwSize);
+<a name="l00053"></a>00053   <span class="keywordflow">if</span> (lResult != ERROR_SUCCESS) 
+<a name="l00054"></a>00054   {
+<a name="l00055"></a>00055    MessageBox(NULL,L<span class="stringliteral">&quot;Registry key not found. Install C2P again&quot;</span>,L<span class="stringliteral">&quot;ERROR&quot;</span>,MB_OK);
+<a name="l00056"></a>00056    <a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>-&gt;<a class="code" href="class_c___params.html#a76499461772ba1f4f2bf7cd2ada4cc25">sERR</a> = 1;
+<a name="l00057"></a>00057    strcpy_s(<a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>-&gt;<a class="code" href="class_c___params.html#a950507f8d48b037a9e12999354017c13">bERR</a>,<a class="code" href="definicje_8h.html#ab5187269936538ffb8ccbbe7115ffdbc">MAX_STRING</a>,<span class="stringliteral">&quot;Registry key not found. Install C2P again&quot;</span>);
+<a name="l00058"></a>00058    <a class="code" href="class_c_unit_operation.html#a103375c2fb6f9096f1b3df6858dc9686">err</a>-&gt;<a class="code" href="class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy.">AddError</a>(<span class="stringliteral">&quot;Registry key not found. Install C2P again&quot;</span>);
+<a name="l00059"></a>00059   }
+<a name="l00060"></a>00060  }
+<a name="l00061"></a>00061  RegCloseKey(hKey);
+<a name="l00062"></a>00062  CW2A pszA(dirptmp);
+<a name="l00063"></a>00063 <span class="comment">// dodawanie drugiej / oraz dopisanie nazwy pliku z parametrami</span>
+<a name="l00064"></a>00064  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> a,licznik = 0;
+<a name="l00065"></a>00065  <span class="keywordflow">for</span>(a=0;a&lt;strlen(pszA);a++)
+<a name="l00066"></a>00066   <span class="keywordflow">if</span>(pszA[a]!=<span class="charliteral">&#39;\\&#39;</span>)
+<a name="l00067"></a>00067    <a class="code" href="class_c_unit_operation.html#a426829ea1f993ce96209069694a5416b">dirp</a>[licznik++] = pszA[a];
+<a name="l00068"></a>00068   <span class="keywordflow">else</span> {
+<a name="l00069"></a>00069    <a class="code" href="class_c_unit_operation.html#a426829ea1f993ce96209069694a5416b">dirp</a>[licznik++] = <span class="charliteral">&#39;\\&#39;</span>;
+<a name="l00070"></a>00070    <a class="code" href="class_c_unit_operation.html#a426829ea1f993ce96209069694a5416b">dirp</a>[licznik++] = pszA[a];
+<a name="l00071"></a>00071   }
+<a name="l00072"></a>00072  <a class="code" href="class_c_unit_operation.html#a426829ea1f993ce96209069694a5416b">dirp</a>[licznik++] = <span class="charliteral">&#39;\\&#39;</span>;
+<a name="l00073"></a>00073  <a class="code" href="class_c_unit_operation.html#a426829ea1f993ce96209069694a5416b">dirp</a>[licznik++] = <span class="charliteral">&#39;\\&#39;</span>;
+<a name="l00074"></a>00074  <span class="keywordflow">for</span>(a=licznik;a&lt;licznik+strlen(<a class="code" href="class_c_unit_operation.html#aedca09080f6673119cd96400cd57941b">filename</a>);a++)
+<a name="l00075"></a>00075   <a class="code" href="class_c_unit_operation.html#a426829ea1f993ce96209069694a5416b">dirp</a>[a] = <a class="code" href="class_c_unit_operation.html#aedca09080f6673119cd96400cd57941b">filename</a>[a-licznik];
+<a name="l00076"></a>00076  <a class="code" href="class_c_unit_operation.html#a426829ea1f993ce96209069694a5416b">dirp</a>[a] = 0;
+<a name="l00077"></a>00077 <span class="comment">// -----------------------------------------------</span>
+<a name="l00078"></a>00078 <span class="preprocessor">#endif</span>
+<a name="l00079"></a>00079 <span class="preprocessor"></span>
+<a name="l00080"></a>00080 <span class="comment">// p.CreateInstance(__uuidof(Port),NULL,CLSCTX_INPROC_SERVER);//p-&gt;AddRef();</span>
+<a name="l00081"></a>00081 <span class="comment">// pout.CreateInstance(__uuidof(Port),NULL,CLSCTX_INPROC_SERVER);//pout.AddRef();</span>
+<a name="l00082"></a>00082  CoCreateInstance(<a class="code" href="_cape2_fluent__i_8h.html#a823e2aeaa6f18eadf216e08b3fde58a0">CLSID_Port</a>,NULL,CLSCTX_INPROC_SERVER,<a class="code" href="_cape2_fluent__i_8h.html#a0bd830eab95ba4531a52e9e8d1c5a299">IID_IPort</a>,(<span class="keywordtype">void</span>**)&amp;<a class="code" href="class_c_unit_operation.html#a8147e6fdecda7488e7740659c91f0ca2">p</a>);
+<a name="l00083"></a>00083  CoCreateInstance(<a class="code" href="_cape2_fluent__i_8h.html#a823e2aeaa6f18eadf216e08b3fde58a0">CLSID_Port</a>,NULL,CLSCTX_INPROC_SERVER,<a class="code" href="_cape2_fluent__i_8h.html#a0bd830eab95ba4531a52e9e8d1c5a299">IID_IPort</a>,(<span class="keywordtype">void</span>**)&amp;<a class="code" href="class_c_unit_operation.html#a4a765c9c494dd3b2af5daf91f25f5a55">p1</a>);
+<a name="l00084"></a>00084  CoCreateInstance(<a class="code" href="_cape2_fluent__i_8h.html#a823e2aeaa6f18eadf216e08b3fde58a0">CLSID_Port</a>,NULL,CLSCTX_INPROC_SERVER,<a class="code" href="_cape2_fluent__i_8h.html#a0bd830eab95ba4531a52e9e8d1c5a299">IID_IPort</a>,(<span class="keywordtype">void</span>**)&amp;<a class="code" href="class_c_unit_operation.html#ad06b6c250b9522ce0f0e5f59ed786fe3">pout</a>);
+<a name="l00085"></a>00085  <a class="code" href="class_c_unit_operation.html#a9fa8ce37f31cd45991dc0ff8312a2f96">myports</a>.CreateInstance(__uuidof(<a class="code" href="_cape2_fluent__i_8h.html#a2ccb677ee84bbfde5bb0861970bdcd11">PortCollection</a>),NULL,CLSCTX_INPROC_SERVER);<span class="comment">// myports-&gt;AddRef();</span>
+<a name="l00086"></a>00086  <a class="code" href="class_c_unit_operation.html#a8dc99e02629c8c6936db466c0a2a4a5a">myparams</a>.CreateInstance(__uuidof(<a class="code" href="_cape2_fluent__i_8h.html#a0238600d583d9a914baecf95d8e298c8">ParameterCollection</a>),NULL,CLSCTX_INPROC_SERVER);
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088 <span class="preprocessor">#ifdef PRINTOUT</span>
+<a name="l00089"></a>00089 <span class="preprocessor"></span> p-&gt;debugfile(&amp;<a class="code" href="class_c_unit_operation.html#aed59be8e1a636ee31871b1bf387ca6a0">dopliku</a>);
+<a name="l00090"></a>00090  <span class="keywordflow">if</span>(<a class="code" href="definicje_8h.html#ab9b46eb9758bbc4b8e25c0d59516f035">NUM_OF_INPUTS</a>==2)
+<a name="l00091"></a>00091   p1-&gt;debugfile(&amp;<a class="code" href="class_c_unit_operation.html#aed59be8e1a636ee31871b1bf387ca6a0">dopliku</a>);
+<a name="l00092"></a>00092  pout-&gt;debugfile(&amp;<a class="code" href="class_c_unit_operation.html#aed59be8e1a636ee31871b1bf387ca6a0">dopliku</a>);
+<a name="l00093"></a>00093  <a class="code" href="class_c_unit_operation.html#a9fa8ce37f31cd45991dc0ff8312a2f96">myports</a>-&gt;debugfile(&amp;<a class="code" href="class_c_unit_operation.html#aed59be8e1a636ee31871b1bf387ca6a0">dopliku</a>);
+<a name="l00094"></a>00094  <a class="code" href="class_c_unit_operation.html#a8dc99e02629c8c6936db466c0a2a4a5a">myparams</a>-&gt;debugfile(&amp;<a class="code" href="class_c_unit_operation.html#aed59be8e1a636ee31871b1bf387ca6a0">dopliku</a>);
+<a name="l00095"></a>00095 <span class="preprocessor">#endif</span>
+<a name="l00096"></a>00096 <span class="preprocessor"></span>
+<a name="l00098"></a>00098  VariantInit(&amp;<a class="code" href="class_c_unit_operation.html#a8218a1706003210e6410a01092e5cd0a">varerr</a>);
+<a name="l00099"></a>00099  <a class="code" href="class_c_unit_operation.html#aed59be8e1a636ee31871b1bf387ca6a0">dopliku</a>.vt = VT_BYREF;
+<a name="l00100"></a>00100  <a class="code" href="class_c_unit_operation.html#aed59be8e1a636ee31871b1bf387ca6a0">dopliku</a>.byref = (<span class="keywordtype">void</span>*)<a class="code" href="class_c_unit_operation.html#a103375c2fb6f9096f1b3df6858dc9686">err</a>;
+<a name="l00101"></a>00101 
+<a name="l00102"></a>00102  p-&gt;<a class="code" href="class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy.">AddError</a>(&amp;<a class="code" href="class_c_unit_operation.html#a8218a1706003210e6410a01092e5cd0a">varerr</a>);
+<a name="l00103"></a>00103  <span class="keywordflow">if</span>(<a class="code" href="definicje_8h.html#ab9b46eb9758bbc4b8e25c0d59516f035">NUM_OF_INPUTS</a>==2)
+<a name="l00104"></a>00104   p1-&gt;AddError(&amp;<a class="code" href="class_c_unit_operation.html#a8218a1706003210e6410a01092e5cd0a">varerr</a>);
+<a name="l00105"></a>00105  pout-&gt;AddError(&amp;<a class="code" href="class_c_unit_operation.html#a8218a1706003210e6410a01092e5cd0a">varerr</a>);
+<a name="l00106"></a>00106  <a class="code" href="class_c_unit_operation.html#a9fa8ce37f31cd45991dc0ff8312a2f96">myports</a>-&gt;AddError(&amp;<a class="code" href="class_c_unit_operation.html#a8218a1706003210e6410a01092e5cd0a">varerr</a>);
+<a name="l00107"></a>00107  <a class="code" href="class_c_unit_operation.html#a8dc99e02629c8c6936db466c0a2a4a5a">myparams</a>-&gt;AddError(&amp;<a class="code" href="class_c_unit_operation.html#a8218a1706003210e6410a01092e5cd0a">varerr</a>);
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109  <a class="code" href="class_c_unit_operation.html#a52fe9b66e68c2bb54fe241f8ca80ab21">myName</a> = L<span class="stringliteral">&quot;Cape2Fluent Port&quot;</span>;
+<a name="l00110"></a>00110  <a class="code" href="class_c_unit_operation.html#a1b4c9c68f0e6c29527faeb06d0170bea">myDesc</a> = L<span class="stringliteral">&quot;FLUENT CAPE-OPEN unit operation implemented in CPP&quot;</span>;
+<a name="l00111"></a>00111  <a class="code" href="class_c_unit_operation.html#ab23aa59fbff5867d14b6690707934bcc">rep</a>[0] = L<span class="stringliteral">&quot;Report 1&quot;</span>;
+<a name="l00112"></a>00112  <a class="code" href="class_c_unit_operation.html#ab23aa59fbff5867d14b6690707934bcc">rep</a>[1] = L<span class="stringliteral">&quot;Report 2&quot;</span>;
+<a name="l00113"></a>00113   
+<a name="l00114"></a>00114 
+<a name="l00116"></a>00116  <a class="code" href="class_c_unit_operation.html#a31a07ab0b8a875aaf8f7d4aaf76cff13">myvalStatus</a> = CAPE_NOT_VALIDATED;
+<a name="l00117"></a>00117  p-&gt;put_direction(CAPE_INLET);
+<a name="l00118"></a>00118  p-&gt;put_myDesc(L<span class="stringliteral">&quot;Inlet port 1&quot;</span>);
+<a name="l00119"></a>00119  p-&gt;put_myName(L<span class="stringliteral">&quot;Inlet port 1&quot;</span>);
+<a name="l00120"></a>00120  p-&gt;put_unit((BYTE*)&amp;<a class="code" href="class_c_unit_operation.html#a31a07ab0b8a875aaf8f7d4aaf76cff13">myvalStatus</a>);
+<a name="l00121"></a>00121  <a class="code" href="class_c_unit_operation.html#a9fa8ce37f31cd45991dc0ff8312a2f96">myports</a>-&gt;AddPort2(p);
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123  <span class="keywordflow">if</span>(<a class="code" href="definicje_8h.html#ab9b46eb9758bbc4b8e25c0d59516f035">NUM_OF_INPUTS</a>==2)
+<a name="l00124"></a>00124  {
+<a name="l00125"></a>00125   p1-&gt;put_direction(CAPE_INLET);
+<a name="l00126"></a>00126   p1-&gt;put_myDesc(L<span class="stringliteral">&quot;Inlet port 2&quot;</span>);
+<a name="l00127"></a>00127   p1-&gt;put_myName(L<span class="stringliteral">&quot;Inlet port 2&quot;</span>);
+<a name="l00128"></a>00128   p1-&gt;put_unit((BYTE*)&amp;myvalStatus);
+<a name="l00129"></a>00129   <a class="code" href="class_c_unit_operation.html#a9fa8ce37f31cd45991dc0ff8312a2f96">myports</a>-&gt;AddPort2(p1);
+<a name="l00130"></a>00130  }
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132  pout-&gt;put_direction(CAPE_OUTLET);
+<a name="l00133"></a>00133  pout-&gt;put_myDesc(L<span class="stringliteral">&quot;Outlet port for test unit operation&quot;</span>);
+<a name="l00134"></a>00134  pout-&gt;put_myName(L<span class="stringliteral">&quot;Outlet port 1&quot;</span>);
+<a name="l00135"></a>00135  pout-&gt;put_unit((BYTE*)&amp;myvalStatus);
+<a name="l00136"></a>00136  <a class="code" href="class_c_unit_operation.html#a9fa8ce37f31cd45991dc0ff8312a2f96">myports</a>-&gt;AddPort2(pout);
+<a name="l00137"></a>00137 
+<a name="l00138"></a>00138  p-&gt;Release();
+<a name="l00139"></a>00139  <span class="keywordflow">if</span>(<a class="code" href="definicje_8h.html#ab9b46eb9758bbc4b8e25c0d59516f035">NUM_OF_INPUTS</a>==2)
+<a name="l00140"></a>00140   p1-&gt;Release();
+<a name="l00141"></a>00141  pout-&gt;Release();
+<a name="l00142"></a>00142 <span class="comment">// -----------------------------------------------------------------------------------------</span>
+<a name="l00143"></a>00143 <span class="preprocessor">#ifdef NO_CONFIG</span>
+<a name="l00144"></a>00144 <span class="preprocessor"></span> <a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>.<a class="code" href="class_c___params.html#a76499461772ba1f4f2bf7cd2ada4cc25">sERR</a> = 0;
+<a name="l00145"></a>00145  <a class="code" href="class_c_unit_operation.html#aa040b47501232212ddc54f17a87be2a7">ileportow</a> = <a class="code" href="definicje_8h.html#ab9b46eb9758bbc4b8e25c0d59516f035">NUM_OF_INPUTS</a>;
+<a name="l00146"></a>00146 <span class="preprocessor">#else</span>
+<a name="l00147"></a>00147 <span class="preprocessor"></span> <span class="keywordflow">if</span>(<a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>-&gt;<a class="code" href="class_c___params.html#ab65d753c172afbdef6828a2804e88b91" title="Wczytuje i analizuje plik konfiguracyjny.">Creadfile</a>(<a class="code" href="class_c_unit_operation.html#a426829ea1f993ce96209069694a5416b">dirp</a>)==<a class="code" href="definicje_8h.html#abb508ea8227673f419e9fe3a86c30d8e">FAIL</a>) { <span class="comment">// wszystkie błędy skrytpu są zwracane tutaj</span>
+<a name="l00148"></a>00148   MessageBox(NULL,L<span class="stringliteral">&quot;UnitOperation::Creadfile problem&quot;</span>,L<span class="stringliteral">&quot;ERROR&quot;</span>,MB_OK);
+<a name="l00149"></a>00149   <a class="code" href="class_c_unit_operation.html#a103375c2fb6f9096f1b3df6858dc9686">err</a>-&gt;<a class="code" href="class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy.">AddError</a>(<span class="stringliteral">&quot;CUnitOperation::Creadfile problem&quot;</span>);
+<a name="l00150"></a>00150   <span class="keywordflow">return</span>;
+<a name="l00151"></a>00151  } <span class="keywordflow">else</span>
+<a name="l00152"></a>00152   <a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>-&gt;<a class="code" href="class_c___params.html#a76499461772ba1f4f2bf7cd2ada4cc25">sERR</a> = 0; <span class="comment">// czyścimy jakieś stare błędy jeśli były</span>
+<a name="l00153"></a>00153 
+<a name="l00154"></a>00154  ICapeCollection *ptrcc;
+<a name="l00155"></a>00155  <a class="code" href="class_c_unit_operation.html#a9fa8ce37f31cd45991dc0ff8312a2f96">myports</a>-&gt;QueryInterface(IID_ICapeCollection,(<span class="keywordtype">void</span>**)&amp;ptrcc);
+<a name="l00156"></a>00156  ptrcc-&gt;Count(&amp;<a class="code" href="class_c_unit_operation.html#aa040b47501232212ddc54f17a87be2a7">ileportow</a>);
+<a name="l00157"></a>00157  ptrcc-&gt;Release();
+<a name="l00159"></a>00159  <a class="code" href="class_c_unit_operation.html#aa040b47501232212ddc54f17a87be2a7">ileportow</a>--; <span class="comment">// odejmujemy wyjscia</span>
+<a name="l00160"></a>00160 
+<a name="l00161"></a>00161  <span class="comment">// jesli trzeba to usuwam niepotrzebne porty</span>
+<a name="l00162"></a>00162  <span class="keywordflow">if</span>(<a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>-&gt;<a class="code" href="class_c___params.html#ad1750f882843a1f00ed020efecbc25a8">sNUMOFPORTS</a>==1) <span class="comment">// cos wpisane jest</span>
+<a name="l00163"></a>00163  {
+<a name="l00164"></a>00164   <span class="keywordflow">if</span>(<a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>-&gt;<a class="code" href="class_c___params.html#a3412da59508d9d12b997d2c84395e910">bNUMOFPORTS</a>&lt;<a class="code" href="class_c_unit_operation.html#aa040b47501232212ddc54f17a87be2a7">ileportow</a>) {
+<a name="l00165"></a>00165    <span class="keywordtype">int</span> delta = <a class="code" href="class_c_unit_operation.html#aa040b47501232212ddc54f17a87be2a7">ileportow</a>-<a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>-&gt;<a class="code" href="class_c___params.html#a3412da59508d9d12b997d2c84395e910">bNUMOFPORTS</a>;
+<a name="l00166"></a>00166    <span class="keywordtype">int</span> stp = <a class="code" href="definicje_8h.html#ab9b46eb9758bbc4b8e25c0d59516f035">NUM_OF_INPUTS</a>; <span class="comment">// numer ostatniego wekscia</span>
+<a name="l00167"></a>00167    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> a=0;a&lt;delta;a++)
+<a name="l00168"></a>00168     <a class="code" href="class_c_unit_operation.html#a9fa8ce37f31cd45991dc0ff8312a2f96">myports</a>-&gt;RemovePort(stp--); <span class="comment">// usuwam od ostatniego wejscia (ważne ze by od końca ze względu na działanie funkcji removeports</span>
+<a name="l00169"></a>00169    <a class="code" href="class_c_unit_operation.html#aa040b47501232212ddc54f17a87be2a7">ileportow</a>-=delta;
+<a name="l00170"></a>00170   }
+<a name="l00171"></a>00171  }
+<a name="l00172"></a>00172 
+<a name="l00173"></a>00173 <span class="preprocessor">#endif</span>
+<a name="l00174"></a>00174 <span class="preprocessor"></span><span class="comment">// do testów tylko, normalnie w calculate powinno byc oraz w okienku parametrów</span>
+<a name="l00175"></a>00175 <span class="comment">/* jak będzie obsługa okienek to okienko będzie zwracało sERR i na tej podstawie validate bedzie okreslało validację całości*/</span>
+<a name="l00176"></a>00176 <span class="comment">// obsługa bledow raczej na tym poziomie a nie na poziomie funkcji c_myrun...</span>
+<a name="l00177"></a>00177 <span class="comment">/* if(!my_params.ValidateParams(BASIC) &amp;&amp; !my_params.ValidateParams(CASE) &amp;&amp; !my_params.ValidateParams(EXPORTS))</span>
+<a name="l00178"></a>00178 <span class="comment"> {</span>
+<a name="l00179"></a>00179 <span class="comment">  my_params.sERR = 1;</span>
+<a name="l00180"></a>00180 <span class="comment">  strcpy_s(my_params.bERR,MAX_STRING,&quot;BASIC problem&quot;);</span>
+<a name="l00181"></a>00181 <span class="comment">  MessageBox(NULL,L&quot;UnitOperation::Validation pramas file problem&quot;,L&quot;ERROR&quot;,MB_OK);</span>
+<a name="l00182"></a>00182 <span class="comment">  return;</span>
+<a name="l00183"></a>00183 <span class="comment"> } */</span>
+<a name="l00184"></a>00184 <span class="comment">// runfluent.CreateEnv(&amp;my_params);</span>
+<a name="l00185"></a>00185 }
+<a name="l00186"></a>00186 
+<a name="l00187"></a><a class="code" href="class_c_unit_operation.html#a5742dcfc6765c1d5e5095050ccc13bb5">00187</a> <a class="code" href="class_c_unit_operation.html#a5742dcfc6765c1d5e5095050ccc13bb5">CUnitOperation::~CUnitOperation</a>()
+<a name="l00188"></a>00188 {
+<a name="l00189"></a>00189 <span class="preprocessor">#ifdef PRINTOUT</span>
+<a name="l00190"></a>00190 <span class="preprocessor"></span> fprintf(mystream,<span class="stringliteral">&quot;CUnitOperation::~CUnitOperation()\n&quot;</span>);
+<a name="l00191"></a>00191 <span class="preprocessor">#endif </span>
+<a name="l00192"></a>00192 <span class="preprocessor"></span>
+<a name="l00193"></a>00193  <a class="code" href="class_c_unit_operation.html#a103375c2fb6f9096f1b3df6858dc9686">err</a>-&gt;<a class="code" href="class_c___error.html#ac88832708e7110c890f78f7c9348c2bd" title="Zgrywa wszystkie błedy na dysk.">PrintAll</a>();
+<a name="l00194"></a>00194  <a class="code" href="class_c_unit_operation.html#a52fe9b66e68c2bb54fe241f8ca80ab21">myName</a>.Empty();
+<a name="l00195"></a>00195  <a class="code" href="class_c_unit_operation.html#a1b4c9c68f0e6c29527faeb06d0170bea">myDesc</a>.Empty();
+<a name="l00196"></a>00196  <a class="code" href="class_c_unit_operation.html#ab23aa59fbff5867d14b6690707934bcc">rep</a>[0].Empty();
+<a name="l00197"></a>00197  <a class="code" href="class_c_unit_operation.html#ab23aa59fbff5867d14b6690707934bcc">rep</a>[1].Empty();
+<a name="l00198"></a>00198  <a class="code" href="class_c_unit_operation.html#a022b8d0eba3abf6b69df624f00aa2244">errDesc</a>.Empty();
+<a name="l00199"></a>00199  <a class="code" href="class_c_unit_operation.html#a721cbb91fddd7cbbca57b09fdd6f7aa3">errInterface</a>.Empty();
+<a name="l00200"></a>00200  <a class="code" href="class_c_unit_operation.html#a5df43f8f9c48a203cee59609a078bd5a">errScope</a>.Empty();
+<a name="l00201"></a>00201 
+<a name="l00202"></a>00202 <span class="comment">// SafeArrayDestroy(rep1);</span>
+<a name="l00203"></a>00203 <span class="comment">// p-&gt;Release();</span>
+<a name="l00204"></a>00204 <span class="comment">// pout-&gt;Release();</span>
+<a name="l00205"></a>00205 <span class="comment">// myports-&gt;Release();</span>
+<a name="l00206"></a>00206 <span class="comment">// myparams-&gt;Release();</span>
+<a name="l00207"></a>00207 
+<a name="l00208"></a>00208  <a class="code" href="class_c_unit_operation.html#a9fa8ce37f31cd45991dc0ff8312a2f96">myports</a> = NULL;
+<a name="l00209"></a>00209  <a class="code" href="class_c_unit_operation.html#a8147e6fdecda7488e7740659c91f0ca2">p</a>-&gt;Release();
+<a name="l00210"></a>00210  <span class="keywordflow">if</span>(<a class="code" href="definicje_8h.html#ab9b46eb9758bbc4b8e25c0d59516f035">NUM_OF_INPUTS</a>==2)
+<a name="l00211"></a>00211   <a class="code" href="class_c_unit_operation.html#a4a765c9c494dd3b2af5daf91f25f5a55">p1</a>-&gt;Release();
+<a name="l00212"></a>00212  <a class="code" href="class_c_unit_operation.html#ad06b6c250b9522ce0f0e5f59ed786fe3">pout</a>-&gt;Release();
+<a name="l00213"></a>00213  <a class="code" href="class_c_unit_operation.html#a8dc99e02629c8c6936db466c0a2a4a5a">myparams</a> = NULL;
+<a name="l00214"></a>00214  
+<a name="l00215"></a>00215  <span class="keyword">delete</span> <a class="code" href="class_c_unit_operation.html#a103375c2fb6f9096f1b3df6858dc9686">err</a>;
+<a name="l00216"></a>00216  <span class="keyword">delete</span> <a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>;
+<a name="l00217"></a>00217  <span class="keyword">delete</span> <a class="code" href="class_c_unit_operation.html#ae0d47afb40d14415e5ff5ae79ba528fa">runfluent</a>;
+<a name="l00218"></a>00218  <span class="keywordflow">if</span>(<a class="code" href="class_c_unit_operation.html#a22e29dacd3c80360887db17ce3f06f91">mydialog</a>!=NULL)
+<a name="l00219"></a>00219   <span class="keyword">delete</span> <a class="code" href="class_c_unit_operation.html#a22e29dacd3c80360887db17ce3f06f91">mydialog</a>;
+<a name="l00220"></a>00220 
+<a name="l00221"></a>00221 <span class="preprocessor">#ifdef PRINTOUT</span>
+<a name="l00222"></a>00222 <span class="preprocessor"></span> fclose( mystream );
+<a name="l00223"></a>00223 <span class="preprocessor">#endif</span>
+<a name="l00224"></a>00224 <span class="preprocessor"></span>}
+<a name="l00225"></a>00225 
+<a name="l00226"></a><a class="code" href="class_c_unit_operation.html#a38144a0107f211806bc5fcb40258ea96">00226</a> STDMETHODIMP <a class="code" href="class_c_unit_operation.html#a38144a0107f211806bc5fcb40258ea96">CUnitOperation::InvalidateUnit</a>(<span class="keywordtype">void</span>)
+<a name="l00227"></a>00227 {
+<a name="l00228"></a>00228  AFX_MANAGE_STATE(AfxGetStaticModuleState());
+<a name="l00229"></a>00229 
+<a name="l00230"></a>00230 <span class="preprocessor">#ifdef PRINTOUT</span>
+<a name="l00231"></a>00231 <span class="preprocessor"></span> fprintf(mystream,<span class="stringliteral">&quot;STDMETHODIMP CUnitOperation::InvalidateUnit(void)\n&quot;</span>);
+<a name="l00232"></a>00232 <span class="preprocessor">#endif </span>
+<a name="l00233"></a>00233 <span class="preprocessor"></span> <a class="code" href="class_c_unit_operation.html#a31a07ab0b8a875aaf8f7d4aaf76cff13">myvalStatus</a> = CAPE_NOT_VALIDATED;
+<a name="l00234"></a>00234  <span class="keywordflow">return</span> S_OK;
+<a name="l00235"></a>00235 }
+<a name="l00236"></a>00236 
+<a name="l00237"></a><a class="code" href="class_c_unit_operation.html#ad79f0a5cce9ea31bde9d88b8232d025a">00237</a> <span class="keywordtype">void</span> <a class="code" href="class_c_unit_operation.html#ad79f0a5cce9ea31bde9d88b8232d025a">CUnitOperation::SetError</a>(BSTR desc, BSTR interf, BSTR scope)
+<a name="l00238"></a>00238 {
+<a name="l00239"></a>00239 <span class="preprocessor">#ifdef PRINTOUT</span>
+<a name="l00240"></a>00240 <span class="preprocessor"></span> fprintf(mystream,<span class="stringliteral">&quot;CUnitOperation::SetError(BSTR desc, BSTR interf, BSTR scope)\n&quot;</span>);
+<a name="l00241"></a>00241 <span class="preprocessor">#endif</span>
+<a name="l00242"></a>00242 <span class="preprocessor"></span> <a class="code" href="class_c_unit_operation.html#a022b8d0eba3abf6b69df624f00aa2244">errDesc</a>.Empty(); <a class="code" href="class_c_unit_operation.html#a022b8d0eba3abf6b69df624f00aa2244">errDesc</a> = desc;
+<a name="l00243"></a>00243  <a class="code" href="class_c_unit_operation.html#a721cbb91fddd7cbbca57b09fdd6f7aa3">errInterface</a>.Empty(); <a class="code" href="class_c_unit_operation.html#a721cbb91fddd7cbbca57b09fdd6f7aa3">errInterface</a> = interf;
+<a name="l00244"></a>00244  <a class="code" href="class_c_unit_operation.html#a5df43f8f9c48a203cee59609a078bd5a">errScope</a>.Empty(); <a class="code" href="class_c_unit_operation.html#a5df43f8f9c48a203cee59609a078bd5a">errScope</a> = scope;
+<a name="l00245"></a>00245 }
+<a name="l00246"></a>00246 
+<a name="l00247"></a>00247 
+<a name="l00257"></a><a class="code" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d">00257</a> STDMETHODIMP <a class="code" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA.">CUnitOperation::Calculate</a>()
+<a name="l00260"></a>00260 {
+<a name="l00261"></a>00261 <span class="preprocessor">#ifdef PRINTOUT</span>
+<a name="l00262"></a>00262 <span class="preprocessor"></span> fprintf(mystream,<span class="stringliteral">&quot;CUnitOperation::STDMETHOD(Calculate)()\n&quot;</span>);
+<a name="l00263"></a>00263 <span class="preprocessor">#endif</span>
+<a name="l00264"></a>00264 <span class="preprocessor"></span> ICapeThermoMaterialObject* inletMaterials[<a class="code" href="definicje_8h.html#a67ea8592b7ced96ca53dec58434397e8">MAX_INPUTS</a>];
+<a name="l00265"></a>00265  ICapeThermoMaterialObject* outletMaterial;
+<a name="l00266"></a>00266  IATCapeXDiagnostic* ASPEN_diag;
+<a name="l00268"></a>00268  ICapeUnitPort *inletPort[<a class="code" href="definicje_8h.html#a041ab6978aad33e05b0879b615c2835e">MAX_INPUT_PORTS</a>]; <span class="comment">// maksymalan ilosc portow do obslugi</span>
+<a name="l00269"></a>00269 <span class="comment">// ICapeUnitPort* inletPort2;</span>
+<a name="l00270"></a>00270  ICapeUnitPort* outletPort;
+<a name="l00271"></a>00271  IDispatch* disp; 
+<a name="l00272"></a>00272  IDispatch* disp2; 
+<a name="l00273"></a>00273  IDispatch* disp3; 
+<a name="l00274"></a>00274  IDispatch* disp4; 
+<a name="l00275"></a>00275  CComBSTR s;
+<a name="l00276"></a>00276  CComBSTR tmp;
+<a name="l00277"></a>00277  CComBSTR myproperty;
+<a name="l00278"></a>00278  CComBSTR myphase;
+<a name="l00279"></a>00279  CComBSTR mole;
+<a name="l00280"></a>00280  CComBSTR numery_portow;
+<a name="l00281"></a>00281  CComBSTR nazwa_port;
+<a name="l00282"></a>00282  ICapeCollection* capecol;
+<a name="l00283"></a>00283  VARIANT id;
+<a name="l00284"></a>00284  VARIANT compIds;  <span class="comment">// nazwy związków wg aspena</span>
+<a name="l00285"></a>00285  VARIANT avialprops;
+<a name="l00286"></a>00286  VARIANT T;
+<a name="l00287"></a>00287  VARIANT <a class="code" href="class_c_unit_operation.html#a8147e6fdecda7488e7740659c91f0ca2">p</a>;
+<a name="l00288"></a>00288  VARIANT X;
+<a name="l00289"></a>00289  VARIANT f;
+<a name="l00290"></a>00290 <span class="comment">// kopie tablic ale już o rozmiarze odpowiadającym ilości komponentów (każda komórka dla każdego komponentu)</span>
+<a name="l00291"></a>00291  VARIANT newT;
+<a name="l00292"></a>00292  VARIANT newp;
+<a name="l00293"></a>00293  VARIANT newX;
+<a name="l00294"></a>00294  VARIANT newf;
+<a name="l00295"></a>00295  SAFEARRAYBOUND siz[1];
+<a name="l00296"></a>00296 
+<a name="l00297"></a>00297  VARIANT phases; <span class="comment">// fazy rozpoznane z aspena</span>
+<a name="l00298"></a>00298  LONG num;  <span class="comment">// ilosc zwiazków w strumieniu</span>
+<a name="l00299"></a>00299  HRESULT herr;
+<a name="l00300"></a>00300  <span class="keywordtype">double</span> temperature, pressure, flow; <span class="comment">// zmienne tymczasowe</span>
+<a name="l00301"></a>00301  <span class="keywordtype">double</span> fraction[<a class="code" href="definicje_8h.html#a2088367026f360e5b7099098f4b9d39c">MAX_EXPORTS</a>]; <span class="comment">// maxymlna ilosc skladników</span>
+<a name="l00302"></a>00302  <span class="keywordtype">int</span> a;
+<a name="l00303"></a>00303  LONG b;
+<a name="l00305"></a>00305  <span class="keywordtype">char</span> nbuff[2];
+<a name="l00308"></a>00308  VariantInit(&amp;<span class="keywordtype">id</span>);
+<a name="l00309"></a>00309  VariantInit(&amp;avialprops);
+<a name="l00310"></a>00310  herr = <a class="code" href="class_c_unit_operation.html#a7ac9cbf18d51a4fa6b577c5c37b823f3">simulationContext</a>-&gt;QueryInterface(IID_IATCapeXDiagnostic,(<span class="keywordtype">void</span>**)&amp;ASPEN_diag);
+<a name="l00311"></a>00311  <a class="code" href="class_c_unit_operation.html#a9fa8ce37f31cd45991dc0ff8312a2f96">myports</a>-&gt;QueryInterface(IID_ICapeCollection,(<span class="keywordtype">void</span>**)&amp;capecol);
+<a name="l00312"></a>00312  <span class="keywordflow">for</span>(a=0;a&lt;<a class="code" href="class_c_unit_operation.html#aa040b47501232212ddc54f17a87be2a7">ileportow</a>;a++) {
+<a name="l00313"></a>00313   sprintf_s(nbuff,2,<span class="stringliteral">&quot;%d&quot;</span>,a+1);
+<a name="l00314"></a>00314   numery_portow = nbuff;
+<a name="l00315"></a>00315   nazwa_port = <span class="stringliteral">&quot;Inlet port &quot;</span>;
+<a name="l00316"></a>00316   nazwa_port.Append(numery_portow);
+<a name="l00317"></a>00317   <span class="keywordtype">id</span>.vt = VT_BSTR; <span class="keywordtype">id</span>.bstrVal = nazwa_port;
+<a name="l00318"></a>00318   capecol-&gt;Item(<span class="keywordtype">id</span>,&amp;disp); disp-&gt;QueryInterface(IID_ICapeUnitPort,(<span class="keywordtype">void</span>**)&amp;inletPort[a]); disp-&gt;Release();
+<a name="l00319"></a>00319   inletPort[a]-&gt;get_connectedObject(&amp;disp3);
+<a name="l00320"></a>00320   disp3-&gt;QueryInterface(IID_ICapeThermoMaterialObject,(<span class="keywordtype">void</span>**)&amp;inletMaterials[a]); disp3-&gt;Release();
+<a name="l00321"></a>00321 
+<a name="l00322"></a>00322 
+<a name="l00323"></a>00323   numery_portow.Empty();
+<a name="l00324"></a>00324  }
+<a name="l00325"></a>00325 
+<a name="l00326"></a>00326  CComBSTR nazwa_port_out = <span class="stringliteral">&quot;Outlet port 1&quot;</span>;
+<a name="l00327"></a>00327  <span class="keywordtype">id</span>.vt = VT_BSTR; <span class="keywordtype">id</span>.bstrVal = nazwa_port_out;
+<a name="l00328"></a>00328  capecol-&gt;Item(<span class="keywordtype">id</span>,&amp;disp2); disp2-&gt;QueryInterface(IID_ICapeUnitPort,(<span class="keywordtype">void</span>**)&amp;outletPort); disp2-&gt;Release();
+<a name="l00329"></a>00329 
+<a name="l00330"></a>00330  outletPort-&gt;get_connectedObject(&amp;disp4);
+<a name="l00331"></a>00331  disp4-&gt;QueryInterface(IID_ICapeThermoMaterialObject,(<span class="keywordtype">void</span>**)&amp;outletMaterial); disp4-&gt;Release();
+<a name="l00332"></a>00332 
+<a name="l00334"></a>00334 
+<a name="l00335"></a>00335  VariantInit(&amp;newT); newT.vt = VT_R8|VT_ARRAY;
+<a name="l00336"></a>00336  VariantInit(&amp;newp); newp.vt = VT_R8|VT_ARRAY;
+<a name="l00337"></a>00337  VariantInit(&amp;newX); newX.vt = VT_R8|VT_ARRAY;
+<a name="l00338"></a>00338  VariantInit(&amp;newf); newf.vt = VT_R8|VT_ARRAY;
+<a name="l00339"></a>00339 
+<a name="l00340"></a>00340  <span class="keywordflow">try</span>
+<a name="l00341"></a>00341  {
+<a name="l00342"></a>00342   <span class="comment">/* po wszyskich wejściach (materiały pobrane z każdego wejścia) oraz</span>
+<a name="l00343"></a>00343 <span class="comment">  wypełnianie klas trzymających dane */</span>
+<a name="l00344"></a>00344   <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> materialy=0;materialy&lt;ileportow;materialy++) 
+<a name="l00345"></a>00345   {
+<a name="l00346"></a>00346    herr = inletMaterials[materialy]-&gt;AvailableProps(&amp;avialprops);
+<a name="l00347"></a>00347    herr = inletMaterials[materialy]-&gt;GetNumComponents(&amp;num);
+<a name="l00348"></a>00348    VariantInit(&amp;phases);
+<a name="l00349"></a>00349    herr = inletMaterials[materialy]-&gt;get_PhaseIds(&amp;phases);
+<a name="l00350"></a>00350    VariantInit(&amp;compIds);
+<a name="l00351"></a>00351    herr = inletMaterials[materialy]-&gt;get_ComponentIds(&amp;compIds);
+<a name="l00352"></a>00352    <span class="keywordflow">if</span>(num&gt;<a class="code" href="definicje_8h.html#a2088367026f360e5b7099098f4b9d39c">MAX_EXPORTS</a>) {
+<a name="l00353"></a>00353     CComBSTR errorin(L<span class="stringliteral">&quot;More components passed than allowed &quot;</span>);
+<a name="l00354"></a>00354     <span class="keywordflow">throw</span> errorin;
+<a name="l00355"></a>00355    }
+<a name="l00356"></a>00356    <span class="comment">// sprawdzam zgodność nazw faz</span>
+<a name="l00357"></a>00357    BOOL test;
+<a name="l00358"></a>00358    BSTR Ids;
+<a name="l00359"></a>00359    CComBSTR cIds;
+<a name="l00360"></a>00360    <span class="keywordtype">char</span> *ctmp;
+<a name="l00361"></a>00361    <span class="keywordflow">for</span>(a=0;a&lt;num;a++) {
+<a name="l00362"></a>00362     test = <a class="code" href="definicje_8h.html#abb508ea8227673f419e9fe3a86c30d8e">FAIL</a>;
+<a name="l00363"></a>00363     ctmp = <a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>-&gt;<a class="code" href="class_c___params.html#ae54ad1f94c5d33db56436e556a2ed9f9">bCOMPONENTS</a>.<a class="code" href="class_data___to___read.html#a6a3deab57b0e9d8e040ab3c548595bf9" title="Zwraca wskaźnik do podciągu.">GetSubString</a>(a,<a class="code" href="_c___params_8h.html#afb924e136e034239095f7592b57bd8ecaac6154b66d6befe494a950522bed86e6">COMPONENTS_NAZWA</a>);
+<a name="l00364"></a>00364     <span class="keywordflow">if</span>(ctmp==NULL) {
+<a name="l00365"></a>00365      CComBSTR errorin(L<span class="stringliteral">&quot;Check if number of components in PHASE matches number of components in ASPEN&quot;</span>);
+<a name="l00366"></a>00366      <span class="keywordflow">throw</span> errorin;
+<a name="l00367"></a>00367     } <span class="keywordflow">else</span>
+<a name="l00368"></a>00368      tmp = ctmp;
+<a name="l00369"></a>00369     tmp.ToLower();
+<a name="l00370"></a>00370     <span class="keywordflow">for</span>(b=0;b&lt;num;b++) {
+<a name="l00371"></a>00371      SafeArrayGetElement(compIds.parray,&amp;b,&amp;Ids);
+<a name="l00372"></a>00372      cIds.AssignBSTR(Ids);
+<a name="l00373"></a>00373      cIds.ToLower();
+<a name="l00374"></a>00374      <span class="keywordflow">if</span>(tmp==cIds) {
+<a name="l00375"></a>00375       test = <a class="code" href="definicje_8h.html#aba51915c87d64af47fb1cc59348961c9">OK</a>; <span class="comment">// dla danego a jest pasujące b</span>
+<a name="l00376"></a>00376       <span class="keywordflow">break</span>;
+<a name="l00377"></a>00377      }
+<a name="l00378"></a>00378     }
+<a name="l00379"></a>00379     <span class="keywordflow">if</span>(test==<a class="code" href="definicje_8h.html#abb508ea8227673f419e9fe3a86c30d8e">FAIL</a>) { <span class="comment">// jesli test ma wciąż FAIL to znaczy że żadan z nazw ASPENA nie pasuje do danej nazwy ze skryptu</span>
+<a name="l00380"></a>00380      CComBSTR errorin(L<span class="stringliteral">&quot;Check if components names in COMPONENTS match to names in ASPEN&quot;</span>);
+<a name="l00381"></a>00381      <span class="keywordflow">throw</span> errorin;
+<a name="l00382"></a>00382     }
+<a name="l00383"></a>00383    }
+<a name="l00384"></a>00384 
+<a name="l00385"></a>00385    CComBSTR Liquid(L<span class="stringliteral">&quot;Liquid&quot;</span>); CComBSTR Mixture(L<span class="stringliteral">&quot;Mixture&quot;</span>); CComBSTR Vapor(L<span class="stringliteral">&quot;Vapor&quot;</span>);
+<a name="l00386"></a>00386 
+<a name="l00387"></a>00387    myproperty = L<span class="stringliteral">&quot;Temperature&quot;</span>;
+<a name="l00388"></a>00388    myphase = L<span class="stringliteral">&quot;overall&quot;</span>;
+<a name="l00389"></a>00389    mole = L<span class="stringliteral">&quot;mole&quot;</span>;
+<a name="l00390"></a>00390    <span class="comment">//  VariantInit(&amp;compIds);</span>
+<a name="l00391"></a>00391    VariantInit(&amp;T);
+<a name="l00392"></a>00392    herr = inletMaterials[materialy]-&gt;GetPropW(myproperty,myphase,compIds,Mixture,L<span class="stringliteral">&quot;&quot;</span>,&amp;T);
+<a name="l00393"></a>00393    <span class="keywordflow">if</span>(FAILED(herr))
+<a name="l00394"></a>00394    {
+<a name="l00395"></a>00395     CComBSTR errorin(L<span class="stringliteral">&quot;Error in GetPropW &quot;</span>);
+<a name="l00396"></a>00396     errorin.AppendBSTR(myproperty);
+<a name="l00397"></a>00397     <span class="keywordflow">throw</span> errorin;
+<a name="l00398"></a>00398    }
+<a name="l00399"></a>00399 
+<a name="l00400"></a>00400    myproperty = L<span class="stringliteral">&quot;Pressure&quot;</span>;
+<a name="l00401"></a>00401    <span class="comment">//  VariantInit(&amp;compIds);</span>
+<a name="l00402"></a>00402    VariantInit(&amp;p);
+<a name="l00403"></a>00403    herr = inletMaterials[materialy]-&gt;GetPropW(myproperty,myphase,compIds,L<span class="stringliteral">&quot;&quot;</span>,L<span class="stringliteral">&quot;&quot;</span>,&amp;p);
+<a name="l00404"></a>00404    <span class="keywordflow">if</span>(FAILED(herr))
+<a name="l00405"></a>00405    {
+<a name="l00406"></a>00406     CComBSTR errorin(L<span class="stringliteral">&quot;Error in GetPropW &quot;</span>);
+<a name="l00407"></a>00407     errorin.AppendBSTR(myproperty);
+<a name="l00408"></a>00408     <span class="keywordflow">throw</span> errorin;
+<a name="l00409"></a>00409    }
+<a name="l00410"></a>00410 
+<a name="l00411"></a>00411    myproperty = L<span class="stringliteral">&quot;Fraction&quot;</span>;
+<a name="l00412"></a>00412    <span class="comment">//  VariantInit(&amp;compIds);</span>
+<a name="l00413"></a>00413    VariantInit(&amp;X);
+<a name="l00414"></a>00414    herr = inletMaterials[materialy]-&gt;GetPropW(myproperty,myphase,compIds,L<span class="stringliteral">&quot;&quot;</span>,mole,&amp;X); <span class="comment">// tu zawsze w molach. Jesli w aspenie jest mole frac to tu mamy dokładnie to samo. JEśli co innego to jest przeliczone</span>
+<a name="l00415"></a>00415    <span class="keywordflow">if</span>(FAILED(herr))
+<a name="l00416"></a>00416    {
+<a name="l00417"></a>00417     CComBSTR errorin(L<span class="stringliteral">&quot;Error in GetPropW &quot;</span>);
+<a name="l00418"></a>00418     errorin.AppendBSTR(myproperty);
+<a name="l00419"></a>00419     <span class="keywordflow">throw</span> errorin;
+<a name="l00420"></a>00420    }
+<a name="l00421"></a>00421 
+<a name="l00422"></a>00422    myproperty = L<span class="stringliteral">&quot;TotalFlow&quot;</span>;
+<a name="l00423"></a>00423    <span class="comment">//  VariantInit(&amp;compIds);</span>
+<a name="l00424"></a>00424    VariantInit(&amp;f);
+<a name="l00425"></a>00425    herr = inletMaterials[materialy]-&gt;GetPropW(myproperty,myphase,compIds,L<span class="stringliteral">&quot;&quot;</span>,mole,&amp;f); <span class="comment">// mol/sec</span>
+<a name="l00426"></a>00426    <span class="keywordflow">if</span>(FAILED(herr))
+<a name="l00427"></a>00427    {
+<a name="l00428"></a>00428     CComBSTR errorin(L<span class="stringliteral">&quot;Error in GetPropW &quot;</span>);
+<a name="l00429"></a>00429     errorin.AppendBSTR(myproperty);
+<a name="l00430"></a>00430     <span class="keywordflow">throw</span> errorin;
+<a name="l00431"></a>00431    }
+<a name="l00432"></a>00432 
+<a name="l00433"></a>00433    <span class="comment">// ------------------------------------------------------------------------------------------------------------------------------ </span>
+<a name="l00434"></a>00434 
+<a name="l00435"></a>00435    <span class="keywordflow">if</span>(T.vt==(VT_ARRAY|VT_R8) &amp;&amp; p.vt==(VT_ARRAY|VT_R8) &amp;&amp; X.vt==(VT_ARRAY|VT_R8) &amp;&amp; f.vt==(VT_ARRAY|VT_R8)) {
+<a name="l00436"></a>00436     LONG index = 0;
+<a name="l00438"></a>00438     SafeArrayGetElement(T.parray, &amp;index, &amp;temperature);
+<a name="l00439"></a>00439     SafeArrayGetElement(p.parray, &amp;index, &amp;pressure);
+<a name="l00440"></a>00440     SafeArrayGetElement(f.parray, &amp;index, &amp;flow);
+<a name="l00441"></a>00441     <span class="keywordflow">for</span>(;index&lt;num;index++)
+<a name="l00442"></a>00442      SafeArrayGetElement(X.parray, &amp;index, &amp;fraction[index]);
+<a name="l00443"></a>00443 
+<a name="l00444"></a>00444     herr = <a class="code" href="class_c_unit_operation.html#ae0d47afb40d14415e5ff5ae79ba528fa">runfluent</a>-&gt;<a class="code" href="class_c__my_run_process.html#a92c79daa78da34aa38f14ec7f4f8a1ac" title="wpisuje parametry do klasy, wersja starsza">PutParams</a>(T.parray,X.parray,f.parray,p.parray,compIds.parray,materialy);
+<a name="l00445"></a>00445     <span class="keywordflow">if</span>(herr==<a class="code" href="definicje_8h.html#abb508ea8227673f419e9fe3a86c30d8e">FAIL</a>) {
+<a name="l00446"></a>00446      <a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>-&gt;<a class="code" href="class_c___params.html#a76499461772ba1f4f2bf7cd2ada4cc25">sERR</a> = 1;
+<a name="l00447"></a>00447      CComBSTR errorin(L<span class="stringliteral">&quot;Calculate::PutParams problem &quot;</span>);
+<a name="l00448"></a>00448      <span class="keywordflow">throw</span> errorin;
+<a name="l00449"></a>00449     }
+<a name="l00450"></a>00450    } <span class="keywordflow">else</span> {
+<a name="l00451"></a>00451     <a class="code" href="class_c_unit_operation.html#a31a07ab0b8a875aaf8f7d4aaf76cff13">myvalStatus</a> = CAPE_INVALID;
+<a name="l00452"></a>00452     <a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>-&gt;<a class="code" href="class_c___params.html#a76499461772ba1f4f2bf7cd2ada4cc25">sERR</a>=1;
+<a name="l00453"></a>00453     CComBSTR errorin(L<span class="stringliteral">&quot;Calculate::Internal error &quot;</span>);
+<a name="l00454"></a>00454     <span class="keywordflow">throw</span> errorin;
+<a name="l00455"></a>00455    }
+<a name="l00456"></a>00456   } <span class="comment">// koniec po wszytkich wejściach</span>
+<a name="l00457"></a>00457 
+<a name="l00460"></a>00460   <a class="code" href="class_c_unit_operation.html#ae0d47afb40d14415e5ff5ae79ba528fa">runfluent</a>-&gt;<a class="code" href="class_c__my_run_process.html#ae6b5f57310ae330f061f867d0582ee4e" title="Drukuje zawartość portów do pliku.">PrintPutParameters</a>(<span class="stringliteral">&quot;c:\\inParameters.txt&quot;</span>);
+<a name="l00462"></a>00462 
+<a name="l00463"></a>00463   <span class="keywordflow">if</span>(<a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>-&gt;<a class="code" href="class_c___params.html#a96db4b5bc8d67d374eb52b3d4b90446d" title="Dokonuje sprawdzenia czy spełnione są określone warunki.">ValidateParams</a>(<a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49ba13c45196813cb44e6e81e9c48a5ec1b4" title="scieżki">BASIC</a>) &amp;&amp; <a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>-&gt;<a class="code" href="class_c___params.html#a96db4b5bc8d67d374eb52b3d4b90446d" title="Dokonuje sprawdzenia czy spełnione są określone warunki.">ValidateParams</a>(<a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49ba9c9b14644e9370719a51b7342bbc9c4d" title="dodatkowo plik case istnieje">CASE</a>) &amp;&amp; <a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>-&gt;<a class="code" href="class_c___params.html#a96db4b5bc8d67d374eb52b3d4b90446d" title="Dokonuje sprawdzenia czy spełnione są określone warunki.">ValidateParams</a>(<a class="code" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49ba8bd13967f07373740a1a2bb84cf5636f" title="istnieją dyrektywy do exportu">EXPORTS</a>))
+<a name="l00464"></a>00464   {
+<a name="l00465"></a>00465    herr = <a class="code" href="class_c_unit_operation.html#ae0d47afb40d14415e5ff5ae79ba528fa">runfluent</a>-&gt;<a class="code" href="class_c__my_run_process.html#af04033e23f541696c736ef795e864392" title="Tworzy środowisko do uruchomienia fluenta - generuje scm oraz journalC_Params.">CreateEnv</a>();
+<a name="l00466"></a>00466    <span class="keywordflow">if</span>(herr==<a class="code" href="definicje_8h.html#abb508ea8227673f419e9fe3a86c30d8e">FAIL</a>) {
+<a name="l00467"></a>00467     <a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>-&gt;<a class="code" href="class_c___params.html#a76499461772ba1f4f2bf7cd2ada4cc25">sERR</a> = 1;
+<a name="l00468"></a>00468     CComBSTR errorin(L<span class="stringliteral">&quot;Calculate::CreateEnv problem &quot;</span>);
+<a name="l00469"></a>00469     <span class="keywordflow">throw</span> errorin;
+<a name="l00470"></a>00470    }
+<a name="l00471"></a>00471 
+<a name="l00472"></a>00472    herr = <a class="code" href="class_c_unit_operation.html#ae0d47afb40d14415e5ff5ae79ba528fa">runfluent</a>-&gt;<a class="code" href="class_c__my_run_process.html#a4c5555e8dc1c88ff665e247f371f73ef">StartFluent</a>();
+<a name="l00473"></a>00473    <span class="keywordflow">if</span>(herr==<a class="code" href="definicje_8h.html#abb508ea8227673f419e9fe3a86c30d8e">FAIL</a>) {
+<a name="l00474"></a>00474     <a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>-&gt;<a class="code" href="class_c___params.html#a76499461772ba1f4f2bf7cd2ada4cc25">sERR</a> = 1;
+<a name="l00475"></a>00475     CComBSTR errorin(L<span class="stringliteral">&quot;Calculate::StartFluent problem &quot;</span>);
+<a name="l00476"></a>00476     <span class="keywordflow">throw</span> errorin;
+<a name="l00477"></a>00477    }
+<a name="l00478"></a>00478    herr = <a class="code" href="class_c_unit_operation.html#ae0d47afb40d14415e5ff5ae79ba528fa">runfluent</a>-&gt;<a class="code" href="class_c__my_run_process.html#a96de0e119537f9f36f3cfaa8da96280f" title="Wczytuje dane z Fluenta.">ImportData</a>();
+<a name="l00479"></a>00479    <span class="keywordflow">if</span>(herr==<a class="code" href="definicje_8h.html#abb508ea8227673f419e9fe3a86c30d8e">FAIL</a>) {
+<a name="l00480"></a>00480     <a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>-&gt;<a class="code" href="class_c___params.html#a76499461772ba1f4f2bf7cd2ada4cc25">sERR</a> = 1;
+<a name="l00481"></a>00481     CComBSTR errorin(L<span class="stringliteral">&quot;Calculate::ImportData problem &quot;</span>);
+<a name="l00482"></a>00482     <span class="keywordflow">throw</span> errorin;
+<a name="l00483"></a>00483    }
+<a name="l00484"></a>00484   } <span class="keywordflow">else</span> {
+<a name="l00485"></a>00485    <a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>-&gt;<a class="code" href="class_c___params.html#a76499461772ba1f4f2bf7cd2ada4cc25">sERR</a> = 1;
+<a name="l00486"></a>00486    CComBSTR errorin(L<span class="stringliteral">&quot;Script Parser: BASIC_CASE_DATA problem &quot;</span>);
+<a name="l00487"></a>00487    <span class="keywordflow">throw</span> errorin;
+<a name="l00488"></a>00488   }
+<a name="l00491"></a>00491   siz[0].lLbound = 0;
+<a name="l00492"></a>00492   siz[0].cElements = num;
+<a name="l00493"></a>00493   newT.parray = SafeArrayCreate(VT_R8, 1, siz);
+<a name="l00494"></a>00494   newp.parray = SafeArrayCreate(VT_R8, 1, siz);
+<a name="l00495"></a>00495   newX.parray = SafeArrayCreate(VT_R8, 1, siz);
+<a name="l00496"></a>00496   newf.parray = SafeArrayCreate(VT_R8, 1, siz);
+<a name="l00497"></a>00497 
+<a name="l00499"></a>00499   herr = <a class="code" href="class_c_unit_operation.html#ae0d47afb40d14415e5ff5ae79ba528fa">runfluent</a>-&gt;<a class="code" href="class_c__my_run_process.html#a50bbb31558e2dc254c1583521bb291ec" title="pobiera parametry z klasy na zewnątrz - wersja starsza">GetParams</a>(newT.parray,newX.parray,newf.parray,newp.parray,compIds.parray);
+<a name="l00500"></a>00500   <span class="keywordflow">if</span>(herr==<a class="code" href="definicje_8h.html#abb508ea8227673f419e9fe3a86c30d8e">FAIL</a>) {
+<a name="l00501"></a>00501    <a class="code" href="class_c_unit_operation.html#adb271b0b109fe5cf62607b18de38234e">my_params</a>-&gt;<a class="code" href="class_c___params.html#a76499461772ba1f4f2bf7cd2ada4cc25">sERR</a> = 1;
+<a name="l00502"></a>00502    CComBSTR errorin(L<span class="stringliteral">&quot;Calculate::GetParams problem &quot;</span>);
+<a name="l00503"></a>00503    <span class="keywordflow">throw</span> errorin;
+<a name="l00504"></a>00504   }
+<a name="l00505"></a>00505   
+<a name="l00508"></a>00508   <a class="code" href="class_c_unit_operation.html#ae0d47afb40d14415e5ff5ae79ba528fa">runfluent</a>-&gt;<a class="code" href="class_c__my_run_process.html#aef8a141a9982779c57bb5931d87d710b" title="Drukuje zawartość portów do pliku.">PrintGetParameters</a>(<span class="stringliteral">&quot;c:\\outParameters.txt&quot;</span>);
+<a name="l00510"></a>00510 
+<a name="l00511"></a>00511 
+<a name="l00512"></a>00512   myproperty = L<span class="stringliteral">&quot;Temperature&quot;</span>;
+<a name="l00513"></a>00513   <span class="comment">//  VariantInit(&amp;compIds);</span>
+<a name="l00514"></a>00514   herr = outletMaterial-&gt;SetPropW(myproperty,myphase,compIds,L<span class="stringliteral">&quot;&quot;</span>,L<span class="stringliteral">&quot;&quot;</span>,newT);
+<a name="l00515"></a>00515   <span class="keywordflow">if</span>(FAILED(herr))
+<a name="l00516"></a>00516   {
+<a name="l00517"></a>00517    CComBSTR errorin(L<span class="stringliteral">&quot;Error in SetPropW &quot;</span>);
+<a name="l00518"></a>00518    errorin.AppendBSTR(myproperty);
+<a name="l00519"></a>00519    <span class="keywordflow">throw</span> errorin;
+<a name="l00520"></a>00520   }
+<a name="l00521"></a>00521 
+<a name="l00522"></a>00522   myproperty = L<span class="stringliteral">&quot;Pressure&quot;</span>;
+<a name="l00523"></a>00523   <span class="comment">//  VariantInit(&amp;compIds);</span>
+<a name="l00524"></a>00524   herr = outletMaterial-&gt;SetPropW(myproperty,myphase,compIds,L<span class="stringliteral">&quot;&quot;</span>,L<span class="stringliteral">&quot;&quot;</span>,newp);
+<a name="l00525"></a>00525   <span class="keywordflow">if</span>(FAILED(herr))
+<a name="l00526"></a>00526   {
+<a name="l00527"></a>00527    CComBSTR errorin(L<span class="stringliteral">&quot;Error in SetPropW &quot;</span>);
+<a name="l00528"></a>00528    errorin.AppendBSTR(myproperty);
+<a name="l00529"></a>00529    <span class="keywordflow">throw</span> errorin;
+<a name="l00530"></a>00530   }
+<a name="l00531"></a>00531 
+<a name="l00532"></a>00532   myproperty = L<span class="stringliteral">&quot;Fraction&quot;</span>;
+<a name="l00533"></a>00533   <span class="comment">//  VariantInit(&amp;compIds);</span>
+<a name="l00534"></a>00534   herr = outletMaterial-&gt;SetPropW(myproperty,myphase,compIds,L<span class="stringliteral">&quot;&quot;</span>,mole,newX);
+<a name="l00535"></a>00535   <span class="keywordflow">if</span>(FAILED(herr))
+<a name="l00536"></a>00536   {
+<a name="l00537"></a>00537    CComBSTR errorin(L<span class="stringliteral">&quot;Error in SetPropW &quot;</span>);
+<a name="l00538"></a>00538    errorin.AppendBSTR(myproperty);
+<a name="l00539"></a>00539    <span class="keywordflow">throw</span> errorin;
+<a name="l00540"></a>00540   }
+<a name="l00541"></a>00541 
+<a name="l00542"></a>00542   myproperty = L<span class="stringliteral">&quot;TotalFlow&quot;</span>;
+<a name="l00543"></a>00543   <span class="comment">//  VariantInit(&amp;compIds);</span>
+<a name="l00544"></a>00544   herr = outletMaterial-&gt;SetPropW(myproperty,myphase,compIds,L<span class="stringliteral">&quot;&quot;</span>,mole,newf);
+<a name="l00545"></a>00545   <span class="keywordflow">if</span>(FAILED(herr))
+<a name="l00546"></a>00546   {
+<a name="l00547"></a>00547    CComBSTR errorin(L<span class="stringliteral">&quot;Error in SetPropW &quot;</span>);
+<a name="l00548"></a>00548    errorin.AppendBSTR(myproperty);
+<a name="l00549"></a>00549    <span class="keywordflow">throw</span> errorin;
+<a name="l00550"></a>00550   }
+<a name="l00551"></a>00551 
+<a name="l00552"></a>00552   <span class="comment">// flash the outlet material (all outlet ports must be flashed by a CAPE-OPEN unit operation)</span>
+<a name="l00553"></a>00553   VARIANT props;
+<a name="l00554"></a>00554   VariantInit(&amp;props);
+<a name="l00555"></a>00555 
+<a name="l00556"></a>00556   CComBSTR tp = <span class="stringliteral">&quot;TP&quot;</span>;
+<a name="l00557"></a>00557   herr = outletMaterial-&gt;CalcEquilibrium(tp,props);
+<a name="l00558"></a>00558   <span class="keywordflow">if</span>(FAILED(herr))
+<a name="l00559"></a>00559   {
+<a name="l00560"></a>00560    CComBSTR errorin(L<span class="stringliteral">&quot;Error in SetPropW &quot;</span>);
+<a name="l00561"></a>00561    errorin.AppendBSTR(myproperty);
+<a name="l00562"></a>00562    <span class="keywordflow">throw</span> errorin;
+<a name="l00563"></a>00563   }
+<a name="l00564"></a>00564  } <span class="comment">// try</span>
+<a name="l00565"></a>00565  
+<a name="l00566"></a>00566  <span class="keywordflow">catch</span>(CComBSTR errorin) {
+<a name="l00567"></a>00567   capecol-&gt;Release();
+<a name="l00568"></a>00568   <span class="keywordflow">for</span>(a=0;a&lt;ileportow;a++)
+<a name="l00569"></a>00569    inletPort[a]-&gt;Release();
+<a name="l00570"></a>00570   outletPort-&gt;Release();
+<a name="l00571"></a>00571   <span class="keywordflow">for</span>(a=0;a&lt;ileportow;a++)
+<a name="l00572"></a>00572    inletMaterials[a]-&gt;Release();
+<a name="l00573"></a>00573   outletMaterial-&gt;Release();
+<a name="l00574"></a>00574   <a class="code" href="class_c_unit_operation.html#ad79f0a5cce9ea31bde9d88b8232d025a">SetError</a>(errorin,L<span class="stringliteral">&quot;ICapeUnit&quot;</span>,L<span class="stringliteral">&quot;Calculate&quot;</span>);
+<a name="l00575"></a>00575   CComBSTR calc(L<span class="stringliteral">&quot;Calculate::&quot;</span>);
+<a name="l00576"></a>00576   calc.Append(errorin);
+<a name="l00577"></a>00577   CW2A pszB(calc);
+<a name="l00578"></a>00578   <a class="code" href="class_c_unit_operation.html#a103375c2fb6f9096f1b3df6858dc9686">err</a>-&gt;<a class="code" href="class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy.">AddError</a>(pszB);
+<a name="l00579"></a>00579   <a class="code" href="class_c_unit_operation.html#a103375c2fb6f9096f1b3df6858dc9686">err</a>-&gt;<a class="code" href="class_c___error.html#ac88832708e7110c890f78f7c9348c2bd" title="Zgrywa wszystkie błedy na dysk.">PrintAll</a>();
+<a name="l00580"></a>00580   <a class="code" href="class_c___error.html" title="Klasa do obsługi błędów.">C_Error</a> *etmp = <a class="code" href="class_c_unit_operation.html#a103375c2fb6f9096f1b3df6858dc9686">err</a>;
+<a name="l00581"></a>00581   CComBSTR btmp;
+<a name="l00582"></a>00582   <span class="keywordflow">if</span>(<a class="code" href="class_c_unit_operation.html#a1bf64d59de2ffe526a37aee19c9069b6">czyASPEN</a>) {
+<a name="l00583"></a>00583    ASPEN_diag-&gt;SendMsgToHistory(errorin);
+<a name="l00584"></a>00584    ASPEN_diag-&gt;SendMsgToHistory(L<span class="stringliteral">&quot;---------- LOG DUMP: ----------------&quot;</span>);
+<a name="l00585"></a>00585    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> a=0;a&lt;<a class="code" href="class_c_unit_operation.html#a103375c2fb6f9096f1b3df6858dc9686">err</a>-&gt;<a class="code" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów.">Get_Num_of_Nodes</a>();a++)
+<a name="l00586"></a>00586    {
+<a name="l00587"></a>00587     btmp = etmp-&gt;<a class="code" href="class_c___node.html#a324eeeec704e2f579104eb0d44f32dbe">data</a>;
+<a name="l00588"></a>00588     ASPEN_diag-&gt;SendMsgToHistory(btmp);
+<a name="l00589"></a>00589     etmp = (<a class="code" href="class_c___error.html" title="Klasa do obsługi błędów.">C_Error</a>*)etmp-&gt;<a class="code" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego.">Get_Next</a>();
+<a name="l00590"></a>00590    }
+<a name="l00591"></a>00591    ASPEN_diag-&gt;SendMsgToHistory(L<span class="stringliteral">&quot;---------- END OF LOG DUMP------------&quot;</span>);
+<a name="l00592"></a>00592    CComBSTR raisederror(L<span class="stringliteral">&quot;C2F ERROR&quot;</span>);
+<a name="l00593"></a>00593    ASPEN_diag-&gt;RaiseError(ErrorSeverityError,L<span class="stringliteral">&quot;ICapeUnit&quot;</span>,raisederror); ASPEN_diag-&gt;Release();
+<a name="l00594"></a>00594   }
+<a name="l00595"></a>00595   <span class="keywordflow">return</span> ECapeUnknownHR;
+<a name="l00596"></a>00596  }
+<a name="l00597"></a>00597 
+<a name="l00598"></a>00598 
+<a name="l00599"></a>00599  capecol-&gt;Release();
+<a name="l00600"></a>00600  <span class="keywordflow">for</span>(a=0;a&lt;ileportow;a++)
+<a name="l00601"></a>00601   inletPort[a]-&gt;Release();
+<a name="l00602"></a>00602  outletPort-&gt;Release();
+<a name="l00603"></a>00603  <span class="keywordflow">for</span>(a=0;a&lt;ileportow;a++)
+<a name="l00604"></a>00604   inletMaterials[a]-&gt;Release();
+<a name="l00605"></a>00605  outletMaterial-&gt;Release();
+<a name="l00606"></a>00606  ASPEN_diag-&gt;Release();
+<a name="l00607"></a>00607 
+<a name="l00608"></a>00608  <span class="keywordflow">return</span> S_OK;
+<a name="l00609"></a>00609 }
+</pre></div></div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:22 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

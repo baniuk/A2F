@@ -1,0 +1,1287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Dokumentacja klasy C_myRunProcess</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Lista&nbsp;klas</span></a></li>
+      <li><a href="classes.html"><span>Indeks&nbsp;klas</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchia&nbsp;klas</span></a></li>
+      <li><a href="functions.html"><span>Składowe&nbsp;klas</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja klasy C_myRunProcess</h1><!-- doxytag: class="C_myRunProcess" -->
+<p>Klasa służąca do obsługi fluenta. Trzyma dane związane z strumieniami, obrabia wyniki, generuje pliki fluenta.  
+<a href="#_details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagram współpracy dla C_myRunProcess:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process__coll__graph.png" border="0" usemap="#_c__my_run_process_coll__map" alt="Collaboration graph"/></div>
+<map name="_c__my_run_process_coll__map" id="_c__my_run_process_coll__map">
+<area shape="rect" id="node2" href="class_c___error.html" title="Klasa do obsługi błędów." alt="" coords="193,101,260,131"/><area shape="rect" id="node7" href="class_c___params.html" title="Klasa do obsługi jezyka skryptowego do przekazaywnia parametrów z wykorzystaniem..." alt="" coords="120,283,203,312"/><area shape="rect" id="node4" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych." alt="" coords="193,5,260,35"/><area shape="rect" id="node10" href="class_data___to___read.html" title="Klasa sluzy do przechowywania danych jesli jest ich kilka do jednego rozkazu." alt="" coords="5,101,112,131"/><area shape="rect" id="node12" href="class_c___port_parameter___container.html" title="Klasa przechowuje kontainery z parametrami dla poszczególnych wejsc, parametry powiązane..." alt="" coords="293,283,477,312"/><area shape="rect" id="node14" href="class_c___parameter___container.html" title="Klasa jest kontainerem z parametrami opisującymi poszczególne materiały, parametry..." alt="" coords="324,101,484,131"/><area shape="rect" id="node16" href="class_c___parameters___set.html" title="Przechowuje zbiór podstawowych parametrów. Enum musi się zgadzać z przechowywanymi..." alt="" coords="339,5,469,35"/></map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legenda</a>]</span></center></div>
+
+<p><a href="class_c__my_run_process-members.html">Lista wszystkich składowych.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Metody publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#a218856e3338f20f76a0c2d750fa633d4">C_myRunProcess</a> (<a class="el" href="class_c___error.html">C_Error</a> *perr, <a class="el" href="class_c___params.html">C_Params</a> *params)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Konstruktor - pobiera klasę do obsługi błędów oraz odniesienie do klasy przechowującej parametry ze skryptu.  <a href="#a218856e3338f20f76a0c2d750fa633d4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#aa00fef1c5e1d1d23188d631fd84deac0">~C_myRunProcess</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#a4c5555e8dc1c88ff665e247f371f73ef">StartFluent</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#af04033e23f541696c736ef795e864392">CreateEnv</a> (void)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Tworzy środowisko do uruchomienia fluenta - generuje scm oraz journalC_Params.  <a href="#af04033e23f541696c736ef795e864392"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#a96de0e119537f9f36f3cfaa8da96280f">ImportData</a> (void)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Wczytuje dane z Fluenta.  <a href="#a96de0e119537f9f36f3cfaa8da96280f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#a50bbb31558e2dc254c1583521bb291ec">GetParams</a> (double &amp;temp, double *fract, double &amp;flow, double &amp;pres)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">pobiera parametry z klasy na zewnątrz - wersja starsza  <a href="#a50bbb31558e2dc254c1583521bb291ec"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#a7511e1d0a3cb9056ff87bd4a4cd4c886">GetParams</a> (SAFEARRAY *<a class="el" href="class_c__my_run_process.html#ac3c7b3104b2ca8941bf792ee13e194e7">temperature</a>, SAFEARRAY *<a class="el" href="class_c__my_run_process.html#abb3c97a82bf991d636674645020a4dfe">fraction</a>, SAFEARRAY *flow, SAFEARRAY *<a class="el" href="class_c__my_run_process.html#abf308a56d97c13ecb34fe1eb615110e5">pressure</a>, SAFEARRAY *compNames)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">pobiera parametry z klasy na zewnątrz - wersja nowsza  <a href="#a7511e1d0a3cb9056ff87bd4a4cd4c886"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#a92c79daa78da34aa38f14ec7f4f8a1ac">PutParams</a> (double temp, double *fract, double flow, double pres)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">wpisuje parametry do klasy, wersja starsza  <a href="#a92c79daa78da34aa38f14ec7f4f8a1ac"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#a8bf8241f0ff9398a64c00176022d677d">PutParams</a> (SAFEARRAY *<a class="el" href="class_c__my_run_process.html#ac3c7b3104b2ca8941bf792ee13e194e7">temperature</a>, SAFEARRAY *<a class="el" href="class_c__my_run_process.html#abb3c97a82bf991d636674645020a4dfe">fraction</a>, SAFEARRAY *flow, SAFEARRAY *<a class="el" href="class_c__my_run_process.html#abf308a56d97c13ecb34fe1eb615110e5">pressure</a>, SAFEARRAY *compNames, unsigned int inputID)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">wpisuje parametry do klasy, wersja nowsza  <a href="#a8bf8241f0ff9398a64c00176022d677d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#ae6b5f57310ae330f061f867d0582ee4e">PrintPutParameters</a> (char *nazwa)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Drukuje zawartość portów do pliku.  <a href="#ae6b5f57310ae330f061f867d0582ee4e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#aef8a141a9982779c57bb5931d87d710b">PrintGetParameters</a> (char *nazwa)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Drukuje zawartość portów do pliku.  <a href="#aef8a141a9982779c57bb5931d87d710b"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Atrybuty publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#accc481ce64190290a2ba26748f0af68f">procname</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#a80743f1f3f2ab62960dc05644d985946">parname</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">TCHAR *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#a96a361aeba544916631d82c2e2ab5bc2">subprocname</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#a83e882d315a2f3d233fedf91cb29a62f">paramsval</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">jesli 1 to parametry aktualne  <a href="#a83e882d315a2f3d233fedf91cb29a62f"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Metody prywatne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#a06bdfb895da68f5d45e769f4986a43c5">WaitForStart</a> (TCHAR *nazwa, unsigned int obrot, unsigned int czas)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#ac445542726d5877bef97f4f34fde85cd">WaitForProcess</a> (TCHAR *nazwa)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#af50c79d461121acff30f150025386622">PrintProcessNameAndID</a> (DWORD processID, TCHAR *nazwa)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#afe8240365804cc09bf7df066c64859a6">RemoveDoubleSlash</a> (char *in)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">funkcja usuwa podwójnego slaska do ściezek, modyfikuje ciąg wejściowy  <a href="#afe8240365804cc09bf7df066c64859a6"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Atrybuty prywatne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#a3b5d641493e2ad6f4f89443d182cbcf0">FLUENT_PATH</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#aadf2e3904bc99ac5fc0945258be196b0">COMMAND_LINE</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CComBSTR&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#aaf25ba1fc0838f800cb846100b1296db">fulloutname</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">nazwa pliku wyjściowego  <a href="#aaf25ba1fc0838f800cb846100b1296db"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c___port_parameter___container.html">C_PortParameter_Container</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#ac47af15c899f84dde717500688440bd9">Parameters</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#abf308a56d97c13ecb34fe1eb615110e5">pressure</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#a1fed0139e9d00c4f8974d82bcdef5a07">totalflow</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#abb3c97a82bf991d636674645020a4dfe">fraction</a> [MAX_EXPORTS]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#ac3c7b3104b2ca8941bf792ee13e194e7">temperature</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c___port_parameter___container.html">C_PortParameter_Container</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#a637f31651ba3ab358bf421ac633c93ed">SR</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">tu przechowuję zaimportowane parametry,- srednia z zaimportowanych dla wszystkich komponentów  <a href="#a637f31651ba3ab358bf421ac633c93ed"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c___port_parameter___container.html">C_PortParameter_Container</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#a043667b22534fee299f3e8847c8a83b0">SUM</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">tu przechowuję zaimportowane parametry, - suma z zaimportowanych dla wszystkich komponentów  <a href="#a043667b22534fee299f3e8847c8a83b0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c___port_parameter___container.html">C_PortParameter_Container</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#a5f6e88a7ccf982c8906ca840cfac81bb">outParameters</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">tymczasowa zmienna do przechowywania przeliczonych parametrów wyjściowych (takich jakie są przekazywane do Aspena) tylko po to aby można było je nagrać na dysk  <a href="#a5f6e88a7ccf982c8906ca840cfac81bb"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#a45cf7301e9af57afb3a0ca3a1c677660">ile_danych</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">ile jest elementów w prof  <a href="#a45cf7301e9af57afb3a0ca3a1c677660"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c___params.html">C_Params</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#a2a8bbae97812661f19f491305f212319">copyparams</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">kopia klasy zawierającej parametry ze skryptu (nie modyfiować tu)  <a href="#a2a8bbae97812661f19f491305f212319"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c___error.html">C_Error</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c__my_run_process.html#af9f58dd664386638ca9406976cac0554">err</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Klasa obsługi błędów.  <a href="#af9f58dd664386638ca9406976cac0554"></a><br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+<p>Klasa służąca do obsługi fluenta. Trzyma dane związane z strumieniami, obrabia wyniki, generuje pliki fluenta. </p>
+<p>Klasa służąca do obsługi fluenta. Trzyma dane związane z strumieniami (ich parametry fizyczne oraz generuje pliki dla fluenta, uruchamia go oraz odzyskuje wyniki </p>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8h_source.html#l00008">8</a> pliku <a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a>.</p>
+<hr/><h2>Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="a218856e3338f20f76a0c2d750fa633d4"></a><!-- doxytag: member="C_myRunProcess::C_myRunProcess" ref="a218856e3338f20f76a0c2d750fa633d4" args="(C_Error *perr, C_Params *params)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">C_myRunProcess::C_myRunProcess </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_c___error.html">C_Error</a> *&nbsp;</td>
+          <td class="paramname"> <em>perr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_c___params.html">C_Params</a> *&nbsp;</td>
+          <td class="paramname"> <em>params</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Konstruktor - pobiera klasę do obsługi błędów oraz odniesienie do klasy przechowującej parametry ze skryptu. </p>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8cpp_source.html#l00006">6</a> pliku <a class="el" href="_c__my_run_process_8cpp_source.html">C_myRunProcess.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c__my_run_process_8h_source.html#l00044">copyparams</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00046">err</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00058">paramsval</a> i <a class="el" href="_c__my_run_process_8h_source.html#l00015">parname</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa00fef1c5e1d1d23188d631fd84deac0"></a><!-- doxytag: member="C_myRunProcess::~C_myRunProcess" ref="aa00fef1c5e1d1d23188d631fd84deac0" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">C_myRunProcess::~C_myRunProcess </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8cpp_source.html#l00017">17</a> pliku <a class="el" href="_c__my_run_process_8cpp_source.html">C_myRunProcess.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="af04033e23f541696c736ef795e864392"></a><!-- doxytag: member="C_myRunProcess::CreateEnv" ref="af04033e23f541696c736ef795e864392" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL C_myRunProcess::CreateEnv </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Tworzy środowisko do uruchomienia fluenta - generuje scm oraz journalC_Params. </p>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>FAIL</em>&nbsp;</td><td>Jeśli błąd - wiele możliwych źródeł błędu </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>OK</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><dl class="warning"><dt><b>Ostrzeżenie:</b></dt><dd>W tym przypadku dopuszczalne są wpisy w assign nie dublujące się (czyli na wejściu zawsze kilka komponentów ale o udziale 0-1) </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Do zrobienia:</a></b></dt><dd>Dodać funkcę w której moznaby zdefinować także modele </dd></dl>
+<dl class="warning"><dt><b>Ostrzeżenie:</b></dt><dd>W tym przypadku dopuszczalne są wpisy w assign nie dublujące się (czyli na wejściu zawsze kilka komponentów ale o udziale 0-1) </dd></dl>
+</p>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">174</a> pliku <a class="el" href="_c__my_run_process_8cpp_source.html">C_myRunProcess.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___error_8cpp_source.html#l00018">C_Error::AddError()</a>, <a class="el" href="_c___params_8h_source.html#l00043">ASSIGN_COMPONENTS_NAZWA</a>, <a class="el" href="_c___params_8h_source.html#l00044">ASSIGN_INPUTID</a>, <a class="el" href="_c___params_8h_source.html#l00045">ASSIGN_SURF_NAME</a>, <a class="el" href="definicje_8h_source.html#l00027">BASIC</a>, <a class="el" href="_c___params_8h_source.html#l00074">C_Params::bASSIGNS</a>, <a class="el" href="_c___params_8h_source.html#l00075">C_Params::bBOUND_COND</a>, <a class="el" href="_c___params_8h_source.html#l00070">C_Params::bCASE_NAME</a>, <a class="el" href="_c___params_8h_source.html#l00069">C_Params::bCOMMAND_LINE</a>, <a class="el" href="_c___params_8h_source.html#l00082">C_Params::bCOMPONENTS</a>, <a class="el" href="_c___params_8h_source.html#l00067">C_Params::bDATA_PATH</a>, <a class="el" href="_c___params_8h_source.html#l00076">C_Params::bENERGY_EQ</a>, <a class="el" href="_c___params_8h_source.html#l00071">C_Params::bEXPORTS</a>, <a class="el" href="_c___params_8h_source.html#l00066">C_Params::bFLUENT_PATH</a>, <a class="el" href="_c___params_8h_source.html#l00072">C_Params::bINPUT_SURFACE</a>, <a class="el" href="_c___params_8h_source.html#l00078">C_Params::bNUMOFITER</a>, <a class="el" href="_c___params_8h_source.html#l00079">C_Params::bNUMOFTIMESTEPS</a>, <a class="el" href="_c___params_8h_source.html#l00073">C_Params::bOUTPUT_SURFACE</a>, <a class="el" href="_c___params_8h_source.html#l00077">C_Params::bSUBPROCNAME</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00020">COMMAND_LINE</a>, <a class="el" href="_c___params_8h_source.html#l00022">COMPONENTS_NAZWA</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00044">copyparams</a>, <a class="el" href="_data___to___read_8h_source.html#l00014">Data_To_Read::DATA_CONTAINER</a>, <a class="el" href="definicje_8h_source.html#l00043">ENERGY</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00046">err</a>, <a class="el" href="_c___params_8h_source.html#l00030">EXPORT_NAME</a>, <a class="el" href="definicje_8h_source.html#l00002">FAIL</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00019">FLUENT_PATH</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00022">fulloutname</a>, <a class="el" href="_data___to___read_8h_source.html#l00051">Data_To_Read::GetIle()</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00075">Data_To_Read::GetLineIndex()</a>, <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00089">C_PortParameter_Container::GetParameterP()</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00058">Data_To_Read::GetSubString()</a>, <a class="el" href="definicje_8h_source.html#l00003">OK</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00007">PARAM_MOLEFLOW</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00009">PARAM_MOLEFRACTION</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00026">Parameters</a>, <a class="el" href="definicje_8h_source.html#l00029">PARAMS</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00015">parname</a>, <a class="el" href="definicje_8h_source.html#l00045">PROBLEM0</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00014">procname</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00153">RemoveDoubleSlash()</a>, <a class="el" href="_c___params_8h_source.html#l00079">C_Params::sNUMOFTIMESTEPS</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00031">temperature</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00029">totalflow</a> i <a class="el" href="_c___params_8cpp_source.html#l00154">C_Params::ValidateParams()</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">CUnitOperation::Calculate()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_af04033e23f541696c736ef795e864392_cgraph.png" border="0" usemap="#class_c__my_run_process_af04033e23f541696c736ef795e864392_cgraph_map" alt=""></div>
+<map name="class_c__my_run_process_af04033e23f541696c736ef795e864392_cgraph_map" id="class_c__my_run_process_af04033e23f541696c736ef795e864392_cgraph">
+<area shape="rect" id="node3" href="class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy." alt="" coords="327,5,452,35"/><area shape="rect" id="node12" href="class_data___to___read.html#acf5b344c1a44480144bb3d1a93f138b2" title="Zwraca ilosc wpisów &#45; danych przechowywanych." alt="" coords="629,189,779,219"/><area shape="rect" id="node14" href="class_data___to___read.html#a1f2247e03f494d45dd2bacf4fde00c92" title="Zwraca numer linii zawierającej dany ciąg tekstowy na danej pozycji podciągu...." alt="" coords="295,109,484,139"/><area shape="rect" id="node16" href="class_data___to___read.html#a6a3deab57b0e9d8e040ab3c548595bf9" title="Zwraca wskaźnik do podciągu." alt="" coords="608,109,800,139"/><area shape="rect" id="node20" href="class_c___port_parameter___container.html#a40f71af3c7efa9ae20bad902f781f7d0" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="248,320,531,349"/><area shape="rect" id="node27" href="class_c__my_run_process.html#afe8240365804cc09bf7df066c64859a6" title="funkcja usuwa podwójnego slaska do ściezek, modyfikuje ciąg wejściowy" alt="" coords="263,267,516,296"/><area shape="rect" id="node29" href="class_c___params.html#a96db4b5bc8d67d374eb52b3d4b90446d" title="Dokonuje sprawdzenia czy spełnione są określone warunki." alt="" coords="299,163,480,192"/><area shape="rect" id="node5" href="class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy." alt="" coords="637,5,771,35"/><area shape="rect" id="node7" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego." alt="" coords="1165,5,1296,35"/><area shape="rect" id="node9" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów." alt="" coords="901,31,1093,60"/><area shape="rect" id="node18" href="class_data___to___read.html#a2ae9b120ce85df4bbb0b36b61f9a39c0" title="Zwraca ilosc podciągów." alt="" coords="877,109,1117,139"/><area shape="rect" id="node22" href="class_c___parameter___container.html#a3025843a154aec4c2e75a412ec81385e" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="580,320,828,349"/><area shape="rect" id="node24" href="class_c___parameter___container.html#accb414d013c6b9d04596c01b1b19a008" title="Zwraca id komponentu na podstawie nazwy, lub &#45;1 gdy nie ma go." alt="" coords="880,320,1115,349"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_af04033e23f541696c736ef795e864392_icgraph.png" border="0" usemap="#class_c__my_run_process_af04033e23f541696c736ef795e864392_icgraph_map" alt=""></div>
+<map name="class_c__my_run_process_af04033e23f541696c736ef795e864392_icgraph_map" id="class_c__my_run_process_af04033e23f541696c736ef795e864392_icgraph">
+<area shape="rect" id="node3" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="249,5,420,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a7511e1d0a3cb9056ff87bd4a4cd4c886"></a><!-- doxytag: member="C_myRunProcess::GetParams" ref="a7511e1d0a3cb9056ff87bd4a4cd4c886" args="(SAFEARRAY *temperature, SAFEARRAY *fraction, SAFEARRAY *flow, SAFEARRAY *pressure, SAFEARRAY *compNames)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL C_myRunProcess::GetParams </td>
+          <td>(</td>
+          <td class="paramtype">SAFEARRAY *&nbsp;</td>
+          <td class="paramname"> <em>temperature</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SAFEARRAY *&nbsp;</td>
+          <td class="paramname"> <em>fraction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SAFEARRAY *&nbsp;</td>
+          <td class="paramname"> <em>flow</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SAFEARRAY *&nbsp;</td>
+          <td class="paramname"> <em>pressure</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SAFEARRAY *&nbsp;</td>
+          <td class="paramname"> <em>compNames</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>pobiera parametry z klasy na zewnątrz - wersja nowsza </p>
+<p>Funkcja pobiera parametry strumienia z klasy <a class="el" href="class_c___parameter___container.html" title="Klasa jest kontainerem z parametrami opisującymi poszczególne materiały, parametry...">C_Parameter_Container</a>. Wersja nowsza - obsługa wielu wejsć w modelu. Dane odczytane z fluenta są trzymane w odzielnych obiektach SR i SUM i stąd są odrazu przepisywane do SAFEARRAY. Ta funkcja nie korzysta ze skojarzonych z całą klasą parametrów wejściowych <a class="el" href="class_c__my_run_process.html#ac47af15c899f84dde717500688440bd9">C_myRunProcess::Parameters</a> </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[out]</tt>&nbsp;</td><td valign="top"><em>temperature</em>&nbsp;</td><td>temepratura </td></tr>
+    <tr><td valign="top"><tt>[out]</tt>&nbsp;</td><td valign="top"><em>fraction</em>&nbsp;</td><td>udział </td></tr>
+    <tr><td valign="top"><tt>[out]</tt>&nbsp;</td><td valign="top"><em>flow</em>&nbsp;</td><td>przepływ </td></tr>
+    <tr><td valign="top"><tt>[out]</tt>&nbsp;</td><td valign="top"><em>pressure</em>&nbsp;</td><td>cisnienie </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>compNames</em>&nbsp;</td><td>nazwa związku - pobrana z ASPENA</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Lekko zmieniona wersja - działa przy założeniu że dla kilku komponentów wszystkie struktury wyjściowe będą miały rozmiar ilości komponentów i parametry strumieni odpowiednio wpisane. Na przykład pomimo ze jest jedna temperatura do T bedzie miało rozmiar [2] i dwa razy wpisaną tą samą temperaturę zgodnie z kolejnością faz w compNames. </p>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>FAIL</em>&nbsp;</td><td>Jeśli Jakaś funkcja podrzędna zwóci FAIL (parametr nie znaleziony - raczej wszystko możliwe na etapie dewelopingu niż działania programu) lub też nie znaleziono kombinacji właściwej w ValidateParams. W tym ostanim przypadku niektóre parametry mogą mieć nieokreslone wartości </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>OK</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><dl class="bug"><dt><b><a class="el" href="bug.html#_bug000003">Błąd:</a></b></dt><dd>Problem dla większej ilości wyjść </dd></dl>
+</p>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8cpp_source.html#l00854">854</a> pliku <a class="el" href="_c__my_run_process_8cpp_source.html">C_myRunProcess.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00058">C_PortParameter_Container::AssignParamToCompP()</a>, <a class="el" href="_c___params_8h_source.html#l00073">C_Params::bOUTPUT_SURFACE</a>, <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00111">C_PortParameter_Container::ClearAllP()</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00044">copyparams</a>, <a class="el" href="definicje_8h_source.html#l00002">FAIL</a>, <a class="el" href="_c___parameter___container_8cpp_source.html#l00135">C_Parameter_Container::GetParameter()</a>, <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00089">C_PortParameter_Container::GetParameterP()</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00058">Data_To_Read::GetSubString()</a>, <a class="el" href="definicje_8h_source.html#l00041">MASS_FLOW_INLET</a>, <a class="el" href="definicje_8h_source.html#l00003">OK</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00038">outParameters</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00010">PARAM_DENSITY</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00007">PARAM_MOLEFLOW</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00009">PARAM_MOLEFRACTION</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00011">PARAM_MOLEPERKG</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00008">PARAM_PRESSURE</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00006">PARAM_TEMPERATURE</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00026">Parameters</a>, <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00022">C_PortParameter_Container::RegisterComponentP()</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00034">SR</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00036">SUM</a>, <a class="el" href="_c___params_8h_source.html#l00038">SURF_AREA</a>, <a class="el" href="_c___params_8cpp_source.html#l00154">C_Params::ValidateParams()</a> i <a class="el" href="definicje_8h_source.html#l00039">VELOCITY_INLET</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_a7511e1d0a3cb9056ff87bd4a4cd4c886_cgraph.png" border="0" usemap="#class_c__my_run_process_a7511e1d0a3cb9056ff87bd4a4cd4c886_cgraph_map" alt=""></div>
+<map name="class_c__my_run_process_a7511e1d0a3cb9056ff87bd4a4cd4c886_cgraph_map" id="class_c__my_run_process_a7511e1d0a3cb9056ff87bd4a4cd4c886_cgraph">
+<area shape="rect" id="node3" href="class_c___port_parameter___container.html#a0084a3c896460b40ff0ae1505ba069ec" title="Dodaje parametr do komponentu &#45; rozpoznaje po id." alt="" coords="257,5,583,35"/><area shape="rect" id="node7" href="class_c___port_parameter___container.html#a9ad1d472e32f73bbcc3687194a8cecbd" title="Kasuje zawartość klasy &#45; wszystkich danych wszystkich wejść." alt="" coords="297,59,543,88"/><area shape="rect" id="node13" href="class_c___parameter___container.html#a3025843a154aec4c2e75a412ec81385e" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="656,136,904,165"/><area shape="rect" id="node17" href="class_c___port_parameter___container.html#a40f71af3c7efa9ae20bad902f781f7d0" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="279,112,561,141"/><area shape="rect" id="node20" href="class_data___to___read.html#a6a3deab57b0e9d8e040ab3c548595bf9" title="Zwraca wskaźnik do podciągu." alt="" coords="684,213,876,243"/><area shape="rect" id="node24" href="class_c___port_parameter___container.html#a05afe498977802765e4c562acd8f7214" title="C_PortParameter_Container::RegisterComponentP" alt="" coords="263,320,577,349"/><area shape="rect" id="node28" href="class_c___params.html#a96db4b5bc8d67d374eb52b3d4b90446d" title="Dokonuje sprawdzenia czy spełnione są określone warunki." alt="" coords="329,267,511,296"/><area shape="rect" id="node5" href="class_c___parameter___container.html#afb7cef66e701ffc8600352ffcce0b006" title="Dodaje parametr do komponentu &#45; rozpoznaje po id." alt="" coords="633,5,927,35"/><area shape="rect" id="node9" href="class_c___parameter___container.html#ab196d93942c6d400b84af39e68ede81b" title="Kasuje zawartość klasy &#45; wszystkich danych." alt="" coords="673,59,887,88"/><area shape="rect" id="node11" href="class_c___parameter___container.html#a63e07ec8f12b69a7fe3abbe03f896542" title="Zwraca ilosc przechowywanych komponentów w klasie." alt="" coords="977,59,1279,88"/><area shape="rect" id="node15" href="class_c___parameter___container.html#accb414d013c6b9d04596c01b1b19a008" title="Zwraca id komponentu na podstawie nazwy, lub &#45;1 gdy nie ma go." alt="" coords="1011,136,1245,165"/><area shape="rect" id="node22" href="class_data___to___read.html#a2ae9b120ce85df4bbb0b36b61f9a39c0" title="Zwraca ilosc podciągów." alt="" coords="1008,213,1248,243"/><area shape="rect" id="node26" href="class_c___parameter___container.html#a1572fb9ba2f2ed524e0c6d908d4035c2" title="C_Parameter_Container::RegisterComponent" alt="" coords="639,320,921,349"/><area shape="rect" id="node30" href="class_data___to___read.html#acf5b344c1a44480144bb3d1a93f138b2" title="Zwraca ilosc wpisów &#45; danych przechowywanych." alt="" coords="705,267,855,296"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a50bbb31558e2dc254c1583521bb291ec"></a><!-- doxytag: member="C_myRunProcess::GetParams" ref="a50bbb31558e2dc254c1583521bb291ec" args="(double &amp;temp, double *fract, double &amp;flow, double &amp;pres)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void C_myRunProcess::GetParams </td>
+          <td>(</td>
+          <td class="paramtype">double &amp;&nbsp;</td>
+          <td class="paramname"> <em>temp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&nbsp;</td>
+          <td class="paramname"> <em>fract</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&nbsp;</td>
+          <td class="paramname"> <em>flow</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double &amp;&nbsp;</td>
+          <td class="paramname"> <em>pres</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>pobiera parametry z klasy na zewnątrz - wersja starsza </p>
+<p>Funkcja wpisuje parametry strumienia do do klasy <a class="el" href="class_c___parameter___container.html" title="Klasa jest kontainerem z parametrami opisującymi poszczególne materiały, parametry...">C_Parameter_Container</a>. Wersja starsza - obsługa tylko jednego wejscia </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[out]</tt>&nbsp;</td><td valign="top"><em>temp</em>&nbsp;</td><td>temepratura </td></tr>
+    <tr><td valign="top"><tt>[out]</tt>&nbsp;</td><td valign="top"><em>fract</em>&nbsp;</td><td>tablica z udzialami </td></tr>
+    <tr><td valign="top"><tt>[out]</tt>&nbsp;</td><td valign="top"><em>flow</em>&nbsp;</td><td>przepływ </td></tr>
+    <tr><td valign="top"><tt>[out]</tt>&nbsp;</td><td valign="top"><em>pres</em>&nbsp;</td><td>cisnienie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="warning"><dt><b>Ostrzeżenie:</b></dt><dd>Obsolete Function </dd></dl>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8cpp_source.html#l00712">712</a> pliku <a class="el" href="_c__my_run_process_8cpp_source.html">C_myRunProcess.cpp</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">CUnitOperation::Calculate()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_a50bbb31558e2dc254c1583521bb291ec_icgraph.png" border="0" usemap="#class_c__my_run_process_a50bbb31558e2dc254c1583521bb291ec_icgraph_map" alt=""></div>
+<map name="class_c__my_run_process_a50bbb31558e2dc254c1583521bb291ec_icgraph_map" id="class_c__my_run_process_a50bbb31558e2dc254c1583521bb291ec_icgraph">
+<area shape="rect" id="node3" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="257,5,428,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a96de0e119537f9f36f3cfaa8da96280f"></a><!-- doxytag: member="C_myRunProcess::ImportData" ref="a96de0e119537f9f36f3cfaa8da96280f" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL C_myRunProcess::ImportData </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Wczytuje dane z Fluenta. </p>
+<p>Wczytuje dane z Fluenta. Wczytuje wszystkie wielkosci ze struktury C_Params-&gt;bEXPORTS i z nazwy pliku fulloutname Wyniki lądują w tablicach SR oraz SUM, Te tablice są klasami <a class="el" href="class_c___parameter___container.html" title="Klasa jest kontainerem z parametrami opisującymi poszczególne materiały, parametry...">C_Parameter_Container</a>, ale nie koniecznie musza przechowywać wszystkie wartości - tylko te importowane. Jeśli coś nie jest importowane to klasa ta zwraca FAIL przy próbie odczytu danego parametru</p>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>FAIL</em>&nbsp;</td><td>Jeśli błąd - nie można otworzyć pliku lub zaimportować wymaganych danych lub użytkownik podał w exports złe słowo kluczowe określające typ parametru </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>OK</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Błąd:</a></b></dt><dd>poniższy fragment moze nie dzialac gdy zmieni się ilosc parametrów odczytywanych - przydatne tylko gdy zmienia sie ich konfiguracja </dd></dl>
+<div class="fragment"><pre class="fragment"> <a class="code" href="class_c__my_run_process.html#a043667b22534fee299f3e8847c8a83b0" title="tu przechowuję zaimportowane parametry, - suma z zaimportowanych dla wszystkich...">SUM</a>.<a class="code" href="class_c___parameter___container.html#ab196d93942c6d400b84af39e68ede81b" title="Kasuje zawartość klasy - wszystkich danych.">ClearAll</a>();
+ <a class="code" href="class_c__my_run_process.html#a637f31651ba3ab358bf421ac633c93ed" title="tu przechowuję zaimportowane parametry,- srednia z zaimportowanych dla wszystkich...">SR</a>.<a class="code" href="class_c___parameter___container.html#ab196d93942c6d400b84af39e68ede81b" title="Kasuje zawartość klasy - wszystkich danych.">ClearAll</a>();
+</pre></div><dl class="bug"><dt><b><a class="el" href="bug.html#_bug000002">Błąd:</a></b></dt><dd>nie koniecznie to musi działać dla kilku wyjść ze wzgledu na różną ilość elementów powierzchni </dd></dl>
+<div class="fragment"><pre class="fragment">  <a class="code" href="class_c__my_run_process.html#a45cf7301e9af57afb3a0ca3a1c677660" title="ile jest elementów w prof">ile_danych</a> = ile; <span class="comment">// ta wartosc bedzie taka sama dla wszystkich wielkosci, potrzzeban bo niektóre są średnią a niektóre sumą</span>
+</pre></div><p>domyślnie używam metod z klasy podrzędnej <a class="el" href="class_c___parameter___container.html" title="Klasa jest kontainerem z parametrami opisującymi poszczególne materiały, parametry...">C_Parameter_Container</a> bo tylko jedno wyjście </p>
+<div class="fragment"><pre class="fragment">    <a class="code" href="class_c__my_run_process.html#a043667b22534fee299f3e8847c8a83b0" title="tu przechowuję zaimportowane parametry, - suma z zaimportowanych dla wszystkich...">SUM</a>.<a class="code" href="class_c___parameter___container.html#afb7cef66e701ffc8600352ffcce0b006" title="Dodaje parametr do komponentu - rozpoznaje po id.">AssignParamToComp</a>(b,par,SUMtmp);
+    <a class="code" href="class_c__my_run_process.html#a637f31651ba3ab358bf421ac633c93ed" title="tu przechowuję zaimportowane parametry,- srednia z zaimportowanych dla wszystkich...">SR</a>.<a class="code" href="class_c___parameter___container.html#afb7cef66e701ffc8600352ffcce0b006" title="Dodaje parametr do komponentu - rozpoznaje po id.">AssignParamToComp</a>(b,par,SRtmp);
+</pre></div> </p>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8cpp_source.html#l00596">596</a> pliku <a class="el" href="_c__my_run_process_8cpp_source.html">C_myRunProcess.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___error_8cpp_source.html#l00018">C_Error::AddError()</a>, <a class="el" href="_c___parameter___container_8cpp_source.html#l00064">C_Parameter_Container::AssignParamToComp()</a>, <a class="el" href="_c___params_8h_source.html#l00082">C_Params::bCOMPONENTS</a>, <a class="el" href="_c___params_8h_source.html#l00071">C_Params::bEXPORTS</a>, <a class="el" href="_c___parameter___container_8cpp_source.html#l00187">C_Parameter_Container::ClearAll()</a>, <a class="el" href="_c___params_8h_source.html#l00022">COMPONENTS_NAZWA</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00044">copyparams</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00046">err</a>, <a class="el" href="_c___params_8h_source.html#l00034">EXPORT_COMPONENTS_NAZWA</a>, <a class="el" href="_c___params_8h_source.html#l00030">EXPORT_NAME</a>, <a class="el" href="_c___params_8h_source.html#l00032">EXPORT_PROP</a>, <a class="el" href="definicje_8h_source.html#l00002">FAIL</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00022">fulloutname</a>, <a class="el" href="_data___to___read_8h_source.html#l00051">Data_To_Read::GetIle()</a>, <a class="el" href="_c___parameter___container_8cpp_source.html#l00039">C_Parameter_Container::GetNumOfComponents()</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00058">Data_To_Read::GetSubString()</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00040">ile_danych</a>, <a class="el" href="definicje_8h_source.html#l00004">MAX_STRING</a>, <a class="el" href="definicje_8h_source.html#l00003">OK</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00007">PARAM_MOLEFLOW</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00009">PARAM_MOLEFRACTION</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00008">PARAM_PRESSURE</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00006">PARAM_TEMPERATURE</a>, <a class="el" href="_c___parameter___container_8cpp_source.html#l00023">C_Parameter_Container::RegisterComponent()</a>, <a class="el" href="definicje_8h_source.html#l00050">SAFE_DELETE_ARRAY</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00034">SR</a> i <a class="el" href="_c__my_run_process_8h_source.html#l00036">SUM</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">CUnitOperation::Calculate()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_a96de0e119537f9f36f3cfaa8da96280f_cgraph.png" border="0" usemap="#class_c__my_run_process_a96de0e119537f9f36f3cfaa8da96280f_cgraph_map" alt=""></div>
+<map name="class_c__my_run_process_a96de0e119537f9f36f3cfaa8da96280f_cgraph_map" id="class_c__my_run_process_a96de0e119537f9f36f3cfaa8da96280f_cgraph">
+<area shape="rect" id="node3" href="class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy." alt="" coords="339,5,464,35"/><area shape="rect" id="node12" href="class_c___parameter___container.html#afb7cef66e701ffc8600352ffcce0b006" title="Dodaje parametr do komponentu &#45; rozpoznaje po id." alt="" coords="255,59,548,88"/><area shape="rect" id="node14" href="class_c___parameter___container.html#ab196d93942c6d400b84af39e68ede81b" title="Kasuje zawartość klasy &#45; wszystkich danych." alt="" coords="295,112,508,141"/><area shape="rect" id="node16" href="class_c___parameter___container.html#a63e07ec8f12b69a7fe3abbe03f896542" title="Zwraca ilosc przechowywanych komponentów w klasie." alt="" coords="599,139,900,168"/><area shape="rect" id="node18" href="class_data___to___read.html#acf5b344c1a44480144bb3d1a93f138b2" title="Zwraca ilosc wpisów &#45; danych przechowywanych." alt="" coords="327,216,476,245"/><area shape="rect" id="node21" href="class_data___to___read.html#a6a3deab57b0e9d8e040ab3c548595bf9" title="Zwraca wskaźnik do podciągu." alt="" coords="305,269,497,299"/><area shape="rect" id="node25" href="class_c___parameter___container.html#a1572fb9ba2f2ed524e0c6d908d4035c2" title="C_Parameter_Container::RegisterComponent" alt="" coords="260,323,543,352"/><area shape="rect" id="node5" href="class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy." alt="" coords="683,5,816,35"/><area shape="rect" id="node7" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego." alt="" coords="1189,7,1320,36"/><area shape="rect" id="node9" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów." alt="" coords="949,32,1141,61"/><area shape="rect" id="node23" href="class_data___to___read.html#a2ae9b120ce85df4bbb0b36b61f9a39c0" title="Zwraca ilosc podciągów." alt="" coords="629,269,869,299"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_a96de0e119537f9f36f3cfaa8da96280f_icgraph.png" border="0" usemap="#class_c__my_run_process_a96de0e119537f9f36f3cfaa8da96280f_icgraph_map" alt=""></div>
+<map name="class_c__my_run_process_a96de0e119537f9f36f3cfaa8da96280f_icgraph_map" id="class_c__my_run_process_a96de0e119537f9f36f3cfaa8da96280f_icgraph">
+<area shape="rect" id="node3" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="255,5,425,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aef8a141a9982779c57bb5931d87d710b"></a><!-- doxytag: member="C_myRunProcess::PrintGetParameters" ref="aef8a141a9982779c57bb5931d87d710b" args="(char *nazwa)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL C_myRunProcess::PrintGetParameters </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>nazwa</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Drukuje zawartość portów do pliku. </p>
+<p>Zapisuje wszystkie parametry trzymane w klasie <a class="el" href="class_c___port_parameter___container.html" title="Klasa przechowuje kontainery z parametrami dla poszczególnych wejsc, parametry powiązane...">C_PortParameter_Container</a> dla wszystkich wejsć do pliku. Parametry które są przekazane poprzez GetParams i zamienione na jednostki zewnętrzne Trzymane w zmiennej C_PortParameter_Container::outParameters </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>nazwa</em>&nbsp;</td><td>nazwa pliku wraz ze ściezką. Sizezka powinna zawierać podwójne //</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>FAIL</em>&nbsp;</td><td>Jeśli błąd - nie można było otworzyć pliku </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>OK</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8cpp_source.html#l01084">1084</a> pliku <a class="el" href="_c__my_run_process_8cpp_source.html">C_myRunProcess.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c__my_run_process_8h_source.html#l00046">err</a>, <a class="el" href="definicje_8h_source.html#l00002">FAIL</a>, <a class="el" href="definicje_8h_source.html#l00003">OK</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00038">outParameters</a> i <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00124">C_PortParameter_Container::PrintParams()</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">CUnitOperation::Calculate()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_aef8a141a9982779c57bb5931d87d710b_cgraph.png" border="0" usemap="#class_c__my_run_process_aef8a141a9982779c57bb5931d87d710b_cgraph_map" alt=""></div>
+<map name="class_c__my_run_process_aef8a141a9982779c57bb5931d87d710b_cgraph_map" id="class_c__my_run_process_aef8a141a9982779c57bb5931d87d710b_cgraph">
+<area shape="rect" id="node3" href="class_c___port_parameter___container.html#af7ff20d9bcd1cd8a2f927b8cb7679ea8" title="Drukuje zawartość portów do pliku." alt="" coords="304,59,568,88"/><area shape="rect" id="node5" href="class_c___parameter___container.html#ab713e9a3ba582fc32576ec724076cd1b" title="Drukuje zawartość portów do pliku." alt="" coords="616,59,856,88"/><area shape="rect" id="node7" href="class_c___parameter___container.html#a9c253d28313ba83391397c031b2b4249" title="Zwraca nazwę komponentu po podaniu jego id, lub NULL gdy go nie ma." alt="" coords="912,5,1200,35"/><area shape="rect" id="node9" href="class_c___parameter___container.html#a63e07ec8f12b69a7fe3abbe03f896542" title="Zwraca ilosc przechowywanych komponentów w klasie." alt="" coords="905,59,1207,88"/><area shape="rect" id="node11" href="class_c___parameter___container.html#a3025843a154aec4c2e75a412ec81385e" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="932,112,1180,141"/><area shape="rect" id="node13" href="class_c___parameter___container.html#accb414d013c6b9d04596c01b1b19a008" title="Zwraca id komponentu na podstawie nazwy, lub &#45;1 gdy nie ma go." alt="" coords="1256,112,1491,141"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_aef8a141a9982779c57bb5931d87d710b_icgraph.png" border="0" usemap="#class_c__my_run_process_aef8a141a9982779c57bb5931d87d710b_icgraph_map" alt=""></div>
+<map name="class_c__my_run_process_aef8a141a9982779c57bb5931d87d710b_icgraph_map" id="class_c__my_run_process_aef8a141a9982779c57bb5931d87d710b_icgraph">
+<area shape="rect" id="node3" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="305,5,476,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af50c79d461121acff30f150025386622"></a><!-- doxytag: member="C_myRunProcess::PrintProcessNameAndID" ref="af50c79d461121acff30f150025386622" args="(DWORD processID, TCHAR *nazwa)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL C_myRunProcess::PrintProcessNameAndID </td>
+          <td>(</td>
+          <td class="paramtype">DWORD&nbsp;</td>
+          <td class="paramname"> <em>processID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TCHAR *&nbsp;</td>
+          <td class="paramname"> <em>nazwa</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>FAIL</em>&nbsp;</td><td>Jeśli nie znaleziono procesu o danej nazwie </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>OK</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8cpp_source.html#l00113">113</a> pliku <a class="el" href="_c__my_run_process_8cpp_source.html">C_myRunProcess.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="definicje_8h_source.html#l00002">FAIL</a> i <a class="el" href="definicje_8h_source.html#l00003">OK</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00086">WaitForProcess()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_af50c79d461121acff30f150025386622_icgraph.png" border="0" usemap="#class_c__my_run_process_af50c79d461121acff30f150025386622_icgraph_map" alt=""></div>
+<map name="class_c__my_run_process_af50c79d461121acff30f150025386622_icgraph_map" id="class_c__my_run_process_af50c79d461121acff30f150025386622_icgraph">
+<area shape="rect" id="node3" href="class_c__my_run_process.html#ac445542726d5877bef97f4f34fde85cd" title="C_myRunProcess::WaitForProcess" alt="" coords="333,5,563,35"/><area shape="rect" id="node5" href="class_c__my_run_process.html#a06bdfb895da68f5d45e769f4986a43c5" title="C_myRunProcess::WaitForStart" alt="" coords="612,5,820,35"/><area shape="rect" id="node7" href="class_c__my_run_process.html#a4c5555e8dc1c88ff665e247f371f73ef" title="C_myRunProcess::StartFluent" alt="" coords="871,5,1068,35"/><area shape="rect" id="node9" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="1119,5,1289,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ae6b5f57310ae330f061f867d0582ee4e"></a><!-- doxytag: member="C_myRunProcess::PrintPutParameters" ref="ae6b5f57310ae330f061f867d0582ee4e" args="(char *nazwa)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL C_myRunProcess::PrintPutParameters </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>nazwa</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Drukuje zawartość portów do pliku. </p>
+<p>Zapisuje wszystkie parametry trzymane w klasie <a class="el" href="class_c___port_parameter___container.html" title="Klasa przechowuje kontainery z parametrami dla poszczególnych wejsc, parametry powiązane...">C_PortParameter_Container</a> dla wszystkich wejsć do pliku. Parametry które są przekazane poprzez PutParams i zamienione na jednostki wewnętrzne Trzymane w zmiennej C_PortParameter_Container::Parameters </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>nazwa</em>&nbsp;</td><td>nazwa pliku wraz ze ściezką. Sizezka powinna zawierać podwójne //</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>FAIL</em>&nbsp;</td><td>Jeśli błąd - nie można było otworzyć pliku </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>OK</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8cpp_source.html#l01061">1061</a> pliku <a class="el" href="_c__my_run_process_8cpp_source.html">C_myRunProcess.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c__my_run_process_8h_source.html#l00046">err</a>, <a class="el" href="definicje_8h_source.html#l00002">FAIL</a>, <a class="el" href="definicje_8h_source.html#l00003">OK</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00026">Parameters</a> i <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00124">C_PortParameter_Container::PrintParams()</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">CUnitOperation::Calculate()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_ae6b5f57310ae330f061f867d0582ee4e_cgraph.png" border="0" usemap="#class_c__my_run_process_ae6b5f57310ae330f061f867d0582ee4e_cgraph_map" alt=""></div>
+<map name="class_c__my_run_process_ae6b5f57310ae330f061f867d0582ee4e_cgraph_map" id="class_c__my_run_process_ae6b5f57310ae330f061f867d0582ee4e_cgraph">
+<area shape="rect" id="node3" href="class_c___port_parameter___container.html#af7ff20d9bcd1cd8a2f927b8cb7679ea8" title="Drukuje zawartość portów do pliku." alt="" coords="304,59,568,88"/><area shape="rect" id="node5" href="class_c___parameter___container.html#ab713e9a3ba582fc32576ec724076cd1b" title="Drukuje zawartość portów do pliku." alt="" coords="616,59,856,88"/><area shape="rect" id="node7" href="class_c___parameter___container.html#a9c253d28313ba83391397c031b2b4249" title="Zwraca nazwę komponentu po podaniu jego id, lub NULL gdy go nie ma." alt="" coords="912,5,1200,35"/><area shape="rect" id="node9" href="class_c___parameter___container.html#a63e07ec8f12b69a7fe3abbe03f896542" title="Zwraca ilosc przechowywanych komponentów w klasie." alt="" coords="905,59,1207,88"/><area shape="rect" id="node11" href="class_c___parameter___container.html#a3025843a154aec4c2e75a412ec81385e" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="932,112,1180,141"/><area shape="rect" id="node13" href="class_c___parameter___container.html#accb414d013c6b9d04596c01b1b19a008" title="Zwraca id komponentu na podstawie nazwy, lub &#45;1 gdy nie ma go." alt="" coords="1256,112,1491,141"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_ae6b5f57310ae330f061f867d0582ee4e_icgraph.png" border="0" usemap="#class_c__my_run_process_ae6b5f57310ae330f061f867d0582ee4e_icgraph_map" alt=""></div>
+<map name="class_c__my_run_process_ae6b5f57310ae330f061f867d0582ee4e_icgraph_map" id="class_c__my_run_process_ae6b5f57310ae330f061f867d0582ee4e_icgraph">
+<area shape="rect" id="node3" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="305,5,476,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a8bf8241f0ff9398a64c00176022d677d"></a><!-- doxytag: member="C_myRunProcess::PutParams" ref="a8bf8241f0ff9398a64c00176022d677d" args="(SAFEARRAY *temperature, SAFEARRAY *fraction, SAFEARRAY *flow, SAFEARRAY *pressure, SAFEARRAY *compNames, unsigned int inputID)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL C_myRunProcess::PutParams </td>
+          <td>(</td>
+          <td class="paramtype">SAFEARRAY *&nbsp;</td>
+          <td class="paramname"> <em>temperature</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SAFEARRAY *&nbsp;</td>
+          <td class="paramname"> <em>fraction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SAFEARRAY *&nbsp;</td>
+          <td class="paramname"> <em>flow</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SAFEARRAY *&nbsp;</td>
+          <td class="paramname"> <em>pressure</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SAFEARRAY *&nbsp;</td>
+          <td class="paramname"> <em>compNames</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>inputID</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>wpisuje parametry do klasy, wersja nowsza </p>
+<p>Funkcja wpisuje parametry do klasy i także dokonuje rejestracji komponentów w klasie <a class="el" href="class_c___parameter___container.html" title="Klasa jest kontainerem z parametrami opisującymi poszczególne materiały, parametry...">C_Parameter_Container</a>. Dokonuje integracji także z parametrami ze skryptu Wersja nowsza - obsługa wielu wejsć w modelu </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>temperature</em>&nbsp;</td><td>temepratura </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>fraction</em>&nbsp;</td><td>udział </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>flow</em>&nbsp;</td><td>przepływ </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>pressure</em>&nbsp;</td><td>cisnienie </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>compNames</em>&nbsp;</td><td>nazwa związku - pobrana z ASPENA </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>inputID</em>&nbsp;</td><td>numer wejścia</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>FAIL</em>&nbsp;</td><td>Jeśli Jakaś funkcja podrzędna zwóci FAIL (rejestracja parmaetru albo parametr nie znaleziony - raczej wszystko możliwe na etapie dewelopingu niż działania programu), lub też nie znaleziono kombinacji właściwej w ValidateParams. W tym ostanim przypadku niektóre parametry mogą mieć nieokreslone wartości </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>OK</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8cpp_source.html#l00963">963</a> pliku <a class="el" href="_c__my_run_process_8cpp_source.html">C_myRunProcess.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___params_8h_source.html#l00043">ASSIGN_COMPONENTS_NAZWA</a>, <a class="el" href="_c___params_8h_source.html#l00045">ASSIGN_SURF_NAME</a>, <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00058">C_PortParameter_Container::AssignParamToCompP()</a>, <a class="el" href="_c___params_8h_source.html#l00074">C_Params::bASSIGNS</a>, <a class="el" href="_c___params_8h_source.html#l00082">C_Params::bCOMPONENTS</a>, <a class="el" href="_c___params_8h_source.html#l00072">C_Params::bINPUT_SURFACE</a>, <a class="el" href="_c___params_8h_source.html#l00023">COMPONENTS_GESTOSC</a>, <a class="el" href="_c___params_8h_source.html#l00024">COMPONENTS_MOLEPERKG</a>, <a class="el" href="_c___params_8h_source.html#l00022">COMPONENTS_NAZWA</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00044">copyparams</a>, <a class="el" href="definicje_8h_source.html#l00002">FAIL</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00075">Data_To_Read::GetLineIndex()</a>, <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00089">C_PortParameter_Container::GetParameterP()</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00058">Data_To_Read::GetSubString()</a>, <a class="el" href="definicje_8h_source.html#l00041">MASS_FLOW_INLET</a>, <a class="el" href="definicje_8h_source.html#l00003">OK</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00010">PARAM_DENSITY</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00007">PARAM_MOLEFLOW</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00009">PARAM_MOLEFRACTION</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00011">PARAM_MOLEPERKG</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00008">PARAM_PRESSURE</a>, <a class="el" href="_c___parameters___set_8h_source.html#l00006">PARAM_TEMPERATURE</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00026">Parameters</a>, <a class="el" href="_c___port_parameter___container_8cpp_source.html#l00022">C_PortParameter_Container::RegisterComponentP()</a>, <a class="el" href="_c___params_8h_source.html#l00038">SURF_AREA</a>, <a class="el" href="_c___params_8h_source.html#l00037">SURF_NAME</a>, <a class="el" href="_c___params_8cpp_source.html#l00154">C_Params::ValidateParams()</a> i <a class="el" href="definicje_8h_source.html#l00039">VELOCITY_INLET</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_a8bf8241f0ff9398a64c00176022d677d_cgraph.png" border="0" usemap="#class_c__my_run_process_a8bf8241f0ff9398a64c00176022d677d_cgraph_map" alt=""></div>
+<map name="class_c__my_run_process_a8bf8241f0ff9398a64c00176022d677d_cgraph_map" id="class_c__my_run_process_a8bf8241f0ff9398a64c00176022d677d_cgraph">
+<area shape="rect" id="node3" href="class_c___port_parameter___container.html#a0084a3c896460b40ff0ae1505ba069ec" title="Dodaje parametr do komponentu &#45; rozpoznaje po id." alt="" coords="255,5,580,35"/><area shape="rect" id="node7" href="class_data___to___read.html#a1f2247e03f494d45dd2bacf4fde00c92" title="Zwraca numer linii zawierającej dany ciąg tekstowy na danej pozycji podciągu...." alt="" coords="323,59,512,88"/><area shape="rect" id="node9" href="class_data___to___read.html#a6a3deab57b0e9d8e040ab3c548595bf9" title="Zwraca wskaźnik do podciągu." alt="" coords="681,109,873,139"/><area shape="rect" id="node13" href="class_c___port_parameter___container.html#a40f71af3c7efa9ae20bad902f781f7d0" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="276,216,559,245"/><area shape="rect" id="node20" href="class_c___port_parameter___container.html#a05afe498977802765e4c562acd8f7214" title="C_PortParameter_Container::RegisterComponentP" alt="" coords="260,269,575,299"/><area shape="rect" id="node24" href="class_c___params.html#a96db4b5bc8d67d374eb52b3d4b90446d" title="Dokonuje sprawdzenia czy spełnione są określone warunki." alt="" coords="327,163,508,192"/><area shape="rect" id="node5" href="class_c___parameter___container.html#afb7cef66e701ffc8600352ffcce0b006" title="Dodaje parametr do komponentu &#45; rozpoznaje po id." alt="" coords="631,5,924,35"/><area shape="rect" id="node11" href="class_data___to___read.html#a2ae9b120ce85df4bbb0b36b61f9a39c0" title="Zwraca ilosc podciągów." alt="" coords="973,109,1213,139"/><area shape="rect" id="node15" href="class_c___parameter___container.html#a3025843a154aec4c2e75a412ec81385e" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="653,216,901,245"/><area shape="rect" id="node17" href="class_c___parameter___container.html#accb414d013c6b9d04596c01b1b19a008" title="Zwraca id komponentu na podstawie nazwy, lub &#45;1 gdy nie ma go." alt="" coords="976,216,1211,245"/><area shape="rect" id="node22" href="class_c___parameter___container.html#a1572fb9ba2f2ed524e0c6d908d4035c2" title="C_Parameter_Container::RegisterComponent" alt="" coords="636,269,919,299"/><area shape="rect" id="node26" href="class_data___to___read.html#acf5b344c1a44480144bb3d1a93f138b2" title="Zwraca ilosc wpisów &#45; danych przechowywanych." alt="" coords="703,163,852,192"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a92c79daa78da34aa38f14ec7f4f8a1ac"></a><!-- doxytag: member="C_myRunProcess::PutParams" ref="a92c79daa78da34aa38f14ec7f4f8a1ac" args="(double temp, double *fract, double flow, double pres)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL C_myRunProcess::PutParams </td>
+          <td>(</td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>temp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&nbsp;</td>
+          <td class="paramname"> <em>fract</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>flow</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&nbsp;</td>
+          <td class="paramname"> <em>pres</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>wpisuje parametry do klasy, wersja starsza </p>
+<p>Funkcja wpisuje parametry strumienia do do klasy <a class="el" href="class_c___parameter___container.html" title="Klasa jest kontainerem z parametrami opisującymi poszczególne materiały, parametry...">C_Parameter_Container</a>. Wersja starsza - obsługa tylko jednego wejscia </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>temp</em>&nbsp;</td><td>temepratura </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>fract</em>&nbsp;</td><td>tablica z udzialami </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>flow</em>&nbsp;</td><td>przepływ </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>pres</em>&nbsp;</td><td>cisnienie </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="warning"><dt><b>Ostrzeżenie:</b></dt><dd>Obsolete Function</dd></dl>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>OK</em>&nbsp;</td><td>Zawsze </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8cpp_source.html#l00942">942</a> pliku <a class="el" href="_c__my_run_process_8cpp_source.html">C_myRunProcess.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___params_8h_source.html#l00075">C_Params::bBOUND_COND</a>, <a class="el" href="_c___params_8h_source.html#l00082">C_Params::bCOMPONENTS</a>, <a class="el" href="_c___params_8h_source.html#l00072">C_Params::bINPUT_SURFACE</a>, <a class="el" href="_c___params_8h_source.html#l00081">C_Params::bMOLEPERKG</a>, <a class="el" href="_c___params_8h_source.html#l00023">COMPONENTS_GESTOSC</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00044">copyparams</a>, <a class="el" href="_data___to___read_8h_source.html#l00014">Data_To_Read::DATA_CONTAINER</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00030">fraction</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00058">Data_To_Read::GetSubString()</a>, <a class="el" href="definicje_8h_source.html#l00005">MAX_EXPORTS</a>, <a class="el" href="definicje_8h_source.html#l00003">OK</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00058">paramsval</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00028">pressure</a>, <a class="el" href="_c___params_8h_source.html#l00038">SURF_AREA</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00031">temperature</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00029">totalflow</a>, <a class="el" href="_c___params_8cpp_source.html#l00154">C_Params::ValidateParams()</a> i <a class="el" href="definicje_8h_source.html#l00039">VELOCITY_INLET</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">CUnitOperation::Calculate()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_a92c79daa78da34aa38f14ec7f4f8a1ac_cgraph.png" border="0" usemap="#class_c__my_run_process_a92c79daa78da34aa38f14ec7f4f8a1ac_cgraph_map" alt=""></div>
+<map name="class_c__my_run_process_a92c79daa78da34aa38f14ec7f4f8a1ac_cgraph_map" id="class_c__my_run_process_a92c79daa78da34aa38f14ec7f4f8a1ac_cgraph">
+<area shape="rect" id="node3" href="class_data___to___read.html#a6a3deab57b0e9d8e040ab3c548595bf9" title="Zwraca wskaźnik do podciągu." alt="" coords="487,5,679,35"/><area shape="rect" id="node7" href="class_c___params.html#a96db4b5bc8d67d374eb52b3d4b90446d" title="Dokonuje sprawdzenia czy spełnione są określone warunki." alt="" coords="255,57,436,87"/><area shape="rect" id="node5" href="class_data___to___read.html#a2ae9b120ce85df4bbb0b36b61f9a39c0" title="Zwraca ilosc podciągów." alt="" coords="728,5,968,35"/><area shape="rect" id="node9" href="class_data___to___read.html#acf5b344c1a44480144bb3d1a93f138b2" title="Zwraca ilosc wpisów &#45; danych przechowywanych." alt="" coords="508,59,657,88"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_a92c79daa78da34aa38f14ec7f4f8a1ac_icgraph.png" border="0" usemap="#class_c__my_run_process_a92c79daa78da34aa38f14ec7f4f8a1ac_icgraph_map" alt=""></div>
+<map name="class_c__my_run_process_a92c79daa78da34aa38f14ec7f4f8a1ac_icgraph_map" id="class_c__my_run_process_a92c79daa78da34aa38f14ec7f4f8a1ac_icgraph">
+<area shape="rect" id="node3" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="255,5,425,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="afe8240365804cc09bf7df066c64859a6"></a><!-- doxytag: member="C_myRunProcess::RemoveDoubleSlash" ref="afe8240365804cc09bf7df066c64859a6" args="(char *in)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void C_myRunProcess::RemoveDoubleSlash </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>in</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>funkcja usuwa podwójnego slaska do ściezek, modyfikuje ciąg wejściowy </p>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8cpp_source.html#l00153">153</a> pliku <a class="el" href="_c__my_run_process_8cpp_source.html">C_myRunProcess.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="definicje_8h_source.html#l00004">MAX_STRING</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">CreateEnv()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_afe8240365804cc09bf7df066c64859a6_icgraph.png" border="0" usemap="#class_c__my_run_process_afe8240365804cc09bf7df066c64859a6_icgraph_map" alt=""></div>
+<map name="class_c__my_run_process_afe8240365804cc09bf7df066c64859a6_icgraph_map" id="class_c__my_run_process_afe8240365804cc09bf7df066c64859a6_icgraph">
+<area shape="rect" id="node3" href="class_c__my_run_process.html#af04033e23f541696c736ef795e864392" title="Tworzy środowisko do uruchomienia fluenta &#45; generuje scm oraz journalC_Params." alt="" coords="309,5,504,35"/><area shape="rect" id="node5" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="553,5,724,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a4c5555e8dc1c88ff665e247f371f73ef"></a><!-- doxytag: member="C_myRunProcess::StartFluent" ref="a4c5555e8dc1c88ff665e247f371f73ef" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL C_myRunProcess::StartFluent </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>FAIL</em>&nbsp;</td><td>Jeśli Fluent nie wystartował </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>OK</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8cpp_source.html#l00022">22</a> pliku <a class="el" href="_c__my_run_process_8cpp_source.html">C_myRunProcess.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___error_8cpp_source.html#l00018">C_Error::AddError()</a>, <a class="el" href="_c___params_8h_source.html#l00077">C_Params::bSUBPROCNAME</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00044">copyparams</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00046">err</a>, <a class="el" href="definicje_8h_source.html#l00002">FAIL</a>, <a class="el" href="definicje_8h_source.html#l00004">MAX_STRING</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00015">parname</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00014">procname</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00065">WaitForStart()</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">CUnitOperation::Calculate()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_a4c5555e8dc1c88ff665e247f371f73ef_cgraph.png" border="0" usemap="#class_c__my_run_process_a4c5555e8dc1c88ff665e247f371f73ef_cgraph_map" alt=""></div>
+<map name="class_c__my_run_process_a4c5555e8dc1c88ff665e247f371f73ef_cgraph_map" id="class_c__my_run_process_a4c5555e8dc1c88ff665e247f371f73ef_cgraph">
+<area shape="rect" id="node3" href="class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy." alt="" coords="867,28,992,57"/><area shape="rect" id="node12" href="class_c__my_run_process.html#a06bdfb895da68f5d45e769f4986a43c5" title="C_myRunProcess::WaitForStart" alt="" coords="255,31,463,60"/><area shape="rect" id="node5" href="class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy." alt="" coords="1117,28,1251,57"/><area shape="rect" id="node7" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego." alt="" coords="1539,28,1669,57"/><area shape="rect" id="node9" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów." alt="" coords="1299,53,1491,83"/><area shape="rect" id="node15" href="class_c__my_run_process.html#ac445542726d5877bef97f4f34fde85cd" title="C_myRunProcess::WaitForProcess" alt="" coords="512,81,741,111"/><area shape="rect" id="node18" href="class_c__my_run_process.html#af50c79d461121acff30f150025386622" title="C_myRunProcess::PrintProcessNameAndID" alt="" coords="791,81,1068,111"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_a4c5555e8dc1c88ff665e247f371f73ef_icgraph.png" border="0" usemap="#class_c__my_run_process_a4c5555e8dc1c88ff665e247f371f73ef_icgraph_map" alt=""></div>
+<map name="class_c__my_run_process_a4c5555e8dc1c88ff665e247f371f73ef_icgraph_map" id="class_c__my_run_process_a4c5555e8dc1c88ff665e247f371f73ef_icgraph">
+<area shape="rect" id="node3" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="255,5,425,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac445542726d5877bef97f4f34fde85cd"></a><!-- doxytag: member="C_myRunProcess::WaitForProcess" ref="ac445542726d5877bef97f4f34fde85cd" args="(TCHAR *nazwa)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL C_myRunProcess::WaitForProcess </td>
+          <td>(</td>
+          <td class="paramtype">TCHAR *&nbsp;</td>
+          <td class="paramname"> <em>nazwa</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>FAIL</em>&nbsp;</td><td>Jeśli proces nie wystartował </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>OK</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8cpp_source.html#l00086">86</a> pliku <a class="el" href="_c__my_run_process_8cpp_source.html">C_myRunProcess.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___error_8cpp_source.html#l00018">C_Error::AddError()</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00046">err</a>, <a class="el" href="definicje_8h_source.html#l00002">FAIL</a>, <a class="el" href="definicje_8h_source.html#l00003">OK</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00113">PrintProcessNameAndID()</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00065">WaitForStart()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_ac445542726d5877bef97f4f34fde85cd_cgraph.png" border="0" usemap="#class_c__my_run_process_ac445542726d5877bef97f4f34fde85cd_cgraph_map" alt=""></div>
+<map name="class_c__my_run_process_ac445542726d5877bef97f4f34fde85cd_cgraph_map" id="class_c__my_run_process_ac445542726d5877bef97f4f34fde85cd_cgraph">
+<area shape="rect" id="node3" href="class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy." alt="" coords="360,5,485,35"/><area shape="rect" id="node12" href="class_c__my_run_process.html#af50c79d461121acff30f150025386622" title="C_myRunProcess::PrintProcessNameAndID" alt="" coords="284,59,561,88"/><area shape="rect" id="node5" href="class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy." alt="" coords="611,5,744,35"/><area shape="rect" id="node7" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego." alt="" coords="1032,5,1163,35"/><area shape="rect" id="node9" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów." alt="" coords="792,31,984,60"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_ac445542726d5877bef97f4f34fde85cd_icgraph.png" border="0" usemap="#class_c__my_run_process_ac445542726d5877bef97f4f34fde85cd_icgraph_map" alt=""></div>
+<map name="class_c__my_run_process_ac445542726d5877bef97f4f34fde85cd_icgraph_map" id="class_c__my_run_process_ac445542726d5877bef97f4f34fde85cd_icgraph">
+<area shape="rect" id="node3" href="class_c__my_run_process.html#a06bdfb895da68f5d45e769f4986a43c5" title="C_myRunProcess::WaitForStart" alt="" coords="284,5,492,35"/><area shape="rect" id="node5" href="class_c__my_run_process.html#a4c5555e8dc1c88ff665e247f371f73ef" title="C_myRunProcess::StartFluent" alt="" coords="543,5,740,35"/><area shape="rect" id="node7" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="791,5,961,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a06bdfb895da68f5d45e769f4986a43c5"></a><!-- doxytag: member="C_myRunProcess::WaitForStart" ref="a06bdfb895da68f5d45e769f4986a43c5" args="(TCHAR *nazwa, unsigned int obrot, unsigned int czas)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL C_myRunProcess::WaitForStart </td>
+          <td>(</td>
+          <td class="paramtype">TCHAR *&nbsp;</td>
+          <td class="paramname"> <em>nazwa</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>obrot</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&nbsp;</td>
+          <td class="paramname"> <em>czas</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>FAIL</em>&nbsp;</td><td>Jeśli nie doczekał się na własciwy proces </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>OK</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8cpp_source.html#l00065">65</a> pliku <a class="el" href="_c__my_run_process_8cpp_source.html">C_myRunProcess.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___error_8cpp_source.html#l00018">C_Error::AddError()</a>, <a class="el" href="_c__my_run_process_8h_source.html#l00046">err</a>, <a class="el" href="definicje_8h_source.html#l00002">FAIL</a>, <a class="el" href="definicje_8h_source.html#l00003">OK</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00086">WaitForProcess()</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00022">StartFluent()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_a06bdfb895da68f5d45e769f4986a43c5_cgraph.png" border="0" usemap="#class_c__my_run_process_a06bdfb895da68f5d45e769f4986a43c5_cgraph_map" alt=""></div>
+<map name="class_c__my_run_process_a06bdfb895da68f5d45e769f4986a43c5_cgraph_map" id="class_c__my_run_process_a06bdfb895da68f5d45e769f4986a43c5_cgraph">
+<area shape="rect" id="node3" href="class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy." alt="" coords="619,5,744,35"/><area shape="rect" id="node12" href="class_c__my_run_process.html#ac445542726d5877bef97f4f34fde85cd" title="C_myRunProcess::WaitForProcess" alt="" coords="264,57,493,87"/><area shape="rect" id="node5" href="class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy." alt="" coords="869,5,1003,35"/><area shape="rect" id="node7" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego." alt="" coords="1291,5,1421,35"/><area shape="rect" id="node9" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów." alt="" coords="1051,31,1243,60"/><area shape="rect" id="node15" href="class_c__my_run_process.html#af50c79d461121acff30f150025386622" title="C_myRunProcess::PrintProcessNameAndID" alt="" coords="543,59,820,88"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c__my_run_process_a06bdfb895da68f5d45e769f4986a43c5_icgraph.png" border="0" usemap="#class_c__my_run_process_a06bdfb895da68f5d45e769f4986a43c5_icgraph_map" alt=""></div>
+<map name="class_c__my_run_process_a06bdfb895da68f5d45e769f4986a43c5_icgraph_map" id="class_c__my_run_process_a06bdfb895da68f5d45e769f4986a43c5_icgraph">
+<area shape="rect" id="node3" href="class_c__my_run_process.html#a4c5555e8dc1c88ff665e247f371f73ef" title="C_myRunProcess::StartFluent" alt="" coords="265,5,463,35"/><area shape="rect" id="node5" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="513,5,684,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja atrybutów składowych</h2>
+<a class="anchor" id="aadf2e3904bc99ac5fc0945258be196b0"></a><!-- doxytag: member="C_myRunProcess::COMMAND_LINE" ref="aadf2e3904bc99ac5fc0945258be196b0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c__my_run_process.html#aadf2e3904bc99ac5fc0945258be196b0">C_myRunProcess::COMMAND_LINE</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8h_source.html#l00020">20</a> pliku <a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">CreateEnv()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2a8bbae97812661f19f491305f212319"></a><!-- doxytag: member="C_myRunProcess::copyparams" ref="a2a8bbae97812661f19f491305f212319" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c___params.html">C_Params</a>* <a class="el" href="class_c__my_run_process.html#a2a8bbae97812661f19f491305f212319">C_myRunProcess::copyparams</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>kopia klasy zawierającej parametry ze skryptu (nie modyfiować tu) </p>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8h_source.html#l00044">44</a> pliku <a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00006">C_myRunProcess()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">CreateEnv()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00854">GetParams()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00596">ImportData()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00942">PutParams()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00022">StartFluent()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af9f58dd664386638ca9406976cac0554"></a><!-- doxytag: member="C_myRunProcess::err" ref="af9f58dd664386638ca9406976cac0554" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c___error.html">C_Error</a>* <a class="el" href="class_c__my_run_process.html#af9f58dd664386638ca9406976cac0554">C_myRunProcess::err</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Klasa obsługi błędów. </p>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8h_source.html#l00046">46</a> pliku <a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00006">C_myRunProcess()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">CreateEnv()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00596">ImportData()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l01084">PrintGetParameters()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l01061">PrintPutParameters()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00022">StartFluent()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00086">WaitForProcess()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00065">WaitForStart()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3b5d641493e2ad6f4f89443d182cbcf0"></a><!-- doxytag: member="C_myRunProcess::FLUENT_PATH" ref="a3b5d641493e2ad6f4f89443d182cbcf0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c__my_run_process.html#a3b5d641493e2ad6f4f89443d182cbcf0">C_myRunProcess::FLUENT_PATH</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8h_source.html#l00019">19</a> pliku <a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">CreateEnv()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abb3c97a82bf991d636674645020a4dfe"></a><!-- doxytag: member="C_myRunProcess::fraction" ref="abb3c97a82bf991d636674645020a4dfe" args="[MAX_EXPORTS]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_c__my_run_process.html#abb3c97a82bf991d636674645020a4dfe">C_myRunProcess::fraction</a>[MAX_EXPORTS]<code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8h_source.html#l00030">30</a> pliku <a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00942">PutParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaf25ba1fc0838f800cb846100b1296db"></a><!-- doxytag: member="C_myRunProcess::fulloutname" ref="aaf25ba1fc0838f800cb846100b1296db" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c__my_run_process.html#aaf25ba1fc0838f800cb846100b1296db">C_myRunProcess::fulloutname</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>nazwa pliku wyjściowego </p>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8h_source.html#l00022">22</a> pliku <a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">CreateEnv()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00596">ImportData()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a45cf7301e9af57afb3a0ca3a1c677660"></a><!-- doxytag: member="C_myRunProcess::ile_danych" ref="a45cf7301e9af57afb3a0ca3a1c677660" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="class_c__my_run_process.html#a45cf7301e9af57afb3a0ca3a1c677660">C_myRunProcess::ile_danych</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>ile jest elementów w prof </p>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8h_source.html#l00040">40</a> pliku <a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00596">ImportData()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5f6e88a7ccf982c8906ca840cfac81bb"></a><!-- doxytag: member="C_myRunProcess::outParameters" ref="a5f6e88a7ccf982c8906ca840cfac81bb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c___port_parameter___container.html">C_PortParameter_Container</a> <a class="el" href="class_c__my_run_process.html#a5f6e88a7ccf982c8906ca840cfac81bb">C_myRunProcess::outParameters</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>tymczasowa zmienna do przechowywania przeliczonych parametrów wyjściowych (takich jakie są przekazywane do Aspena) tylko po to aby można było je nagrać na dysk </p>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8h_source.html#l00038">38</a> pliku <a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00854">GetParams()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l01084">PrintGetParameters()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac47af15c899f84dde717500688440bd9"></a><!-- doxytag: member="C_myRunProcess::Parameters" ref="ac47af15c899f84dde717500688440bd9" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c___port_parameter___container.html">C_PortParameter_Container</a> <a class="el" href="class_c__my_run_process.html#ac47af15c899f84dde717500688440bd9">C_myRunProcess::Parameters</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8h_source.html#l00026">26</a> pliku <a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">CreateEnv()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00854">GetParams()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l01061">PrintPutParameters()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00963">PutParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a83e882d315a2f3d233fedf91cb29a62f"></a><!-- doxytag: member="C_myRunProcess::paramsval" ref="a83e882d315a2f3d233fedf91cb29a62f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c__my_run_process.html#a83e882d315a2f3d233fedf91cb29a62f">C_myRunProcess::paramsval</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>jesli 1 to parametry aktualne </p>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8h_source.html#l00058">58</a> pliku <a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00006">C_myRunProcess()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00942">PutParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a80743f1f3f2ab62960dc05644d985946"></a><!-- doxytag: member="C_myRunProcess::parname" ref="a80743f1f3f2ab62960dc05644d985946" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c__my_run_process.html#a80743f1f3f2ab62960dc05644d985946">C_myRunProcess::parname</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8h_source.html#l00015">15</a> pliku <a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00006">C_myRunProcess()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">CreateEnv()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00022">StartFluent()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abf308a56d97c13ecb34fe1eb615110e5"></a><!-- doxytag: member="C_myRunProcess::pressure" ref="abf308a56d97c13ecb34fe1eb615110e5" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_c__my_run_process.html#abf308a56d97c13ecb34fe1eb615110e5">C_myRunProcess::pressure</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Do zrobienia:</a></b></dt><dd>usunąć parametry po zaimplementowaniu nowych GetParam </dd></dl>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8h_source.html#l00028">28</a> pliku <a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00942">PutParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="accc481ce64190290a2ba26748f0af68f"></a><!-- doxytag: member="C_myRunProcess::procname" ref="accc481ce64190290a2ba26748f0af68f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CComBSTR <a class="el" href="class_c__my_run_process.html#accc481ce64190290a2ba26748f0af68f">C_myRunProcess::procname</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8h_source.html#l00014">14</a> pliku <a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">CreateEnv()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00022">StartFluent()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a637f31651ba3ab358bf421ac633c93ed"></a><!-- doxytag: member="C_myRunProcess::SR" ref="a637f31651ba3ab358bf421ac633c93ed" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c___port_parameter___container.html">C_PortParameter_Container</a> <a class="el" href="class_c__my_run_process.html#a637f31651ba3ab358bf421ac633c93ed">C_myRunProcess::SR</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>tu przechowuję zaimportowane parametry,- srednia z zaimportowanych dla wszystkich komponentów </p>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8h_source.html#l00034">34</a> pliku <a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00854">GetParams()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00596">ImportData()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a96a361aeba544916631d82c2e2ab5bc2"></a><!-- doxytag: member="C_myRunProcess::subprocname" ref="a96a361aeba544916631d82c2e2ab5bc2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TCHAR* <a class="el" href="class_c__my_run_process.html#a96a361aeba544916631d82c2e2ab5bc2">C_myRunProcess::subprocname</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8h_source.html#l00016">16</a> pliku <a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a043667b22534fee299f3e8847c8a83b0"></a><!-- doxytag: member="C_myRunProcess::SUM" ref="a043667b22534fee299f3e8847c8a83b0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c___port_parameter___container.html">C_PortParameter_Container</a> <a class="el" href="class_c__my_run_process.html#a043667b22534fee299f3e8847c8a83b0">C_myRunProcess::SUM</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>tu przechowuję zaimportowane parametry, - suma z zaimportowanych dla wszystkich komponentów </p>
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8h_source.html#l00036">36</a> pliku <a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00854">GetParams()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00596">ImportData()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac3c7b3104b2ca8941bf792ee13e194e7"></a><!-- doxytag: member="C_myRunProcess::temperature" ref="ac3c7b3104b2ca8941bf792ee13e194e7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_c__my_run_process.html#ac3c7b3104b2ca8941bf792ee13e194e7">C_myRunProcess::temperature</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8h_source.html#l00031">31</a> pliku <a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">CreateEnv()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00942">PutParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1fed0139e9d00c4f8974d82bcdef5a07"></a><!-- doxytag: member="C_myRunProcess::totalflow" ref="a1fed0139e9d00c4f8974d82bcdef5a07" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_c__my_run_process.html#a1fed0139e9d00c4f8974d82bcdef5a07">C_myRunProcess::totalflow</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c__my_run_process_8h_source.html#l00029">29</a> pliku <a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">CreateEnv()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00942">PutParams()</a>.</p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li><a class="el" href="_c__my_run_process_8h_source.html">C_myRunProcess.h</a></li>
+<li><a class="el" href="_c__my_run_process_8cpp_source.html">C_myRunProcess.cpp</a></li>
+</ul>
+</div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:29 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

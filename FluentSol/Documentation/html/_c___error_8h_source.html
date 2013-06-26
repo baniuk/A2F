@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Plik źródłowy C_Error.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
+    </ul>
+  </div>
+<h1>C_Error.h</h1><a href="_c___error_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="_c___node_8h.html">c_node.h</a>&quot;</span>
+<a name="l00003"></a>00003 
+<a name="l00005"></a>00005 
+<a name="l00008"></a><a class="code" href="class_c___error.html">00008</a> <span class="keyword">class </span><a class="code" href="class_c___error.html" title="Klasa do obsługi błędów.">C_Error</a> :
+<a name="l00009"></a>00009  <span class="keyword">public</span> <a class="code" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych.">C_Node</a>
+<a name="l00010"></a>00010 {
+<a name="l00011"></a>00011 <span class="keyword">public</span>:
+<a name="l00012"></a>00012  <a class="code" href="class_c___error.html#a3e7833582416737065bb80b2eaed898d">C_Error</a>(<span class="keywordtype">void</span>);
+<a name="l00013"></a>00013  <a class="code" href="class_c___error.html#a3e7833582416737065bb80b2eaed898d">C_Error</a>(<span class="keywordtype">char</span>* edata);
+<a name="l00014"></a>00014  <span class="keyword">virtual</span> <a class="code" href="class_c___error.html#ad24b9c0338bf8b19f4f419e790442bc8">~C_Error</a>(<span class="keywordtype">void</span>);
+<a name="l00015"></a>00015 
+<a name="l00017"></a>00017 
+<a name="l00021"></a>00021  <span class="keywordtype">void</span> <a class="code" href="class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy.">AddError</a>(<span class="keywordtype">char</span>* error); <span class="comment">// dodaje error do listy</span>
+<a name="l00022"></a>00022 
+<a name="l00024"></a>00024 
+<a name="l00027"></a>00027  <span class="keywordtype">void</span> <a class="code" href="class_c___error.html#ac88832708e7110c890f78f7c9348c2bd" title="Zgrywa wszystkie błedy na dysk.">PrintAll</a>(<span class="keywordtype">void</span>);  <span class="comment">// zgrywa wszystko na dysk, ale nie czyści</span>
+<a name="l00028"></a>00028 
+<a name="l00030"></a>00030 
+<a name="l00033"></a>00033  <span class="keywordtype">void</span> <a class="code" href="class_c___error.html#accf210fb142275680f7b1be63fc90cb6" title="Czyści wszystkie komunikaty.">ClearErrorStatus</a>(<span class="keywordtype">void</span>); <span class="comment">// czyści liste błędów</span>
+<a name="l00034"></a>00034 <span class="keyword">private</span>:
+<a name="l00036"></a><a class="code" href="class_c___error.html#a042008d36fc7830a128929c94f9059f9">00036</a>  BOOL <a class="code" href="class_c___error.html#a042008d36fc7830a128929c94f9059f9" title="Ta zmienna jest ustawiana na TRUE jeśli od ostatniego czyszczenia lub nagrania na...">changes</a>; <span class="comment">// tru jesli są zmiany od ostatniego nagrania błędów</span>
+<a name="l00037"></a>00037 };
+</pre></div></div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:21 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

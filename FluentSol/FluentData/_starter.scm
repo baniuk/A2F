@@ -1,0 +1,8 @@
+(ti-menu-load-string "!del f:\FluentSol\FluentData\_out.prof")
+(ti-menu-load-string "file/read-case-data f:\FluentSol\FluentData\rura3vel.cas")
+(ti-menu-load-string "define/boundary-conditions/zone-type wlot velocity-inlet")
+(ti-menu-load-string "define/boundary-conditions/velocity-inlet wlot yes yes no    0.104879244867375 yes no 0 no 0 no 1 no 290.000000")
+(ti-menu-load-string "solve/iterate 110")
+(ti-menu-load-string "file/write-profile f:\FluentSol\FluentData\_out.prof wylot , velocity-magnitude total-temperature")
+(ti-menu-load-string "/")
+(ti-menu-load-string "exit yes")

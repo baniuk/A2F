@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_c__my_run_process.html#ac445542726d5877bef97f4f34fde85cd" title="C_myRunProcess::WaitForProcess" alt="" coords="333,5,563,35"/>
+<area shape="rect" id="node5" href="$class_c__my_run_process.html#a06bdfb895da68f5d45e769f4986a43c5" title="C_myRunProcess::WaitForStart" alt="" coords="612,5,820,35"/>
+<area shape="rect" id="node7" href="$class_c__my_run_process.html#a4c5555e8dc1c88ff665e247f371f73ef" title="C_myRunProcess::StartFluent" alt="" coords="871,5,1068,35"/>
+<area shape="rect" id="node9" href="$class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="1119,5,1289,35"/>
+</map>

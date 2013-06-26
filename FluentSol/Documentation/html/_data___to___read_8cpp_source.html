@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Plik źródłowy Data_To_Read.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
+    </ul>
+  </div>
+<h1>Data_To_Read.cpp</h1><a href="_data___to___read_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="stdafx_8h.html">StdAfx.h</a>&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &quot;<a class="code" href="_data___to___read_8h.html">Data_To_Read.h</a>&quot;</span>
+<a name="l00003"></a>00003 
+<a name="l00004"></a><a class="code" href="class_data___to___read.html#a4caae180c6c54f05568aae25496faca0">00004</a> <a class="code" href="class_data___to___read.html#a4caae180c6c54f05568aae25496faca0">Data_To_Read::Data_To_Read</a>(<span class="keywordtype">void</span>)
+<a name="l00005"></a>00005 {
+<a name="l00006"></a>00006  <a class="code" href="class_data___to___read.html#aaf4b8dc4cee9738f28bb25ecbb92673b">pojemnosc</a> = <a class="code" href="definicje_8h.html#a2088367026f360e5b7099098f4b9d39c">MAX_EXPORTS</a>; <span class="comment">// ile elementów miesci</span>
+<a name="l00007"></a>00007  <a class="code" href="class_data___to___read.html#a4278b63e6608e7ebdab60cc9f2357660" title="ilosc przechowywanych linii">ile</a> = 0; <span class="comment">// ile aktualnie przechowywanych</span>
+<a name="l00008"></a>00008  <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> a=0;a&lt;<a class="code" href="class_data___to___read.html#aaf4b8dc4cee9738f28bb25ecbb92673b">pojemnosc</a>;a++) {
+<a name="l00009"></a>00009   <a class="code" href="class_data___to___read.html#a0127dc66bbc041af9b172b81e9ae8520">DATA_CONTAINER</a>[a] = <span class="keyword">new</span> <span class="keywordtype">char</span>[<a class="code" href="definicje_8h.html#ab5187269936538ffb8ccbbe7115ffdbc">MAX_STRING</a>];
+<a name="l00010"></a>00010   <a class="code" href="class_data___to___read.html#ac4ebd4efad00674fe7063d8cb9a0bcc4" title="tu są przechowywane pozycje początków ciągów jeśli w datacontainer występuje...">pozycje</a>[a] = <span class="keyword">new</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>[<a class="code" href="definicje_8h.html#a5f54fd55f983a2e33ce076cd9f587e82">MAX_SPACES</a>];
+<a name="l00011"></a>00011   <a class="code" href="class_data___to___read.html#a4e8ba7d812819d9cf2e135d34523458d" title="służy do rozpoznania czy na danej pozycji &amp;#39;line&amp;#39; jest wpis czy go nie ma...">ktore</a>[a] = FALSE; <span class="comment">// nic nie ma</span>
+<a name="l00012"></a>00012   <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> b=0;b&lt;<a class="code" href="definicje_8h.html#a5f54fd55f983a2e33ce076cd9f587e82">MAX_SPACES</a>;b++) <a class="code" href="class_data___to___read.html#ac4ebd4efad00674fe7063d8cb9a0bcc4" title="tu są przechowywane pozycje początków ciągów jeśli w datacontainer występuje...">pozycje</a>[a][b] = 0;
+<a name="l00013"></a>00013   <a class="code" href="class_data___to___read.html#a2cfdba699409fdcd62e433284f18fba1" title="ile czesci parametru dla kazdej linii">ile_poz</a>[a] = 0;
+<a name="l00014"></a>00014  }
+<a name="l00015"></a>00015 <span class="comment">// err = new C_Error(&quot;Data_To_Read&quot;);</span>
+<a name="l00016"></a>00016 }
+<a name="l00017"></a>00017 
+<a name="l00018"></a><a class="code" href="class_data___to___read.html#aa55bc4f719e845a3fbfcfd183f1d9195">00018</a> <a class="code" href="class_data___to___read.html#aa55bc4f719e845a3fbfcfd183f1d9195">Data_To_Read::~Data_To_Read</a>(<span class="keywordtype">void</span>)
+<a name="l00019"></a>00019 {
+<a name="l00020"></a>00020  <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> a=0;a&lt;<a class="code" href="class_data___to___read.html#aaf4b8dc4cee9738f28bb25ecbb92673b">pojemnosc</a>;a++) {
+<a name="l00021"></a>00021   <a class="code" href="definicje_8h.html#a506b3685b3eb05aac751f9e14cbed93b">SAFE_DELETE_ARRAY</a>(<a class="code" href="class_data___to___read.html#a0127dc66bbc041af9b172b81e9ae8520">DATA_CONTAINER</a>[a]);
+<a name="l00022"></a>00022   <a class="code" href="definicje_8h.html#a506b3685b3eb05aac751f9e14cbed93b">SAFE_DELETE_ARRAY</a>(<a class="code" href="class_data___to___read.html#ac4ebd4efad00674fe7063d8cb9a0bcc4" title="tu są przechowywane pozycje początków ciągów jeśli w datacontainer występuje...">pozycje</a>[a]);
+<a name="l00023"></a>00023  }
+<a name="l00024"></a>00024 <span class="comment">// delete err;</span>
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 }
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="comment">// Dodaje pozycję podciągu w ciągu głównym do tablicy pozycji. Zlicza także ilość tych podciagów co odpowiada ilości spacji-1</span>
+<a name="l00029"></a><a class="code" href="class_data___to___read.html#ab55dda5b5ca867ef21c887e4b87c7614">00029</a> BOOL <a class="code" href="class_data___to___read.html#ab55dda5b5ca867ef21c887e4b87c7614" title="Dodaje pozycję podciągu w ciągu głównym do tablicy pozycji. Zlicza także ilość...">Data_To_Read::AddSubStringPoz</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> line,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> poz)
+<a name="l00032"></a>00032 {
+<a name="l00033"></a>00033  <span class="keywordflow">if</span>(<a class="code" href="class_data___to___read.html#a2cfdba699409fdcd62e433284f18fba1" title="ile czesci parametru dla kazdej linii">ile_poz</a>[line]&gt;=<a class="code" href="definicje_8h.html#a5f54fd55f983a2e33ce076cd9f587e82">MAX_SPACES</a> || line&gt;=<a class="code" href="class_data___to___read.html#aaf4b8dc4cee9738f28bb25ecbb92673b">pojemnosc</a>)
+<a name="l00034"></a>00034   <span class="keywordflow">return</span> <a class="code" href="definicje_8h.html#abb508ea8227673f419e9fe3a86c30d8e">FAIL</a>;
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036  <a class="code" href="class_data___to___read.html#ac4ebd4efad00674fe7063d8cb9a0bcc4" title="tu są przechowywane pozycje początków ciągów jeśli w datacontainer występuje...">pozycje</a>[line][<a class="code" href="class_data___to___read.html#a2cfdba699409fdcd62e433284f18fba1" title="ile czesci parametru dla kazdej linii">ile_poz</a>[line]++] = poz;
+<a name="l00037"></a>00037  <span class="comment">// sprawdzam czy nowy wpis ?? (czy dana linia zostala juz policzona)</span>
+<a name="l00038"></a>00038  <span class="keywordflow">if</span>(<a class="code" href="class_data___to___read.html#a4e8ba7d812819d9cf2e135d34523458d" title="służy do rozpoznania czy na danej pozycji &amp;#39;line&amp;#39; jest wpis czy go nie ma...">ktore</a>[line]==FALSE)
+<a name="l00039"></a>00039  {
+<a name="l00040"></a>00040   <a class="code" href="class_data___to___read.html#a4e8ba7d812819d9cf2e135d34523458d" title="służy do rozpoznania czy na danej pozycji &amp;#39;line&amp;#39; jest wpis czy go nie ma...">ktore</a>[line] = TRUE;
+<a name="l00041"></a>00041   <a class="code" href="class_data___to___read.html#a4278b63e6608e7ebdab60cc9f2357660" title="ilosc przechowywanych linii">ile</a>++; <span class="comment">// to jest licznik linii przechowywanych w klasie</span>
+<a name="l00042"></a>00042  }
+<a name="l00043"></a>00043  <span class="keywordflow">return</span> <a class="code" href="definicje_8h.html#aba51915c87d64af47fb1cc59348961c9">OK</a>;
+<a name="l00044"></a>00044 }
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046 <span class="comment">// Zwraca ilosc podciągów</span>
+<a name="l00047"></a><a class="code" href="class_data___to___read.html#a2ae9b120ce85df4bbb0b36b61f9a39c0">00047</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_data___to___read.html#a2ae9b120ce85df4bbb0b36b61f9a39c0" title="Zwraca ilosc podciągów.">Data_To_Read::GetNumOfSubStrings</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> line)
+<a name="l00050"></a>00050 {
+<a name="l00051"></a>00051  <span class="keywordflow">if</span>(line&gt;=<a class="code" href="class_data___to___read.html#aaf4b8dc4cee9738f28bb25ecbb92673b">pojemnosc</a>)
+<a name="l00052"></a>00052   <span class="keywordflow">return</span> 0;
+<a name="l00053"></a>00053  <span class="keywordflow">else</span>
+<a name="l00054"></a>00054   <span class="keywordflow">return</span> <a class="code" href="class_data___to___read.html#a2cfdba699409fdcd62e433284f18fba1" title="ile czesci parametru dla kazdej linii">ile_poz</a>[line]+1;
+<a name="l00055"></a>00055 }
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057 <span class="comment">// Zwraca wskaźnik do podciągu, numeracja od 0</span>
+<a name="l00058"></a><a class="code" href="class_data___to___read.html#a6a3deab57b0e9d8e040ab3c548595bf9">00058</a> <span class="keywordtype">char</span>* <a class="code" href="class_data___to___read.html#a6a3deab57b0e9d8e040ab3c548595bf9" title="Zwraca wskaźnik do podciągu.">Data_To_Read::GetSubString</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> line, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nr)
+<a name="l00061"></a>00061 {
+<a name="l00062"></a>00062  <span class="keywordtype">char</span>* tmp;
+<a name="l00063"></a>00063  <span class="keywordflow">if</span>(line&gt;=<a class="code" href="class_data___to___read.html#aaf4b8dc4cee9738f28bb25ecbb92673b">pojemnosc</a> || nr&gt;=<a class="code" href="class_data___to___read.html#a2ae9b120ce85df4bbb0b36b61f9a39c0" title="Zwraca ilosc podciągów.">GetNumOfSubStrings</a>(line) || line&gt;=<a class="code" href="class_data___to___read.html#a4278b63e6608e7ebdab60cc9f2357660" title="ilosc przechowywanych linii">ile</a>)
+<a name="l00064"></a>00064   <span class="keywordflow">return</span> NULL;
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066  <span class="keywordflow">if</span>(nr==0)
+<a name="l00067"></a>00067   <span class="keywordflow">return</span> <a class="code" href="class_data___to___read.html#a0127dc66bbc041af9b172b81e9ae8520">DATA_CONTAINER</a>[line];
+<a name="l00068"></a>00068  <span class="keywordflow">else</span> {
+<a name="l00069"></a>00069   tmp = <a class="code" href="class_data___to___read.html#a0127dc66bbc041af9b172b81e9ae8520">DATA_CONTAINER</a>[line];
+<a name="l00070"></a>00070   <span class="keywordflow">return</span> &amp;tmp[<a class="code" href="class_data___to___read.html#ac4ebd4efad00674fe7063d8cb9a0bcc4" title="tu są przechowywane pozycje początków ciągów jeśli w datacontainer występuje...">pozycje</a>[line][nr-1]+1]; 
+<a name="l00071"></a>00071  }
+<a name="l00072"></a>00072 }
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074 <span class="comment">// Zwraca numer linii zawierającej dany ciąg tekstowy na danej pozycji podciągu. Jeśli nie znalezione to zwraca -1</span>
+<a name="l00075"></a><a class="code" href="class_data___to___read.html#a1f2247e03f494d45dd2bacf4fde00c92">00075</a> <span class="keywordtype">int</span> <a class="code" href="class_data___to___read.html#a1f2247e03f494d45dd2bacf4fde00c92" title="Zwraca numer linii zawierającej dany ciąg tekstowy na danej pozycji podciągu....">Data_To_Read::GetLineIndex</a>(<span class="keywordtype">char</span>* paramName, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nr)
+<a name="l00078"></a>00078 {
+<a name="l00080"></a>00080  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> a;
+<a name="l00081"></a>00081  <span class="keywordtype">char</span> local[<a class="code" href="definicje_8h.html#acc9b1bd01cdf0e7263e33cdc91db9963">MAX_COMPONENT_NAME</a>];
+<a name="l00082"></a>00082  <span class="keywordtype">char</span> parlocal[<a class="code" href="definicje_8h.html#acc9b1bd01cdf0e7263e33cdc91db9963">MAX_COMPONENT_NAME</a>];
+<a name="l00083"></a>00083  <span class="keywordflow">for</span> (a=0;a&lt;<a class="code" href="class_data___to___read.html#a4278b63e6608e7ebdab60cc9f2357660" title="ilosc przechowywanych linii">ile</a>;a++)
+<a name="l00084"></a>00084  {
+<a name="l00085"></a>00085   strcpy_s(parlocal,<a class="code" href="definicje_8h.html#acc9b1bd01cdf0e7263e33cdc91db9963">MAX_COMPONENT_NAME</a>,paramName);
+<a name="l00086"></a>00086   _strupr_s(parlocal,<a class="code" href="definicje_8h.html#acc9b1bd01cdf0e7263e33cdc91db9963">MAX_COMPONENT_NAME</a>);
+<a name="l00087"></a>00087   strcpy_s(local,<a class="code" href="definicje_8h.html#acc9b1bd01cdf0e7263e33cdc91db9963">MAX_COMPONENT_NAME</a>,<a class="code" href="class_data___to___read.html#a6a3deab57b0e9d8e040ab3c548595bf9" title="Zwraca wskaźnik do podciągu.">GetSubString</a>(a,nr));
+<a name="l00088"></a>00088   _strupr_s(local,<a class="code" href="definicje_8h.html#acc9b1bd01cdf0e7263e33cdc91db9963">MAX_COMPONENT_NAME</a>);
+<a name="l00089"></a>00089   <span class="keywordflow">if</span>(strcmp(parlocal,local)==0)
+<a name="l00090"></a>00090    <span class="keywordflow">return</span> a;
+<a name="l00091"></a>00091  }
+<a name="l00092"></a>00092  <span class="keywordflow">return</span> -1;
+<a name="l00093"></a>00093 }
+<a name="l00094"></a>00094 
+<a name="l00095"></a><a class="code" href="class_data___to___read.html#a09b95bb5f3a5175305fa55b962695254">00095</a> <span class="keywordtype">void</span> <a class="code" href="class_data___to___read.html#a1f2247e03f494d45dd2bacf4fde00c92" title="Zwraca numer linii zawierającej dany ciąg tekstowy na danej pozycji podciągu....">Data_To_Read::GetLineIndex</a>( <span class="keywordtype">char</span>* paramName, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nr,<span class="keywordtype">int</span>* tab )
+<a name="l00098"></a>00098 {
+<a name="l00099"></a>00099  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> a;
+<a name="l00100"></a>00100  <span class="keywordtype">char</span> local[<a class="code" href="definicje_8h.html#acc9b1bd01cdf0e7263e33cdc91db9963">MAX_COMPONENT_NAME</a>];
+<a name="l00101"></a>00101  <span class="keywordtype">char</span> parlocal[<a class="code" href="definicje_8h.html#acc9b1bd01cdf0e7263e33cdc91db9963">MAX_COMPONENT_NAME</a>];
+<a name="l00102"></a>00102  <span class="keywordflow">for</span> (a=0;a&lt;<a class="code" href="class_data___to___read.html#a4278b63e6608e7ebdab60cc9f2357660" title="ilosc przechowywanych linii">ile</a>;a++)
+<a name="l00103"></a>00103  {
+<a name="l00104"></a>00104   tab[a] = -1;
+<a name="l00105"></a>00105   strcpy_s(parlocal,<a class="code" href="definicje_8h.html#acc9b1bd01cdf0e7263e33cdc91db9963">MAX_COMPONENT_NAME</a>,paramName);
+<a name="l00106"></a>00106   _strupr_s(parlocal,<a class="code" href="definicje_8h.html#acc9b1bd01cdf0e7263e33cdc91db9963">MAX_COMPONENT_NAME</a>);
+<a name="l00107"></a>00107   strcpy_s(local,<a class="code" href="definicje_8h.html#acc9b1bd01cdf0e7263e33cdc91db9963">MAX_COMPONENT_NAME</a>,<a class="code" href="class_data___to___read.html#a6a3deab57b0e9d8e040ab3c548595bf9" title="Zwraca wskaźnik do podciągu.">GetSubString</a>(a,nr));
+<a name="l00108"></a>00108   _strupr_s(local,<a class="code" href="definicje_8h.html#acc9b1bd01cdf0e7263e33cdc91db9963">MAX_COMPONENT_NAME</a>);
+<a name="l00109"></a>00109   <span class="keywordflow">if</span>(strcmp(parlocal,local)==0)
+<a name="l00110"></a>00110    tab[a] = a;
+<a name="l00111"></a>00111  }
+<a name="l00112"></a>00112 }
+</pre></div></div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:22 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

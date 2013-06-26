@@ -1,0 +1,152 @@
+// Cape2Fluent.idl : IDL source for Cape2Fluent
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (Cape2Fluent.tlb) and marshalling code.
+
+#include "olectl.h"
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(a817e7a2-43fa-11d0-9e44-00aa00b6770a),
+	dual,
+	helpstring("IComponentRegistrar Interface"),
+	pointer_default(unique)
+]
+interface IComponentRegistrar : IDispatch
+{
+	[id(1)]	HRESULT Attach([in] BSTR bstrPath);
+	[id(2)]	HRESULT RegisterAll();
+	[id(3)]	HRESULT UnregisterAll();
+	[id(4)]	HRESULT GetComponents([out] SAFEARRAY(BSTR)* pbstrCLSIDs, [out] SAFEARRAY(BSTR)* pbstrDescriptions);
+	[id(5)]	HRESULT RegisterComponent([in] BSTR bstrCLSID);
+	[id(6)] HRESULT UnregisterComponent([in] BSTR bstrCLSID);
+};
+
+[
+	object,
+	uuid(439937D7-DF7A-4A90-972E-779824DC8C76),
+	dual,
+	nonextensible,
+	helpstring("IUnitOperation Interface"),
+	pointer_default(unique)
+]
+interface IUnitOperation : IDispatch{
+	[id(1), helpstring("method InvalidateUnit")] HRESULT InvalidateUnit(void);
+};
+[
+	object,
+	uuid(7369F1D6-FC5C-4671-832D-E2B0E595C707),
+	dual,
+	nonextensible,
+	helpstring("IPort Interface"),
+	pointer_default(unique)
+]
+interface IPort : IDispatch{
+	[id(1), helpstring("method AddError")] HRESULT AddError([in] VARIANT* in);
+	[id(2), helpstring("method debugfile")] HRESULT debugfile([in] VARIANT* in);
+	[propget, id(3), helpstring("property direction")] HRESULT direction([out, retval] BYTE* pVal);
+	[propput, id(3), helpstring("property direction")] HRESULT direction([in] BYTE newVal);
+	[propget, id(4), helpstring("property myName")] HRESULT myName([out, retval] BSTR* pVal);
+	[propput, id(4), helpstring("property myName")] HRESULT myName([in] BSTR newVal);
+	[propget, id(5), helpstring("property myDesc")] HRESULT myDesc([out, retval] BSTR* pVal);
+	[propput, id(5), helpstring("property myDesc")] HRESULT myDesc([in] BSTR newVal);
+	[propput, id(6), helpstring("property unit")] HRESULT unit([in] BYTE* newVal);
+};
+[
+	object,
+	uuid(4B96ACBB-FF51-4DE7-B21A-E368446C897D),
+	dual,
+	nonextensible,
+	helpstring("IParameterCollection Interface"),
+	pointer_default(unique)
+]
+interface IParameterCollection : IDispatch{
+	[id(1), helpstring("method AddError")] HRESULT AddError(VARIANT* in);
+	[id(2), helpstring("method debugfile")] HRESULT debugfile([in] VARIANT* in);
+	[id(3), helpstring("method AddParameter")] HRESULT AddParameter([in] IDispatch* p);
+	[id(4), helpstring("method RemoveParameter")] HRESULT RemoveParameter([in] LONG index);
+};
+[
+	object,
+	uuid(711072EC-6409-44EF-875A-11A988C0B25C),
+	dual,
+	nonextensible,
+	helpstring("IPortCollection Interface"),
+	pointer_default(unique)
+]
+interface IPortCollection : IDispatch{
+	[id(1), helpstring("method AddError")] HRESULT AddError([in] VARIANT* in);
+	[id(2), helpstring("method debugfile")] HRESULT debugfile([in] VARIANT* in);
+	[id(3), helpstring("method AddPort2")] HRESULT AddPort2([in] IDispatch* disp);
+	[id(4), helpstring("method RemovePort")] HRESULT RemovePort([in] LONG index);
+};
+[
+	uuid(A41DD893-4E3F-45A6-BBEF-425ECE7FA637),
+	version(1.0),
+	helpstring("Cape2Fluent 1.0 Type Library"),
+	custom(a817e7a1-43fa-11d0-9e44-00aa00b6770a,"{72A2CC99-2D19-4E9F-89C4-C30C9839DB87}")
+]
+library Cape2FluentLib
+{
+	importlib("stdole2.tlb");
+
+	[
+		uuid(72A2CC99-2D19-4E9F-89C4-C30C9839DB87),
+		helpstring("ComponentRegistrar Class")
+	]
+	coclass CompReg
+	{
+		[default] interface IComponentRegistrar;
+	};
+	[
+		uuid(687728BA-9FC0-4F97-A143-EBEE0735C18F),
+		helpstring("UnitOperation Class")
+	]
+	coclass UnitOperation
+	{
+		[default] interface IUnitOperation;
+	};
+	[
+		uuid(4C56EFAA-DE81-47B4-85D6-6E87EFBC36EC),
+		helpstring("Port Class")
+	]
+	coclass Port
+	{
+		[default] interface IPort;
+	};
+	[
+		uuid(7C2975A7-663A-4BAD-A99E-075AF478AC51),
+		helpstring("ParameterCollection Class")
+	]
+	coclass ParameterCollection
+	{
+		[default] interface IParameterCollection;
+	};
+	[
+		uuid(821998BE-7720-4F7F-9778-52C61DDA2888),
+		helpstring("PortCollection Class")
+	]
+	coclass PortCollection
+	{
+		[default] interface IPortCollection;
+	};
+	//  Primary dispatch interface for _myDialog
+		
+	[ uuid(2B01BBFA-BEB6-47AB-B9F5-174F5898A697) ]
+	dispinterface I_myDialog
+	{
+		properties:
+		methods:
+	};
+
+	//  Class information for _myDialog
+
+	[ uuid(A899055E-2A8D-4E3F-9DA4-5D9F01E6E2F0) ]
+	coclass _myDialog
+	{
+		[default] dispinterface I_myDialog;
+	};
+};

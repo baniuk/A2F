@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_c___port_parameter___container.html#a9387e0928fc98503d64896203631771c" title="Zwraca nazwę komponentu po podaniu jego id, lub NULL gdy go nie ma." alt="" coords="344,5,667,35"/>
+<area shape="rect" id="node5" href="$class_c___parameter___container.html#ab713e9a3ba582fc32576ec724076cd1b" title="Drukuje zawartość portów do pliku." alt="" coords="385,59,625,88"/>
+<area shape="rect" id="node7" href="$class_c___port_parameter___container.html#af7ff20d9bcd1cd8a2f927b8cb7679ea8" title="Drukuje zawartość portów do pliku." alt="" coords="715,59,979,88"/>
+<area shape="rect" id="node9" href="$class_c__my_run_process.html#aef8a141a9982779c57bb5931d87d710b" title="Drukuje zawartość portów do pliku." alt="" coords="1027,32,1277,61"/>
+<area shape="rect" id="node13" href="$class_c__my_run_process.html#ae6b5f57310ae330f061f867d0582ee4e" title="Drukuje zawartość portów do pliku." alt="" coords="1028,85,1276,115"/>
+<area shape="rect" id="node11" href="$class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="1327,59,1497,88"/>
+</map>

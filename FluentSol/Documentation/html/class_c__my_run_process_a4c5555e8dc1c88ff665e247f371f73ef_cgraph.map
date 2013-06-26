@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy." alt="" coords="867,28,992,57"/>
+<area shape="rect" id="node12" href="$class_c__my_run_process.html#a06bdfb895da68f5d45e769f4986a43c5" title="C_myRunProcess::WaitForStart" alt="" coords="255,31,463,60"/>
+<area shape="rect" id="node5" href="$class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy." alt="" coords="1117,28,1251,57"/>
+<area shape="rect" id="node7" href="$class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego." alt="" coords="1539,28,1669,57"/>
+<area shape="rect" id="node9" href="$class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów." alt="" coords="1299,53,1491,83"/>
+<area shape="rect" id="node15" href="$class_c__my_run_process.html#ac445542726d5877bef97f4f34fde85cd" title="C_myRunProcess::WaitForProcess" alt="" coords="512,81,741,111"/>
+<area shape="rect" id="node18" href="$class_c__my_run_process.html#af50c79d461121acff30f150025386622" title="C_myRunProcess::PrintProcessNameAndID" alt="" coords="791,81,1068,111"/>
+</map>

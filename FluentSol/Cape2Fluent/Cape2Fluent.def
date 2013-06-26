@@ -1,0 +1,10 @@
+; Cape2Fluent.def : Declares the module parameters.
+
+LIBRARY      "Cape2Fluent.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE
+	DllInstall		PRIVATE

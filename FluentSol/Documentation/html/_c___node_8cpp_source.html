@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Plik źródłowy C_Node.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
+    </ul>
+  </div>
+<h1>C_Node.cpp</h1><a href="_c___node_8cpp.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &quot;<a class="code" href="stdafx_8h.html">StdAfx.h</a>&quot;</span>
+<a name="l00002"></a>00002 <span class="preprocessor">#include &quot;<a class="code" href="_c___node_8h.html">C_Node.h</a>&quot;</span>
+<a name="l00003"></a>00003 
+<a name="l00004"></a><a class="code" href="class_c___node.html#a3305d9f8e6b8979674b9f0f2028a5f99">00004</a> <a class="code" href="class_c___node.html#a3305d9f8e6b8979674b9f0f2028a5f99">C_Node::C_Node</a>(<span class="keywordtype">void</span>)
+<a name="l00005"></a>00005 {
+<a name="l00006"></a>00006  <a class="code" href="class_c___node.html#a38532fd247747e2f7dd8352a32751a3c">next</a>=NULL;
+<a name="l00007"></a>00007 }
+<a name="l00008"></a>00008 
+<a name="l00009"></a><a class="code" href="class_c___node.html#a2c66c87b7d3631d341ba5fc9b20b41d9">00009</a> <a class="code" href="class_c___node.html#a3305d9f8e6b8979674b9f0f2028a5f99">C_Node::C_Node</a>(<span class="keywordtype">char</span>* pdata)
+<a name="l00010"></a>00010 {
+<a name="l00011"></a>00011  <a class="code" href="class_c___node.html#a38532fd247747e2f7dd8352a32751a3c">next</a>=NULL;
+<a name="l00012"></a>00012  strcpy_s(<a class="code" href="class_c___node.html#a324eeeec704e2f579104eb0d44f32dbe">data</a>,<a class="code" href="definicje_8h.html#afbdc3f2525ffa8a2c7a49bd198bc4691">MAX_LENGTH_NODE</a>,pdata);
+<a name="l00013"></a>00013 }
+<a name="l00014"></a>00014 
+<a name="l00015"></a><a class="code" href="class_c___node.html#abfde820e5ee169af3fad1c08cc1ba7ef">00015</a> <a class="code" href="class_c___node.html#abfde820e5ee169af3fad1c08cc1ba7ef">C_Node::~C_Node</a>(<span class="keywordtype">void</span>)
+<a name="l00016"></a>00016 {
+<a name="l00017"></a>00017  <span class="keywordflow">if</span>(<a class="code" href="class_c___node.html#a38532fd247747e2f7dd8352a32751a3c">next</a>!=NULL) {
+<a name="l00018"></a>00018   <span class="keyword">delete</span> <a class="code" href="class_c___node.html#a38532fd247747e2f7dd8352a32751a3c">next</a>;
+<a name="l00019"></a>00019   <a class="code" href="class_c___node.html#a38532fd247747e2f7dd8352a32751a3c">next</a> = NULL;
+<a name="l00020"></a>00020  }
+<a name="l00021"></a>00021 }
+<a name="l00022"></a>00022 
+<a name="l00023"></a><a class="code" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d">00023</a> <a class="code" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych.">C_Node</a>* <a class="code" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego.">C_Node::Get_Next</a>(<span class="keywordtype">void</span>)
+<a name="l00026"></a>00026 {
+<a name="l00027"></a>00027  <span class="keywordflow">return</span> <a class="code" href="class_c___node.html#a38532fd247747e2f7dd8352a32751a3c">next</a>;
+<a name="l00028"></a>00028 }
+<a name="l00029"></a>00029 
+<a name="l00030"></a><a class="code" href="class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33">00030</a> <span class="keywordtype">void</span> <a class="code" href="class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy.">C_Node::Add_Next</a>(<span class="keywordtype">char</span>* pdata)
+<a name="l00031"></a>00031 {
+<a name="l00032"></a>00032  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nr = <a class="code" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów.">Get_Num_of_Nodes</a>();
+<a name="l00033"></a>00033  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> a;
+<a name="l00034"></a>00034  <a class="code" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych.">C_Node</a>* tmp=<span class="keyword">this</span>;
+<a name="l00035"></a>00035  <span class="keywordflow">for</span>(a=<a class="code" href="class_c___node.html#a1bc348f556da5104147d2d5f4534e0eb">nodenr</a>;a&lt;nr-1;a++)
+<a name="l00036"></a>00036  {
+<a name="l00037"></a>00037   tmp = tmp-&gt;<a class="code" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego.">Get_Next</a>();
+<a name="l00038"></a>00038  }
+<a name="l00039"></a>00039  tmp-&gt;<a class="code" href="class_c___node.html#a38532fd247747e2f7dd8352a32751a3c">next</a> = <span class="keyword">new</span> <a class="code" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych.">C_Node</a>;
+<a name="l00040"></a>00040  strcpy_s(tmp-&gt;<a class="code" href="class_c___node.html#a38532fd247747e2f7dd8352a32751a3c">next</a>-&gt;<a class="code" href="class_c___node.html#a324eeeec704e2f579104eb0d44f32dbe">data</a>,<a class="code" href="definicje_8h.html#afbdc3f2525ffa8a2c7a49bd198bc4691">MAX_LENGTH_NODE</a>,pdata);
+<a name="l00041"></a>00041  tmp-&gt;<a class="code" href="class_c___node.html#a38532fd247747e2f7dd8352a32751a3c">next</a>-&gt;<a class="code" href="class_c___node.html#a1bc348f556da5104147d2d5f4534e0eb">nodenr</a> = <a class="code" href="class_c___node.html#a1bc348f556da5104147d2d5f4534e0eb">nodenr</a>+1;
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 }
+<a name="l00044"></a>00044 
+<a name="l00045"></a><a class="code" href="class_c___node.html#a470c6ae493f150409e14d27e7703929e">00045</a> <span class="keywordtype">void</span> <a class="code" href="class_c___node.html#a470c6ae493f150409e14d27e7703929e" title="Inicjalizacja listy, powinno być użyte jako pierwsze.">C_Node::Node_Init</a>(<span class="keywordtype">void</span>)
+<a name="l00046"></a>00046 {
+<a name="l00047"></a>00047  <a class="code" href="class_c___node.html#a1bc348f556da5104147d2d5f4534e0eb">nodenr</a> = 0;
+<a name="l00048"></a>00048 }
+<a name="l00049"></a>00049 
+<a name="l00050"></a><a class="code" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c">00050</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów.">C_Node::Get_Num_of_Nodes</a>(<span class="keywordtype">void</span>)
+<a name="l00052"></a>00052 {
+<a name="l00053"></a>00053  <a class="code" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych.">C_Node</a>* tmp = <span class="keyword">this</span>;
+<a name="l00054"></a>00054  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> licz = tmp-&gt;<a class="code" href="class_c___node.html#a1bc348f556da5104147d2d5f4534e0eb">nodenr</a>;
+<a name="l00055"></a>00055  <span class="keywordflow">while</span>(tmp-&gt;<a class="code" href="class_c___node.html#a38532fd247747e2f7dd8352a32751a3c">next</a>!=NULL)
+<a name="l00056"></a>00056  {
+<a name="l00057"></a>00057   tmp = tmp-&gt;<a class="code" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego.">Get_Next</a>();
+<a name="l00058"></a>00058   licz++;
+<a name="l00059"></a>00059  }
+<a name="l00060"></a>00060  <span class="keywordflow">return</span> ++licz; <span class="comment">// liczone razem z 0</span>
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062 }
+<a name="l00063"></a>00063 
+<a name="l00064"></a><a class="code" href="class_c___node.html#a063a587f5dd7736b9b924879b80d133c">00064</a> <span class="keywordtype">void</span> <a class="code" href="class_c___node.html#a063a587f5dd7736b9b924879b80d133c" title="Kasuje wszyskie wezły.">C_Node::Clear_All</a>(<span class="keywordtype">void</span>)
+<a name="l00065"></a>00065 {
+<a name="l00066"></a>00066  <span class="keywordflow">if</span>(<a class="code" href="class_c___node.html#a38532fd247747e2f7dd8352a32751a3c">next</a>!=NULL) {
+<a name="l00067"></a>00067   <span class="keyword">delete</span> <a class="code" href="class_c___node.html#a38532fd247747e2f7dd8352a32751a3c">next</a>;
+<a name="l00068"></a>00068   <a class="code" href="class_c___node.html#a38532fd247747e2f7dd8352a32751a3c">next</a> = NULL;
+<a name="l00069"></a>00069  }
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 }
+<a name="l00072"></a>00072 
+<a name="l00073"></a><a class="code" href="class_c___node.html#a56d05ff5055470c48d45636cdb0e1ea0">00073</a> <span class="keywordtype">char</span>* <a class="code" href="class_c___node.html#a56d05ff5055470c48d45636cdb0e1ea0" title="Zwraca ciąg dla nth węzła.">C_Node::GetNthNodeData</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nr)
+<a name="l00076"></a>00076 {
+<a name="l00077"></a>00077  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nri = <a class="code" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów.">Get_Num_of_Nodes</a>();
+<a name="l00078"></a>00078  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> a;
+<a name="l00079"></a>00079  <span class="keywordflow">if</span>(nr&gt;nri)
+<a name="l00080"></a>00080   <span class="keywordflow">return</span> NULL;
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082  <a class="code" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych.">C_Node</a>* tmp = <span class="keyword">this</span>;
+<a name="l00083"></a>00083  <span class="keywordflow">if</span>(nr==0)
+<a name="l00084"></a>00084   <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_c___node.html#a324eeeec704e2f579104eb0d44f32dbe">data</a>;
+<a name="l00085"></a>00085  <span class="keywordflow">for</span>(a=<a class="code" href="class_c___node.html#a1bc348f556da5104147d2d5f4534e0eb">nodenr</a>;a&lt;nr-1;a++)
+<a name="l00086"></a>00086  {
+<a name="l00087"></a>00087   tmp = tmp-&gt;<a class="code" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego.">Get_Next</a>();
+<a name="l00088"></a>00088  }
+<a name="l00089"></a>00089  <span class="keywordflow">return</span> tmp-&gt;<a class="code" href="class_c___node.html#a324eeeec704e2f579104eb0d44f32dbe">data</a>;
+<a name="l00090"></a>00090 }
+</pre></div></div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:21 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

@@ -1,0 +1,7 @@
+-- Sat Apr 17 23:33:09.506 9 2010
+
+-C_Params::Error in script in line 55
+-CUnitOperation::Creadfile problem
+-CUnitOperation::Validate::sERR is TRUE
+-CUnitOperation::Validate::sERR is TRUE
+-CUnitOperation::Validate::sERR is TRUE

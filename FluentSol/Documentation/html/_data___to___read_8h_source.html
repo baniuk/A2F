@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Plik źródłowy Data_To_Read.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
+    </ul>
+  </div>
+<h1>Data_To_Read.h</h1><a href="_data___to___read_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="_c___error_8h.html">C_Error.h</a>&quot;</span>
+<a name="l00004"></a>00004 
+<a name="l00008"></a><a class="code" href="class_data___to___read.html">00008</a> <span class="keyword">class </span><a class="code" href="class_data___to___read.html" title="Klasa sluzy do przechowywania danych jesli jest ich kilka do jednego rozkazu.">Data_To_Read</a>
+<a name="l00009"></a>00009 {
+<a name="l00010"></a>00010 <span class="keyword">public</span>:
+<a name="l00011"></a>00011  <a class="code" href="class_data___to___read.html#a4caae180c6c54f05568aae25496faca0">Data_To_Read</a>(<span class="keywordtype">void</span>);
+<a name="l00012"></a>00012  <a class="code" href="class_data___to___read.html#aa55bc4f719e845a3fbfcfd183f1d9195">~Data_To_Read</a>(<span class="keywordtype">void</span>);
+<a name="l00013"></a><a class="code" href="class_data___to___read.html#aaf4b8dc4cee9738f28bb25ecbb92673b">00013</a>  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_data___to___read.html#aaf4b8dc4cee9738f28bb25ecbb92673b">pojemnosc</a>;
+<a name="l00014"></a><a class="code" href="class_data___to___read.html#a0127dc66bbc041af9b172b81e9ae8520">00014</a>  <span class="keywordtype">char</span> *<a class="code" href="class_data___to___read.html#a0127dc66bbc041af9b172b81e9ae8520">DATA_CONTAINER</a>[<a class="code" href="definicje_8h.html#a2088367026f360e5b7099098f4b9d39c">MAX_EXPORTS</a>];
+<a name="l00015"></a>00015  
+<a name="l00016"></a>00016 <span class="keyword">private</span>:
+<a name="l00018"></a><a class="code" href="class_data___to___read.html#a2cfdba699409fdcd62e433284f18fba1">00018</a>  <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="class_data___to___read.html#a2cfdba699409fdcd62e433284f18fba1" title="ile czesci parametru dla kazdej linii">ile_poz</a>[<a class="code" href="definicje_8h.html#a2088367026f360e5b7099098f4b9d39c">MAX_EXPORTS</a>]; 
+<a name="l00020"></a><a class="code" href="class_data___to___read.html#ac4ebd4efad00674fe7063d8cb9a0bcc4">00020</a>  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> *<a class="code" href="class_data___to___read.html#ac4ebd4efad00674fe7063d8cb9a0bcc4" title="tu są przechowywane pozycje początków ciągów jeśli w datacontainer występuje...">pozycje</a>[<a class="code" href="definicje_8h.html#a2088367026f360e5b7099098f4b9d39c">MAX_EXPORTS</a>];  
+<a name="l00022"></a><a class="code" href="class_data___to___read.html#a4278b63e6608e7ebdab60cc9f2357660">00022</a>  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_data___to___read.html#a4278b63e6608e7ebdab60cc9f2357660" title="ilosc przechowywanych linii">ile</a>; 
+<a name="l00024"></a><a class="code" href="class_data___to___read.html#a4e8ba7d812819d9cf2e135d34523458d">00024</a>  BOOL <a class="code" href="class_data___to___read.html#a4e8ba7d812819d9cf2e135d34523458d" title="służy do rozpoznania czy na danej pozycji &amp;#39;line&amp;#39; jest wpis czy go nie ma...">ktore</a>[<a class="code" href="definicje_8h.html#a2088367026f360e5b7099098f4b9d39c">MAX_EXPORTS</a>]; 
+<a name="l00025"></a>00025 <span class="keyword">public</span>: 
+<a name="l00027"></a>00027 
+<a name="l00033"></a>00033  BOOL <a class="code" href="class_data___to___read.html#ab55dda5b5ca867ef21c887e4b87c7614" title="Dodaje pozycję podciągu w ciągu głównym do tablicy pozycji. Zlicza także ilość...">AddSubStringPoz</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> line,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> poz);
+<a name="l00034"></a>00034 
+<a name="l00036"></a>00036 
+<a name="l00040"></a>00040  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_data___to___read.html#a2ae9b120ce85df4bbb0b36b61f9a39c0" title="Zwraca ilosc podciągów.">GetNumOfSubStrings</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> line);
+<a name="l00041"></a>00041 
+<a name="l00043"></a>00043 
+<a name="l00048"></a>00048  <span class="keywordtype">char</span>* <a class="code" href="class_data___to___read.html#a6a3deab57b0e9d8e040ab3c548595bf9" title="Zwraca wskaźnik do podciągu.">GetSubString</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> line, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nr);
+<a name="l00049"></a>00049 
+<a name="l00051"></a><a class="code" href="class_data___to___read.html#acf5b344c1a44480144bb3d1a93f138b2">00051</a>  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_data___to___read.html#acf5b344c1a44480144bb3d1a93f138b2" title="Zwraca ilosc wpisów - danych przechowywanych.">GetIle</a>(<span class="keywordtype">void</span>)
+<a name="l00052"></a>00052  {
+<a name="l00053"></a>00053   <span class="keywordflow">return</span> <a class="code" href="class_data___to___read.html#a4278b63e6608e7ebdab60cc9f2357660" title="ilosc przechowywanych linii">ile</a>;
+<a name="l00054"></a>00054  }
+<a name="l00056"></a>00056 
+<a name="l00061"></a>00061  <span class="keywordtype">int</span> <a class="code" href="class_data___to___read.html#a1f2247e03f494d45dd2bacf4fde00c92" title="Zwraca numer linii zawierającej dany ciąg tekstowy na danej pozycji podciągu....">GetLineIndex</a>(<span class="keywordtype">char</span>* paramName, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nr);
+<a name="l00062"></a>00062 
+<a name="l00064"></a>00064 
+<a name="l00072"></a>00072  <span class="keywordtype">void</span> <a class="code" href="class_data___to___read.html#a1f2247e03f494d45dd2bacf4fde00c92" title="Zwraca numer linii zawierającej dany ciąg tekstowy na danej pozycji podciągu....">GetLineIndex</a>(<span class="keywordtype">char</span>* paramName, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nr,<span class="keywordtype">int</span>* tab);
+<a name="l00073"></a>00073 };
+</pre></div></div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:22 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

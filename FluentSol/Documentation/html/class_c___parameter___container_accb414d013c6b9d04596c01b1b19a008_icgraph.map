@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_c___parameter___container.html#a4019893d512b8da7f9208a94e0fb7524" title="Dodaje parametr do komponentu &#45; rozpoznaje po nazwie." alt="" coords="289,5,583,35"/>
+<area shape="rect" id="node5" href="$class_c___port_parameter___container.html#a0735236e3d03fc4d7890f9d604778788" title="Zwraca id komponentu na podstawie nazwy, lub &#45;1 gdy nie ma go." alt="" coords="303,59,569,88"/>
+<area shape="rect" id="node7" href="$class_c___parameter___container.html#a3025843a154aec4c2e75a412ec81385e" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="312,112,560,141"/>
+<area shape="rect" id="node9" href="$class_c___port_parameter___container.html#a40f71af3c7efa9ae20bad902f781f7d0" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="632,60,915,89"/>
+<area shape="rect" id="node15" href="$class_c__my_run_process.html#a7511e1d0a3cb9056ff87bd4a4cd4c886" title="pobiera parametry z klasy na zewnątrz &#45; wersja nowsza" alt="" coords="995,112,1195,141"/>
+<area shape="rect" id="node20" href="$class_c___parameter___container.html#ab713e9a3ba582fc32576ec724076cd1b" title="Drukuje zawartość portów do pliku." alt="" coords="653,165,893,195"/>
+<area shape="rect" id="node11" href="$class_c__my_run_process.html#af04033e23f541696c736ef795e864392" title="Tworzy środowisko do uruchomienia fluenta &#45; generuje scm oraz journalC_Params." alt="" coords="1303,33,1497,63"/>
+<area shape="rect" id="node17" href="$class_c__my_run_process.html#a8bf8241f0ff9398a64c00176022d677d" title="wpisuje parametry do klasy, wersja nowsza" alt="" coords="995,59,1195,88"/>
+<area shape="rect" id="node13" href="$class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="1575,112,1745,141"/>
+<area shape="rect" id="node22" href="$class_c___port_parameter___container.html#af7ff20d9bcd1cd8a2f927b8cb7679ea8" title="Drukuje zawartość portów do pliku." alt="" coords="963,165,1227,195"/>
+<area shape="rect" id="node24" href="$class_c__my_run_process.html#aef8a141a9982779c57bb5931d87d710b" title="Drukuje zawartość portów do pliku." alt="" coords="1275,112,1525,141"/>
+<area shape="rect" id="node27" href="$class_c__my_run_process.html#ae6b5f57310ae330f061f867d0582ee4e" title="Drukuje zawartość portów do pliku." alt="" coords="1276,165,1524,195"/>
+</map>

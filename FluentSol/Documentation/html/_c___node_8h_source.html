@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Plik źródłowy C_Node.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
+    </ul>
+  </div>
+<h1>C_Node.h</h1><a href="_c___node_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 
+<a name="l00050"></a><a class="code" href="class_c___node.html">00050</a> <span class="keyword">class </span><a class="code" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych.">C_Node</a>
+<a name="l00051"></a>00051 {
+<a name="l00052"></a>00052 <span class="keyword">public</span>:
+<a name="l00053"></a>00053  <a class="code" href="class_c___node.html#a3305d9f8e6b8979674b9f0f2028a5f99">C_Node</a>(<span class="keywordtype">void</span>);
+<a name="l00054"></a>00054  <a class="code" href="class_c___node.html#a3305d9f8e6b8979674b9f0f2028a5f99">C_Node</a>(<span class="keywordtype">char</span>* pdata);
+<a name="l00055"></a>00055  <a class="code" href="class_c___node.html#abfde820e5ee169af3fad1c08cc1ba7ef">~C_Node</a>(<span class="keywordtype">void</span>);
+<a name="l00056"></a><a class="code" href="class_c___node.html#a324eeeec704e2f579104eb0d44f32dbe">00056</a>  <span class="keywordtype">char</span> <a class="code" href="class_c___node.html#a324eeeec704e2f579104eb0d44f32dbe">data</a>[<a class="code" href="definicje_8h.html#afbdc3f2525ffa8a2c7a49bd198bc4691">MAX_LENGTH_NODE</a>]; 
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 
+<a name="l00062"></a>00062  <a class="code" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych.">C_Node</a>* <a class="code" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego.">Get_Next</a>(<span class="keywordtype">void</span>);  
+<a name="l00063"></a>00063 
+<a name="l00065"></a>00065 
+<a name="l00069"></a>00069  <span class="keywordtype">void</span> <a class="code" href="class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy.">Add_Next</a>(<span class="keywordtype">char</span>* pdata); 
+<a name="l00070"></a>00070 
+<a name="l00072"></a>00072 
+<a name="l00075"></a>00075  <span class="keywordtype">void</span> <a class="code" href="class_c___node.html#a470c6ae493f150409e14d27e7703929e" title="Inicjalizacja listy, powinno być użyte jako pierwsze.">Node_Init</a>(<span class="keywordtype">void</span>); 
+<a name="l00076"></a>00076 
+<a name="l00078"></a>00078 
+<a name="l00081"></a>00081  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów.">Get_Num_of_Nodes</a>(<span class="keywordtype">void</span>); 
+<a name="l00082"></a>00082 
+<a name="l00084"></a>00084 
+<a name="l00087"></a>00087  <span class="keywordtype">void</span> <a class="code" href="class_c___node.html#a063a587f5dd7736b9b924879b80d133c" title="Kasuje wszyskie wezły.">Clear_All</a>(<span class="keywordtype">void</span>); 
+<a name="l00088"></a>00088 
+<a name="l00090"></a>00090 
+<a name="l00094"></a>00094  <span class="keywordtype">char</span>* <a class="code" href="class_c___node.html#a56d05ff5055470c48d45636cdb0e1ea0" title="Zwraca ciąg dla nth węzła.">GetNthNodeData</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nr); 
+<a name="l00095"></a>00095 <span class="keyword">private</span>:
+<a name="l00096"></a><a class="code" href="class_c___node.html#a38532fd247747e2f7dd8352a32751a3c">00096</a>  <a class="code" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych.">C_Node</a>* <a class="code" href="class_c___node.html#a38532fd247747e2f7dd8352a32751a3c">next</a>;  
+<a name="l00097"></a><a class="code" href="class_c___node.html#a1bc348f556da5104147d2d5f4534e0eb">00097</a>  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_c___node.html#a1bc348f556da5104147d2d5f4534e0eb">nodenr</a>; 
+<a name="l00098"></a>00098 };
+</pre></div></div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:21 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

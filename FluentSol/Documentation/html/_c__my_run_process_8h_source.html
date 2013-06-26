@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Plik źródłowy C_myRunProcess.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
+    </ul>
+  </div>
+<h1>C_myRunProcess.h</h1><a href="_c__my_run_process_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="_c___port_parameter___container_8h.html">C_PortParameter_Container.h</a>&quot;</span>
+<a name="l00003"></a>00003 
+<a name="l00005"></a>00005 
+<a name="l00008"></a><a class="code" href="class_c__my_run_process.html">00008</a> <span class="keyword">class </span><a class="code" href="class_c__my_run_process.html" title="Klasa służąca do obsługi fluenta. Trzyma dane związane z strumieniami, obrabia...">C_myRunProcess</a>
+<a name="l00009"></a>00009 {
+<a name="l00010"></a>00010 <span class="keyword">public</span>:
+<a name="l00012"></a>00012  <a class="code" href="class_c__my_run_process.html#a218856e3338f20f76a0c2d750fa633d4" title="Konstruktor - pobiera klasę do obsługi błędów oraz odniesienie do klasy przechowującej...">C_myRunProcess</a>(<a class="code" href="class_c___error.html" title="Klasa do obsługi błędów.">C_Error</a>* perr,<a class="code" href="class_c___params.html" title="Klasa do obsługi jezyka skryptowego do przekazaywnia parametrów z wykorzystaniem...">C_Params</a>* params);
+<a name="l00013"></a>00013  <a class="code" href="class_c__my_run_process.html#aa00fef1c5e1d1d23188d631fd84deac0">~C_myRunProcess</a>(<span class="keywordtype">void</span>);
+<a name="l00014"></a><a class="code" href="class_c__my_run_process.html#accc481ce64190290a2ba26748f0af68f">00014</a>  CComBSTR <a class="code" href="class_c__my_run_process.html#accc481ce64190290a2ba26748f0af68f">procname</a>;
+<a name="l00015"></a><a class="code" href="class_c__my_run_process.html#a80743f1f3f2ab62960dc05644d985946">00015</a>  CComBSTR <a class="code" href="class_c__my_run_process.html#a80743f1f3f2ab62960dc05644d985946">parname</a>; <span class="comment">//LPWSTR</span>
+<a name="l00016"></a><a class="code" href="class_c__my_run_process.html#a96a361aeba544916631d82c2e2ab5bc2">00016</a>  TCHAR *<a class="code" href="class_c__my_run_process.html#a96a361aeba544916631d82c2e2ab5bc2">subprocname</a>;
+<a name="l00017"></a>00017  BOOL <a class="code" href="class_c__my_run_process.html#a4c5555e8dc1c88ff665e247f371f73ef">StartFluent</a>(<span class="keywordtype">void</span>);
+<a name="l00018"></a>00018 <span class="keyword">private</span>:
+<a name="l00019"></a><a class="code" href="class_c__my_run_process.html#a3b5d641493e2ad6f4f89443d182cbcf0">00019</a>  CComBSTR <a class="code" href="class_c__my_run_process.html#a3b5d641493e2ad6f4f89443d182cbcf0">FLUENT_PATH</a>;
+<a name="l00020"></a><a class="code" href="class_c__my_run_process.html#aadf2e3904bc99ac5fc0945258be196b0">00020</a>  CComBSTR <a class="code" href="class_c__my_run_process.html#aadf2e3904bc99ac5fc0945258be196b0">COMMAND_LINE</a>;
+<a name="l00022"></a><a class="code" href="class_c__my_run_process.html#aaf25ba1fc0838f800cb846100b1296db">00022</a>  CComBSTR <a class="code" href="class_c__my_run_process.html#aaf25ba1fc0838f800cb846100b1296db" title="nazwa pliku wyjściowego">fulloutname</a>; 
+<a name="l00023"></a>00023  BOOL <a class="code" href="class_c__my_run_process.html#a06bdfb895da68f5d45e769f4986a43c5">WaitForStart</a>(TCHAR* nazwa, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> obrot, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> czas);
+<a name="l00024"></a>00024  BOOL <a class="code" href="class_c__my_run_process.html#ac445542726d5877bef97f4f34fde85cd">WaitForProcess</a>(TCHAR* nazwa);
+<a name="l00025"></a>00025  BOOL <a class="code" href="class_c__my_run_process.html#af50c79d461121acff30f150025386622">PrintProcessNameAndID</a>(DWORD processID, TCHAR* nazwa);
+<a name="l00026"></a><a class="code" href="class_c__my_run_process.html#ac47af15c899f84dde717500688440bd9">00026</a>  <a class="code" href="class_c___port_parameter___container.html" title="Klasa przechowuje kontainery z parametrami dla poszczególnych wejsc, parametry powiązane...">C_PortParameter_Container</a> <a class="code" href="class_c__my_run_process.html#ac47af15c899f84dde717500688440bd9">Parameters</a>;
+<a name="l00028"></a><a class="code" href="class_c__my_run_process.html#abf308a56d97c13ecb34fe1eb615110e5">00028</a>  <span class="keywordtype">double</span> <a class="code" href="class_c__my_run_process.html#abf308a56d97c13ecb34fe1eb615110e5">pressure</a>;
+<a name="l00029"></a><a class="code" href="class_c__my_run_process.html#a1fed0139e9d00c4f8974d82bcdef5a07">00029</a>  <span class="keywordtype">double</span> <a class="code" href="class_c__my_run_process.html#a1fed0139e9d00c4f8974d82bcdef5a07">totalflow</a>;
+<a name="l00030"></a><a class="code" href="class_c__my_run_process.html#abb3c97a82bf991d636674645020a4dfe">00030</a>  <span class="keywordtype">double</span> <a class="code" href="class_c__my_run_process.html#abb3c97a82bf991d636674645020a4dfe">fraction</a>[<a class="code" href="definicje_8h.html#a2088367026f360e5b7099098f4b9d39c">MAX_EXPORTS</a>];
+<a name="l00031"></a><a class="code" href="class_c__my_run_process.html#ac3c7b3104b2ca8941bf792ee13e194e7">00031</a>  <span class="keywordtype">double</span> <a class="code" href="class_c__my_run_process.html#ac3c7b3104b2ca8941bf792ee13e194e7">temperature</a>;
+<a name="l00032"></a>00032  <span class="comment">// --------------------------</span>
+<a name="l00034"></a><a class="code" href="class_c__my_run_process.html#a637f31651ba3ab358bf421ac633c93ed">00034</a> <span class="comment"></span> <a class="code" href="class_c___port_parameter___container.html" title="Klasa przechowuje kontainery z parametrami dla poszczególnych wejsc, parametry powiązane...">C_PortParameter_Container</a> <a class="code" href="class_c__my_run_process.html#a637f31651ba3ab358bf421ac633c93ed" title="tu przechowuję zaimportowane parametry,- srednia z zaimportowanych dla wszystkich...">SR</a>;  
+<a name="l00036"></a><a class="code" href="class_c__my_run_process.html#a043667b22534fee299f3e8847c8a83b0">00036</a>  <a class="code" href="class_c___port_parameter___container.html" title="Klasa przechowuje kontainery z parametrami dla poszczególnych wejsc, parametry powiązane...">C_PortParameter_Container</a> <a class="code" href="class_c__my_run_process.html#a043667b22534fee299f3e8847c8a83b0" title="tu przechowuję zaimportowane parametry, - suma z zaimportowanych dla wszystkich...">SUM</a>; 
+<a name="l00038"></a><a class="code" href="class_c__my_run_process.html#a5f6e88a7ccf982c8906ca840cfac81bb">00038</a>  <a class="code" href="class_c___port_parameter___container.html" title="Klasa przechowuje kontainery z parametrami dla poszczególnych wejsc, parametry powiązane...">C_PortParameter_Container</a> <a class="code" href="class_c__my_run_process.html#a5f6e88a7ccf982c8906ca840cfac81bb" title="tymczasowa zmienna do przechowywania przeliczonych parametrów wyjściowych (takich...">outParameters</a>;
+<a name="l00040"></a><a class="code" href="class_c__my_run_process.html#a45cf7301e9af57afb3a0ca3a1c677660">00040</a>  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_c__my_run_process.html#a45cf7301e9af57afb3a0ca3a1c677660" title="ile jest elementów w prof">ile_danych</a>; 
+<a name="l00042"></a>00042  <span class="keywordtype">void</span> <a class="code" href="class_c__my_run_process.html#afe8240365804cc09bf7df066c64859a6" title="funkcja usuwa podwójnego slaska do ściezek, modyfikuje ciąg wejściowy">RemoveDoubleSlash</a>(<span class="keywordtype">char</span>* in); 
+<a name="l00044"></a><a class="code" href="class_c__my_run_process.html#a2a8bbae97812661f19f491305f212319">00044</a>  <a class="code" href="class_c___params.html" title="Klasa do obsługi jezyka skryptowego do przekazaywnia parametrów z wykorzystaniem...">C_Params</a>* <a class="code" href="class_c__my_run_process.html#a2a8bbae97812661f19f491305f212319" title="kopia klasy zawierającej parametry ze skryptu (nie modyfiować tu)">copyparams</a>;
+<a name="l00046"></a><a class="code" href="class_c__my_run_process.html#af9f58dd664386638ca9406976cac0554">00046</a>  <a class="code" href="class_c___error.html" title="Klasa do obsługi błędów.">C_Error</a> *<a class="code" href="class_c__my_run_process.html#af9f58dd664386638ca9406976cac0554" title="Klasa obsługi błędów.">err</a>;
+<a name="l00047"></a>00047 <span class="keyword">public</span>:
+<a name="l00049"></a>00049  BOOL <a class="code" href="class_c__my_run_process.html#af04033e23f541696c736ef795e864392" title="Tworzy środowisko do uruchomienia fluenta - generuje scm oraz journalC_Params.">CreateEnv</a>(<span class="keywordtype">void</span>);
+<a name="l00051"></a>00051 
+<a name="l00055"></a>00055  BOOL <a class="code" href="class_c__my_run_process.html#a96de0e119537f9f36f3cfaa8da96280f" title="Wczytuje dane z Fluenta.">ImportData</a>(<span class="keywordtype">void</span>);
+<a name="l00056"></a>00056 
+<a name="l00058"></a><a class="code" href="class_c__my_run_process.html#a83e882d315a2f3d233fedf91cb29a62f">00058</a>  BOOL <a class="code" href="class_c__my_run_process.html#a83e882d315a2f3d233fedf91cb29a62f" title="jesli 1 to parametry aktualne">paramsval</a>; 
+<a name="l00060"></a>00060 
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068  <span class="keywordtype">void</span> <a class="code" href="class_c__my_run_process.html#a50bbb31558e2dc254c1583521bb291ec" title="pobiera parametry z klasy na zewnątrz - wersja starsza">GetParams</a>(<span class="keywordtype">double</span>&amp; temp, <span class="keywordtype">double</span> *fract, <span class="keywordtype">double</span>&amp; flow, <span class="keywordtype">double</span>&amp; pres);
+<a name="l00069"></a>00069  
+<a name="l00071"></a>00071 
+<a name="l00081"></a>00081  BOOL <a class="code" href="class_c__my_run_process.html#a50bbb31558e2dc254c1583521bb291ec" title="pobiera parametry z klasy na zewnątrz - wersja starsza">GetParams</a>(SAFEARRAY *<a class="code" href="class_c__my_run_process.html#ac3c7b3104b2ca8941bf792ee13e194e7">temperature</a>, SAFEARRAY *<a class="code" href="class_c__my_run_process.html#abb3c97a82bf991d636674645020a4dfe">fraction</a>, SAFEARRAY *flow, SAFEARRAY *<a class="code" href="class_c__my_run_process.html#abf308a56d97c13ecb34fe1eb615110e5">pressure</a>, SAFEARRAY *compNames);
+<a name="l00082"></a>00082  
+<a name="l00084"></a>00084 
+<a name="l00091"></a>00091 
+<a name="l00092"></a>00092  BOOL <a class="code" href="class_c__my_run_process.html#a92c79daa78da34aa38f14ec7f4f8a1ac" title="wpisuje parametry do klasy, wersja starsza">PutParams</a>(<span class="keywordtype">double</span> temp, <span class="keywordtype">double</span> *fract, <span class="keywordtype">double</span> flow, <span class="keywordtype">double</span> pres);
+<a name="l00093"></a>00093 
+<a name="l00095"></a>00095 
+<a name="l00105"></a>00105  BOOL <a class="code" href="class_c__my_run_process.html#a92c79daa78da34aa38f14ec7f4f8a1ac" title="wpisuje parametry do klasy, wersja starsza">PutParams</a>(SAFEARRAY *<a class="code" href="class_c__my_run_process.html#ac3c7b3104b2ca8941bf792ee13e194e7">temperature</a>, SAFEARRAY *<a class="code" href="class_c__my_run_process.html#abb3c97a82bf991d636674645020a4dfe">fraction</a>, SAFEARRAY *flow, SAFEARRAY *<a class="code" href="class_c__my_run_process.html#abf308a56d97c13ecb34fe1eb615110e5">pressure</a>, SAFEARRAY *compNames,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> inputID);
+<a name="l00106"></a>00106 
+<a name="l00108"></a>00108 
+<a name="l00112"></a>00112  BOOL <a class="code" href="class_c__my_run_process.html#ae6b5f57310ae330f061f867d0582ee4e" title="Drukuje zawartość portów do pliku.">PrintPutParameters</a>(<span class="keywordtype">char</span>* nazwa);
+<a name="l00113"></a>00113 
+<a name="l00115"></a>00115 
+<a name="l00119"></a>00119  BOOL <a class="code" href="class_c__my_run_process.html#aef8a141a9982779c57bb5931d87d710b" title="Drukuje zawartość portów do pliku.">PrintGetParameters</a>(<span class="keywordtype">char</span>* nazwa);
+<a name="l00120"></a>00120 };
+</pre></div></div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:21 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

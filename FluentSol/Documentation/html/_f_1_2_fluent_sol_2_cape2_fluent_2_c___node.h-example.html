@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: F:/FluentSol/Cape2Fluent/C_Node.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+      <li><a href="examples.html"><span>Przykłady</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>F:/FluentSol/Cape2Fluent/C_Node.h</h1><p>Prosta klasa do obsługi list jednokierunkowych Prosta klasa do obsługi list. W każdym węźle jest tablica z danymi i adres do następnego węzła. Dodawanie kolejnych węzłow poprzez obiekt główny. Generalnie trzeba uważać na to na który wezeł pokauje bierzący odres. Zawsze powinien to być pierwszy obiekt Przed użyciem trzeba zainicjalizować pierwszy obiekt funkcją <a class="el" href="class_c___node.html#a470c6ae493f150409e14d27e7703929e" title="Inicjalizacja listy, powinno być użyte jako pierwsze.">C_Node::Node_Init</a></p>
+<p>! </p>
+<div class="fragment"><pre class="fragment">        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ilenode,a;
+        <a name="_a0"></a><a class="code" href="class_c___node.html">C_Node</a> node(<span class="stringliteral">&quot;node 1&quot;</span>);
+        node.Node_Init();
+        <a class="code" href="class_c___node.html">C_Node</a>* tmp;
+
+        node.Add_Next(<span class="stringliteral">&quot;node 2&quot;</span>);
+        node.Add_Next(<span class="stringliteral">&quot;node 3&quot;</span>);
+
+        ilenode = node.Get_Num_of_Nodes();
+
+        tmp = &amp;node;
+        <span class="keywordflow">for</span>(a=0;a&lt;ilenode;a++)
+        {
+                printf(<span class="stringliteral">&quot;%s\n&quot;</span>,tmp-&gt;<a name="a1"></a><a class="code" href="class_c___node.html#a324eeeec704e2f579104eb0d44f32dbe">data</a>);
+                tmp = tmp-&gt;<a name="a2"></a><a class="code" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego.">Get_Next</a>();
+        }
+
+        node.<a name="a3"></a><a class="code" href="class_c___node.html#a063a587f5dd7736b9b924879b80d133c" title="Kasuje wszyskie wezły.">Clear_All</a>();
+        
+        tmp = &amp;node;
+        ilenode = node.<a name="a4"></a><a class="code" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów.">Get_Num_of_Nodes</a>();
+        <span class="keywordflow">for</span>(a=0;a&lt;ilenode;a++)
+        {
+                printf(<span class="stringliteral">&quot;%s\n&quot;</span>,tmp-&gt;<a class="code" href="class_c___node.html#a324eeeec704e2f579104eb0d44f32dbe">data</a>);
+                tmp = tmp-&gt;<a class="code" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego.">Get_Next</a>();
+        }
+        
+        node.<a name="a5"></a><a class="code" href="class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy.">Add_Next</a>(<span class="stringliteral">&quot;node 2a&quot;</span>);
+
+        tmp = &amp;node;
+        ilenode = node.<a class="code" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów.">Get_Num_of_Nodes</a>();
+        <span class="keywordflow">for</span>(a=0;a&lt;ilenode;a++)
+        {
+                printf(<span class="stringliteral">&quot;%s\n&quot;</span>,tmp-&gt;<a class="code" href="class_c___node.html#a324eeeec704e2f579104eb0d44f32dbe">data</a>);
+                tmp = tmp-&gt;<a class="code" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego.">Get_Next</a>();
+        }
+
+        _getch();
+        <span class="keywordflow">return</span> 0;
+</pre></div><div class="fragment"><pre class="fragment"></pre></div> </div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat May 8 21:20:47 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

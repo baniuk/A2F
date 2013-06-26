@@ -1,0 +1,22 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'CCF1'
+		'CCF1.DLL'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {4E8E6E1F-6001-40D7-A6D5-77C10C0413C8} = s 'CompReg Class'
+		{
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{57DD3450-4BD1-485B-AD22-B0057D38191D}'
+		}
+	}
+}

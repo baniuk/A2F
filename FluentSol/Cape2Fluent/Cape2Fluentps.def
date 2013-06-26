@@ -1,0 +1,8 @@
+
+LIBRARY      "Cape2FluentPS"
+
+EXPORTS
+	DllGetClassObject		PRIVATE
+	DllCanUnloadNow			PRIVATE
+	DllRegisterServer		PRIVATE
+	DllUnregisterServer		PRIVATE

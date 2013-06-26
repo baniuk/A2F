@@ -1,0 +1,16 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_c___port_parameter___container.html#a0084a3c896460b40ff0ae1505ba069ec" title="Dodaje parametr do komponentu &#45; rozpoznaje po id." alt="" coords="257,5,583,35"/>
+<area shape="rect" id="node7" href="$class_c___port_parameter___container.html#a9ad1d472e32f73bbcc3687194a8cecbd" title="Kasuje zawartość klasy &#45; wszystkich danych wszystkich wejść." alt="" coords="297,59,543,88"/>
+<area shape="rect" id="node13" href="$class_c___parameter___container.html#a3025843a154aec4c2e75a412ec81385e" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="656,136,904,165"/>
+<area shape="rect" id="node17" href="$class_c___port_parameter___container.html#a40f71af3c7efa9ae20bad902f781f7d0" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="279,112,561,141"/>
+<area shape="rect" id="node20" href="$class_data___to___read.html#a6a3deab57b0e9d8e040ab3c548595bf9" title="Zwraca wskaźnik do podciągu." alt="" coords="684,213,876,243"/>
+<area shape="rect" id="node24" href="$class_c___port_parameter___container.html#a05afe498977802765e4c562acd8f7214" title="C_PortParameter_Container::RegisterComponentP" alt="" coords="263,320,577,349"/>
+<area shape="rect" id="node28" href="$class_c___params.html#a96db4b5bc8d67d374eb52b3d4b90446d" title="Dokonuje sprawdzenia czy spełnione są określone warunki." alt="" coords="329,267,511,296"/>
+<area shape="rect" id="node5" href="$class_c___parameter___container.html#afb7cef66e701ffc8600352ffcce0b006" title="Dodaje parametr do komponentu &#45; rozpoznaje po id." alt="" coords="633,5,927,35"/>
+<area shape="rect" id="node9" href="$class_c___parameter___container.html#ab196d93942c6d400b84af39e68ede81b" title="Kasuje zawartość klasy &#45; wszystkich danych." alt="" coords="673,59,887,88"/>
+<area shape="rect" id="node11" href="$class_c___parameter___container.html#a63e07ec8f12b69a7fe3abbe03f896542" title="Zwraca ilosc przechowywanych komponentów w klasie." alt="" coords="977,59,1279,88"/>
+<area shape="rect" id="node15" href="$class_c___parameter___container.html#accb414d013c6b9d04596c01b1b19a008" title="Zwraca id komponentu na podstawie nazwy, lub &#45;1 gdy nie ma go." alt="" coords="1011,136,1245,165"/>
+<area shape="rect" id="node22" href="$class_data___to___read.html#a2ae9b120ce85df4bbb0b36b61f9a39c0" title="Zwraca ilosc podciągów." alt="" coords="1008,213,1248,243"/>
+<area shape="rect" id="node26" href="$class_c___parameter___container.html#a1572fb9ba2f2ed524e0c6d908d4035c2" title="C_Parameter_Container::RegisterComponent" alt="" coords="639,320,921,349"/>
+<area shape="rect" id="node30" href="$class_data___to___read.html#acf5b344c1a44480144bb3d1a93f138b2" title="Zwraca ilosc wpisów &#45; danych przechowywanych." alt="" coords="705,267,855,296"/>
+</map>

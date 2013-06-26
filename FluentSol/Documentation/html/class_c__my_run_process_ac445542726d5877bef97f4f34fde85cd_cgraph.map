@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy." alt="" coords="360,5,485,35"/>
+<area shape="rect" id="node12" href="$class_c__my_run_process.html#af50c79d461121acff30f150025386622" title="C_myRunProcess::PrintProcessNameAndID" alt="" coords="284,59,561,88"/>
+<area shape="rect" id="node5" href="$class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy." alt="" coords="611,5,744,35"/>
+<area shape="rect" id="node7" href="$class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego." alt="" coords="1032,5,1163,35"/>
+<area shape="rect" id="node9" href="$class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów." alt="" coords="792,31,984,60"/>
+</map>

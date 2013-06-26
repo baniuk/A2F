@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Dokumentacja pliku Cape2Fluent.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja pliku Cape2Fluent.cpp</h1><code>#include &quot;<a class="el" href="stdafx_8h_source.html">stdafx.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="resource_8h_source.html">resource.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_cape2_fluent_8cpp_source.html">Cape2Fluent_i.h</a>&quot;</code><br/>
+<code>#include &quot;rpc.h&quot;</code><br/>
+<code>#include &quot;rpcndr.h&quot;</code><br/>
+<code>#include &quot;windows.h&quot;</code><br/>
+<code>#include &quot;ole2.h&quot;</code><br/>
+<code>#include &quot;oaidl.h&quot;</code><br/>
+<code>#include &quot;ocidl.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>&quot;</code><br/>
+<div class="dynheader">
+Wykres zależności załączania dla Cape2Fluent.cpp:</div>
+<div class="dynsection">
+<div class="center"><img src="_cape2_fluent_8cpp__incl.png" border="0" usemap="#_cape2_fluent_8cpp_map" alt=""/></div>
+<map name="_cape2_fluent_8cpp_map" id="_cape2_fluent_8cpp">
+<area shape="rect" id="node3" href="stdafx_8h.html" title="stdafx.h" alt="" coords="1345,83,1412,112"/><area shape="rect" id="node15" href="resource_8h.html" title="resource.h" alt="" coords="5,160,88,190"/><area shape="rect" id="node71" href="_cape2_fluent__i_8h.html" title="Cape2Fluent_i.h" alt="" coords="2861,83,2976,112"/><area shape="rect" id="node5" href="targetver_8h.html" title="targetver.h" alt="" coords="2480,160,2563,190"/><area shape="rect" id="node7" href="definicje_8h.html" title="definicje.h" alt="" coords="2587,160,2667,190"/><area shape="rect" id="node29" href="_c___params_8h.html" title="C_Params.h" alt="" coords="1416,160,1509,190"/><area shape="rect" id="node35" href="_c___error_8h.html" title="C_Error.h" alt="" coords="1360,315,1437,344"/><area shape="rect" id="node39" href="_c__my_run_process_8h.html" title="C_myRunProcess.h" alt="" coords="1584,160,1723,190"/><area shape="rect" id="node43" href="_c___parameter___container_8h.html" title="c_parameter_container.h" alt="" coords="1539,315,1704,344"/><area shape="rect" id="node52" href="__my_dialog_param_8h.html" title="_mydialogparam.h" alt="" coords="1933,160,2061,190"/><area shape="rect" id="node33" href="_data___to___read_8h.html" title="Data_To_Read.h" alt="" coords="1404,238,1521,267"/><area shape="rect" id="node37" href="_c___node_8h.html" title="c_node.h" alt="" coords="1361,392,1436,422"/><area shape="rect" id="node41" href="_c___port_parameter___container_8h.html" title="C_PortParameter_Container.h" alt="" coords="1596,238,1791,267"/><area shape="rect" id="node45" href="_c___parameters___set_8h.html" title="C_Parameters_Set.h" alt="" coords="1551,392,1692,422"/></map>
+</div>
+<div class="dynheader">
+Ten wykres pokazuje, które pliki bezpośrednio lub pośrednio załączają ten plik:</div>
+<div class="dynsection">
+<div class="center"><img src="_cape2_fluent_8cpp__dep__incl.png" border="0" usemap="#_cape2_fluent_8cppdep_map" alt=""/></div>
+</div>
+
+<p><a href="_cape2_fluent_8cpp_source.html">Idź do kodu źródłowego tego pliku.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Funkcje</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDAPI&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent_8cpp.html#aec790f2871fbeaa4c5ea359ca1340d4e">DllCanUnloadNow</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDAPI&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent_8cpp.html#a73a670a07a66998f40cfc83d6fe14e06">DllGetClassObject</a> (REFCLSID rclsid, REFIID riid, LPVOID *ppv)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDAPI&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent_8cpp.html#a1789c2983bb86731829d3fbcffe31419">DllRegisterServer</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDAPI&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent_8cpp.html#a42a3a358a5d48982c811a999ec02931a">DllUnregisterServer</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">STDAPI&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent_8cpp.html#a80c4d41d1758bb8ba8a2f60ae71c2707">DllInstall</a> (BOOL bInstall, LPCWSTR pszCmdLine)</td></tr>
+</table>
+<hr/><h2>Dokumentacja funkcji</h2>
+<a class="anchor" id="aec790f2871fbeaa4c5ea359ca1340d4e"></a><!-- doxytag: member="Cape2Fluent.cpp::DllCanUnloadNow" ref="aec790f2871fbeaa4c5ea359ca1340d4e" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDAPI DllCanUnloadNow </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent_8cpp_source.html#l00015">15</a> pliku <a class="el" href="_cape2_fluent_8cpp_source.html">Cape2Fluent.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="dllmain_8cpp_source.html#l00009">_AtlModule</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a73a670a07a66998f40cfc83d6fe14e06"></a><!-- doxytag: member="Cape2Fluent.cpp::DllGetClassObject" ref="a73a670a07a66998f40cfc83d6fe14e06" args="(REFCLSID rclsid, REFIID riid, LPVOID *ppv)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDAPI DllGetClassObject </td>
+          <td>(</td>
+          <td class="paramtype">REFCLSID&nbsp;</td>
+          <td class="paramname"> <em>rclsid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">REFIID&nbsp;</td>
+          <td class="paramname"> <em>riid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LPVOID *&nbsp;</td>
+          <td class="paramname"> <em>ppv</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent_8cpp_source.html#l00023">23</a> pliku <a class="el" href="_cape2_fluent_8cpp_source.html">Cape2Fluent.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="dllmain_8cpp_source.html#l00009">_AtlModule</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a80c4d41d1758bb8ba8a2f60ae71c2707"></a><!-- doxytag: member="Cape2Fluent.cpp::DllInstall" ref="a80c4d41d1758bb8ba8a2f60ae71c2707" args="(BOOL bInstall, LPCWSTR pszCmdLine)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDAPI DllInstall </td>
+          <td>(</td>
+          <td class="paramtype">BOOL&nbsp;</td>
+          <td class="paramname"> <em>bInstall</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LPCWSTR&nbsp;</td>
+          <td class="paramname"> <em>pszCmdLine</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent_8cpp_source.html#l00047">47</a> pliku <a class="el" href="_cape2_fluent_8cpp_source.html">Cape2Fluent.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_cape2_fluent_8cpp_source.html#l00030">DllRegisterServer()</a> i <a class="el" href="_cape2_fluent_8cpp_source.html#l00039">DllUnregisterServer()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="_cape2_fluent_8cpp_a80c4d41d1758bb8ba8a2f60ae71c2707_cgraph.png" border="0" usemap="#_cape2_fluent_8cpp_a80c4d41d1758bb8ba8a2f60ae71c2707_cgraph_map" alt=""></div>
+<map name="_cape2_fluent_8cpp_a80c4d41d1758bb8ba8a2f60ae71c2707_cgraph_map" id="_cape2_fluent_8cpp_a80c4d41d1758bb8ba8a2f60ae71c2707_cgraph">
+<area shape="rect" id="node3" href="_cape2_fluent_8cpp.html#a1789c2983bb86731829d3fbcffe31419" title="DllRegisterServer" alt="" coords="132,5,252,35"/><area shape="rect" id="node5" href="_cape2_fluent_8cpp.html#a42a3a358a5d48982c811a999ec02931a" title="DllUnregisterServer" alt="" coords="127,59,257,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a1789c2983bb86731829d3fbcffe31419"></a><!-- doxytag: member="Cape2Fluent.cpp::DllRegisterServer" ref="a1789c2983bb86731829d3fbcffe31419" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDAPI DllRegisterServer </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent_8cpp_source.html#l00030">30</a> pliku <a class="el" href="_cape2_fluent_8cpp_source.html">Cape2Fluent.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="dllmain_8cpp_source.html#l00009">_AtlModule</a>.</p>
+
+<p>Odwołania w <a class="el" href="_cape2_fluent_8cpp_source.html#l00047">DllInstall()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="_cape2_fluent_8cpp_a1789c2983bb86731829d3fbcffe31419_icgraph.png" border="0" usemap="#_cape2_fluent_8cpp_a1789c2983bb86731829d3fbcffe31419_icgraph_map" alt=""></div>
+<map name="_cape2_fluent_8cpp_a1789c2983bb86731829d3fbcffe31419_icgraph_map" id="_cape2_fluent_8cpp_a1789c2983bb86731829d3fbcffe31419_icgraph">
+<area shape="rect" id="node3" href="_cape2_fluent_8cpp.html#a80c4d41d1758bb8ba8a2f60ae71c2707" title="DllInstall" alt="" coords="177,5,247,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a42a3a358a5d48982c811a999ec02931a"></a><!-- doxytag: member="Cape2Fluent.cpp::DllUnregisterServer" ref="a42a3a358a5d48982c811a999ec02931a" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">STDAPI DllUnregisterServer </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent_8cpp_source.html#l00039">39</a> pliku <a class="el" href="_cape2_fluent_8cpp_source.html">Cape2Fluent.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="dllmain_8cpp_source.html#l00009">_AtlModule</a>.</p>
+
+<p>Odwołania w <a class="el" href="_cape2_fluent_8cpp_source.html#l00047">DllInstall()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="_cape2_fluent_8cpp_a42a3a358a5d48982c811a999ec02931a_icgraph.png" border="0" usemap="#_cape2_fluent_8cpp_a42a3a358a5d48982c811a999ec02931a_icgraph_map" alt=""></div>
+<map name="_cape2_fluent_8cpp_a42a3a358a5d48982c811a999ec02931a_icgraph_map" id="_cape2_fluent_8cpp_a42a3a358a5d48982c811a999ec02931a_icgraph">
+<area shape="rect" id="node3" href="_cape2_fluent_8cpp.html#a80c4d41d1758bb8ba8a2f60ae71c2707" title="DllInstall" alt="" coords="188,5,257,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+</div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:28 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

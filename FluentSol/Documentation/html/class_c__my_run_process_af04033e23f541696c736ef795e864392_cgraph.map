@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy." alt="" coords="327,5,452,35"/>
+<area shape="rect" id="node12" href="$class_data___to___read.html#acf5b344c1a44480144bb3d1a93f138b2" title="Zwraca ilosc wpisów &#45; danych przechowywanych." alt="" coords="629,189,779,219"/>
+<area shape="rect" id="node14" href="$class_data___to___read.html#a1f2247e03f494d45dd2bacf4fde00c92" title="Zwraca numer linii zawierającej dany ciąg tekstowy na danej pozycji podciągu...." alt="" coords="295,109,484,139"/>
+<area shape="rect" id="node16" href="$class_data___to___read.html#a6a3deab57b0e9d8e040ab3c548595bf9" title="Zwraca wskaźnik do podciągu." alt="" coords="608,109,800,139"/>
+<area shape="rect" id="node20" href="$class_c___port_parameter___container.html#a40f71af3c7efa9ae20bad902f781f7d0" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="248,320,531,349"/>
+<area shape="rect" id="node27" href="$class_c__my_run_process.html#afe8240365804cc09bf7df066c64859a6" title="funkcja usuwa podwójnego slaska do ściezek, modyfikuje ciąg wejściowy" alt="" coords="263,267,516,296"/>
+<area shape="rect" id="node29" href="$class_c___params.html#a96db4b5bc8d67d374eb52b3d4b90446d" title="Dokonuje sprawdzenia czy spełnione są określone warunki." alt="" coords="299,163,480,192"/>
+<area shape="rect" id="node5" href="$class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy." alt="" coords="637,5,771,35"/>
+<area shape="rect" id="node7" href="$class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego." alt="" coords="1165,5,1296,35"/>
+<area shape="rect" id="node9" href="$class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów." alt="" coords="901,31,1093,60"/>
+<area shape="rect" id="node18" href="$class_data___to___read.html#a2ae9b120ce85df4bbb0b36b61f9a39c0" title="Zwraca ilosc podciągów." alt="" coords="877,109,1117,139"/>
+<area shape="rect" id="node22" href="$class_c___parameter___container.html#a3025843a154aec4c2e75a412ec81385e" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="580,320,828,349"/>
+<area shape="rect" id="node24" href="$class_c___parameter___container.html#accb414d013c6b9d04596c01b1b19a008" title="Zwraca id komponentu na podstawie nazwy, lub &#45;1 gdy nie ma go." alt="" coords="880,320,1115,349"/>
+</map>

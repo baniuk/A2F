@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Dokumentacja klasy C_Error</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Lista&nbsp;klas</span></a></li>
+      <li><a href="classes.html"><span>Indeks&nbsp;klas</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchia&nbsp;klas</span></a></li>
+      <li><a href="functions.html"><span>Składowe&nbsp;klas</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja klasy C_Error</h1><!-- doxytag: class="C_Error" --><!-- doxytag: inherits="C_Node" -->
+<p>Klasa do obsługi błędów.  
+<a href="#_details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_c___error_8h_source.html">C_Error.h</a>&gt;</code></p>
+
+<p>Dziedziczy <a class="el" href="class_c___node.html">C_Node</a>.</p>
+<div class="dynheader">
+Diagram współpracy dla C_Error:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___error__coll__graph.png" border="0" usemap="#_c___error_coll__map" alt="Collaboration graph"/></div>
+<map name="_c___error_coll__map" id="_c___error_coll__map">
+<area shape="rect" id="node2" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych." alt="" coords="5,5,72,35"/></map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legenda</a>]</span></center></div>
+
+<p><a href="class_c___error-members.html">Lista wszystkich składowych.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Metody publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___error.html#a3e7833582416737065bb80b2eaed898d">C_Error</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___error.html#a493679c4cad164dadce1b2e3a82e550d">C_Error</a> (char *edata)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___error.html#ad24b9c0338bf8b19f4f419e790442bc8">~C_Error</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___error.html#a8b7364721f28a4ec024f2d9541619452">AddError</a> (char *error)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Dodaje komunikat o błędzie do listy.  <a href="#a8b7364721f28a4ec024f2d9541619452"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___error.html#ac88832708e7110c890f78f7c9348c2bd">PrintAll</a> (void)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Zgrywa wszystkie błedy na dysk.  <a href="#ac88832708e7110c890f78f7c9348c2bd"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___error.html#accf210fb142275680f7b1be63fc90cb6">ClearErrorStatus</a> (void)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Czyści wszystkie komunikaty.  <a href="#accf210fb142275680f7b1be63fc90cb6"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Atrybuty prywatne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___error.html#a042008d36fc7830a128929c94f9059f9">changes</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Ta zmienna jest ustawiana na TRUE jeśli od ostatniego czyszczenia lub nagrania na dysk coś się zmieniło.  <a href="#a042008d36fc7830a128929c94f9059f9"></a><br/></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+<p>Klasa do obsługi błędów. </p>
+<p>Klasa umożliwia przechowanie dowolnej ilości komunikatów o błędach a następnie nagranie ich na dysk. Maksymalna długość komunikatu jest limitowana definicją MAX_ERROR w <a class="el" href="definicje_8h.html">definicje.h</a> </p>
+
+<p>Definicja w linii <a class="el" href="_c___error_8h_source.html#l00008">8</a> pliku <a class="el" href="_c___error_8h_source.html">C_Error.h</a>.</p>
+<hr/><h2>Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="a3e7833582416737065bb80b2eaed898d"></a><!-- doxytag: member="C_Error::C_Error" ref="a3e7833582416737065bb80b2eaed898d" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">C_Error::C_Error </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___error_8cpp_source.html#l00004">4</a> pliku <a class="el" href="_c___error_8cpp_source.html">C_Error.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___error_8h_source.html#l00036">changes</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a493679c4cad164dadce1b2e3a82e550d"></a><!-- doxytag: member="C_Error::C_Error" ref="a493679c4cad164dadce1b2e3a82e550d" args="(char *edata)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">C_Error::C_Error </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>edata</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___error_8cpp_source.html#l00009">9</a> pliku <a class="el" href="_c___error_8cpp_source.html">C_Error.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___error_8h_source.html#l00036">changes</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad24b9c0338bf8b19f4f419e790442bc8"></a><!-- doxytag: member="C_Error::~C_Error" ref="ad24b9c0338bf8b19f4f419e790442bc8" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">C_Error::~C_Error </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___error_8cpp_source.html#l00014">14</a> pliku <a class="el" href="_c___error_8cpp_source.html">C_Error.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="a8b7364721f28a4ec024f2d9541619452"></a><!-- doxytag: member="C_Error::AddError" ref="a8b7364721f28a4ec024f2d9541619452" args="(char *error)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void C_Error::AddError </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>error</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Dodaje komunikat o błędzie do listy. </p>
+<p>Dodaje komunikat o błędzie do listy oraz ustawia zmienną <a class="el" href="class_c___error.html#a042008d36fc7830a128929c94f9059f9" title="Ta zmienna jest ustawiana na TRUE jeśli od ostatniego czyszczenia lub nagrania na...">C_Error::changes</a> na FALSE </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>error</em>&nbsp;</td><td>ciąg tekstowy z błędem </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c___error_8cpp_source.html#l00018">18</a> pliku <a class="el" href="_c___error_8cpp_source.html">C_Error.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___node_8cpp_source.html#l00030">C_Node::Add_Next()</a> i <a class="el" href="_c___error_8h_source.html#l00036">changes</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">CUnitOperation::Calculate()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">C_Params::Creadfile()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a>, <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation::CUnitOperation()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00596">C_myRunProcess::ImportData()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00022">C_myRunProcess::StartFluent()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00086">C_myRunProcess::WaitForProcess()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00065">C_myRunProcess::WaitForStart()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___error_a8b7364721f28a4ec024f2d9541619452_cgraph.png" border="0" usemap="#class_c___error_a8b7364721f28a4ec024f2d9541619452_cgraph_map" alt=""></div>
+<map name="class_c___error_a8b7364721f28a4ec024f2d9541619452_cgraph_map" id="class_c___error_a8b7364721f28a4ec024f2d9541619452_cgraph">
+<area shape="rect" id="node3" href="class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy." alt="" coords="179,5,312,35"/><area shape="rect" id="node5" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego." alt="" coords="600,5,731,35"/><area shape="rect" id="node7" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów." alt="" coords="360,31,552,60"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___error_a8b7364721f28a4ec024f2d9541619452_icgraph.png" border="0" usemap="#class_c___error_a8b7364721f28a4ec024f2d9541619452_icgraph_map" alt=""></div>
+<map name="class_c___error_a8b7364721f28a4ec024f2d9541619452_icgraph_map" id="class_c___error_a8b7364721f28a4ec024f2d9541619452_icgraph">
+<area shape="rect" id="node3" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="964,199,1135,228"/><area shape="rect" id="node5" href="class_c___params.html#ab65d753c172afbdef6828a2804e88b91" title="Wczytuje i analizuje plik konfiguracyjny." alt="" coords="223,71,364,100"/><area shape="rect" id="node7" href="class_c_unit_operation.html#a3e8877612e6772acf65ea50f198f91d8" title="CUnitOperation::CUnitOperation" alt="" coords="459,96,664,125"/><area shape="rect" id="node9" href="class_c__my_run_process.html#af04033e23f541696c736ef795e864392" title="Tworzy środowisko do uruchomienia fluenta &#45; generuje scm oraz journalC_Params." alt="" coords="717,172,912,201"/><area shape="rect" id="node13" href="class_c__my_run_process.html#a96de0e119537f9f36f3cfaa8da96280f" title="Wczytuje dane z Fluenta." alt="" coords="463,224,660,253"/><area shape="rect" id="node16" href="class_c__my_run_process.html#a4c5555e8dc1c88ff665e247f371f73ef" title="C_myRunProcess::StartFluent" alt="" coords="716,276,913,305"/><area shape="rect" id="node19" href="class_c__my_run_process.html#ac445542726d5877bef97f4f34fde85cd" title="C_myRunProcess::WaitForProcess" alt="" coords="179,328,408,357"/><area shape="rect" id="node21" href="class_c__my_run_process.html#a06bdfb895da68f5d45e769f4986a43c5" title="C_myRunProcess::WaitForStart" alt="" coords="457,328,665,357"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="accf210fb142275680f7b1be63fc90cb6"></a><!-- doxytag: member="C_Error::ClearErrorStatus" ref="accf210fb142275680f7b1be63fc90cb6" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void C_Error::ClearErrorStatus </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Czyści wszystkie komunikaty. </p>
+<p>Czyści wszystkie komunikaty - zeruje całą listę oraz ustawia zmienną <a class="el" href="class_c___error.html#a042008d36fc7830a128929c94f9059f9" title="Ta zmienna jest ustawiana na TRUE jeśli od ostatniego czyszczenia lub nagrania na...">C_Error::changes</a> na FALSE </p>
+
+<p>Definicja w linii <a class="el" href="_c___error_8cpp_source.html#l00024">24</a> pliku <a class="el" href="_c___error_8cpp_source.html">C_Error.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___error_8h_source.html#l00036">changes</a> i <a class="el" href="_c___node_8cpp_source.html#l00064">C_Node::Clear_All()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___error_accf210fb142275680f7b1be63fc90cb6_cgraph.png" border="0" usemap="#class_c___error_accf210fb142275680f7b1be63fc90cb6_cgraph_map" alt=""></div>
+<map name="class_c___error_accf210fb142275680f7b1be63fc90cb6_cgraph_map" id="class_c___error_accf210fb142275680f7b1be63fc90cb6_cgraph">
+<area shape="rect" id="node3" href="class_c___node.html#a063a587f5dd7736b9b924879b80d133c" title="Kasuje wszyskie wezły." alt="" coords="224,5,352,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac88832708e7110c890f78f7c9348c2bd"></a><!-- doxytag: member="C_Error::PrintAll" ref="ac88832708e7110c890f78f7c9348c2bd" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void C_Error::PrintAll </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Zgrywa wszystkie błedy na dysk. </p>
+<p>Zgrywa wszystkie błedy na dysk do domyślemgo pliku C:errorlog.txt. Komunikaty nie są czyszczone oraz ustawia zmienną <a class="el" href="class_c___error.html#a042008d36fc7830a128929c94f9059f9" title="Ta zmienna jest ustawiana na TRUE jeśli od ostatniego czyszczenia lub nagrania na...">C_Error::changes</a> na FALSE </p>
+
+<p>Definicja w linii <a class="el" href="_c___error_8cpp_source.html#l00030">30</a> pliku <a class="el" href="_c___error_8cpp_source.html">C_Error.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___error_8h_source.html#l00036">changes</a>, <a class="el" href="_c___node_8h_source.html#l00056">C_Node::data</a>, <a class="el" href="_c___node_8cpp_source.html#l00023">C_Node::Get_Next()</a> i <a class="el" href="_c___node_8cpp_source.html#l00050">C_Node::Get_Num_of_Nodes()</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">CUnitOperation::Calculate()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00187">CUnitOperation::~CUnitOperation()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___error_ac88832708e7110c890f78f7c9348c2bd_cgraph.png" border="0" usemap="#class_c___error_ac88832708e7110c890f78f7c9348c2bd_cgraph_map" alt=""></div>
+<map name="class_c___error_ac88832708e7110c890f78f7c9348c2bd_cgraph_map" id="class_c___error_ac88832708e7110c890f78f7c9348c2bd_cgraph">
+<area shape="rect" id="node3" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego." alt="" coords="411,5,541,35"/><area shape="rect" id="node5" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów." alt="" coords="171,31,363,60"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___error_ac88832708e7110c890f78f7c9348c2bd_icgraph.png" border="0" usemap="#class_c___error_ac88832708e7110c890f78f7c9348c2bd_icgraph_map" alt=""></div>
+<map name="class_c___error_ac88832708e7110c890f78f7c9348c2bd_icgraph_map" id="class_c___error_ac88832708e7110c890f78f7c9348c2bd_icgraph">
+<area shape="rect" id="node3" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="193,5,364,35"/><area shape="rect" id="node5" href="class_c_unit_operation.html#a5742dcfc6765c1d5e5095050ccc13bb5" title="CUnitOperation::~CUnitOperation" alt="" coords="172,59,385,88"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja atrybutów składowych</h2>
+<a class="anchor" id="a042008d36fc7830a128929c94f9059f9"></a><!-- doxytag: member="C_Error::changes" ref="a042008d36fc7830a128929c94f9059f9" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c___error.html#a042008d36fc7830a128929c94f9059f9">C_Error::changes</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Ta zmienna jest ustawiana na TRUE jeśli od ostatniego czyszczenia lub nagrania na dysk coś się zmieniło. </p>
+
+<p>Definicja w linii <a class="el" href="_c___error_8h_source.html#l00036">36</a> pliku <a class="el" href="_c___error_8h_source.html">C_Error.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___error_8cpp_source.html#l00018">AddError()</a>, <a class="el" href="_c___error_8cpp_source.html#l00004">C_Error()</a>, <a class="el" href="_c___error_8cpp_source.html#l00024">ClearErrorStatus()</a> i <a class="el" href="_c___error_8cpp_source.html#l00030">PrintAll()</a>.</p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li><a class="el" href="_c___error_8h_source.html">C_Error.h</a></li>
+<li><a class="el" href="_c___error_8cpp_source.html">C_Error.cpp</a></li>
+</ul>
+</div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:29 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

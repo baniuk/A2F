@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Dokumentacja interfejsu IComponentRegistrar</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Lista&nbsp;klas</span></a></li>
+      <li><a href="classes.html"><span>Indeks&nbsp;klas</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchia&nbsp;klas</span></a></li>
+      <li><a href="functions.html"><span>Składowe&nbsp;klas</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja interfejsu IComponentRegistrar</h1><!-- doxytag: class="IComponentRegistrar" -->
+<p><code>import &quot;<a class="el" href="_cape2_fluent_8idl_source.html">Cape2Fluent.idl</a>&quot;;</code></p>
+
+<p><a href="interface_i_component_registrar-members.html">Lista wszystkich składowych.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Metody publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">HRESULT&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_component_registrar.html#ad8e353fe42ab39d68fd3cd83dfe33566">Attach</a> ([in] BSTR bstrPath)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">HRESULT&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_component_registrar.html#a7fc68627af009649a7bea2b6a697ec0f">RegisterAll</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">HRESULT&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_component_registrar.html#af2b87c2f1b13162a1fa1e34c2bfd0889">UnregisterAll</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">HRESULT&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_component_registrar.html#a8b974630542cafcd8f332cdd53487b9c">GetComponents</a> ([out] SAFEARRAY(BSTR)*pbstrCLSIDs,[out] SAFEARRAY(BSTR)*pbstrDescriptions)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">HRESULT&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_component_registrar.html#a9ea38156a1980fbaee3701ffab99ef23">RegisterComponent</a> ([in] BSTR bstrCLSID)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">HRESULT&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_i_component_registrar.html#af19fbe60115f48bc1ad7e80608bee55a">UnregisterComponent</a> ([in] BSTR bstrCLSID)</td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent_8idl_source.html#l00018">18</a> pliku <a class="el" href="_cape2_fluent_8idl_source.html">Cape2Fluent.idl</a>.</p>
+<hr/><h2>Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="ad8e353fe42ab39d68fd3cd83dfe33566"></a><!-- doxytag: member="IComponentRegistrar::Attach" ref="ad8e353fe42ab39d68fd3cd83dfe33566" args="([in] BSTR bstrPath)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HRESULT IComponentRegistrar::Attach </td>
+          <td>(</td>
+          <td class="paramtype">[in] BSTR&nbsp;</td>
+          <td class="paramname"> <em>bstrPath</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8b974630542cafcd8f332cdd53487b9c"></a><!-- doxytag: member="IComponentRegistrar::GetComponents" ref="a8b974630542cafcd8f332cdd53487b9c" args="([out] SAFEARRAY(BSTR)*pbstrCLSIDs,[out] SAFEARRAY(BSTR)*pbstrDescriptions)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HRESULT IComponentRegistrar::GetComponents </td>
+          <td>(</td>
+          <td class="paramtype">[out] SAFEARRAY(BSTR)*&nbsp;</td>
+          <td class="paramname"> <em>pbstrCLSIDs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">[out] SAFEARRAY(BSTR)*&nbsp;</td>
+          <td class="paramname"> <em>pbstrDescriptions</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7fc68627af009649a7bea2b6a697ec0f"></a><!-- doxytag: member="IComponentRegistrar::RegisterAll" ref="a7fc68627af009649a7bea2b6a697ec0f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HRESULT IComponentRegistrar::RegisterAll </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9ea38156a1980fbaee3701ffab99ef23"></a><!-- doxytag: member="IComponentRegistrar::RegisterComponent" ref="a9ea38156a1980fbaee3701ffab99ef23" args="([in] BSTR bstrCLSID)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HRESULT IComponentRegistrar::RegisterComponent </td>
+          <td>(</td>
+          <td class="paramtype">[in] BSTR&nbsp;</td>
+          <td class="paramname"> <em>bstrCLSID</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af2b87c2f1b13162a1fa1e34c2bfd0889"></a><!-- doxytag: member="IComponentRegistrar::UnregisterAll" ref="af2b87c2f1b13162a1fa1e34c2bfd0889" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HRESULT IComponentRegistrar::UnregisterAll </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af19fbe60115f48bc1ad7e80608bee55a"></a><!-- doxytag: member="IComponentRegistrar::UnregisterComponent" ref="af19fbe60115f48bc1ad7e80608bee55a" args="([in] BSTR bstrCLSID)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">HRESULT IComponentRegistrar::UnregisterComponent </td>
+          <td>(</td>
+          <td class="paramtype">[in] BSTR&nbsp;</td>
+          <td class="paramname"> <em>bstrCLSID</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/>Dokumentacja dla tego interfejsu została wygenerowana z pliku:<ul>
+<li><a class="el" href="_cape2_fluent_8idl_source.html">Cape2Fluent.idl</a></li>
+</ul>
+</div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:39 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

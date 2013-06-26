@@ -1,0 +1,7 @@
+fluent.exe 3ddp -i journal
+
+journal:
+(load "E:\FluentInc\ntbin\ntx86\test.scm" )
+
+test.scm:
+(ti-menu-load-string "display/open-window 0")

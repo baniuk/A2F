@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$class_c___error.html" title="Klasa do obsługi błędów." alt="" coords="5,101,72,131"/>
+<area shape="rect" id="node9" href="$class_c___params.html" title="Klasa do obsługi jezyka skryptowego do przekazaywnia parametrów z wykorzystaniem..." alt="" coords="93,283,176,312"/>
+<area shape="rect" id="node16" href="$class_c__my_run_process.html" title="Klasa służąca do obsługi fluenta. Trzyma dane związane z strumieniami, obrabia..." alt="" coords="373,429,499,459"/>
+<area shape="rect" id="node4" href="$class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych." alt="" coords="5,5,72,35"/>
+<area shape="rect" id="node7" href="$interface_i_port.html" title="IPort" alt="" coords="29,429,77,459"/>
+<area shape="rect" id="node12" href="$class_data___to___read.html" title="Klasa sluzy do przechowywania danych jesli jest ich kilka do jednego rozkazu." alt="" coords="96,101,203,131"/>
+<area shape="rect" id="node14" href="$class_c__my_dialog_param.html" title="C_myDialogParam" alt="" coords="219,429,349,459"/>
+<area shape="rect" id="node20" href="$class_c___port_parameter___container.html" title="Klasa przechowuje kontainery z parametrami dla poszczególnych wejsc, parametry powiązane..." alt="" coords="344,283,528,312"/>
+<area shape="rect" id="node22" href="$class_c___parameter___container.html" title="Klasa jest kontainerem z parametrami opisującymi poszczególne materiały, parametry..." alt="" coords="355,101,515,131"/>
+<area shape="rect" id="node24" href="$class_c___parameters___set.html" title="Przechowuje zbiór podstawowych parametrów. Enum musi się zgadzać z przechowywanymi..." alt="" coords="369,5,500,35"/>
+</map>

@@ -1,0 +1,26 @@
+HKCR
+{
+	CCF1.UnitOperation.1 = s 'UnitOperation Class'
+	{
+		CLSID = s '{060E165D-4FCF-49CB-96B6-427A5CFCB57A}'
+	}
+	CCF1.UnitOperation = s 'UnitOperation Class'
+	{
+		CLSID = s '{060E165D-4FCF-49CB-96B6-427A5CFCB57A}'
+		CurVer = s 'CCF1.UnitOperation.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {060E165D-4FCF-49CB-96B6-427A5CFCB57A} = s 'UnitOperation Class'
+		{
+			ProgID = s 'CCF1.UnitOperation.1'
+			VersionIndependentProgID = s 'CCF1.UnitOperation'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{57DD3450-4BD1-485B-AD22-B0057D38191D}'
+		}
+	}
+}

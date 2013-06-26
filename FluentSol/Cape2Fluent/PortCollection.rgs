@@ -1,0 +1,26 @@
+HKCR
+{
+	Cape2Fluent.PortCollection.1 = s 'PortCollection Class'
+	{
+		CLSID = s '{821998BE-7720-4F7F-9778-52C61DDA2888}'
+	}
+	Cape2Fluent.PortCollection = s 'PortCollection Class'
+	{
+		CLSID = s '{821998BE-7720-4F7F-9778-52C61DDA2888}'
+		CurVer = s 'Cape2Fluent.PortCollection.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {821998BE-7720-4F7F-9778-52C61DDA2888} = s 'PortCollection Class'
+		{
+			ProgID = s 'Cape2Fluent.PortCollection.1'
+			VersionIndependentProgID = s 'Cape2Fluent.PortCollection'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{A41DD893-4E3F-45A6-BBEF-425ECE7FA637}'
+		}
+	}
+}

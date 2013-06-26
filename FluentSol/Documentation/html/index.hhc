@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML><HEAD></HEAD><BODY>
+<OBJECT type="text/site properties">
+<param name="FrameName" value="right">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Fluent_sciezki"><param name="Local" value="_fs.html"><param name="ImageNumber" value="11"></OBJECT>
+  <UL>
+  </UL>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Introduction"><param name="Local" value="_intro.html"><param name="ImageNumber" value="11"></OBJECT>
+  <UL>
+  </UL>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Lista rzeczy do zrobienia"><param name="Local" value="todo.html"><param name="ImageNumber" value="11"></OBJECT>
+  <UL>
+  </UL>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Lista b³êdów"><param name="Local" value="bug.html"><param name="ImageNumber" value="11"></OBJECT>
+  <UL>
+  </UL>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Lista klas"><param name="Local" value="annotated.html"><param name="ImageNumber" value="1"></OBJECT>
+  <UL>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="_Cape2Fluent_MIDL_EXPR_FORMAT_STRING"><param name="Local" value="struct___cape2_fluent___m_i_d_l___e_x_p_r___f_o_r_m_a_t___s_t_r_i_n_g.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="_Cape2Fluent_MIDL_PROC_FORMAT_STRING"><param name="Local" value="struct___cape2_fluent___m_i_d_l___p_r_o_c___f_o_r_m_a_t___s_t_r_i_n_g.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="_Cape2Fluent_MIDL_TYPE_FORMAT_STRING"><param name="Local" value="struct___cape2_fluent___m_i_d_l___t_y_p_e___f_o_r_m_a_t___s_t_r_i_n_g.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="_IID"><param name="Local" value="struct___i_i_d.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Cape2FluentLib::_myDialog"><param name="Local" value="class_cape2_fluent_lib_1_1__my_dialog.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_Error"><param name="Local" value="class_c___error.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_myDialogParam"><param name="Local" value="class_c__my_dialog_param.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_myRunProcess"><param name="Local" value="class_c__my_run_process.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_Node"><param name="Local" value="class_c___node.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_Parameter_Container"><param name="Local" value="class_c___parameter___container.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_Parameters_Set"><param name="Local" value="class_c___parameters___set.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_Params"><param name="Local" value="class_c___params.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_PortParameter_Container"><param name="Local" value="class_c___port_parameter___container.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CCape2FluentApp"><param name="Local" value="class_c_cape2_fluent_app.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CCape2FluentModule"><param name="Local" value="class_c_cape2_fluent_module.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Cape2FluentLib::CompReg"><param name="Local" value="class_cape2_fluent_lib_1_1_comp_reg.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CParameterCollection"><param name="Local" value="class_c_parameter_collection.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CPort"><param name="Local" value="class_c_port.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CPortCollection"><param name="Local" value="class_c_port_collection.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CUnitOperation"><param name="Local" value="class_c_unit_operation.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Data_To_Read"><param name="Local" value="class_data___to___read.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Cape2FluentLib::I_myDialog"><param name="Local" value="interface_cape2_fluent_lib_1_1_i__my_dialog.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="I_myDialogVtbl"><param name="Local" value="struct_i__my_dialog_vtbl.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="IComponentRegistrar"><param name="Local" value="interface_i_component_registrar.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="IComponentRegistrarVtbl"><param name="Local" value="struct_i_component_registrar_vtbl.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="IParameterCollection"><param name="Local" value="interface_i_parameter_collection.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="IParameterCollectionVtbl"><param name="Local" value="struct_i_parameter_collection_vtbl.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="IPort"><param name="Local" value="interface_i_port.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="IPortCollection"><param name="Local" value="interface_i_port_collection.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="IPortCollectionVtbl"><param name="Local" value="struct_i_port_collection_vtbl.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="IPortVtbl"><param name="Local" value="struct_i_port_vtbl.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="IUnitOperation"><param name="Local" value="interface_i_unit_operation.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="IUnitOperationVtbl"><param name="Local" value="struct_i_unit_operation_vtbl.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Cape2FluentLib::ParameterCollection"><param name="Local" value="class_cape2_fluent_lib_1_1_parameter_collection.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Cape2FluentLib::Port"><param name="Local" value="class_cape2_fluent_lib_1_1_port.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Cape2FluentLib::PortCollection"><param name="Local" value="class_cape2_fluent_lib_1_1_port_collection.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Cape2FluentLib::UnitOperation"><param name="Local" value="class_cape2_fluent_lib_1_1_unit_operation.html"><param name="ImageNumber" value="11"></OBJECT>
+  </UL>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Hierarchia klas"><param name="Local" value="hierarchy.html"><param name="ImageNumber" value="1"></OBJECT>
+  <UL>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="_Cape2Fluent_MIDL_EXPR_FORMAT_STRING"><param name="Local" value="struct___cape2_fluent___m_i_d_l___e_x_p_r___f_o_r_m_a_t___s_t_r_i_n_g.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="_Cape2Fluent_MIDL_PROC_FORMAT_STRING"><param name="Local" value="struct___cape2_fluent___m_i_d_l___p_r_o_c___f_o_r_m_a_t___s_t_r_i_n_g.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="_Cape2Fluent_MIDL_TYPE_FORMAT_STRING"><param name="Local" value="struct___cape2_fluent___m_i_d_l___t_y_p_e___f_o_r_m_a_t___s_t_r_i_n_g.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="_IID"><param name="Local" value="struct___i_i_d.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Cape2FluentLib::_myDialog"><param name="Local" value="class_cape2_fluent_lib_1_1__my_dialog.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_myDialogParam"><param name="Local" value="class_c__my_dialog_param.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_myRunProcess"><param name="Local" value="class_c__my_run_process.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_Node"><param name="Local" value="class_c___node.html"><param name="ImageNumber" value="1"></OBJECT>
+    <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="C_Error"><param name="Local" value="class_c___error.html"><param name="ImageNumber" value="11"></OBJECT>
+    </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_Parameter_Container"><param name="Local" value="class_c___parameter___container.html"><param name="ImageNumber" value="1"></OBJECT>
+    <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="C_PortParameter_Container"><param name="Local" value="class_c___port_parameter___container.html"><param name="ImageNumber" value="11"></OBJECT>
+    </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_Parameters_Set"><param name="Local" value="class_c___parameters___set.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_Params"><param name="Local" value="class_c___params.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CCape2FluentApp"><param name="Local" value="class_c_cape2_fluent_app.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CCape2FluentModule"><param name="Local" value="class_c_cape2_fluent_module.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Cape2FluentLib::CompReg"><param name="Local" value="class_cape2_fluent_lib_1_1_comp_reg.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CParameterCollection"><param name="Local" value="class_c_parameter_collection.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CPort"><param name="Local" value="class_c_port.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CPortCollection"><param name="Local" value="class_c_port_collection.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CUnitOperation"><param name="Local" value="class_c_unit_operation.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Data_To_Read"><param name="Local" value="class_data___to___read.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Cape2FluentLib::I_myDialog"><param name="Local" value="interface_cape2_fluent_lib_1_1_i__my_dialog.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="I_myDialogVtbl"><param name="Local" value="struct_i__my_dialog_vtbl.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="IComponentRegistrar"><param name="Local" value="interface_i_component_registrar.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="IComponentRegistrarVtbl"><param name="Local" value="struct_i_component_registrar_vtbl.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="IParameterCollection"><param name="Local" value="interface_i_parameter_collection.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="IParameterCollectionVtbl"><param name="Local" value="struct_i_parameter_collection_vtbl.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="IPort"><param name="Local" value="interface_i_port.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="IPortCollection"><param name="Local" value="interface_i_port_collection.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="IPortCollectionVtbl"><param name="Local" value="struct_i_port_collection_vtbl.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="IPortVtbl"><param name="Local" value="struct_i_port_vtbl.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="IUnitOperation"><param name="Local" value="interface_i_unit_operation.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="IUnitOperationVtbl"><param name="Local" value="struct_i_unit_operation_vtbl.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Cape2FluentLib::ParameterCollection"><param name="Local" value="class_cape2_fluent_lib_1_1_parameter_collection.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Cape2FluentLib::Port"><param name="Local" value="class_cape2_fluent_lib_1_1_port.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Cape2FluentLib::PortCollection"><param name="Local" value="class_cape2_fluent_lib_1_1_port_collection.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Cape2FluentLib::UnitOperation"><param name="Local" value="class_cape2_fluent_lib_1_1_unit_operation.html"><param name="ImageNumber" value="11"></OBJECT>
+  </UL>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Sk³adowe klas"><param name="Local" value="functions.html"><param name="ImageNumber" value="11"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Graficzna hierarchia klas"><param name="Local" value="inherits.html"><param name="ImageNumber" value="11"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Lista przestrzeni nazw"><param name="Local" value="namespaces.html"><param name="ImageNumber" value="1"></OBJECT>
+  <UL>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Cape2FluentLib"><param name="Local" value="namespace_cape2_fluent_lib.html"><param name="ImageNumber" value="11"></OBJECT>
+  </UL>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Sk³adowe przestrzeni nazw"><param name="Local" value="namespacemembers.html"><param name="ImageNumber" value="11"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Lista plików"><param name="Local" value="files.html"><param name="ImageNumber" value="1"></OBJECT>
+  <UL>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="_myDialog.cpp"><param name="Local" value="__my_dialog_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="_myDialogParam.cpp"><param name="Local" value="__my_dialog_param_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="_myDialogParam.h"><param name="Local" value="__my_dialog_param_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_Error.cpp"><param name="Local" value="_c___error_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_Error.h"><param name="Local" value="_c___error_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_myRunProcess.cpp"><param name="Local" value="_c__my_run_process_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_myRunProcess.h"><param name="Local" value="_c__my_run_process_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_Node.cpp"><param name="Local" value="_c___node_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_Node.h"><param name="Local" value="_c___node_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_Parameter_Container.cpp"><param name="Local" value="_c___parameter___container_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_Parameter_Container.h"><param name="Local" value="_c___parameter___container_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_Parameters_Set.cpp"><param name="Local" value="_c___parameters___set_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_Parameters_Set.h"><param name="Local" value="_c___parameters___set_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_Params.cpp"><param name="Local" value="_c___params_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_Params.h"><param name="Local" value="_c___params_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_PortParameter_Container.cpp"><param name="Local" value="_c___port_parameter___container_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="C_PortParameter_Container.h"><param name="Local" value="_c___port_parameter___container_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Cape2Fluent.cpp"><param name="Local" value="_cape2_fluent_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Cape2Fluent.idl"><param name="Local" value="_cape2_fluent_8idl.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Cape2Fluent_i.c"><param name="Local" value="_cape2_fluent__i_8c.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Cape2Fluent_i.h"><param name="Local" value="_cape2_fluent__i_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Cape2Fluent_p.c"><param name="Local" value="_cape2_fluent__p_8c.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="compreg.cpp"><param name="Local" value="compreg_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="compreg.h"><param name="Local" value="compreg_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Data_To_Read.cpp"><param name="Local" value="_data___to___read_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Data_To_Read.h"><param name="Local" value="_data___to___read_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="definicje.h"><param name="Local" value="definicje_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="dlldata.c"><param name="Local" value="dlldata_8c.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="dllmain.cpp"><param name="Local" value="dllmain_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="dllmain.h"><param name="Local" value="dllmain_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Opis.h"><param name="Local" value="_opis_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="ParameterCollection.cpp"><param name="Local" value="_parameter_collection_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="ParameterCollection.h"><param name="Local" value="_parameter_collection_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Port.cpp"><param name="Local" value="_port_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Port.h"><param name="Local" value="_port_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="PortCollection.cpp"><param name="Local" value="_port_collection_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="PortCollection.h"><param name="Local" value="_port_collection_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="resource.h"><param name="Local" value="resource_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="stdafx.cpp"><param name="Local" value="stdafx_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="stdafx.h"><param name="Local" value="stdafx_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="targetver.h"><param name="Local" value="targetver_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="UnitOperation.cpp"><param name="Local" value="_unit_operation_8cpp.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="UnitOperation.h"><param name="Local" value="_unit_operation_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="version.h"><param name="Local" value="version_8h.html"><param name="ImageNumber" value="11"></OBJECT>
+  </UL>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Sk³adowe plików"><param name="Local" value="globals.html"><param name="ImageNumber" value="11"></OBJECT>
+</UL>
+</BODY>
+</HTML>

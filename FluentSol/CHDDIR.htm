@@ -1,0 +1,218 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="description" CONTENT="Replace MS-DOS Change Directory Command, CHDIR, CD" />
+<META NAME="keywords" CONTENT="Change Directory Command, CHDIR, CD, Change Drive and Directory, Long Filenames, Wildcard directory matching, MS-DOS, Windows" />
+<TITLE>CHDDIR - An intelligent replacement for the CD (CHDIR) Command</TITLE>
+</HEAD>
+<BODY>
+
+<hr align="left" size="12" color="#008000">
+<P ALIGN="CENTER"><FONT face="Arial Black" SIZE=6 COLOR="#800000">CHDDIR</FONT>
+</P>
+<B><P ALIGN="CENTER">
+<FONT FACE="Arial" size=5 color="#800000">An intelligent replacement for the CD (CHDIR) Command</FONT>
+</P></B>
+<P ALIGN="CENTER"><i><font face="Arial Black" size="5" color="#800000">Procon Construction Systems</font></i></P>
+<hr align="left" size="10" color="#008000">
+<B><FONT FACE="Arial" SIZE=4 COLOR="#008000">
+<P>
+WHAT IS CHDDIR?</P></FONT>
+</B>
+<b><font face="Lucida Console" color="#800000">CHDDIR.EXE</font></b>
+is a <i>command line program</i> that will switch the current <b>Drive</b> and <b>Directory</b>. It is a flexible and intelligent replacement for the internal 
+<font face="Lucida Console">COMMAND.COM</font> and <font face="Lucida Console">CMD.EXE</font> "Change Directory" command
+(<font face="Lucida Console">CD</font> or <font face="Lucida Console">CHDIR</font>).
+<p>
+The <font face="Lucida Console">CHDIR</font> command is a basic staple of Console operations but is quite limited.</p>
+<p>
+While maintaining basic compatibility with <font face="Lucida Console">CHDIR</font>,
+<b><i><font face="Arial" color="#800000">Procon's</font></i></b>
+<b><font face="Lucida Console" color="#800000">CHDDIR.EXE</font></b> speeds keyboard navigation in console modes as it will:-</p>
+<ul>
+<li>change the <i> Drive</i> as well as the <i>Directory</i>,</li>
+<li>accept <i> abbreviated</i> notation,</li>
+<li>try to match <i> partial directory names</i>, and</li>
+<li>provide <i> quasi-Long Filename support</i> - even under <font face="Lucida Sans Unicode" color="#008000">MS-DOS</font>
+and <font face="Lucida Sans Unicode" color="#008000">Windows 9x</font>.</li>
+</ul>
+<p>
+<b><font face="Lucida Console" color="#800000">CHDDIR.EXE</font></b> also avoids a few anomalies in 
+<b><font face="Lucida Console" color="#800000">CHDIR</font></b> in that it:-</p>
+<ul>
+<li>accepts <i> any number of periods</i> to indicate higher directory level(s)
+(<font face="Lucida Sans Unicode" color="#008000">Windows 98</font> <b><font face="Lucida Console" color="#800000"> CHDIR</font></b> does.
+<font face="Lucida Sans Unicode" color="#008000"> Windows NT/2000/XP</font>
+<b><font face="Lucida Console" color="#800000">CHDIR</font></b> doesn't).</li>
+<li>accepts both <i> forward slashes</i> (<font face="Lucida Sans Unicode" color="#008000">Unix</font> like) and
+<i> back slashes</i> as directory separators,</li>
+<li>accepts directories with - and without - <i>trailing slashes</i>,</li>
+<li>shows the <i> effect of the action</i> (e.g.,
+<font face="Lucida Console" color="#800000">CHDDir => [NewDrive:\NewDir]</font>) and - if there is room on the line - the <i> system time and date</i>,</li>
+<li>allows <i> command line redirection</i> of output and error messages, and</li>
+<li>correctly sets the <font face="Lucida Console" color="#800000">ERRORLEVEL</font> when parameters are invalid.</li>
+</ul>
+<p>
+<b><font face="Lucida Console" color="#800000">CHDDIR.EXE</font></b> is a <font face="Arial"><b> 16-bit</b></font> program that will work in:-</p>
+<ul>
+<li><font face="Lucida Sans Unicode" color="#008000">MS-DOS</font>,</li>
+<li><font face="Lucida Sans Unicode" color="#008000">Windows 9x &quot;DOS Boxes&quot;</font>,</li>
+<li><font face="Lucida Sans Unicode" color="#008000">Windows 2000/XP/NT Console modes</font>,</li>
+<li><font face="Lucida Sans Unicode" color="#008000">4NT</font> and <font face="Lucida Sans Unicode" color="#008000"> 4DOS shells</font>, and</li>
+<li>with <font face="Lucida Sans Unicode" color="#008000"> command line enhancers</font> like
+<font face="Lucida Sans Unicode" color="#008000">DOSKEY</font>,
+<font face="Lucida Sans Unicode" color="#008000">PCED</font>, etc.</li>
+</ul>
+<hr align="left" size="6" color="#008000">
+<p>
+<b><font face="Arial" size="4" color="#008000">
+SYNTAX</font></b></p>
+<blockquote>
+<p>
+<font face="Lucida Console" color="#800000">CHDDIR [Drive:][Directory Path]<br>
+CHDDIR [Drive:] [Directory1] [SubPath2]</font> etc.</p>
+<p>
+<font face="Lucida Console" color="#800000">CHDDIR  /?<br>
+CHDDIR  /H<br>
+CHDDIR  /HELP&nbsp;</font>- Displays a Help Screen</p>
+</blockquote>
+<hr align="left" size="6" color="#008000">
+<p>
+<font face="Arial" size="4" color="#008000"><b>EXAMPLES</b></font></p>
+<blockquote>
+<p>
+<font face="Lucida Console" color="#800000">CHDDIR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>- Parent Directory (Default)<br>
+<font face="Lucida Console" color="#800000">CHDDIR  .&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>- Current Directory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shows current directory and system time and date.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A useful log command in batch files and scripts.<br>
+<font face="Lucida Console" color="#800000">CHDDIR  ..&nbsp;&nbsp;&nbsp;&nbsp;</font>- Parent Directory<br>
+<font face="Lucida Console" color="#800000">CHDDIR  ...&nbsp;&nbsp;&nbsp;</font>- GrandParent<br>
+<font face="Lucida Console" color="#800000">CHDDIR  ....&nbsp;&nbsp;</font>- Great GrandParent, etc.</p>
+<p>
+<font face="Lucida Console" color="#800000">CHDDIR  \&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>- Root Directory<br>
+<font face="Lucida Console" color="#800000">CHDDIR  MSDEV98\BIN&nbsp;&nbsp;&nbsp;&nbsp;</font>- Relative Path<br>
+<font face="Lucida Console" color="#800000">CHDDIR  MSDEV98/BIN/&nbsp;&nbsp;&nbsp;</font>- Same as above<br>
+<font face="Lucida Console" color="#800000">CHDDIR  MSDEV98  BIN&nbsp;&nbsp;&nbsp;&nbsp;</font>- Same as above<br>
+<font face="Lucida Console" color="#800000">CHDDIR  M B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>- Probably the same<br>
+<font face="Lucida Console" color="#800000">CHDDIR  M\B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>- Probably the same<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Local directory 'M' so match 'MSDEV98'.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Subdirectory 'MSDEV98\B' so match 'MSDEV98\BIN'</p>
+<p>
+<font face="Lucida Console" color="#800000">CHDDIR  H:\WINNT\SYSTEM32&nbsp;&nbsp;&nbsp;&nbsp;</font>- Full Path with Drive<br>
+<font face="Lucida Console" color="#800000">CHDDIR  H: \WINNT SYSTEM32&nbsp;&nbsp;&nbsp;</font>- Same as above<br>
+<font face="Lucida Console" color="#800000">CHDDIR  H:/ WI SYSTEM3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>- Probably same as above</p>
+<p>
+<font face="Lucida Console" color="#800000">CHDDIR  d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>- <font face="Lucida Console" color="#800000"> D</font> or <font face="Lucida Console" color="#800000"> D:\</font> or
+<font face="Lucida Console" color="#800000"> \D</font> or perhaps <font face="Lucida Console" color="#800000"> DATA</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Local subdirectory '<font face="Lucida Console" color="#800000">D</font>',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if not found, Drive '<font face="Lucida Console" color="#800000">D:</font>',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if not found, Root Directory '<font face="Lucida Console" color="#800000">\D</font>',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if not found, match local Directory '<font face="Lucida Console" color="#800000">D*</font>',</p>
+<p>
+<font face="Lucida Console" color="#800000">CHDDIR  K UTIL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>- <font face="Lucida Console" color="#800000"> K\UTIL</font> or
+<font face="Lucida Console" color="#800000"> K:\UTIL</font> or <font face="Lucida Console" color="#800000"> \K\UTIL</font><br>
+<font face="Lucida Console" color="#800000">CHDDIR  d
+/u&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>- <font face="Lucida Console" color="#800000"> D\U</font> or
+<font face="Lucida Console" color="#800000"> D:\U</font> or perhaps <font face="Lucida Console" color="#800000"> D:\UTIL</font></p>
+<p>
+<font face="Lucida Console" color="#800000">CHDDIR  c \w sys&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>- Probably <font face="Lucida Console" color="#800000"> C:\WINNT\SYSTEM</font><br>
+<font face="Lucida Console" color="#800000">CHDDIR  c \w fo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>&nbsp;&nbsp;&nbsp;&nbsp;- Windows <font face="Lucida Console" color="#800000">FONTS</font> Directory?<br>
+<font face="Lucida Console" color="#800000">CHDDIR  c /w/fo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>&nbsp;&nbsp;&nbsp;&nbsp;- Windows <font face="Lucida Console" color="#800000">FONTS</font> Directory?<br><br>
+<font face="Lucida Console" color="#800000">CHDDIR  "C:\Documents and Settings\All Users"</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Pathnames with spaces must be quoted<br><br>
+<font face="Lucida Console" color="#800000">CHDDIR  %windir%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>- Probably <font face="Lucida Console" color="#800000"> C:\WINNT</font><br>
+<font face="Lucida Console" color="#800000">CHDDIR  %windir% f&nbsp;&nbsp;&nbsp;
+</font>- Probably Windows Favourites</p>
+</blockquote>
+<hr align="left" size="6" color="#008000">
+<p>
+<b><font face="Arial" size="4" color="#008000">INSTALLATION AND USAGE</font></b></p>
+<p>
+As <b><font face="Lucida Console" color="#800000">CHDDIR</font></b> is designed to save time and typing, you should make it accessible with a single letter keystroke (e.g.,
+'<b><font face="Lucida Console" color="#800000">Z</font></b>' or '<b><font face="Lucida Console" color="#800000">C</font></b>').</p>
+<p>
+You can do this by establishing a 
+<font face="Lucida Sans Unicode" color="#008000">DOSKEY</font> or
+<font face="Lucida Sans Unicode" color="#008000">4NT</font> alias for the executable.<br>
+For example, the line:-<br>
+<font face="Lucida Console" color="#800000">&nbsp;&nbsp;&nbsp;Z=D:\UTIL\CHDDIR.EXE $*</font><br>
+in a <font face="Lucida Sans Unicode" color="#008000">DOSKEY</font> alias definition file would allow you to invoke the command by just typing the single letter
+<font face="Lucida Console" color="#800000">Z</font>.</p>
+<p>
+Alternatively, you can just copy (and rename) the file
+<font face="Lucida Console" color="#800000">CHDDIR.EXE</font> into a directory included in the
+<font face="Lucida Console" color="#800000">PATH</font> command.<br>
+For example:-<br>
+<font face="Lucida Console" color="#800000">&nbsp;&nbsp;&nbsp;COPY  CHDDIR.EXE  D:\UTIL\Z.EXE</font><br>
+would achieve the same result.</p>
+<hr align="left" size="6" color="#008000">
+<p>
+<b><font face="Arial" size="4" color="#008000">RESOLVING AMBIGUITIES</font></b></p>
+<p>
+When you provide Directory names, e.g., <font face="Lucida Console" color="#800000">&quot;CHDIR C:\PR SYS&quot;</font>
+then <font face="Lucida Console" color="#800000"><b>CHDIR</b></font> will first look for an exact match (Directory 
+<font face="Lucida Console" color="#800000">\PR</font> on drive <font face="Lucida Console" color="#800000">C:</font>).
+<p>
+If this does not exist it will look for the first directory starting with those characters. Hence it might find<br>
+<font face="Lucida Console" color="#800000">C:\PROBID</font> or<br>
+<font face="Lucida Console" color="#800000">C:\PROBILL</font> or<br>
+<font face="Lucida Console" color="#800000">C:\PROCOST</font>.</p>
+<p>
+The search order is based on the way names are stored in the directory. This is not necessarily alphabetical or by name length, etc., unless you have used a utility to explicitly sort the directories in this way.</p>
+<hr align="left" size="6" color="#008000">
+<p>
+<b><font face="Arial" size="4" color="#008000">LONG PATHNAME SUPPORT</font></b></p>
+<p>
+How can <b><font face="Lucida Console" color="#800000">CHDDIR</font></b> - a <font face="Arial"><b> 16-bit</b></font> program - support
+<b> Long Pathnames</b>?</p>
+<p>
+No 16-bit program can provide true "Long Filename" support without low level access to the directory structure (not possible on an Operating System with a reasonable modicum of security) or the use of some form of
+<font face="Arial"><b> 32-bit</b></font> extender technology to access <font face="Arial"><b> 32-bit</b></font> Operating System file services (limiting the program to operating under a supported OS).</p>
+<p>
+<b><font face="Lucida Console" color="#800000">CHDDIR</font></b> "fudges" this dilemma by translating
+<b> Long Pathnames</b> into a "wildcarded" form of their equivalent <font face="Arial"><b> 8.3</b></font> format paths. It then attempts to 
+progressively traverse the supplied path matching each component with existing directories. In practice, this kludge works extremely well on most directory structures. However, it cannot overcome the fundamental ambiguity that one
+<b> Short pathname</b> <i>
+can</i> map to more than one <b> Long pathname</b>.</p>
+<p>
+If you find that entering a correctly quoted <b> Long pathname</b> still takes you to the wrong directory, it might be because of this ambiguity. You may have to use the correct
+<b> Short pathname</b> directly.</p>
+<hr align="left" size="6" color="#008000">
+<p>
+<b><font face="Arial" size="4" color="#008000">DEPENDENCIES</font></b></p>
+<p>
+The are no <b><font face="Lucida Console" color="#800000"> DLL</font></b> or overlay dependencies. The executable can be renamed.</p>
+<hr align="left" size="6" color="#008000">
+<p>
+<b><font face="Arial" size="4" color="#008000">DOWNLOAD</font></b></p>
+<p>
+You can download the latest version of <b><font face="Lucida Console" color="#800000">CHDDIR</font></b> from 
+<a href="http://www.procon.com.au/Utils.htm" target="_blank">Procon's Website</a>.
+<hr align="left" size="6" color="#008000">
+<p>
+<b><font face="Arial" size="4" color="#008000">DISCLAIMER</font></b></p>
+<p>
+Use this utility at your own risk! If you do not understand</p>
+<ul>
+<li>&nbsp;<font face="Lucida Sans Unicode" color="#008000">Console</font> and <font face="Lucida Sans Unicode" color="#008000"> Command Line modes</font>,</li>
+<li>&nbsp;<font face="Lucida Sans Unicode" color="#008000">Command Line parameters</font>,</li>
+<li>&nbsp;<font face="Lucida Sans Unicode" color="#008000">Absolute vs. Relative Pathnames</font>,</li>
+<li>&nbsp;<font face="Lucida Sans Unicode" color="#008000">Long vs. Short Pathnames</font>, etc.,</li>
+</ul>
+<p>
+you can only cause yourself grief!</p>
+<hr align="left" size="6" color="#008000">
+<p align="center">
+<i><font face="Arial Black" size="4" color="#008000">Copyright 2003 - Procon Construction Systems<br>
+All Rights Reserved</font></i></p>
+<hr align="left" size="6" color="#008000">
+</BODY>
+</HTML>

@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_c___parameter___container.html#ab09db6bbcd60b1b447f0e5f7712ef258" title="Dodaje parametr do komponentu &#45; rozpoznaje po nazwie." alt="" coords="367,5,660,35"/>
+<area shape="rect" id="node5" href="$class_c___port_parameter___container.html#a3b1205a790704dbf5c721a4503d6edba" title="Dodaje parametr do komponentu &#45; rozpoznaje po nazwie lub id." alt="" coords="351,59,676,88"/>
+<area shape="rect" id="node7" href="$class_c__my_run_process.html#a4b9e98f9ccf6c5e2f73c22d88018c69c" title="wpisuje parametry do klasy, wersja nowsza" alt="" coords="413,112,613,141"/>
+</map>

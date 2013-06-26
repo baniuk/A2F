@@ -1,0 +1,55 @@
+Dla dwóch faz - pliki F:\data\reaktor-artykul-lam-zmiana-URANS-kwas-faza-ciagla_0_133s.cas
+h3po4 - primary
+nh3 - rozproszona
+---------------------------------------------------
+gêstoœæ nh3 - 	0.6894 [kg/m3]
+masa mol nh3 17.03 [g/mol] 58.719906048150322959483264826776 molperkg
+gêstosæ h3po4	1362.885 [kg/m3]
+masa mol h3po4 98 [g/mol] 10.204081632653061224489795918367 moleperkg
+------------- ENERGY OFF --------------------------
+velocity-inlet
+zone id/name [wlotnh3] wlotnh3
+domain id/name [mixture] mixture
+-----------------------------------
+velocity-inlet
+zone id/name [wlotnh3] 												wlotnh3
+domain id/name [mixture] 											nh3
+Velocity Specification Method: Magnitude and Direction [no] 		no
+Velocity Specification Method: Components [no] 						no
+Velocity Specification Method: Magnitude, Normal to Boundary [yes] 	yes
+Reference Frame: Absolute [yes] 									yes
+Use Profile for Velocity Magnitude? [no] 							no
+Velocity Magnitude (m/s) [25] 										25
+Use Profile for Volume Fraction? [no] 								no
+Volume Fraction [1] 												1
+-----------------------------------
+velocity-inlet
+zone id/name [wlotnh3] 												wlotnh3
+domain id/name [mixture] 											h3po4
+Velocity Specification Method: Magnitude and Direction [no] 		no
+Velocity Specification Method: Components [no] 						no
+Velocity Specification Method: Magnitude, Normal to Boundary [yes] 	yes
+Reference Frame: Absolute [yes] 									yes
+Use Profile for Velocity Magnitude? [no] 							no
+Velocity Magnitude (m/s) [0] 										0
+----------------------------------------------------------------------------
+velocity-inlet
+zone id/name [wlotnh3] 												wloth3po4
+domain id/name [mixture] 											nh3
+Velocity Specification Method: Magnitude and Direction [no] 		no
+Velocity Specification Method: Components [no] 						no
+Velocity Specification Method: Magnitude, Normal to Boundary [yes] 	yes
+Reference Frame: Absolute [yes] 									yes
+Use Profile for Velocity Magnitude? [no] 							no
+Velocity Magnitude (m/s) [0] 										0
+Use Profile for Volume Fraction? [no] 								no
+Volume Fraction [0] 												0
+-----------------------------------
+zone id/name [wlotnh3] 												wloth3po4
+domain id/name [mixture] 											h3po4
+Velocity Specification Method: Magnitude and Direction [no] 		no
+Velocity Specification Method: Components [no] 						no
+Velocity Specification Method: Magnitude, Normal to Boundary [yes] 	yes
+Reference Frame: Absolute [yes] 									yes
+Use Profile for Velocity Magnitude? [no] 							no
+Velocity Magnitude (m/s) [20] 										20

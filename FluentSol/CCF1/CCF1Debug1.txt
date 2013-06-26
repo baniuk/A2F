@@ -1,0 +1,3304 @@
+
+-- Thu Mar 25 15:56:04.764 4 2010
+CUnitOperation::CUnitOperation()
+	- 029C4E00
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 029C12F0
+	- mNameptr 029C1338
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 029C1388
+	- mNameptr 029C13D0
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 029C4E00
+	- mNameptr 029C4E4C
+CUnitOperation::STDMETHOD(put_ComponentDescription)(BSTR desc)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- (null)
+	- 029C12F0
+	- mNameptr 029C1338
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- (null)
+	- 029C1388
+	- mNameptr 029C13D0
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 029C4E00
+	- mNameptr 029C4E4C
+CUnitOperation::STDMETHOD(get_parameters)(LPDISPATCH * parameters)
+CUnitOperation::STDMETHOD(get_reports)(VARIANT * reports)
+	- v_rep CDCD0000
+	- rep1 CDCDCDCD
+	- 029C4E00
+CUnitOperation::STDMETHOD(put_selectedReport)(BSTR report)
+CUnitOperation::STDMETHOD(ProduceReport)(BSTR * message)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- (null)
+	- 029C12F0
+	- mNameptr 029C1338
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- (null)
+	- 029C1388
+	- mNameptr 029C13D0
+CPort::STDMETHOD(get_ComponentDescription)(BSTR * desc)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CUnitOperation::STDMETHOD(Terminate)()
+CUnitOperation::~CUnitOperation()
+
+-- Thu Mar 25 15:57:41.765 1 2010
+CUnitOperation::CUnitOperation()
+	- 03464E00
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 034612F0
+	- mNameptr 03461338
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03461388
+	- mNameptr 034613D0
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 03464E00
+	- mNameptr 03464E4C
+CUnitOperation::STDMETHOD(put_ComponentDescription)(BSTR desc)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 034612F0
+	- mNameptr 03461338
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 03464E00
+	- mNameptr 03464E4C
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03461388
+	- mNameptr 034613D0
+CUnitOperation::STDMETHOD(get_parameters)(LPDISPATCH * parameters)
+CUnitOperation::STDMETHOD(get_reports)(VARIANT * reports)
+	- v_rep CDCD0000
+	- rep1 CDCDCDCD
+	- 03464E00
+CUnitOperation::STDMETHOD(put_selectedReport)(BSTR report)
+CUnitOperation::STDMETHOD(ProduceReport)(BSTR * message)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 034612F0
+	- mNameptr 03461338
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03461388
+	- mNameptr 034613D0
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(Terminate)()
+CUnitOperation::~CUnitOperation()
+
+-- Thu Mar 25 15:59:58.62 8 2010
+CUnitOperation::CUnitOperation()
+	- 03361C40
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 03361C40
+	- mNameptr 03361C8C
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03367D98
+	- mNameptr 03367DE0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03367E20
+	- mNameptr 03367E68
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 03361C40
+	- mNameptr 03361C8C
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentDescription)(BSTR * desc)
+CUnitOperation::STDMETHOD(get_parameters)(LPDISPATCH * parameters)
+CUnitOperation::STDMETHOD(get_reports)(VARIANT * reports)
+	- v_rep CDCD0000
+	- rep1 CDCDCDCD
+	- 03361C40
+CUnitOperation::STDMETHOD(put_selectedReport)(BSTR report)
+CUnitOperation::STDMETHOD(ProduceReport)(BSTR * message)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03367D98
+	- mNameptr 03367DE0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03367E20
+	- mNameptr 03367E68
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03367D98
+	- mNameptr 03367DE0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03367E20
+	- mNameptr 03367E68
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_parameters)(LPDISPATCH * parameters)
+CUnitOperation::STDMETHOD(get_reports)(VARIANT * reports)
+	- v_rep CDCD0000
+	- rep1 002DB7A8
+	- 03361C40
+CUnitOperation::STDMETHOD(put_selectedReport)(BSTR report)
+CUnitOperation::STDMETHOD(ProduceReport)(BSTR * message)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03367D98
+	- mNameptr 03367DE0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03367E20
+	- mNameptr 03367E68
+CUnitOperation::STDMETHOD(put_selectedReport)(BSTR report)
+CUnitOperation::STDMETHOD(ProduceReport)(BSTR * message)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03367E20
+	- mNameptr 03367E68
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03367D98
+	- mNameptr 03367DE0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_parameters)(LPDISPATCH * parameters)
+CUnitOperation::STDMETHOD(get_reports)(VARIANT * reports)
+	- v_rep CDCD0000
+	- rep1 002DB7A8
+	- 03361C40
+CUnitOperation::STDMETHOD(put_selectedReport)(BSTR report)
+CUnitOperation::STDMETHOD(ProduceReport)(BSTR * message)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03367D98
+	- mNameptr 03367DE0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03367E20
+	- mNameptr 03367E68
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CUnitOperation::STDMETHOD(Terminate)()
+CUnitOperation::~CUnitOperation()
+
+-- Thu Mar 25 16:02:07.761 7 2010
+CUnitOperation::CUnitOperation()
+	- 01281C40
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 01281C40
+	- mNameptr 01281C8C
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 01287D98
+	- mNameptr 01287DE0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 01287E20
+	- mNameptr 01287E68
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 01281C40
+	- mNameptr 01281C8C
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentDescription)(BSTR * desc)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 01287D98
+	- mNameptr 01287DE0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 01287E20
+	- mNameptr 01287E68
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_parameters)(LPDISPATCH * parameters)
+CUnitOperation::STDMETHOD(get_reports)(VARIANT * reports)
+	- v_rep CDCD0000
+	- rep1 CDCDCDCD
+	- 01281C40
+CUnitOperation::STDMETHOD(put_selectedReport)(BSTR report)
+CUnitOperation::STDMETHOD(ProduceReport)(BSTR * message)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 01287D98
+	- mNameptr 01287DE0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 01287E20
+	- mNameptr 01287E68
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CUnitOperation::STDMETHOD(Terminate)()
+CUnitOperation::~CUnitOperation()
+
+-- Thu Mar 25 16:05:17.566 7 2010
+CUnitOperation::CUnitOperation()
+	- 02B81C40
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 02B81C40
+	- mNameptr 02B81C8C
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 02B87D98
+	- mNameptr 02B87DE0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 02B87E20
+	- mNameptr 02B87E68
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 02B81C40
+	- mNameptr 02B81C8C
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentDescription)(BSTR * desc)
+CUnitOperation::STDMETHOD(get_parameters)(LPDISPATCH * parameters)
+CUnitOperation::STDMETHOD(get_reports)(VARIANT * reports)
+	- v_rep CDCD0000
+	- rep1 CDCDCDCD
+	- 02B81C40
+CUnitOperation::STDMETHOD(put_selectedReport)(BSTR report)
+CUnitOperation::STDMETHOD(ProduceReport)(BSTR * message)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 02B87D98
+	- mNameptr 02B87DE0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 02B87E20
+	- mNameptr 02B87E68
+CUnitOperation::STDMETHOD(put_selectedReport)(BSTR report)
+CUnitOperation::STDMETHOD(ProduceReport)(BSTR * message)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 02B87D98
+	- mNameptr 02B87DE0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 02B87E20
+	- mNameptr 02B87E68
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_parameters)(LPDISPATCH * parameters)
+CUnitOperation::STDMETHOD(get_reports)(VARIANT * reports)
+	- v_rep CDCD0000
+	- rep1 009FB7A8
+	- 02B81C40
+CUnitOperation::STDMETHOD(put_selectedReport)(BSTR report)
+CUnitOperation::STDMETHOD(ProduceReport)(BSTR * message)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 02B87D98
+	- mNameptr 02B87DE0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 02B87E20
+	- mNameptr 02B87E68
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CUnitOperation::STDMETHOD(Terminate)()
+CUnitOperation::~CUnitOperation()
+
+-- Thu Mar 25 17:13:21.325 1 2010
+CUnitOperation::CUnitOperation()
+	- 02C11C40
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 02C11C40
+	- mNameptr 02C11C8C
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 02C17D98
+	- mNameptr 02C17DE0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 02C17E20
+	- mNameptr 02C17E68
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+
+-- Thu Mar 25 17:39:42.894 2 2010
+CUnitOperation::CUnitOperation()
+	- 03181C40
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 03181C40
+	- mNameptr 03181C8C
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03187D98
+	- mNameptr 03187DE0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03187E20
+	- mNameptr 03187E68
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 03181C40
+	- mNameptr 03181C8C
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentDescription)(BSTR * desc)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03187D98
+	- mNameptr 03187DE0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03187E20
+	- mNameptr 03187E68
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_parameters)(LPDISPATCH * parameters)
+CUnitOperation::STDMETHOD(get_reports)(VARIANT * reports)
+	- v_rep CDCD0000
+	- rep1 CDCDCDCD
+	- 03181C40
+CUnitOperation::STDMETHOD(put_selectedReport)(BSTR report)
+CUnitOperation::STDMETHOD(ProduceReport)(BSTR * message)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03187D98
+	- mNameptr 03187DE0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03187E20
+	- mNameptr 03187E68
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03187E20
+	- mNameptr 03187E68
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03187D98
+	- mNameptr 03187DE0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CUnitOperation::STDMETHOD(Terminate)()
+CUnitOperation::~CUnitOperation()
+
+-- Thu Mar 25 17:42:18.731 8 2010
+CUnitOperation::CUnitOperation()
+	- 02FF4E00
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 02FF4E00
+	- mNameptr 02FF4E4C
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 02FF12F0
+	- mNameptr 02FF1338
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 02FF1388
+	- mNameptr 02FF13D0
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(Terminate)()
+CUnitOperation::~CUnitOperation()
+
+-- Thu Mar 25 17:42:37.325 7 2010
+CUnitOperation::CUnitOperation()
+	- 03874E00
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 03874E00
+	- mNameptr 03874E4C
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 038712F0
+	- mNameptr 03871338
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03871388
+	- mNameptr 038713D0
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 03874E00
+	- mNameptr 03874E4C
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 038712F0
+	- mNameptr 03871338
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03871388
+	- mNameptr 038713D0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentDescription)(BSTR * desc)
+CUnitOperation::STDMETHOD(Valid
+-- Thu Mar 25 17:45:51.908 1 2010
+CUnitOperation::CUnitOperation()
+	- 035B4E00
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 035B4E00
+	- mNameptr 035B4E4C
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 035B12F0
+	- mNameptr 035B1338
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 035B1388
+	- mNameptr 035B13D0
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 035B4E00
+	- mNameptr 035B4E4C
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 035B12F0
+	- mNameptr 035B1338
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 035B1388
+	- mNameptr 035B13D0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STD
+-- Thu Mar 25 17:49:51.157 1 2010
+CUnitOperation::CUnitOperation()
+	- 03644E00
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 03644E00
+	- mNameptr 03644E4C
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 036412F0
+	- mNameptr 03641338
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03641388
+	- mNameptr 036413D0
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 03644E00
+	- mNameptr 03644E4C
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 036412F0
+	- mNameptr 03641338
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03641388
+	- mNameptr 036413D0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STD
+-- Thu Mar 25 18:05:56.713 6 2010
+CUnitOperation::CUnitOperation()
+	- 03281C40
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 03281C40
+	- mNameptr 03281C8C
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03287D98
+	- mNameptr 03287DE0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03287E20
+	- mNameptr 03287E68
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 03281C40
+	- mNameptr 03281C8C
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentDescription)(BSTR * desc)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03287D98
+	- mNameptr 03287DE0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03287E20
+	- mNameptr 03287E68
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedO
+-- Thu Mar 25 21:41:38.834 8 2010
+CUnitOperation::CUnitOperation()
+	- 031E4E08
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 031E4E08
+	- mNameptr 031E4E54
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 031E12F0
+	- mNameptr 031E1338
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 031E1388
+	- mNameptr 031E13D0
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 031E4E08
+	- mNameptr 031E4E54
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 031E12F0
+	- mNameptr 031E1338
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 031E1388
+	- mNameptr 031E13D0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentDescription)(BSTR * desc)
+CUnitOperation::STDMETHOD(Valid
+-- Thu Mar 25 21:44:15.357 5 2010
+CUnitOperation::CUnitOperation()
+	- 033C1C40
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 033C1C40
+	- mNameptr 033C1C8C
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 033C7DA0
+	- mNameptr 033C7DE8
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 033C7E28
+	- mNameptr 033C7E70
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 033C1C40
+	- mNameptr 033C1C8C
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 033C7DA0
+	- mNameptr 033C7DE8
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 033C7E28
+	- mNameptr 033C7E70
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STD
+-- Thu Mar 25 21:59:26.194 6 2010
+CUnitOperation::CUnitOperation()
+	- 032A1C40
+CPort::FinalRelease
+CPort::~CPort(void)
+CPort::FinalRelease
+CPort::~CPort(void)
+CPortCollection::~CPortCollection()
+
+-- Thu Mar 25 22:11:53.948 3 2010
+CUnitOperation::CUnitOperation()
+	- 03614E08
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 03614E08
+	- mNameptr 03614E54
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(Terminate)()
+CUnitOperation::~CUnitOperation()
+CPort::FinalRelease
+CPort::~CPort(void)
+CPort::FinalRelease
+CPort::~CPort(void)
+
+-- Thu Mar 25 22:26:42.620 2 2010
+CUnitOperation::CUnitOperation()
+	- 034D4E08
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 034D4E08
+	- mNameptr 034D4E54
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 034D12F0
+	- mNameptr 034D1338
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 034D1388
+	- mNameptr 034D13D0
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 034D4E08
+	- mNameptr 034D4E54
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentDescription)(BSTR * desc)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(Terminate)()
+CUnitOperation::~CUnitOperation()
+CPortCollection::~CPortCollection()
+
+-- Thu Mar 25 22:27:13.118 3 2010
+CUnitOperation::CUnitOperation()
+	- 075A1C40
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 075A7DA0
+	- mNameptr 075A7DE8
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 075A7E28
+	- mNameptr 075A7E70
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 075A1C40
+	- mNameptr 075A1C8C
+CUnitOperation::STDMETHOD(put_ComponentDescription)(BSTR desc)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 075A7DA0
+	- mNameptr 075A7DE8
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 075A7E28
+	- mNameptr 075A7E70
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 075A1C40
+	- mNameptr 075A1C8C
+CUnitOperation::STDMETHOD(get_parameters)(LPDISPATCH * parameters)
+CUnitOperation::STDMETHOD(get_reports)(VARIANT * reports)
+	- v_rep CDCD0000
+	- rep1 CDCDCDCD
+	- 075A1C40
+CUnitOperation::STDMETHOD(put_selectedReport)(BSTR report)
+CUnitOperation::STDMETHOD(ProduceReport)(BSTR * message)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 075A7DA0
+	- mNameptr 075A7DE8
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 075A7E28
+	- mNameptr 075A7E70
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CUnitOperation::STDMETHOD(Terminate)()
+CUnitOperation::~CUnitOperation()
+CPortCollection::~CPortCollection()
+
+-- Sun Mar 28 18:53:07.898 7 2010
+CUnitOperation::CUnitOperation()
+	- 04501288
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 04501488
+	- mNameptr 045014D0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 04501520
+	- mNameptr 04501568
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 04501288
+	- mNameptr 045012D4
+CUnitOperation::STDMETHOD(put_ComponentDescription)(BSTR desc)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 04501488
+	- mNameptr 045014D0
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 04501520
+	- mNameptr 04501568
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 04501288
+	- mNameptr 045012D4
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(Calculate)()
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_parameters)(LPDISPATCH * parameters)
+CUnitOperation::STDMETHOD(get_reports)(VARIANT * reports)
+	- v_rep CDCD0000
+	- rep1 CDCDCDCD
+	- 04501288
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 04501488
+	- mNameptr 045014D0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 04501520
+	- mNameptr 04501568
+CUnitOperation::STD
+-- Sun Mar 28 18:54:25.696 5 2010
+CUnitOperation::CUnitOperation()
+	- 032E4B78
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 032E8A00
+	- mNameptr 032E8A48
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 032E8A88
+	- mNameptr 032E8AD0
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 032E4B78
+	- mNameptr 032E4BC4
+CUnitOperation::STDMETHOD(put_ComponentDescription)(BSTR desc)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 032E8A00
+	- mNameptr 032E8A48
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 032E8A88
+	- mNameptr 032E8AD0
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 032E4B78
+	- mNameptr 032E4BC4
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(Calculate)()
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CUnitOperation::STDMETHOD(Terminate)()
+CUnitOperation::~CUnitOperation()
+CPortCollection::~CPortCollection()
+
+-- Sun Mar 28 18:55:55.505 5 2010
+CUnitOperation::CUnitOperation()
+	- 035F4B78
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 035F8A00
+	- mNameptr 035F8A48
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 035F8A88
+	- mNameptr 035F8AD0
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 035F4B78
+	- mNameptr 035F4BC4
+CUnitOperation::STDMETHOD(put_ComponentDescription)(BSTR desc)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 035F8A00
+	- mNameptr 035F8A48
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 035F8A88
+	- mNameptr 035F8AD0
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 035F4B78
+	- mNameptr 035F4BC4
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CUnitOperation::STDMETHOD(Terminate)()
+CUnitOperation::~CUnitOperation()
+CPortCollection::~CPortCollection()
+
+-- Sun Mar 28 18:56:11.947 1 2010
+CUnitOperation::CUnitOperation()
+	- 03634B78
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03638A00
+	- mNameptr 03638A48
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03638A88
+	- mNameptr 03638AD0
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 03634B78
+	- mNameptr 03634BC4
+CUnitOperation::STDMETHOD(put_ComponentDescription)(BSTR desc)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03638A00
+	- mNameptr 03638A48
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03638A88
+	- mNameptr 03638AD0
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 03634B78
+	- mNameptr 03634BC4
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CUnitOperation::STDMETHOD(Terminate)()
+CUnitOperation::~CUnitOperation()
+CPortCollection::~CPortCollection()
+
+-- Sun Mar 28 18:59:05.778 5 2010
+CUnitOperation::CUnitOperation()
+	- 033F4B78
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 033F8A00
+	- mNameptr 033F8A48
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 033F8A88
+	- mNameptr 033F8AD0
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 033F4B78
+	- mNameptr 033F4BC4
+CUnitOperation::STDMETHOD(put_ComponentDescription)(BSTR desc)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 033F8A00
+	- mNameptr 033F8A48
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 033F8A88
+	- mNameptr 033F8AD0
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 033F4B78
+	- mNameptr 033F4BC4
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CUnitOperation::STDMETHOD(Terminate)()
+CUnitOperation::~CUnitOperation()
+CPortCollection::~CPortCollection()
+
+-- Sun Mar 28 19:02:33.476 3 2010
+CUnitOperation::CUnitOperation()
+	- 02B31288
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 02B31288
+	- mNameptr 02B312D4
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 02B31488
+	- mNameptr 02B314D0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 02B31520
+	- mNameptr 02B31568
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 02B31288
+	- mNameptr 02B312D4
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentDescription)(BSTR * desc)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 02B31488
+	- mNameptr 02B314D0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 02B31520
+	- mNameptr 02B31568
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(Valid
+-- Sun Mar 28 19:04:52.894 2 2010
+CUnitOperation::CUnitOperation()
+	- 03161288
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 03161288
+	- mNameptr 031612D4
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03161488
+	- mNameptr 031614D0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03161520
+	- mNameptr 03161568
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 03161288
+	- mNameptr 031612D4
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentDescription)(BSTR * desc)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(Terminate)()
+CUnitOperation::~CUnitOperation()
+CPortCollection::~CPortCollection()
+
+-- Sun Mar 28 19:05:20.864 0 2010
+CUnitOperation::CUnitOperation()
+	- 03361288
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 03361288
+	- mNameptr 033612D4
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03361488
+	- mNameptr 033614D0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03361520
+	- mNameptr 03361568
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 03361288
+	- mNameptr 033612D4
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentDescription)(BSTR * desc)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03361488
+	- mNameptr 033614D0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03361520
+	- mNameptr 03361568
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedO
+-- Sun Mar 28 19:10:23.738 3 2010
+CUnitOperation::CUnitOperation()
+	- 030F4B78
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 030F4B78
+	- mNameptr 030F4BC4
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 030F8A00
+	- mNameptr 030F8A48
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 030F8A88
+	- mNameptr 030F8AD0
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 030F4B78
+	- mNameptr 030F4BC4
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentDescription)(BSTR * desc)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 030F8A00
+	- mNameptr 030F8A48
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 030F8A88
+	- mNameptr 030F8AD0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CUnitOperation::STDMETHOD(Terminate)()
+CUnitOperation::~CUnitOperation()
+CPortCollection::~CPortCollection()
+
+-- Sun Mar 28 19:11:28.416 8 2010
+CUnitOperation::CUnitOperation()
+	- 03321288
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 03321288
+	- mNameptr 033212D4
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03321488
+	- mNameptr 033214D0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03321520
+	- mNameptr 03321568
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 03321288
+	- mNameptr 033212D4
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentDescription)(BSTR * desc)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03321488
+	- mNameptr 033214D0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03321520
+	- mNameptr 03321568
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CUnitOperation::STDMETHOD(Terminate)()
+CUnitOperation::~CUnitOperation()
+CPortCollection::~CPortCollection()
+
+-- Sun Mar 28 19:13:10.81 0 2010
+CUnitOperation::CUnitOperation()
+	- 03201288
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 03201288
+	- mNameptr 032012D4
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03201488
+	- mNameptr 032014D0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03201520
+	- mNameptr 03201568
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 03201288
+	- mNameptr 032012D4
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentDescription)(BSTR * desc)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03201488
+	- mNameptr 032014D0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03201520
+	- mNameptr 03201568
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedOb
+-- Sun Mar 28 19:14:53.868 3 2010
+CUnitOperation::CUnitOperation()
+	- 025A1288
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 025A1288
+	- mNameptr 025A12D4
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 025A1488
+	- mNameptr 025A14D0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 025A1520
+	- mNameptr 025A1568
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 025A1288
+	- mNameptr 025A12D4
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 025A1488
+	- mNameptr 025A14D0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 025A1520
+	- mNameptr 025A1568
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connect
+-- Sun Mar 28 19:16:09.60 9 2010
+CUnitOperation::CUnitOperation()
+	- 033B1288
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 033B1288
+	- mNameptr 033B12D4
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 033B1488
+	- mNameptr 033B14D0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 033B1520
+	- mNameptr 033B1568
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 033B1288
+	- mNameptr 033B12D4
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 033B1488
+	- mNameptr 033B14D0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 033B1520
+	- mNameptr 033B1568
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connecte
+-- Sun Mar 28 19:20:02.842 2 2010
+CUnitOperation::CUnitOperation()
+	- 03101288
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 03101288
+	- mNameptr 031012D4
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03101488
+	- mNameptr 031014D0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03101520
+	- mNameptr 03101568
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 03101288
+	- mNameptr 031012D4
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentDescription)(BSTR * desc)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03101488
+	- mNameptr 031014D0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03101520
+	- mNameptr 03101568
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedO
+-- Sun Mar 28 19:21:37.487 7 2010
+CUnitOperation::CUnitOperation()
+	- 030C1288
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 030C1288
+	- mNameptr 030C12D4
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 030C1488
+	- mNameptr 030C14D0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 030C1520
+	- mNameptr 030C1568
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 030C1288
+	- mNameptr 030C12D4
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 030C1488
+	- mNameptr 030C14D0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentDescription)(BSTR * desc)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 030C1520
+	- mNameptr 030C1568
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedO
+-- Sun Mar 28 19:23:34.440 4 2010
+CUnitOperation::CUnitOperation()
+	- 03081288
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 03081288
+	- mNameptr 030812D4
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03081488
+	- mNameptr 030814D0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03081520
+	- mNameptr 03081568
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 03081288
+	- mNameptr 030812D4
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03081488
+	- mNameptr 030814D0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03081520
+	- mNameptr 03081568
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connect
+-- Sun Mar 28 19:24:10.835 0 2010
+CUnitOperation::CUnitOperation()
+	- 03031288
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 03031288
+	- mNameptr 030312D4
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03031488
+	- mNameptr 030314D0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03031520
+	- mNameptr 03031568
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 03031288
+	- mNameptr 030312D4
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03031488
+	- mNameptr 030314D0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03031520
+	- mNameptr 03031568
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connect
+-- Sun Mar 28 19:24:58.399 8 2010
+CUnitOperation::CUnitOperation()
+	- 03051288
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 03051288
+	- mNameptr 030512D4
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03051488
+	- mNameptr 030514D0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03051520
+	- mNameptr 03051568
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 03051288
+	- mNameptr 030512D4
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentDescription)(BSTR * desc)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03051488
+	- mNameptr 030514D0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03051520
+	- mNameptr 03051568
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CUnitOperation::STDMETHOD(Terminate)()
+CUnitOperation::~CUnitOperation()
+CPortCollection::~CPortCollection()
+
+-- Sun Mar 28 19:29:10.932 0 2010
+CUnitOperation::CUnitOperation()
+	- 03031288
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 03031288
+	- mNameptr 030312D4
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03031488
+	- mNameptr 030314D0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03031520
+	- mNameptr 03031568
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 03031288
+	- mNameptr 030312D4
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentDescription)(BSTR * desc)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 03031488
+	- mNameptr 030314D0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 03031520
+	- mNameptr 03031568
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CUnitOperation::STDMETHOD(Terminate)()
+CUnitOperation::~CUnitOperation()
+CPortCollection::~CPortCollection()
+
+-- Sun Mar 28 19:31:16.418 6 2010
+CUnitOperation::CUnitOperation()
+	- 02FB1288
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 0
+CPort::put_mydirection(BYTE newVal)
+CPort::put_myDesc(BSTR newVal)
+CPort::put_myName(BSTR newVal)
+CPort::put_unit1(IDispatch* newVal)
+CPortCollection::AddPort2(IDispatch* disp)
+	- count 1
+CUnitOperation::STDMETHOD(Initialize)()
+CUnitOperation::STDMETHOD(put_simulationContext)(LPDISPATCH rhs)
+CUnitOperation::STDMETHOD(put_ComponentName)(BSTR name)
+	- 02FB1288
+	- mNameptr 02FB12D4
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CUnitOperation::STDMETHOD(get_ports)(LPDISPATCH * ports)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_direction)(CapePortDirection * portDirection)
+CPort::STDMETHOD(get_portType)(CapePortType * portType)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 02FB1488
+	- mNameptr 02FB14D0
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 02FB1520
+	- mNameptr 02FB1568
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentName)(BSTR * name)
+	- 02FB1288
+	- mNameptr 02FB12D4
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CUnitOperation::STDMETHOD(get_ComponentDescription)(BSTR * desc)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Inlet port
+	- 02FB1488
+	- mNameptr 02FB14D0
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(Connect)(LPDISPATCH objectToConnect)
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_ComponentName)(BSTR * name)
+	- Outlet port
+	- 02FB1520
+	- mNameptr 02FB1568
+CUnitOperation::STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid)
+CPortCollection::STDMETHOD(Count)(long * itemsCount)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPortCollection::STDMETHOD(Item)(VARIANT id, LPDISPATCH * Item)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(get_connectedObject)(LPDISPATCH * connectedObject)
+CPort::STDMETHOD(Disconnect)()
+CUnitOperation::STDMETHOD(Terminate)()
+CUnitOperation::~CUnitOperation()
+CPortCollection::~CPortCollection()

@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_c___parameter___container.html#ab196d93942c6d400b84af39e68ede81b" title="Kasuje zawartość klasy &#45; wszystkich danych." alt="" coords="419,7,632,36"/>
+<area shape="rect" id="node9" href="$class_c__my_run_process.html#a96de0e119537f9f36f3cfaa8da96280f" title="Wczytuje dane z Fluenta." alt="" coords="775,59,972,88"/>
+<area shape="rect" id="node13" href="$class_c___port_parameter___container.html#a4843cad88f2204d3934f1f62d2a0abe9" title="Zwraca ilosc przechowywanych komponentów w klasie dla danego wejscia." alt="" coords="359,111,692,140"/>
+<area shape="rect" id="node16" href="$class_c___parameter___container.html#ab713e9a3ba582fc32576ec724076cd1b" title="Drukuje zawartość portów do pliku." alt="" coords="405,164,645,193"/>
+<area shape="rect" id="node5" href="$class_c___port_parameter___container.html#a9ad1d472e32f73bbcc3687194a8cecbd" title="Kasuje zawartość klasy &#45; wszystkich danych wszystkich wejść." alt="" coords="751,5,996,35"/>
+<area shape="rect" id="node7" href="$class_c__my_run_process.html#a7511e1d0a3cb9056ff87bd4a4cd4c886" title="pobiera parametry z klasy na zewnątrz &#45; wersja nowsza" alt="" coords="1079,5,1279,35"/>
+<area shape="rect" id="node11" href="$class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="1353,111,1524,140"/>
+<area shape="rect" id="node18" href="$class_c___port_parameter___container.html#af7ff20d9bcd1cd8a2f927b8cb7679ea8" title="Drukuje zawartość portów do pliku." alt="" coords="741,164,1005,193"/>
+<area shape="rect" id="node20" href="$class_c__my_run_process.html#aef8a141a9982779c57bb5931d87d710b" title="Drukuje zawartość portów do pliku." alt="" coords="1053,111,1304,140"/>
+<area shape="rect" id="node23" href="$class_c__my_run_process.html#ae6b5f57310ae330f061f867d0582ee4e" title="Drukuje zawartość portów do pliku." alt="" coords="1055,164,1303,193"/>
+</map>

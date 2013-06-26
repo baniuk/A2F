@@ -1,0 +1,1294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Dokumentacja pliku Cape2Fluent_p.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja pliku Cape2Fluent_p.c</h1><code>#include &quot;rpcproxy.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>&quot;</code><br/>
+<div class="dynheader">
+Wykres zależności załączania dla Cape2Fluent_p.c:</div>
+<div class="dynsection">
+<div class="center"><img src="_cape2_fluent__p_8c__incl.png" border="0" usemap="#_cape2_fluent__p_8c_map" alt=""/></div>
+<map name="_cape2_fluent__p_8c_map" id="_cape2_fluent__p_8c">
+<area shape="rect" id="node5" href="_cape2_fluent__i_8h.html" title="Cape2Fluent_i.h" alt="" coords="204,83,319,112"/></map>
+</div>
+
+<p><a href="_cape2_fluent__p_8c_source.html">Idź do kodu źródłowego tego pliku.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Komponenty</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct___cape2_fluent___m_i_d_l___t_y_p_e___f_o_r_m_a_t___s_t_r_i_n_g.html">_Cape2Fluent_MIDL_TYPE_FORMAT_STRING</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct___cape2_fluent___m_i_d_l___p_r_o_c___f_o_r_m_a_t___s_t_r_i_n_g.html">_Cape2Fluent_MIDL_PROC_FORMAT_STRING</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct___cape2_fluent___m_i_d_l___e_x_p_r___f_o_r_m_a_t___s_t_r_i_n_g.html">_Cape2Fluent_MIDL_EXPR_FORMAT_STRING</a></td></tr>
+<tr><td colspan="2"><h2>Definicje</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#ac65ba23bc447e763c82dc734c1083538">USE_STUBLESS_PROXY</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#aff333588ab024f45d621c6afff77bb48">__REQUIRED_RPCPROXY_H_VERSION__</a>&nbsp;&nbsp;&nbsp;475</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#ada96888875bf0b021f125d5dcb974d59">TYPE_FORMAT_STRING_SIZE</a>&nbsp;&nbsp;&nbsp;1105</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#aaf88f77ac2cd3ef19e67916d5da5a42a">PROC_FORMAT_STRING_SIZE</a>&nbsp;&nbsp;&nbsp;673</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a085e6f829dfc1a6969a1b5c5e1f950ac">EXPR_FORMAT_STRING_SIZE</a>&nbsp;&nbsp;&nbsp;1</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a5987b7d749f76fb0361f2f08705afc42">TRANSMIT_AS_TABLE_SIZE</a>&nbsp;&nbsp;&nbsp;0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a65911675f1b1c666c5e99a1231b21875">WIRE_MARSHAL_TABLE_SIZE</a>&nbsp;&nbsp;&nbsp;3</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#abc96d70d23e4a4490c054c751d40c994">_Cape2Fluent_CHECK_IID</a>(n)&nbsp;&nbsp;&nbsp;IID_GENERIC_CHECK_IID( _Cape2Fluent, pIID, n)</td></tr>
+<tr><td colspan="2"><h2>Definicje typów</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="struct___cape2_fluent___m_i_d_l___t_y_p_e___f_o_r_m_a_t___s_t_r_i_n_g.html">_Cape2Fluent_MIDL_TYPE_FORMAT_STRING</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#ad77ccb8786db819c1297276db69a9ff4">Cape2Fluent_MIDL_TYPE_FORMAT_STRING</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="struct___cape2_fluent___m_i_d_l___p_r_o_c___f_o_r_m_a_t___s_t_r_i_n_g.html">_Cape2Fluent_MIDL_PROC_FORMAT_STRING</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a48496ce07efb5f39fffe9e8db3f6dff7">Cape2Fluent_MIDL_PROC_FORMAT_STRING</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="struct___cape2_fluent___m_i_d_l___e_x_p_r___f_o_r_m_a_t___s_t_r_i_n_g.html">_Cape2Fluent_MIDL_EXPR_FORMAT_STRING</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a369388c43d6460cfedd0f3b1fc67e127">Cape2Fluent_MIDL_EXPR_FORMAT_STRING</a></td></tr>
+<tr><td colspan="2"><h2>Funkcje</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a1dc306748e67dd92f93a5113242146fa">CINTERFACE_PROXY_VTABLE</a> (13)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#afd0ba421643602e99119c2db6dd8ccca">CINTERFACE_PROXY_VTABLE</a> (8)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a40ec251e1d84b957508972f8fb51e81a">CINTERFACE_PROXY_VTABLE</a> (16)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#adf1f2e4b075386a9826d772f949d7b1d">CINTERFACE_PROXY_VTABLE</a> (11)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int __stdcall&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#aa63d41f118d63cad2965c08433177c67">_Cape2Fluent_IID_Lookup</a> (const <a class="el" href="struct___i_i_d.html">IID</a> *pIID, int *pIndex)</td></tr>
+<tr><td colspan="2"><h2>Zmienne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static RPC_SYNTAX_IDENTIFIER&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a2077babdb4b5d8534f33d0fcff92d8ba">_RpcTransferSyntax</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <br class="typebreak"/>
+<a class="el" href="struct___cape2_fluent___m_i_d_l___t_y_p_e___f_o_r_m_a_t___s_t_r_i_n_g.html">Cape2Fluent_MIDL_TYPE_FORMAT_STRING</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#af02d5d20c3ff5ca0db72a333aeebb9f0">Cape2Fluent__MIDL_TypeFormatString</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <br class="typebreak"/>
+<a class="el" href="struct___cape2_fluent___m_i_d_l___p_r_o_c___f_o_r_m_a_t___s_t_r_i_n_g.html">Cape2Fluent_MIDL_PROC_FORMAT_STRING</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#aedde8886874a0c41b82d943ed1789a45">Cape2Fluent__MIDL_ProcFormatString</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <br class="typebreak"/>
+<a class="el" href="struct___cape2_fluent___m_i_d_l___e_x_p_r___f_o_r_m_a_t___s_t_r_i_n_g.html">Cape2Fluent_MIDL_EXPR_FORMAT_STRING</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#ab32c1775749f532d44adaeec13560542">Cape2Fluent__MIDL_ExprFormatString</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const MIDL_STUB_DESC&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a8ea23509808d8dadef9afee23159a71c">Object_StubDesc</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const MIDL_SERVER_INFO&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a2311d3790cc641181ef310415c05d2fe">IComponentRegistrar_ServerInfo</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const MIDL_STUBLESS_PROXY_INFO&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a83012b5410498cce46b0355a3bf6b7fa">IComponentRegistrar_ProxyInfo</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const MIDL_SERVER_INFO&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a82834ddff44293f0d440480f0b78c0ab">IUnitOperation_ServerInfo</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const MIDL_STUBLESS_PROXY_INFO&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a87dd0db2d7c8d9726c0e4056617c8ca6">IUnitOperation_ProxyInfo</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const MIDL_SERVER_INFO&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a21cbd5eef809343431b363b2fe550c09">IPort_ServerInfo</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const MIDL_STUBLESS_PROXY_INFO&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#af5d60279d654d3ebe1d55cc212f2e0cf">IPort_ProxyInfo</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const MIDL_SERVER_INFO&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a80b7d2451b8e971d32fe498d603ac248">IParameterCollection_ServerInfo</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const MIDL_STUBLESS_PROXY_INFO&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a15e36be09aeb5637972dbc0eb6dfd448">IParameterCollection_ProxyInfo</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const MIDL_SERVER_INFO&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a406daf21d12ac98d34c6681581be1a2d">IPortCollection_ServerInfo</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const MIDL_STUBLESS_PROXY_INFO&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#abe7e94307366a9790bcb2d1361501f04">IPortCollection_ProxyInfo</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <br class="typebreak"/>
+USER_MARSHAL_ROUTINE_QUADRUPLE&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a7d6ef60217dbaf9f943f8afbdbdaadec">UserMarshalRoutines</a> [WIRE_MARSHAL_TABLE_SIZE]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const unsigned short&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a55a4ef9fa3069bc2aa9b30b8e44e001b">IComponentRegistrar_FormatStringOffsetTable</a> []</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const PRPC_STUB_FUNCTION&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a1f400c644f59b32be93a3a9aca55a4c4">IComponentRegistrar_table</a> []</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CInterfaceStubVtbl&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#ab6da1c5198ae88369681aa0c0101e435">_IComponentRegistrarStubVtbl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const unsigned short&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a2322d9270610d7165b703a3f2b6f8dca">IUnitOperation_FormatStringOffsetTable</a> []</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const PRPC_STUB_FUNCTION&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a2d30e758a36836efb10c2f46f7934ac0">IUnitOperation_table</a> []</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CInterfaceStubVtbl&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a7034bc6f524535da90f4a50bd0aa67c1">_IUnitOperationStubVtbl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const unsigned short&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a7299d483cef21218d8c864edafb5af2f">IPort_FormatStringOffsetTable</a> []</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const PRPC_STUB_FUNCTION&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a1f92af2af51953a3d02d8a47b68927db">IPort_table</a> []</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CInterfaceStubVtbl&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#acb229c19fc9ac8e48ad25504ce9307da">_IPortStubVtbl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const unsigned short&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a13289d1f22c45fd046596ad4f3115276">IParameterCollection_FormatStringOffsetTable</a> []</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const PRPC_STUB_FUNCTION&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a9454c002cccadb5446919ab0af4429a8">IParameterCollection_table</a> []</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CInterfaceStubVtbl&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a57279b5fde32aa2f0e3600ff92af8d74">_IParameterCollectionStubVtbl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const unsigned short&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a07c0e7c9bd44c6c09f71fe7968708c77">IPortCollection_FormatStringOffsetTable</a> []</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const PRPC_STUB_FUNCTION&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#ab1bb460e53f2514eb9c8c3f9b984a1b7">IPortCollection_table</a> []</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">CInterfaceStubVtbl&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#adcc799c3cab935b434ebc8f34f412bba">_IPortCollectionStubVtbl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const CInterfaceProxyVtbl *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a428fa2444b7d5d61da828f40de605d0d">_Cape2Fluent_ProxyVtblList</a> []</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const CInterfaceStubVtbl *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a9393491775a5cf4902fc3ba3eedf53e4">_Cape2Fluent_StubVtblList</a> []</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">PCInterfaceName const&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a47095257fb94d5c740adad7b8f1b3335">_Cape2Fluent_InterfaceNamesList</a> []</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct___i_i_d.html">IID</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a0e5541518e0e3679c874734f235ca52d">_Cape2Fluent_BaseIIDList</a> []</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const ExtendedProxyFileInfo&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__p_8c.html#a2ef7bac0bf35dfd89a73b83cca4f95cf">Cape2Fluent_ProxyFileInfo</a></td></tr>
+</table>
+<hr/><h2>Dokumentacja definicji</h2>
+<a class="anchor" id="aff333588ab024f45d621c6afff77bb48"></a><!-- doxytag: member="Cape2Fluent_p.c::__REQUIRED_RPCPROXY_H_VERSION__" ref="aff333588ab024f45d621c6afff77bb48" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __REQUIRED_RPCPROXY_H_VERSION__&nbsp;&nbsp;&nbsp;475</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l00040">40</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abc96d70d23e4a4490c054c751d40c994"></a><!-- doxytag: member="Cape2Fluent_p.c::_Cape2Fluent_CHECK_IID" ref="abc96d70d23e4a4490c054c751d40c994" args="(n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _Cape2Fluent_CHECK_IID</td>
+          <td>(</td>
+          <td class="paramtype">n&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>&nbsp;&nbsp;&nbsp;IID_GENERIC_CHECK_IID( _Cape2Fluent, pIID, n)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l02002">2002</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a085e6f829dfc1a6969a1b5c5e1f950ac"></a><!-- doxytag: member="Cape2Fluent_p.c::EXPR_FORMAT_STRING_SIZE" ref="a085e6f829dfc1a6969a1b5c5e1f950ac" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EXPR_FORMAT_STRING_SIZE&nbsp;&nbsp;&nbsp;1</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l00054">54</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaf88f77ac2cd3ef19e67916d5da5a42a"></a><!-- doxytag: member="Cape2Fluent_p.c::PROC_FORMAT_STRING_SIZE" ref="aaf88f77ac2cd3ef19e67916d5da5a42a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PROC_FORMAT_STRING_SIZE&nbsp;&nbsp;&nbsp;673</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l00053">53</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5987b7d749f76fb0361f2f08705afc42"></a><!-- doxytag: member="Cape2Fluent_p.c::TRANSMIT_AS_TABLE_SIZE" ref="a5987b7d749f76fb0361f2f08705afc42" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TRANSMIT_AS_TABLE_SIZE&nbsp;&nbsp;&nbsp;0</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l00055">55</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ada96888875bf0b021f125d5dcb974d59"></a><!-- doxytag: member="Cape2Fluent_p.c::TYPE_FORMAT_STRING_SIZE" ref="ada96888875bf0b021f125d5dcb974d59" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TYPE_FORMAT_STRING_SIZE&nbsp;&nbsp;&nbsp;1105</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l00052">52</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac65ba23bc447e763c82dc734c1083538"></a><!-- doxytag: member="Cape2Fluent_p.c::USE_STUBLESS_PROXY" ref="ac65ba23bc447e763c82dc734c1083538" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define USE_STUBLESS_PROXY</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l00035">35</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a65911675f1b1c666c5e99a1231b21875"></a><!-- doxytag: member="Cape2Fluent_p.c::WIRE_MARSHAL_TABLE_SIZE" ref="a65911675f1b1c666c5e99a1231b21875" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WIRE_MARSHAL_TABLE_SIZE&nbsp;&nbsp;&nbsp;3</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l00056">56</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja definicji typów</h2>
+<a class="anchor" id="a369388c43d6460cfedd0f3b1fc67e127"></a><!-- doxytag: member="Cape2Fluent_p.c::Cape2Fluent_MIDL_EXPR_FORMAT_STRING" ref="a369388c43d6460cfedd0f3b1fc67e127" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct___cape2_fluent___m_i_d_l___e_x_p_r___f_o_r_m_a_t___s_t_r_i_n_g.html">_Cape2Fluent_MIDL_EXPR_FORMAT_STRING</a>  <a class="el" href="struct___cape2_fluent___m_i_d_l___e_x_p_r___f_o_r_m_a_t___s_t_r_i_n_g.html">Cape2Fluent_MIDL_EXPR_FORMAT_STRING</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a48496ce07efb5f39fffe9e8db3f6dff7"></a><!-- doxytag: member="Cape2Fluent_p.c::Cape2Fluent_MIDL_PROC_FORMAT_STRING" ref="a48496ce07efb5f39fffe9e8db3f6dff7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct___cape2_fluent___m_i_d_l___p_r_o_c___f_o_r_m_a_t___s_t_r_i_n_g.html">_Cape2Fluent_MIDL_PROC_FORMAT_STRING</a>  <a class="el" href="struct___cape2_fluent___m_i_d_l___p_r_o_c___f_o_r_m_a_t___s_t_r_i_n_g.html">Cape2Fluent_MIDL_PROC_FORMAT_STRING</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad77ccb8786db819c1297276db69a9ff4"></a><!-- doxytag: member="Cape2Fluent_p.c::Cape2Fluent_MIDL_TYPE_FORMAT_STRING" ref="ad77ccb8786db819c1297276db69a9ff4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct___cape2_fluent___m_i_d_l___t_y_p_e___f_o_r_m_a_t___s_t_r_i_n_g.html">_Cape2Fluent_MIDL_TYPE_FORMAT_STRING</a>  <a class="el" href="struct___cape2_fluent___m_i_d_l___t_y_p_e___f_o_r_m_a_t___s_t_r_i_n_g.html">Cape2Fluent_MIDL_TYPE_FORMAT_STRING</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Dokumentacja funkcji</h2>
+<a class="anchor" id="aa63d41f118d63cad2965c08433177c67"></a><!-- doxytag: member="Cape2Fluent_p.c::_Cape2Fluent_IID_Lookup" ref="aa63d41f118d63cad2965c08433177c67" args="(const IID *pIID, int *pIndex)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int __stdcall _Cape2Fluent_IID_Lookup </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct___i_i_d.html">IID</a> *&nbsp;</td>
+          <td class="paramname"> <em>pIID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&nbsp;</td>
+          <td class="paramname"> <em>pIndex</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l02004">2004</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adf1f2e4b075386a9826d772f949d7b1d"></a><!-- doxytag: member="Cape2Fluent_p.c::CINTERFACE_PROXY_VTABLE" ref="adf1f2e4b075386a9826d772f949d7b1d" args="(11)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CINTERFACE_PROXY_VTABLE </td>
+          <td>(</td>
+          <td class="paramtype">11&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01898">1898</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_cape2_fluent__i_8h_source.html#l00812">IID_IPortCollection</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a40ec251e1d84b957508972f8fb51e81a"></a><!-- doxytag: member="Cape2Fluent_p.c::CINTERFACE_PROXY_VTABLE" ref="a40ec251e1d84b957508972f8fb51e81a" args="(16)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CINTERFACE_PROXY_VTABLE </td>
+          <td>(</td>
+          <td class="paramtype">16&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01734">1734</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_cape2_fluent__i_8h_source.html#l00460">IID_IPort</a> i <a class="el" href="_cape2_fluent__p_8c_source.html#l01713">IPort_ProxyInfo</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afd0ba421643602e99119c2db6dd8ccca"></a><!-- doxytag: member="Cape2Fluent_p.c::CINTERFACE_PROXY_VTABLE" ref="afd0ba421643602e99119c2db6dd8ccca" args="(8)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CINTERFACE_PROXY_VTABLE </td>
+          <td>(</td>
+          <td class="paramtype">8&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01658">1658</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_cape2_fluent__i_8h_source.html#l00341">IID_IUnitOperation</a> i <a class="el" href="_cape2_fluent__p_8c_source.html#l01637">IUnitOperation_ProxyInfo</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1dc306748e67dd92f93a5113242146fa"></a><!-- doxytag: member="Cape2Fluent_p.c::CINTERFACE_PROXY_VTABLE" ref="a1dc306748e67dd92f93a5113242146fa" args="(13)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CINTERFACE_PROXY_VTABLE </td>
+          <td>(</td>
+          <td class="paramtype">13&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01580">1580</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_cape2_fluent__p_8c_source.html#l01559">IComponentRegistrar_ProxyInfo</a> i <a class="el" href="_cape2_fluent__i_8h_source.html#l00172">IID_IComponentRegistrar</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja zmiennych</h2>
+<a class="anchor" id="a0e5541518e0e3679c874734f235ca52d"></a><!-- doxytag: member="Cape2Fluent_p.c::_Cape2Fluent_BaseIIDList" ref="a0e5541518e0e3679c874734f235ca52d" args="[]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct___i_i_d.html">IID</a>* <a class="el" href="_cape2_fluent__p_8c.html#a0e5541518e0e3679c874734f235ca52d">_Cape2Fluent_BaseIIDList</a>[]</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment"> 
+{
+    &amp;IID_IDispatch,
+    &amp;IID_IDispatch,
+    &amp;IID_IDispatch,
+    &amp;IID_IDispatch,
+    &amp;IID_IDispatch,
+    0
+}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01991">1991</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a47095257fb94d5c740adad7b8f1b3335"></a><!-- doxytag: member="Cape2Fluent_p.c::_Cape2Fluent_InterfaceNamesList" ref="a47095257fb94d5c740adad7b8f1b3335" args="[]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PCInterfaceName const <a class="el" href="_cape2_fluent__p_8c.html#a47095257fb94d5c740adad7b8f1b3335">_Cape2Fluent_InterfaceNamesList</a>[]</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment"> 
+{
+    <span class="stringliteral">&quot;IComponentRegistrar&quot;</span>,
+    <span class="stringliteral">&quot;IParameterCollection&quot;</span>,
+    <span class="stringliteral">&quot;IPort&quot;</span>,
+    <span class="stringliteral">&quot;IUnitOperation&quot;</span>,
+    <span class="stringliteral">&quot;IPortCollection&quot;</span>,
+    0
+}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01981">1981</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a428fa2444b7d5d61da828f40de605d0d"></a><!-- doxytag: member="Cape2Fluent_p.c::_Cape2Fluent_ProxyVtblList" ref="a428fa2444b7d5d61da828f40de605d0d" args="[]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const CInterfaceProxyVtbl* <a class="el" href="_cape2_fluent__p_8c.html#a428fa2444b7d5d61da828f40de605d0d">_Cape2Fluent_ProxyVtblList</a>[]</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment"> 
+{
+    ( CInterfaceProxyVtbl *) &amp;_IComponentRegistrarProxyVtbl,
+    ( CInterfaceProxyVtbl *) &amp;_IParameterCollectionProxyVtbl,
+    ( CInterfaceProxyVtbl *) &amp;_IPortProxyVtbl,
+    ( CInterfaceProxyVtbl *) &amp;_IUnitOperationProxyVtbl,
+    ( CInterfaceProxyVtbl *) &amp;_IPortCollectionProxyVtbl,
+    0
+}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01961">1961</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9393491775a5cf4902fc3ba3eedf53e4"></a><!-- doxytag: member="Cape2Fluent_p.c::_Cape2Fluent_StubVtblList" ref="a9393491775a5cf4902fc3ba3eedf53e4" args="[]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const CInterfaceStubVtbl* <a class="el" href="_cape2_fluent__p_8c.html#a9393491775a5cf4902fc3ba3eedf53e4">_Cape2Fluent_StubVtblList</a>[]</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment"> 
+{
+    ( CInterfaceStubVtbl *) &amp;<a class="code" href="_cape2_fluent__p_8c.html#ab6da1c5198ae88369681aa0c0101e435">_IComponentRegistrarStubVtbl</a>,
+    ( CInterfaceStubVtbl *) &amp;<a class="code" href="_cape2_fluent__p_8c.html#a57279b5fde32aa2f0e3600ff92af8d74">_IParameterCollectionStubVtbl</a>,
+    ( CInterfaceStubVtbl *) &amp;<a class="code" href="_cape2_fluent__p_8c.html#acb229c19fc9ac8e48ad25504ce9307da">_IPortStubVtbl</a>,
+    ( CInterfaceStubVtbl *) &amp;<a class="code" href="_cape2_fluent__p_8c.html#a7034bc6f524535da90f4a50bd0aa67c1">_IUnitOperationStubVtbl</a>,
+    ( CInterfaceStubVtbl *) &amp;<a class="code" href="_cape2_fluent__p_8c.html#adcc799c3cab935b434ebc8f34f412bba">_IPortCollectionStubVtbl</a>,
+    0
+}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01971">1971</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab6da1c5198ae88369681aa0c0101e435"></a><!-- doxytag: member="Cape2Fluent_p.c::_IComponentRegistrarStubVtbl" ref="ab6da1c5198ae88369681aa0c0101e435" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CInterfaceStubVtbl <a class="el" href="_cape2_fluent__p_8c.html#ab6da1c5198ae88369681aa0c0101e435">_IComponentRegistrarStubVtbl</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment">
+{
+    &amp;<a class="code" href="_cape2_fluent__i_8h.html#acc1a3f721d3b139ddd6890f44e010015">IID_IComponentRegistrar</a>,
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a2311d3790cc641181ef310415c05d2fe">IComponentRegistrar_ServerInfo</a>,
+    13,
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a1f400c644f59b32be93a3a9aca55a4c4">IComponentRegistrar_table</a>[-3],
+    CStdStubBuffer_DELEGATING_METHODS
+}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01614">1614</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a57279b5fde32aa2f0e3600ff92af8d74"></a><!-- doxytag: member="Cape2Fluent_p.c::_IParameterCollectionStubVtbl" ref="a57279b5fde32aa2f0e3600ff92af8d74" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CInterfaceStubVtbl <a class="el" href="_cape2_fluent__p_8c.html#a57279b5fde32aa2f0e3600ff92af8d74">_IParameterCollectionStubVtbl</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment">
+{
+    &amp;<a class="code" href="_cape2_fluent__i_8h.html#a08bfdca7340f1a9459dff9308ce34641">IID_IParameterCollection</a>,
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a80b7d2451b8e971d32fe498d603ac248">IParameterCollection_ServerInfo</a>,
+    11,
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a9454c002cccadb5446919ab0af4429a8">IParameterCollection_table</a>[-3],
+    CStdStubBuffer_DELEGATING_METHODS
+}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01851">1851</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adcc799c3cab935b434ebc8f34f412bba"></a><!-- doxytag: member="Cape2Fluent_p.c::_IPortCollectionStubVtbl" ref="adcc799c3cab935b434ebc8f34f412bba" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CInterfaceStubVtbl <a class="el" href="_cape2_fluent__p_8c.html#adcc799c3cab935b434ebc8f34f412bba">_IPortCollectionStubVtbl</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment">
+{
+    &amp;<a class="code" href="_cape2_fluent__i_8h.html#aaa217aaa5f73898a9ed72525e7629569">IID_IPortCollection</a>,
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a406daf21d12ac98d34c6681581be1a2d">IPortCollection_ServerInfo</a>,
+    11,
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#ab1bb460e53f2514eb9c8c3f9b984a1b7">IPortCollection_table</a>[-3],
+    CStdStubBuffer_DELEGATING_METHODS
+}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01928">1928</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acb229c19fc9ac8e48ad25504ce9307da"></a><!-- doxytag: member="Cape2Fluent_p.c::_IPortStubVtbl" ref="acb229c19fc9ac8e48ad25504ce9307da" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CInterfaceStubVtbl <a class="el" href="_cape2_fluent__p_8c.html#acb229c19fc9ac8e48ad25504ce9307da">_IPortStubVtbl</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment">
+{
+    &amp;<a class="code" href="_cape2_fluent__i_8h.html#a0bd830eab95ba4531a52e9e8d1c5a299">IID_IPort</a>,
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a21cbd5eef809343431b363b2fe550c09">IPort_ServerInfo</a>,
+    16,
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a1f92af2af51953a3d02d8a47b68927db">IPort_table</a>[-3],
+    CStdStubBuffer_DELEGATING_METHODS
+}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01774">1774</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7034bc6f524535da90f4a50bd0aa67c1"></a><!-- doxytag: member="Cape2Fluent_p.c::_IUnitOperationStubVtbl" ref="a7034bc6f524535da90f4a50bd0aa67c1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CInterfaceStubVtbl <a class="el" href="_cape2_fluent__p_8c.html#a7034bc6f524535da90f4a50bd0aa67c1">_IUnitOperationStubVtbl</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment">
+{
+    &amp;<a class="code" href="_cape2_fluent__i_8h.html#ab3749202ea4c5cdc311d957fb661d2a6">IID_IUnitOperation</a>,
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a82834ddff44293f0d440480f0b78c0ab">IUnitOperation_ServerInfo</a>,
+    8,
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a2d30e758a36836efb10c2f46f7934ac0">IUnitOperation_table</a>[-3],
+    CStdStubBuffer_DELEGATING_METHODS
+}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01682">1682</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2077babdb4b5d8534f33d0fcff92d8ba"></a><!-- doxytag: member="Cape2Fluent_p.c::_RpcTransferSyntax" ref="a2077babdb4b5d8534f33d0fcff92d8ba" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RPC_SYNTAX_IDENTIFIER <a class="el" href="_cape2_fluent__p_8c.html#a2077babdb4b5d8534f33d0fcff92d8ba">_RpcTransferSyntax</a><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment"> 
+{{0x8A885D04,0x1CEB,0x11C9,{0x9F,0xE8,0x08,0x00,0x2B,0x10,0x48,0x60}},{2,0}}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l00077">77</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab32c1775749f532d44adaeec13560542"></a><!-- doxytag: member="Cape2Fluent_p.c::Cape2Fluent__MIDL_ExprFormatString" ref="ab32c1775749f532d44adaeec13560542" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct___cape2_fluent___m_i_d_l___e_x_p_r___f_o_r_m_a_t___s_t_r_i_n_g.html">Cape2Fluent_MIDL_EXPR_FORMAT_STRING</a> <a class="el" href="_cape2_fluent__p_8c.html#ab32c1775749f532d44adaeec13560542">Cape2Fluent__MIDL_ExprFormatString</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aedde8886874a0c41b82d943ed1789a45"></a><!-- doxytag: member="Cape2Fluent_p.c::Cape2Fluent__MIDL_ProcFormatString" ref="aedde8886874a0c41b82d943ed1789a45" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const <a class="el" href="struct___cape2_fluent___m_i_d_l___p_r_o_c___f_o_r_m_a_t___s_t_r_i_n_g.html">Cape2Fluent_MIDL_PROC_FORMAT_STRING</a> <a class="el" href="_cape2_fluent__p_8c.html#aedde8886874a0c41b82d943ed1789a45">Cape2Fluent__MIDL_ProcFormatString</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l00135">135</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af02d5d20c3ff5ca0db72a333aeebb9f0"></a><!-- doxytag: member="Cape2Fluent_p.c::Cape2Fluent__MIDL_TypeFormatString" ref="af02d5d20c3ff5ca0db72a333aeebb9f0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const <a class="el" href="struct___cape2_fluent___m_i_d_l___t_y_p_e___f_o_r_m_a_t___s_t_r_i_n_g.html">Cape2Fluent_MIDL_TYPE_FORMAT_STRING</a> <a class="el" href="_cape2_fluent__p_8c.html#af02d5d20c3ff5ca0db72a333aeebb9f0">Cape2Fluent__MIDL_TypeFormatString</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l00751">751</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2ef7bac0bf35dfd89a73b83cca4f95cf"></a><!-- doxytag: member="Cape2Fluent_p.c::Cape2Fluent_ProxyFileInfo" ref="a2ef7bac0bf35dfd89a73b83cca4f95cf" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const ExtendedProxyFileInfo <a class="el" href="_cape2_fluent__p_8c.html#a2ef7bac0bf35dfd89a73b83cca4f95cf">Cape2Fluent_ProxyFileInfo</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment"> 
+{
+    (PCInterfaceProxyVtblList *) &amp; <a class="code" href="_cape2_fluent__p_8c.html#a428fa2444b7d5d61da828f40de605d0d">_Cape2Fluent_ProxyVtblList</a>,
+    (PCInterfaceStubVtblList *) &amp; <a class="code" href="_cape2_fluent__p_8c.html#a9393491775a5cf4902fc3ba3eedf53e4">_Cape2Fluent_StubVtblList</a>,
+    (<span class="keyword">const</span> PCInterfaceName * ) &amp; <a class="code" href="_cape2_fluent__p_8c.html#a47095257fb94d5c740adad7b8f1b3335">_Cape2Fluent_InterfaceNamesList</a>,
+    (<span class="keyword">const</span> <a class="code" href="struct___i_i_d.html">IID</a> ** ) &amp; <a class="code" href="_cape2_fluent__p_8c.html#a0e5541518e0e3679c874734f235ca52d">_Cape2Fluent_BaseIIDList</a>,
+    &amp; <a class="code" href="_cape2_fluent__p_8c.html#aa63d41f118d63cad2965c08433177c67">_Cape2Fluent_IID_Lookup</a>, 
+    5,
+    2,
+    0, 
+    0, 
+    0, 
+    0  
+}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l02015">2015</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a55a4ef9fa3069bc2aa9b30b8e44e001b"></a><!-- doxytag: member="Cape2Fluent_p.c::IComponentRegistrar_FormatStringOffsetTable" ref="a55a4ef9fa3069bc2aa9b30b8e44e001b" args="[]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned short <a class="el" href="_cape2_fluent__p_8c.html#a55a4ef9fa3069bc2aa9b30b8e44e001b">IComponentRegistrar_FormatStringOffsetTable</a>[]<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment">
+    {
+    (<span class="keywordtype">unsigned</span> short) -1,
+    (<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>) -1,
+    (<span class="keywordtype">unsigned</span> short) -1,
+    (<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>) -1,
+    0,
+    36,
+    66,
+    96,
+    138,
+    174
+    }
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01545">1545</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a83012b5410498cce46b0355a3bf6b7fa"></a><!-- doxytag: member="Cape2Fluent_p.c::IComponentRegistrar_ProxyInfo" ref="a83012b5410498cce46b0355a3bf6b7fa" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const MIDL_STUBLESS_PROXY_INFO <a class="el" href="_cape2_fluent__p_8c.html#a83012b5410498cce46b0355a3bf6b7fa">IComponentRegistrar_ProxyInfo</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment">
+    {
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a8ea23509808d8dadef9afee23159a71c">Object_StubDesc</a>,
+    <a class="code" href="_cape2_fluent__p_8c.html#aedde8886874a0c41b82d943ed1789a45">Cape2Fluent__MIDL_ProcFormatString</a>.<a class="code" href="struct___cape2_fluent___m_i_d_l___p_r_o_c___f_o_r_m_a_t___s_t_r_i_n_g.html#a88dc204abb05789a8582556c80724b33">Format</a>,
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a55a4ef9fa3069bc2aa9b30b8e44e001b">IComponentRegistrar_FormatStringOffsetTable</a>[-3],
+    0,
+    0,
+    0
+    }
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01559">1559</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+<p>Odwołania w <a class="el" href="_cape2_fluent__p_8c_source.html#l01580">CINTERFACE_PROXY_VTABLE()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2311d3790cc641181ef310415c05d2fe"></a><!-- doxytag: member="Cape2Fluent_p.c::IComponentRegistrar_ServerInfo" ref="a2311d3790cc641181ef310415c05d2fe" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const MIDL_SERVER_INFO <a class="el" href="_cape2_fluent__p_8c.html#a2311d3790cc641181ef310415c05d2fe">IComponentRegistrar_ServerInfo</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment"> 
+    {
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a8ea23509808d8dadef9afee23159a71c">Object_StubDesc</a>,
+    0,
+    <a class="code" href="_cape2_fluent__p_8c.html#aedde8886874a0c41b82d943ed1789a45">Cape2Fluent__MIDL_ProcFormatString</a>.<a class="code" href="struct___cape2_fluent___m_i_d_l___p_r_o_c___f_o_r_m_a_t___s_t_r_i_n_g.html#a88dc204abb05789a8582556c80724b33">Format</a>,
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a55a4ef9fa3069bc2aa9b30b8e44e001b">IComponentRegistrar_FormatStringOffsetTable</a>[-3],
+    0,
+    0,
+    0,
+    0}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01570">1570</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1f400c644f59b32be93a3a9aca55a4c4"></a><!-- doxytag: member="Cape2Fluent_p.c::IComponentRegistrar_table" ref="a1f400c644f59b32be93a3a9aca55a4c4" args="[]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const PRPC_STUB_FUNCTION <a class="el" href="_cape2_fluent__p_8c.html#a1f400c644f59b32be93a3a9aca55a4c4">IComponentRegistrar_table</a>[]<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment">
+{
+    STUB_FORWARDING_FUNCTION,
+    STUB_FORWARDING_FUNCTION,
+    STUB_FORWARDING_FUNCTION,
+    STUB_FORWARDING_FUNCTION,
+    NdrStubCall2,
+    NdrStubCall2,
+    NdrStubCall2,
+    NdrStubCall2,
+    NdrStubCall2,
+    NdrStubCall2
+}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01600">1600</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a13289d1f22c45fd046596ad4f3115276"></a><!-- doxytag: member="Cape2Fluent_p.c::IParameterCollection_FormatStringOffsetTable" ref="a13289d1f22c45fd046596ad4f3115276" args="[]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned short <a class="el" href="_cape2_fluent__p_8c.html#a13289d1f22c45fd046596ad4f3115276">IParameterCollection_FormatStringOffsetTable</a>[]<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment">
+    {
+    (<span class="keywordtype">unsigned</span> short) -1,
+    (<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>) -1,
+    (<span class="keywordtype">unsigned</span> short) -1,
+    (<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>) -1,
+    564,
+    276,
+    600,
+    636
+    }
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01788">1788</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a15e36be09aeb5637972dbc0eb6dfd448"></a><!-- doxytag: member="Cape2Fluent_p.c::IParameterCollection_ProxyInfo" ref="a15e36be09aeb5637972dbc0eb6dfd448" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const MIDL_STUBLESS_PROXY_INFO <a class="el" href="_cape2_fluent__p_8c.html#a15e36be09aeb5637972dbc0eb6dfd448">IParameterCollection_ProxyInfo</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment">
+    {
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a8ea23509808d8dadef9afee23159a71c">Object_StubDesc</a>,
+    <a class="code" href="_cape2_fluent__p_8c.html#aedde8886874a0c41b82d943ed1789a45">Cape2Fluent__MIDL_ProcFormatString</a>.<a class="code" href="struct___cape2_fluent___m_i_d_l___p_r_o_c___f_o_r_m_a_t___s_t_r_i_n_g.html#a88dc204abb05789a8582556c80724b33">Format</a>,
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a13289d1f22c45fd046596ad4f3115276">IParameterCollection_FormatStringOffsetTable</a>[-3],
+    0,
+    0,
+    0
+    }
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01800">1800</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a80b7d2451b8e971d32fe498d603ac248"></a><!-- doxytag: member="Cape2Fluent_p.c::IParameterCollection_ServerInfo" ref="a80b7d2451b8e971d32fe498d603ac248" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const MIDL_SERVER_INFO <a class="el" href="_cape2_fluent__p_8c.html#a80b7d2451b8e971d32fe498d603ac248">IParameterCollection_ServerInfo</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment"> 
+    {
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a8ea23509808d8dadef9afee23159a71c">Object_StubDesc</a>,
+    0,
+    <a class="code" href="_cape2_fluent__p_8c.html#aedde8886874a0c41b82d943ed1789a45">Cape2Fluent__MIDL_ProcFormatString</a>.<a class="code" href="struct___cape2_fluent___m_i_d_l___p_r_o_c___f_o_r_m_a_t___s_t_r_i_n_g.html#a88dc204abb05789a8582556c80724b33">Format</a>,
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a13289d1f22c45fd046596ad4f3115276">IParameterCollection_FormatStringOffsetTable</a>[-3],
+    0,
+    0,
+    0,
+    0}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01811">1811</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9454c002cccadb5446919ab0af4429a8"></a><!-- doxytag: member="Cape2Fluent_p.c::IParameterCollection_table" ref="a9454c002cccadb5446919ab0af4429a8" args="[]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const PRPC_STUB_FUNCTION <a class="el" href="_cape2_fluent__p_8c.html#a9454c002cccadb5446919ab0af4429a8">IParameterCollection_table</a>[]<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment">
+{
+    STUB_FORWARDING_FUNCTION,
+    STUB_FORWARDING_FUNCTION,
+    STUB_FORWARDING_FUNCTION,
+    STUB_FORWARDING_FUNCTION,
+    NdrStubCall2,
+    NdrStubCall2,
+    NdrStubCall2,
+    NdrStubCall2
+}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01839">1839</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7299d483cef21218d8c864edafb5af2f"></a><!-- doxytag: member="Cape2Fluent_p.c::IPort_FormatStringOffsetTable" ref="a7299d483cef21218d8c864edafb5af2f" args="[]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned short <a class="el" href="_cape2_fluent__p_8c.html#a7299d483cef21218d8c864edafb5af2f">IPort_FormatStringOffsetTable</a>[]<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment">
+    {
+    (<span class="keywordtype">unsigned</span> short) -1,
+    (<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>) -1,
+    (<span class="keywordtype">unsigned</span> short) -1,
+    (<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>) -1,
+    240,
+    276,
+    312,
+    348,
+    384,
+    420,
+    456,
+    492,
+    528
+    }
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01696">1696</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af5d60279d654d3ebe1d55cc212f2e0cf"></a><!-- doxytag: member="Cape2Fluent_p.c::IPort_ProxyInfo" ref="af5d60279d654d3ebe1d55cc212f2e0cf" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const MIDL_STUBLESS_PROXY_INFO <a class="el" href="_cape2_fluent__p_8c.html#af5d60279d654d3ebe1d55cc212f2e0cf">IPort_ProxyInfo</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment">
+    {
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a8ea23509808d8dadef9afee23159a71c">Object_StubDesc</a>,
+    <a class="code" href="_cape2_fluent__p_8c.html#aedde8886874a0c41b82d943ed1789a45">Cape2Fluent__MIDL_ProcFormatString</a>.<a class="code" href="struct___cape2_fluent___m_i_d_l___p_r_o_c___f_o_r_m_a_t___s_t_r_i_n_g.html#a88dc204abb05789a8582556c80724b33">Format</a>,
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a7299d483cef21218d8c864edafb5af2f">IPort_FormatStringOffsetTable</a>[-3],
+    0,
+    0,
+    0
+    }
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01713">1713</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+<p>Odwołania w <a class="el" href="_cape2_fluent__p_8c_source.html#l01734">CINTERFACE_PROXY_VTABLE()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a21cbd5eef809343431b363b2fe550c09"></a><!-- doxytag: member="Cape2Fluent_p.c::IPort_ServerInfo" ref="a21cbd5eef809343431b363b2fe550c09" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const MIDL_SERVER_INFO <a class="el" href="_cape2_fluent__p_8c.html#a21cbd5eef809343431b363b2fe550c09">IPort_ServerInfo</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment"> 
+    {
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a8ea23509808d8dadef9afee23159a71c">Object_StubDesc</a>,
+    0,
+    <a class="code" href="_cape2_fluent__p_8c.html#aedde8886874a0c41b82d943ed1789a45">Cape2Fluent__MIDL_ProcFormatString</a>.<a class="code" href="struct___cape2_fluent___m_i_d_l___p_r_o_c___f_o_r_m_a_t___s_t_r_i_n_g.html#a88dc204abb05789a8582556c80724b33">Format</a>,
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a7299d483cef21218d8c864edafb5af2f">IPort_FormatStringOffsetTable</a>[-3],
+    0,
+    0,
+    0,
+    0}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01724">1724</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1f92af2af51953a3d02d8a47b68927db"></a><!-- doxytag: member="Cape2Fluent_p.c::IPort_table" ref="a1f92af2af51953a3d02d8a47b68927db" args="[]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const PRPC_STUB_FUNCTION <a class="el" href="_cape2_fluent__p_8c.html#a1f92af2af51953a3d02d8a47b68927db">IPort_table</a>[]<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment">
+{
+    STUB_FORWARDING_FUNCTION,
+    STUB_FORWARDING_FUNCTION,
+    STUB_FORWARDING_FUNCTION,
+    STUB_FORWARDING_FUNCTION,
+    NdrStubCall2,
+    NdrStubCall2,
+    NdrStubCall2,
+    NdrStubCall2,
+    NdrStubCall2,
+    NdrStubCall2,
+    NdrStubCall2,
+    NdrStubCall2,
+    NdrStubCall2
+}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01757">1757</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a07c0e7c9bd44c6c09f71fe7968708c77"></a><!-- doxytag: member="Cape2Fluent_p.c::IPortCollection_FormatStringOffsetTable" ref="a07c0e7c9bd44c6c09f71fe7968708c77" args="[]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned short <a class="el" href="_cape2_fluent__p_8c.html#a07c0e7c9bd44c6c09f71fe7968708c77">IPortCollection_FormatStringOffsetTable</a>[]<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment">
+    {
+    (<span class="keywordtype">unsigned</span> short) -1,
+    (<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>) -1,
+    (<span class="keywordtype">unsigned</span> short) -1,
+    (<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>) -1,
+    564,
+    276,
+    600,
+    636
+    }
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01865">1865</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abe7e94307366a9790bcb2d1361501f04"></a><!-- doxytag: member="Cape2Fluent_p.c::IPortCollection_ProxyInfo" ref="abe7e94307366a9790bcb2d1361501f04" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const MIDL_STUBLESS_PROXY_INFO <a class="el" href="_cape2_fluent__p_8c.html#abe7e94307366a9790bcb2d1361501f04">IPortCollection_ProxyInfo</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment">
+    {
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a8ea23509808d8dadef9afee23159a71c">Object_StubDesc</a>,
+    <a class="code" href="_cape2_fluent__p_8c.html#aedde8886874a0c41b82d943ed1789a45">Cape2Fluent__MIDL_ProcFormatString</a>.<a class="code" href="struct___cape2_fluent___m_i_d_l___p_r_o_c___f_o_r_m_a_t___s_t_r_i_n_g.html#a88dc204abb05789a8582556c80724b33">Format</a>,
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a07c0e7c9bd44c6c09f71fe7968708c77">IPortCollection_FormatStringOffsetTable</a>[-3],
+    0,
+    0,
+    0
+    }
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01877">1877</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a406daf21d12ac98d34c6681581be1a2d"></a><!-- doxytag: member="Cape2Fluent_p.c::IPortCollection_ServerInfo" ref="a406daf21d12ac98d34c6681581be1a2d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const MIDL_SERVER_INFO <a class="el" href="_cape2_fluent__p_8c.html#a406daf21d12ac98d34c6681581be1a2d">IPortCollection_ServerInfo</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment"> 
+    {
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a8ea23509808d8dadef9afee23159a71c">Object_StubDesc</a>,
+    0,
+    <a class="code" href="_cape2_fluent__p_8c.html#aedde8886874a0c41b82d943ed1789a45">Cape2Fluent__MIDL_ProcFormatString</a>.<a class="code" href="struct___cape2_fluent___m_i_d_l___p_r_o_c___f_o_r_m_a_t___s_t_r_i_n_g.html#a88dc204abb05789a8582556c80724b33">Format</a>,
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a07c0e7c9bd44c6c09f71fe7968708c77">IPortCollection_FormatStringOffsetTable</a>[-3],
+    0,
+    0,
+    0,
+    0}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01888">1888</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab1bb460e53f2514eb9c8c3f9b984a1b7"></a><!-- doxytag: member="Cape2Fluent_p.c::IPortCollection_table" ref="ab1bb460e53f2514eb9c8c3f9b984a1b7" args="[]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const PRPC_STUB_FUNCTION <a class="el" href="_cape2_fluent__p_8c.html#ab1bb460e53f2514eb9c8c3f9b984a1b7">IPortCollection_table</a>[]<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment">
+{
+    STUB_FORWARDING_FUNCTION,
+    STUB_FORWARDING_FUNCTION,
+    STUB_FORWARDING_FUNCTION,
+    STUB_FORWARDING_FUNCTION,
+    NdrStubCall2,
+    NdrStubCall2,
+    NdrStubCall2,
+    NdrStubCall2
+}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01916">1916</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2322d9270610d7165b703a3f2b6f8dca"></a><!-- doxytag: member="Cape2Fluent_p.c::IUnitOperation_FormatStringOffsetTable" ref="a2322d9270610d7165b703a3f2b6f8dca" args="[]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned short <a class="el" href="_cape2_fluent__p_8c.html#a2322d9270610d7165b703a3f2b6f8dca">IUnitOperation_FormatStringOffsetTable</a>[]<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment">
+    {
+    (<span class="keywordtype">unsigned</span> short) -1,
+    (<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>) -1,
+    (<span class="keywordtype">unsigned</span> short) -1,
+    (<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>) -1,
+    210
+    }
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01628">1628</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a87dd0db2d7c8d9726c0e4056617c8ca6"></a><!-- doxytag: member="Cape2Fluent_p.c::IUnitOperation_ProxyInfo" ref="a87dd0db2d7c8d9726c0e4056617c8ca6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const MIDL_STUBLESS_PROXY_INFO <a class="el" href="_cape2_fluent__p_8c.html#a87dd0db2d7c8d9726c0e4056617c8ca6">IUnitOperation_ProxyInfo</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment">
+    {
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a8ea23509808d8dadef9afee23159a71c">Object_StubDesc</a>,
+    <a class="code" href="_cape2_fluent__p_8c.html#aedde8886874a0c41b82d943ed1789a45">Cape2Fluent__MIDL_ProcFormatString</a>.<a class="code" href="struct___cape2_fluent___m_i_d_l___p_r_o_c___f_o_r_m_a_t___s_t_r_i_n_g.html#a88dc204abb05789a8582556c80724b33">Format</a>,
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a2322d9270610d7165b703a3f2b6f8dca">IUnitOperation_FormatStringOffsetTable</a>[-3],
+    0,
+    0,
+    0
+    }
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01637">1637</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+<p>Odwołania w <a class="el" href="_cape2_fluent__p_8c_source.html#l01658">CINTERFACE_PROXY_VTABLE()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a82834ddff44293f0d440480f0b78c0ab"></a><!-- doxytag: member="Cape2Fluent_p.c::IUnitOperation_ServerInfo" ref="a82834ddff44293f0d440480f0b78c0ab" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const MIDL_SERVER_INFO <a class="el" href="_cape2_fluent__p_8c.html#a82834ddff44293f0d440480f0b78c0ab">IUnitOperation_ServerInfo</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment"> 
+    {
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a8ea23509808d8dadef9afee23159a71c">Object_StubDesc</a>,
+    0,
+    <a class="code" href="_cape2_fluent__p_8c.html#aedde8886874a0c41b82d943ed1789a45">Cape2Fluent__MIDL_ProcFormatString</a>.<a class="code" href="struct___cape2_fluent___m_i_d_l___p_r_o_c___f_o_r_m_a_t___s_t_r_i_n_g.html#a88dc204abb05789a8582556c80724b33">Format</a>,
+    &amp;<a class="code" href="_cape2_fluent__p_8c.html#a2322d9270610d7165b703a3f2b6f8dca">IUnitOperation_FormatStringOffsetTable</a>[-3],
+    0,
+    0,
+    0,
+    0}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01648">1648</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2d30e758a36836efb10c2f46f7934ac0"></a><!-- doxytag: member="Cape2Fluent_p.c::IUnitOperation_table" ref="a2d30e758a36836efb10c2f46f7934ac0" args="[]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const PRPC_STUB_FUNCTION <a class="el" href="_cape2_fluent__p_8c.html#a2d30e758a36836efb10c2f46f7934ac0">IUnitOperation_table</a>[]<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment">
+{
+    STUB_FORWARDING_FUNCTION,
+    STUB_FORWARDING_FUNCTION,
+    STUB_FORWARDING_FUNCTION,
+    STUB_FORWARDING_FUNCTION,
+    NdrStubCall2
+}
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01673">1673</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8ea23509808d8dadef9afee23159a71c"></a><!-- doxytag: member="Cape2Fluent_p.c::Object_StubDesc" ref="a8ea23509808d8dadef9afee23159a71c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const MIDL_STUB_DESC <a class="el" href="_cape2_fluent__p_8c.html#a8ea23509808d8dadef9afee23159a71c">Object_StubDesc</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment"> 
+    {
+    0,
+    NdrOleAllocate,
+    NdrOleFree,
+    0,
+    0,
+    0,
+    0,
+    0,
+    <a class="code" href="_cape2_fluent__p_8c.html#af02d5d20c3ff5ca0db72a333aeebb9f0">Cape2Fluent__MIDL_TypeFormatString</a>.<a class="code" href="struct___cape2_fluent___m_i_d_l___t_y_p_e___f_o_r_m_a_t___s_t_r_i_n_g.html#a1d0c53ffaf644fdd3bbaf9816a40e371">Format</a>,
+    0, 
+    0x50002, 
+    0,
+    0x70001f4, 
+    0,
+    <a class="code" href="_cape2_fluent__p_8c.html#a7d6ef60217dbaf9f943f8afbdbdaadec">UserMarshalRoutines</a>,
+    0,  
+    0x1, 
+    0, 
+    0,   
+    0
+    }
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l00093">93</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7d6ef60217dbaf9f943f8afbdbdaadec"></a><!-- doxytag: member="Cape2Fluent_p.c::UserMarshalRoutines" ref="a7d6ef60217dbaf9f943f8afbdbdaadec" args="[WIRE_MARSHAL_TABLE_SIZE]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const USER_MARSHAL_ROUTINE_QUADRUPLE <a class="el" href="_cape2_fluent__p_8c.html#a7d6ef60217dbaf9f943f8afbdbdaadec">UserMarshalRoutines</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><pre class="fragment"> 
+        {
+            
+            {
+            <a class="code" href="_cape2_fluent__i_8h.html#a46cec07e960973768eaa70116575472f">BSTR_UserSize</a>
+            ,<a class="code" href="_cape2_fluent__i_8h.html#a4d6f852b3fe8fcbc1e19be7386f9ecee">BSTR_UserMarshal</a>
+            ,<a class="code" href="_cape2_fluent__i_8h.html#a69d8558bd57d836e0ab232ee449c4934">BSTR_UserUnmarshal</a>
+            ,<a class="code" href="_cape2_fluent__i_8h.html#a8f8e55ab6c43f7ae93304e41b92cd98d">BSTR_UserFree</a>
+            },
+            {
+            <a class="code" href="_cape2_fluent__i_8h.html#ad32e3725cb1d731a72e5fcee61fdca17">LPSAFEARRAY_UserSize</a>
+            ,<a class="code" href="_cape2_fluent__i_8h.html#a99e170ac5b76c70dab22485a7f0d839d">LPSAFEARRAY_UserMarshal</a>
+            ,<a class="code" href="_cape2_fluent__i_8h.html#afb11125cdba3ee1c6841a0551970efc9">LPSAFEARRAY_UserUnmarshal</a>
+            ,<a class="code" href="_cape2_fluent__i_8h.html#adde5a8aa9c927c41ec7a4ac8c7c3548f">LPSAFEARRAY_UserFree</a>
+            },
+            {
+            <a class="code" href="_cape2_fluent__i_8h.html#ad30e2bac580095aaba416c361e3199a4">VARIANT_UserSize</a>
+            ,<a class="code" href="_cape2_fluent__i_8h.html#a54a3b702423e1c1c2500adc9efdfb68f">VARIANT_UserMarshal</a>
+            ,<a class="code" href="_cape2_fluent__i_8h.html#a7ff97d66bf9033fa3dafc67af7cb86d0">VARIANT_UserUnmarshal</a>
+            ,<a class="code" href="_cape2_fluent__i_8h.html#afd28c4110360b426e3ec2c71e5b65161">VARIANT_UserFree</a>
+            }
+
+        }
+</pre></div>
+<p>Definicja w linii <a class="el" href="_cape2_fluent__p_8c_source.html#l01507">1507</a> pliku <a class="el" href="_cape2_fluent__p_8c_source.html">Cape2Fluent_p.c</a>.</p>
+
+</div>
+</div>
+</div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:28 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

@@ -1,0 +1,26 @@
+HKCR
+{
+	Cape2Fluent.ParameterCollection.1 = s 'ParameterCollection Class'
+	{
+		CLSID = s '{7C2975A7-663A-4BAD-A99E-075AF478AC51}'
+	}
+	Cape2Fluent.ParameterCollection = s 'ParameterCollection Class'
+	{
+		CLSID = s '{7C2975A7-663A-4BAD-A99E-075AF478AC51}'
+		CurVer = s 'Cape2Fluent.ParameterCollection.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {7C2975A7-663A-4BAD-A99E-075AF478AC51} = s 'ParameterCollection Class'
+		{
+			ProgID = s 'Cape2Fluent.ParameterCollection.1'
+			VersionIndependentProgID = s 'Cape2Fluent.ParameterCollection'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{A41DD893-4E3F-45A6-BBEF-425ECE7FA637}'
+		}
+	}
+}

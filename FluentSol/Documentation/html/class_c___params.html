@@ -1,0 +1,1042 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Dokumentacja klasy C_Params</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
+      <li><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Lista&nbsp;klas</span></a></li>
+      <li><a href="classes.html"><span>Indeks&nbsp;klas</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchia&nbsp;klas</span></a></li>
+      <li><a href="functions.html"><span>Składowe&nbsp;klas</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja klasy C_Params</h1><!-- doxytag: class="C_Params" -->
+<p>Klasa do obsługi jezyka skryptowego do przekazaywnia parametrów z wykorzystaniem matlaba i bez.  
+<a href="#_details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_c___params_8h_source.html">C_Params.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagram współpracy dla C_Params:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___params__coll__graph.png" border="0" usemap="#_c___params_coll__map" alt="Collaboration graph"/></div>
+<map name="_c___params_coll__map" id="_c___params_coll__map">
+<area shape="rect" id="node2" href="class_c___error.html" title="Klasa do obsługi błędów." alt="" coords="5,85,72,115"/><area shape="rect" id="node4" href="class_c___node.html" title="Prosta klasa do obsługi list jednokierunkowych." alt="" coords="5,5,72,35"/><area shape="rect" id="node7" href="class_data___to___read.html" title="Klasa sluzy do przechowywania danych jesli jest ich kilka do jednego rozkazu." alt="" coords="96,85,203,115"/></map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legenda</a>]</span></center></div>
+
+<p><a href="class_c___params-members.html">Lista wszystkich składowych.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Metody publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#acd3f44b0a94efae478d7c3c621c66a41">C_Params</a> (<a class="el" href="class_c___error.html">C_Error</a> *perr)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a4a598974c6feaa4a3ed5c530b3edc932">~C_Params</a> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a0759f84bf2bc14b48e2fbf3242f588d4">readfile</a> (char *filename)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">aby sprawdzić czy czytanie pliku powiodło się nalezy sprawdzić wartość sERR i ewentualnie jeśli true to opis błędu  <a href="#a0759f84bf2bc14b48e2fbf3242f588d4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a96db4b5bc8d67d374eb52b3d4b90446d">ValidateParams</a> (<a class="el" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49b">tryby_pracy</a> mode)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Dokonuje sprawdzenia czy spełnione są określone warunki.  <a href="#a96db4b5bc8d67d374eb52b3d4b90446d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#ab65d753c172afbdef6828a2804e88b91">Creadfile</a> (char *filename)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Wczytuje i analizuje plik konfiguracyjny.  <a href="#ab65d753c172afbdef6828a2804e88b91"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Atrybuty publiczne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a6c738e091cc2c800b10ee3f0ddaf1d59">bFLUENT_PATH</a> [MAX_STRING]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a5406690efa34ca3a0e317fc466dea430">sFLUENT_PATH</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a0988678eee07dae110bea7b760adfc73">bDATA_PATH</a> [MAX_STRING]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a3a4af84d596ddc3e83a19bd1b677d65f">sDATA_PATH</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a950507f8d48b037a9e12999354017c13">bERR</a> [MAX_STRING]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a76499461772ba1f4f2bf7cd2ada4cc25">sERR</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a30980f639a5d7faa1d0eb3dfb1a81f26">bCOMMAND_LINE</a> [MAX_STRING]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a50eb587f52fe286378297fd31a54b35f">sCOMMAND_LINE</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#adfb69d14da610b8179cf615fa30c92ea">bCASE_NAME</a> [MAX_STRING]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a3e84a468605f0d094b299e67d2ecd4fd">sCASE_NAME</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_data___to___read.html">Data_To_Read</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a16ebed72b96272e07962716263599271">bEXPORTS</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#af4c299ad4b272cdec5f71e230a164d99">sEXPORTS</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_data___to___read.html">Data_To_Read</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#ad5c614b66d7b7bb32a8d1b67f25c7a31">bINPUT_SURFACE</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#ad0354e0e132510531c844c217af8ebc0">sINPUT_SURFACE</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_data___to___read.html">Data_To_Read</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a40e2d5c41b5e45ab7da608872331c33d">bOUTPUT_SURFACE</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a4e8657abd931b4beaae9108c576bf154">sOUTPUT_SURFACE</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_data___to___read.html">Data_To_Read</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a0f52ddebff9d847a93fc389ab91fcb6c">bASSIGNS</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#adbcbad8603c2b76d6f4622ddcfdce9e5">sASSIGNS</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a0e930ef00f35044a8a11dca5be4e3a92">bBOUND_COND</a> [MAX_STRING]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#abac7b8761f4e8f41ee610f4709a6647e">sBOUND_COND</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a126de6d5ba14fc1e8b2e623678eef8b7">bENERGY_EQ</a> [MAX_STRING]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a5e87da1e2ac5cfe4e56c9795b6e97fc9">sENERGY_EQ</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#ad24e9e1a6fc1c087e52e938aefe337cf">bSUBPROCNAME</a> [MAX_STRING]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a6fbe89d31743093e83e0ced278f2cd66">sSUBPROCNAME</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a6d9d530e65df616072346697bb51885f">bNUMOFITER</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a7dbb2bd7e96b865ab97c99f5a3e7b0f3">sNUMOFITER</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a003fd797038b0834243e5a65ad892de7">bNUMOFTIMESTEPS</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a18e086e6ea120dbdffe65ff667e00fb3">sNUMOFTIMESTEPS</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a3412da59508d9d12b997d2c84395e910">bNUMOFPORTS</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#ad1750f882843a1f00ed020efecbc25a8">sNUMOFPORTS</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_data___to___read.html">Data_To_Read</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a71e66a7080523ea24396e590e5ff3117">bMOLEPERKG</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#adde5b8b4a257c7a32e92aad9f512ca4f">sMOLEPERKG</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_data___to___read.html">Data_To_Read</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#ae54ad1f94c5d33db56436e556a2ed9f9">bCOMPONENTS</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a98b11b8e40d017e6b2b1300ef8afa19d">sCOMPONENTS</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a31a2ca80c791c72b5ed97410266a1945">numofparams</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">liczba wszystkich możliwych parametrów  <a href="#a31a2ca80c791c72b5ed97410266a1945"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Metody prywatne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#a080084f7918e7a6b6e8b955ac3ca06e0">AddFiledData</a> (char16_t *in, int ile, int p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">BOOL&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#ad0c993db154ff1beae793a917ecc0605">LoadOneLine</a> (FILE *pFile, char *bufor)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Wczytuje jedną linię skryptu i dokonuje konwersji do dużych liter.  <a href="#ad0c993db154ff1beae793a917ecc0605"></a><br/></td></tr>
+<tr><td colspan="2"><h2>Atrybuty prywatne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c___error.html">C_Error</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___params.html#aa3f974afafa346ec64cbabd8901e0b21">err</a></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Opis szczegółowy</h2>
+<p>Klasa do obsługi jezyka skryptowego do przekazaywnia parametrów z wykorzystaniem matlaba i bez. </p>
+<p>Klasa do obsługi jezyka skryptowego do przekazaywnia parametrów z wykorzystaniem matlaba. Język skyptowy w formacie: komentarz rozkaz dane rozkazu</p>
+<p>Pomiędzy # nie może być spacji. Każdy błędny rozkaz zwraca błąd. Jeśli poprawny to dane lądują w odpowiedniej tablicy tekstowej Kolejność enum musi być taka sama jak w pliku parseparams.m, err i valerr zawsze ostatnie. Jesli parametr istnieje to pole val*** ma wartość 1 JEżeli rozkaz ma kilka prametrów i kilka części parametru to dodatkowo jest struktura enym z nazwami tychg podparametrów (obsługa w klasie Data_To_read) Parametry każdego rozkazu są umieszczane w odpowiedniej tablicy. Jeśli rozkaz ma parametry skłądające się z kilku części to wtedy obsługę przejmuje klasa Data_ToRead.h, która umożliwia łatwy dostęp do poszczególnych parametrów. </p>
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00061">61</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+<hr/><h2>Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="acd3f44b0a94efae478d7c3c621c66a41"></a><!-- doxytag: member="C_Params::C_Params" ref="acd3f44b0a94efae478d7c3c621c66a41" args="(C_Error *perr)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">C_Params::C_Params </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_c___error.html">C_Error</a> *&nbsp;</td>
+          <td class="paramname"> <em>perr</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><dl class="warning"><dt><b>Ostrzeżenie:</b></dt><dd>Obsolete member <div class="fragment"><pre class="fragment"> <a class="code" href="class_c___params.html#a31a2ca80c791c72b5ed97410266a1945" title="liczba wszystkich możliwych parametrów">numofparams</a> = 28; <span class="comment">// w tej wersji, to się musi zgadzać ze struktórą tworzoną w pliku m!!!</span>
+</pre></div> </dd></dl>
+</p>
+
+<p>Definicja w linii <a class="el" href="_c___params_8cpp_source.html#l00004">4</a> pliku <a class="el" href="_c___params_8cpp_source.html">C_Params.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_data___to___read_8cpp_source.html#l00029">Data_To_Read::AddSubStringPoz()</a>, <a class="el" href="_c___params_8h_source.html#l00081">bMOLEPERKG</a>, <a class="el" href="_c___params_8h_source.html#l00078">bNUMOFITER</a>, <a class="el" href="_data___to___read_8h_source.html#l00014">Data_To_Read::DATA_CONTAINER</a>, <a class="el" href="_c___params_8h_source.html#l00088">err</a>, <a class="el" href="definicje_8h_source.html#l00004">MAX_STRING</a>, <a class="el" href="_c___params_8h_source.html#l00084">numofparams</a>, <a class="el" href="_c___params_8h_source.html#l00075">sBOUND_COND</a>, <a class="el" href="_c___params_8h_source.html#l00070">sCASE_NAME</a>, <a class="el" href="_c___params_8h_source.html#l00069">sCOMMAND_LINE</a>, <a class="el" href="_c___params_8h_source.html#l00082">sCOMPONENTS</a>, <a class="el" href="_c___params_8h_source.html#l00067">sDATA_PATH</a>, <a class="el" href="_c___params_8h_source.html#l00076">sENERGY_EQ</a>, <a class="el" href="_c___params_8h_source.html#l00068">sERR</a>, <a class="el" href="_c___params_8h_source.html#l00071">sEXPORTS</a>, <a class="el" href="_c___params_8h_source.html#l00066">sFLUENT_PATH</a>, <a class="el" href="_c___params_8h_source.html#l00072">sINPUT_SURFACE</a>, <a class="el" href="_c___params_8h_source.html#l00081">sMOLEPERKG</a>, <a class="el" href="_c___params_8h_source.html#l00078">sNUMOFITER</a>, <a class="el" href="_c___params_8h_source.html#l00080">sNUMOFPORTS</a>, <a class="el" href="_c___params_8h_source.html#l00079">sNUMOFTIMESTEPS</a>, <a class="el" href="_c___params_8h_source.html#l00073">sOUTPUT_SURFACE</a> i <a class="el" href="_c___params_8h_source.html#l00077">sSUBPROCNAME</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___params_acd3f44b0a94efae478d7c3c621c66a41_cgraph.png" border="0" usemap="#class_c___params_acd3f44b0a94efae478d7c3c621c66a41_cgraph_map" alt=""></div>
+<map name="class_c___params_acd3f44b0a94efae478d7c3c621c66a41_cgraph_map" id="class_c___params_acd3f44b0a94efae478d7c3c621c66a41_cgraph">
+<area shape="rect" id="node3" href="class_data___to___read.html#ab55dda5b5ca867ef21c887e4b87c7614" title="Dodaje pozycję podciągu w ciągu głównym do tablicy pozycji. Zlicza także ilość..." alt="" coords="205,5,424,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a4a598974c6feaa4a3ed5c530b3edc932"></a><!-- doxytag: member="C_Params::~C_Params" ref="a4a598974c6feaa4a3ed5c530b3edc932" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">C_Params::~C_Params </td>
+          <td>(</td>
+          <td class="paramtype">void&nbsp;</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8cpp_source.html#l00033">33</a> pliku <a class="el" href="_c___params_8cpp_source.html">C_Params.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja funkcji składowych</h2>
+<a class="anchor" id="a080084f7918e7a6b6e8b955ac3ca06e0"></a><!-- doxytag: member="C_Params::AddFiledData" ref="a080084f7918e7a6b6e8b955ac3ca06e0" args="(char16_t *in, int ile, int p)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void C_Params::AddFiledData </td>
+          <td>(</td>
+          <td class="paramtype">char16_t *&nbsp;</td>
+          <td class="paramname"> <em>in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>ile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>p</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8cpp_source.html#l00039">39</a> pliku <a class="el" href="_c___params_8cpp_source.html">C_Params.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___params_8h_source.html#l00070">bCASE_NAME</a>, <a class="el" href="_c___params_8h_source.html#l00069">bCOMMAND_LINE</a>, <a class="el" href="_c___params_8h_source.html#l00067">bDATA_PATH</a>, <a class="el" href="_c___params_8h_source.html#l00068">bERR</a>, <a class="el" href="_c___params_8h_source.html#l00066">bFLUENT_PATH</a>, <a class="el" href="_c___params_8h_source.html#l00014">CASE_NAME</a>, <a class="el" href="_c___params_8h_source.html#l00012">COMMAND_LINE</a>, <a class="el" href="_c___params_8h_source.html#l00010">DATA_PATH</a>, <a class="el" href="_c___params_8h_source.html#l00016">ERR</a>, <a class="el" href="_c___params_8h_source.html#l00008">FLUENT_PATH</a>, <a class="el" href="definicje_8h_source.html#l00004">MAX_STRING</a>, <a class="el" href="_c___params_8h_source.html#l00070">sCASE_NAME</a>, <a class="el" href="_c___params_8h_source.html#l00069">sCOMMAND_LINE</a>, <a class="el" href="_c___params_8h_source.html#l00067">sDATA_PATH</a>, <a class="el" href="_c___params_8h_source.html#l00068">sERR</a> i <a class="el" href="_c___params_8h_source.html#l00066">sFLUENT_PATH</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00074">readfile()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___params_a080084f7918e7a6b6e8b955ac3ca06e0_icgraph.png" border="0" usemap="#class_c___params_a080084f7918e7a6b6e8b955ac3ca06e0_icgraph_map" alt=""></div>
+<map name="class_c___params_a080084f7918e7a6b6e8b955ac3ca06e0_icgraph_map" id="class_c___params_a080084f7918e7a6b6e8b955ac3ca06e0_icgraph">
+<area shape="rect" id="node3" href="class_c___params.html#a0759f84bf2bc14b48e2fbf3242f588d4" title="aby sprawdzić czy czytanie pliku powiodło się nalezy sprawdzić wartość sERR..." alt="" coords="225,5,356,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab65d753c172afbdef6828a2804e88b91"></a><!-- doxytag: member="C_Params::Creadfile" ref="ab65d753c172afbdef6828a2804e88b91" args="(char *filename)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL C_Params::Creadfile </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>filename</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Wczytuje i analizuje plik konfiguracyjny. </p>
+<p>Funkcja wczytuje plik konfiguracyjny i dokonuje jego interpretacji, wypełniając klasę <a class="el" href="class_c___params.html" title="Klasa do obsługi jezyka skryptowego do przekazaywnia parametrów z wykorzystaniem...">C_Params</a> odczytanymi danymi Umożliwia t odefiniowanie zestawów warunków które muszą być spełnione i nazywanie ich jedną nazwą. </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>filename</em>&nbsp;</td><td>nazwa pliku z parametrami</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>FAIL</em>&nbsp;</td><td>Jeśli błąd w danej linii skryptu </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>OK</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c___params_8cpp_source.html#l00251">251</a> pliku <a class="el" href="_c___params_8cpp_source.html">C_Params.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___error_8cpp_source.html#l00018">C_Error::AddError()</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00029">Data_To_Read::AddSubStringPoz()</a>, <a class="el" href="_c___params_8h_source.html#l00074">bASSIGNS</a>, <a class="el" href="_c___params_8h_source.html#l00075">bBOUND_COND</a>, <a class="el" href="_c___params_8h_source.html#l00070">bCASE_NAME</a>, <a class="el" href="_c___params_8h_source.html#l00069">bCOMMAND_LINE</a>, <a class="el" href="_c___params_8h_source.html#l00082">bCOMPONENTS</a>, <a class="el" href="_c___params_8h_source.html#l00067">bDATA_PATH</a>, <a class="el" href="_c___params_8h_source.html#l00076">bENERGY_EQ</a>, <a class="el" href="_c___params_8h_source.html#l00068">bERR</a>, <a class="el" href="_c___params_8h_source.html#l00071">bEXPORTS</a>, <a class="el" href="_c___params_8h_source.html#l00066">bFLUENT_PATH</a>, <a class="el" href="_c___params_8h_source.html#l00072">bINPUT_SURFACE</a>, <a class="el" href="_c___params_8h_source.html#l00081">bMOLEPERKG</a>, <a class="el" href="_c___params_8h_source.html#l00078">bNUMOFITER</a>, <a class="el" href="_c___params_8h_source.html#l00080">bNUMOFPORTS</a>, <a class="el" href="_c___params_8h_source.html#l00079">bNUMOFTIMESTEPS</a>, <a class="el" href="_c___params_8h_source.html#l00073">bOUTPUT_SURFACE</a>, <a class="el" href="_c___params_8h_source.html#l00077">bSUBPROCNAME</a>, <a class="el" href="_data___to___read_8h_source.html#l00014">Data_To_Read::DATA_CONTAINER</a>, <a class="el" href="_c___params_8h_source.html#l00088">err</a>, <a class="el" href="definicje_8h_source.html#l00002">FAIL</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00047">Data_To_Read::GetNumOfSubStrings()</a>, <a class="el" href="_c___params_8cpp_source.html#l00222">LoadOneLine()</a>, <a class="el" href="definicje_8h_source.html#l00001">MAX_LINE</a>, <a class="el" href="definicje_8h_source.html#l00004">MAX_STRING</a>, <a class="el" href="definicje_8h_source.html#l00003">OK</a>, <a class="el" href="_data___to___read_8h_source.html#l00013">Data_To_Read::pojemnosc</a>, <a class="el" href="_c___params_8h_source.html#l00074">sASSIGNS</a>, <a class="el" href="_c___params_8h_source.html#l00075">sBOUND_COND</a>, <a class="el" href="_c___params_8h_source.html#l00070">sCASE_NAME</a>, <a class="el" href="_c___params_8h_source.html#l00069">sCOMMAND_LINE</a>, <a class="el" href="_c___params_8h_source.html#l00082">sCOMPONENTS</a>, <a class="el" href="_c___params_8h_source.html#l00067">sDATA_PATH</a>, <a class="el" href="_c___params_8h_source.html#l00076">sENERGY_EQ</a>, <a class="el" href="_c___params_8h_source.html#l00068">sERR</a>, <a class="el" href="_c___params_8h_source.html#l00071">sEXPORTS</a>, <a class="el" href="_c___params_8h_source.html#l00066">sFLUENT_PATH</a>, <a class="el" href="_c___params_8h_source.html#l00072">sINPUT_SURFACE</a>, <a class="el" href="_c___params_8h_source.html#l00081">sMOLEPERKG</a>, <a class="el" href="_c___params_8h_source.html#l00078">sNUMOFITER</a>, <a class="el" href="_c___params_8h_source.html#l00080">sNUMOFPORTS</a>, <a class="el" href="_c___params_8h_source.html#l00079">sNUMOFTIMESTEPS</a>, <a class="el" href="_c___params_8h_source.html#l00073">sOUTPUT_SURFACE</a> i <a class="el" href="_c___params_8h_source.html#l00077">sSUBPROCNAME</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation::CUnitOperation()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___params_ab65d753c172afbdef6828a2804e88b91_cgraph.png" border="0" usemap="#class_c___params_ab65d753c172afbdef6828a2804e88b91_cgraph_map" alt=""></div>
+<map name="class_c___params_ab65d753c172afbdef6828a2804e88b91_cgraph_map" id="class_c___params_ab65d753c172afbdef6828a2804e88b91_cgraph">
+<area shape="rect" id="node3" href="class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy." alt="" coords="252,5,377,35"/><area shape="rect" id="node12" href="class_data___to___read.html#ab55dda5b5ca867ef21c887e4b87c7614" title="Dodaje pozycję podciągu w ciągu głównym do tablicy pozycji. Zlicza także ilość..." alt="" coords="205,59,424,88"/><area shape="rect" id="node14" href="class_data___to___read.html#a2ae9b120ce85df4bbb0b36b61f9a39c0" title="Zwraca ilosc podciągów." alt="" coords="195,112,435,141"/><area shape="rect" id="node16" href="class_c___params.html#ad0c993db154ff1beae793a917ecc0605" title="Wczytuje jedną linię skryptu i dokonuje konwersji do dużych liter." alt="" coords="232,165,397,195"/><area shape="rect" id="node5" href="class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy." alt="" coords="483,5,616,35"/><area shape="rect" id="node7" href="class_c___node.html#ad4c482dc1682b579298cc92da4b3f92d" title="Zwraca adres kolejnego węzła w stosunku do aktualnego." alt="" coords="904,5,1035,35"/><area shape="rect" id="node9" href="class_c___node.html#a9fda439cab1b86c0287da99014ba363c" title="Zwraca ilosc węzłów." alt="" coords="664,31,856,60"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___params_ab65d753c172afbdef6828a2804e88b91_icgraph.png" border="0" usemap="#class_c___params_ab65d753c172afbdef6828a2804e88b91_icgraph_map" alt=""></div>
+<map name="class_c___params_ab65d753c172afbdef6828a2804e88b91_icgraph_map" id="class_c___params_ab65d753c172afbdef6828a2804e88b91_icgraph">
+<area shape="rect" id="node3" href="class_c_unit_operation.html#a3e8877612e6772acf65ea50f198f91d8" title="CUnitOperation::CUnitOperation" alt="" coords="196,5,401,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad0c993db154ff1beae793a917ecc0605"></a><!-- doxytag: member="C_Params::LoadOneLine" ref="ad0c993db154ff1beae793a917ecc0605" args="(FILE *pFile, char *bufor)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL C_Params::LoadOneLine </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&nbsp;</td>
+          <td class="paramname"> <em>pFile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>bufor</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Wczytuje jedną linię skryptu i dokonuje konwersji do dużych liter. </p>
+<p>Funkcja wczytuje jedną linię skryptu i dokonuje konwersji do dużych liter </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>pFile</em>&nbsp;</td><td>wskaźnik do pliku </td></tr>
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>bufor</em>&nbsp;</td><td>bufor na wczytaną linię</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>FAIL</em>&nbsp;</td><td>Jeśli nie udało się przeczytać linii, lub koniec pliku </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>OK</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c___params_8cpp_source.html#l00222">222</a> pliku <a class="el" href="_c___params_8cpp_source.html">C_Params.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="definicje_8h_source.html#l00002">FAIL</a>, <a class="el" href="definicje_8h_source.html#l00001">MAX_LINE</a> i <a class="el" href="definicje_8h_source.html#l00003">OK</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___params_ad0c993db154ff1beae793a917ecc0605_icgraph.png" border="0" usemap="#class_c___params_ad0c993db154ff1beae793a917ecc0605_icgraph_map" alt=""></div>
+<map name="class_c___params_ad0c993db154ff1beae793a917ecc0605_icgraph_map" id="class_c___params_ad0c993db154ff1beae793a917ecc0605_icgraph">
+<area shape="rect" id="node3" href="class_c___params.html#ab65d753c172afbdef6828a2804e88b91" title="Wczytuje i analizuje plik konfiguracyjny." alt="" coords="221,5,363,35"/><area shape="rect" id="node5" href="class_c_unit_operation.html#a3e8877612e6772acf65ea50f198f91d8" title="CUnitOperation::CUnitOperation" alt="" coords="412,5,617,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a0759f84bf2bc14b48e2fbf3242f588d4"></a><!-- doxytag: member="C_Params::readfile" ref="a0759f84bf2bc14b48e2fbf3242f588d4" args="(char *filename)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int C_Params::readfile </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>filename</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>aby sprawdzić czy czytanie pliku powiodło się nalezy sprawdzić wartość sERR i ewentualnie jeśli true to opis błędu </p>
+
+<p>Definicja w linii <a class="el" href="_c___params_8cpp_source.html#l00074">74</a> pliku <a class="el" href="_c___params_8cpp_source.html">C_Params.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="_c___params_8cpp_source.html#l00039">AddFiledData()</a>, <a class="el" href="_c___params_8h_source.html#l00016">ERR</a>, <a class="el" href="definicje_8h_source.html#l00004">MAX_STRING</a>, <a class="el" href="definicje_8h_source.html#l00050">SAFE_DELETE_ARRAY</a>, <a class="el" href="_c___params_8h_source.html#l00017">val_ERR</a> i <a class="el" href="_c___params_8h_source.html#l00009">val_FLUENT_PATH</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___params_a0759f84bf2bc14b48e2fbf3242f588d4_cgraph.png" border="0" usemap="#class_c___params_a0759f84bf2bc14b48e2fbf3242f588d4_cgraph_map" alt=""></div>
+<map name="class_c___params_a0759f84bf2bc14b48e2fbf3242f588d4_cgraph_map" id="class_c___params_a0759f84bf2bc14b48e2fbf3242f588d4_cgraph">
+<area shape="rect" id="node3" href="class_c___params.html#a080084f7918e7a6b6e8b955ac3ca06e0" title="C_Params::AddFiledData" alt="" coords="188,5,356,35"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a96db4b5bc8d67d374eb52b3d4b90446d"></a><!-- doxytag: member="C_Params::ValidateParams" ref="a96db4b5bc8d67d374eb52b3d4b90446d" args="(tryby_pracy mode)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL C_Params::ValidateParams </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="definicje_8h.html#aef3103db9dfc120e792e4a4ec154f49b">tryby_pracy</a>&nbsp;</td>
+          <td class="paramname"> <em>mode</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Dokonuje sprawdzenia czy spełnione są określone warunki. </p>
+<p>Funkcja sprawdza czy spełnione są określone warunki. Nazwy warunków w <a class="el" href="definicje_8h.html">definicje.h</a> w tryby_pracy Umożliwia t odefiniowanie zestawów warunków które muszą być spełnione i nazywanie ich jedną nazwą. </p>
+<dl><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>mode</em>&nbsp;</td><td>typ warunku do sprawdzenia</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Zwracane wartości:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>FAIL</em>&nbsp;</td><td>Jeśli dla danego zbioru nie ma walidacji </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>OK</em>&nbsp;</td><td>Jeśli sukces </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definicja w linii <a class="el" href="_c___params_8cpp_source.html#l00154">154</a> pliku <a class="el" href="_c___params_8cpp_source.html">C_Params.cpp</a>.</p>
+
+<p>Odwołuje się do <a class="el" href="definicje_8h_source.html#l00027">BASIC</a>, <a class="el" href="_c___params_8h_source.html#l00075">bBOUND_COND</a>, <a class="el" href="_c___params_8h_source.html#l00082">bCOMPONENTS</a>, <a class="el" href="_c___params_8h_source.html#l00076">bENERGY_EQ</a>, <a class="el" href="_c___params_8h_source.html#l00072">bINPUT_SURFACE</a>, <a class="el" href="_c___params_8h_source.html#l00073">bOUTPUT_SURFACE</a>, <a class="el" href="definicje_8h_source.html#l00031">CASE</a>, <a class="el" href="_c___params_8h_source.html#l00023">COMPONENTS_GESTOSC</a>, <a class="el" href="_c___params_8h_source.html#l00024">COMPONENTS_MOLEPERKG</a>, <a class="el" href="definicje_8h_source.html#l00043">ENERGY</a>, <a class="el" href="definicje_8h_source.html#l00033">EXPORTS</a>, <a class="el" href="definicje_8h_source.html#l00002">FAIL</a>, <a class="el" href="_data___to___read_8h_source.html#l00051">Data_To_Read::GetIle()</a>, <a class="el" href="_data___to___read_8cpp_source.html#l00058">Data_To_Read::GetSubString()</a>, <a class="el" href="definicje_8h_source.html#l00041">MASS_FLOW_INLET</a>, <a class="el" href="definicje_8h_source.html#l00037">MULTIIN</a>, <a class="el" href="definicje_8h_source.html#l00003">OK</a>, <a class="el" href="definicje_8h_source.html#l00029">PARAMS</a>, <a class="el" href="definicje_8h_source.html#l00035">PHASES</a>, <a class="el" href="definicje_8h_source.html#l00045">PROBLEM0</a>, <a class="el" href="_c___params_8h_source.html#l00075">sBOUND_COND</a>, <a class="el" href="_c___params_8h_source.html#l00070">sCASE_NAME</a>, <a class="el" href="_c___params_8h_source.html#l00069">sCOMMAND_LINE</a>, <a class="el" href="_c___params_8h_source.html#l00082">sCOMPONENTS</a>, <a class="el" href="_c___params_8h_source.html#l00067">sDATA_PATH</a>, <a class="el" href="_c___params_8h_source.html#l00076">sENERGY_EQ</a>, <a class="el" href="_c___params_8h_source.html#l00071">sEXPORTS</a>, <a class="el" href="_c___params_8h_source.html#l00066">sFLUENT_PATH</a>, <a class="el" href="_c___params_8h_source.html#l00072">sINPUT_SURFACE</a>, <a class="el" href="_c___params_8h_source.html#l00073">sOUTPUT_SURFACE</a>, <a class="el" href="_c___params_8h_source.html#l00077">sSUBPROCNAME</a>, <a class="el" href="_c___params_8h_source.html#l00038">SURF_AREA</a> i <a class="el" href="definicje_8h_source.html#l00039">VELOCITY_INLET</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">CUnitOperation::Calculate()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00854">C_myRunProcess::GetParams()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00942">C_myRunProcess::PutParams()</a>.</p>
+
+<p><div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___params_a96db4b5bc8d67d374eb52b3d4b90446d_cgraph.png" border="0" usemap="#class_c___params_a96db4b5bc8d67d374eb52b3d4b90446d_cgraph_map" alt=""></div>
+<map name="class_c___params_a96db4b5bc8d67d374eb52b3d4b90446d_cgraph_map" id="class_c___params_a96db4b5bc8d67d374eb52b3d4b90446d_cgraph">
+<area shape="rect" id="node3" href="class_data___to___read.html#acf5b344c1a44480144bb3d1a93f138b2" title="Zwraca ilosc wpisów &#45; danych przechowywanych." alt="" coords="260,5,409,35"/><area shape="rect" id="node5" href="class_data___to___read.html#a6a3deab57b0e9d8e040ab3c548595bf9" title="Zwraca wskaźnik do podciągu." alt="" coords="239,59,431,88"/><area shape="rect" id="node7" href="class_data___to___read.html#a2ae9b120ce85df4bbb0b36b61f9a39c0" title="Zwraca ilosc podciągów." alt="" coords="480,59,720,88"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Oto graf wywoływań tej funkcji:</div>
+<div class="dynsection">
+<div class="center"><img src="class_c___params_a96db4b5bc8d67d374eb52b3d4b90446d_icgraph.png" border="0" usemap="#class_c___params_a96db4b5bc8d67d374eb52b3d4b90446d_icgraph_map" alt=""></div>
+<map name="class_c___params_a96db4b5bc8d67d374eb52b3d4b90446d_icgraph_map" id="class_c___params_a96db4b5bc8d67d374eb52b3d4b90446d_icgraph">
+<area shape="rect" id="node3" href="class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="489,27,660,57"/><area shape="rect" id="node5" href="class_c__my_run_process.html#af04033e23f541696c736ef795e864392" title="Tworzy środowisko do uruchomienia fluenta &#45; generuje scm oraz journalC_Params." alt="" coords="241,27,436,57"/><area shape="rect" id="node8" href="class_c__my_run_process.html#a7511e1d0a3cb9056ff87bd4a4cd4c886" title="pobiera parametry z klasy na zewnątrz &#45; wersja nowsza" alt="" coords="239,81,439,110"/><area shape="rect" id="node10" href="class_c__my_run_process.html#a92c79daa78da34aa38f14ec7f4f8a1ac" title="wpisuje parametry do klasy, wersja starsza" alt="" coords="239,134,439,163"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja atrybutów składowych</h2>
+<a class="anchor" id="a0f52ddebff9d847a93fc389ab91fcb6c"></a><!-- doxytag: member="C_Params::bASSIGNS" ref="a0f52ddebff9d847a93fc389ab91fcb6c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_data___to___read.html">Data_To_Read</a> <a class="el" href="class_c___params.html#a0f52ddebff9d847a93fc389ab91fcb6c">C_Params::bASSIGNS</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00074">74</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00963">C_myRunProcess::PutParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0e930ef00f35044a8a11dca5be4e3a92"></a><!-- doxytag: member="C_Params::bBOUND_COND" ref="a0e930ef00f35044a8a11dca5be4e3a92" args="[MAX_STRING]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char <a class="el" href="class_c___params.html#a0e930ef00f35044a8a11dca5be4e3a92">C_Params::bBOUND_COND</a>[MAX_STRING]</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00075">75</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00942">C_myRunProcess::PutParams()</a> i <a class="el" href="_c___params_8cpp_source.html#l00154">ValidateParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adfb69d14da610b8179cf615fa30c92ea"></a><!-- doxytag: member="C_Params::bCASE_NAME" ref="adfb69d14da610b8179cf615fa30c92ea" args="[MAX_STRING]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char <a class="el" href="class_c___params.html#adfb69d14da610b8179cf615fa30c92ea">C_Params::bCASE_NAME</a>[MAX_STRING]</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00070">70</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00039">AddFiledData()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a30980f639a5d7faa1d0eb3dfb1a81f26"></a><!-- doxytag: member="C_Params::bCOMMAND_LINE" ref="a30980f639a5d7faa1d0eb3dfb1a81f26" args="[MAX_STRING]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char <a class="el" href="class_c___params.html#a30980f639a5d7faa1d0eb3dfb1a81f26">C_Params::bCOMMAND_LINE</a>[MAX_STRING]</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00069">69</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00039">AddFiledData()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae54ad1f94c5d33db56436e556a2ed9f9"></a><!-- doxytag: member="C_Params::bCOMPONENTS" ref="ae54ad1f94c5d33db56436e556a2ed9f9" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_data___to___read.html">Data_To_Read</a> <a class="el" href="class_c___params.html#ae54ad1f94c5d33db56436e556a2ed9f9">C_Params::bCOMPONENTS</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00082">82</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00257">CUnitOperation::Calculate()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00596">C_myRunProcess::ImportData()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00942">C_myRunProcess::PutParams()</a> i <a class="el" href="_c___params_8cpp_source.html#l00154">ValidateParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0988678eee07dae110bea7b760adfc73"></a><!-- doxytag: member="C_Params::bDATA_PATH" ref="a0988678eee07dae110bea7b760adfc73" args="[MAX_STRING]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char <a class="el" href="class_c___params.html#a0988678eee07dae110bea7b760adfc73">C_Params::bDATA_PATH</a>[MAX_STRING]</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00067">67</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00039">AddFiledData()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a126de6d5ba14fc1e8b2e623678eef8b7"></a><!-- doxytag: member="C_Params::bENERGY_EQ" ref="a126de6d5ba14fc1e8b2e623678eef8b7" args="[MAX_STRING]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char <a class="el" href="class_c___params.html#a126de6d5ba14fc1e8b2e623678eef8b7">C_Params::bENERGY_EQ</a>[MAX_STRING]</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00076">76</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a> i <a class="el" href="_c___params_8cpp_source.html#l00154">ValidateParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a950507f8d48b037a9e12999354017c13"></a><!-- doxytag: member="C_Params::bERR" ref="a950507f8d48b037a9e12999354017c13" args="[MAX_STRING]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char <a class="el" href="class_c___params.html#a950507f8d48b037a9e12999354017c13">C_Params::bERR</a>[MAX_STRING]</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00068">68</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00039">AddFiledData()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation::CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a16ebed72b96272e07962716263599271"></a><!-- doxytag: member="C_Params::bEXPORTS" ref="a16ebed72b96272e07962716263599271" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_data___to___read.html">Data_To_Read</a> <a class="el" href="class_c___params.html#a16ebed72b96272e07962716263599271">C_Params::bEXPORTS</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00071">71</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00596">C_myRunProcess::ImportData()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6c738e091cc2c800b10ee3f0ddaf1d59"></a><!-- doxytag: member="C_Params::bFLUENT_PATH" ref="a6c738e091cc2c800b10ee3f0ddaf1d59" args="[MAX_STRING]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char <a class="el" href="class_c___params.html#a6c738e091cc2c800b10ee3f0ddaf1d59">C_Params::bFLUENT_PATH</a>[MAX_STRING]</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00066">66</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00039">AddFiledData()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad5c614b66d7b7bb32a8d1b67f25c7a31"></a><!-- doxytag: member="C_Params::bINPUT_SURFACE" ref="ad5c614b66d7b7bb32a8d1b67f25c7a31" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_data___to___read.html">Data_To_Read</a> <a class="el" href="class_c___params.html#ad5c614b66d7b7bb32a8d1b67f25c7a31">C_Params::bINPUT_SURFACE</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00072">72</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00942">C_myRunProcess::PutParams()</a> i <a class="el" href="_c___params_8cpp_source.html#l00154">ValidateParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a71e66a7080523ea24396e590e5ff3117"></a><!-- doxytag: member="C_Params::bMOLEPERKG" ref="a71e66a7080523ea24396e590e5ff3117" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_data___to___read.html">Data_To_Read</a> <a class="el" href="class_c___params.html#a71e66a7080523ea24396e590e5ff3117">C_Params::bMOLEPERKG</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00081">81</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00942">C_myRunProcess::PutParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6d9d530e65df616072346697bb51885f"></a><!-- doxytag: member="C_Params::bNUMOFITER" ref="a6d9d530e65df616072346697bb51885f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_c___params.html#a6d9d530e65df616072346697bb51885f">C_Params::bNUMOFITER</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00078">78</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3412da59508d9d12b997d2c84395e910"></a><!-- doxytag: member="C_Params::bNUMOFPORTS" ref="a3412da59508d9d12b997d2c84395e910" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_c___params.html#a3412da59508d9d12b997d2c84395e910">C_Params::bNUMOFPORTS</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00080">80</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation::CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a003fd797038b0834243e5a65ad892de7"></a><!-- doxytag: member="C_Params::bNUMOFTIMESTEPS" ref="a003fd797038b0834243e5a65ad892de7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_c___params.html#a003fd797038b0834243e5a65ad892de7">C_Params::bNUMOFTIMESTEPS</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00079">79</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a40e2d5c41b5e45ab7da608872331c33d"></a><!-- doxytag: member="C_Params::bOUTPUT_SURFACE" ref="a40e2d5c41b5e45ab7da608872331c33d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_data___to___read.html">Data_To_Read</a> <a class="el" href="class_c___params.html#a40e2d5c41b5e45ab7da608872331c33d">C_Params::bOUTPUT_SURFACE</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00073">73</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00854">C_myRunProcess::GetParams()</a> i <a class="el" href="_c___params_8cpp_source.html#l00154">ValidateParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad24e9e1a6fc1c087e52e938aefe337cf"></a><!-- doxytag: member="C_Params::bSUBPROCNAME" ref="ad24e9e1a6fc1c087e52e938aefe337cf" args="[MAX_STRING]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char <a class="el" href="class_c___params.html#ad24e9e1a6fc1c087e52e938aefe337cf">C_Params::bSUBPROCNAME</a>[MAX_STRING]</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00077">77</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a>, <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00022">C_myRunProcess::StartFluent()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa3f974afafa346ec64cbabd8901e0b21"></a><!-- doxytag: member="C_Params::err" ref="aa3f974afafa346ec64cbabd8901e0b21" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c___error.html">C_Error</a>* <a class="el" href="class_c___params.html#aa3f974afafa346ec64cbabd8901e0b21">C_Params::err</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00088">88</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params()</a> i <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a31a2ca80c791c72b5ed97410266a1945"></a><!-- doxytag: member="C_Params::numofparams" ref="a31a2ca80c791c72b5ed97410266a1945" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_c___params.html#a31a2ca80c791c72b5ed97410266a1945">C_Params::numofparams</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>liczba wszystkich możliwych parametrów </p>
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00084">84</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adbcbad8603c2b76d6f4622ddcfdce9e5"></a><!-- doxytag: member="C_Params::sASSIGNS" ref="adbcbad8603c2b76d6f4622ddcfdce9e5" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c___params.html#adbcbad8603c2b76d6f4622ddcfdce9e5">C_Params::sASSIGNS</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00074">74</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abac7b8761f4e8f41ee610f4709a6647e"></a><!-- doxytag: member="C_Params::sBOUND_COND" ref="abac7b8761f4e8f41ee610f4709a6647e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c___params.html#abac7b8761f4e8f41ee610f4709a6647e">C_Params::sBOUND_COND</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00075">75</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_c___params_8cpp_source.html#l00154">ValidateParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3e84a468605f0d094b299e67d2ecd4fd"></a><!-- doxytag: member="C_Params::sCASE_NAME" ref="a3e84a468605f0d094b299e67d2ecd4fd" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c___params.html#a3e84a468605f0d094b299e67d2ecd4fd">C_Params::sCASE_NAME</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00070">70</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00039">AddFiledData()</a>, <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_c___params_8cpp_source.html#l00154">ValidateParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a50eb587f52fe286378297fd31a54b35f"></a><!-- doxytag: member="C_Params::sCOMMAND_LINE" ref="a50eb587f52fe286378297fd31a54b35f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c___params.html#a50eb587f52fe286378297fd31a54b35f">C_Params::sCOMMAND_LINE</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00069">69</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00039">AddFiledData()</a>, <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_c___params_8cpp_source.html#l00154">ValidateParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a98b11b8e40d017e6b2b1300ef8afa19d"></a><!-- doxytag: member="C_Params::sCOMPONENTS" ref="a98b11b8e40d017e6b2b1300ef8afa19d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c___params.html#a98b11b8e40d017e6b2b1300ef8afa19d">C_Params::sCOMPONENTS</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00082">82</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_c___params_8cpp_source.html#l00154">ValidateParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3a4af84d596ddc3e83a19bd1b677d65f"></a><!-- doxytag: member="C_Params::sDATA_PATH" ref="a3a4af84d596ddc3e83a19bd1b677d65f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c___params.html#a3a4af84d596ddc3e83a19bd1b677d65f">C_Params::sDATA_PATH</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00067">67</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00039">AddFiledData()</a>, <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_c___params_8cpp_source.html#l00154">ValidateParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5e87da1e2ac5cfe4e56c9795b6e97fc9"></a><!-- doxytag: member="C_Params::sENERGY_EQ" ref="a5e87da1e2ac5cfe4e56c9795b6e97fc9" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c___params.html#a5e87da1e2ac5cfe4e56c9795b6e97fc9">C_Params::sENERGY_EQ</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00076">76</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_c___params_8cpp_source.html#l00154">ValidateParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a76499461772ba1f4f2bf7cd2ada4cc25"></a><!-- doxytag: member="C_Params::sERR" ref="a76499461772ba1f4f2bf7cd2ada4cc25" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c___params.html#a76499461772ba1f4f2bf7cd2ada4cc25">C_Params::sERR</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00068">68</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00039">AddFiledData()</a>, <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params()</a>, <a class="el" href="_unit_operation_8cpp_source.html#l00257">CUnitOperation::Calculate()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation::CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af4c299ad4b272cdec5f71e230a164d99"></a><!-- doxytag: member="C_Params::sEXPORTS" ref="af4c299ad4b272cdec5f71e230a164d99" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c___params.html#af4c299ad4b272cdec5f71e230a164d99">C_Params::sEXPORTS</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00071">71</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_c___params_8cpp_source.html#l00154">ValidateParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5406690efa34ca3a0e317fc466dea430"></a><!-- doxytag: member="C_Params::sFLUENT_PATH" ref="a5406690efa34ca3a0e317fc466dea430" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c___params.html#a5406690efa34ca3a0e317fc466dea430">C_Params::sFLUENT_PATH</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00066">66</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00039">AddFiledData()</a>, <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_c___params_8cpp_source.html#l00154">ValidateParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad0354e0e132510531c844c217af8ebc0"></a><!-- doxytag: member="C_Params::sINPUT_SURFACE" ref="ad0354e0e132510531c844c217af8ebc0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c___params.html#ad0354e0e132510531c844c217af8ebc0">C_Params::sINPUT_SURFACE</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00072">72</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_c___params_8cpp_source.html#l00154">ValidateParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adde5b8b4a257c7a32e92aad9f512ca4f"></a><!-- doxytag: member="C_Params::sMOLEPERKG" ref="adde5b8b4a257c7a32e92aad9f512ca4f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c___params.html#adde5b8b4a257c7a32e92aad9f512ca4f">C_Params::sMOLEPERKG</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00081">81</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params()</a> i <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7dbb2bd7e96b865ab97c99f5a3e7b0f3"></a><!-- doxytag: member="C_Params::sNUMOFITER" ref="a7dbb2bd7e96b865ab97c99f5a3e7b0f3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c___params.html#a7dbb2bd7e96b865ab97c99f5a3e7b0f3">C_Params::sNUMOFITER</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00078">78</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params()</a> i <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad1750f882843a1f00ed020efecbc25a8"></a><!-- doxytag: member="C_Params::sNUMOFPORTS" ref="ad1750f882843a1f00ed020efecbc25a8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c___params.html#ad1750f882843a1f00ed020efecbc25a8">C_Params::sNUMOFPORTS</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00080">80</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation::CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a18e086e6ea120dbdffe65ff667e00fb3"></a><!-- doxytag: member="C_Params::sNUMOFTIMESTEPS" ref="a18e086e6ea120dbdffe65ff667e00fb3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c___params.html#a18e086e6ea120dbdffe65ff667e00fb3">C_Params::sNUMOFTIMESTEPS</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00079">79</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_c__my_run_process_8cpp_source.html#l00174">C_myRunProcess::CreateEnv()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4e8657abd931b4beaae9108c576bf154"></a><!-- doxytag: member="C_Params::sOUTPUT_SURFACE" ref="a4e8657abd931b4beaae9108c576bf154" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c___params.html#a4e8657abd931b4beaae9108c576bf154">C_Params::sOUTPUT_SURFACE</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00073">73</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_c___params_8cpp_source.html#l00154">ValidateParams()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6fbe89d31743093e83e0ced278f2cd66"></a><!-- doxytag: member="C_Params::sSUBPROCNAME" ref="a6fbe89d31743093e83e0ced278f2cd66" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL <a class="el" href="class_c___params.html#a6fbe89d31743093e83e0ced278f2cd66">C_Params::sSUBPROCNAME</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_c___params_8h_source.html#l00077">77</a> pliku <a class="el" href="_c___params_8h_source.html">C_Params.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_c___params_8cpp_source.html#l00004">C_Params()</a>, <a class="el" href="_c___params_8cpp_source.html#l00251">Creadfile()</a> i <a class="el" href="_c___params_8cpp_source.html#l00154">ValidateParams()</a>.</p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+<li><a class="el" href="_c___params_8h_source.html">C_Params.h</a></li>
+<li><a class="el" href="_c___params_8cpp_source.html">C_Params.cpp</a></li>
+</ul>
+</div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:31 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

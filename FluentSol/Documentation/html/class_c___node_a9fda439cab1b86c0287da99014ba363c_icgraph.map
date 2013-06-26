@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_c___node.html#a8107d8b76f39b68cba074ab7ed128b33" title="Dodaje kolejny wpis do listy." alt="" coords="267,268,400,297"/>
+<area shape="rect" id="node7" href="$class_c_unit_operation.html#ae5e93605f18ca571d37dd289b06a345d" title="Główna funkcja obliczająca, wywoływana przez ASPENA." alt="" coords="1519,220,1689,249"/>
+<area shape="rect" id="node30" href="$class_c___node.html#a56d05ff5055470c48d45636cdb0e1ea0" title="Zwraca ciąg dla nth węzła." alt="" coords="247,449,420,478"/>
+<area shape="rect" id="node32" href="$class_c___error.html#ac88832708e7110c890f78f7c9348c2bd" title="Zgrywa wszystkie błedy na dysk." alt="" coords="276,502,391,532"/>
+<area shape="rect" id="node5" href="$class_c___error.html#a8b7364721f28a4ec024f2d9541619452" title="Dodaje komunikat o błędzie do listy." alt="" coords="515,192,640,221"/>
+<area shape="rect" id="node9" href="$class_c___params.html#ab65d753c172afbdef6828a2804e88b91" title="Wczytuje i analizuje plik konfiguracyjny." alt="" coords="777,38,919,68"/>
+<area shape="rect" id="node11" href="$class_c_unit_operation.html#a3e8877612e6772acf65ea50f198f91d8" title="CUnitOperation::CUnitOperation" alt="" coords="1013,64,1219,93"/>
+<area shape="rect" id="node13" href="$class_c__my_run_process.html#af04033e23f541696c736ef795e864392" title="Tworzy środowisko do uruchomienia fluenta &#45; generuje scm oraz journalC_Params." alt="" coords="1272,141,1467,170"/>
+<area shape="rect" id="node17" href="$class_c__my_run_process.html#a96de0e119537f9f36f3cfaa8da96280f" title="Wczytuje dane z Fluenta." alt="" coords="1017,193,1215,222"/>
+<area shape="rect" id="node20" href="$class_c__my_run_process.html#a4c5555e8dc1c88ff665e247f371f73ef" title="C_myRunProcess::StartFluent" alt="" coords="1271,245,1468,274"/>
+<area shape="rect" id="node23" href="$class_c__my_run_process.html#ac445542726d5877bef97f4f34fde85cd" title="C_myRunProcess::WaitForProcess" alt="" coords="733,294,963,324"/>
+<area shape="rect" id="node25" href="$class_c__my_run_process.html#a06bdfb895da68f5d45e769f4986a43c5" title="C_myRunProcess::WaitForStart" alt="" coords="1012,297,1220,326"/>
+<area shape="rect" id="node35" href="$class_c_unit_operation.html#a5742dcfc6765c1d5e5095050ccc13bb5" title="CUnitOperation::~CUnitOperation" alt="" coords="471,502,684,532"/>
+</map>

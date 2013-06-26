@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Plik źródłowy C_Parameters_Set.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
+    </ul>
+  </div>
+<h1>C_Parameters_Set.h</h1><a href="_c___parameters___set_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span>
+<a name="l00003"></a>00003 
+<a name="l00004"></a><a class="code" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889d">00004</a> <span class="keyword">enum</span> <a class="code" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889d">nazwy_parametrow</a>
+<a name="l00005"></a>00005 {
+<a name="l00006"></a><a class="code" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889da43e7da8f7f179c0faed10562b3a552ed">00006</a>  <a class="code" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889da43e7da8f7f179c0faed10562b3a552ed">PARAM_TEMPERATURE</a>,
+<a name="l00007"></a><a class="code" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889da120683c83b270c0e909b69e4c4f9f0fc">00007</a>  <a class="code" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889da120683c83b270c0e909b69e4c4f9f0fc">PARAM_MOLEFLOW</a>,
+<a name="l00008"></a><a class="code" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889daca4d3f332fe545193f92e71ccac70f06">00008</a>  <a class="code" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889daca4d3f332fe545193f92e71ccac70f06">PARAM_PRESSURE</a>,
+<a name="l00009"></a><a class="code" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889da1e11cdf828f0d2835b17ea6f2c05132b">00009</a>  <a class="code" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889da1e11cdf828f0d2835b17ea6f2c05132b">PARAM_MOLEFRACTION</a>,
+<a name="l00010"></a><a class="code" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889dab450255dd5d6652e971cb420e61c4504">00010</a>  <a class="code" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889dab450255dd5d6652e971cb420e61c4504">PARAM_DENSITY</a>,
+<a name="l00011"></a><a class="code" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889dab277fde6ac1b0d1a161b275c23de6fb4">00011</a>  <a class="code" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889dab277fde6ac1b0d1a161b275c23de6fb4">PARAM_MOLEPERKG</a>
+<a name="l00012"></a>00012 };
+<a name="l00013"></a>00013 
+<a name="l00015"></a>00015 
+<a name="l00019"></a><a class="code" href="class_c___parameters___set.html">00019</a> <span class="keyword">class </span><a class="code" href="class_c___parameters___set.html" title="Przechowuje zbiór podstawowych parametrów. Enum musi się zgadzać z przechowywanymi...">C_Parameters_Set</a>
+<a name="l00020"></a>00020 {
+<a name="l00021"></a>00021 <span class="keyword">public</span>:
+<a name="l00022"></a>00022  <a class="code" href="class_c___parameters___set.html#a026a497a6092bd3283f06d1fdf03e84c">C_Parameters_Set</a>(<span class="keywordtype">void</span>);
+<a name="l00023"></a>00023  <a class="code" href="class_c___parameters___set.html#a5091f08e0d65b882bc0328740608e7df">~C_Parameters_Set</a>(<span class="keywordtype">void</span>);
+<a name="l00025"></a><a class="code" href="class_c___parameters___set.html#a4ffaff95b39d91d449423afeb462b5d0">00025</a>  <span class="keywordtype">double</span> <a class="code" href="class_c___parameters___set.html#a4ffaff95b39d91d449423afeb462b5d0" title="Temperatura pojedyńczego związku.">Temperature</a>;
+<a name="l00027"></a><a class="code" href="class_c___parameters___set.html#a8283e50b8eb62181343839bf54e14b7a">00027</a>  <span class="keywordtype">double</span> <a class="code" href="class_c___parameters___set.html#a8283e50b8eb62181343839bf54e14b7a" title="Przepływ pojedyńczego związku.">MoleFlow</a>;
+<a name="l00029"></a><a class="code" href="class_c___parameters___set.html#a4e3ca6dc639540f496ed76d46265ebc7">00029</a>  <span class="keywordtype">double</span> <a class="code" href="class_c___parameters___set.html#a4e3ca6dc639540f496ed76d46265ebc7" title="Ciśnienie pojedyńczego związku.">Pressure</a>;
+<a name="l00031"></a><a class="code" href="class_c___parameters___set.html#a9ff6f0e9ffd642bd99185347945a0b0c">00031</a>  <span class="keywordtype">double</span> <a class="code" href="class_c___parameters___set.html#a9ff6f0e9ffd642bd99185347945a0b0c" title="Udział molowy pojedyńczego związku.">MoleFraction</a>;
+<a name="l00033"></a><a class="code" href="class_c___parameters___set.html#a81947088d9dcc13736ee68386f1f6bc8">00033</a>  <span class="keywordtype">double</span> <a class="code" href="class_c___parameters___set.html#a81947088d9dcc13736ee68386f1f6bc8" title="Gęstość związku.">Density</a>;
+<a name="l00035"></a><a class="code" href="class_c___parameters___set.html#a41737b26723f67c166c238d6d61b9cc0">00035</a>  <span class="keywordtype">double</span> <a class="code" href="class_c___parameters___set.html#a41737b26723f67c166c238d6d61b9cc0" title="ilosc moli na kilogram substancji">moleperkg</a>;
+<a name="l00037"></a><a class="code" href="class_c___parameters___set.html#a7fbc4907b6c25992737ebe3dc59d252b">00037</a>  BOOL <a class="code" href="class_c___parameters___set.html#a7fbc4907b6c25992737ebe3dc59d252b" title="czy cos jest w odpowiednich polach, OK jeśli tak,FAIL nie">bTemperature</a>;
+<a name="l00038"></a><a class="code" href="class_c___parameters___set.html#a8e93646079c8f51564da392f86fbc87e">00038</a>  BOOL <a class="code" href="class_c___parameters___set.html#a8e93646079c8f51564da392f86fbc87e">bMoleFlow</a>;
+<a name="l00039"></a><a class="code" href="class_c___parameters___set.html#a758b8387af963e437883cbeeef1a5498">00039</a>  BOOL <a class="code" href="class_c___parameters___set.html#a758b8387af963e437883cbeeef1a5498">bPressure</a>;
+<a name="l00040"></a><a class="code" href="class_c___parameters___set.html#a6af3e014ca8ef9f6f225e8745a1a2282">00040</a>  BOOL <a class="code" href="class_c___parameters___set.html#a6af3e014ca8ef9f6f225e8745a1a2282">bMoleFraction</a>;
+<a name="l00041"></a><a class="code" href="class_c___parameters___set.html#a298e0a92b438f4e69a19a02b882f9ba6">00041</a>  BOOL <a class="code" href="class_c___parameters___set.html#a298e0a92b438f4e69a19a02b882f9ba6">bDensity</a>;
+<a name="l00042"></a><a class="code" href="class_c___parameters___set.html#a5ba08213ff88b019d6dcf65d86a8a8d2">00042</a>  BOOL <a class="code" href="class_c___parameters___set.html#a5ba08213ff88b019d6dcf65d86a8a8d2">bmoleperkg</a>;
+<a name="l00043"></a>00043 
+<a name="l00045"></a>00045 
+<a name="l00047"></a>00047  <span class="keywordtype">void</span> <a class="code" href="class_c___parameters___set.html#a80154c7b03e7a79c4a9def1cb604556a" title="Kasuje zawartość struktury.">ClearAll</a>();
+<a name="l00048"></a>00048 };
+<a name="l00049"></a>00049 
+<a name="l00051"></a><a class="code" href="_c___parameters___set_8h.html#a416325b8deba7ed3a85367da5a29e5a8">00051</a> <span class="keyword">inline</span> <a class="code" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889d">nazwy_parametrow</a> <a class="code" href="_c___parameters___set_8h.html#a416325b8deba7ed3a85367da5a29e5a8" title="Define a postfix increment operator for Suit.">operator++</a>( <a class="code" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889d">nazwy_parametrow</a> &amp;rs, <span class="keywordtype">int</span> ) {
+<a name="l00052"></a>00052  <span class="keywordflow">return</span> rs = (<a class="code" href="_c___parameters___set_8h.html#a18416475c1b6f92f8341a0bb847e889d">nazwy_parametrow</a>)(rs + 1);
+<a name="l00053"></a>00053 }
+</pre></div></div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:21 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

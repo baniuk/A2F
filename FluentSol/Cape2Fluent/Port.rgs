@@ -1,0 +1,26 @@
+HKCR
+{
+	Cape2Fluent.Port.1 = s 'Port Class'
+	{
+		CLSID = s '{4C56EFAA-DE81-47B4-85D6-6E87EFBC36EC}'
+	}
+	Cape2Fluent.Port = s 'Port Class'
+	{
+		CLSID = s '{4C56EFAA-DE81-47B4-85D6-6E87EFBC36EC}'
+		CurVer = s 'Cape2Fluent.Port.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {4C56EFAA-DE81-47B4-85D6-6E87EFBC36EC} = s 'Port Class'
+		{
+			ProgID = s 'Cape2Fluent.Port.1'
+			VersionIndependentProgID = s 'Cape2Fluent.Port'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{A41DD893-4E3F-45A6-BBEF-425ECE7FA637}'
+		}
+	}
+}

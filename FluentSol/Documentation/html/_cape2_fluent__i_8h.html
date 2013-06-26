@@ -1,0 +1,1281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>cape2fluent: Dokumentacja pliku Cape2Fluent_i.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Wygenerowano przez Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&nbsp;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&nbsp;nazw</span></a></li>
+      <li><a href="annotated.html"><span>Klasy</span></a></li>
+      <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;plików</span></a></li>
+      <li><a href="globals.html"><span>Składowe&nbsp;plików</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Dokumentacja pliku Cape2Fluent_i.h</h1><code>#include &quot;rpc.h&quot;</code><br/>
+<code>#include &quot;rpcndr.h&quot;</code><br/>
+<code>#include &quot;windows.h&quot;</code><br/>
+<code>#include &quot;ole2.h&quot;</code><br/>
+<code>#include &quot;oaidl.h&quot;</code><br/>
+<code>#include &quot;ocidl.h&quot;</code><br/>
+<div class="dynheader">
+Wykres zależności załączania dla Cape2Fluent_i.h:</div>
+<div class="dynsection">
+<div class="center"><img src="_cape2_fluent__i_8h__incl.png" border="0" usemap="#_cape2_fluent__i_8h_map" alt=""/></div>
+</div>
+<div class="dynheader">
+Ten wykres pokazuje, które pliki bezpośrednio lub pośrednio załączają ten plik:</div>
+<div class="dynsection">
+<div class="center"><img src="_cape2_fluent__i_8h__dep__incl.png" border="0" usemap="#_cape2_fluent__i_8hdep_map" alt=""/></div>
+<map name="_cape2_fluent__i_8hdep_map" id="_cape2_fluent__i_8hdep">
+<area shape="rect" id="node3" href="_cape2_fluent_8cpp.html" title="Cape2Fluent.cpp" alt="" coords="5,83,125,112"/><area shape="rect" id="node6" href="_cape2_fluent__p_8c.html" title="Cape2Fluent_p.c" alt="" coords="173,83,293,112"/><area shape="rect" id="node8" href="compreg_8h.html" title="compreg.h" alt="" coords="317,83,400,112"/><area shape="rect" id="node12" href="dllmain_8cpp.html" title="dllmain.cpp" alt="" coords="393,160,481,189"/><area shape="rect" id="node15" href="_parameter_collection_8cpp.html" title="ParameterCollection.cpp" alt="" coords="475,83,637,112"/><area shape="rect" id="node18" href="_parameter_collection_8h.html" title="ParameterCollection.h" alt="" coords="685,83,835,112"/><area shape="rect" id="node20" href="_port_8cpp.html" title="Port.cpp" alt="" coords="859,83,928,112"/><area shape="rect" id="node23" href="_port_8h.html" title="Port.h" alt="" coords="1027,83,1083,112"/><area shape="rect" id="node25" href="_port_collection_8cpp.html" title="PortCollection.cpp" alt="" coords="905,160,1033,189"/><area shape="rect" id="node28" href="_port_collection_8h.html" title="PortCollection.h" alt="" coords="1081,160,1196,189"/><area shape="rect" id="node32" href="_unit_operation_8cpp.html" title="UnitOperation.cpp" alt="" coords="1157,83,1283,112"/><area shape="rect" id="node35" href="_unit_operation_8h.html" title="UnitOperation.h" alt="" coords="1331,83,1443,112"/><area shape="rect" id="node10" href="compreg_8cpp.html" title="compreg.cpp" alt="" coords="273,160,369,189"/></map>
+</div>
+
+<p><a href="_cape2_fluent__i_8h_source.html">Idź do kodu źródłowego tego pliku.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Komponenty</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_component_registrar_vtbl.html">IComponentRegistrarVtbl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_unit_operation_vtbl.html">IUnitOperationVtbl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_port_vtbl.html">IPortVtbl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_parameter_collection_vtbl.html">IParameterCollectionVtbl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_port_collection_vtbl.html">IPortCollectionVtbl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i__my_dialog_vtbl.html">I_myDialogVtbl</a></td></tr>
+<tr><td colspan="2"><h2>Definicje</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a5d9f91d42d11f2b31b382075865d61b1">__Cape2Fluent_i_h__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a1949f76bd1929f4a26ead2dd3cc60aab">__IComponentRegistrar_FWD_DEFINED__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a2e01e2131b6323289f74d2e482dd05a8">__IUnitOperation_FWD_DEFINED__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#ab0cede65517ad28c01fb92e6d13aee50">__IPort_FWD_DEFINED__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#aa33cb7a89dcfe184d49292a4a8f720a1">__IParameterCollection_FWD_DEFINED__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a64f233a4b4fab73bc3393728c66a0e71">__IPortCollection_FWD_DEFINED__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#ac5fbebd0ea35f504357926ccee99f19f">__CompReg_FWD_DEFINED__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a96d9428edf890dc1cbb5e22e8881907c">__UnitOperation_FWD_DEFINED__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#ac96edf894bcd6bbe6d98ba6d3993fcfa">__Port_FWD_DEFINED__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a86f89acff42ac67b24094c43de4cfc5a">__ParameterCollection_FWD_DEFINED__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#aeb8c2afbee09fb89869affef14768064">__PortCollection_FWD_DEFINED__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a5adfadd146abdd0a2af9b4a7c3ae9f1d">__I_myDialog_FWD_DEFINED__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a9d0fe641f2666554f93a49ccc7abe700">___myDialog_FWD_DEFINED__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a1450df9e54422c423be7734be7714df7">__IComponentRegistrar_INTERFACE_DEFINED__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a830ffb15371375b741523372d40f70a8">__IUnitOperation_INTERFACE_DEFINED__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#aa78666ce2ca18e42cedc53aaa41e32d9">__IPort_INTERFACE_DEFINED__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a38cda8d7b4453f078a6c0e66fa06224a">__IParameterCollection_INTERFACE_DEFINED__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a1e806417de8c4c14b91e8035e9a0ecc8">__IPortCollection_INTERFACE_DEFINED__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a8748caea09db1d08f02ca65573b00404">__Cape2FluentLib_LIBRARY_DEFINED__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a44fdf605f0ed4dac2b0135c8740e572e">__I_myDialog_DISPINTERFACE_DEFINED__</a></td></tr>
+<tr><td colspan="2"><h2>Definicje typów</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef interface <br class="typebreak"/>
+<a class="el" href="interface_i_component_registrar.html">IComponentRegistrar</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#abed58844f7b3a0845e9859bb80e4ea3e">IComponentRegistrar</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef interface <a class="el" href="interface_i_unit_operation.html">IUnitOperation</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#ac86fb157b5a371248a4f574e0a25e733">IUnitOperation</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef interface <a class="el" href="interface_i_port.html">IPort</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#aa8c9a4731155219afc33c88a96f70d7a">IPort</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef interface <br class="typebreak"/>
+<a class="el" href="interface_i_parameter_collection.html">IParameterCollection</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a4f48c07c89dc423e48952f52f785f641">IParameterCollection</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef interface <a class="el" href="interface_i_port_collection.html">IPortCollection</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a83353eb0fb5609545368e5560194ac4c">IPortCollection</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="_cape2_fluent__i_8h.html#a8097358acdd10051c2a01c203bd7e5fe">CompReg</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a8097358acdd10051c2a01c203bd7e5fe">CompReg</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="_cape2_fluent__i_8h.html#a2ab07619d718a4af6d1d1e92adc8b82b">UnitOperation</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a2ab07619d718a4af6d1d1e92adc8b82b">UnitOperation</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="_cape2_fluent__i_8h.html#ab8a34c2ba1bce23340aa699773be24d0">Port</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#ab8a34c2ba1bce23340aa699773be24d0">Port</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="_cape2_fluent__i_8h.html#a0238600d583d9a914baecf95d8e298c8">ParameterCollection</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a0238600d583d9a914baecf95d8e298c8">ParameterCollection</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="_cape2_fluent__i_8h.html#a2ccb677ee84bbfde5bb0861970bdcd11">PortCollection</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a2ccb677ee84bbfde5bb0861970bdcd11">PortCollection</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef interface <a class="el" href="_cape2_fluent__i_8h.html#ac0a8eabba11a733d786239c385b31f64">I_myDialog</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#ac0a8eabba11a733d786239c385b31f64">I_myDialog</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="_cape2_fluent__i_8h.html#ac7366c664e4b73f987bde0fb4b4d9a4a">_myDialog</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#ac7366c664e4b73f987bde0fb4b4d9a4a">_myDialog</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="struct_i_component_registrar_vtbl.html">IComponentRegistrarVtbl</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a9a1a920f75b4c1bdb00f7ec1fb5ed9fe">IComponentRegistrarVtbl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_i_unit_operation_vtbl.html">IUnitOperationVtbl</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a9097688d3a8bd07dbf9b66d2eef971dd">IUnitOperationVtbl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_i_port_vtbl.html">IPortVtbl</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#ab0a0a4549e47eab35d92b0123ddaa2fb">IPortVtbl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <br class="typebreak"/>
+<a class="el" href="struct_i_parameter_collection_vtbl.html">IParameterCollectionVtbl</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a3c2ce94702222a90a35cc8ea52ff9ea7">IParameterCollectionVtbl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_i_port_collection_vtbl.html">IPortCollectionVtbl</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#acaeeff72c948f50ce273de16d9636247">IPortCollectionVtbl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_i__my_dialog_vtbl.html">I_myDialogVtbl</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#aa68d5bac692c2bd0550e009aef7ec012">I_myDialogVtbl</a></td></tr>
+<tr><td colspan="2"><h2>Funkcje</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned long __RPC_USER&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a46cec07e960973768eaa70116575472f">BSTR_UserSize</a> (unsigned long *, unsigned long, BSTR *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char *__RPC_USER&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a4d6f852b3fe8fcbc1e19be7386f9ecee">BSTR_UserMarshal</a> (unsigned long *, unsigned char *, BSTR *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char *__RPC_USER&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a69d8558bd57d836e0ab232ee449c4934">BSTR_UserUnmarshal</a> (unsigned long *, unsigned char *, BSTR *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void __RPC_USER&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a8f8e55ab6c43f7ae93304e41b92cd98d">BSTR_UserFree</a> (unsigned long *, BSTR *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned long __RPC_USER&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#ad32e3725cb1d731a72e5fcee61fdca17">LPSAFEARRAY_UserSize</a> (unsigned long *, unsigned long, LPSAFEARRAY *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char *__RPC_USER&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a99e170ac5b76c70dab22485a7f0d839d">LPSAFEARRAY_UserMarshal</a> (unsigned long *, unsigned char *, LPSAFEARRAY *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char *__RPC_USER&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#afb11125cdba3ee1c6841a0551970efc9">LPSAFEARRAY_UserUnmarshal</a> (unsigned long *, unsigned char *, LPSAFEARRAY *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void __RPC_USER&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#adde5a8aa9c927c41ec7a4ac8c7c3548f">LPSAFEARRAY_UserFree</a> (unsigned long *, LPSAFEARRAY *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned long __RPC_USER&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#ad30e2bac580095aaba416c361e3199a4">VARIANT_UserSize</a> (unsigned long *, unsigned long, VARIANT *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char *__RPC_USER&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a54a3b702423e1c1c2500adc9efdfb68f">VARIANT_UserMarshal</a> (unsigned long *, unsigned char *, VARIANT *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned char *__RPC_USER&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a7ff97d66bf9033fa3dafc67af7cb86d0">VARIANT_UserUnmarshal</a> (unsigned long *, unsigned char *, VARIANT *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void __RPC_USER&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#afd28c4110360b426e3ec2c71e5b65161">VARIANT_UserFree</a> (unsigned long *, VARIANT *)</td></tr>
+<tr><td colspan="2"><h2>Zmienne</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">EXTERN_C const <a class="el" href="struct___i_i_d.html">IID</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#acc1a3f721d3b139ddd6890f44e010015">IID_IComponentRegistrar</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">EXTERN_C const <a class="el" href="struct___i_i_d.html">IID</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#ab3749202ea4c5cdc311d957fb661d2a6">IID_IUnitOperation</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">EXTERN_C const <a class="el" href="struct___i_i_d.html">IID</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a0bd830eab95ba4531a52e9e8d1c5a299">IID_IPort</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">EXTERN_C const <a class="el" href="struct___i_i_d.html">IID</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a08bfdca7340f1a9459dff9308ce34641">IID_IParameterCollection</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">EXTERN_C const <a class="el" href="struct___i_i_d.html">IID</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#aaa217aaa5f73898a9ed72525e7629569">IID_IPortCollection</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">EXTERN_C const <a class="el" href="struct___i_i_d.html">IID</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#aa9b92d42fa6f4f5205051373c3845d4c">LIBID_Cape2FluentLib</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">EXTERN_C const <a class="el" href="struct___i_i_d.html">CLSID</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a9d8f49922b5c08b88dde5411886acb04">CLSID_CompReg</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">EXTERN_C const <a class="el" href="struct___i_i_d.html">CLSID</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#aa9c71eff702a7d24fecace388134b9cc">CLSID_UnitOperation</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">EXTERN_C const <a class="el" href="struct___i_i_d.html">CLSID</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a823e2aeaa6f18eadf216e08b3fde58a0">CLSID_Port</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">EXTERN_C const <a class="el" href="struct___i_i_d.html">CLSID</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#ae6b13be2a40aa0e13ea9971bafc6d3b6">CLSID_ParameterCollection</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">EXTERN_C const <a class="el" href="struct___i_i_d.html">CLSID</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a68014f0a6f158f0406ab9be4e35ff335">CLSID_PortCollection</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">EXTERN_C const <a class="el" href="struct___i_i_d.html">IID</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#ad7a2a70d6028b2e1eacadb155f1409e4">DIID_I_myDialog</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">EXTERN_C const <a class="el" href="struct___i_i_d.html">CLSID</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_cape2_fluent__i_8h.html#a92874b753376f5257f7e97babb85b223">CLSID__myDialog</a></td></tr>
+</table>
+<hr/><h2>Dokumentacja definicji</h2>
+<a class="anchor" id="a9d0fe641f2666554f93a49ccc7abe700"></a><!-- doxytag: member="Cape2Fluent_i.h::___myDialog_FWD_DEFINED__" ref="a9d0fe641f2666554f93a49ccc7abe700" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ___myDialog_FWD_DEFINED__</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00145">145</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5d9f91d42d11f2b31b382075865d61b1"></a><!-- doxytag: member="Cape2Fluent_i.h::__Cape2Fluent_i_h__" ref="a5d9f91d42d11f2b31b382075865d61b1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __Cape2Fluent_i_h__</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00040">40</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8748caea09db1d08f02ca65573b00404"></a><!-- doxytag: member="Cape2Fluent_i.h::__Cape2FluentLib_LIBRARY_DEFINED__" ref="a8748caea09db1d08f02ca65573b00404" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __Cape2FluentLib_LIBRARY_DEFINED__</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00958">958</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac5fbebd0ea35f504357926ccee99f19f"></a><!-- doxytag: member="Cape2Fluent_i.h::__CompReg_FWD_DEFINED__" ref="ac5fbebd0ea35f504357926ccee99f19f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __CompReg_FWD_DEFINED__</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00079">79</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a44fdf605f0ed4dac2b0135c8740e572e"></a><!-- doxytag: member="Cape2Fluent_i.h::__I_myDialog_DISPINTERFACE_DEFINED__" ref="a44fdf605f0ed4dac2b0135c8740e572e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __I_myDialog_DISPINTERFACE_DEFINED__</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l01007">1007</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5adfadd146abdd0a2af9b4a7c3ae9f1d"></a><!-- doxytag: member="Cape2Fluent_i.h::__I_myDialog_FWD_DEFINED__" ref="a5adfadd146abdd0a2af9b4a7c3ae9f1d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __I_myDialog_FWD_DEFINED__</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00139">139</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1949f76bd1929f4a26ead2dd3cc60aab"></a><!-- doxytag: member="Cape2Fluent_i.h::__IComponentRegistrar_FWD_DEFINED__" ref="a1949f76bd1929f4a26ead2dd3cc60aab" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __IComponentRegistrar_FWD_DEFINED__</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00049">49</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1450df9e54422c423be7734be7714df7"></a><!-- doxytag: member="Cape2Fluent_i.h::__IComponentRegistrar_INTERFACE_DEFINED__" ref="a1450df9e54422c423be7734be7714df7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __IComponentRegistrar_INTERFACE_DEFINED__</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00166">166</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa33cb7a89dcfe184d49292a4a8f720a1"></a><!-- doxytag: member="Cape2Fluent_i.h::__IParameterCollection_FWD_DEFINED__" ref="aa33cb7a89dcfe184d49292a4a8f720a1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __IParameterCollection_FWD_DEFINED__</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00067">67</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a38cda8d7b4453f078a6c0e66fa06224a"></a><!-- doxytag: member="Cape2Fluent_i.h::__IParameterCollection_INTERFACE_DEFINED__" ref="a38cda8d7b4453f078a6c0e66fa06224a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __IParameterCollection_INTERFACE_DEFINED__</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00655">655</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab0cede65517ad28c01fb92e6d13aee50"></a><!-- doxytag: member="Cape2Fluent_i.h::__IPort_FWD_DEFINED__" ref="ab0cede65517ad28c01fb92e6d13aee50" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __IPort_FWD_DEFINED__</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00061">61</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa78666ce2ca18e42cedc53aaa41e32d9"></a><!-- doxytag: member="Cape2Fluent_i.h::__IPort_INTERFACE_DEFINED__" ref="aa78666ce2ca18e42cedc53aaa41e32d9" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __IPort_INTERFACE_DEFINED__</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00454">454</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a64f233a4b4fab73bc3393728c66a0e71"></a><!-- doxytag: member="Cape2Fluent_i.h::__IPortCollection_FWD_DEFINED__" ref="a64f233a4b4fab73bc3393728c66a0e71" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __IPortCollection_FWD_DEFINED__</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00073">73</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1e806417de8c4c14b91e8035e9a0ecc8"></a><!-- doxytag: member="Cape2Fluent_i.h::__IPortCollection_INTERFACE_DEFINED__" ref="a1e806417de8c4c14b91e8035e9a0ecc8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __IPortCollection_INTERFACE_DEFINED__</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00806">806</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2e01e2131b6323289f74d2e482dd05a8"></a><!-- doxytag: member="Cape2Fluent_i.h::__IUnitOperation_FWD_DEFINED__" ref="a2e01e2131b6323289f74d2e482dd05a8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __IUnitOperation_FWD_DEFINED__</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00055">55</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a830ffb15371375b741523372d40f70a8"></a><!-- doxytag: member="Cape2Fluent_i.h::__IUnitOperation_INTERFACE_DEFINED__" ref="a830ffb15371375b741523372d40f70a8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __IUnitOperation_INTERFACE_DEFINED__</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00335">335</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a86f89acff42ac67b24094c43de4cfc5a"></a><!-- doxytag: member="Cape2Fluent_i.h::__ParameterCollection_FWD_DEFINED__" ref="a86f89acff42ac67b24094c43de4cfc5a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __ParameterCollection_FWD_DEFINED__</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00115">115</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac96edf894bcd6bbe6d98ba6d3993fcfa"></a><!-- doxytag: member="Cape2Fluent_i.h::__Port_FWD_DEFINED__" ref="ac96edf894bcd6bbe6d98ba6d3993fcfa" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __Port_FWD_DEFINED__</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00103">103</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aeb8c2afbee09fb89869affef14768064"></a><!-- doxytag: member="Cape2Fluent_i.h::__PortCollection_FWD_DEFINED__" ref="aeb8c2afbee09fb89869affef14768064" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __PortCollection_FWD_DEFINED__</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00127">127</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a96d9428edf890dc1cbb5e22e8881907c"></a><!-- doxytag: member="Cape2Fluent_i.h::__UnitOperation_FWD_DEFINED__" ref="a96d9428edf890dc1cbb5e22e8881907c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __UnitOperation_FWD_DEFINED__</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00091">91</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja definicji typów</h2>
+<a class="anchor" id="ac7366c664e4b73f987bde0fb4b4d9a4a"></a><!-- doxytag: member="Cape2Fluent_i.h::_myDialog" ref="ac7366c664e4b73f987bde0fb4b4d9a4a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="_cape2_fluent__i_8h.html#ac7366c664e4b73f987bde0fb4b4d9a4a">_myDialog</a> <a class="el" href="_cape2_fluent__i_8h.html#ac7366c664e4b73f987bde0fb4b4d9a4a">_myDialog</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00150">150</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8097358acdd10051c2a01c203bd7e5fe"></a><!-- doxytag: member="Cape2Fluent_i.h::CompReg" ref="a8097358acdd10051c2a01c203bd7e5fe" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="_cape2_fluent__i_8h.html#a8097358acdd10051c2a01c203bd7e5fe">CompReg</a> <a class="el" href="_cape2_fluent__i_8h.html#a8097358acdd10051c2a01c203bd7e5fe">CompReg</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00084">84</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac0a8eabba11a733d786239c385b31f64"></a><!-- doxytag: member="Cape2Fluent_i.h::I_myDialog" ref="ac0a8eabba11a733d786239c385b31f64" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef interface <a class="el" href="_cape2_fluent__i_8h.html#ac0a8eabba11a733d786239c385b31f64">I_myDialog</a> <a class="el" href="_cape2_fluent__i_8h.html#ac0a8eabba11a733d786239c385b31f64">I_myDialog</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00140">140</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa68d5bac692c2bd0550e009aef7ec012"></a><!-- doxytag: member="Cape2Fluent_i.h::I_myDialogVtbl" ref="aa68d5bac692c2bd0550e009aef7ec012" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_i__my_dialog_vtbl.html">I_myDialogVtbl</a>  <a class="el" href="struct_i__my_dialog_vtbl.html">I_myDialogVtbl</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="abed58844f7b3a0845e9859bb80e4ea3e"></a><!-- doxytag: member="Cape2Fluent_i.h::IComponentRegistrar" ref="abed58844f7b3a0845e9859bb80e4ea3e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef interface <a class="el" href="interface_i_component_registrar.html">IComponentRegistrar</a> <a class="el" href="interface_i_component_registrar.html">IComponentRegistrar</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00050">50</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9a1a920f75b4c1bdb00f7ec1fb5ed9fe"></a><!-- doxytag: member="Cape2Fluent_i.h::IComponentRegistrarVtbl" ref="a9a1a920f75b4c1bdb00f7ec1fb5ed9fe" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_i_component_registrar_vtbl.html">IComponentRegistrarVtbl</a>  <a class="el" href="struct_i_component_registrar_vtbl.html">IComponentRegistrarVtbl</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4f48c07c89dc423e48952f52f785f641"></a><!-- doxytag: member="Cape2Fluent_i.h::IParameterCollection" ref="a4f48c07c89dc423e48952f52f785f641" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef interface <a class="el" href="interface_i_parameter_collection.html">IParameterCollection</a> <a class="el" href="interface_i_parameter_collection.html">IParameterCollection</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00068">68</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3c2ce94702222a90a35cc8ea52ff9ea7"></a><!-- doxytag: member="Cape2Fluent_i.h::IParameterCollectionVtbl" ref="a3c2ce94702222a90a35cc8ea52ff9ea7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_i_parameter_collection_vtbl.html">IParameterCollectionVtbl</a>  <a class="el" href="struct_i_parameter_collection_vtbl.html">IParameterCollectionVtbl</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa8c9a4731155219afc33c88a96f70d7a"></a><!-- doxytag: member="Cape2Fluent_i.h::IPort" ref="aa8c9a4731155219afc33c88a96f70d7a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef interface <a class="el" href="interface_i_port.html">IPort</a> <a class="el" href="interface_i_port.html">IPort</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00062">62</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a83353eb0fb5609545368e5560194ac4c"></a><!-- doxytag: member="Cape2Fluent_i.h::IPortCollection" ref="a83353eb0fb5609545368e5560194ac4c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef interface <a class="el" href="interface_i_port_collection.html">IPortCollection</a> <a class="el" href="interface_i_port_collection.html">IPortCollection</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00074">74</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acaeeff72c948f50ce273de16d9636247"></a><!-- doxytag: member="Cape2Fluent_i.h::IPortCollectionVtbl" ref="acaeeff72c948f50ce273de16d9636247" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_i_port_collection_vtbl.html">IPortCollectionVtbl</a>  <a class="el" href="struct_i_port_collection_vtbl.html">IPortCollectionVtbl</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab0a0a4549e47eab35d92b0123ddaa2fb"></a><!-- doxytag: member="Cape2Fluent_i.h::IPortVtbl" ref="ab0a0a4549e47eab35d92b0123ddaa2fb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_i_port_vtbl.html">IPortVtbl</a>  <a class="el" href="struct_i_port_vtbl.html">IPortVtbl</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac86fb157b5a371248a4f574e0a25e733"></a><!-- doxytag: member="Cape2Fluent_i.h::IUnitOperation" ref="ac86fb157b5a371248a4f574e0a25e733" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef interface <a class="el" href="interface_i_unit_operation.html">IUnitOperation</a> <a class="el" href="interface_i_unit_operation.html">IUnitOperation</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00056">56</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9097688d3a8bd07dbf9b66d2eef971dd"></a><!-- doxytag: member="Cape2Fluent_i.h::IUnitOperationVtbl" ref="a9097688d3a8bd07dbf9b66d2eef971dd" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_i_unit_operation_vtbl.html">IUnitOperationVtbl</a>  <a class="el" href="struct_i_unit_operation_vtbl.html">IUnitOperationVtbl</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0238600d583d9a914baecf95d8e298c8"></a><!-- doxytag: member="Cape2Fluent_i.h::ParameterCollection" ref="a0238600d583d9a914baecf95d8e298c8" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="_cape2_fluent__i_8h.html#a0238600d583d9a914baecf95d8e298c8">ParameterCollection</a> <a class="el" href="_cape2_fluent__i_8h.html#a0238600d583d9a914baecf95d8e298c8">ParameterCollection</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00120">120</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab8a34c2ba1bce23340aa699773be24d0"></a><!-- doxytag: member="Cape2Fluent_i.h::Port" ref="ab8a34c2ba1bce23340aa699773be24d0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="_cape2_fluent__i_8h.html#ab8a34c2ba1bce23340aa699773be24d0">Port</a> <a class="el" href="_cape2_fluent__i_8h.html#ab8a34c2ba1bce23340aa699773be24d0">Port</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00108">108</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2ccb677ee84bbfde5bb0861970bdcd11"></a><!-- doxytag: member="Cape2Fluent_i.h::PortCollection" ref="a2ccb677ee84bbfde5bb0861970bdcd11" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="_cape2_fluent__i_8h.html#a2ccb677ee84bbfde5bb0861970bdcd11">PortCollection</a> <a class="el" href="_cape2_fluent__i_8h.html#a2ccb677ee84bbfde5bb0861970bdcd11">PortCollection</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00132">132</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2ab07619d718a4af6d1d1e92adc8b82b"></a><!-- doxytag: member="Cape2Fluent_i.h::UnitOperation" ref="a2ab07619d718a4af6d1d1e92adc8b82b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="_cape2_fluent__i_8h.html#a2ab07619d718a4af6d1d1e92adc8b82b">UnitOperation</a> <a class="el" href="_cape2_fluent__i_8h.html#a2ab07619d718a4af6d1d1e92adc8b82b">UnitOperation</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00096">96</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Dokumentacja funkcji</h2>
+<a class="anchor" id="a8f8e55ab6c43f7ae93304e41b92cd98d"></a><!-- doxytag: member="Cape2Fluent_i.h::BSTR_UserFree" ref="a8f8e55ab6c43f7ae93304e41b92cd98d" args="(unsigned long *, BSTR *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void __RPC_USER BSTR_UserFree </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long *&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4d6f852b3fe8fcbc1e19be7386f9ecee"></a><!-- doxytag: member="Cape2Fluent_i.h::BSTR_UserMarshal" ref="a4d6f852b3fe8fcbc1e19be7386f9ecee" args="(unsigned long *, unsigned char *, BSTR *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* __RPC_USER BSTR_UserMarshal </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long *&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a46cec07e960973768eaa70116575472f"></a><!-- doxytag: member="Cape2Fluent_i.h::BSTR_UserSize" ref="a46cec07e960973768eaa70116575472f" args="(unsigned long *, unsigned long, BSTR *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long __RPC_USER BSTR_UserSize </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long *&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&nbsp;</td>
+          <td class="paramname"> <em>long</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a69d8558bd57d836e0ab232ee449c4934"></a><!-- doxytag: member="Cape2Fluent_i.h::BSTR_UserUnmarshal" ref="a69d8558bd57d836e0ab232ee449c4934" args="(unsigned long *, unsigned char *, BSTR *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* __RPC_USER BSTR_UserUnmarshal </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long *&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BSTR *&nbsp;</td>
+          <td class="paramname"></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="adde5a8aa9c927c41ec7a4ac8c7c3548f"></a><!-- doxytag: member="Cape2Fluent_i.h::LPSAFEARRAY_UserFree" ref="adde5a8aa9c927c41ec7a4ac8c7c3548f" args="(unsigned long *, LPSAFEARRAY *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void __RPC_USER LPSAFEARRAY_UserFree </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long *&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LPSAFEARRAY *&nbsp;</td>
+          <td class="paramname"></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a99e170ac5b76c70dab22485a7f0d839d"></a><!-- doxytag: member="Cape2Fluent_i.h::LPSAFEARRAY_UserMarshal" ref="a99e170ac5b76c70dab22485a7f0d839d" args="(unsigned long *, unsigned char *, LPSAFEARRAY *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* __RPC_USER LPSAFEARRAY_UserMarshal </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long *&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LPSAFEARRAY *&nbsp;</td>
+          <td class="paramname"></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad32e3725cb1d731a72e5fcee61fdca17"></a><!-- doxytag: member="Cape2Fluent_i.h::LPSAFEARRAY_UserSize" ref="ad32e3725cb1d731a72e5fcee61fdca17" args="(unsigned long *, unsigned long, LPSAFEARRAY *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long __RPC_USER LPSAFEARRAY_UserSize </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long *&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&nbsp;</td>
+          <td class="paramname"> <em>long</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LPSAFEARRAY *&nbsp;</td>
+          <td class="paramname"></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afb11125cdba3ee1c6841a0551970efc9"></a><!-- doxytag: member="Cape2Fluent_i.h::LPSAFEARRAY_UserUnmarshal" ref="afb11125cdba3ee1c6841a0551970efc9" args="(unsigned long *, unsigned char *, LPSAFEARRAY *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* __RPC_USER LPSAFEARRAY_UserUnmarshal </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long *&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LPSAFEARRAY *&nbsp;</td>
+          <td class="paramname"></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afd28c4110360b426e3ec2c71e5b65161"></a><!-- doxytag: member="Cape2Fluent_i.h::VARIANT_UserFree" ref="afd28c4110360b426e3ec2c71e5b65161" args="(unsigned long *, VARIANT *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void __RPC_USER VARIANT_UserFree </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long *&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIANT *&nbsp;</td>
+          <td class="paramname"></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a54a3b702423e1c1c2500adc9efdfb68f"></a><!-- doxytag: member="Cape2Fluent_i.h::VARIANT_UserMarshal" ref="a54a3b702423e1c1c2500adc9efdfb68f" args="(unsigned long *, unsigned char *, VARIANT *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* __RPC_USER VARIANT_UserMarshal </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long *&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIANT *&nbsp;</td>
+          <td class="paramname"></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad30e2bac580095aaba416c361e3199a4"></a><!-- doxytag: member="Cape2Fluent_i.h::VARIANT_UserSize" ref="ad30e2bac580095aaba416c361e3199a4" args="(unsigned long *, unsigned long, VARIANT *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long __RPC_USER VARIANT_UserSize </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long *&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&nbsp;</td>
+          <td class="paramname"> <em>long</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIANT *&nbsp;</td>
+          <td class="paramname"></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7ff97d66bf9033fa3dafc67af7cb86d0"></a><!-- doxytag: member="Cape2Fluent_i.h::VARIANT_UserUnmarshal" ref="a7ff97d66bf9033fa3dafc67af7cb86d0" args="(unsigned long *, unsigned char *, VARIANT *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* __RPC_USER VARIANT_UserUnmarshal </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long *&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VARIANT *&nbsp;</td>
+          <td class="paramname"></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Dokumentacja zmiennych</h2>
+<a class="anchor" id="a92874b753376f5257f7e97babb85b223"></a><!-- doxytag: member="Cape2Fluent_i.h::CLSID__myDialog" ref="a92874b753376f5257f7e97babb85b223" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EXTERN_C const <a class="el" href="struct___i_i_d.html">CLSID</a> <a class="el" href="_cape2_fluent__i_8h.html#a92874b753376f5257f7e97babb85b223">CLSID__myDialog</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l01075">1075</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9d8f49922b5c08b88dde5411886acb04"></a><!-- doxytag: member="Cape2Fluent_i.h::CLSID_CompReg" ref="a9d8f49922b5c08b88dde5411886acb04" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EXTERN_C const <a class="el" href="struct___i_i_d.html">CLSID</a> <a class="el" href="_cape2_fluent__i_8h.html#a9d8f49922b5c08b88dde5411886acb04">CLSID_CompReg</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00966">966</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae6b13be2a40aa0e13ea9971bafc6d3b6"></a><!-- doxytag: member="Cape2Fluent_i.h::CLSID_ParameterCollection" ref="ae6b13be2a40aa0e13ea9971bafc6d3b6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EXTERN_C const <a class="el" href="struct___i_i_d.html">CLSID</a> <a class="el" href="_cape2_fluent__i_8h.html#ae6b13be2a40aa0e13ea9971bafc6d3b6">CLSID_ParameterCollection</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00990">990</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a823e2aeaa6f18eadf216e08b3fde58a0"></a><!-- doxytag: member="Cape2Fluent_i.h::CLSID_Port" ref="a823e2aeaa6f18eadf216e08b3fde58a0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EXTERN_C const <a class="el" href="struct___i_i_d.html">CLSID</a> <a class="el" href="_cape2_fluent__i_8h.html#a823e2aeaa6f18eadf216e08b3fde58a0">CLSID_Port</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00982">982</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation::CUnitOperation()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a68014f0a6f158f0406ab9be4e35ff335"></a><!-- doxytag: member="Cape2Fluent_i.h::CLSID_PortCollection" ref="a68014f0a6f158f0406ab9be4e35ff335" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EXTERN_C const <a class="el" href="struct___i_i_d.html">CLSID</a> <a class="el" href="_cape2_fluent__i_8h.html#a68014f0a6f158f0406ab9be4e35ff335">CLSID_PortCollection</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00998">998</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa9c71eff702a7d24fecace388134b9cc"></a><!-- doxytag: member="Cape2Fluent_i.h::CLSID_UnitOperation" ref="aa9c71eff702a7d24fecace388134b9cc" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EXTERN_C const <a class="el" href="struct___i_i_d.html">CLSID</a> <a class="el" href="_cape2_fluent__i_8h.html#aa9c71eff702a7d24fecace388134b9cc">CLSID_UnitOperation</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00974">974</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad7a2a70d6028b2e1eacadb155f1409e4"></a><!-- doxytag: member="Cape2Fluent_i.h::DIID_I_myDialog" ref="ad7a2a70d6028b2e1eacadb155f1409e4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EXTERN_C const <a class="el" href="struct___i_i_d.html">IID</a> <a class="el" href="_cape2_fluent__i_8h.html#ad7a2a70d6028b2e1eacadb155f1409e4">DIID_I_myDialog</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l01013">1013</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acc1a3f721d3b139ddd6890f44e010015"></a><!-- doxytag: member="Cape2Fluent_i.h::IID_IComponentRegistrar" ref="acc1a3f721d3b139ddd6890f44e010015" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EXTERN_C const <a class="el" href="struct___i_i_d.html">IID</a> <a class="el" href="_cape2_fluent__i_8h.html#acc1a3f721d3b139ddd6890f44e010015">IID_IComponentRegistrar</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00172">172</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_cape2_fluent__p_8c_source.html#l01580">CINTERFACE_PROXY_VTABLE()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a08bfdca7340f1a9459dff9308ce34641"></a><!-- doxytag: member="Cape2Fluent_i.h::IID_IParameterCollection" ref="a08bfdca7340f1a9459dff9308ce34641" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EXTERN_C const <a class="el" href="struct___i_i_d.html">IID</a> <a class="el" href="_cape2_fluent__i_8h.html#a08bfdca7340f1a9459dff9308ce34641">IID_IParameterCollection</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00661">661</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_unit_operation_8h_source.html#l00366">CUnitOperation::get_parameters()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0bd830eab95ba4531a52e9e8d1c5a299"></a><!-- doxytag: member="Cape2Fluent_i.h::IID_IPort" ref="a0bd830eab95ba4531a52e9e8d1c5a299" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EXTERN_C const <a class="el" href="struct___i_i_d.html">IID</a> <a class="el" href="_cape2_fluent__i_8h.html#a0bd830eab95ba4531a52e9e8d1c5a299">IID_IPort</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00460">460</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_port_collection_8cpp_source.html#l00054">CPortCollection::AddPort2()</a>, <a class="el" href="_cape2_fluent__p_8c_source.html#l01734">CINTERFACE_PROXY_VTABLE()</a>, <a class="el" href="_unit_operation_8cpp_source.html#l00009">CUnitOperation::CUnitOperation()</a> i <a class="el" href="_port_collection_8h_source.html#l00139">CPortCollection::Item()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaa217aaa5f73898a9ed72525e7629569"></a><!-- doxytag: member="Cape2Fluent_i.h::IID_IPortCollection" ref="aaa217aaa5f73898a9ed72525e7629569" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EXTERN_C const <a class="el" href="struct___i_i_d.html">IID</a> <a class="el" href="_cape2_fluent__i_8h.html#aaa217aaa5f73898a9ed72525e7629569">IID_IPortCollection</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00812">812</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_cape2_fluent__p_8c_source.html#l01898">CINTERFACE_PROXY_VTABLE()</a> i <a class="el" href="_unit_operation_8h_source.html#l00188">CUnitOperation::get_ports()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab3749202ea4c5cdc311d957fb661d2a6"></a><!-- doxytag: member="Cape2Fluent_i.h::IID_IUnitOperation" ref="ab3749202ea4c5cdc311d957fb661d2a6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EXTERN_C const <a class="el" href="struct___i_i_d.html">IID</a> <a class="el" href="_cape2_fluent__i_8h.html#ab3749202ea4c5cdc311d957fb661d2a6">IID_IUnitOperation</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00341">341</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+<p>Odwołania w <a class="el" href="_cape2_fluent__p_8c_source.html#l01658">CINTERFACE_PROXY_VTABLE()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa9b92d42fa6f4f5205051373c3845d4c"></a><!-- doxytag: member="Cape2Fluent_i.h::LIBID_Cape2FluentLib" ref="aa9b92d42fa6f4f5205051373c3845d4c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EXTERN_C const <a class="el" href="struct___i_i_d.html">IID</a> <a class="el" href="_cape2_fluent__i_8h.html#aa9b92d42fa6f4f5205051373c3845d4c">LIBID_Cape2FluentLib</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definicja w linii <a class="el" href="_cape2_fluent__i_8h_source.html#l00964">964</a> pliku <a class="el" href="_cape2_fluent__i_8h_source.html">Cape2Fluent_i.h</a>.</p>
+
+</div>
+</div>
+</div>
+<hr class="footer"/><address style="text-align: right;"><small>Wygenerowano Sat Nov 6 18:22:28 2010 dla cape2fluent programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

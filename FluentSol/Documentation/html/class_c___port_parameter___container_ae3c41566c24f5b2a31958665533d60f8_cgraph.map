@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$class_c___parameter___container.html#ad81eefdd2fb653601f785e14b1b72744" title="Zwraca parametr komponentu &#45; rozpoznaje po nazwie." alt="" coords="337,5,585,35"/>
+<area shape="rect" id="node5" href="$class_c___parameter___container.html#accb414d013c6b9d04596c01b1b19a008" title="Zwraca id komponentu na podstawie nazwy, lub &#45;1 gdy nie ma go." alt="" coords="635,5,869,35"/>
+</map>

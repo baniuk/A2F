@@ -1,0 +1,20 @@
+/define/boundary-conditions> mass-flow-inlet
+(wlot)
+zone id/name [wlot] wlot
+Mass Flow Specification Method: Mass Flow Rate [yes] no
+Mass Flow Specification Method: Mass Flux [no] no
+Mass Flow Specification Method: Mass Flux with Average Mass Flux [no] no
+You must select one of the Mass Flow Specification Method options.
+Mass Flow Specification Method: Mass Flow Rate [yes] yes
+Mass Flow-Rate (kg/s) [1] 1.1
+Use Profile for Supersonic/Initial Gauge Pressure? [no] no
+Supersonic/Initial Gauge Pressure (pascal) [0] 0
+Direction Specification Method: Direction Vector [yes] yes
+Reference Frame: Absolute [yes] yes
+Coordinate System: Cartesian (X, Y, Z) [yes] yes
+Use Profile for X-Component of Flow Direction? [no] no
+X-Component of Flow Direction [0] 0
+Use Profile for Y-Component of Flow Direction? [no] no
+Y-Component of Flow Direction [0] 0
+Use Profile for Z-Component of Flow Direction? [no] no
+Z-Component of Flow Direction [1] 1
