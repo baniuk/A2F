@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CCF1", "CCF1\CCF1.vcproj", "{C561C6DB-6D7F-411F-9E14-24F79583933C}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CCF1PS", "CCF1\CCF1PS.vcproj", "{DBB4D4BE-49F1-4D32-B3D6-0F947676EF85}"
@@ -8,26 +8,19 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CCF1PS", "CCF1\CCF1PS.vcpro
 		{C561C6DB-6D7F-411F-9E14-24F79583933C} = {C561C6DB-6D7F-411F-9E14-24F79583933C}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test_matlab", "Test_matlab\Test_matlab.vcproj", "{E905DE1B-EE9B-4D7D-8D77-DC774D32174E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test_matlab", "Test_matlab\Test_matlab.vcxproj", "{E905DE1B-EE9B-4D7D-8D77-DC774D32174E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test_Run", "Test_Run\Test_Run.vcproj", "{AA4B137F-D0BF-455F-8461-B5CAC4E0010E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test_Run", "Test_Run\Test_Run.vcxproj", "{AA4B137F-D0BF-455F-8461-B5CAC4E0010E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "parsertest", "parsertest\parsertest.vcproj", "{0E4C5249-7BB0-47D1-8BA7-76C825C3F38B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "parsertest", "parsertest\parsertest.vcxproj", "{0E4C5249-7BB0-47D1-8BA7-76C825C3F38B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cape2Fluent", "Cape2Fluent\Cape2Fluent.vcproj", "{229094B5-D824-480E-8658-76A398829D48}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cape2Fluent", "Cape2Fluent\Cape2Fluent.vcxproj", "{229094B5-D824-480E-8658-76A398829D48}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cape2FluentPS", "Cape2Fluent\Cape2FluentPS.vcproj", "{2EA3DD36-672E-4692-B743-6DCBF1173BCE}"
-	ProjectSection(ProjectDependencies) = postProject
-		{229094B5-D824-480E-8658-76A398829D48} = {229094B5-D824-480E-8658-76A398829D48}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cape2FluentPS", "Cape2Fluent\Cape2FluentPS.vcxproj", "{2EA3DD36-672E-4692-B743-6DCBF1173BCE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DoxygenCape", "DoxygenCape\DoxygenCape.vcproj", "{4F25661B-06C9-4116-AB39-5DFB3F85D8F9}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DoxygenCape", "DoxygenCape\DoxygenCape.vcxproj", "{4F25661B-06C9-4116-AB39-5DFB3F85D8F9}"
 EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
 		Debug|x64 = Debug|x64
@@ -88,5 +81,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal
