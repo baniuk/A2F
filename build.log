@@ -1,0 +1,38 @@
+
+h:\Projekty\A2F>rem temporary script for testing cmake 
+
+h:\Projekty\A2F>rem option ALL cleans everything 
+
+h:\Projekty\A2F>echo off 
+-- Found Subversion: d:/Programy/SlikSvn/bin/svn.exe (found version "1.8.0") 
+-- Found Doxygen: d:/Programy/doxygen/bin/doxygen.exe (found version "1.8.4") 
+-- MSVC detected - Adding compiler flags
+-- The C compiler identification is MSVC 17.0.60610.1
+-- The CXX compiler identification is MSVC 17.0.60610.1
+-- Check for working C compiler: D:/Programy/Microsoft Visual Studio 11.0/VC/bin/cl.exe
+-- Check for working C compiler: D:/Programy/Microsoft Visual Studio 11.0/VC/bin/cl.exe -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working CXX compiler: D:/Programy/Microsoft Visual Studio 11.0/VC/bin/cl.exe
+-- Check for working CXX compiler: D:/Programy/Microsoft Visual Studio 11.0/VC/bin/cl.exe -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Patching sources
+-- Boost_Version: 1.53.0
+-- Configuring done
+Generate graphviz: H:/Projekty/A2F/CMake_trash/ARCH.dot
+Writing H:/Projekty/A2F/CMake_trash/ARCH.dot...
+-- Generating done
+-- Build files have been written to: H:/Projekty/A2F/bin
+Scanning dependencies of target Boost
+[  3%] Completed 'Boost'
+[ 25%] Built target Boost
+Scanning dependencies of target STLSoft
+[ 28%] Completed 'STLSoft'
+[ 50%] Built target STLSoft
+Scanning dependencies of target Pantheios
+[ 53%] No configure step for 'Pantheios'
+[ 56%] Performing build step for 'Pantheios'
+	cl    -nologo -c -W4 -WX  -O1 -MTd -D_DEBUG -Zi -Fd.\util.bailout.mt.debug.pdb   -DWIN64  -DPANTHEIOS_NO_AUTO_INIT    -I..\..\include -I"H:/Projekty/A2F/Third_Party/stlsoft-1.9.117\include"   -Fo.\util.bailout.mt.debug.obj ..\..\src\util\bailout.c
+bailout.c
+H:\Projekty\A2F\Third_Party\stlsoft-1.9.117\include\winstl/winstl.h(255) : fatal error C1189: #error :  Compiling with WIN64 defined and _WIN64 not defined. Are you using the wrong makefile?
