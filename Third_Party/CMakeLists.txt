@@ -1,5 +1,6 @@
 ########################################################################
-# CMake build script for external tools								   #	
+# CMake build script for external tools								   #
+# Possible changes: x64/x32  in Boost (address-model=64= and Pantheios #	
 ########################################################################
 project (External_tools) 
 
@@ -16,7 +17,7 @@ set(BOOST_VER 1.53.0 )
 # Patche dla VS12            										   #	
 ######################################################################## 
 IF (${WIN32})
-    MESSAGE(STATUS "Patching sources")
+    MESSAGE(STATUS "========== Patching sources ==========")
     # nazwy musza byæ nadane tu bo dla takich linków by³y nieprawid³owe
     execute_process(COMMAND ${WGET_EXECUTABLE} -O PANTH.diff http://sourceforge.net/tracker/download.php?group_id=141831&atid=750759&file_id=456644&aid=3587889 WORKING_DIRECTORY ${TMP})
     execute_process(COMMAND ${WGET_EXECUTABLE} -O PANT.zip http://sourceforge.net/tracker/download.php?group_id=141831&atid=750759&file_id=456645&aid=3587889 WORKING_DIRECTORY ${TMP})
@@ -48,17 +49,18 @@ IF (${WIN32})
 	set(SYSTEM_PATH_COMMAND ${PATCH_EXECUTABLE} -p0 -d ${External_tools_SOURCE_DIR}/${PANTHEIOS_VER} -i ${TMP}/PANTH.diff)
 	set(SYSTEM_UPDATE_COMMAND ${ZIP_EXECUTABLE} -u ${TMP}/PANT.zip -d ${External_tools_SOURCE_DIR}/${PANTHEIOS_VER}/build)
 	IF (${MSVC_VERSION} EQUAL 1600)	# MSVC10
-		set(PANTH_MAKEFILE_PATH build/vc10.x64)
+		set(PANTH_MAKEFILE_PATH build/vc10)
 	ELSEIF (${MSVC_VERSION} GREATER 1600)	#MSVC11
-		set(PANTH_MAKEFILE_PATH build/vc11.x64)
+		set(PANTH_MAKEFILE_PATH build/vc11)
 	ELSE (${MSVC_VERSION} EQUAL 1600)
 		MESSAGE(FATAL_ERROR "Setup correct makefile for Pantheios for WiN32")
 	ENDIF (${MSVC_VERSION} EQUAL 1600)
+	MESSAGE(STATUS "========== Actual Pantheios makefile ${PANTH_MAKEFILE_PATH} ==========")
 ELSEIF (${UNIX})
 	set(SYSTEM_PATH_COMMAND "")
 	set(SYSTEM_UPDATE_COMMAND "")
 	IF (${CMAKE_COMPILER_IS_GNUCXX})
-		set(PANTH_MAKEFILE_PATH build/gcc44.unix.file64bit)
+		set(PANTH_MAKEFILE_PATH build/gcc44.unix)
 	ELSE (${CMAKE_COMPILER_IS_GNUCXX})
 		MESSAGE(FATAL_ERROR "Setup correct makefile for Pantheios for UNIX")
 	ENDIF (${CMAKE_COMPILER_IS_GNUCXX})	
@@ -143,15 +145,7 @@ ExternalProject_Add( 	Boost
 						UPDATE_COMMAND ${BOOST_BOOTSTRAP}
 						CONFIGURE_COMMAND ""
 						# te parametr ymaj¹ wp³yw na poni¿sze œcie¿ki i nazwy bibliotek
-						BUILD_COMMAND ${BOOST_BUILD_CMD} -j4 address-model=64 toolset=${BOOST_TOOLSET} link=static stage
+						BUILD_COMMAND ${BOOST_BUILD_CMD} -j4 toolset=${BOOST_TOOLSET} link=static stage
 						BUILD_IN_SOURCE 1
 						INSTALL_COMMAND ""
 					)
-#set_property( TARGET Boost PROPERTY FOLDER "Externals")
-# Ustawia¿ w funkcjach buduj¿cych
-#ExternalProject_Get_Property( Boost source_dir )
-#ExternalProject_Get_Property( Boost binary_dir )
-#set( Boost_INCLUDE_DIRS ${source_dir} )
-#set( Boost_LIBRARIES ${binary_dir}/stage)		
-#MESSAGE(STATUS "^^^^^BOOST_INCLUDE_DIRS set to ${Boost_INCLUDE_DIRS}")	
-#MESSAGE(STATUS "^^^^^BOOST_LIBS_DIRS set to ${Boost_LIBRARIES}")			

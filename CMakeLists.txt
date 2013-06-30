@@ -1,5 +1,5 @@
 ########################################################################
-# CMake build script for LOG_test.	                               #
+# CMake build script for A2F			                               #
 ########################################################################
 # Possible targets:
 # 	gtest_main gtest	- from gtest
@@ -10,7 +10,11 @@
 #			libbz2-dev
 # 			gcc 4.4.5 - ma znaczenie dla Panth i boosta
 
-cmake_minimum_required (VERSION 2.8.3) 
+cmake_minimum_required (VERSION 2.8.11) 
+
+# Project name - nazwa jako zmienna bo u¿ywana tez w doxygenie, ma wp³yw na inne podprojekty
+# nie zawsze s¹ one zwi¹zane z ta zmienn¹
+set(PROJECT_NAME "A2F" CACHE STRING "")
 
 # Define helper functions and macros
 include(CMake/internal_utils.cmake)
@@ -22,9 +26,6 @@ config_compiler_and_linker()  # Defined in internal_utils.cmake.
 # Setup project                                                        #
 ########################################################################
 include(ExternalProject)
-# Project name - nazwa jako zmienna bo u¿ywana tez w doxygenie, ma wp³yw na inne podprojekty
-# nie zawsze s¹ one zwi¹zane z ta zmienn¹
-set(PROJECT_NAME "Test" CACHE STRING "")
 project (${PROJECT_NAME}) 
 
 ########################################################################
@@ -34,10 +35,10 @@ set_project_tools()	# Defined in internal_utils.cmake.
 
 # TMP dirs
 file(MAKE_DIRECTORY CMake_trash)
-set(TMP ${Test_SOURCE_DIR}/CMake_trash CACHE PATH "")
+set(TMP ${${PROJECT_NAME}_SOURCE_DIR}/CMake_trash CACHE PATH "")
 
 # Set default ExternalProject root directory http://stackoverflow.com/questions/9689183/cmake-googletest
-SET_DIRECTORY_PROPERTIES(PROPERTIES EP_PREFIX ${Test_BINARY_DIR}/Third_Party)
+SET_DIRECTORY_PROPERTIES(PROPERTIES EP_PREFIX ${${PROJECT_NAME}_BINARY_DIR}/Third_Party)
 
 ########################################################################
 # Building external libraries   (targrt gtest, all)                    #
