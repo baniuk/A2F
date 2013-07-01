@@ -48,7 +48,7 @@ add_subdirectory(Third_Party)
 ########################################################################
 # Building Doxygen DOC     (targrt doc, all)                           #
 ########################################################################
-#add_subdirectory(Configs)
+add_subdirectory(Configs)
 
 ########################################################################
 # Create warper makefile with external env                             #

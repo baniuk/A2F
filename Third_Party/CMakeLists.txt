@@ -19,14 +19,14 @@ set(BOOST_VER 1.53.0 )
 IF (${WIN32})
     MESSAGE(STATUS "========== Patching sources ==========")
     # nazwy musza byæ nadane tu bo dla takich linków by³y nieprawid³owe
-    execute_process(COMMAND ${WGET_EXECUTABLE} -O PANTH.diff http://sourceforge.net/tracker/download.php?group_id=141831&atid=750759&file_id=456644&aid=3587889 WORKING_DIRECTORY ${TMP})
-    execute_process(COMMAND ${WGET_EXECUTABLE} -O PANT.zip http://sourceforge.net/tracker/download.php?group_id=141831&atid=750759&file_id=456645&aid=3587889 WORKING_DIRECTORY ${TMP})
+    execute_process(COMMAND ${WGET_EXECUTABLE} -nc -O PANTH.diff http://sourceforge.net/tracker/download.php?group_id=141831&atid=750759&file_id=456644&aid=3587889 WORKING_DIRECTORY ${TMP})
+    execute_process(COMMAND ${WGET_EXECUTABLE} -nc -O PANT.zip http://sourceforge.net/tracker/download.php?group_id=141831&atid=750759&file_id=456645&aid=3587889 WORKING_DIRECTORY ${TMP})
 ENDIF (${WIN32})    
 
 ###############d#########################################################
-# Download STL Pantheios       										   #
-#  																	   #	
-######################################################################## 	
+# Download STL Pantheios       										    #
+#  																	    #	
+######################################################################### 	
 # jak jest ustawiony projekt na œci¹ganie to œci¹g do source dir
 ExternalProject_Add(	STLSoft
 						PREFIX ${TMP}

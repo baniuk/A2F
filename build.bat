@@ -1,5 +1,6 @@
 rem temporary script for testing cmake
 rem option ALL cleans everything
+echo off
 call tools\clean.bat %1
 rem out-of-source build
 mkdir bin
