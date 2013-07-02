@@ -17,7 +17,7 @@ library A2FLib
 }}}
 Powy¿sze wpisy pojawi³y siê po kompilacji pustego projktu ATL, bez dodanej ¿adnej klasy. Prawdopodobnie jest to 
 definicja interfejsu jedynie, bez ¿adnej coclasy, czyli implementacji tego interfejsu.
-
+1. Dodaæ klasê/obiekt SimpleATL
 ----
 * `HKEY_CLASSES_ROOT\TypeLib\{F56B596C-2D10-4DA8-B3FF-349896B5A29E}' - jak poprzednio, brak w projekcie. 
 * 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\TypeLib\{F56B596C-2D10-4DA8-B3FF-349896B5A29E}'
