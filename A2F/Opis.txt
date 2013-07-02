@@ -1,0 +1,27 @@
+Proces tworzenia projektu. Po ka¿dym punkcie checkin do repozytorium.
+1. Utworzyæ projekt ATL. Opis tego co powstaje jest [http://edndoc.esri.com/arcobjects/8.3/gettingstarted/atl.htm TU]. W pliku *.idl jest definicja prostego interfejsu wraz z jego UUID
+oraz zaimportowanym interfejsem stdole.tlb (__tlb - binarna definicja interfejsu__). Po kompilacji w rejestre powstaj¹ wpisy:
+* `HKEY_CLASSES_ROOT\TypeLib\{E304CE16-F539-4DCA-BEF1-A77F6C1E447F}` 
+* 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\TypeLib\{E304CE16-F539-4DCA-BEF1-A77F6C1E447F}'
+W œrodku œcie¿ka do A2F.dll. Klucz zgadza siê z kluczem w pliku idl
+{{{
+#!cpp
+[
+	uuid(E304CE16-F539-4DCA-BEF1-A77F6C1E447F),
+	version(1.0),
+]
+library A2FLib
+{
+	importlib("stdole2.tlb");
+};
+}}}
+Powy¿sze wpisy pojawi³y siê po kompilacji pustego projktu ATL, bez dodanej ¿adnej klasy. Prawdopodobnie jest to 
+definicja interfejsu jedynie, bez ¿adnej coclasy, czyli implementacji tego interfejsu.
+
+----
+* `HKEY_CLASSES_ROOT\TypeLib\{F56B596C-2D10-4DA8-B3FF-349896B5A29E}' - jak poprzednio, brak w projekcie. 
+* 'HKEY_LOCAL_MACHINE\SOFTWARE\Classes\TypeLib\{F56B596C-2D10-4DA8-B3FF-349896B5A29E}'
+Mo¿e z poprzedniego projektu.
+
+'HKEY_CLASSES_ROOT\Wow6432Node\CLSID\{04982356-713B-4C0E-BFC2-D961AC662667}' - w œrodku w ga³êzi 'TypeLib' pojawia
+siê ten klucz powy¿ej. W kluczu 'InProc'Server' jest link do dll

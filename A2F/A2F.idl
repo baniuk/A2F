@@ -1,0 +1,18 @@
+// A2F.idl : IDL source for A2F
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (A2F.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(E304CE16-F539-4DCA-BEF1-A77F6C1E447F),
+	version(1.0),
+]
+library A2FLib
+{
+	importlib("stdole2.tlb");
+};
+
