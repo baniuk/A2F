@@ -8,11 +8,27 @@ import "oaidl.idl";
 import "ocidl.idl";
 
 [
+	object,
+	uuid(F6EB158D-ECFB-4FCC-804A-B5DA52D4450F),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IUnitOperations : IDispatch{
+};
+[
 	uuid(E304CE16-F539-4DCA-BEF1-A77F6C1E447F),
 	version(1.0),
 ]
 library A2FLib
 {
 	importlib("stdole2.tlb");
+	[
+		uuid(A9129436-FB2C-4D26-B88D-A61E4D594BCB)		
+	]
+	coclass UnitOperations
+	{
+		[default] interface IUnitOperations;
+	};
 };
 
