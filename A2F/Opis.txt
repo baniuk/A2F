@@ -116,4 +116,5 @@ OBJECT_ENTRY_AUTO(__uuidof(UnitOperations), CUnitOperations)
 1. Import interfejsów zewnêtrznych
  * Zewnêtrzne interfejsy s¹ importowane do stworzonej coclasy ''CUnitOperations''
  * Prze³¹czyæ siê na widok !ClassView, prawy na klasie ''CUnitOperations'' i Add oraz Implement Interface
+ W pierwszej kolejnoœci zaimplementowano z pliku *.tlb interfejs ''ICapeUnit''. Wpliku ''UnitOperations.h'' pojawi³y siê implementacje metod z interfejsu ''ICapeUnit''. Mo¿na je przenieœæ do pliku *.cpp u¿ywaj¹c refaktoringu. Po operacji importowania zmieni³siêjedynie plik ''UnitOperations.h'' oraz ''stdahx.h''.
 ----

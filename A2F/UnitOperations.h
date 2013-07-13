@@ -21,20 +21,22 @@ using namespace ATL;
 class ATL_NO_VTABLE CUnitOperations :
 	public CComObjectRootEx<CComSingleThreadModel>,
 	public CComCoClass<CUnitOperations, &CLSID_UnitOperations>,
-	public IDispatchImpl<IUnitOperations, &IID_IUnitOperations, &LIBID_A2FLib, /*wMajor =*/ 1, /*wMinor =*/ 0>
+	public IDispatchImpl<IUnitOperations, &IID_IUnitOperations, &LIBID_A2FLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
+	public IDispatchImpl<ICapeUnit, &__uuidof(ICapeUnit), &LIBID_CAPEOPEN100, /* wMajor = */ 1>
 {
 public:
 	CUnitOperations()
 	{
 	}
 
-DECLARE_REGISTRY_RESOURCEID(IDR_UNITOPERATIONS)
+	DECLARE_REGISTRY_RESOURCEID(IDR_UNITOPERATIONS)
 
 
-BEGIN_COM_MAP(CUnitOperations)
-	COM_INTERFACE_ENTRY(IUnitOperations)
-	COM_INTERFACE_ENTRY(IDispatch)
-END_COM_MAP()
+	BEGIN_COM_MAP(CUnitOperations)
+		COM_INTERFACE_ENTRY(IUnitOperations)
+		COM_INTERFACE_ENTRY2(IDispatch, ICapeUnit)
+		COM_INTERFACE_ENTRY(ICapeUnit)
+	END_COM_MAP()
 
 
 
@@ -53,6 +55,13 @@ public:
 
 
 
+
+	// ICapeUnit Methods
+public:
+	STDMETHOD(get_ports)(LPDISPATCH * ports);
+	STDMETHOD(get_ValStatus)(CapeValidationStatus * ValStatus);
+	STDMETHOD(Calculate)();
+	STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid);
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(UnitOperations), CUnitOperations)
