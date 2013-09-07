@@ -3,18 +3,18 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 7.00.0500 */
-/* at Sun Oct 31 16:17:40 2010
+ /* File created by MIDL compiler version 8.00.0595 */
+/* at Mon Jul 01 19:26:45 2013
  */
-/* Compiler settings for .\Cape2Fluent.idl:
-    Oicf, W1, Zp8, env=Win32 (32b run)
+/* Compiler settings for Cape2Fluent.idl:
+    Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.00.0595 
     protocol : dce , ms_ext, c_ext, robust
-    error checks: stub_data 
+    error checks: allocation ref bounds_check enum stub_data 
     VC __declspec() decoration level: 
          __declspec(uuid()), __declspec(selectany), __declspec(novtable)
          DECLSPEC_UUID(), MIDL_INTERFACE()
 */
-//@@MIDL_FILE_HEADING(  )
+/* @@MIDL_FILE_HEADING(  ) */
 
 #pragma warning( disable: 4049 )  /* more than 64k source lines */
 
@@ -48,30 +48,35 @@
 #ifndef __IComponentRegistrar_FWD_DEFINED__
 #define __IComponentRegistrar_FWD_DEFINED__
 typedef interface IComponentRegistrar IComponentRegistrar;
+
 #endif 	/* __IComponentRegistrar_FWD_DEFINED__ */
 
 
 #ifndef __IUnitOperation_FWD_DEFINED__
 #define __IUnitOperation_FWD_DEFINED__
 typedef interface IUnitOperation IUnitOperation;
+
 #endif 	/* __IUnitOperation_FWD_DEFINED__ */
 
 
 #ifndef __IPort_FWD_DEFINED__
 #define __IPort_FWD_DEFINED__
 typedef interface IPort IPort;
+
 #endif 	/* __IPort_FWD_DEFINED__ */
 
 
 #ifndef __IParameterCollection_FWD_DEFINED__
 #define __IParameterCollection_FWD_DEFINED__
 typedef interface IParameterCollection IParameterCollection;
+
 #endif 	/* __IParameterCollection_FWD_DEFINED__ */
 
 
 #ifndef __IPortCollection_FWD_DEFINED__
 #define __IPortCollection_FWD_DEFINED__
 typedef interface IPortCollection IPortCollection;
+
 #endif 	/* __IPortCollection_FWD_DEFINED__ */
 
 
@@ -138,6 +143,7 @@ typedef struct PortCollection PortCollection;
 #ifndef __I_myDialog_FWD_DEFINED__
 #define __I_myDialog_FWD_DEFINED__
 typedef interface I_myDialog I_myDialog;
+
 #endif 	/* __I_myDialog_FWD_DEFINED__ */
 
 
@@ -196,6 +202,7 @@ EXTERN_C const IID IID_IComponentRegistrar;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IComponentRegistrarVtbl
@@ -205,8 +212,8 @@ EXTERN_C const IID IID_IComponentRegistrar;
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IComponentRegistrar * This,
             /* [in] */ REFIID riid,
-            /* [iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IComponentRegistrar * This);
@@ -234,14 +241,22 @@ EXTERN_C const IID IID_IComponentRegistrar;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IComponentRegistrar * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [id] */ HRESULT ( STDMETHODCALLTYPE *Attach )( 
             IComponentRegistrar * This,
@@ -350,6 +365,7 @@ EXTERN_C const IID IID_IUnitOperation;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IUnitOperationVtbl
@@ -359,8 +375,8 @@ EXTERN_C const IID IID_IUnitOperation;
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IUnitOperation * This,
             /* [in] */ REFIID riid,
-            /* [iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IUnitOperation * This);
@@ -388,14 +404,22 @@ EXTERN_C const IID IID_IUnitOperation;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IUnitOperation * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *InvalidateUnit )( 
             IUnitOperation * This);
@@ -494,6 +518,7 @@ EXTERN_C const IID IID_IPort;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IPortVtbl
@@ -503,8 +528,8 @@ EXTERN_C const IID IID_IPort;
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IPort * This,
             /* [in] */ REFIID riid,
-            /* [iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IPort * This);
@@ -532,14 +557,22 @@ EXTERN_C const IID IID_IPort;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IPort * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *AddError )( 
             IPort * This,
@@ -680,6 +713,7 @@ EXTERN_C const IID IID_IParameterCollection;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IParameterCollectionVtbl
@@ -689,8 +723,8 @@ EXTERN_C const IID IID_IParameterCollection;
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IParameterCollection * This,
             /* [in] */ REFIID riid,
-            /* [iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IParameterCollection * This);
@@ -718,14 +752,22 @@ EXTERN_C const IID IID_IParameterCollection;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IParameterCollection * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *AddError )( 
             IParameterCollection * This,
@@ -831,6 +873,7 @@ EXTERN_C const IID IID_IPortCollection;
         
     };
     
+    
 #else 	/* C style interface */
 
     typedef struct IPortCollectionVtbl
@@ -840,8 +883,8 @@ EXTERN_C const IID IID_IPortCollection;
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IPortCollection * This,
             /* [in] */ REFIID riid,
-            /* [iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IPortCollection * This);
@@ -869,14 +912,22 @@ EXTERN_C const IID IID_IPortCollection;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             IPortCollection * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *AddError )( 
             IPortCollection * This,
@@ -1028,8 +1079,8 @@ EXTERN_C const IID DIID_I_myDialog;
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             I_myDialog * This,
             /* [in] */ REFIID riid,
-            /* [iid_is][out] */ 
-            __RPC__deref_out  void **ppvObject);
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             I_myDialog * This);
@@ -1057,14 +1108,22 @@ EXTERN_C const IID DIID_I_myDialog;
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             I_myDialog * This,
-            /* [in] */ DISPID dispIdMember,
-            /* [in] */ REFIID riid,
-            /* [in] */ LCID lcid,
-            /* [in] */ WORD wFlags,
-            /* [out][in] */ DISPPARAMS *pDispParams,
-            /* [out] */ VARIANT *pVarResult,
-            /* [out] */ EXCEPINFO *pExcepInfo,
-            /* [out] */ UINT *puArgErr);
+            /* [annotation][in] */ 
+            _In_  DISPID dispIdMember,
+            /* [annotation][in] */ 
+            _In_  REFIID riid,
+            /* [annotation][in] */ 
+            _In_  LCID lcid,
+            /* [annotation][in] */ 
+            _In_  WORD wFlags,
+            /* [annotation][out][in] */ 
+            _In_  DISPPARAMS *pDispParams,
+            /* [annotation][out] */ 
+            _Out_opt_  VARIANT *pVarResult,
+            /* [annotation][out] */ 
+            _Out_opt_  EXCEPINFO *pExcepInfo,
+            /* [annotation][out] */ 
+            _Out_opt_  UINT *puArgErr);
         
         END_INTERFACE
     } I_myDialogVtbl;

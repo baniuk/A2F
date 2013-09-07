@@ -3,20 +3,20 @@
 /* this ALWAYS GENERATED file contains the proxy stub code */
 
 
- /* File created by MIDL compiler version 7.00.0500 */
-/* at Sun Oct 31 16:17:40 2010
+ /* File created by MIDL compiler version 8.00.0595 */
+/* at Mon Jul 01 19:26:45 2013
  */
-/* Compiler settings for .\Cape2Fluent.idl:
-    Oicf, W1, Zp8, env=Win32 (32b run)
+/* Compiler settings for Cape2Fluent.idl:
+    Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.00.0595 
     protocol : dce , ms_ext, c_ext, robust
-    error checks: stub_data 
+    error checks: allocation ref bounds_check enum stub_data 
     VC __declspec() decoration level: 
          __declspec(uuid()), __declspec(selectany), __declspec(novtable)
          DECLSPEC_UUID(), MIDL_INTERFACE()
 */
-//@@MIDL_FILE_HEADING(  )
+/* @@MIDL_FILE_HEADING(  ) */
 
-#if !defined(_M_IA64) && !defined(_M_AMD64)
+#if !defined(_M_IA64) && !defined(_M_AMD64) && !defined(_ARM_)
 
 
 #pragma warning( disable: 4049 )  /* more than 64k source lines */
@@ -44,13 +44,13 @@
 #include "rpcproxy.h"
 #ifndef __RPCPROXY_H_VERSION__
 #error this stub requires an updated version of <rpcproxy.h>
-#endif // __RPCPROXY_H_VERSION__
+#endif /* __RPCPROXY_H_VERSION__ */
 
 
 #include "Cape2Fluent_i.h"
 
 #define TYPE_FORMAT_STRING_SIZE   1105                              
-#define PROC_FORMAT_STRING_SIZE   673                               
+#define PROC_FORMAT_STRING_SIZE   601                               
 #define EXPR_FORMAT_STRING_SIZE   1                                 
 #define TRANSMIT_AS_TABLE_SIZE    0            
 #define WIRE_MARSHAL_TABLE_SIZE   3            
@@ -74,7 +74,7 @@ typedef struct _Cape2Fluent_MIDL_EXPR_FORMAT_STRING
     } Cape2Fluent_MIDL_EXPR_FORMAT_STRING;
 
 
-static RPC_SYNTAX_IDENTIFIER  _RpcTransferSyntax = 
+static const RPC_SYNTAX_IDENTIFIER  _RpcTransferSyntax = 
 {{0x8A885D04,0x1CEB,0x11C9,{0x9F,0xE8,0x08,0x00,0x2B,0x10,0x48,0x60}},{2,0}};
 
 
@@ -125,7 +125,7 @@ extern const USER_MARSHAL_ROUTINE_QUADRUPLE UserMarshalRoutines[ WIRE_MARSHAL_TA
 #endif
 
 #if !(TARGET_IS_NT50_OR_LATER)
-#error You need a Windows 2000 or later to run this stub because it uses these features:
+#error You need Windows 2000 or later to run this stub because it uses these features:
 #error   /robust command line switch.
 #error However, your C/C++ compilation flags indicate you intend to run this app on earlier systems.
 #error This app will fail with the RPC_X_WRONG_STUB_VERSION error.
@@ -228,7 +228,7 @@ static const Cape2Fluent_MIDL_PROC_FORMAT_STRING Cape2Fluent__MIDL_ProcFormatStr
 			0x3,		/* 3 */
 /* 112 */	0x8,		/* 8 */
 			0x3,		/* Ext Flags:  new corr desc, clt corr check, */
-/* 114 */	NdrFcShort( 0xb3 ),	/* 179 */
+/* 114 */	NdrFcShort( 0x1 ),	/* 1 */
 /* 116 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 118 */	NdrFcShort( 0x0 ),	/* 0 */
 
@@ -281,6 +281,9 @@ static const Cape2Fluent_MIDL_PROC_FORMAT_STRING Cape2Fluent__MIDL_ProcFormatStr
 /* 172 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
+	/* Procedure put_myName */
+
+
 	/* Procedure UnregisterComponent */
 
 /* 174 */	0x33,		/* FC_AUTO_HANDLE */
@@ -295,14 +298,20 @@ static const Cape2Fluent_MIDL_PROC_FORMAT_STRING Cape2Fluent__MIDL_ProcFormatStr
 /* 190 */	0x8,		/* 8 */
 			0x5,		/* Ext Flags:  new corr desc, srv corr check, */
 /* 192 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 194 */	NdrFcShort( 0x8 ),	/* 8 */
+/* 194 */	NdrFcShort( 0x1 ),	/* 1 */
 /* 196 */	NdrFcShort( 0x0 ),	/* 0 */
+
+	/* Parameter newVal */
+
 
 	/* Parameter bstrCLSID */
 
 /* 198 */	NdrFcShort( 0x8b ),	/* Flags:  must size, must free, in, by val, */
 /* 200 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
 /* 202 */	NdrFcShort( 0x1c ),	/* Type Offset=28 */
+
+	/* Return value */
+
 
 	/* Return value */
 
@@ -337,6 +346,12 @@ static const Cape2Fluent_MIDL_PROC_FORMAT_STRING Cape2Fluent__MIDL_ProcFormatStr
 
 	/* Procedure AddError */
 
+
+	/* Procedure AddError */
+
+
+	/* Procedure AddError */
+
 /* 240 */	0x33,		/* FC_AUTO_HANDLE */
 			0x6c,		/* Old Flags:  object, Oi2 */
 /* 242 */	NdrFcLong( 0x0 ),	/* 0 */
@@ -349,14 +364,26 @@ static const Cape2Fluent_MIDL_PROC_FORMAT_STRING Cape2Fluent__MIDL_ProcFormatStr
 /* 256 */	0x8,		/* 8 */
 			0x5,		/* Ext Flags:  new corr desc, srv corr check, */
 /* 258 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 260 */	NdrFcShort( 0xd0 ),	/* 208 */
+/* 260 */	NdrFcShort( 0x1 ),	/* 1 */
 /* 262 */	NdrFcShort( 0x0 ),	/* 0 */
+
+	/* Parameter in */
+
+
+	/* Parameter in */
+
 
 	/* Parameter in */
 
 /* 264 */	NdrFcShort( 0x10b ),	/* Flags:  must size, must free, in, simple ref, */
 /* 266 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
 /* 268 */	NdrFcShort( 0x430 ),	/* Type Offset=1072 */
+
+	/* Return value */
+
+
+	/* Return value */
+
 
 	/* Return value */
 
@@ -385,7 +412,7 @@ static const Cape2Fluent_MIDL_PROC_FORMAT_STRING Cape2Fluent__MIDL_ProcFormatStr
 /* 292 */	0x8,		/* 8 */
 			0x5,		/* Ext Flags:  new corr desc, srv corr check, */
 /* 294 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 296 */	NdrFcShort( 0x1a6 ),	/* 422 */
+/* 296 */	NdrFcShort( 0x1 ),	/* 1 */
 /* 298 */	NdrFcShort( 0x0 ),	/* 0 */
 
 	/* Parameter in */
@@ -505,28 +532,28 @@ static const Cape2Fluent_MIDL_PROC_FORMAT_STRING Cape2Fluent__MIDL_ProcFormatStr
 /* 418 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
-	/* Procedure put_myName */
+	/* Procedure get_myDesc */
 
 /* 420 */	0x33,		/* FC_AUTO_HANDLE */
 			0x6c,		/* Old Flags:  object, Oi2 */
 /* 422 */	NdrFcLong( 0x0 ),	/* 0 */
-/* 426 */	NdrFcShort( 0xc ),	/* 12 */
+/* 426 */	NdrFcShort( 0xd ),	/* 13 */
 /* 428 */	NdrFcShort( 0xc ),	/* x86 Stack size/offset = 12 */
 /* 430 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 432 */	NdrFcShort( 0x8 ),	/* 8 */
-/* 434 */	0x46,		/* Oi2 Flags:  clt must size, has return, has ext, */
+/* 434 */	0x45,		/* Oi2 Flags:  srv must size, has return, has ext, */
 			0x2,		/* 2 */
 /* 436 */	0x8,		/* 8 */
-			0x5,		/* Ext Flags:  new corr desc, srv corr check, */
-/* 438 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 440 */	NdrFcShort( 0x1 ),	/* 1 */
+			0x3,		/* Ext Flags:  new corr desc, clt corr check, */
+/* 438 */	NdrFcShort( 0x1 ),	/* 1 */
+/* 440 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 442 */	NdrFcShort( 0x0 ),	/* 0 */
 
-	/* Parameter newVal */
+	/* Parameter pVal */
 
-/* 444 */	NdrFcShort( 0x8b ),	/* Flags:  must size, must free, in, by val, */
+/* 444 */	NdrFcShort( 0x2113 ),	/* Flags:  must size, must free, out, simple ref, srv alloc size=8 */
 /* 446 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
-/* 448 */	NdrFcShort( 0x1c ),	/* Type Offset=28 */
+/* 448 */	NdrFcShort( 0x442 ),	/* Type Offset=1090 */
 
 	/* Return value */
 
@@ -535,28 +562,28 @@ static const Cape2Fluent_MIDL_PROC_FORMAT_STRING Cape2Fluent__MIDL_ProcFormatStr
 /* 454 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
-	/* Procedure get_myDesc */
+	/* Procedure put_myDesc */
 
 /* 456 */	0x33,		/* FC_AUTO_HANDLE */
 			0x6c,		/* Old Flags:  object, Oi2 */
 /* 458 */	NdrFcLong( 0x0 ),	/* 0 */
-/* 462 */	NdrFcShort( 0xd ),	/* 13 */
+/* 462 */	NdrFcShort( 0xe ),	/* 14 */
 /* 464 */	NdrFcShort( 0xc ),	/* x86 Stack size/offset = 12 */
 /* 466 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 468 */	NdrFcShort( 0x8 ),	/* 8 */
-/* 470 */	0x45,		/* Oi2 Flags:  srv must size, has return, has ext, */
+/* 470 */	0x46,		/* Oi2 Flags:  clt must size, has return, has ext, */
 			0x2,		/* 2 */
 /* 472 */	0x8,		/* 8 */
-			0x3,		/* Ext Flags:  new corr desc, clt corr check, */
-/* 474 */	NdrFcShort( 0x1 ),	/* 1 */
-/* 476 */	NdrFcShort( 0x0 ),	/* 0 */
+			0x5,		/* Ext Flags:  new corr desc, srv corr check, */
+/* 474 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 476 */	NdrFcShort( 0x1 ),	/* 1 */
 /* 478 */	NdrFcShort( 0x0 ),	/* 0 */
 
-	/* Parameter pVal */
+	/* Parameter newVal */
 
-/* 480 */	NdrFcShort( 0x2113 ),	/* Flags:  must size, must free, out, simple ref, srv alloc size=8 */
+/* 480 */	NdrFcShort( 0x8b ),	/* Flags:  must size, must free, in, by val, */
 /* 482 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
-/* 484 */	NdrFcShort( 0x442 ),	/* Type Offset=1090 */
+/* 484 */	NdrFcShort( 0x1c ),	/* Type Offset=28 */
 
 	/* Return value */
 
@@ -565,28 +592,29 @@ static const Cape2Fluent_MIDL_PROC_FORMAT_STRING Cape2Fluent__MIDL_ProcFormatStr
 /* 490 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
-	/* Procedure put_myDesc */
+	/* Procedure put_unit */
 
 /* 492 */	0x33,		/* FC_AUTO_HANDLE */
 			0x6c,		/* Old Flags:  object, Oi2 */
 /* 494 */	NdrFcLong( 0x0 ),	/* 0 */
-/* 498 */	NdrFcShort( 0xe ),	/* 14 */
+/* 498 */	NdrFcShort( 0xf ),	/* 15 */
 /* 500 */	NdrFcShort( 0xc ),	/* x86 Stack size/offset = 12 */
-/* 502 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 502 */	NdrFcShort( 0x19 ),	/* 25 */
 /* 504 */	NdrFcShort( 0x8 ),	/* 8 */
-/* 506 */	0x46,		/* Oi2 Flags:  clt must size, has return, has ext, */
+/* 506 */	0x44,		/* Oi2 Flags:  has return, has ext, */
 			0x2,		/* 2 */
 /* 508 */	0x8,		/* 8 */
-			0x5,		/* Ext Flags:  new corr desc, srv corr check, */
+			0x1,		/* Ext Flags:  new corr desc, */
 /* 510 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 512 */	NdrFcShort( 0x1 ),	/* 1 */
+/* 512 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 514 */	NdrFcShort( 0x0 ),	/* 0 */
 
 	/* Parameter newVal */
 
-/* 516 */	NdrFcShort( 0x8b ),	/* Flags:  must size, must free, in, by val, */
+/* 516 */	NdrFcShort( 0x148 ),	/* Flags:  in, base type, simple ref, */
 /* 518 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
-/* 520 */	NdrFcShort( 0x1c ),	/* Type Offset=28 */
+/* 520 */	0x1,		/* FC_BYTE */
+			0x0,		/* 0 */
 
 	/* Return value */
 
@@ -595,16 +623,19 @@ static const Cape2Fluent_MIDL_PROC_FORMAT_STRING Cape2Fluent__MIDL_ProcFormatStr
 /* 526 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
-	/* Procedure put_unit */
+	/* Procedure AddPort2 */
+
+
+	/* Procedure AddParameter */
 
 /* 528 */	0x33,		/* FC_AUTO_HANDLE */
 			0x6c,		/* Old Flags:  object, Oi2 */
 /* 530 */	NdrFcLong( 0x0 ),	/* 0 */
-/* 534 */	NdrFcShort( 0xf ),	/* 15 */
+/* 534 */	NdrFcShort( 0x9 ),	/* 9 */
 /* 536 */	NdrFcShort( 0xc ),	/* x86 Stack size/offset = 12 */
-/* 538 */	NdrFcShort( 0x19 ),	/* 25 */
+/* 538 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 540 */	NdrFcShort( 0x8 ),	/* 8 */
-/* 542 */	0x44,		/* Oi2 Flags:  has return, has ext, */
+/* 542 */	0x46,		/* Oi2 Flags:  clt must size, has return, has ext, */
 			0x2,		/* 2 */
 /* 544 */	0x8,		/* 8 */
 			0x1,		/* Ext Flags:  new corr desc, */
@@ -612,12 +643,17 @@ static const Cape2Fluent_MIDL_PROC_FORMAT_STRING Cape2Fluent__MIDL_ProcFormatStr
 /* 548 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 550 */	NdrFcShort( 0x0 ),	/* 0 */
 
-	/* Parameter newVal */
+	/* Parameter disp */
 
-/* 552 */	NdrFcShort( 0x148 ),	/* Flags:  in, base type, simple ref, */
+
+	/* Parameter p */
+
+/* 552 */	NdrFcShort( 0xb ),	/* Flags:  must size, must free, in, */
 /* 554 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
-/* 556 */	0x1,		/* FC_BYTE */
-			0x0,		/* 0 */
+/* 556 */	NdrFcShort( 0xe2 ),	/* Type Offset=226 */
+
+	/* Return value */
+
 
 	/* Return value */
 
@@ -626,34 +662,35 @@ static const Cape2Fluent_MIDL_PROC_FORMAT_STRING Cape2Fluent__MIDL_ProcFormatStr
 /* 562 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
-	/* Procedure AddError */
+	/* Procedure RemovePort */
 
 
-	/* Procedure AddError */
+	/* Procedure RemoveParameter */
 
 /* 564 */	0x33,		/* FC_AUTO_HANDLE */
 			0x6c,		/* Old Flags:  object, Oi2 */
 /* 566 */	NdrFcLong( 0x0 ),	/* 0 */
-/* 570 */	NdrFcShort( 0x7 ),	/* 7 */
+/* 570 */	NdrFcShort( 0xa ),	/* 10 */
 /* 572 */	NdrFcShort( 0xc ),	/* x86 Stack size/offset = 12 */
-/* 574 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 574 */	NdrFcShort( 0x8 ),	/* 8 */
 /* 576 */	NdrFcShort( 0x8 ),	/* 8 */
-/* 578 */	0x46,		/* Oi2 Flags:  clt must size, has return, has ext, */
+/* 578 */	0x44,		/* Oi2 Flags:  has return, has ext, */
 			0x2,		/* 2 */
 /* 580 */	0x8,		/* 8 */
-			0x5,		/* Ext Flags:  new corr desc, srv corr check, */
+			0x1,		/* Ext Flags:  new corr desc, */
 /* 582 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 584 */	NdrFcShort( 0x1a6 ),	/* 422 */
+/* 584 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 586 */	NdrFcShort( 0x0 ),	/* 0 */
 
-	/* Parameter in */
+	/* Parameter index */
 
 
-	/* Parameter in */
+	/* Parameter index */
 
-/* 588 */	NdrFcShort( 0x10b ),	/* Flags:  must size, must free, in, simple ref, */
+/* 588 */	NdrFcShort( 0x48 ),	/* Flags:  in, base type, */
 /* 590 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
-/* 592 */	NdrFcShort( 0x430 ),	/* Type Offset=1072 */
+/* 592 */	0x8,		/* FC_LONG */
+			0x0,		/* 0 */
 
 	/* Return value */
 
@@ -663,85 +700,6 @@ static const Cape2Fluent_MIDL_PROC_FORMAT_STRING Cape2Fluent__MIDL_ProcFormatStr
 /* 594 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
 /* 596 */	NdrFcShort( 0x8 ),	/* x86 Stack size/offset = 8 */
 /* 598 */	0x8,		/* FC_LONG */
-			0x0,		/* 0 */
-
-	/* Procedure AddPort2 */
-
-
-	/* Procedure AddParameter */
-
-/* 600 */	0x33,		/* FC_AUTO_HANDLE */
-			0x6c,		/* Old Flags:  object, Oi2 */
-/* 602 */	NdrFcLong( 0x0 ),	/* 0 */
-/* 606 */	NdrFcShort( 0x9 ),	/* 9 */
-/* 608 */	NdrFcShort( 0xc ),	/* x86 Stack size/offset = 12 */
-/* 610 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 612 */	NdrFcShort( 0x8 ),	/* 8 */
-/* 614 */	0x46,		/* Oi2 Flags:  clt must size, has return, has ext, */
-			0x2,		/* 2 */
-/* 616 */	0x8,		/* 8 */
-			0x1,		/* Ext Flags:  new corr desc, */
-/* 618 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 620 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 622 */	NdrFcShort( 0x0 ),	/* 0 */
-
-	/* Parameter disp */
-
-
-	/* Parameter p */
-
-/* 624 */	NdrFcShort( 0xb ),	/* Flags:  must size, must free, in, */
-/* 626 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
-/* 628 */	NdrFcShort( 0xe2 ),	/* Type Offset=226 */
-
-	/* Return value */
-
-
-	/* Return value */
-
-/* 630 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
-/* 632 */	NdrFcShort( 0x8 ),	/* x86 Stack size/offset = 8 */
-/* 634 */	0x8,		/* FC_LONG */
-			0x0,		/* 0 */
-
-	/* Procedure RemovePort */
-
-
-	/* Procedure RemoveParameter */
-
-/* 636 */	0x33,		/* FC_AUTO_HANDLE */
-			0x6c,		/* Old Flags:  object, Oi2 */
-/* 638 */	NdrFcLong( 0x0 ),	/* 0 */
-/* 642 */	NdrFcShort( 0xa ),	/* 10 */
-/* 644 */	NdrFcShort( 0xc ),	/* x86 Stack size/offset = 12 */
-/* 646 */	NdrFcShort( 0x8 ),	/* 8 */
-/* 648 */	NdrFcShort( 0x8 ),	/* 8 */
-/* 650 */	0x44,		/* Oi2 Flags:  has return, has ext, */
-			0x2,		/* 2 */
-/* 652 */	0x8,		/* 8 */
-			0x1,		/* Ext Flags:  new corr desc, */
-/* 654 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 656 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 658 */	NdrFcShort( 0x0 ),	/* 0 */
-
-	/* Parameter index */
-
-
-	/* Parameter index */
-
-/* 660 */	NdrFcShort( 0x48 ),	/* Flags:  in, base type, */
-/* 662 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
-/* 664 */	0x8,		/* FC_LONG */
-			0x0,		/* 0 */
-
-	/* Return value */
-
-
-	/* Return value */
-
-/* 666 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
-/* 668 */	NdrFcShort( 0x8 ),	/* x86 Stack size/offset = 8 */
-/* 670 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
 			0x0
@@ -1584,9 +1542,9 @@ CINTERFACE_PROXY_VTABLE(13) _IComponentRegistrarProxyVtbl =
     IUnknown_QueryInterface_Proxy,
     IUnknown_AddRef_Proxy,
     IUnknown_Release_Proxy ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetTypeInfoCount */ ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetTypeInfo */ ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetIDsOfNames */ ,
+    0 /* IDispatch::GetTypeInfoCount */ ,
+    0 /* IDispatch::GetTypeInfo */ ,
+    0 /* IDispatch::GetIDsOfNames */ ,
     0 /* IDispatch_Invoke_Proxy */ ,
     (void *) (INT_PTR) -1 /* IComponentRegistrar::Attach */ ,
     (void *) (INT_PTR) -1 /* IComponentRegistrar::RegisterAll */ ,
@@ -1662,9 +1620,9 @@ CINTERFACE_PROXY_VTABLE(8) _IUnitOperationProxyVtbl =
     IUnknown_QueryInterface_Proxy,
     IUnknown_AddRef_Proxy,
     IUnknown_Release_Proxy ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetTypeInfoCount */ ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetTypeInfo */ ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetIDsOfNames */ ,
+    0 /* IDispatch::GetTypeInfoCount */ ,
+    0 /* IDispatch::GetTypeInfo */ ,
+    0 /* IDispatch::GetIDsOfNames */ ,
     0 /* IDispatch_Invoke_Proxy */ ,
     (void *) (INT_PTR) -1 /* IUnitOperation::InvalidateUnit */
 };
@@ -1704,10 +1662,10 @@ static const unsigned short IPort_FormatStringOffsetTable[] =
     312,
     348,
     384,
+    174,
     420,
     456,
-    492,
-    528
+    492
     };
 
 static const MIDL_STUBLESS_PROXY_INFO IPort_ProxyInfo =
@@ -1738,9 +1696,9 @@ CINTERFACE_PROXY_VTABLE(16) _IPortProxyVtbl =
     IUnknown_QueryInterface_Proxy,
     IUnknown_AddRef_Proxy,
     IUnknown_Release_Proxy ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetTypeInfoCount */ ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetTypeInfo */ ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetIDsOfNames */ ,
+    0 /* IDispatch::GetTypeInfoCount */ ,
+    0 /* IDispatch::GetTypeInfo */ ,
+    0 /* IDispatch::GetIDsOfNames */ ,
     0 /* IDispatch_Invoke_Proxy */ ,
     (void *) (INT_PTR) -1 /* IPort::AddError */ ,
     (void *) (INT_PTR) -1 /* IPort::debugfile */ ,
@@ -1791,10 +1749,10 @@ static const unsigned short IParameterCollection_FormatStringOffsetTable[] =
     (unsigned short) -1,
     (unsigned short) -1,
     (unsigned short) -1,
-    564,
+    240,
     276,
-    600,
-    636
+    528,
+    564
     };
 
 static const MIDL_STUBLESS_PROXY_INFO IParameterCollection_ProxyInfo =
@@ -1825,9 +1783,9 @@ CINTERFACE_PROXY_VTABLE(11) _IParameterCollectionProxyVtbl =
     IUnknown_QueryInterface_Proxy,
     IUnknown_AddRef_Proxy,
     IUnknown_Release_Proxy ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetTypeInfoCount */ ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetTypeInfo */ ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetIDsOfNames */ ,
+    0 /* IDispatch::GetTypeInfoCount */ ,
+    0 /* IDispatch::GetTypeInfo */ ,
+    0 /* IDispatch::GetIDsOfNames */ ,
     0 /* IDispatch_Invoke_Proxy */ ,
     (void *) (INT_PTR) -1 /* IParameterCollection::AddError */ ,
     (void *) (INT_PTR) -1 /* IParameterCollection::debugfile */ ,
@@ -1868,10 +1826,10 @@ static const unsigned short IPortCollection_FormatStringOffsetTable[] =
     (unsigned short) -1,
     (unsigned short) -1,
     (unsigned short) -1,
-    564,
+    240,
     276,
-    600,
-    636
+    528,
+    564
     };
 
 static const MIDL_STUBLESS_PROXY_INFO IPortCollection_ProxyInfo =
@@ -1902,9 +1860,9 @@ CINTERFACE_PROXY_VTABLE(11) _IPortCollectionProxyVtbl =
     IUnknown_QueryInterface_Proxy,
     IUnknown_AddRef_Proxy,
     IUnknown_Release_Proxy ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetTypeInfoCount */ ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetTypeInfo */ ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetIDsOfNames */ ,
+    0 /* IDispatch::GetTypeInfoCount */ ,
+    0 /* IDispatch::GetTypeInfo */ ,
+    0 /* IDispatch::GetIDsOfNames */ ,
     0 /* IDispatch_Invoke_Proxy */ ,
     (void *) (INT_PTR) -1 /* IPortCollection::AddError */ ,
     (void *) (INT_PTR) -1 /* IPortCollection::debugfile */ ,
@@ -1945,10 +1903,10 @@ static const MIDL_STUB_DESC Object_StubDesc =
     0,
     0,
     Cape2Fluent__MIDL_TypeFormatString.Format,
-    0, /* -error bounds_check flag */
+    1, /* -error bounds_check flag */
     0x50002, /* Ndr library version */
     0,
-    0x70001f4, /* MIDL Version 7.0.500 */
+    0x8000253, /* MIDL Version 8.0.595 */
     0,
     UserMarshalRoutines,
     0,  /* notify & notify_flag routine table */
@@ -1958,7 +1916,7 @@ static const MIDL_STUB_DESC Object_StubDesc =
     0
     };
 
-const CInterfaceProxyVtbl * _Cape2Fluent_ProxyVtblList[] = 
+const CInterfaceProxyVtbl * const _Cape2Fluent_ProxyVtblList[] = 
 {
     ( CInterfaceProxyVtbl *) &_IComponentRegistrarProxyVtbl,
     ( CInterfaceProxyVtbl *) &_IParameterCollectionProxyVtbl,
@@ -1968,7 +1926,7 @@ const CInterfaceProxyVtbl * _Cape2Fluent_ProxyVtblList[] =
     0
 };
 
-const CInterfaceStubVtbl * _Cape2Fluent_StubVtblList[] = 
+const CInterfaceStubVtbl * const _Cape2Fluent_StubVtblList[] = 
 {
     ( CInterfaceStubVtbl *) &_IComponentRegistrarStubVtbl,
     ( CInterfaceStubVtbl *) &_IParameterCollectionStubVtbl,
@@ -1988,7 +1946,7 @@ PCInterfaceName const _Cape2Fluent_InterfaceNamesList[] =
     0
 };
 
-const IID *  _Cape2Fluent_BaseIIDList[] = 
+const IID *  const _Cape2Fluent_BaseIIDList[] = 
 {
     &IID_IDispatch,
     &IID_IDispatch,
@@ -2032,5 +1990,5 @@ const ExtendedProxyFileInfo Cape2Fluent_ProxyFileInfo =
 #endif
 
 
-#endif /* !defined(_M_IA64) && !defined(_M_AMD64)*/
+#endif /* !defined(_M_IA64) && !defined(_M_AMD64) && !defined(_ARM_) */
 

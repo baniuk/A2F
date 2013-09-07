@@ -1,9 +1,9 @@
-﻿// Created by Microsoft (R) C/C++ Compiler Version 15.00.30729.01 (529742f6).
+﻿// Created by Microsoft (R) C/C++ Compiler Version 11.00.60610.1 (fa0111cb).
 //
-// f:\fluentsol\cape2fluent\release\cape-openv1-0-0.tlh
+// h:\projekty\a2f\fluentsol\cape2fluent\release\cape-openv1-0-0.tlh
 //
 // C++ source equivalent of Win32 type library C:\Program Files (x86)\Common Files\CAPE-OPEN\CAPE-OPENv1-0-0.tlb
-// compiler-generated file created 04/20/10 at 15:01:36 - DO NOT EDIT!
+// compiler-generated file created 07/01/13 at 19:26:46 - DO NOT EDIT!
 
 #pragma once
 #pragma pack(push, 8)
@@ -2063,19 +2063,19 @@ ICapeMINLP : IDispatch
         /*[in,out]*/ VARIANT * isinteger ) = 0;
       virtual HRESULT __stdcall GetMINLPVariableBooleanAttribute (
         /*[in]*/ VARIANT vids,
-        /*[in]*/ VARIANT attrib,
+        /*[in]*/ VARIANT attribute,
         /*[in,out]*/ VARIANT * values ) = 0;
       virtual HRESULT __stdcall GetMINLPVariableIntegerAttribute (
         /*[in]*/ VARIANT vids,
-        /*[in]*/ BSTR attrib,
+        /*[in]*/ BSTR attribute,
         /*[in,out]*/ VARIANT * values ) = 0;
       virtual HRESULT __stdcall GetMINLPVariableDoubleAttribute (
         /*[in]*/ VARIANT vids,
-        /*[in]*/ BSTR attrib,
+        /*[in]*/ BSTR attribute,
         /*[in,out]*/ VARIANT * values ) = 0;
       virtual HRESULT __stdcall GetMINLPVariableStringAttribute (
         /*[in]*/ VARIANT vids,
-        /*[in]*/ BSTR attrib,
+        /*[in]*/ BSTR attribute,
         /*[in,out]*/ VARIANT * values ) = 0;
       virtual HRESULT __stdcall GetMINLPVariableBounds (
         /*[in]*/ VARIANT vids,
@@ -2099,19 +2099,19 @@ ICapeMINLP : IDispatch
         /*[in,out]*/ VARIANT * islinear ) = 0;
       virtual HRESULT __stdcall GetMINLPConstraintBooleanAttribute (
         /*[in]*/ VARIANT cids,
-        /*[in]*/ BSTR attrib,
+        /*[in]*/ BSTR attribute,
         /*[in,out]*/ VARIANT * values ) = 0;
       virtual HRESULT __stdcall GetMINLPConstraintIntegerAttribute (
         /*[in]*/ VARIANT cids,
-        /*[in]*/ BSTR attrib,
+        /*[in]*/ BSTR attribute,
         /*[in,out]*/ VARIANT * values ) = 0;
       virtual HRESULT __stdcall GetMINLPConstraintDoubleAttribute (
         /*[in]*/ VARIANT cids,
-        /*[in]*/ BSTR attrib,
+        /*[in]*/ BSTR attribute,
         /*[in,out]*/ VARIANT * values ) = 0;
       virtual HRESULT __stdcall GetMINLPConstraintStringAttribute (
         /*[in]*/ VARIANT cids,
-        /*[in]*/ BSTR attrib,
+        /*[in]*/ BSTR attribute,
         /*[in,out]*/ VARIANT * values ) = 0;
       virtual HRESULT __stdcall GetMINLPNonlinearConstraintValues (
         /*[in]*/ VARIANT cids,
@@ -2128,17 +2128,17 @@ ICapeMINLP : IDispatch
         /*[in]*/ BSTR stype,
         /*[in,out]*/ VARIANT * v ) = 0;
       virtual HRESULT __stdcall GetMINLPObjectiveFunctionBooleanAttribute (
-        /*[in]*/ BSTR attrib,
+        /*[in]*/ BSTR attribute,
         /*[in,out]*/ VARIANT_BOOL * value ) = 0;
       virtual HRESULT __stdcall GetMINLPObjectiveFunctionIntegerAttribute (
-        /*[in]*/ BSTR attrib,
+        /*[in]*/ BSTR attribute,
         /*[in,out]*/ long * value ) = 0;
       virtual HRESULT __stdcall GetMINLPObjectiveFunctionDoubleAttribute (
-        /*[in]*/ BSTR attrib,
+        /*[in]*/ BSTR attribute,
         /*[in,out]*/ double * value ) = 0;
       virtual HRESULT __stdcall GetMINLPObjectiveFunctionStringAttribute (
-        /*[in]*/ BSTR attrib,
-        /*[in,out]*/ BSTR * value ) = 0;
+        /*[in]*/ BSTR attribute,
+        /*[in,out]*/ BSTR * values ) = 0;
       virtual HRESULT __stdcall SetMINLPLagrangeMultipliers (
         /*[in]*/ BSTR lmtype,
         /*[in]*/ VARIANT ids,
