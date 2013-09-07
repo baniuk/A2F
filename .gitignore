@@ -1,3 +1,4 @@
+# VS #
 Thumbs.db
 *.obj
 *.exe
@@ -26,3 +27,16 @@ obj/
 _ReSharper*/
 [Tt]est[Rr]esult*
 *.vssscc
+# CMake #
+/CMake*/
+/ipch/
+/bin/
+CMakeCache.txt
+CMakeFiles
+[mM]akefile
+cmake_install.cmake
+install_manifest.txt
+!Readme
+!CMakeLists.txt
+!/CMake/
+!/CMake/internal_utils.cmake
