@@ -1,0 +1,22 @@
+--- test/unit/test.unit.util.onbailout/test.unit.util.onbailout.cpp	Mon Jan 19 23:26:36 1970
++++ test/unit/test.unit.util.onbailout/test.unit.util.onbailout.cpp	Mon Jan 19 23:26:36 1970
+@@ -178,7 +178,7 @@
+ 
+     XTESTS_COMMANDLINE_PARSEVERBOSITY(argc, argv, &verbosity);
+ 
+-    if(XTESTS_START_RUNNER(PANTHEIOS_FE_PROCESS_IDENTITY, verbosity))
++    if(XTESTS_START_RUNNER((const char*)PANTHEIOS_FE_PROCESS_IDENTITY, verbosity))
+     {
+         XTESTS_RUN_CASE(test_1_01);
+         XTESTS_RUN_CASE(test_1_02);
+--- include/pantheios/implicit_link/implicit_link_base_.h	Mon Jan 19 23:26:36 1970
++++ include/pantheios/implicit_link/implicit_link_base_.h	Mon Jan 19 23:26:36 1970
+@@ -205,6 +205,8 @@
+ #    define PANTHEIOS_IMPL_LINK_COMPILER_NAME           "vc9"
+ #   elif _MSC_VER == 1600
+ #    define PANTHEIOS_IMPL_LINK_COMPILER_NAME           "vc10"
++#   elif _MSC_VER == 1700
++#    define PANTHEIOS_IMPL_LINK_COMPILER_NAME           "vc11"
+ #   else /* ? _MSC_VER */
+ #    error Visual C++ version not supported
+ #   endif /* _MSC_VER */
