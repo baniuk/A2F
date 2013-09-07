@@ -1,0 +1,120 @@
+Proces tworzenia projektu. Po ka¿dym punkcie checkin do repozytorium.
+1. Utworzyæ projekt ATL. Opis tego co powstaje jest [http://edndoc.esri.com/arcobjects/8.3/gettingstarted/atl.htm TU]. W pliku *.idl jest definicja prostego interfejsu wraz z jego UUID oraz zaimportowanym interfejsem stdole.tlb (__tlb - binarna definicja interfejsu__). Po kompilacji w rejestrze powstaj¹ wpisy:
+  * `HKEY_CLASSES_ROOT\TypeLib\{E304CE16-F539-4DCA-BEF1-A77F6C1E447F}` 
+  * `HKEY_LOCAL_MACHINE\SOFTWARE\Classes\TypeLib\{E304CE16-F539-4DCA-BEF1-A77F6C1E447F}`
+ W œrodku œcie¿ka do A2F.dll. Klucz zgadza siê z kluczem w pliku idl. Dodatkowe informacje o strukturze rejestru s¹ [wiki:COM+ TU]
+{{{
+#!cpp
+[
+	uuid(E304CE16-F539-4DCA-BEF1-A77F6C1E447F),
+	version(1.0),
+]
+library A2FLib
+{
+	importlib("stdole2.tlb");
+};
+}}}
+   Powy¿sze wpisy pojawi³y siê po kompilacji pustego projktu ATL, bez dodanej ¿adnej klasy. Prawdopodobnie jest to definicja interfejsu jedynie, bez ¿adnej coclasy, czyli implementacji tego interfejsu.
+1. Dodaæ klasê/obiekt SimpleATL ''!UnitOperations''
+  * Menu !Add/Class/ATL Simple - nastêpnie nazwa klasy. Nazwa coclasy jest taka jak wpiszemy, klasy z przedrostkiem '''C''' a interfejsu z przedrostkiem '''I'''. Plik idl zmienia siê:
+  {{{
+  #!cpp
+  [
+	object,
+	uuid(F6EB158D-ECFB-4FCC-804A-B5DA52D4450F),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IUnitOperations : IDispatch{
+};
+[
+	uuid(E304CE16-F539-4DCA-BEF1-A77F6C1E447F),
+	version(1.0),
+]
+library A2FLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(A9129436-FB2C-4D26-B88D-A61E4D594BCB)		
+	]
+	coclass UnitOperations
+	{
+		[default] interface IUnitOperations;
+	};
+};
+}}}
+ Po kompilacji powy¿sze klucze pojawiaj¹ siê w rejestrze:
+  * `HKCR\CLSID\{A9129436-FB2C-4D26-B88D-A61E4D594BCB}`
+  * `HKLM\SOFTWARE\Classes\CLSID\{A9129436-FB2C-4D26-B88D-A61E4D594BCB}`
+  Zawieraj¹ nazwê klasy ''!UnitOperations'' oraz wczeœniejszy klucz `E304CE16-F539-4DCA-BEF1-A77F6C1E447F` w ga³êzi !TypeLib
+  * `HKCR\Interface\{F6EB158D-ECFB-4FCC-804A-B5DA52D4450F}`
+  * `HKLM\SOFTWARE\Classes\Interface\{F6EB158D-ECFB-4FCC-804A-B5DA52D4450F}`
+  Zawieraj¹ nazwê interfejsu ''IUnitOperations'' oraz wczeœniejszy klucz `E304CE16-F539-4DCA-BEF1-A77F6C1E447F` w ga³êzi !TypeLib
+ W projekcie pojawia siê plik !UnitOperations.rgs zawieraj¹cy CLSID coclasy:
+{{{
+#!sh
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {A9129436-FB2C-4D26-B88D-A61E4D594BCB} = s 'UnitOperations Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{E304CE16-F539-4DCA-BEF1-A77F6C1E447F}'
+			Version = s '1.0'
+		}
+	}
+}
+}}}
+ Do plików rejestru s¹ linki w resource pod postaci¹ odpowiednich nazw (''IDR_''). W pliku !UnitOperations.h widaæ tworzenie obiektu i interfejsu:
+{{{
+#!cpp
+class ATL_NO_VTABLE CUnitOperations :
+	public CComObjectRootEx<CComSingleThreadModel>,
+	public CComCoClass<CUnitOperations, &CLSID_UnitOperations>, /// This class provides methods for creating instances of a class, and obtaining its properties
+	public IDispatchImpl<IUnitOperations, &IID_IUnitOperations, &LIBID_A2FLib, /*wMajor =*/ 1, /*wMinor =*/ 0> // This class provides a default implementation for IDispatch portion of a dual interface.
+{
+public:
+	CUnitOperations()
+	{
+	}
+
+DECLARE_REGISTRY_RESOURCEID(IDR_UNITOPERATIONS)
+
+
+BEGIN_COM_MAP(CUnitOperations)
+	COM_INTERFACE_ENTRY(IUnitOperations)
+	COM_INTERFACE_ENTRY(IDispatch)
+END_COM_MAP()
+
+
+
+	DECLARE_PROTECT_FINAL_CONSTRUCT()
+
+	HRESULT FinalConstruct()
+	{
+		return S_OK;
+	}
+
+	void FinalRelease()
+	{
+	}
+
+public:
+
+
+
+};
+
+OBJECT_ENTRY_AUTO(__uuidof(UnitOperations), CUnitOperations)
+}}}
+1. Import interfejsów zewnêtrznych
+ * Zewnêtrzne interfejsy s¹ importowane do stworzonej coclasy ''CUnitOperations''
+ * Prze³¹czyæ siê na widok !ClassView, prawy na klasie ''CUnitOperations'' i Add oraz Implement Interface
+ W pierwszej kolejnoœci zaimplementowano z pliku *.tlb interfejs ''ICapeUnit''. Wpliku ''UnitOperations.h'' pojawi³y siê implementacje metod z interfejsu ''ICapeUnit''. Mo¿na je przenieœæ do pliku *.cpp u¿ywaj¹c refaktoringu. Po operacji importowania zmieni³siêjedynie plik ''UnitOperations.h'' oraz ''stdahx.h''.
+----
