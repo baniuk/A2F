@@ -26,3 +26,8 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 {
 	return E_NOTIMPL;
 }
+
+CUnitOperations::CUnitOperations()
+{
+
+}

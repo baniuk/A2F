@@ -25,9 +25,7 @@ class ATL_NO_VTABLE CUnitOperations :
 	public IDispatchImpl<ICapeUnit, &__uuidof(ICapeUnit), &LIBID_CAPEOPEN100, /* wMajor = */ 1>
 {
 public:
-	CUnitOperations()
-	{
-	}
+	CUnitOperations();
 
 	DECLARE_REGISTRY_RESOURCEID(IDR_UNITOPERATIONS)
 
@@ -50,11 +48,6 @@ public:
 	void FinalRelease()
 	{
 	}
-
-public:
-
-
-
 
 	// ICapeUnit Methods
 public:

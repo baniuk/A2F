@@ -147,7 +147,6 @@
     <ResourceCompile Include="A2F.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Opis.txt" />
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>

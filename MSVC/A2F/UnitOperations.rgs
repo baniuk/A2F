@@ -11,6 +11,20 @@ HKCR
 			}
 			TypeLib = s '{E304CE16-F539-4DCA-BEF1-A77F6C1E447F}'
 			Version = s '1.0'
+			ForceRemove CapeDescription
+			{
+				val Name = s 'A2F'
+				val Description = s 'Cape-Open 2 Fluent port'
+				val CapeVersion = s '1.0'
+				val ComponentVersion = s '0.5'
+				val VendorURL = s 'baniuk@zut.edu.pl'
+				val About = s '(c) Piotr Baniukiewicz'
+			}
+			ForceRemove 'Implemented Categories'
+			{
+				ForceRemove {678C09A1-7D66-11D2-A67D-00105A42887F}
+				ForceRemove {678C09A5-7D66-11D2-A67D-00105A42887F} 
+			}
 		}
 	}
 }
