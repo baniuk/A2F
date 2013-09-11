@@ -1,1 +1,0 @@
-cmd='C:/Program Files (x86)/CMake 2.8/bin/cmake.exe;-DCMAKE_CXX_FLAGS='-D_VARIADIC_MAX=10';-DCMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG:PATH=DebugLibs;-DCMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE:PATH=ReleaseLibs;-Dgtest_force_shared_crt=ON;-GNMake Makefiles;I:/Projekty/A2F/bin/Third_Party/GTest/src/googletest'

@@ -1,3 +1,0 @@
-repository='external project URL'
-module='http://sourceforge.net/projects/stlsoft/files/STLSoft%201.9/1.9.117/stlsoft-1.9.117-hdrs.zip'
-tag=''
