@@ -1,6 +1,6 @@
 message(STATUS "downloading...
      src='http://sourceforge.net/projects/stlsoft/files/STLSoft%201.9/1.9.117/stlsoft-1.9.117-hdrs.zip'
-     dst='H:/Projekty/A2F/CMake_trash/src/stlsoft-1.9.117-hdrs.zip'
+     dst='I:/Projekty/A2F/CMake_trash/src/stlsoft-1.9.117-hdrs.zip'
      timeout='none'")
 
 
@@ -8,7 +8,7 @@ message(STATUS "downloading...
 
 file(DOWNLOAD
   "http://sourceforge.net/projects/stlsoft/files/STLSoft%201.9/1.9.117/stlsoft-1.9.117-hdrs.zip"
-  "H:/Projekty/A2F/CMake_trash/src/stlsoft-1.9.117-hdrs.zip"
+  "I:/Projekty/A2F/CMake_trash/src/stlsoft-1.9.117-hdrs.zip"
   SHOW_PROGRESS
   # no EXPECTED_HASH
   # no TIMEOUT

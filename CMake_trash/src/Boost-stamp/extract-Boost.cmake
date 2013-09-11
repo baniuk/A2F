@@ -1,7 +1,7 @@
 # Make file names absolute:
 #
-get_filename_component(filename "H:/Projekty/A2F/CMake_trash/src/boost_1_53_0.zip" ABSOLUTE)
-get_filename_component(directory "H:/Projekty/A2F/Third_Party/boost" ABSOLUTE)
+get_filename_component(filename "I:/Projekty/A2F/CMake_trash/src/boost_1_53_0.zip" ABSOLUTE)
+get_filename_component(directory "I:/Projekty/A2F/Third_Party/boost" ABSOLUTE)
 
 message(STATUS "extracting...
      src='${filename}'

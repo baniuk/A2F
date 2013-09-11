@@ -85,6 +85,7 @@ public:
 
 	DECLARE_PROTECT_FINAL_CONSTRUCT()
 
+	/// Initializing method called after constructor
 	HRESULT FinalConstruct();
 
 	void FinalRelease();

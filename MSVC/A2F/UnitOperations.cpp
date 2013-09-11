@@ -23,8 +23,20 @@ CUnitOperations::~CUnitOperations()
 
 }
 
+/**
+* \details  COM initialization method called after construction of the object. Other interfaces should be created here.
+* \return   Return S_OK on success or one of the standard error HRESULT values.
+* \retval   status   The program status.
+*                     \li HRESULT = Failure
+*                     \li S_OK = Success
+* \see
+*			\li http://msdn.microsoft.com/en-us/library/afkt56xx(v=vs.110).aspx
+*			\li http://www.murrayc.com/learning/windows/usecomfromatl.shtml
+*/
 HRESULT CUnitOperations::FinalConstruct()
 {
+	// Logging API initialization
+
 	return S_OK;
 }
 
@@ -121,8 +133,7 @@ STDMETHODIMP CUnitOperations::get_parameters( LPDISPATCH * parameters )
 *			after a file is selected.
 * \return   CapeError
 * \retval   status   The program status.
-*                     \li 0 = Failure
-*                     \li = Success
+*                     \li S_OK = Success
 * \see      AspenPlusUserModelsV8_2-Ref.pdf pp. 286
 * \note		Any initialization that could fail must be placed here instead of the constructor.
 */

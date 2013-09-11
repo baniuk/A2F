@@ -1,7 +1,7 @@
 # Make file names absolute:
 #
-get_filename_component(filename "H:/Projekty/A2F/CMake_trash/src/pantheios-1.0.1-beta214-src.zip" ABSOLUTE)
-get_filename_component(directory "H:/Projekty/A2F/Third_Party/pantheios-1.0.1-beta214" ABSOLUTE)
+get_filename_component(filename "I:/Projekty/A2F/CMake_trash/src/pantheios-1.0.1-beta214-src.zip" ABSOLUTE)
+get_filename_component(directory "I:/Projekty/A2F/Third_Party/pantheios-1.0.1-beta214" ABSOLUTE)
 
 message(STATUS "extracting...
      src='${filename}'
