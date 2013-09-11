@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.4"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
 <title>A2F: Składowe klas</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -30,13 +30,15 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Wygenerowano przez Doxygen 1.8.4 -->
+<!-- Wygenerowano przez Doxygen 1.8.3.1 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="pages.html"><span>Dodatkowe&#160;strony</span></a></li>
+      <li><a href="namespaces.html"><span>Przestrzenie&#160;nazw</span></a></li>
       <li class="current"><a href="annotated.html"><span>Klasy</span></a></li>
       <li><a href="files.html"><span>Pliki</span></a></li>
       <li>
@@ -61,13 +63,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;klas</span></a></li>
       <li><a href="classes.html"><span>Indeks&#160;klas</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarchia&#160;klas</span></a></li>
       <li class="current"><a href="functions.html"><span>Składowe&#160;klas</span></a></li>
     </ul>
   </div>
   <div id="navrow3" class="tabs2">
     <ul class="tablist">
       <li class="current"><a href="functions.html"><span>All</span></a></li>
+      <li><a href="functions_func.html"><span>Funkcje</span></a></li>
       <li><a href="functions_vars.html"><span>Zmienne</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow4" class="tabs3">
+    <ul class="tablist">
+      <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_d"><span>d</span></a></li>
+      <li><a href="#index_e"><span>e</span></a></li>
+      <li><a href="#index_f"><span>f</span></a></li>
+      <li><a href="#index_g"><span>g</span></a></li>
+      <li><a href="#index_h"><span>h</span></a></li>
+      <li><a href="#index_i"><span>i</span></a></li>
+      <li><a href="#index_l"><span>l</span></a></li>
+      <li><a href="#index_p"><span>p</span></a></li>
+      <li><a href="#index_r"><span>r</span></a></li>
+      <li><a href="#index_s"><span>s</span></a></li>
+      <li><a href="#index_t"><span>t</span></a></li>
+      <li><a href="#index_u"><span>u</span></a></li>
+      <li><a href="#index_v"><span>v</span></a></li>
+      <li><a href="#index_w"><span>w</span></a></li>
+      <li><a href="#index_x"><span>x</span></a></li>
+      <li><a href="#index_0x7e"><span>~</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -76,7 +101,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Pliki</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Strony</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klasy</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Przestrzenie nazw</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pliki</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funkcje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Zmienne</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Definicje typów</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definicje</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Strony</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,29 +111,237 @@ var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
 </div>
 
 <div class="contents">
-<div class="textblock">Tutaj znajduje się lista wszystkich składowych wraz z odnośnikami do klas, do których dana składowa należy:</div><ul>
-<li>name
-: <a class="el" href="structpoint3d.html#afb9519af724fab8e88b239b60c864a6d">point3d</a>
+<div class="textblock">Tutaj znajduje się lista wszystkich składowych wraz z odnośnikami do klas, do których dana składowa należy:</div>
+
+<h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>c
+: <a class="el" href="struct___i_i_d.html#a075b5d7c1adb4b54b329cef0d43dc3c0">_IID</a>
 </li>
-<li>namelength
-: <a class="el" href="structpoint3d.html#a809caeed7433b4f182554ef12f8705a9">point3d</a>
+<li>Calculate()
+: <a class="el" href="class_c_unit_operations.html#a7efb5624bf2b00d1db18ad3a0d82ea2f">CUnitOperations</a>
 </li>
+<li>cNames
+: <a class="el" href="struct_i_unit_operations_vtbl.html#a2e01153b24ba29a622469f0e131efc7f">IUnitOperationsVtbl</a>
+</li>
+<li>CUnitOperations()
+: <a class="el" href="class_c_unit_operations.html#aeba6783e9dcf53f1e57880531ca6fc2a">CUnitOperations</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>dispIdMember
+: <a class="el" href="struct_i_unit_operations_vtbl.html#a04aa4f0798b56646fff4380f79c43bcc">IUnitOperationsVtbl</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>Edit()
+: <a class="el" href="class_c_unit_operations.html#a380e490f3d9af0c4dddf4aa5374977b4">CUnitOperations</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
+<li>FinalConstruct()
+: <a class="el" href="class_c_unit_operations.html#aafdae09c50278bd626e0a2ee6ceca420">CUnitOperations</a>
+</li>
+<li>FinalRelease()
+: <a class="el" href="class_c_unit_operations.html#a5fd775718dbc20a70c515a37819a290d">CUnitOperations</a>
+</li>
+<li>Format
+: <a class="el" href="struct___a2_f___m_i_d_l___p_r_o_c___f_o_r_m_a_t___s_t_r_i_n_g.html#a5293bf1c87d217d3d1808031d30e2209">_A2F_MIDL_PROC_FORMAT_STRING</a>
+, <a class="el" href="struct___a2_f___m_i_d_l___t_y_p_e___f_o_r_m_a_t___s_t_r_i_n_g.html#a6401ba68f56649dc71d7fb12cf33be83">_A2F_MIDL_TYPE_FORMAT_STRING</a>
+, <a class="el" href="struct___a2_f___m_i_d_l___e_x_p_r___f_o_r_m_a_t___s_t_r_i_n_g.html#a47f0437866d776d97a1776948e0a2030">_A2F_MIDL_EXPR_FORMAT_STRING</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>get_code()
+: <a class="el" href="class_c_unit_operations.html#a96632d138afb2da9236da8439853b7be">CUnitOperations</a>
+</li>
+<li>get_ComponentDescription()
+: <a class="el" href="class_c_unit_operations.html#afa7ee2586914b8e6ea4e0f39bc481130">CUnitOperations</a>
+</li>
+<li>get_ComponentName()
+: <a class="el" href="class_c_unit_operations.html#abffaa04cfd153d56e3c2ee97de90f44c">CUnitOperations</a>
+</li>
+<li>get_description()
+: <a class="el" href="class_c_unit_operations.html#a635bd961ec04145fda32e38c683f39b2">CUnitOperations</a>
+</li>
+<li>get_interfaceName()
+: <a class="el" href="class_c_unit_operations.html#aa03f9ca049dd3a5b6ef4a8bac3f29e69">CUnitOperations</a>
+</li>
+<li>get_moreInfo()
+: <a class="el" href="class_c_unit_operations.html#a534a810c6539e25074c706a217c8664e">CUnitOperations</a>
+</li>
+<li>get_name()
+: <a class="el" href="class_c_unit_operations.html#a871ae4464015124a3737d870f7b485c4">CUnitOperations</a>
+</li>
+<li>get_operation()
+: <a class="el" href="class_c_unit_operations.html#a4d01f0750603165020536ec1e4bb3c72">CUnitOperations</a>
+</li>
+<li>get_parameters()
+: <a class="el" href="class_c_unit_operations.html#a0c1d37acd90c09dad4dc4ba31a285011">CUnitOperations</a>
+</li>
+<li>get_ports()
+: <a class="el" href="class_c_unit_operations.html#a17e86afb2707a1fffbce73e0cc1718df">CUnitOperations</a>
+</li>
+<li>get_reports()
+: <a class="el" href="class_c_unit_operations.html#a13fbdb49db94e76ff42ec6836e2b37ad">CUnitOperations</a>
+</li>
+<li>get_scope()
+: <a class="el" href="class_c_unit_operations.html#afbd10521eacdb234f5c635eb31d6047b">CUnitOperations</a>
+</li>
+<li>get_selectedReport()
+: <a class="el" href="class_c_unit_operations.html#a91b99460692aaee6229051ac1ea91886">CUnitOperations</a>
+</li>
+<li>get_ValStatus()
+: <a class="el" href="class_c_unit_operations.html#ab1198b9f461b362ba1655974a4a6753c">CUnitOperations</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
+<li>HRESULT()
+: <a class="el" href="struct_i_unit_operations_vtbl.html#a4409c70c773ad825c073c036aa935228">IUnitOperationsVtbl</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
+<li>Initialize()
+: <a class="el" href="class_c_unit_operations.html#a530124631647b956c6ebeae545f26b28">CUnitOperations</a>
+</li>
+<li>iTInfo
+: <a class="el" href="struct_i_unit_operations_vtbl.html#a51e264b55d1b3c87b0da0669f0e39727">IUnitOperationsVtbl</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
+<li>lcid
+: <a class="el" href="struct_i_unit_operations_vtbl.html#ab594535f75027bf285ecf3a90043019d">IUnitOperationsVtbl</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>Pad
+: <a class="el" href="struct___a2_f___m_i_d_l___t_y_p_e___f_o_r_m_a_t___s_t_r_i_n_g.html#a7b2a0606528992c79c288a412f18f6c0">_A2F_MIDL_TYPE_FORMAT_STRING</a>
+, <a class="el" href="struct___a2_f___m_i_d_l___p_r_o_c___f_o_r_m_a_t___s_t_r_i_n_g.html#a01880925368ca134004a295a6861345a">_A2F_MIDL_PROC_FORMAT_STRING</a>
+, <a class="el" href="struct___a2_f___m_i_d_l___e_x_p_r___f_o_r_m_a_t___s_t_r_i_n_g.html#a9e04635509c6663b90a05412803ab818">_A2F_MIDL_EXPR_FORMAT_STRING</a>
+</li>
+<li>pctinfo
+: <a class="el" href="struct_i_unit_operations_vtbl.html#af30cb76c8167aa1b0c25732848fc6324">IUnitOperationsVtbl</a>
+</li>
+<li>pDispParams
+: <a class="el" href="struct_i_unit_operations_vtbl.html#aa28cb5f7de885ff956664f52ed0f5439">IUnitOperationsVtbl</a>
+</li>
+<li>pExcepInfo
+: <a class="el" href="struct_i_unit_operations_vtbl.html#a0e80a4c13b95152a752e8f4125978633">IUnitOperationsVtbl</a>
+</li>
+<li>ppTInfo
+: <a class="el" href="struct_i_unit_operations_vtbl.html#a86c8756278db9166760aeb1ab0b32d74">IUnitOperationsVtbl</a>
+</li>
+<li>ppvObject
+: <a class="el" href="struct_i_unit_operations_vtbl.html#a329bd19cf789a078567cc7ee4aa297b2">IUnitOperationsVtbl</a>
+</li>
+<li>ProduceReport()
+: <a class="el" href="class_c_unit_operations.html#a58dcd012b6a7efd245f6718f45d1a646">CUnitOperations</a>
+</li>
+<li>puArgErr
+: <a class="el" href="struct_i_unit_operations_vtbl.html#a464e7f1724f29d15597874b1dc09fc0b">IUnitOperationsVtbl</a>
+</li>
+<li>put_ComponentDescription()
+: <a class="el" href="class_c_unit_operations.html#a03509fb5640f24c9362ae9679dbe27f4">CUnitOperations</a>
+</li>
+<li>put_ComponentName()
+: <a class="el" href="class_c_unit_operations.html#a570063bd34feedf3f28d6adec4ba4a9c">CUnitOperations</a>
+</li>
+<li>put_selectedReport()
+: <a class="el" href="class_c_unit_operations.html#a5c9cd6acee3d5afb9c25f4d2287b5238">CUnitOperations</a>
+</li>
+<li>put_simulationContext()
+: <a class="el" href="class_c_unit_operations.html#aaf122cabd4d12088bcff0cfce8019acc">CUnitOperations</a>
+</li>
+<li>pVarResult
+: <a class="el" href="struct_i_unit_operations_vtbl.html#abb5767ec7052e543c9d7225f1fbdb218">IUnitOperationsVtbl</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>rgDispId
+: <a class="el" href="struct_i_unit_operations_vtbl.html#a460d1bccf9cfbf7a1247f98582656b72">IUnitOperationsVtbl</a>
+</li>
+<li>rgszNames
+: <a class="el" href="struct_i_unit_operations_vtbl.html#af6841640acaedaf02584412a2e14fc47">IUnitOperationsVtbl</a>
+</li>
+<li>riid
+: <a class="el" href="struct_i_unit_operations_vtbl.html#a733197e25a8638ac2374501ddbbe741b">IUnitOperationsVtbl</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>s1
+: <a class="el" href="struct___i_i_d.html#a23024837c1b267b2fe58b64d57b509da">_IID</a>
+</li>
+<li>s2
+: <a class="el" href="struct___i_i_d.html#afbdacab5216098be663859a1d2764de7">_IID</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>Terminate()
+: <a class="el" href="class_c_unit_operations.html#a72b3512917b85cfee55c724ab2026e63">CUnitOperations</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
+<li>ULONG()
+: <a class="el" href="struct_i_unit_operations_vtbl.html#a0e683fa6d1b665c8413dcddfd81cdc01">IUnitOperationsVtbl</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_v"></a>- v -</h3><ul>
+<li>Validate()
+: <a class="el" href="class_c_unit_operations.html#aec4fe7b25c659988cbfff7224bd6f629">CUnitOperations</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_w"></a>- w -</h3><ul>
+<li>wFlags
+: <a class="el" href="struct_i_unit_operations_vtbl.html#a15071c5d9eeff40c5964e15629a63f1e">IUnitOperationsVtbl</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_x"></a>- x -</h3><ul>
 <li>x
-: <a class="el" href="structpoint3d.html#ac16dfc549efe0bd9b819ea4a9a8462a9">point3d</a>
+: <a class="el" href="struct___i_i_d.html#add28d3db785dd98f1178f7ea88f5495c">_IID</a>
 </li>
-<li>y
-: <a class="el" href="structpoint3d.html#af76302f192767fd9546392affbe5631c">point3d</a>
-</li>
-<li>z
-: <a class="el" href="structpoint3d.html#a96e63d7cd720242d2f79287b04a503e1">point3d</a>
+</ul>
+
+
+<h3><a class="anchor" id="index_0x7e"></a>- ~ -</h3><ul>
+<li>~CUnitOperations()
+: <a class="el" href="class_c_unit_operations.html#a3919f37996899128d8863537fc9d871f">CUnitOperations</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Wygenerowano Pn, 1 lip 2013 16:34:28 dla A2F programem &#160;<a href="http://www.doxygen.org/index.html">
+Wygenerowano Wt, 10 wrz 2013 23:21:52 dla A2F programem &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.4
+</a> 1.8.3.1
 </small></address>
 </body>
 </html>

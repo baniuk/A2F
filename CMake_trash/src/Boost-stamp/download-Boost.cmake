@@ -1,6 +1,6 @@
 message(STATUS "downloading...
      src='http://downloads.sourceforge.net/project/boost/boost/1.53.0/boost_1_53_0.zip'
-     dst='H:/Projekty/A2F/CMake_trash/src/boost_1_53_0.zip'
+     dst='I:/Projekty/A2F/CMake_trash/src/boost_1_53_0.zip'
      timeout='none'")
 
 
@@ -8,7 +8,7 @@ message(STATUS "downloading...
 
 file(DOWNLOAD
   "http://downloads.sourceforge.net/project/boost/boost/1.53.0/boost_1_53_0.zip"
-  "H:/Projekty/A2F/CMake_trash/src/boost_1_53_0.zip"
+  "I:/Projekty/A2F/CMake_trash/src/boost_1_53_0.zip"
   SHOW_PROGRESS
   # no EXPECTED_HASH
   # no TIMEOUT

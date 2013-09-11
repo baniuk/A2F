@@ -42,6 +42,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>i:\Projekty\SharedA2F\$(Configuration)\</OutDir>
+    <LibraryPath>$(SolutionDir)..\Third_Party;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
@@ -147,7 +149,6 @@
     <ResourceCompile Include="A2F.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Opis.txt" />
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
