@@ -1,4 +1,11 @@
-// UnitOperations.h : Declaration of the CUnitOperations
+/**
+ * \file    UnitOperations.h
+ * \brief   COClass header for unit operations
+ * \details Implements basic interfaces required by CAPE-OPEN
+ * \author  PB
+ * \date    2013/09/10
+ * \version 0.5
+ */
 
 #pragma once
 #include "resource.h"       // main symbols
@@ -16,18 +23,48 @@
 using namespace ATL;
 
 
-// CUnitOperations
-
+/**
+ * \class CUnitOperations
+ *
+ * \brief CoClass for basic interfaces implementing Unit Operations
+ *
+ * Class implements basic interfaces for Unit Operations according to documentation. Implemented interfaces:
+ * \li ICapeUnit
+ * \li ECapeRoot
+ * \li ECapeUser
+ * \li ICapeIdentification
+ * \li ICapeUtilities
+ * \li ECapeUnknown
+ * \li ICapeUnitReport
+ *
+ * \note Represents basic object initiated at the beginning
+ *
+ * \author PB
+ *
+ * \date 2013/09/10
+ *
+ * \see 
+ * \li AspenPlusUserModelsV8_2-Ref.pdf
+ * \li CO_Unit_Operations_v6.25.pdf
+ * \li Methods&Tools_Integrated_Guidelines.pdf
+ *
+ * \todo Finish documentation - add methods descriptions
+ */
 class ATL_NO_VTABLE CUnitOperations :
 	public CComObjectRootEx<CComSingleThreadModel>,
 	public CComCoClass<CUnitOperations, &CLSID_UnitOperations>,
 	public IDispatchImpl<IUnitOperations, &IID_IUnitOperations, &LIBID_A2FLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
-	public IDispatchImpl<ICapeUnit, &__uuidof(ICapeUnit), &LIBID_CAPEOPEN100, /* wMajor = */ 1>
+	public IDispatchImpl<ICapeUnit, &__uuidof(ICapeUnit), &LIBID_CAPEOPEN100, /* wMajor = */ 1>,
+	public IDispatchImpl<ECapeRoot, &__uuidof(ECapeRoot), &LIBID_CAPEOPEN100, /* wMajor = */ 1>,
+	public IDispatchImpl<ECapeUser, &__uuidof(ECapeUser), &LIBID_CAPEOPEN100, /* wMajor = */ 1>,
+	public IDispatchImpl<ICapeIdentification, &__uuidof(ICapeIdentification), &LIBID_CAPEOPEN100, /* wMajor = */ 1>,
+	public IDispatchImpl<ICapeUtilities, &__uuidof(ICapeUtilities), &LIBID_CAPEOPEN100, /* wMajor = */ 1>,
+	public IDispatchImpl<ECapeUnknown, &__uuidof(ECapeUnknown), &LIBID_CAPEOPEN100, /* wMajor = */ 1>,
+	public IDispatchImpl<ICapeUnitReport, &__uuidof(ICapeUnitReport), &LIBID_CAPEOPEN100, /* wMajor = */ 1>
 {
 public:
-	CUnitOperations()
-	{
-	}
+	CUnitOperations();
+	~CUnitOperations();
 
 	DECLARE_REGISTRY_RESOURCEID(IDR_UNITOPERATIONS)
 
@@ -36,32 +73,88 @@ public:
 		COM_INTERFACE_ENTRY(IUnitOperations)
 		COM_INTERFACE_ENTRY2(IDispatch, ICapeUnit)
 		COM_INTERFACE_ENTRY(ICapeUnit)
+		COM_INTERFACE_ENTRY(ECapeRoot)
+		COM_INTERFACE_ENTRY(ECapeUser)
+		COM_INTERFACE_ENTRY(ICapeIdentification)
+		COM_INTERFACE_ENTRY(ICapeUtilities)
+		COM_INTERFACE_ENTRY(ECapeUnknown)
+		COM_INTERFACE_ENTRY(ICapeUnitReport)
 	END_COM_MAP()
 
 
 
 	DECLARE_PROTECT_FINAL_CONSTRUCT()
 
-	HRESULT FinalConstruct()
-	{
-		return S_OK;
-	}
+	/// Initializing method called after constructor
+	HRESULT FinalConstruct();
 
-	void FinalRelease()
-	{
-	}
+	void FinalRelease();
 
 public:
-
-
-
-
-	// ICapeUnit Methods
-public:
+	/// ICapeUnit Method
 	STDMETHOD(get_ports)(LPDISPATCH * ports);
+	/// ICapeUnit Method
 	STDMETHOD(get_ValStatus)(CapeValidationStatus * ValStatus);
+	/// ICapeUnit Method
 	STDMETHOD(Calculate)();
+	/// ICapeUnit Method
 	STDMETHOD(Validate)(BSTR * message, VARIANT_BOOL * isValid);
+
+public:
+	/// ECapeRoot Method
+	STDMETHOD(get_name)(BSTR * name);
+
+public:
+	/// ECapeUser Method
+	STDMETHOD(get_code)(long * code);
+	/// ECapeUser Method
+	STDMETHOD(get_description)(BSTR * description);
+	/// ECapeUser Method
+	STDMETHOD(get_scope)(BSTR * scope);
+	/// ECapeUser Method
+	STDMETHOD(get_interfaceName)(BSTR * interfaceName);
+	/// ECapeUser Method
+	STDMETHOD(get_operation)(BSTR * operation);
+	/// ECapeUser Method
+	STDMETHOD(get_moreInfo)(BSTR * moreInfo);
+
+public:
+	/// ICapeIdentification Method
+	STDMETHOD(get_ComponentName)(BSTR * name);
+	/// ICapeIdentification Method
+	STDMETHOD(put_ComponentName)(BSTR name);
+	/// ICapeIdentification Method
+	STDMETHOD(get_ComponentDescription)(BSTR * desc);
+	/// ICapeIdentification Method
+	STDMETHOD(put_ComponentDescription)(BSTR desc);
+
+public:
+	/// ICapeUtilities Method
+	STDMETHOD(get_parameters)(LPDISPATCH * parameters);
+	/// ICapeUtilities Method
+	STDMETHOD(put_simulationContext)(LPDISPATCH );
+	/// ICapeUtilities Method
+	STDMETHOD(Initialize)();
+	/// ICapeUtilities Method
+	STDMETHOD(Terminate)();
+	/// ICapeUtilities Method
+	STDMETHOD(Edit)();
+
+	// ECapeUnknown Methods
+public:
+
+public:
+	/// ICapeUnitReport Method
+	STDMETHOD(get_reports)(VARIANT * reports);
+	/// ICapeUnitReport Method
+	STDMETHOD(get_selectedReport)(BSTR * report);
+	/// ICapeUnitReport Method
+	STDMETHOD(put_selectedReport)(BSTR report);
+	/// ICapeUnitReport Method
+	STDMETHOD(ProduceReport)(BSTR * message);
+
+private:
+
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(UnitOperations), CUnitOperations)

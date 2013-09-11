@@ -62,7 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
-    <Text Include="Opis.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="A2F.rgs">

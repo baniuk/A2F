@@ -1,9 +1,20 @@
 HKCR
 {
+	ForceRemove A2F.UnitOperation.1 = s 'UnitOperation Class'
+	{
+		CLSID = s '{A9129436-FB2C-4D26-B88D-A61E4D594BCB}'
+	}
+	ForceRemove A2F.UnitOperation = s 'UnitOperation Class'
+	{
+		CLSID = s '{A9129436-FB2C-4D26-B88D-A61E4D594BCB}'
+		CurVer = s 'A2F.UnitOperation.1'
+	}
 	NoRemove CLSID
 	{
 		ForceRemove {A9129436-FB2C-4D26-B88D-A61E4D594BCB} = s 'UnitOperations Class'
 		{
+			ProgID = s 'A2F.UnitOperation.1'
+			VersionIndependentProgID = s 'A2F.UnitOperation'
 			ForceRemove Programmable
 			InprocServer32 = s '%MODULE%'
 			{
@@ -11,6 +22,20 @@ HKCR
 			}
 			TypeLib = s '{E304CE16-F539-4DCA-BEF1-A77F6C1E447F}'
 			Version = s '1.0'
+			ForceRemove CapeDescription
+			{
+				val Name = s 'A2F'
+				val Description = s 'Cape-Open 2 Fluent port'
+				val CapeVersion = s '1.0'
+				val ComponentVersion = s '0.5'
+				val VendorURL = s 'baniuk@zut.edu.pl'
+				val About = s '(c) Piotr Baniukiewicz'
+			}
+			ForceRemove 'Implemented Categories'
+			{
+				ForceRemove {678C09A1-7D66-11D2-A67D-00105A42887F}
+				ForceRemove {678C09A5-7D66-11D2-A67D-00105A42887F} 
+			}
 		}
 	}
 }

@@ -1,6 +1,6 @@
 message(STATUS "downloading...
      src='http://sourceforge.net/projects/pantheios/files/Pantheios%20%28C%20and%20Cxx%29/1.0.1%20%28beta%20214%29/pantheios-1.0.1-beta214-src.zip'
-     dst='H:/Projekty/A2F/CMake_trash/src/pantheios-1.0.1-beta214-src.zip'
+     dst='I:/Projekty/A2F/CMake_trash/src/pantheios-1.0.1-beta214-src.zip'
      timeout='none'")
 
 
@@ -8,7 +8,7 @@ message(STATUS "downloading...
 
 file(DOWNLOAD
   "http://sourceforge.net/projects/pantheios/files/Pantheios%20%28C%20and%20Cxx%29/1.0.1%20%28beta%20214%29/pantheios-1.0.1-beta214-src.zip"
-  "H:/Projekty/A2F/CMake_trash/src/pantheios-1.0.1-beta214-src.zip"
+  "I:/Projekty/A2F/CMake_trash/src/pantheios-1.0.1-beta214-src.zip"
   SHOW_PROGRESS
   # no EXPECTED_HASH
   # no TIMEOUT

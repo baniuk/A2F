@@ -1,7 +1,7 @@
 # Make file names absolute:
 #
-get_filename_component(filename "H:/Projekty/A2F/CMake_trash/src/stlsoft-1.9.117-hdrs.zip" ABSOLUTE)
-get_filename_component(directory "H:/Projekty/A2F/Third_Party/stlsoft-1.9.117" ABSOLUTE)
+get_filename_component(filename "I:/Projekty/A2F/CMake_trash/src/stlsoft-1.9.117-hdrs.zip" ABSOLUTE)
+get_filename_component(directory "I:/Projekty/A2F/Third_Party/stlsoft-1.9.117" ABSOLUTE)
 
 message(STATUS "extracting...
      src='${filename}'
