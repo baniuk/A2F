@@ -45,7 +45,6 @@ cecho {red on white}Applying patches...{default}{\n}
 unzip -u -n PANTH.zip -d ..\External_dep\%PANTH_NAME%\build
 IF %ERRORLEVEL% NEQ 0 goto :ERROR
 patch -p0 -f -d..\External_dep\%PANTH_NAME% -i ..\..\temp\PANTH.diff
-IF %ERRORLEVEL% NEQ 0 goto :ERROR
 rem Gtest
 cecho {red on white}Checkingout gtest...{default}{\n}
 svn checkout http://googletest.googlecode.com/svn/trunk/ ..\External_dep\gtest
@@ -53,7 +52,7 @@ rem kompilacja
 rem Pantheios 32bit
 cecho {red on white}Compiling %PANTH_NAME%...{default}{\n}
 cd ..\External_dep\%PANTH_NAME%\build\vc11
-rem nmake
+nmake
 rem cleaning
 cecho {red on white}Cleaning...{default}{\n}
 cd %CURRENT_DIR%
