@@ -1,8 +1,7 @@
 /**
  * \file    UnitOperations.cpp
  * \brief   COClass for unit operations
- * \details Implements basic interfaces required by CAPE-OPEN. Contains also initialization of Pantheios API. It seems that after adding model to workspace
- *			destructor is also called. Object is created, ask about ports and deleted.
+ * \details Implements basic interfaces required by CAPE-OPEN. Contains also initialization of Pantheios API.
  * \author  PB
  * \date    2013/09/10
  * \version 0.5
@@ -66,6 +65,7 @@ CUnitOperations::~CUnitOperations()
 * \see
 *			\li http://msdn.microsoft.com/en-us/library/afkt56xx(v=vs.110).aspx
 *			\li http://www.murrayc.com/learning/windows/usecomfromatl.shtml
+* \warning It seems that after adding model to workspace destructor is also called. Object is created, ask about ports and deleted.	
 */
 HRESULT CUnitOperations::FinalConstruct()
 {
@@ -74,7 +74,7 @@ HRESULT CUnitOperations::FinalConstruct()
 		return E_FAIL;
 	// set file name and path
 	pantheios_be_file_setFilePath(PSTR(PANTHEIOS_LOG_FILE_NAME), PANTHEIOS_BEID_ALL);
-	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("LOG API Initialized"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("LOG API Initialized")); 
 	return S_OK;
 }
 
@@ -100,77 +100,107 @@ STDMETHODIMP CUnitOperations::get_ports( LPDISPATCH * ports )
 
 STDMETHODIMP CUnitOperations::get_ValStatus( CapeValidationStatus * ValStatus )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CUnitOperations::Calculate()
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 
 STDMETHODIMP CUnitOperations::get_name( BSTR * name )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CUnitOperations::get_code( long * code )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CUnitOperations::get_description( BSTR * description )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CUnitOperations::get_scope( BSTR * scope )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CUnitOperations::get_interfaceName( BSTR * interfaceName )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CUnitOperations::get_operation( BSTR * operation )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CUnitOperations::get_moreInfo( BSTR * moreInfo )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CUnitOperations::get_ComponentName( BSTR * name )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CUnitOperations::put_ComponentName( BSTR name )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CUnitOperations::get_ComponentDescription( BSTR * desc )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CUnitOperations::put_ComponentDescription( BSTR desc )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CUnitOperations::get_parameters( LPDISPATCH * parameters )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
@@ -187,42 +217,57 @@ STDMETHODIMP CUnitOperations::get_parameters( LPDISPATCH * parameters )
 */
 STDMETHODIMP CUnitOperations::Initialize()
 {
-	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Initialize"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CUnitOperations::put_simulationContext( LPDISPATCH )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CUnitOperations::Edit()
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CUnitOperations::Terminate()
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CUnitOperations::get_reports( VARIANT * reports )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CUnitOperations::get_selectedReport( BSTR * report )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CUnitOperations::put_selectedReport( BSTR report )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CUnitOperations::ProduceReport( BSTR * message )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 

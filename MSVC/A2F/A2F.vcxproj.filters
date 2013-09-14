@@ -60,6 +60,9 @@
     <ClInclude Include="Pantheios_header.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DOC_MainPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="A2F.rc">

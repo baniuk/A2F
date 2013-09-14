@@ -153,6 +153,9 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
   <ItemGroup>
     <ClInclude Include="A2F_i.h" />
     <ClInclude Include="dllmain.h" />
+    <ClInclude Include="DOC_MainPage.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="Pantheios_header.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
