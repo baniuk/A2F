@@ -34,6 +34,12 @@
     <ClCompile Include="UnitOperations.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PortCollection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitPort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -63,6 +69,12 @@
     <ClInclude Include="DOC_MainPage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PortCollection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitPort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="A2F.rc">
@@ -88,6 +100,12 @@
     </None>
     <None Include="Version.bat">
       <Filter>Source Files</Filter>
+    </None>
+    <None Include="PortCollection.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="UnitPort.rgs">
+      <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

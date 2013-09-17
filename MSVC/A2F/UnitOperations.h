@@ -22,6 +22,8 @@
 
 using namespace ATL;
 
+/// definition of smart pointer for IPortCollection interface
+_COM_SMARTPTR_TYPEDEF(IPortCollection, __uuidof(IPortCollection));
 
 /**
  * \class CUnitOperations
@@ -88,6 +90,7 @@ public:
 	/// Initializing method called after constructor 
 	HRESULT FinalConstruct();
 
+	/// Cleaning-up before destructor
 	void FinalRelease();
 
 public:
@@ -154,7 +157,8 @@ public:
 	STDMETHOD(ProduceReport)(BSTR * message);
 
 private:
-
+	// collection of ports exposed by PMC to PME
+	IPortCollectionPtr portCollection;
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(UnitOperations), CUnitOperations)

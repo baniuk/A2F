@@ -1,0 +1,27 @@
+HKCR
+{
+	ForceRemove A2F.PortCollection.1 = s 'PortCollection Class'
+	{
+		CLSID = s '{B837F485-6A5A-4B3C-A6CA-2D5A0440060F}'
+	}
+	ForceRemove A2F.PortCollection = s 'PortCollection Class'
+	{
+		CLSID = s '{B837F485-6A5A-4B3C-A6CA-2D5A0440060F}'
+		CurVer = s 'A2F.PortCollection.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B837F485-6A5A-4B3C-A6CA-2D5A0440060F} = s 'PortCollection Class'
+		{
+			ProgID = s 'A2F.PortCollection.1'
+			VersionIndependentProgID = s 'A2F.PortCollection'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{E304CE16-F539-4DCA-BEF1-A77F6C1E447F}'
+			Version = s '1.0'
+		}
+	}
+}

@@ -10,39 +10,6 @@
 #include "stdafx.h"
 #include "UnitOperations.h"
 
-/// Log file name and initialization of Pantheios API
-PANTHEIOS_EXTERN_C const PAN_CHAR_T PANTHEIOS_FE_PROCESS_IDENTITY[] = PSTR("A2F");
-/**
- * \brief Struktura okreœlaj¹ca minimalny poziom b³edu który trafia do danego logu
- *
- * DEBUG jest poziomem najni¿szym, co znaczy ¿e do pliku trafi wszystko. Ta struktura dzia³a
- * jedynie gdy linkuje siê do biblioteki be.N. Kolejnoœæ b³êdów:
- * -# DEBUG
- * -# INFORMATIONAL
- * -# NOTICE
- * -# WARNING
- * -# ERROR
- * -# CRITICAL
- * -# ALERT
- * -# EMERGENCY
- * \n
- * Do konsoli trafi wszystko powy¿ej ERROR
- */
-pan_fe_N_t PAN_FE_N_SEVERITY_CEILINGS[]  = {
-    { toFile,  PANTHEIOS_SEV_DEBUG },
-    PANTHEIOS_FE_N_TERMINATOR_ENTRY(PANTHEIOS_SEV_CRITICAL)
-};
-
-/**
- * \brief Struktura ³¹cz¹ca poziom b³edu z konkretnym wyjœciem
- *
- * LOGI::File i LOGI::Console ³¹cz¹ siê z pozycjami w PAN_FE_N_SEVERITY_CEILINGS
- */
-pan_be_N_t PAN_BE_N_BACKEND_LIST[] = {
-    PANTHEIOS_BE_N_STDFORM_ENTRY(toFile, pantheios_be_file, 0),
-    PANTHEIOS_BE_N_TERMINATOR_ENTRY
-};
-
 // CUnitOperations
 
 CUnitOperations::CUnitOperations()
@@ -69,12 +36,15 @@ CUnitOperations::~CUnitOperations()
 */
 HRESULT CUnitOperations::FinalConstruct()
 {
-	// Logging API initialization
-	if(pantheios::init()<0)
-		return E_FAIL;
+// Logging API initialization
+//	if(pantheios::init()<0)
+//		return E_FAIL;
 	// set file name and path
-	pantheios_be_file_setFilePath(PSTR(PANTHEIOS_LOG_FILE_NAME), PANTHEIOS_BEID_ALL);
-	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("LOG API Initialized")); 
+//	pantheios_be_file_setFilePath(PSTR(PANTHEIOS_LOG_FILE_NAME), PANTHEIOS_BEID_ALL);
+//	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("LOG API Initialized")); 
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	portCollection.CreateInstance(__uuidof(PortCollection),NULL,CLSCTX_INPROC_SERVER);
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
 
@@ -85,17 +55,55 @@ HRESULT CUnitOperations::FinalConstruct()
 void CUnitOperations::FinalRelease()
 {
 	// closing log file
-	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("LOG API Closing"));
-	pantheios_be_file_setFilePath(NULL, PANTHEIOS_BEID_ALL);
-	pantheios::uninit();
+//	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("LOG API Closing"));
+//	pantheios_be_file_setFilePath(NULL, PANTHEIOS_BEID_ALL);
+//	pantheios::uninit();
 }
 
+/**
+* \details  Ports returns an ICapeCollection interface that provides access to the unit’s list of ports. Each element accessed through
+* the returned interface must support the ICapeUnitPort interface. It is called by PME just after initialization.
+* \param[out]	ports	pointer to IPortCollection
+* \return   Return S_OK on success or one of the standard error HRESULT values.
+* \retval   status   The program status.
+*                     \li HRESULT	if exception _com_error caught or QueryInterface not returned S_OK 
+*                     \li E_FAIL	if unsuported exception caught
+*                     \li S_OK		Success
+* \see
+*			\li AspenPlusUserModelsV8_2-Ref.pdf pp. 271, 273
+*/
 STDMETHODIMP CUnitOperations::get_ports( LPDISPATCH * ports )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	PANTHEIOS_TRACE_DEBUG(PSTR("x = "),pantheios::real(10.5));
+	IPortCollection *tmp;	// temporary var for holding IportCollection pointer (CportCollection coclass)
+	HRESULT err;	// error code for QueryInterface
+	try
+	{
+		err = portCollection->QueryInterface(__uuidof(IPortCollection),(void**)&tmp); // getting interface pointer (creating referenco of CoClass)
+	}
+	catch(_com_error e)	// catching com errors encapsulated in _ccom_error class
+	{
+		PANTHEIOS_TRACE_ERROR(PSTR("IPortCollection->QueryInterface exception: "),e.ErrorMessage());
+		PANTHEIOS_TRACE_ERROR(PSTR("IPortCollection->QueryInterface error code: "),pantheios::integer(e.Error()));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return e.Error();	// return HRESULT
+	}
+	catch(...)	// unsuported exceptions
+	{
+		PANTHEIOS_TRACE_CRITICAL(PSTR("Unexpected IPortCollection->QueryInterface exception"));
+		return E_FAIL;	// unexpected exception
+	}
+	if(S_OK == err) 
+	{
+		PANTHEIOS_TRACE_DEBUG(PSTR("IportCollection addres "), pantheios::pointer(tmp,pantheios::fmt::fullHex));
+		*ports = (LPDISPATCH)tmp;	// pointer to port collection exposed to PME 
+	}
+	else
+	{
+		PANTHEIOS_TRACE_ERROR(PSTR("IPortCollection->QueryInterface error code: "),pantheios::integer(err));
+	}
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return err;	// return S_OK or other HRESULT
 }
 
 STDMETHODIMP CUnitOperations::get_ValStatus( CapeValidationStatus * ValStatus )
