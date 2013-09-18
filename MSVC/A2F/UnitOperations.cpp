@@ -24,11 +24,11 @@ CUnitOperations::~CUnitOperations()
 
 /**
 * \details  COM initialization method called after construction of the object. Other interfaces should be created here.
-*			Initializes also logging API and sets output log file.
+*			\li Set names of component and descriptions
+*			\li create instance of CPortCollection
 * \return   Return S_OK on success or one of the standard error HRESULT values.
-* \retval   status   The program status.
-*                     \li E_FAIL = on Pantheios initialization fail (file and api)
-*                     \li S_OK = Success
+* \retval   status   The CreateInstance status  - http://msdn.microsoft.com/en-us/library/windows/desktop/ms686615(v=vs.85).aspx
+*                     \li S_OK		Success
 * \see
 *			\li http://msdn.microsoft.com/en-us/library/afkt56xx(v=vs.110).aspx
 *			\li http://www.murrayc.com/learning/windows/usecomfromatl.shtml
@@ -36,33 +36,43 @@ CUnitOperations::~CUnitOperations()
 */
 HRESULT CUnitOperations::FinalConstruct()
 {
-// Logging API initialization
-//	if(pantheios::init()<0)
-//		return E_FAIL;
-	// set file name and path
-//	pantheios_be_file_setFilePath(PSTR(PANTHEIOS_LOG_FILE_NAME), PANTHEIOS_BEID_ALL);
-//	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("LOG API Initialized")); 
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	portCollection.CreateInstance(__uuidof(PortCollection),NULL,CLSCTX_INPROC_SERVER);
+	HRESULT err_code;	// cede returned by COM functions used below
+	// set name and description of the PMC
+	componentName = L"A2F";
+	componentDescription = L"FLUENT CAPE-OPEN unit operation implemented in CPP";
+
+	// create instance of CoClass for ICapePortCollection
+	err_code = portCollection.CreateInstance(__uuidof(PortCollection),NULL,CLSCTX_INPROC_SERVER);
+	if(S_OK==err_code)
+		PANTHEIOS_TRACE_DEBUG(	PSTR("Instance of PortCollection created"),
+								PSTR(" Error: "), winstl::error_desc_a(err_code));
+	else
+		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of PortCollection not created because: "), 
+								pantheios::integer(err_code,pantheios::fmt::fullHex),
+								PSTR(" Error: "), winstl::error_desc_a(err_code));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return S_OK;
+	return err_code;
 }
 
 /**
-* \details  Close log file and un-initialize Pantheios API
+* \details  Release all interfaces
 * \return   none
 */
 void CUnitOperations::FinalRelease()
 {
-	// closing log file
-//	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("LOG API Closing"));
-//	pantheios_be_file_setFilePath(NULL, PANTHEIOS_BEID_ALL);
-//	pantheios::uninit();
+	// releases Aspen interfaces
+	ULONG count = simulationContext->Release(); // returns currnet object reference count
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Release IDispatch pointer: "), 
+							pantheios::pointer(simulationContext,pantheios::fmt::fullHex),
+							PSTR("count= "),
+							pantheios::integer(count));
 }
 
 /**
 * \details  Ports returns an ICapeCollection interface that provides access to the unit’s list of ports. Each element accessed through
 * the returned interface must support the ICapeUnitPort interface. It is called by PME just after initialization.
+* Query interface returns error code if requested interface is not supported. In case more general errors, exception _com_error is thrown.
 * \param[out]	ports	pointer to IPortCollection
 * \return   Return S_OK on success or one of the standard error HRESULT values.
 * \retval   status   The program status.
@@ -76,15 +86,17 @@ STDMETHODIMP CUnitOperations::get_ports( LPDISPATCH * ports )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	IPortCollection *tmp;	// temporary var for holding IportCollection pointer (CportCollection coclass)
-	HRESULT err;	// error code for QueryInterface
+	HRESULT err_code;	// error code for QueryInterface
+	// check if there is no general error with smart pointers (before HRESULT is initialized)
 	try
 	{
-		err = portCollection->QueryInterface(__uuidof(IPortCollection),(void**)&tmp); // getting interface pointer (creating referenco of CoClass)
+		err_code = portCollection->QueryInterface(__uuidof(IPortCollection),reinterpret_cast<void**>(&tmp)); // getting interface pointer (creating referenco of CoClass)
 	}
 	catch(_com_error e)	// catching com errors encapsulated in _ccom_error class
 	{
+		// we are here in case of general errors with portCollection pointer and query interface
 		PANTHEIOS_TRACE_ERROR(PSTR("IPortCollection->QueryInterface exception: "),e.ErrorMessage());
-		PANTHEIOS_TRACE_ERROR(PSTR("IPortCollection->QueryInterface error code: "),pantheios::integer(e.Error()));
+		PANTHEIOS_TRACE_ERROR(PSTR("IPortCollection->QueryInterface error code: "),pantheios::integer(e.Error(),pantheios::fmt::fullHex));
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return e.Error();	// return HRESULT
 	}
@@ -93,17 +105,22 @@ STDMETHODIMP CUnitOperations::get_ports( LPDISPATCH * ports )
 		PANTHEIOS_TRACE_CRITICAL(PSTR("Unexpected IPortCollection->QueryInterface exception"));
 		return E_FAIL;	// unexpected exception
 	}
-	if(S_OK == err) 
+	if(S_OK == err_code) 
 	{
-		PANTHEIOS_TRACE_DEBUG(PSTR("IportCollection addres "), pantheios::pointer(tmp,pantheios::fmt::fullHex));
-		*ports = (LPDISPATCH)tmp;	// pointer to port collection exposed to PME 
+		PANTHEIOS_TRACE_DEBUG(	PSTR("IportCollection addres "),
+								pantheios::pointer(tmp,pantheios::fmt::fullHex),
+								PSTR(" Error: "), winstl::error_desc_a(err_code));
+		*ports = dynamic_cast<LPDISPATCH>(tmp);	// pointer to port collection exposed to PME 
 	}
 	else
 	{
-		PANTHEIOS_TRACE_ERROR(PSTR("IPortCollection->QueryInterface error code: "),pantheios::integer(err));
+		// we ar ehere in case if portCollection is ok but requested interface is not supported
+		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of PortCollection not created because: "), 
+								pantheios::integer(err_code,pantheios::fmt::fullHex),
+								PSTR(" Error: "), winstl::error_desc_a(err_code));
 	}
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return err;	// return S_OK or other HRESULT
+	return err_code;	// return S_OK or other HRESULT
 }
 
 STDMETHODIMP CUnitOperations::get_ValStatus( CapeValidationStatus * ValStatus )
@@ -177,32 +194,71 @@ STDMETHODIMP CUnitOperations::get_moreInfo( BSTR * moreInfo )
 	return E_NOTIMPL;
 }
 
+/**
+* \details  Returns component name from PMC. Default name is set in CUnitOperations::FinalConstruct()
+* \param[out]	name	name of the component returned to PME	
+* \return   CapeError
+* \retval   status   The program status.
+*           \li S_OK		Success
+*/
 STDMETHODIMP CUnitOperations::get_ComponentName( BSTR * name )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	*name = componentName.Copy();
+	PANTHEIOS_TRACE_DEBUG(PSTR("Component name passed to PME: "), PW2M(componentName) );
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
+/**
+* \details  Allows to save name of the component given by PME. This name can be later passed to other PMES that use this control. Method is called
+* on name change
+* \param[in]	name	name of the component passed from PME.
+* \return   CapeError
+* \retval   status   The program status.
+*                     \li S_OK		Success
+*/
 STDMETHODIMP CUnitOperations::put_ComponentName( BSTR name )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	componentName.Empty();	// clear string
+	componentName = name;	// copy string from PME
+	PANTHEIOS_TRACE_DEBUG(PSTR("Component name: "), PW2M(componentName) );
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
+/**
+* \details  Returns component desc from PMC. Default desc is set in CUnitOperations::FinalConstruct()
+* \param[out]	desc	desc of the component returned to PME	
+* \return   CapeError
+* \retval   status   The program status.
+*           \li S_OK		Success
+*/
 STDMETHODIMP CUnitOperations::get_ComponentDescription( BSTR * desc )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	*desc = componentDescription.Copy();
+	PANTHEIOS_TRACE_DEBUG(PSTR("Component desc passed to PME: "), PW2M(componentDescription) );
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
+/**
+* \details  Allows to save description of the component given by PME. This name can be later passed to other PMES that use this control
+* \param[in]	desc	description of the component passed from PME.
+* \return   CapeError
+* \retval   status   The program status.
+*                     \li S_OK		Success
+*/
 STDMETHODIMP CUnitOperations::put_ComponentDescription( BSTR desc )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	componentDescription.Empty();	// clear string
+	componentDescription = desc;	// copy string from PME
+	PANTHEIOS_TRACE_DEBUG(PSTR("Component description: "), PW2M(componentDescription) );
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
 STDMETHODIMP CUnitOperations::get_parameters( LPDISPATCH * parameters )
@@ -230,11 +286,27 @@ STDMETHODIMP CUnitOperations::Initialize()
 	return E_NOTIMPL;
 }
 
-STDMETHODIMP CUnitOperations::put_simulationContext( LPDISPATCH )
+/**
+* \details  Allows to save simulation context given by PME. Simulation context can be used for calling ASPEN interfaces
+* \param[in]	rhs		pointer to Dispatch interface
+* \return   CapeError
+* \retval   status   The program status.
+*           \li S_OK		Success
+* \warning Original definitions does not include rhs parameter??          
+*/
+STDMETHODIMP CUnitOperations::put_simulationContext( LPDISPATCH rhs)
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	// remembering pointer to Dispatch interface
+	simulationContext = rhs;
+	// increasing counter of references
+	ULONG count = simulationContext->AddRef();
+	PANTHEIOS_TRACE_DEBUG(	PSTR("AddRef IDispatch pointer: "), 
+							pantheios::pointer(simulationContext,pantheios::fmt::fullHex),
+							PSTR(" count= "),
+							pantheios::integer(count));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
 STDMETHODIMP CUnitOperations::Edit()

@@ -122,6 +122,12 @@ public:
 	STDMETHOD(get_ComponentDescription)(BSTR * desc);
 	/// ICapeIdentification Methods
 	STDMETHOD(put_ComponentDescription)(BSTR desc);
+
+private:
+	// name of te component passed by PME
+	CComBSTR componentName;
+	// description passed from PME
+	CComBSTR componentDescription;
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(PortCollection), CPortCollection)

@@ -46,12 +46,19 @@
 #include <pantheios/inserters/real.hpp>
 #include <pantheios/inserters/pointer.hpp>
 #include <pantheios/inserters/integer.hpp>
+#include <pantheios/inserters/args.hpp>
+#include <pantheios/inserters/m2w.hpp>
+#include <pantheios/inserters/w2m.hpp>
 
 // http://sourceforge.net/projects/pantheios/forums/forum/475314/topic/2186546
 // 
 /// Konwersja ci¹gów wymagana przez Pantheios, w zale¿noœci od ustawieñ kompilatora u¿ywa poprawnych ci¹g³ow
 #ifndef PSTR
 	#define PSTR(x)         PANTHEIOS_LITERAL_STRING(x)
+#endif
+/// Konwersja ³añcuchów CComBSTR do formatu akceptowanego przez makro PANTHEIOS_TRACE_XXX
+#ifndef PW2M
+	#define PW2M(x)		pantheios::w2m(x.m_str,x.Length())
 #endif
 
 // Biblioteki ³¹czone dynamicznie, nie trzeba wpisywac ich nazwy. Dla UNIXA moze byæ inaczej. Przyk³ad rozpoznania:

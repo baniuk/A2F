@@ -121,6 +121,12 @@ public:
 	STDMETHOD(Connect)(LPDISPATCH objectToConnect);
 	/// ICapeUnitPort Methods
 	STDMETHOD(Disconnect)();
+
+private:
+	// name of te component passed by PME
+	CComBSTR componentName;
+	// description passed from PME
+	CComBSTR componentDescription;
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(UnitPort), CUnitPort)

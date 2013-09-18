@@ -4,43 +4,15 @@ New features:
 	+ Lib & incl settings in project
 	+ Pantheios API
 	+ ICapeCollection implementation
+	+ ICapeUnitOperations::put_ComponentName
+	+ ICapeUnitOperations::get_ComponentName
+	+ ICapeUnitOperations::get_ComponentDescription
+	+ ICapeUnitOperations::put_ComponentDescription
+	+ ICapePortCollection::put_ComponentName
+	+ ICapePortCollection::get_ComponentName
+	+ ICapePortCollection::get_ComponentDescription
+	+ ICapePortCollection::put_ComponentDescription
+	+ ICapeUnitOperations::put_simulationContext
 	- ICapeUnitPort implementation
-	- no implementation to methods called by PME
-		[A2F.1564, 9/17/2013 1:53:38.212 PM; Informational]: Logger disabled!
-		[A2F.1564, 9/17/2013 2:33:30.770 PM; Informational]: Logger enabled!
-		[A2F.1564, 9/17/2013 2:33:30.770 PM; Informational]: (45): CUnitOperations::FinalConstruct: Entering
-		[A2F.1564, 9/17/2013 2:33:30.770 PM; Informational]: (31): CPortCollection::FinalConstruct: Entering
-		[A2F.1564, 9/17/2013 2:33:30.770 PM; Informational]: (32): CPortCollection::FinalConstruct: Leaving
-		[A2F.1564, 9/17/2013 2:33:30.770 PM; Informational]: (47): CUnitOperations::FinalConstruct: Leaving
-		[A2F.1564, 9/17/2013 2:33:30.770 PM; Informational]: (228): CUnitOperations::Initialize: Entering
-		[A2F.1564, 9/17/2013 2:33:30.770 PM; Informational]: (229): CUnitOperations::Initialize: Leaving
-		[A2F.1564, 9/17/2013 2:33:30.770 PM; Informational]: (189): CUnitOperations::put_ComponentName: Entering
-		[A2F.1564, 9/17/2013 2:33:30.770 PM; Informational]: (190): CUnitOperations::put_ComponentName: Leaving
-		[A2F.1564, 9/17/2013 2:33:30.770 PM; Informational]: (235): CUnitOperations::put_simulationContext: Entering
-		[A2F.1564, 9/17/2013 2:33:30.770 PM; Informational]: (236): CUnitOperations::put_simulationContext: Leaving
-		[A2F.1564, 9/17/2013 2:33:30.770 PM; Informational]: (77): CUnitOperations::get_ports: Entering
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Debug]: (98): CUnitOperations::get_ports: IportCollection addres 0x7ed188
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (105): CUnitOperations::get_ports: Leaving
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (98): CPortCollection::Count: Entering
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (99): CPortCollection::Count: Leaving
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (105): CPortCollection::get_ComponentName: Entering
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (106): CPortCollection::get_ComponentName: Leaving
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (51): CPortCollection::get_code: Entering
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (52): CPortCollection::get_code: Leaving
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (58): CPortCollection::get_description: Entering
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (59): CPortCollection::get_description: Leaving
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (72): CPortCollection::get_interfaceName: Entering
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (73): CPortCollection::get_interfaceName: Leaving
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (210): CUnitOperations::get_parameters: Entering
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (211): CUnitOperations::get_parameters: Leaving
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (182): CUnitOperations::get_ComponentName: Entering
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (183): CUnitOperations::get_ComponentName: Leaving
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (140): CUnitOperations::get_code: Entering
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (141): CUnitOperations::get_code: Leaving
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (147): CUnitOperations::get_description: Entering
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (148): CUnitOperations::get_description: Leaving
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (175): CUnitOperations::get_moreInfo: Entering
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (176): CUnitOperations::get_moreInfo: Leaving
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (161): CUnitOperations::get_interfaceName: Entering
-		[A2F.1564, 9/17/2013 2:33:30.802 PM; Informational]: (162): CUnitOperations::get_interfaceName: Leaving
+	- IATCapeXDiagnostic implementation
 Bugfixes	

@@ -47,6 +47,7 @@ extern "C" BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpRes
 {
 	if (dwReason == DLL_PROCESS_ATTACH)
 	{
+		// Logging API initialization
 		if (pantheios::pantheios_init() < 0)
 		{
 			std::cout << "Failed to initialise the Pantheios logging libraries!\n" << std::endl;
@@ -58,7 +59,7 @@ extern "C" BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpRes
 			pantheios::log_INFORMATIONAL("Logger enabled!");
 		}
 	}
-	else if (dwReason == DLL_PROCESS_DETACH)
+	else if (dwReason == DLL_PROCESS_DETACH)	// closing logging API
 	{
 		pantheios::log_INFORMATIONAL("Logger disabled!");
 		pantheios_be_file_setFilePath(NULL, PANTHEIOS_BEID_ALL);

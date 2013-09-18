@@ -135,7 +135,7 @@ public:
 	/// ICapeUtilities Method
 	STDMETHOD(get_parameters)(LPDISPATCH * parameters);
 	/// ICapeUtilities Method
-	STDMETHOD(put_simulationContext)(LPDISPATCH );
+	STDMETHOD(put_simulationContext)(LPDISPATCH rhs);
 	/// ICapeUtilities Method
 	STDMETHOD(Initialize)();
 	/// ICapeUtilities Method
@@ -159,6 +159,12 @@ public:
 private:
 	// collection of ports exposed by PMC to PME
 	IPortCollectionPtr portCollection;
+	// name of te component passed by PME
+	CComBSTR componentName;
+	// description passed from PME
+	CComBSTR componentDescription;
+	// simulation context used for calling aspen interfaces
+	LPDISPATCH simulationContext;
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(UnitOperations), CUnitOperations)

@@ -27,4 +27,10 @@
 
 // user includes
 #include "Pantheios_header.h"
+// adds decoding HRESULT errors (winstl::error_desc_a(err_code))
+#include <winstl/error/error_desc.hpp>
 #include <iostream>
+
+// user definitions
+#define YES TRUE
+#define NO FALSE
