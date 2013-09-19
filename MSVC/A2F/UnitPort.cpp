@@ -196,3 +196,9 @@ STDMETHODIMP CUnitPort::Disconnect()
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
+
+STDMETHODIMP CUnitPort::set_PortType( int portType )
+{
+	// Add your function implementation here.
+	return E_NOTIMPL;
+}
