@@ -21,4 +21,6 @@ New features:
 	+ IATCapeXDiagnostic implementation
 	- ICapeUnitPort implementation
 	- ICapeParameter implementation
+	--------------------------------------------------------------------
+	PME visible under ASPEN but no ports yet. Logging works, most interfaces and methods implemented
 Bugfixes	

@@ -30,7 +30,7 @@ CParameterCollection::~CParameterCollection()
 *			\li Set names of interface and descriptions
 * \return   Return S_OK on success or one of the standard error HRESULT values.
 * \retval   status   The program status.
-*                     \li S_OK = Success
+*           \li S_OK = Success
 */
 HRESULT CParameterCollection::FinalConstruct()
 {
