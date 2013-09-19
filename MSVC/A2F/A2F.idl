@@ -17,6 +17,33 @@ import "ocidl.idl";
 interface IUnitOperations : IDispatch{
 };
 [
+	object,
+	uuid(373AF87E-7579-43F8-B97D-045DCCE88E9E),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IPortCollection : IDispatch{
+};
+[
+	object,
+	uuid(EBBFAD37-B5F7-489E-87E2-C0DAA10D6D79),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IUnitPort : IDispatch{
+};
+[
+	object,
+	uuid(8DF9EFD1-9C1A-46A5-B3AF-2BEAB2067E46),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IParameterCollection : IDispatch{
+};
+[
 	uuid(E304CE16-F539-4DCA-BEF1-A77F6C1E447F),
 	version(1.0),
 ]
@@ -29,6 +56,27 @@ library A2FLib
 	coclass UnitOperations
 	{
 		[default] interface IUnitOperations;
+	};
+	[
+		uuid(B837F485-6A5A-4B3C-A6CA-2D5A0440060F)		
+	]
+	coclass PortCollection
+	{
+		[default] interface IPortCollection;
+	};
+	[
+		uuid(323340E4-D19F-44F4-AF0E-A051D407FC45)		
+	]
+	coclass UnitPort
+	{
+		[default] interface IUnitPort;
+	};
+	[
+		uuid(517833D9-2895-4588-AE54-2D3F4473A3C5)		
+	]
+	coclass ParameterCollection
+	{
+		[default] interface IParameterCollection;
 	};
 };
 

@@ -22,6 +22,8 @@
 
 using namespace ATL;
 
+/// definition of smart pointer for IPortCollection interface
+_COM_SMARTPTR_TYPEDEF(IPortCollection, __uuidof(IPortCollection));
 
 /**
  * \class CUnitOperations
@@ -36,6 +38,7 @@ using namespace ATL;
  * \li ICapeUtilities
  * \li ECapeUnknown
  * \li ICapeUnitReport
+ * \li ICapeDiagnostic - no implementation on PMC side. Only to use on PME side.
  *
  * \note Represents basic object initiated at the beginning
  *
@@ -49,6 +52,9 @@ using namespace ATL;
  * \li Methods&Tools_Integrated_Guidelines.pdf
  *
  * \todo Finish documentation - add methods descriptions
+ * 
+ * \warning ICapeDiagnostic - likely not neccessary to implement. Should be found correct tlb in registry? The same situation in case of
+ * ICapeParameter interface witch is not implemented here but called by IID
  */
 class ATL_NO_VTABLE CUnitOperations :
 	public CComObjectRootEx<CComSingleThreadModel>,
@@ -60,7 +66,8 @@ class ATL_NO_VTABLE CUnitOperations :
 	public IDispatchImpl<ICapeIdentification, &__uuidof(ICapeIdentification), &LIBID_CAPEOPEN100, /* wMajor = */ 1>,
 	public IDispatchImpl<ICapeUtilities, &__uuidof(ICapeUtilities), &LIBID_CAPEOPEN100, /* wMajor = */ 1>,
 	public IDispatchImpl<ECapeUnknown, &__uuidof(ECapeUnknown), &LIBID_CAPEOPEN100, /* wMajor = */ 1>,
-	public IDispatchImpl<ICapeUnitReport, &__uuidof(ICapeUnitReport), &LIBID_CAPEOPEN100, /* wMajor = */ 1>
+	public IDispatchImpl<ICapeUnitReport, &__uuidof(ICapeUnitReport), &LIBID_CAPEOPEN100, /* wMajor = */ 1>,
+	public IDispatchImpl<ICapeDiagnostic, &__uuidof(ICapeDiagnostic), &LIBID_CAPEOPEN100, /* wMajor = */ 1>
 {
 public:
 	CUnitOperations();
@@ -79,15 +86,17 @@ public:
 		COM_INTERFACE_ENTRY(ICapeUtilities)
 		COM_INTERFACE_ENTRY(ECapeUnknown)
 		COM_INTERFACE_ENTRY(ICapeUnitReport)
+		COM_INTERFACE_ENTRY(ICapeDiagnostic)
 	END_COM_MAP()
 
 
 
 	DECLARE_PROTECT_FINAL_CONSTRUCT()
 
-	/// Initializing method called after constructor
+	/// Initializing method called after constructor 
 	HRESULT FinalConstruct();
 
+	/// Cleaning-up before destructor
 	void FinalRelease();
 
 public:
@@ -132,7 +141,7 @@ public:
 	/// ICapeUtilities Method
 	STDMETHOD(get_parameters)(LPDISPATCH * parameters);
 	/// ICapeUtilities Method
-	STDMETHOD(put_simulationContext)(LPDISPATCH );
+	STDMETHOD(put_simulationContext)(LPDISPATCH rhs);
 	/// ICapeUtilities Method
 	STDMETHOD(Initialize)();
 	/// ICapeUtilities Method
@@ -153,7 +162,35 @@ public:
 	/// ICapeUnitReport Method
 	STDMETHOD(ProduceReport)(BSTR * message);
 
+public:
+	/// ICapeDiagnostic Methods
+	STDMETHOD(PopUpMessage)(BSTR message);
+	/// ICapeDiagnostic Methods
+	STDMETHOD(LogMessage)(BSTR message);
+
 private:
+	/// collection of ports exposed by PMC to PME
+	IPortCollectionPtr portCollection;
+	/// name of te component passed by PME
+	CComBSTR componentName;
+	/// description passed from PME
+	CComBSTR componentDescription;
+	/// simulation context used for calling aspen interfaces
+	LPDISPATCH simulationContext;
+	/// status of the PMC
+	/**
+	* \details Calling the Validate method is expected to set the unit’s status to either CAPE_VALID or CAPE_INVALID, depending on whether the 
+	* validation tests succeed or fail. Making a change to the unit operation, such as setting a parameter value, or connecting a stream to
+	* a port is expected to set the unit’s status to CAPE_NOT_VALIDATED.
+	 * Contains starus of the PMC. Can have the following values:
+	 * \li CAPE_INVALID
+	 * \li CAPE_VALID
+	 * \li CAPE_NOT_VALIDATED
+	 * 
+	 * \see AspenPlusUserModelsV8_2-Ref.pdf pp. 274
+	 */
+	CapeValidationStatus validationStatus;
+
 
 };
 
