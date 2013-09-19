@@ -24,3 +24,13 @@
 #include <atlcom.h>
 #include <atlctl.h>
 #import "c:\Program Files (x86)\Common Files\CAPE-OPEN\CAPE-OPENv1-0-0.tlb" raw_interfaces_only, raw_native_types, no_namespace, named_guids, auto_search
+
+// user includes
+#include "Pantheios_header.h"
+// adds decoding HRESULT errors (winstl::error_desc_a(err_code))
+#include <winstl/error/error_desc.hpp>
+#include <iostream>
+
+// user definitions
+#define YES TRUE
+#define NO FALSE

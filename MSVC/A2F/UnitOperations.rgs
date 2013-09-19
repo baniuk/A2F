@@ -1,20 +1,20 @@
 HKCR
 {
-	ForceRemove A2F.UnitOperation.1 = s 'UnitOperation Class'
+	ForceRemove A2F.UnitOperations.1 = s 'UnitOperations Class'
 	{
 		CLSID = s '{A9129436-FB2C-4D26-B88D-A61E4D594BCB}'
 	}
-	ForceRemove A2F.UnitOperation = s 'UnitOperation Class'
+	ForceRemove A2F.UnitOperations = s 'UnitOperations Class'
 	{
 		CLSID = s '{A9129436-FB2C-4D26-B88D-A61E4D594BCB}'
-		CurVer = s 'A2F.UnitOperation.1'
+		CurVer = s 'A2F.UnitOperations.1'
 	}
 	NoRemove CLSID
 	{
 		ForceRemove {A9129436-FB2C-4D26-B88D-A61E4D594BCB} = s 'UnitOperations Class'
 		{
-			ProgID = s 'A2F.UnitOperation.1'
-			VersionIndependentProgID = s 'A2F.UnitOperation'
+			ProgID = s 'A2F.UnitOperations.1'
+			VersionIndependentProgID = s 'A2F.UnitOperations'
 			ForceRemove Programmable
 			InprocServer32 = s '%MODULE%'
 			{

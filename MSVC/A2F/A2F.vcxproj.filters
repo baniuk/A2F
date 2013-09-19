@@ -34,6 +34,15 @@
     <ClCompile Include="UnitOperations.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PortCollection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitPort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ParameterCollection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -54,6 +63,24 @@
     <ClInclude Include="UnitOperations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="VersionNo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pantheios_header.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DOC_MainPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PortCollection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitPort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ParameterCollection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="A2F.rc">
@@ -62,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+    <Text Include="Changes.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="A2F.rgs">
@@ -71,6 +99,21 @@
       <Filter>Source Files</Filter>
     </None>
     <None Include="UnitOperations.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="A2F.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Version.bat">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="PortCollection.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="UnitPort.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ParameterCollection.rgs">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

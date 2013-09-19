@@ -1,0 +1,26 @@
+version 0.3
+New features:
+	+ File versioning
+	+ Lib & incl settings in project
+	+ Pantheios API
+	+ ICapeCollection implementation
+	+ ICapeUnitOperations::put_ComponentName
+	+ ICapeUnitOperations::get_ComponentName
+	+ ICapeUnitOperations::get_ComponentDescription
+	+ ICapeUnitOperations::put_ComponentDescription
+	+ ICapePortCollection::put_ComponentName
+	+ ICapePortCollection::get_ComponentName
+	+ ICapePortCollection::get_ComponentDescription
+	+ ICapePortCollection::put_ComponentDescription
+	+ ICapeParameterCollection::put_ComponentName
+	+ ICapeParameterCollection::get_ComponentName
+	+ ICapeParameterCollection::get_ComponentDescription
+	+ ICapeParameterCollection::put_ComponentDescription
+	+ ICapeUnitOperations::put_simulationContext
+	+ ICapeUnitOperations::get_ValStatus
+	+ IATCapeXDiagnostic implementation
+	- ICapeUnitPort implementation
+	- ICapeParameter implementation
+	--------------------------------------------------------------------
+	PME visible under ASPEN but no ports yet. Logging works, most interfaces and methods implemented
+Bugfixes	

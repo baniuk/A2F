@@ -20,7 +20,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
     <UseOfAtl>Dynamic</UseOfAtl>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -43,7 +43,8 @@
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>true</LinkIncremental>
     <OutDir>i:\Projekty\SharedA2F\$(Configuration)\</OutDir>
-    <LibraryPath>$(SolutionDir)..\Third_Party;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)..\External_dep\pantheios-1.0.1-beta214\lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)..\External_dep\pantheios-1.0.1-beta214\include\;$(SolutionDir)..\External_dep\stlsoft-1.9.117\include\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
@@ -54,7 +55,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;PANTHEIOS_FORCE_AUTO_INIT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -79,6 +80,18 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <RegisterOutput>true</RegisterOutput>
     </Link>
+    <PreBuildEvent>
+      <Command>$(ProjectDir)..\..\tools\verbuild.exe $(ProjectDir)VersionNo.h -c
+$(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -131,30 +144,49 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ParameterCollection.cpp" />
+    <ClCompile Include="PortCollection.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="UnitOperations.cpp" />
+    <ClCompile Include="UnitPort.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="A2F_i.h" />
     <ClInclude Include="dllmain.h" />
+    <ClInclude Include="DOC_MainPage.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Pantheios_header.h" />
+    <ClInclude Include="ParameterCollection.h" />
+    <ClInclude Include="PortCollection.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="UnitOperations.h" />
+    <ClInclude Include="UnitPort.h" />
+    <ClInclude Include="VersionNo.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="A2F.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Changes.txt">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </Text>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="A2F.def" />
+    <None Include="A2F.rc2" />
     <None Include="A2F.rgs" />
+    <None Include="ParameterCollection.rgs" />
+    <None Include="PortCollection.rgs" />
     <None Include="UnitOperations.rgs" />
+    <None Include="UnitPort.rgs" />
+    <None Include="Version.bat" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="A2F.idl" />
