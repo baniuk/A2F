@@ -4,7 +4,7 @@
  * \details Implements basic interfaces required by CAPE-OPEN. Contains also initialization of Pantheios API.
  * \author  PB
  * \date    2013/09/10
- * \version 0.5
+ * \version 0.4
  */
 
 #include "stdafx.h"
@@ -26,6 +26,7 @@ CUnitOperations::~CUnitOperations()
 * \details  COM initialization method called after construction of the object. Other interfaces should be created here.
 *			\li Set names of component and descriptions
 *			\li create instance of CPortCollection
+*			\li create instance CUnitPort
 * \return   Return S_OK on success or one of the standard error HRESULT values.
 * \retval   status   The CreateInstance status  - http://msdn.microsoft.com/en-us/library/windows/desktop/ms686615(v=vs.85).aspx
 *                     \li S_OK		Success
@@ -48,11 +49,30 @@ HRESULT CUnitOperations::FinalConstruct()
 		PANTHEIOS_TRACE_DEBUG(	PSTR("Instance of PortCollection created"),
 								PSTR(" Error: "), winstl::error_desc_a(err_code));
 	else
+	{
 		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of PortCollection not created because: "), 
-								pantheios::integer(err_code,pantheios::fmt::fullHex),
-								PSTR(" Error: "), winstl::error_desc_a(err_code));
-	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return err_code;
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}
+
+	// create instance of port
+//	err_code = inputPort.CoCreateInstance(__uuidof(UnitPort));
+ 	err_code = inputPort.CreateInstance(__uuidof(UnitPort),NULL,CLSCTX_INPROC_SERVER);
+	if(S_OK==err_code)
+		PANTHEIOS_TRACE_DEBUG(	PSTR("Instance of UnitPort created"),
+		PSTR(" Error: "), winstl::error_desc_a(err_code));
+	else
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of UnitPort not created because: "), 
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}
+	return S_OK;
+	
 }
 
 /**
@@ -286,6 +306,7 @@ STDMETHODIMP CUnitOperations::get_parameters( LPDISPATCH * parameters )
 *			The Initialize method must not change the current working directory: if it does Aspen Plus will not be able to access its own files and will fail.
 *			If the Initialize method needs to display a dialog to allow a user to open a file, it must ensure that the current working directory is restored
 *			after a file is selected.
+*			This method creates ports and assign them to IPortCollection
 * \return   CapeError
 * \retval   status   The program status.
 *                     \li S_OK = Success
@@ -294,7 +315,9 @@ STDMETHODIMP CUnitOperations::get_parameters( LPDISPATCH * parameters )
 */
 STDMETHODIMP CUnitOperations::Initialize()
 {
+	IUnitPort *tmp;
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	inputPort->QueryInterface(__uuidof(IUnitPort),reinterpret_cast<void**>(&tmp));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }

@@ -121,12 +121,26 @@ public:
 	STDMETHOD(Connect)(LPDISPATCH objectToConnect);
 	/// ICapeUnitPort Methods
 	STDMETHOD(Disconnect)();
+	/// ICapeUnitPort Methods - own extension
+	STDMETHOD(put_direction)(CapePortDirection portDirection);
 
 private:
-	// name of te component passed by PME
+	/// name of te component passed by PME
 	CComBSTR componentName;
-	// description passed from PME
+	/// description passed from PME
 	CComBSTR componentDescription;
+	/// direction of the port
+	/**
+	* \details Define direction of the port. 
+	 * \li CAPE_INLET - default
+	 * \li CAPE_OUTLET
+	 * \li CAPE_INLET_OUTLET - should not be used
+	 * 
+	 * \see CO_Unit_Operations_v6.25.pdf pp. 280
+	 */
+	CapePortDirection portDirection;
+
+	
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(UnitPort), CUnitPort)

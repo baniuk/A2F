@@ -15,7 +15,8 @@
 
 CUnitPort::CUnitPort()
 {
-
+	// domyœlny kierunek
+	portDirection = CAPE_INLET;
 }
 
 CUnitPort::~CUnitPort()
@@ -162,18 +163,58 @@ STDMETHODIMP CUnitPort::put_ComponentDescription( BSTR desc )
 	return S_OK;
 }
 
+/**
+* \details  Returns type of the port to PME
+* \param[out]	portType	type of the port	
+* 			\li CAPE_MATERIAL
+* \return   CapeError
+* \retval   status   The program status.
+*           \li S_OK		Success
+*/
 STDMETHODIMP CUnitPort::get_portType( CapePortType * portType )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	*portType = CAPE_MATERIAL;
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
+/**
+* \details  Returns direction of the port to PME
+* \param[out]	portDirection	direction of the port	
+* 			\li CAPE_INLET - default
+*			\li CAPE_OUTLET
+*			\li CAPE_INLET_OUTLET - should not be used
+* \return   CapeError
+* \retval   status   The program status.
+*           \li S_OK		Success
+*/
 STDMETHODIMP CUnitPort::get_direction( CapePortDirection * portDirection )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	*portDirection = this->portDirection;
+	PANTHEIOS_TRACE_DEBUG(PSTR("Port direction passed to PME: "), pantheios::integer(this->portDirection) );
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
+}
+
+/**
+* \details  Allows to put direction to port. This method is used during port initialize and allows to put any direction form outside.
+* \param[in]	portDirection	direction of the port	
+* 			\li CAPE_INLET
+*			\li CAPE_OUTLET
+*			\li CAPE_INLET_OUTLET - should not be used
+* \return   CapeError
+* \retval   status   The program status.
+*           \li S_OK		Success
+*/
+STDMETHODIMP CUnitPort::put_direction(CapePortDirection portDirection)
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	this->portDirection = portDirection;
+	PANTHEIOS_TRACE_DEBUG(PSTR("Port direction passed to PMC: "), pantheios::integer(this->portDirection) );
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	return S_OK;
 }
 
 STDMETHODIMP CUnitPort::get_connectedObject( LPDISPATCH * connectedObject )
@@ -196,3 +237,4 @@ STDMETHODIMP CUnitPort::Disconnect()
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
+
