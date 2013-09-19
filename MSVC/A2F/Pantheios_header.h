@@ -6,6 +6,9 @@
  *			\li real.hpp
  *			\li pointer.hpp
  *			\li integer.hpp
+ *			\li args.hpp
+ *			\li m2w.hpp
+ *			\li w2m.hpp
  *			Contains also path and name of log file
  * \author  PB
  * \date    2013/09/12

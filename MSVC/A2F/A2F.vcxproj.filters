@@ -40,6 +40,9 @@
     <ClCompile Include="UnitPort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ParameterCollection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -75,6 +78,9 @@
     <ClInclude Include="UnitPort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ParameterCollection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="A2F.rc">
@@ -105,6 +111,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="UnitPort.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ParameterCollection.rgs">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

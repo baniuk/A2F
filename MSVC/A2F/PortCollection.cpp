@@ -93,6 +93,8 @@ STDMETHODIMP CPortCollection::get_operation( BSTR * operation )
 
 STDMETHODIMP CPortCollection::get_moreInfo( BSTR * moreInfo )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 

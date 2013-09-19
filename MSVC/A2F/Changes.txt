@@ -12,7 +12,13 @@ New features:
 	+ ICapePortCollection::get_ComponentName
 	+ ICapePortCollection::get_ComponentDescription
 	+ ICapePortCollection::put_ComponentDescription
+	+ ICapeParameterCollection::put_ComponentName
+	+ ICapeParameterCollection::get_ComponentName
+	+ ICapeParameterCollection::get_ComponentDescription
+	+ ICapeParameterCollection::put_ComponentDescription
 	+ ICapeUnitOperations::put_simulationContext
+	+ ICapeUnitOperations::get_ValStatus
+	+ IATCapeXDiagnostic implementation
 	- ICapeUnitPort implementation
-	- IATCapeXDiagnostic implementation
+	- ICapeParameter implementation
 Bugfixes	

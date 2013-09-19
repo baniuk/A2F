@@ -144,6 +144,7 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ParameterCollection.cpp" />
     <ClCompile Include="PortCollection.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -159,6 +160,7 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Pantheios_header.h" />
+    <ClInclude Include="ParameterCollection.h" />
     <ClInclude Include="PortCollection.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -180,6 +182,7 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
     <None Include="A2F.def" />
     <None Include="A2F.rc2" />
     <None Include="A2F.rgs" />
+    <None Include="ParameterCollection.rgs" />
     <None Include="PortCollection.rgs" />
     <None Include="UnitOperations.rgs" />
     <None Include="UnitPort.rgs" />

@@ -14,7 +14,7 @@
 
 CUnitOperations::CUnitOperations()
 {
-	
+	validationStatus = CAPE_NOT_VALIDATED;
 }
 
 CUnitOperations::~CUnitOperations()
@@ -103,6 +103,7 @@ STDMETHODIMP CUnitOperations::get_ports( LPDISPATCH * ports )
 	catch(...)	// unsuported exceptions
 	{
 		PANTHEIOS_TRACE_CRITICAL(PSTR("Unexpected IPortCollection->QueryInterface exception"));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return E_FAIL;	// unexpected exception
 	}
 	if(S_OK == err_code) 
@@ -123,11 +124,23 @@ STDMETHODIMP CUnitOperations::get_ports( LPDISPATCH * ports )
 	return err_code;	// return S_OK or other HRESULT
 }
 
+/**
+* \details  Returns to PME status of PMC.
+* \return   Return S_OK on success.
+* \param[out]   ValStatus   The PMC status.
+*				\li CAPE_VALID
+*				\li CAPE_INVALID
+*				\li CAPE_NOT_VALIDATED
+*
+* \see
+*			\li AspenPlusUserModelsV8_2-Ref.pdf pp. 274
+*/
 STDMETHODIMP CUnitOperations::get_ValStatus( CapeValidationStatus * ValStatus )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	*ValStatus = validationStatus;
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
 STDMETHODIMP CUnitOperations::Calculate()
@@ -348,6 +361,26 @@ STDMETHODIMP CUnitOperations::ProduceReport( BSTR * message )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	return E_NOTIMPL;
+}
+
+/**
+* \details  Generally - interface allows a CAPE-OPEN component to generate output messages. Aspen Plus displays these messages in the Control Panel
+* or the history file.
+* \warning Not implemented here. Only to use on server side. Server provides implementation         
+*/
+STDMETHODIMP CUnitOperations::PopUpMessage( BSTR message )
+{
+	return E_NOTIMPL;
+}
+
+/**
+* \details  Generally - interface allows a CAPE-OPEN component to generate output messages. Aspen Plus displays these messages in the Control Panel
+* or the history file.
+* \warning Not implemented here. Only to use on server side. Server provides implementation         
+*/
+STDMETHODIMP CUnitOperations::LogMessage( BSTR message )
+{
 	return E_NOTIMPL;
 }
 
