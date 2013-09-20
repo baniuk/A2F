@@ -48,10 +48,7 @@ HRESULT CUnitOperations::FinalConstruct()
 
 	// create instance of CoClass for ICapePortCollection
 	err_code = portCollection.CreateInstance(__uuidof(PortCollection),NULL,CLSCTX_INPROC_SERVER);
-	if(!FAILED(err_code))
-		PANTHEIOS_TRACE_DEBUG(	PSTR("Instance of PortCollection created"),
-								PSTR(" Error: "), winstl::error_desc_a(err_code));
-	else
+	if(FAILED(err_code))	// error
 	{
 		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of PortCollection not created because: "), 
 			pantheios::integer(err_code,pantheios::fmt::fullHex),
@@ -59,13 +56,12 @@ HRESULT CUnitOperations::FinalConstruct()
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return err_code;
 	}
-	
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Instance of PortCollection created"),
+							PSTR(" Error: "), winstl::error_desc_a(err_code));
+		
 	// create instance of CoClass for IUnitPort (IUnitPortEx)	
 	err_code = inputPort.CreateInstance(__uuidof(UnitPort),NULL,CLSCTX_INPROC_SERVER);
-	if(!FAILED(err_code))
-		PANTHEIOS_TRACE_DEBUG(	PSTR("Instance of IUnitPortEx created"),
-		PSTR(" Error: "), winstl::error_desc_a(err_code));
-	else
+	if(FAILED(err_code)) //error
 	{
 		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IUnitPortEx not created because: "), 
 			pantheios::integer(err_code,pantheios::fmt::fullHex),
@@ -73,8 +69,11 @@ HRESULT CUnitOperations::FinalConstruct()
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return err_code;
 	}
+	
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Instance of IUnitPortEx created"),
+							PSTR(" Error: "), winstl::error_desc_a(err_code));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return S_OK;
+	return err_code;
 }
 
 /**
@@ -90,6 +89,7 @@ void CUnitOperations::FinalRelease()
 							PSTR("count= "),
 							pantheios::integer(count));
 	portCollection = NULL; // release pointer - make sure that all instances will be closed
+	inputPort = NULL;
 }
 
 /**
@@ -129,20 +129,18 @@ STDMETHODIMP CUnitOperations::get_ports( LPDISPATCH * ports )
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return E_FAIL;	// unexpected exception
 	}
-	if(S_OK == err_code) 
-	{
-		PANTHEIOS_TRACE_DEBUG(	PSTR("IportCollection addres "),
-								pantheios::pointer(tmp,pantheios::fmt::fullHex),
-								PSTR(" Error: "), winstl::error_desc_a(err_code));
-		*ports = dynamic_cast<LPDISPATCH>(tmp);	// pointer to port collection exposed to PME 
-	}
-	else
+	if(FAILED(err_code)) // error
 	{
 		// we ar ehere in case if portCollection is ok but requested interface is not supported
 		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of PortCollection not created because: "), 
 								pantheios::integer(err_code,pantheios::fmt::fullHex),
 								PSTR(" Error: "), winstl::error_desc_a(err_code));
 	}
+		
+	PANTHEIOS_TRACE_DEBUG(	PSTR("IportCollection addres "),
+							pantheios::pointer(tmp,pantheios::fmt::fullHex),
+							PSTR(" Error: "), winstl::error_desc_a(err_code));
+	*ports = dynamic_cast<LPDISPATCH>(tmp);	// pointer to port collection exposed to PME 
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return err_code;	// return S_OK or other HRESULT
 }
@@ -319,10 +317,46 @@ STDMETHODIMP CUnitOperations::get_parameters( LPDISPATCH * parameters )
 STDMETHODIMP CUnitOperations::Initialize()
 {
 	IUnitPort *tmp;
+	HRESULT err_code;
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	inputPort->QueryInterface(__uuidof(IUnitPort),reinterpret_cast<void**>(&tmp));
+	// calls IUnitPortEx interface method to assign external data to object
+	inputPort->put_direction(static_cast<int>(CAPE_INLET));
+	// obtain interface to IUnitPort of the same object to call ICapeUnitPort methods
+	try
+	{
+		err_code = inputPort.QueryInterface(__uuidof(IUnitPort),reinterpret_cast<void**>(&tmp)); // getting interface pointer (creating referenco of CoClass)
+	}
+	catch(_com_error e)	// catching com errors encapsulated in _ccom_error class
+	{
+		// we are here in case of general errors with portCollection pointer and query interface
+		PANTHEIOS_TRACE_ERROR(PSTR("IUnitPort->QueryInterface exception: "),e.ErrorMessage());
+		PANTHEIOS_TRACE_ERROR(PSTR("IUnitPort->QueryInterface error code: "),pantheios::integer(e.Error(),pantheios::fmt::fullHex));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return e.Error();	// return HRESULT
+	}
+	catch(...)	// unsuported exceptions
+	{
+		PANTHEIOS_TRACE_CRITICAL(PSTR("Unexpected IUnitPort->QueryInterface exception"));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return E_FAIL;	// unexpected exception
+	}
+	if(FAILED(err_code)) 
+	{
+		// we ar ehere in case if portCollection is ok but requested interface is not supported
+		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IUnitPort not created because: "), 
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+	}		
+	
+	PANTHEIOS_TRACE_DEBUG(	PSTR("IUnitPort addres "),
+							pantheios::pointer(tmp,pantheios::fmt::fullHex),
+							PSTR(" Error: "), winstl::error_desc_a(err_code));
+
+	
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return err_code;	// return S_OK or other HRESULT
+
+
 }
 
 /**

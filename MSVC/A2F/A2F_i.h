@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 8.00.0595 */
-/* at Thu Sep 19 17:56:26 2013
+/* at Fri Sep 20 09:59:49 2013
  */
 /* Compiler settings for A2F.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.00.0595 
@@ -632,8 +632,8 @@ EXTERN_C const IID IID_IUnitPortEx;
     IUnitPortEx : public IUnknown
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE set_PortType( 
-            /* [in] */ int portType) = 0;
+        virtual HRESULT STDMETHODCALLTYPE put_direction( 
+            /* [in] */ int portDirection) = 0;
         
     };
     
@@ -656,9 +656,9 @@ EXTERN_C const IID IID_IUnitPortEx;
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IUnitPortEx * This);
         
-        HRESULT ( STDMETHODCALLTYPE *set_PortType )( 
+        HRESULT ( STDMETHODCALLTYPE *put_direction )( 
             IUnitPortEx * This,
-            /* [in] */ int portType);
+            /* [in] */ int portDirection);
         
         END_INTERFACE
     } IUnitPortExVtbl;
@@ -683,8 +683,8 @@ EXTERN_C const IID IID_IUnitPortEx;
     ( (This)->lpVtbl -> Release(This) ) 
 
 
-#define IUnitPortEx_set_PortType(This,portType)	\
-    ( (This)->lpVtbl -> set_PortType(This,portType) ) 
+#define IUnitPortEx_put_direction(This,portDirection)	\
+    ( (This)->lpVtbl -> put_direction(This,portDirection) ) 
 
 #endif /* COBJMACROS */
 

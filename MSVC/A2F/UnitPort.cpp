@@ -200,6 +200,7 @@ STDMETHODIMP CUnitPort::get_direction( CapePortDirection * portDirection )
 
 /**
 * \details  Allows to put direction to port. This method is used during port initialize and allows to put any direction form outside.
+* \interface IUnitPortEX
 * \param[in]	portDirection	direction of the port	
 * 			\li CAPE_INLET
 *			\li CAPE_OUTLET
@@ -208,10 +209,10 @@ STDMETHODIMP CUnitPort::get_direction( CapePortDirection * portDirection )
 * \retval   status   The program status.
 *           \li S_OK		Success
 */
-STDMETHODIMP CUnitPort::put_direction(CapePortDirection portDirection)
+STDMETHODIMP CUnitPort::put_direction(int portDirection)
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	this->portDirection = portDirection;
+	this->portDirection = static_cast<CapePortDirection>(portDirection);
 	PANTHEIOS_TRACE_DEBUG(PSTR("Port direction passed to PMC: "), pantheios::integer(this->portDirection) );
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
@@ -235,11 +236,5 @@ STDMETHODIMP CUnitPort::Disconnect()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
-}
-
-STDMETHODIMP CUnitPort::set_PortType( int portType )
-{
-	// Add your function implementation here.
 	return E_NOTIMPL;
 }

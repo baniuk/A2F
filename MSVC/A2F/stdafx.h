@@ -34,3 +34,4 @@
 // user definitions
 #define YES TRUE
 #define NO FALSE
+extern "C" const GUID ;

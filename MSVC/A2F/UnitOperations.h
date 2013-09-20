@@ -173,7 +173,7 @@ private:
 	/// collection of ports exposed by PMC to PME
 	IPortCollectionPtr portCollection;
 	/// one examplary input port
-	IUnitPortPtr inputPort;
+	IUnitPortExPtr inputPort;
 	/// name of te component passed by PME
 	CComBSTR componentName;
 	/// description passed from PME
