@@ -4,7 +4,7 @@
  * \details Implements basic interfaces required by CAPE-OPEN. Contains also initialization of Pantheios API.
  * \author  PB
  * \date    2013/09/10
- * \version 0.4
+ * \version 0.5
  */
 
 #include "stdafx.h"
@@ -19,20 +19,23 @@ CUnitOperations::CUnitOperations()
 
 CUnitOperations::~CUnitOperations()
 {
-
+	
 }
 
 /**
 * \details  COM initialization method called after construction of the object. Other interfaces should be created here.
 *			\li Set names of component and descriptions
 *			\li create instance of CPortCollection
-*			\li create instance CUnitPort
+*			\li create instance of IUnitPortEx that is extended version of IUnitPort interface. Extended version provides some additional methods 
+*			that are required on PMC side. The PME will call IUnitPort interface drom the same object (coclass instance) and will not see these
+*			aditional methods.
 * \return   Return S_OK on success or one of the standard error HRESULT values.
 * \retval   status   The CreateInstance status  - http://msdn.microsoft.com/en-us/library/windows/desktop/ms686615(v=vs.85).aspx
 *                     \li S_OK		Success
 * \see
 *			\li http://msdn.microsoft.com/en-us/library/afkt56xx(v=vs.110).aspx
 *			\li http://www.murrayc.com/learning/windows/usecomfromatl.shtml
+*			\li A2f.idl file for additional interfaces definitions made from skratch
 * \warning It seems that after adding model to workspace destructor is also called. Object is created, ask about ports and deleted.	
 */
 HRESULT CUnitOperations::FinalConstruct()
@@ -45,7 +48,7 @@ HRESULT CUnitOperations::FinalConstruct()
 
 	// create instance of CoClass for ICapePortCollection
 	err_code = portCollection.CreateInstance(__uuidof(PortCollection),NULL,CLSCTX_INPROC_SERVER);
-	if(S_OK==err_code)
+	if(!FAILED(err_code))
 		PANTHEIOS_TRACE_DEBUG(	PSTR("Instance of PortCollection created"),
 								PSTR(" Error: "), winstl::error_desc_a(err_code));
 	else
@@ -56,23 +59,22 @@ HRESULT CUnitOperations::FinalConstruct()
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return err_code;
 	}
-
-	// create instance of port
-//	err_code = inputPort.CoCreateInstance(__uuidof(UnitPort));
- 	err_code = inputPort.CreateInstance(__uuidof(UnitPort),NULL,CLSCTX_INPROC_SERVER);
-	if(S_OK==err_code)
-		PANTHEIOS_TRACE_DEBUG(	PSTR("Instance of UnitPort created"),
+	
+	// create instance of CoClass for IUnitPort (IUnitPortEx)	
+	err_code = inputPort.CreateInstance(__uuidof(UnitPort),NULL,CLSCTX_INPROC_SERVER);
+	if(!FAILED(err_code))
+		PANTHEIOS_TRACE_DEBUG(	PSTR("Instance of IUnitPortEx created"),
 		PSTR(" Error: "), winstl::error_desc_a(err_code));
 	else
 	{
-		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of UnitPort not created because: "), 
+		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IUnitPortEx not created because: "), 
 			pantheios::integer(err_code,pantheios::fmt::fullHex),
 			PSTR(" Error: "), winstl::error_desc_a(err_code));
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return err_code;
 	}
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
-	
 }
 
 /**
@@ -87,6 +89,7 @@ void CUnitOperations::FinalRelease()
 							pantheios::pointer(simulationContext,pantheios::fmt::fullHex),
 							PSTR("count= "),
 							pantheios::integer(count));
+	portCollection = NULL; // release pointer - make sure that all instances will be closed
 }
 
 /**

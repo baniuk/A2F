@@ -24,8 +24,7 @@ using namespace ATL;
 
 /// definition of smart pointer for IPortCollection interface
 _COM_SMARTPTR_TYPEDEF(IPortCollection, __uuidof(IPortCollection));
-/// definition of smart pointer for ICapeUnitPort interface
-_COM_SMARTPTR_TYPEDEF(IUnitPort, __uuidof(IUnitPort));
+_COM_SMARTPTR_TYPEDEF(IUnitPortEx, __uuidof(IUnitPortEx));
 
 /**
  * \class CUnitOperations

@@ -238,3 +238,8 @@ STDMETHODIMP CUnitPort::Disconnect()
 	return E_NOTIMPL;
 }
 
+STDMETHODIMP CUnitPort::set_PortType( int portType )
+{
+	// Add your function implementation here.
+	return E_NOTIMPL;
+}

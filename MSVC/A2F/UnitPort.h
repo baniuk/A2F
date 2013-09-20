@@ -54,6 +54,7 @@ class ATL_NO_VTABLE CUnitPort :
 	public IDispatchImpl<ECapeUser, &__uuidof(ECapeUser), &LIBID_CAPEOPEN100, /* wMajor = */ 1>,
 	public IDispatchImpl<ICapeIdentification, &__uuidof(ICapeIdentification), &LIBID_CAPEOPEN100, /* wMajor = */ 1>,
 	public IDispatchImpl<ICapeUnitPort, &__uuidof(ICapeUnitPort), &LIBID_CAPEOPEN100, /* wMajor = */ 1>
+	public IDispatchImpl<IUnitPortEx, &__uuidof(IUnitPortEx), &LIBID_A2FLib, /* wMajor = */ 1, /* wMinor = */ 0>
 {
 public:
 	CUnitPort();
@@ -70,6 +71,7 @@ public:
 		COM_INTERFACE_ENTRY(ECapeUser)
 		COM_INTERFACE_ENTRY(ICapeIdentification)
 		COM_INTERFACE_ENTRY(ICapeUnitPort)
+		COM_INTERFACE_ENTRY(IUnitPortEx)
 	END_COM_MAP()
 
 
@@ -140,7 +142,9 @@ private:
 	 */
 	CapePortDirection portDirection;
 
-	
+	// IUnitPortEx Methods
+public:
+	STDMETHOD(set_PortType)(int portType);
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(UnitPort), CUnitPort)
