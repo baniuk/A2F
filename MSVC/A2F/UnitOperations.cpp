@@ -19,7 +19,7 @@ CUnitOperations::CUnitOperations()
 
 CUnitOperations::~CUnitOperations()
 {
-
+	
 }
 
 /**
@@ -59,6 +59,7 @@ HRESULT CUnitOperations::FinalConstruct()
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return err_code;
 	}
+	
 	// create instance of CoClass for IUnitPort (IUnitPortEx)	
 	err_code = inputPort.CreateInstance(__uuidof(UnitPort),NULL,CLSCTX_INPROC_SERVER);
 	if(!FAILED(err_code))
@@ -88,6 +89,7 @@ void CUnitOperations::FinalRelease()
 							pantheios::pointer(simulationContext,pantheios::fmt::fullHex),
 							PSTR("count= "),
 							pantheios::integer(count));
+	portCollection = NULL; // release pointer - make sure that all instances will be closed
 }
 
 /**
