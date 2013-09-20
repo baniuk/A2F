@@ -57,7 +57,8 @@ class ATL_NO_VTABLE CPortCollection :
 	public IDispatchImpl<ECapeUnknown, &__uuidof(ECapeUnknown), &LIBID_CAPEOPEN100, /* wMajor = */ 1>,
 	public IDispatchImpl<ECapeUser, &__uuidof(ECapeUser), &LIBID_CAPEOPEN100, /* wMajor = */ 1>,
 	public IDispatchImpl<ICapeCollection, &__uuidof(ICapeCollection), &LIBID_CAPEOPEN100, /* wMajor = */ 1>,
-	public IDispatchImpl<ICapeIdentification, &__uuidof(ICapeIdentification), &LIBID_CAPEOPEN100, /* wMajor = */ 1>
+	public IDispatchImpl<ICapeIdentification, &__uuidof(ICapeIdentification), &LIBID_CAPEOPEN100, /* wMajor = */ 1>,
+	public IDispatchImpl<IPortCollectionEx, &__uuidof(IPortCollectionEx), &LIBID_A2FLib, /* wMajor = */ 1, /* wMinor = */ 0>
 {
 public:
 	CPortCollection();
@@ -74,6 +75,7 @@ public:
 		COM_INTERFACE_ENTRY(ECapeUser)
 		COM_INTERFACE_ENTRY(ICapeCollection)
 		COM_INTERFACE_ENTRY(ICapeIdentification)
+		COM_INTERFACE_ENTRY(IPortCollectionEx)
 	END_COM_MAP()
 
 
@@ -122,12 +124,18 @@ public:
 	STDMETHOD(get_ComponentDescription)(BSTR * desc);
 	/// ICapeIdentification Methods
 	STDMETHOD(put_ComponentDescription)(BSTR desc);
-
+	/// IPortCollectionEx Methods
+	STDMETHOD(put_port)(IUnitPort * port);
 private:
 	// name of te component passed by PME
 	CComBSTR componentName;
 	// description passed from PME
 	CComBSTR componentDescription;
+	// list of ports
+	std::vector<IUnitPort*> ports;
+
+	
+
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(PortCollection), CPortCollection)

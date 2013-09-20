@@ -33,6 +33,7 @@ using namespace ATL;
  * \li ECapeUser
  * \li ICapeIdentification
  * \li ECapeUnknown
+ * \li IUnitPortEx - interface extending ICapeUnitPort capabilities
  *
  * \author PB
  *

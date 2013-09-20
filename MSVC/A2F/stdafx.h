@@ -30,6 +30,7 @@
 // adds decoding HRESULT errors (winstl::error_desc_a(err_code))
 #include <winstl/error/error_desc.hpp>
 #include <iostream>
+#include <vector>
 
 // user definitions
 #define YES TRUE

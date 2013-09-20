@@ -23,8 +23,8 @@
 using namespace ATL;
 
 /// definition of smart pointer for IPortCollection interface
-_COM_SMARTPTR_TYPEDEF(IPortCollection, __uuidof(IPortCollection));
-_COM_SMARTPTR_TYPEDEF(IUnitPortEx, __uuidof(IUnitPortEx));
+//_COM_SMARTPTR_TYPEDEF(IPortCollection, __uuidof(IPortCollection));
+//_COM_SMARTPTR_TYPEDEF(IUnitPortEx, __uuidof(IUnitPortEx));
 
 /**
  * \class CUnitOperations
@@ -171,9 +171,9 @@ public:
 
 private:
 	/// collection of ports exposed by PMC to PME
-	IPortCollectionPtr portCollection;
+	CComPtr<IPortCollectionEx> portCollection;
 	/// one examplary input port
-	IUnitPortExPtr inputPort;
+	CComPtr<IUnitPortEx> inputPort;
 	/// name of te component passed by PME
 	CComBSTR componentName;
 	/// description passed from PME

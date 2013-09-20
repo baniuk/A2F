@@ -178,3 +178,23 @@ STDMETHODIMP CPortCollection::put_ComponentDescription( BSTR desc )
 	return S_OK;
 }
 
+/**
+* \details  Allows to put reference to port. This method is used during port initialize and allows to put any direction form outside.
+* \interface IPortCollectionEx
+* \param[in]	port	reference to IUnitPort interface	
+* \return   CapeError
+* \retval   status   The program status.
+*           \li S_OK		Success
+*/
+STDMETHODIMP CPortCollection::put_port( IUnitPort * port )
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	ports.push_back(port);
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Add port with address: "),
+							pantheios::pointer(port,pantheios::fmt::fullHex),
+							PSTR( " number of elements: "),
+							pantheios::integer(ports.size()));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	return S_OK;
+}
+

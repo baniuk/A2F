@@ -54,6 +54,16 @@ interface IUnitPortEx : IUnknown{
 	HRESULT put_direction([in] int portDirection);
 };
 [
+	object,
+	uuid(F5DB9DA7-82AE-4386-A656-B66535B1DA6F),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IPortCollectionEx : IUnknown{
+	HRESULT put_port([in] IUnitPort *port);
+};
+[
 	uuid(E304CE16-F539-4DCA-BEF1-A77F6C1E447F),
 	version(1.0),
 ]
