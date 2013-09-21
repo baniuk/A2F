@@ -25,7 +25,7 @@ CUnitOperations::~CUnitOperations()
 /**
 * \details  COM initialization method called after construction of the object. Other interfaces should be created here.
 *			\li Set names of component and descriptions
-*			\li create instance of CPortCollection
+*			\li create instance of IPortCollectionEX
 *			\li create instance of IUnitPortEx that is extended version of IUnitPort interface. Extended version provides some additional methods 
 *			that are required on PMC side. The PME will call IUnitPort interface drom the same object (coclass instance) and will not see these
 *			aditional methods.

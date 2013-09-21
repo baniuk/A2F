@@ -98,6 +98,20 @@ STDMETHODIMP CPortCollection::get_moreInfo( BSTR * moreInfo )
 	return E_NOTIMPL;
 }
 
+/**
+* \details Return an element from the collection. The requested element can be identified by its actual name (e.g. type CapeString) or by its 
+* position in the collection (e.g. type CapeLong). The name of an element is the value returned by the ComponentName() method of its
+* ICapeIdentification interface. The advantage of retrieving an item by name rather than by position is that it is much more efficient. 
+* This is because it is faster to check all names from the server part than checking then from the client, 
+* where a lot of COM/CORBA calls would be required.
+* \param[in]	id		Identifier for the requested item:
+*				\li name of item (the variant contains a string)
+*				\li position in collection (it contains a long)
+* \param[out]	Item	returned port
+* \return   CapeError
+* \retval   status   The program status.
+*           \li S_OK		Success
+*/
 STDMETHODIMP CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
@@ -105,11 +119,20 @@ STDMETHODIMP CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 	return E_NOTIMPL;
 }
 
+/**
+* \details  Returns number of ports
+* \param[out]	itemsCount	number of ports passed to PME
+* \return   CapeError
+* \retval   status   The program status.
+*           \li S_OK		Success
+*/
 STDMETHODIMP CPortCollection::Count( long * itemsCount )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	*itemsCount = ports.size();
+	PANTHEIOS_TRACE_DEBUG(PSTR("Returned number of ports: "), pantheios::integer(*itemsCount) );
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
 /**

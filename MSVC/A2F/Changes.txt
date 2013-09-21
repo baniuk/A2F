@@ -33,5 +33,6 @@ New features:
 	+ no portname in Initialize
 	+ put_port in IPortCollection
 	+ one examplary port added
+	+ IPortCollection::Items
 	- no visible under aspen yet
 	
