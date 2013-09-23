@@ -31,6 +31,7 @@
 #include <winstl/error/error_desc.hpp>
 #include <iostream>
 #include <vector>
+#include <windows.h>
 
 // user definitions
 #define YES TRUE

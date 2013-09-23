@@ -28,11 +28,14 @@ version 0.4
 New features:
 	+ ICapePort implemented
 	+ IUnitPortEx implemented
-	+ IPortCollectionEx implemented
 	+ Code Reworked - CComPtr
 	+ no portname in Initialize
 	+ put_port in IPortCollection
 	+ one examplary port added
 	+ IPortCollection::Items
+	+ Code reworked - ports are initialized in IPortCollection
+	+ passing validationStatus among interfaces
+	+ some methods in PortCollection nad other interfaces
+	+ one examplary port added
 	- no visible under aspen yet
 	

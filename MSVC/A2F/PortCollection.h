@@ -47,7 +47,10 @@ using namespace ATL;
  * \li Identification Common Interface.pdf
  * \li Methods&Tools_Integrated_Guidelines.pdf
  *
- * \todo Finish documentation - add methods descriptions
+ * \todo 
+ *		\li Finish documentation - add methods descriptions
+ *		\li move input port to array
+ * 
  */
 class ATL_NO_VTABLE CPortCollection :
 	public CComObjectRootEx<CComSingleThreadModel>,
@@ -125,7 +128,7 @@ public:
 	/// ICapeIdentification Methods
 	STDMETHOD(put_ComponentDescription)(BSTR desc);
 	/// IPortCollectionEx Methods
-	STDMETHOD(put_port)(IUnitPort * port);
+	STDMETHOD(put_unitValStatus)(BYTE * unitValStatus);
 private:
 	// name of te component passed by PME
 	CComBSTR componentName;
@@ -133,8 +136,13 @@ private:
 	CComBSTR componentDescription;
 	// list of ports
 	std::vector<IUnitPort*> ports;
+	/// one examplary input port
+	CComPtr<IUnitPort> inputPort;
+	/// status of the PMC unit referenced from CUnitOperations::validationStatus 
+	CapeValidationStatus* pvalidationStatus;
+	/// performs initialization of ports in collection
+	HRESULT Initialize();
 
-	
 
 };
 

@@ -124,8 +124,10 @@ public:
 	STDMETHOD(Connect)(LPDISPATCH objectToConnect);
 	/// ICapeUnitPort Methods
 	STDMETHOD(Disconnect)();
-	/// ICapeUnitPort Methods - own extension
+	/// ICapeUnitPortEx Methods - own extension
 	STDMETHOD(put_direction)(int portDirection);
+	/// ICapeUnitPortEx Methods - own extension
+	STDMETHOD(put_unitValStatus)(BYTE * unitValStatus);
 
 private:
 	/// name of te component passed by PME
@@ -142,6 +144,8 @@ private:
 	* \see CO_Unit_Operations_v6.25.pdf pp. 280
 	*/
 	CapePortDirection portDirection;
+	/// status of the PMC unit referenced from CUnitOperations::validationStatus 
+	CapeValidationStatus* pvalidationStatus;
 
 public:
 };

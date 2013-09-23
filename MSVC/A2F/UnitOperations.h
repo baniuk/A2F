@@ -171,9 +171,9 @@ public:
 
 private:
 	/// collection of ports exposed by PMC to PME
-	CComPtr<IPortCollectionEx> portCollection;
-	/// one examplary input port
-	CComPtr<IUnitPortEx> inputPort;
+	CComPtr<IPortCollection> portCollection;
+	/// collection of parameters
+	CComPtr<IParameterCollection> parameterCollection;
 	/// name of te component passed by PME
 	CComBSTR componentName;
 	/// description passed from PME

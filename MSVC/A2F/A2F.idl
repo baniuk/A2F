@@ -52,16 +52,17 @@ interface IParameterCollection : IDispatch{
 ]
 interface IUnitPortEx : IUnknown{
 	HRESULT put_direction([in] int portDirection);
+	HRESULT put_unitValStatus([in] BYTE * unitValStatus);
 };
 [
 	object,
-	uuid(F5DB9DA7-82AE-4386-A656-B66535B1DA6F),
+	uuid(3D03934F-15E6-40AF-92EE-FBB61E90D485),
 	dual,
 	nonextensible,
 	pointer_default(unique)
 ]
 interface IPortCollectionEx : IUnknown{
-	HRESULT put_port([in] IUnitPort *port);
+	HRESULT put_unitValStatus([in] BYTE * unitValStatus);
 };
 [
 	uuid(E304CE16-F539-4DCA-BEF1-A77F6C1E447F),
