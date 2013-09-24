@@ -11,10 +11,11 @@
 #include "UnitOperations.h"
 
 // CUnitOperations
+CapeValidationStatus exValidationStatus = CAPE_NOT_VALIDATED;
 
 CUnitOperations::CUnitOperations()
 {
-	validationStatus = CAPE_NOT_VALIDATED;
+//	validationStatus = CAPE_NOT_VALIDATED;
 }
 
 CUnitOperations::~CUnitOperations()
@@ -73,6 +74,8 @@ HRESULT CUnitOperations::FinalConstruct()
 	}
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Instance of PortCollection created"),
 							PSTR(" Error: "), winstl::error_desc_a(err_code));
+	PANTHEIOS_TRACE_DEBUG(	PSTR("IPortCollection addres: "), 
+							pantheios::pointer(portCollection.p,pantheios::fmt::fullHex));
 	
 	// create instance of CoClass for ICapeParameterCollection
 	try
@@ -102,9 +105,12 @@ HRESULT CUnitOperations::FinalConstruct()
 		return err_code;
 	}
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Instance of IParameterCollection created"),
-		PSTR(" Error: "), winstl::error_desc_a(err_code));
+							PSTR(" Error: "), winstl::error_desc_a(err_code));
+	PANTHEIOS_TRACE_DEBUG(	PSTR("IParameterCollection addres: "), 
+							pantheios::pointer(parameterCollection.p,pantheios::fmt::fullHex));
 	
-
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Unit status: "),
+							pantheios::integer(exValidationStatus));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
@@ -112,8 +118,7 @@ HRESULT CUnitOperations::FinalConstruct()
 /**
 * \details  Release all interfaces
 * \return   none
-* \todo
-*		\li add ref countig to log for CComPtr vars
+* \todo add ref countig to log for CComPtr vars
 */
 void CUnitOperations::FinalRelease()
 {
@@ -146,6 +151,8 @@ STDMETHODIMP CUnitOperations::get_ports( LPDISPATCH * ports )
 	CComPtr<IPortCollection> ptmpIPortCollection(portCollection);	// add reference to portCollection
 
 	*ports = ptmpIPortCollection.Detach();
+	PANTHEIOS_TRACE_DEBUG(	PSTR("IPortCollection pointer passed to PME: "), 
+							pantheios::pointer(*ports,pantheios::fmt::fullHex));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;	// return S_OK or other HRESULT
 }
@@ -159,12 +166,14 @@ STDMETHODIMP CUnitOperations::get_ports( LPDISPATCH * ports )
 *				\li CAPE_NOT_VALIDATED
 *
 * \see
-*			\li AspenPlusUserModelsV8_2-Ref.pdf pp. 274
+*			\li AspenPlusUserModelsV8_2-Ref.pdf pp. 274	
 */
 STDMETHODIMP CUnitOperations::get_ValStatus( CapeValidationStatus * ValStatus )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	*ValStatus = validationStatus;
+//	*ValStatus = validationStatus;
+	*ValStatus = exValidationStatus;
+	PANTHEIOS_TRACE_DEBUG(PSTR("Status passed to PME: "),pantheios::integer(*ValStatus));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
@@ -181,6 +190,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 * status to either CAPE_VALID or CAPE_INVALID, depending on whether the validation tests succeed or fail. Making a change to the unit operation,
 * such as setting a parameter value, or connecting a stream to a port is expected to set the unit’s status to CAPE_NOT_VALIDATED.
 * \return   Return Vbool status of the unit
+* \param[out]	message	Message passed to PME
 * \param[out]   isValid   The PMC status.
 *				\li CAPE_VALID
 *				\li CAPE_INVALID
@@ -195,11 +205,14 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	// checking unit condition
-	validationStatus = CAPE_VALID;
+//	validationStatus = CAPE_VALID;
+	exValidationStatus = CAPE_VALID;
 	*isValid = VARIANT_TRUE;	// is ok
 	CComBSTR outMessage(L"Unit is valid and ready");
 	*message = outMessage.Copy();
 
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Unit status: "),
+							pantheios::integer(exValidationStatus));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
@@ -392,16 +405,16 @@ STDMETHODIMP CUnitOperations::Initialize()
 							pantheios::pointer(ptmpIPortCollectionEx.p,pantheios::fmt::fullHex),
 							PSTR(" Error: "), winstl::error_desc_a(err_code));
 	// passing pointer to IPortCollection
-	err_code = ptmpIPortCollectionEx->put_unitValStatus(reinterpret_cast<BYTE*>(&validationStatus));
-	if(FAILED(err_code)) 
-	{
-		// we ar ehere in case if portCollection is ok but requested interface is not supported
-		PANTHEIOS_TRACE_ERROR(	PSTR("put_unitValStatus failed because: "), 
-								pantheios::integer(err_code,pantheios::fmt::fullHex),
-								PSTR(" Error: "), winstl::error_desc_a(err_code));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return err_code;
-	}		
+// 	err_code = ptmpIPortCollectionEx->put_unitValStatus(reinterpret_cast<BYTE*>(&validationStatus));
+// 	if(FAILED(err_code)) 
+// 	{
+// 		// we ar ehere in case if portCollection is ok but requested interface is not supported
+// 		PANTHEIOS_TRACE_ERROR(	PSTR("put_unitValStatus failed because: "), 
+// 								pantheios::integer(err_code,pantheios::fmt::fullHex),
+// 								PSTR(" Error: "), winstl::error_desc_a(err_code));
+// 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+// 		return err_code;
+// 	}		
 
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;	// return S_OK
@@ -415,7 +428,8 @@ STDMETHODIMP CUnitOperations::Initialize()
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
-* \warning Original definitions does not include rhs parameter??          
+* \warning Original definitions does not include rhs parameter??  
+* \todo use CComPtr here as in CUnitPort::Connect()
 */
 STDMETHODIMP CUnitOperations::put_simulationContext( LPDISPATCH rhs)
 {

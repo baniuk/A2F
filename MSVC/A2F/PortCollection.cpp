@@ -85,6 +85,9 @@ HRESULT CPortCollection::FinalConstruct()
 	}
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Port created"),
 							PSTR(" Error: "), winstl::error_desc_a(err_code));
+	PANTHEIOS_TRACE_DEBUG(	PSTR("IUnitPort address: "), 
+							pantheios::pointer(inputPort.p,pantheios::fmt::fullHex));
+
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
@@ -162,14 +165,17 @@ STDMETHODIMP CPortCollection::get_moreInfo( BSTR * moreInfo )
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
+* \todo Finish          
 */
 STDMETHODIMP CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	CComPtr<IUnitPort> ptmpIUnitPort(inputPort);
 	*Item = ptmpIUnitPort.Detach();
+	PANTHEIOS_TRACE_DEBUG(	PSTR("IUnitPort pointer passed to PME: "), 
+							pantheios::pointer(*Item,pantheios::fmt::fullHex));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
 /**
@@ -182,7 +188,7 @@ STDMETHODIMP CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 STDMETHODIMP CPortCollection::Count( long * itemsCount )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	*itemsCount = 1;ports.size();
+	*itemsCount = 1;//ports.size();
 	PANTHEIOS_TRACE_DEBUG(PSTR("Returned number of ports: "), pantheios::integer(*itemsCount) );
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
@@ -300,35 +306,35 @@ HRESULT CPortCollection::Initialize()
 	}		
 
 	PANTHEIOS_TRACE_DEBUG(	PSTR("ICapeIdentification addres "),
-		pantheios::pointer(pUnitPortIdentification.p,pantheios::fmt::fullHex),
-		PSTR(" Error: "), winstl::error_desc_a(err_code));
+							pantheios::pointer(pUnitPortIdentification.p,pantheios::fmt::fullHex),
+							PSTR(" Error: "), winstl::error_desc_a(err_code));
 
 	/************************************************************************/
 	/* Configuration of port no 1                                           */
 	/************************************************************************/
 	// calling put_ComponentName method from IUnitPort through IDispatch interface
 	/// name of the first port
-	CComBSTR name(OLESTR("IN_1"));	
+	CComBSTR name(OLESTR("OUT_1"));	
 	err_code = pUnitPortIdentification->put_ComponentName(name);
 	if(FAILED(err_code)) // error checking
 	{
 		// we ar ehere in case if portCollection is ok but requested interface is not supported
 		PANTHEIOS_TRACE_ERROR(	PSTR("put_ComponentName failed because: "), 
-			pantheios::integer(err_code,pantheios::fmt::fullHex),
-			PSTR(" Error: "), winstl::error_desc_a(err_code));
+								pantheios::integer(err_code,pantheios::fmt::fullHex),
+								PSTR(" Error: "), winstl::error_desc_a(err_code));
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return err_code;
 	}
 	// calling put_ComponentDescription method from IUnitPort through IDispatch interface
 	/// description of the first port
-	name = OLESTR("Inlet port 1");
+	name = OLESTR("Outlet port 1");
 	err_code = pUnitPortIdentification->put_ComponentDescription(name);
 	if(FAILED(err_code)) // error checking
 	{
 		// we ar ehere in case if portCollection is ok but requested interface is not supported
 		PANTHEIOS_TRACE_ERROR(	PSTR("put_ComponentDescription failed because: "), 
-			pantheios::integer(err_code,pantheios::fmt::fullHex),
-			PSTR(" Error: "), winstl::error_desc_a(err_code));
+								pantheios::integer(err_code,pantheios::fmt::fullHex),
+								PSTR(" Error: "), winstl::error_desc_a(err_code));
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return err_code;
 	}
@@ -356,8 +362,8 @@ HRESULT CPortCollection::Initialize()
 	{
 		// we ar ehere in case if portCollection is ok but requested interface is not supported
 		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IUnitPortEx not created because: "), 
-			pantheios::integer(err_code,pantheios::fmt::fullHex),
-			PSTR(" Error: "), winstl::error_desc_a(err_code));
+								pantheios::integer(err_code,pantheios::fmt::fullHex),
+								PSTR(" Error: "), winstl::error_desc_a(err_code));
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return err_code;
 	}		
@@ -365,7 +371,7 @@ HRESULT CPortCollection::Initialize()
 							pantheios::pointer(pUnitPortEx.p,pantheios::fmt::fullHex),
 							PSTR(" Error: "), winstl::error_desc_a(err_code));
 	// set port direction
-	pUnitPortEx->put_direction(static_cast<int>(CAPE_INLET));
+	pUnitPortEx->put_direction(static_cast<int>(CAPE_OUTLET));
 
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;	// return S_OK
@@ -383,57 +389,57 @@ HRESULT CPortCollection::Initialize()
 STDMETHODIMP CPortCollection::put_unitValStatus( BYTE * unitValStatus )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	CComPtr<IUnitPortEx> pUnitPortEx;		// temporary variable for holding unitport interface
-	HRESULT err_code;
-
-	if(NULL == unitValStatus)
-		return E_POINTER;
-	pvalidationStatus = reinterpret_cast<CapeValidationStatus*>(unitValStatus);
-
-	// calls IUnitPortEx interface method to assign direction of the port
-	try
-	{
-		// get IUnitPortInterface to pass it to PortCollection
-		err_code = inputPort->QueryInterface(IID_PPV_ARGS(&pUnitPortEx));
-	}
-	catch(_com_error e)	// catching com errors encapsulated in _ccom_error class
-	{
-		// we are here in case of general errors with portCollection pointer and query interface
-		PANTHEIOS_TRACE_ERROR(PSTR("IUnitPortEx->QueryInterface exception: "),e.ErrorMessage());
-		PANTHEIOS_TRACE_ERROR(PSTR("IUnitPortEx->QueryInterface error code: "),pantheios::integer(e.Error(),pantheios::fmt::fullHex));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return e.Error();	// return HRESULT
-	}
-	catch(...)	// unsuported exceptions
-	{
-		PANTHEIOS_TRACE_CRITICAL(PSTR("Unexpected IUnitPortEx->QueryInterface exception"));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return E_FAIL;	// unexpected exception
-	}
-	if(FAILED(err_code)) 
-	{
-		// we ar ehere in case if portCollection is ok but requested interface is not supported
-		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IUnitPortEx not created because: "), 
-			pantheios::integer(err_code,pantheios::fmt::fullHex),
-			PSTR(" Error: "), winstl::error_desc_a(err_code));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return err_code;
-	}		
-	PANTHEIOS_TRACE_DEBUG(	PSTR("IUnitPortEx addres "),
-							pantheios::pointer(pUnitPortEx.p,pantheios::fmt::fullHex),
-							PSTR(" Error: "), winstl::error_desc_a(err_code));
-	// pass valStatus pointer from IUnitOperations
-	err_code = pUnitPortEx->put_unitValStatus(unitValStatus);
-	if(FAILED(err_code)) 
-	{
-		// we ar ehere in case if portCollection is ok but requested interface is not supported
-		PANTHEIOS_TRACE_ERROR(	PSTR("put_unitValStatus failed because: "), 
-			pantheios::integer(err_code,pantheios::fmt::fullHex),
-			PSTR(" Error: "), winstl::error_desc_a(err_code));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return err_code;
-	}		
+// 	CComPtr<IUnitPortEx> pUnitPortEx;		// temporary variable for holding unitport interface
+// 	HRESULT err_code;
+// 
+// 	if(NULL == unitValStatus)
+// 		return E_POINTER;
+// 	pvalidationStatus = reinterpret_cast<CapeValidationStatus*>(unitValStatus);
+// 
+// 	// calls IUnitPortEx interface method to assign direction of the port
+// 	try
+// 	{
+// 		// get IUnitPortInterface to pass it to PortCollection
+// 		err_code = inputPort->QueryInterface(IID_PPV_ARGS(&pUnitPortEx));
+// 	}
+// 	catch(_com_error e)	// catching com errors encapsulated in _ccom_error class
+// 	{
+// 		// we are here in case of general errors with portCollection pointer and query interface
+// 		PANTHEIOS_TRACE_ERROR(PSTR("IUnitPortEx->QueryInterface exception: "),e.ErrorMessage());
+// 		PANTHEIOS_TRACE_ERROR(PSTR("IUnitPortEx->QueryInterface error code: "),pantheios::integer(e.Error(),pantheios::fmt::fullHex));
+// 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+// 		return e.Error();	// return HRESULT
+// 	}
+// 	catch(...)	// unsuported exceptions
+// 	{
+// 		PANTHEIOS_TRACE_CRITICAL(PSTR("Unexpected IUnitPortEx->QueryInterface exception"));
+// 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+// 		return E_FAIL;	// unexpected exception
+// 	}
+// 	if(FAILED(err_code)) 
+// 	{
+// 		// we ar ehere in case if portCollection is ok but requested interface is not supported
+// 		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IUnitPortEx not created because: "), 
+// 			pantheios::integer(err_code,pantheios::fmt::fullHex),
+// 			PSTR(" Error: "), winstl::error_desc_a(err_code));
+// 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+// 		return err_code;
+// 	}		
+// 	PANTHEIOS_TRACE_DEBUG(	PSTR("IUnitPortEx addres "),
+// 							pantheios::pointer(pUnitPortEx.p,pantheios::fmt::fullHex),
+// 							PSTR(" Error: "), winstl::error_desc_a(err_code));
+// 	// pass valStatus pointer from IUnitOperations
+// 	err_code = pUnitPortEx->put_unitValStatus(unitValStatus);
+// 	if(FAILED(err_code)) 
+// 	{
+// 		// we ar ehere in case if portCollection is ok but requested interface is not supported
+// 		PANTHEIOS_TRACE_ERROR(	PSTR("put_unitValStatus failed because: "), 
+// 			pantheios::integer(err_code,pantheios::fmt::fullHex),
+// 			PSTR(" Error: "), winstl::error_desc_a(err_code));
+// 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+// 		return err_code;
+// 	}		
 
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return S_OK;
+	return E_NOTIMPL;
 }

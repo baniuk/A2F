@@ -36,4 +36,5 @@
 // user definitions
 #define YES TRUE
 #define NO FALSE
+extern CapeValidationStatus exValidationStatus;
 extern "C" const GUID ;

@@ -192,7 +192,7 @@ private:
 	 * 
 	 * \see AspenPlusUserModelsV8_2-Ref.pdf pp. 274
 	 */
-	CapeValidationStatus validationStatus;
+//	CapeValidationStatus validationStatus;
 
 
 };

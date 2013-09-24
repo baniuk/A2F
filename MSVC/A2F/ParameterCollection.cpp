@@ -115,45 +115,82 @@ STDMETHODIMP CParameterCollection::get_ComponentName( BSTR * name )
 
 STDMETHODIMP CParameterCollection::Count( long * itemsCount )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
+/**
+* \details Return an element from the collection. The requested element can be identified by its actual name (e.g. type CapeString) or by its 
+* position in the collection (e.g. type CapeLong). The name of an element is the value returned by the ComponentName() method of its
+* ICapeIdentification interface. The advantage of retrieving an item by name rather than by position is that it is much more efficient. 
+* This is because it is faster to check all names from the server part than checking then from the client, 
+* where a lot of COM/CORBA calls would be required.
+* \param[in]	id		Identifier for the requested item:
+*				\li name of item (the variant contains a string)
+*				\li position in collection (it contains a long)
+* \param[out]	Item	returned port
+* \return   CapeError
+* \retval   status   The program status.
+*           \li S_OK		Success
+* \todo Finish          
+*/
 STDMETHODIMP CParameterCollection::Item( VARIANT id, LPDISPATCH * Item )
 {
-	return E_NOTIMPL;
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+// 	CComPtr<IParameterCollection> ptmpIParameterCollection(pa);
+// 	*Item = ptmpIUnitPort.Detach();
+// 	PANTHEIOS_TRACE_DEBUG(	PSTR("IUnitPort pointer passed to PME: "), 
+// 		pantheios::pointer(*Item,pantheios::fmt::fullHex));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	return S_OK;
 }
 
 STDMETHODIMP CParameterCollection::get_moreInfo( BSTR * moreInfo )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CParameterCollection::get_operation( BSTR * operation )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CParameterCollection::get_interfaceName( BSTR * interfaceName )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CParameterCollection::get_scope( BSTR * scope )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CParameterCollection::get_description( BSTR * description )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CParameterCollection::get_code( long * code )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
 
 STDMETHODIMP CParameterCollection::get_name( BSTR * name )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }

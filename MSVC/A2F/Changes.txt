@@ -37,5 +37,10 @@ New features:
 	+ passing validationStatus among interfaces
 	+ some methods in PortCollection nad other interfaces
 	+ one examplary port added
+	+ IUnitPort::get_ConnectedObject
+	+ IUnitPort::Connect
+	+ IUnitPort::Disconnect
+	+ exValidationStatus is external now
+	+ put_unitValStatus depreciated now
 	- no visible under aspen yet
 	

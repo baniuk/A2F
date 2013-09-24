@@ -144,8 +144,10 @@ private:
 	* \see CO_Unit_Operations_v6.25.pdf pp. 280
 	*/
 	CapePortDirection portDirection;
+	/// Object connected to port (from outside)
+	CComPtr<ICapeThermoMaterialObject> connectedObject;
 	/// status of the PMC unit referenced from CUnitOperations::validationStatus 
-	CapeValidationStatus* pvalidationStatus;
+//	CapeValidationStatus* pvalidationStatus;
 
 public:
 };
