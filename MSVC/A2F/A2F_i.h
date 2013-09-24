@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 8.00.0595 */
-/* at Mon Sep 23 13:09:23 2013
+/* at Tue Sep 24 13:24:11 2013
  */
 /* Compiler settings for A2F.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.00.0595 
@@ -78,13 +78,6 @@ typedef interface IParameterCollection IParameterCollection;
 typedef interface IUnitPortEx IUnitPortEx;
 
 #endif 	/* __IUnitPortEx_FWD_DEFINED__ */
-
-
-#ifndef __IPortCollectionEx_FWD_DEFINED__
-#define __IPortCollectionEx_FWD_DEFINED__
-typedef interface IPortCollectionEx IPortCollectionEx;
-
-#endif 	/* __IPortCollectionEx_FWD_DEFINED__ */
 
 
 #ifndef __UnitOperations_FWD_DEFINED__
@@ -642,9 +635,6 @@ EXTERN_C const IID IID_IUnitPortEx;
         virtual HRESULT STDMETHODCALLTYPE put_direction( 
             /* [in] */ int portDirection) = 0;
         
-        virtual HRESULT STDMETHODCALLTYPE put_unitValStatus( 
-            /* [in] */ BYTE *unitValStatus) = 0;
-        
     };
     
     
@@ -669,10 +659,6 @@ EXTERN_C const IID IID_IUnitPortEx;
         HRESULT ( STDMETHODCALLTYPE *put_direction )( 
             IUnitPortEx * This,
             /* [in] */ int portDirection);
-        
-        HRESULT ( STDMETHODCALLTYPE *put_unitValStatus )( 
-            IUnitPortEx * This,
-            /* [in] */ BYTE *unitValStatus);
         
         END_INTERFACE
     } IUnitPortExVtbl;
@@ -700,9 +686,6 @@ EXTERN_C const IID IID_IUnitPortEx;
 #define IUnitPortEx_put_direction(This,portDirection)	\
     ( (This)->lpVtbl -> put_direction(This,portDirection) ) 
 
-#define IUnitPortEx_put_unitValStatus(This,unitValStatus)	\
-    ( (This)->lpVtbl -> put_unitValStatus(This,unitValStatus) ) 
-
 #endif /* COBJMACROS */
 
 
@@ -712,86 +695,6 @@ EXTERN_C const IID IID_IUnitPortEx;
 
 
 #endif 	/* __IUnitPortEx_INTERFACE_DEFINED__ */
-
-
-#ifndef __IPortCollectionEx_INTERFACE_DEFINED__
-#define __IPortCollectionEx_INTERFACE_DEFINED__
-
-/* interface IPortCollectionEx */
-/* [unique][nonextensible][dual][uuid][object] */ 
-
-
-EXTERN_C const IID IID_IPortCollectionEx;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    
-    MIDL_INTERFACE("3D03934F-15E6-40AF-92EE-FBB61E90D485")
-    IPortCollectionEx : public IUnknown
-    {
-    public:
-        virtual HRESULT STDMETHODCALLTYPE put_unitValStatus( 
-            /* [in] */ BYTE *unitValStatus) = 0;
-        
-    };
-    
-    
-#else 	/* C style interface */
-
-    typedef struct IPortCollectionExVtbl
-    {
-        BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
-            IPortCollectionEx * This,
-            /* [in] */ REFIID riid,
-            /* [annotation][iid_is][out] */ 
-            _COM_Outptr_  void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
-            IPortCollectionEx * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
-            IPortCollectionEx * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *put_unitValStatus )( 
-            IPortCollectionEx * This,
-            /* [in] */ BYTE *unitValStatus);
-        
-        END_INTERFACE
-    } IPortCollectionExVtbl;
-
-    interface IPortCollectionEx
-    {
-        CONST_VTBL struct IPortCollectionExVtbl *lpVtbl;
-    };
-
-    
-
-#ifdef COBJMACROS
-
-
-#define IPortCollectionEx_QueryInterface(This,riid,ppvObject)	\
-    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
-
-#define IPortCollectionEx_AddRef(This)	\
-    ( (This)->lpVtbl -> AddRef(This) ) 
-
-#define IPortCollectionEx_Release(This)	\
-    ( (This)->lpVtbl -> Release(This) ) 
-
-
-#define IPortCollectionEx_put_unitValStatus(This,unitValStatus)	\
-    ( (This)->lpVtbl -> put_unitValStatus(This,unitValStatus) ) 
-
-#endif /* COBJMACROS */
-
-
-#endif 	/* C style interface */
-
-
-
-
-#endif 	/* __IPortCollectionEx_INTERFACE_DEFINED__ */
 
 
 

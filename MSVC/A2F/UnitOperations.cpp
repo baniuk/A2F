@@ -15,7 +15,7 @@ CapeValidationStatus exValidationStatus = CAPE_NOT_VALIDATED;
 
 CUnitOperations::CUnitOperations()
 {
-//	validationStatus = CAPE_NOT_VALIDATED;
+
 }
 
 CUnitOperations::~CUnitOperations()
@@ -372,54 +372,8 @@ STDMETHODIMP CUnitOperations::get_parameters( LPDISPATCH * parameters )
 STDMETHODIMP CUnitOperations::Initialize()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	CComPtr<IPortCollectionEx> ptmpIPortCollectionEx;
-	HRESULT err_code;
-	try
-	{
-		err_code = portCollection->QueryInterface(IID_PPV_ARGS(&ptmpIPortCollectionEx));
-	}
-	catch(_com_error e)	// catching com errors encapsulated in _ccom_error class
-	{
-		// we are here in case of general errors with portCollection pointer and query interface
-		PANTHEIOS_TRACE_ERROR(PSTR("IPortCollectionEx QueryInterface exception: "),e.ErrorMessage());
-		PANTHEIOS_TRACE_ERROR(PSTR("IPortCollectionEx QueryInterface error code: "),pantheios::integer(e.Error(),pantheios::fmt::fullHex));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return e.Error();	// return HRESULT
-	}
-	catch(...)	// unsuported exceptions
-	{
-		PANTHEIOS_TRACE_CRITICAL(PSTR("Unexpected IPortCollectionEx->QueryInterface exception"));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return E_FAIL;	// unexpected exception
-	}
-	if(FAILED(err_code)) 
-	{
-		// we ar ehere in case if portCollection is ok but requested interface is not supported
-		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IPortCollectionEx not created because: "), 
-			pantheios::integer(err_code,pantheios::fmt::fullHex),
-			PSTR(" Error: "), winstl::error_desc_a(err_code));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return err_code;
-	}		
-	PANTHEIOS_TRACE_DEBUG(	PSTR("IPortCollectionEx addres "),
-							pantheios::pointer(ptmpIPortCollectionEx.p,pantheios::fmt::fullHex),
-							PSTR(" Error: "), winstl::error_desc_a(err_code));
-	// passing pointer to IPortCollection
-// 	err_code = ptmpIPortCollectionEx->put_unitValStatus(reinterpret_cast<BYTE*>(&validationStatus));
-// 	if(FAILED(err_code)) 
-// 	{
-// 		// we ar ehere in case if portCollection is ok but requested interface is not supported
-// 		PANTHEIOS_TRACE_ERROR(	PSTR("put_unitValStatus failed because: "), 
-// 								pantheios::integer(err_code,pantheios::fmt::fullHex),
-// 								PSTR(" Error: "), winstl::error_desc_a(err_code));
-// 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-// 		return err_code;
-// 	}		
-
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;	// return S_OK
-
-
 }
 
 /**

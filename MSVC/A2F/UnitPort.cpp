@@ -17,7 +17,6 @@ CUnitPort::CUnitPort()
 {
 	// domyœlny kierunek
 	portDirection = CAPE_INLET;
-//	pvalidationStatus = NULL;
 }
 
 CUnitPort::~CUnitPort()
@@ -323,22 +322,3 @@ STDMETHODIMP CUnitPort::Disconnect()
 	return S_OK;
 }
 
-/**
-* \details  Allows to pass pointer to CUnitOperations::validationStatus to IUnitPort Interface. This interface must modify this status in 
-* every change of port or material.
-* \interface IUnitPortEX
-* \param[in]	unitValStatus	pointer to CUnitOperations::validationStatus 
-* \return   CapeError
-* \retval   status   The program status.
-*           \li S_OK		Success
-*/
-STDMETHODIMP CUnitPort::put_unitValStatus( BYTE * unitValStatus )
-{
- 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-// 	if(NULL == unitValStatus)
-// 		return E_POINTER;
-// 	pvalidationStatus = reinterpret_cast<CapeValidationStatus*>(unitValStatus);
- 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-// 	return S_OK;
-	return E_NOTIMPL;
-}

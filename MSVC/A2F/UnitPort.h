@@ -126,8 +126,6 @@ public:
 	STDMETHOD(Disconnect)();
 	/// ICapeUnitPortEx Methods - own extension
 	STDMETHOD(put_direction)(int portDirection);
-	/// ICapeUnitPortEx Methods - own extension
-	STDMETHOD(put_unitValStatus)(BYTE * unitValStatus);
 
 private:
 	/// name of te component passed by PME
@@ -146,8 +144,6 @@ private:
 	CapePortDirection portDirection;
 	/// Object connected to port (from outside)
 	CComPtr<ICapeThermoMaterialObject> connectedObject;
-	/// status of the PMC unit referenced from CUnitOperations::validationStatus 
-//	CapeValidationStatus* pvalidationStatus;
 
 public:
 };
