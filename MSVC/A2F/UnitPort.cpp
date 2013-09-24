@@ -27,6 +27,7 @@ CUnitPort::~CUnitPort()
 /**
 * \details  COM initialization method called after construction of the object. Other interfaces should be created here.
 *			\li Set names of component and descriptions
+* \interface ICapeUnitPort			
 * \return   Return S_OK on success or one of the standard error HRESULT values.
 * \retval   status   
 *           \li S_OK		Success
@@ -107,6 +108,7 @@ STDMETHODIMP CUnitPort::get_moreInfo( BSTR * moreInfo )
 * \details  Returns component name from PMC. Default name is set in CPortCollection::FinalConstruct()
 * \param[out]	name	name of the component returned to PME	
 * \return   CapeError
+* \interface ICapeIdentification
 * \retval   status   The program status.
 *           \li S_OK		Success
 */
@@ -123,6 +125,7 @@ STDMETHODIMP CUnitPort::get_ComponentName( BSTR * name )
 * \details  Allows to save name of the component given by PME. This name can be later passed to other PMES that use this control. 
 * \param[in]	name	name of the component passed from PME.
 * \return   CapeError
+* \interface ICapeIdentification
 * \retval   status   The program status.
 *                     \li S_OK		Success
 */
@@ -140,6 +143,7 @@ STDMETHODIMP CUnitPort::put_ComponentName( BSTR name )
 * \details  Returns component desc from PMC. Default desc is set in CPortCollection::FinalConstruct()
 * \param[out]	desc	desc of the component returned to PME	
 * \return   CapeError
+* \interface ICapeIdentification
 * \retval   status   The program status.
 *           \li S_OK		Success
 */
@@ -156,6 +160,7 @@ STDMETHODIMP CUnitPort::get_ComponentDescription( BSTR * desc )
 * \details  Allows to save description of the component given by PME. This name can be later passed to other PMES that use this control
 * \param[in]	desc	description of the component passed from PME.
 * \return   CapeError
+* \interface ICapeIdentification
 * \retval   status   The program status.
 *                     \li S_OK		Success
 */
@@ -173,6 +178,7 @@ STDMETHODIMP CUnitPort::put_ComponentDescription( BSTR desc )
 * \details  Returns type of the port to PME
 * \param[out]	portType	type of the port	
 * 			\li CAPE_MATERIAL
+* \interface ICapeUnitPort				
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
@@ -191,6 +197,7 @@ STDMETHODIMP CUnitPort::get_portType( CapePortType * portType )
 * 			\li CAPE_INLET - default
 *			\li CAPE_OUTLET
 *			\li CAPE_INLET_OUTLET - should not be used
+* \interface ICapeUnitPort				
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
@@ -211,6 +218,7 @@ STDMETHODIMP CUnitPort::get_direction( CapePortDirection * portDirection )
 * 			\li CAPE_INLET
 *			\li CAPE_OUTLET
 *			\li CAPE_INLET_OUTLET - should not be used
+* \interface ICapeUnitPort				
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
@@ -229,6 +237,7 @@ STDMETHODIMP CUnitPort::put_direction(int portDirection)
 * \interface ICapeUnitPort
 * \param[out]	connectedObject	object from PMC to PME
 * \return   CapeError
+* \interface ICapeUnitPort	
 * \retval   status   The program status.
 *           \li S_OK		Success
 */

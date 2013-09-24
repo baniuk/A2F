@@ -32,6 +32,7 @@ CPortCollection::~CPortCollection()
 *			\li create instance of IUnitPortEx that is extended version of IUnitPort interface. Extended version provides some additional methods 
 *			that are required on PMC side. The PME will call IUnitPort interface drom the same object (coclass instance) and will not see these
 *			aditional methods.
+* \interface ICapeCollection			
 * \return   Return S_OK on success or one of the standard error HRESULT values.
 * \retval   status   The program status.
 *                     \li S_OK = Success
@@ -95,6 +96,7 @@ HRESULT CPortCollection::FinalConstruct()
 /**
 * \details  Release all interfaces
 * \return   none
+* \interface ICapeCollection
 */
 void CPortCollection::FinalRelease()
 {
@@ -165,6 +167,7 @@ STDMETHODIMP CPortCollection::get_moreInfo( BSTR * moreInfo )
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
+* \interface ICapeCollection          
 * \todo Finish          
 */
 STDMETHODIMP CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
@@ -184,6 +187,7 @@ STDMETHODIMP CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
+* \interface ICapeCollection          
 */
 STDMETHODIMP CPortCollection::Count( long * itemsCount )
 {
@@ -200,6 +204,7 @@ STDMETHODIMP CPortCollection::Count( long * itemsCount )
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
+* \interface ICapeIdentification          
 */
 STDMETHODIMP CPortCollection::get_ComponentName( BSTR * name )
 {
@@ -216,6 +221,7 @@ STDMETHODIMP CPortCollection::get_ComponentName( BSTR * name )
 * \return   CapeError
 * \retval   status   The program status.
 *                     \li S_OK		Success
+* \interface ICapeIdentification                    
 */
 STDMETHODIMP CPortCollection::put_ComponentName( BSTR name )
 {
@@ -233,6 +239,7 @@ STDMETHODIMP CPortCollection::put_ComponentName( BSTR name )
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
+* \interface ICapeIdentification          
 */
 STDMETHODIMP CPortCollection::get_ComponentDescription( BSTR * desc )
 {
@@ -249,6 +256,7 @@ STDMETHODIMP CPortCollection::get_ComponentDescription( BSTR * desc )
 * \return   CapeError
 * \retval   status   The program status.
 *                     \li S_OK		Success
+* \interface ICapeIdentification                    
 */
 STDMETHODIMP CPortCollection::put_ComponentDescription( BSTR desc )
 {
