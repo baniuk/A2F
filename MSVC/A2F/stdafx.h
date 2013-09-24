@@ -30,7 +30,26 @@
 // adds decoding HRESULT errors (winstl::error_desc_a(err_code))
 #include <winstl/error/error_desc.hpp>
 #include <iostream>
+#include <vector>
+#include <windows.h>
 
 // user definitions
 #define YES TRUE
 #define NO FALSE
+/**
+ * Status of the unit shared among interfaces
+ * \details Thi vaiable is modified by:
+ *	\li IUnitOperations
+ *	\li IUnitPort
+ * Calling the Validate method is expected to set the unit’s status to either CAPE_VALID or CAPE_INVALID, depending on whether the 
+ * validation tests succeed or fail. Making a change to the unit operation, such as setting a parameter value, or connecting a stream to
+ * a port is expected to set the unit’s status to CAPE_NOT_VALIDATED.
+ * Contains starus of the PMC. Can have the following values:
+ * \li CAPE_INVALID
+ * \li CAPE_VALID
+ * \li CAPE_NOT_VALIDATED
+ * 
+ * \see AspenPlusUserModelsV8_2-Ref.pdf pp. 274
+ * */
+extern CapeValidationStatus exValidationStatus;
+extern "C" const GUID ;

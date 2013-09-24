@@ -23,8 +23,8 @@
 using namespace ATL;
 
 /// definition of smart pointer for IPortCollection interface
-_COM_SMARTPTR_TYPEDEF(IPortCollection, __uuidof(IPortCollection));
-_COM_SMARTPTR_TYPEDEF(IUnitPortEx, __uuidof(IUnitPortEx));
+//_COM_SMARTPTR_TYPEDEF(IPortCollection, __uuidof(IPortCollection));
+//_COM_SMARTPTR_TYPEDEF(IUnitPortEx, __uuidof(IUnitPortEx));
 
 /**
  * \class CUnitOperations
@@ -171,29 +171,15 @@ public:
 
 private:
 	/// collection of ports exposed by PMC to PME
-	IPortCollectionPtr portCollection;
-	IUnitPortExPtr inputPort;
+	CComPtr<IPortCollection> portCollection;
+	/// collection of parameters
+	CComPtr<IParameterCollection> parameterCollection;
 	/// name of te component passed by PME
 	CComBSTR componentName;
 	/// description passed from PME
 	CComBSTR componentDescription;
 	/// simulation context used for calling aspen interfaces
 	LPDISPATCH simulationContext;
-	/// status of the PMC
-	/**
-	* \details Calling the Validate method is expected to set the unit’s status to either CAPE_VALID or CAPE_INVALID, depending on whether the 
-	* validation tests succeed or fail. Making a change to the unit operation, such as setting a parameter value, or connecting a stream to
-	* a port is expected to set the unit’s status to CAPE_NOT_VALIDATED.
-	 * Contains starus of the PMC. Can have the following values:
-	 * \li CAPE_INVALID
-	 * \li CAPE_VALID
-	 * \li CAPE_NOT_VALIDATED
-	 * 
-	 * \see AspenPlusUserModelsV8_2-Ref.pdf pp. 274
-	 */
-	CapeValidationStatus validationStatus;
-
-
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(UnitOperations), CUnitOperations)

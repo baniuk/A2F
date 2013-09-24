@@ -51,7 +51,7 @@ interface IParameterCollection : IDispatch{
 	pointer_default(unique)
 ]
 interface IUnitPortEx : IUnknown{
-	HRESULT set_PortType([in] CapePortType portType);
+	HRESULT put_direction([in] int portDirection);
 };
 [
 	uuid(E304CE16-F539-4DCA-BEF1-A77F6C1E447F),

@@ -15,7 +15,8 @@
 
 CUnitPort::CUnitPort()
 {
-
+	// domyœlny kierunek
+	portDirection = CAPE_INLET;
 }
 
 CUnitPort::~CUnitPort()
@@ -41,9 +42,15 @@ HRESULT CUnitPort::FinalConstruct()
 	return S_OK;
 }
 
+/**
+* \details  Release all interfaces
+* \return   none
+* \todo add ref countig to log for CComPtr vars
+*/
 void CUnitPort::FinalRelease()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	connectedObject.Release();
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 }
 
@@ -162,43 +169,156 @@ STDMETHODIMP CUnitPort::put_ComponentDescription( BSTR desc )
 	return S_OK;
 }
 
+/**
+* \details  Returns type of the port to PME
+* \param[out]	portType	type of the port	
+* 			\li CAPE_MATERIAL
+* \return   CapeError
+* \retval   status   The program status.
+*           \li S_OK		Success
+*/
 STDMETHODIMP CUnitPort::get_portType( CapePortType * portType )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	*portType = CAPE_MATERIAL;
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
+/**
+* \details  Returns direction of the port to PME
+* \param[out]	portDirection	direction of the port	
+* 			\li CAPE_INLET - default
+*			\li CAPE_OUTLET
+*			\li CAPE_INLET_OUTLET - should not be used
+* \return   CapeError
+* \retval   status   The program status.
+*           \li S_OK		Success
+*/
 STDMETHODIMP CUnitPort::get_direction( CapePortDirection * portDirection )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	*portDirection = this->portDirection;
+	PANTHEIOS_TRACE_DEBUG(PSTR("Port direction passed to PME: "), pantheios::integer(this->portDirection) );
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
+/**
+* \details  Allows to put direction to port. This method is used during port initialize and allows to put any direction form outside.
+* \interface IUnitPortEX
+* \param[in]	portDirection	direction of the port	
+* 			\li CAPE_INLET
+*			\li CAPE_OUTLET
+*			\li CAPE_INLET_OUTLET - should not be used
+* \return   CapeError
+* \retval   status   The program status.
+*           \li S_OK		Success
+*/
+STDMETHODIMP CUnitPort::put_direction(int portDirection)
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	this->portDirection = static_cast<CapePortDirection>(portDirection);
+	PANTHEIOS_TRACE_DEBUG(PSTR("Port direction passed to PMC: "), pantheios::integer(this->portDirection) );
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	return S_OK;
+}
+
+/**
+* \details  Returns the material, energy, or information object connected to the port using the Connect method.
+* \interface ICapeUnitPort
+* \param[out]	connectedObject	object from PMC to PME
+* \return   CapeError
+* \retval   status   The program status.
+*           \li S_OK		Success
+*/
 STDMETHODIMP CUnitPort::get_connectedObject( LPDISPATCH * connectedObject )
 {
+	// object to return 
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	CComPtr<ICapeThermoMaterialObject> tmpconnextedObject(this->connectedObject);
+	*connectedObject = tmpconnextedObject.Detach();
+	PANTHEIOS_TRACE_DEBUG(	PSTR("IPortCollection pointer passed to PME: "), 
+							pantheios::pointer(*connectedObject,pantheios::fmt::fullHex));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
+/**
+* \details  Connect connects a stream to a port. The port validates the type of the object being passed. Aspen Plus creates a material object
+* when it connects a stream to a port that belongs to a CAPE-OPEN unit. It then calls the port’s Connect method passing in the material object's
+* IDispatch interface. Aspen Plus gives the new material object the same name as stream that was connected to the port. Material objects are 
+* described in CAPE-OPEN COM Thermodynamic Interfaces, Chapter 27.
+* This method invalidate unit
+* \interface ICapeUnitPort
+* \param[in]	objectToConnect	object from PME to connect to	
+* \return   CapeError
+* \retval   status   The program status.
+*           \li S_OK		Success
+*/
 STDMETHODIMP CUnitPort::Connect( LPDISPATCH objectToConnect )
 {
+	HRESULT err_code;
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	// assign PME object to local var
+	CComPtr<IDispatch> tmpconnectedObject(objectToConnect);
+	try
+	{
+		// quering to demanded interface (with addref)
+		err_code = tmpconnectedObject->QueryInterface(IID_PPV_ARGS(&connectedObject));
+	}
+	catch(_com_error e)	// catching com errors encapsulated in _ccom_error class
+	{
+		// we are here in case of general errors with portCollection pointer and query interface
+		PANTHEIOS_TRACE_ERROR(PSTR("IID_ICapeThermoMaterialObject QueryInterface exception: "),e.ErrorMessage());
+		PANTHEIOS_TRACE_ERROR(PSTR("IID_ICapeThermoMaterialObject QueryInterface error code: "),pantheios::integer(e.Error(),pantheios::fmt::fullHex));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return e.Error();	// return HRESULT
+	}
+	catch(...)	// unsuported exceptions
+	{
+		PANTHEIOS_TRACE_CRITICAL(PSTR("Unexpected IID_ICapeThermoMaterialObject->QueryInterface exception"));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return E_FAIL;	// unexpected exception
+	}
+	if(FAILED(err_code)) 
+	{
+		// we ar ehere in case if portCollection is ok but requested interface is not supported
+		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IID_ICapeThermoMaterialObject not created because: "), 
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}		
+	PANTHEIOS_TRACE_DEBUG(	PSTR("IID_ICapeThermoMaterialObject addres "),
+							pantheios::pointer(connectedObject.p,pantheios::fmt::fullHex),
+							PSTR(" Error: "), winstl::error_desc_a(err_code));
+	
+	// invalidating unit after change of the port
+	exValidationStatus = CAPE_NOT_VALIDATED;
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Unit status: "),
+							pantheios::integer(exValidationStatus));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
+/**
+* \details  Disconnect disconnects the port from the connected stream. Aspen Plus calls Disconnect when a stream is disconnected from a port that
+* belongs to a CAPE-OPEN unit.
+* \interface ICapeUnitPort
+* \return   CapeError
+* \retval   status   The program status.
+*           \li S_OK		Success
+*/
 STDMETHODIMP CUnitPort::Disconnect()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	// disconect object
+	connectedObject = NULL;
+	exValidationStatus = CAPE_NOT_VALIDATED;
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Unit status: "),
+							pantheios::integer(exValidationStatus));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
-STDMETHODIMP CUnitPort::set_PortType( int portType )
-{
-	// Add your function implementation here.
-	return E_NOTIMPL;
-}

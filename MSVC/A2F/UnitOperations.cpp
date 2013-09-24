@@ -11,10 +11,11 @@
 #include "UnitOperations.h"
 
 // CUnitOperations
+CapeValidationStatus exValidationStatus = CAPE_NOT_VALIDATED;
 
 CUnitOperations::CUnitOperations()
 {
-	validationStatus = CAPE_NOT_VALIDATED;
+
 }
 
 CUnitOperations::~CUnitOperations()
@@ -25,10 +26,8 @@ CUnitOperations::~CUnitOperations()
 /**
 * \details  COM initialization method called after construction of the object. Other interfaces should be created here.
 *			\li Set names of component and descriptions
-*			\li create instance of CPortCollection
-*			\li create instance of IUnitPortEx that is extended version of IUnitPort interface. Extended version provides some additional methods 
-*			that are required on PMC side. The PME will call IUnitPort interface drom the same object (coclass instance) and will not see these
-*			aditional methods.
+*			\li create instance of IPortCollection
+*			\li create instance of IParameterCollection
 * \return   Return S_OK on success or one of the standard error HRESULT values.
 * \retval   status   The CreateInstance status  - http://msdn.microsoft.com/en-us/library/windows/desktop/ms686615(v=vs.85).aspx
 *                     \li S_OK		Success
@@ -47,11 +46,25 @@ HRESULT CUnitOperations::FinalConstruct()
 	componentDescription = L"FLUENT CAPE-OPEN unit operation implemented in CPP";
 
 	// create instance of CoClass for ICapePortCollection
-	err_code = portCollection.CreateInstance(__uuidof(PortCollection),NULL,CLSCTX_INPROC_SERVER);
-	if(!FAILED(err_code))
-		PANTHEIOS_TRACE_DEBUG(	PSTR("Instance of PortCollection created"),
-								PSTR(" Error: "), winstl::error_desc_a(err_code));
-	else
+	try
+	{
+		err_code = portCollection.CoCreateInstance(__uuidof(PortCollection));
+	}
+	catch(_com_error e)	// catching com errors encapsulated in _ccom_error class
+	{
+		// we are here in case of general errors with portCollection pointer and query interface
+		PANTHEIOS_TRACE_ERROR(PSTR("IPortCollection->CoCreateInstance exception: "),e.ErrorMessage());
+		PANTHEIOS_TRACE_ERROR(PSTR("IPortCollection->CoCreateInstance error code: "),pantheios::integer(e.Error(),pantheios::fmt::fullHex));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return e.Error();	// return HRESULT
+	}
+	catch(...)	// unsuported exceptions
+	{
+		PANTHEIOS_TRACE_CRITICAL(PSTR("Unexpected IPortCollection->CoCreateInstance exception"));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return E_FAIL;	// unexpected exception
+	}
+	if(FAILED(err_code))	// error
 	{
 		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of PortCollection not created because: "), 
 			pantheios::integer(err_code,pantheios::fmt::fullHex),
@@ -59,20 +72,45 @@ HRESULT CUnitOperations::FinalConstruct()
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return err_code;
 	}
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Instance of PortCollection created"),
+							PSTR(" Error: "), winstl::error_desc_a(err_code));
+	PANTHEIOS_TRACE_DEBUG(	PSTR("IPortCollection addres: "), 
+							pantheios::pointer(portCollection.p,pantheios::fmt::fullHex));
 	
-	// create instance of CoClass for IUnitPort (IUnitPortEx)	
-	err_code = inputPort.CreateInstance(__uuidof(UnitPort),NULL,CLSCTX_INPROC_SERVER);
-	if(!FAILED(err_code))
-		PANTHEIOS_TRACE_DEBUG(	PSTR("Instance of IUnitPortEx created"),
-		PSTR(" Error: "), winstl::error_desc_a(err_code));
-	else
+	// create instance of CoClass for ICapeParameterCollection
+	try
 	{
-		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IUnitPortEx not created because: "), 
+		err_code = parameterCollection.CoCreateInstance(__uuidof(ParameterCollection));
+	}
+	catch(_com_error e)	// catching com errors encapsulated in _ccom_error class
+	{
+		// we are here in case of general errors with portCollection pointer and query interface
+		PANTHEIOS_TRACE_ERROR(PSTR("IParameterCollection->CoCreateInstance exception: "),e.ErrorMessage());
+		PANTHEIOS_TRACE_ERROR(PSTR("IParameterCollection->CoCreateInstance error code: "),pantheios::integer(e.Error(),pantheios::fmt::fullHex));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return e.Error();	// return HRESULT
+	}
+	catch(...)	// unsuported exceptions
+	{
+		PANTHEIOS_TRACE_CRITICAL(PSTR("Unexpected IParameterCollection->CoCreateInstance exception"));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return E_FAIL;	// unexpected exception
+	}
+	if(FAILED(err_code))	// error
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IParameterCollection not created because: "), 
 			pantheios::integer(err_code,pantheios::fmt::fullHex),
 			PSTR(" Error: "), winstl::error_desc_a(err_code));
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return err_code;
 	}
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Instance of IParameterCollection created"),
+							PSTR(" Error: "), winstl::error_desc_a(err_code));
+	PANTHEIOS_TRACE_DEBUG(	PSTR("IParameterCollection addres: "), 
+							pantheios::pointer(parameterCollection.p,pantheios::fmt::fullHex));
+	
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Unit status: "),
+							pantheios::integer(exValidationStatus));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
@@ -80,6 +118,7 @@ HRESULT CUnitOperations::FinalConstruct()
 /**
 * \details  Release all interfaces
 * \return   none
+* \todo add ref countig to log for CComPtr vars
 */
 void CUnitOperations::FinalRelease()
 {
@@ -87,9 +126,10 @@ void CUnitOperations::FinalRelease()
 	ULONG count = simulationContext->Release(); // returns currnet object reference count
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Release IDispatch pointer: "), 
 							pantheios::pointer(simulationContext,pantheios::fmt::fullHex),
-							PSTR("count= "),
+							PSTR(" count= "),
 							pantheios::integer(count));
-	portCollection = NULL; // release pointer - make sure that all instances will be closed
+	portCollection.Release(); // release pointer - make sure that all instances will be closed
+	parameterCollection.Release();
 }
 
 /**
@@ -108,43 +148,13 @@ void CUnitOperations::FinalRelease()
 STDMETHODIMP CUnitOperations::get_ports( LPDISPATCH * ports )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	IPortCollection *tmp;	// temporary var for holding IportCollection pointer (CportCollection coclass)
-	HRESULT err_code;	// error code for QueryInterface
-	// check if there is no general error with smart pointers (before HRESULT is initialized)
-	try
-	{
-		err_code = portCollection->QueryInterface(__uuidof(IPortCollection),reinterpret_cast<void**>(&tmp)); // getting interface pointer (creating referenco of CoClass)
-	}
-	catch(_com_error e)	// catching com errors encapsulated in _ccom_error class
-	{
-		// we are here in case of general errors with portCollection pointer and query interface
-		PANTHEIOS_TRACE_ERROR(PSTR("IPortCollection->QueryInterface exception: "),e.ErrorMessage());
-		PANTHEIOS_TRACE_ERROR(PSTR("IPortCollection->QueryInterface error code: "),pantheios::integer(e.Error(),pantheios::fmt::fullHex));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return e.Error();	// return HRESULT
-	}
-	catch(...)	// unsuported exceptions
-	{
-		PANTHEIOS_TRACE_CRITICAL(PSTR("Unexpected IPortCollection->QueryInterface exception"));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return E_FAIL;	// unexpected exception
-	}
-	if(S_OK == err_code) 
-	{
-		PANTHEIOS_TRACE_DEBUG(	PSTR("IportCollection addres "),
-								pantheios::pointer(tmp,pantheios::fmt::fullHex),
-								PSTR(" Error: "), winstl::error_desc_a(err_code));
-		*ports = dynamic_cast<LPDISPATCH>(tmp);	// pointer to port collection exposed to PME 
-	}
-	else
-	{
-		// we ar ehere in case if portCollection is ok but requested interface is not supported
-		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of PortCollection not created because: "), 
-								pantheios::integer(err_code,pantheios::fmt::fullHex),
-								PSTR(" Error: "), winstl::error_desc_a(err_code));
-	}
+	CComPtr<IPortCollection> ptmpIPortCollection(portCollection);	// add reference to portCollection
+
+	*ports = ptmpIPortCollection.Detach();
+	PANTHEIOS_TRACE_DEBUG(	PSTR("IPortCollection pointer passed to PME: "), 
+							pantheios::pointer(*ports,pantheios::fmt::fullHex));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return err_code;	// return S_OK or other HRESULT
+	return S_OK;	// return S_OK or other HRESULT
 }
 
 /**
@@ -156,12 +166,14 @@ STDMETHODIMP CUnitOperations::get_ports( LPDISPATCH * ports )
 *				\li CAPE_NOT_VALIDATED
 *
 * \see
-*			\li AspenPlusUserModelsV8_2-Ref.pdf pp. 274
+*			\li AspenPlusUserModelsV8_2-Ref.pdf pp. 274	
 */
 STDMETHODIMP CUnitOperations::get_ValStatus( CapeValidationStatus * ValStatus )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	*ValStatus = validationStatus;
+//	*ValStatus = validationStatus;
+	*ValStatus = exValidationStatus;
+	PANTHEIOS_TRACE_DEBUG(PSTR("Status passed to PME: "),pantheios::integer(*ValStatus));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
@@ -173,11 +185,36 @@ STDMETHODIMP CUnitOperations::Calculate()
 	return E_NOTIMPL;
 }
 
+/**
+* \details  Called by PME - returns status of PMC after checking PMC condition. Calling the Validate method is expected to set the unit’s
+* status to either CAPE_VALID or CAPE_INVALID, depending on whether the validation tests succeed or fail. Making a change to the unit operation,
+* such as setting a parameter value, or connecting a stream to a port is expected to set the unit’s status to CAPE_NOT_VALIDATED.
+* \return   Return Vbool status of the unit
+* \param[out]	message	Message passed to PME
+* \param[out]   isValid   The PMC status.
+*				\li CAPE_VALID
+*				\li CAPE_INVALID
+*				\li CAPE_NOT_VALIDATED
+*
+* \see
+*			\li AspenPlusUserModelsV8_2-Ref.pdf pp. 274
+* \todo
+*		Finish
+*/
 STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	// checking unit condition
+//	validationStatus = CAPE_VALID;
+	exValidationStatus = CAPE_VALID;
+	*isValid = VARIANT_TRUE;	// is ok
+	CComBSTR outMessage(L"Unit is valid and ready");
+	*message = outMessage.Copy();
+
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Unit status: "),
+							pantheios::integer(exValidationStatus));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
 
@@ -297,9 +334,24 @@ STDMETHODIMP CUnitOperations::put_ComponentDescription( BSTR desc )
 	return S_OK;
 }
 
+/**
+* \details  Parameters returns an ICapeCollection interface that provides access to the unit’s list of parameters. Each element accessed 
+* through the returned interface must support the ICapeParameter interface.
+* Query interface returns error code if requested interface is not supported. In case more general errors, exception _com_error is thrown.
+* \param[out]	parameters	pointer to IParameterCollection
+* \return   Return S_OK on success or one of the standard error HRESULT values.
+* \retval   status   The program status.
+*                     \li HRESULT	if exception _com_error caught or QueryInterface not returned S_OK 
+*                     \li E_FAIL	if unsuported exception caught
+*                     \li S_OK		Success
+* \see
+*			\li AspenPlusUserModelsV8_2-Ref.pdf pp. 277, 271
+*/
 STDMETHODIMP CUnitOperations::get_parameters( LPDISPATCH * parameters )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	CComPtr<IParameterCollection> ptmpIarameterCollection(parameterCollection);
+	*parameters = ptmpIarameterCollection.Detach();
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return E_NOTIMPL;
 }
@@ -309,9 +361,11 @@ STDMETHODIMP CUnitOperations::get_parameters( LPDISPATCH * parameters )
 *			The Initialize method must not change the current working directory: if it does Aspen Plus will not be able to access its own files and will fail.
 *			If the Initialize method needs to display a dialog to allow a user to open a file, it must ensure that the current working directory is restored
 *			after a file is selected.
+*			This method passes unit validation status to other onterfaces
 * \return   CapeError
 * \retval   status   The program status.
-*                     \li S_OK = Success
+*           \li S_OK		Success
+*           \li HRESULT		fail
 * \see      AspenPlusUserModelsV8_2-Ref.pdf pp. 286
 * \note		Any initialization that could fail must be placed here instead of the constructor.
 */
@@ -319,7 +373,7 @@ STDMETHODIMP CUnitOperations::Initialize()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;	// return S_OK
 }
 
 /**
@@ -328,7 +382,8 @@ STDMETHODIMP CUnitOperations::Initialize()
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
-* \warning Original definitions does not include rhs parameter??          
+* \warning Original definitions does not include rhs parameter??  
+* \todo use CComPtr here as in CUnitPort::Connect()
 */
 STDMETHODIMP CUnitOperations::put_simulationContext( LPDISPATCH rhs)
 {
