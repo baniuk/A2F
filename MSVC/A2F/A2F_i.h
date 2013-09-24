@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 8.00.0595 */
-/* at Thu Sep 19 10:59:53 2013
+/* at Tue Sep 24 13:24:11 2013
  */
 /* Compiler settings for A2F.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.00.0595 
@@ -71,6 +71,13 @@ typedef interface IUnitPort IUnitPort;
 typedef interface IParameterCollection IParameterCollection;
 
 #endif 	/* __IParameterCollection_FWD_DEFINED__ */
+
+
+#ifndef __IUnitPortEx_FWD_DEFINED__
+#define __IUnitPortEx_FWD_DEFINED__
+typedef interface IUnitPortEx IUnitPortEx;
+
+#endif 	/* __IUnitPortEx_FWD_DEFINED__ */
 
 
 #ifndef __UnitOperations_FWD_DEFINED__
@@ -608,6 +615,86 @@ EXTERN_C const IID IID_IParameterCollection;
 
 
 #endif 	/* __IParameterCollection_INTERFACE_DEFINED__ */
+
+
+#ifndef __IUnitPortEx_INTERFACE_DEFINED__
+#define __IUnitPortEx_INTERFACE_DEFINED__
+
+/* interface IUnitPortEx */
+/* [unique][nonextensible][dual][uuid][object] */ 
+
+
+EXTERN_C const IID IID_IUnitPortEx;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("874DE9E2-3053-4B49-98F4-B0F0653ADB8F")
+    IUnitPortEx : public IUnknown
+    {
+    public:
+        virtual HRESULT STDMETHODCALLTYPE put_direction( 
+            /* [in] */ int portDirection) = 0;
+        
+    };
+    
+    
+#else 	/* C style interface */
+
+    typedef struct IUnitPortExVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            IUnitPortEx * This,
+            /* [in] */ REFIID riid,
+            /* [annotation][iid_is][out] */ 
+            _COM_Outptr_  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            IUnitPortEx * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            IUnitPortEx * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *put_direction )( 
+            IUnitPortEx * This,
+            /* [in] */ int portDirection);
+        
+        END_INTERFACE
+    } IUnitPortExVtbl;
+
+    interface IUnitPortEx
+    {
+        CONST_VTBL struct IUnitPortExVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define IUnitPortEx_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define IUnitPortEx_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define IUnitPortEx_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define IUnitPortEx_put_direction(This,portDirection)	\
+    ( (This)->lpVtbl -> put_direction(This,portDirection) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __IUnitPortEx_INTERFACE_DEFINED__ */
 
 
 

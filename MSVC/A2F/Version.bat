@@ -15,6 +15,6 @@ rem For information about specifying version binding policies, see Configuration
 rem USAGE Version.bat <tool_path> <versionfile>
 rem path must end with \
 set MAJOR_VER=0
-set MINOR_VER=3
+set MINOR_VER=5
 
 %1verbuild %2 %MAJOR_VER%.%MINOR_VER%.*.+ -d2013 -xFp -s

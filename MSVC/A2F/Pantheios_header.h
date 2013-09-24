@@ -78,5 +78,5 @@ enum LOGI {
 };
 
 /// Log file name and path
-#define PANTHEIOS_LOG_FILE_NAME	"c:\\A2F.mylog"
+#define PANTHEIOS_LOG_FILE_NAME	"c:\\A2F.pantlog"
 #endif // Pantheios_header__

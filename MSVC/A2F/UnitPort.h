@@ -33,6 +33,7 @@ using namespace ATL;
  * \li ECapeUser
  * \li ICapeIdentification
  * \li ECapeUnknown
+ * \li IUnitPortEx - interface extending ICapeUnitPort capabilities
  *
  * \author PB
  *
@@ -53,7 +54,8 @@ class ATL_NO_VTABLE CUnitPort :
 	public IDispatchImpl<ECapeUnknown, &__uuidof(ECapeUnknown), &LIBID_CAPEOPEN100, /* wMajor = */ 1>,
 	public IDispatchImpl<ECapeUser, &__uuidof(ECapeUser), &LIBID_CAPEOPEN100, /* wMajor = */ 1>,
 	public IDispatchImpl<ICapeIdentification, &__uuidof(ICapeIdentification), &LIBID_CAPEOPEN100, /* wMajor = */ 1>,
-	public IDispatchImpl<ICapeUnitPort, &__uuidof(ICapeUnitPort), &LIBID_CAPEOPEN100, /* wMajor = */ 1>
+	public IDispatchImpl<ICapeUnitPort, &__uuidof(ICapeUnitPort), &LIBID_CAPEOPEN100, /* wMajor = */ 1>,
+	public IDispatchImpl<IUnitPortEx, &__uuidof(IUnitPortEx)>
 {
 public:
 	CUnitPort();
@@ -70,6 +72,7 @@ public:
 		COM_INTERFACE_ENTRY(ECapeUser)
 		COM_INTERFACE_ENTRY(ICapeIdentification)
 		COM_INTERFACE_ENTRY(ICapeUnitPort)
+		COM_INTERFACE_ENTRY(IUnitPortEx)
 	END_COM_MAP()
 
 
@@ -121,12 +124,28 @@ public:
 	STDMETHOD(Connect)(LPDISPATCH objectToConnect);
 	/// ICapeUnitPort Methods
 	STDMETHOD(Disconnect)();
+	/// ICapeUnitPortEx Methods - own extension
+	STDMETHOD(put_direction)(int portDirection);
 
 private:
-	// name of te component passed by PME
+	/// name of te component passed by PME
 	CComBSTR componentName;
-	// description passed from PME
+	/// description passed from PME
 	CComBSTR componentDescription;
+	/// direction of the port
+	/**
+	* \details Define direction of the port. 
+	* \li CAPE_INLET - default
+	* \li CAPE_OUTLET
+	* \li CAPE_INLET_OUTLET - should not be used
+	* 
+	* \see CO_Unit_Operations_v6.25.pdf pp. 280
+	*/
+	CapePortDirection portDirection;
+	/// Object connected to port (from outside)
+	CComPtr<ICapeThermoMaterialObject> connectedObject;
+
+public:
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(UnitPort), CUnitPort)
