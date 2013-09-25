@@ -48,4 +48,5 @@ New features:
 	+ multi port supported
 	+ AddPort implemented - universal
 	+ visible under Aspen
-	- Item not finished
+	+ Item finished
+	+ all ports visible!!

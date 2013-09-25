@@ -193,8 +193,72 @@ STDMETHODIMP CPortCollection::get_moreInfo( BSTR * moreInfo )
 STDMETHODIMP CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	CComPtr<IUnitPort> ptmpIUnitPort(ports.at(0));
-	*Item = ptmpIUnitPort.Detach();
+	PANTHEIOS_TRACE_DEBUG(PSTR("Input id: "),id);
+	CComPtr<IUnitPort> ptmpIUnitPort; // port to be returned to PME
+	CComPtr<ICapeIdentification> ptmpICapeIdentification;	// to get to name of the port
+	CComBSTR componentName;
+	HRESULT err_code;
+
+	try
+	{
+		switch(id.vt)
+		{
+		case VT_I4:
+			ptmpIUnitPort = ports.at(id.lVal-1);	// add reference to IUnitPort
+			*Item = ptmpIUnitPort.Detach();
+			break;
+		case VT_BSTR:
+			for(CComPtr<IUnitPort> item : ports)	// go through all ports in array
+			{
+				err_code = item->QueryInterface(IID_PPV_ARGS(&ptmpICapeIdentification));	// query for ICapeIdentification::get_ComponentName
+				if(FAILED(err_code)) 
+				{
+					// we ar ehere in case if portCollection is ok but requested interface is not supported
+					PANTHEIOS_TRACE_ERROR(	PSTR("Instance of ICapeIdentification not created because: "), 
+											pantheios::integer(err_code,pantheios::fmt::fullHex),
+											PSTR(" Error: "), winstl::error_desc_a(err_code),
+											PSTR("Port addres: "), pantheios::pointer(item.p,pantheios::fmt::fullHex));
+					PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+					return err_code;
+				}		
+				err_code = ptmpICapeIdentification->get_ComponentName(&componentName); // get name of the component
+				if(FAILED(err_code)) 
+				{
+					// we ar ehere in case if portCollection is ok but requested interface is not supported
+					PANTHEIOS_TRACE_ERROR(	PSTR("get_ComponentName failed: "), 
+											pantheios::integer(err_code,pantheios::fmt::fullHex),
+											PSTR(" Error: "), winstl::error_desc_a(err_code),
+											PSTR("Port addres: "), pantheios::pointer(item.p,pantheios::fmt::fullHex));
+					PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+					return err_code;
+				}		
+				if(componentName==id.bstrVal)
+				{
+					ptmpIUnitPort = item;	// add reference to IUnitPort
+					*Item = ptmpIUnitPort.Detach();
+				}
+			}
+			break;
+		default:
+			PANTHEIOS_TRACE_CRITICAL(PSTR("Should not be here never"));
+			return E_FAIL;
+		}
+	}
+	catch (const std::out_of_range& oor) {
+		PANTHEIOS_TRACE_ERROR(	PSTR("Out of Range error: "), oor.what());
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return E_FAIL;	// return HRESULT
+	}
+	catch(_com_error e)	// catching com errors encapsulated in _ccom_error class
+	{
+		// we are here in case of general errors with portCollection pointer and query interface
+		PANTHEIOS_TRACE_ERROR(PSTR("ICapeIdentification->QueryInterface exception: "),e.ErrorMessage());
+		PANTHEIOS_TRACE_ERROR(PSTR("ICapeIdentification->QueryInterface error code: "),pantheios::integer(e.Error(),pantheios::fmt::fullHex));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return e.Error();	// return HRESULT
+	}
+	
+	
 	PANTHEIOS_TRACE_DEBUG(	PSTR("IUnitPort pointer passed to PME: "), 
 							pantheios::pointer(*Item,pantheios::fmt::fullHex));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
