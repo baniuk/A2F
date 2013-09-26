@@ -149,7 +149,6 @@ STDMETHODIMP CUnitOperations::get_ports( LPDISPATCH * ports )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	CComPtr<IPortCollection> ptmpIPortCollection(portCollection);	// add reference to portCollection
-
 	*ports = ptmpIPortCollection.Detach();
 	PANTHEIOS_TRACE_DEBUG(	PSTR("IPortCollection pointer passed to PME: "), 
 							pantheios::pointer(*ports,pantheios::fmt::fullHex));

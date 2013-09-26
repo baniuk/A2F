@@ -131,13 +131,13 @@ private:
 	// description passed from PME
 	CComBSTR componentDescription;
 	// list of ports
-	std::vector<IUnitPort*> ports;
-	/// one examplary input port
-	CComPtr<IUnitPort> inputPort;
-	/// status of the PMC unit referenced from CUnitOperations::validationStatus 
+	std::vector<CComPtr<IUnitPort>> ports;
+	// status of the PMC unit referenced from CUnitOperations::validationStatus 
 	CapeValidationStatus* pvalidationStatus;
-	/// performs initialization of ports in collection
-	HRESULT Initialize();
+	// adds one port to collection
+	HRESULT AddPort(const WCHAR* portName, const WCHAR* portDescription, CapePortDirection portDirection);
+	// keeps first free location in ports
+	std::vector<CComPtr<IUnitPort>>::iterator currentPort;
 
 
 };

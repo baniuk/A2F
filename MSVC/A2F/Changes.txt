@@ -43,4 +43,10 @@ New features:
 	+ exValidationStatus is external now
 	+ put_unitValStatus depreciated now
 	- no visible under aspen yet
-	
+version 0.5
+New features:
+	+ multi port supported
+	+ AddPort implemented - universal
+	+ visible under Aspen
+	+ Item finished
+	+ all ports visible!!
