@@ -26,7 +26,7 @@ CUnitPort::~CUnitPort()
 
 /**
 * \details  COM initialization method called after construction of the object. Other interfaces should be created here.
-*			\li Set names of component and descriptions
+*			\li Set names of component and descriptions	
 * \return   Return S_OK on success or one of the standard error HRESULT values.
 * \retval   status   
 *           \li S_OK		Success
@@ -172,7 +172,7 @@ STDMETHODIMP CUnitPort::put_ComponentDescription( BSTR desc )
 /**
 * \details  Returns type of the port to PME
 * \param[out]	portType	type of the port	
-* 			\li CAPE_MATERIAL
+* 			\li CAPE_MATERIAL		
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
@@ -190,7 +190,7 @@ STDMETHODIMP CUnitPort::get_portType( CapePortType * portType )
 * \param[out]	portDirection	direction of the port	
 * 			\li CAPE_INLET - default
 *			\li CAPE_OUTLET
-*			\li CAPE_INLET_OUTLET - should not be used
+*			\li CAPE_INLET_OUTLET - should not be used	
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
@@ -210,7 +210,7 @@ STDMETHODIMP CUnitPort::get_direction( CapePortDirection * portDirection )
 * \param[in]	portDirection	direction of the port	
 * 			\li CAPE_INLET
 *			\li CAPE_OUTLET
-*			\li CAPE_INLET_OUTLET - should not be used
+*			\li CAPE_INLET_OUTLET - should not be used	
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
@@ -250,7 +250,6 @@ STDMETHODIMP CUnitPort::get_connectedObject( LPDISPATCH * connectedObject )
 * IDispatch interface. Aspen Plus gives the new material object the same name as stream that was connected to the port. Material objects are 
 * described in CAPE-OPEN COM Thermodynamic Interfaces, Chapter 27.
 * This method invalidate unit
-* \interface ICapeUnitPort
 * \param[in]	objectToConnect	object from PME to connect to	
 * \return   CapeError
 * \retval   status   The program status.
@@ -305,7 +304,6 @@ STDMETHODIMP CUnitPort::Connect( LPDISPATCH objectToConnect )
 /**
 * \details  Disconnect disconnects the port from the connected stream. Aspen Plus calls Disconnect when a stream is disconnected from a port that
 * belongs to a CAPE-OPEN unit.
-* \interface ICapeUnitPort
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success

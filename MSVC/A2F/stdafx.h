@@ -27,6 +27,8 @@
 
 // user includes
 #include "Pantheios_header.h"
+// ads collections
+#include <atlcoll.h>
 // adds decoding HRESULT errors (winstl::error_desc_a(err_code))
 #include <winstl/error/error_desc.hpp>
 #include <iostream>
@@ -36,6 +38,12 @@
 // user definitions
 #define YES TRUE
 #define NO FALSE
+/// number of ports in PMC
+#ifndef PORTS_NUMBER
+	#define PORTS_NUMBER 2
+#else
+	#error Port number defined!!
+#endif
 /**
  * Status of the unit shared among interfaces
  * \details Thi vaiable is modified by:
