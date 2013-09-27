@@ -11,7 +11,6 @@
 #include "stdafx.h"
 #include "ParameterCollection.h"
 
-
 // CParameterCollection
 
 
@@ -138,6 +137,7 @@ STDMETHODIMP CParameterCollection::Count( long * itemsCount )
 STDMETHODIMP CParameterCollection::Item( VARIANT id, LPDISPATCH * Item )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+
 // 	CComPtr<IParameterCollection> ptmpIParameterCollection(pa);
 // 	*Item = ptmpIUnitPort.Detach();
 // 	PANTHEIOS_TRACE_DEBUG(	PSTR("IUnitPort pointer passed to PME: "), 

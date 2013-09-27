@@ -52,6 +52,7 @@
 #include <pantheios/inserters/args.hpp>
 #include <pantheios/inserters/m2w.hpp>
 #include <pantheios/inserters/w2m.hpp>
+#include <pantheios/assert.h>
 
 // http://sourceforge.net/projects/pantheios/forums/forum/475314/topic/2186546
 // 

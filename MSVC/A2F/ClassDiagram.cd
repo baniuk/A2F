@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CA2FModule" Collapsed="true">
+    <Position X="3.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>dllmain.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CParameterCollection" Collapsed="true">
+    <Position X="5.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgEACAAACAAAIAQBAAAQEABACAABFgBAAAICAAAA=</HashCode>
+      <FileName>ParameterCollection.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CPortCollection" Collapsed="true">
+    <Position X="7.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgkACAAQGABAIAABAABQEABACAABFgAAAAICAAQA=</HashCode>
+      <FileName>PortCollection.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CUnitOperations" Collapsed="true">
+    <Position X="3.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAMIgUACAACDCQAIAABAAgAAEDgCAABHggBEEIiBAAA=</HashCode>
+      <FileName>UnitOperations.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CUnitPort" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKYAgEACAAACAAAIQABAAIACABACAAxFiAAAAICAAAQ=</HashCode>
+      <FileName>UnitPort.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="IPortCollection" Collapsed="true">
+    <Position X="7.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>A2F_i.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="_IID" Collapsed="true">
+    <Position X="3.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAACAQABAAAAAAAA=</HashCode>
+      <FileName>A2F_i.c</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="IUnitOperationsVtbl" Collapsed="true">
+    <Position X="5.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAJBAAAAAAAAAAAAQAAgAAAAAAAABAAAAA=</HashCode>
+      <FileName>A2F_i.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="IPortCollectionVtbl" Collapsed="true">
+    <Position X="3.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAJBAAAAAAAAAAAAQAAgAAAAAAAABAAAAA=</HashCode>
+      <FileName>A2F_i.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="IUnitPortVtbl" Collapsed="true">
+    <Position X="3.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAJBAAAAAAAAAAAAQAAgAAAAAAAABAAAAA=</HashCode>
+      <FileName>A2F_i.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="IParameterCollectionVtbl" Collapsed="true">
+    <Position X="5.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAJBAAAAAAAAAAAAQAAgAAAAAAAABAAAAA=</HashCode>
+      <FileName>A2F_i.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="IUnitPortExVtbl" Collapsed="true">
+    <Position X="7.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAgAAAAAAAABAAAAQ=</HashCode>
+      <FileName>A2F_i.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Typedef Name="IID" Collapsed="true">
+    <Position X="5.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>c:\program files (x86)\windows kits\8.0\include\shared\guiddef.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="CLSID" Collapsed="true">
+    <Position X="3.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>c:\program files (x86)\windows kits\8.0\include\shared\guiddef.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="UnitOperations" Collapsed="true">
+    <Position X="5.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>A2F_i.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="PortCollection" Collapsed="true">
+    <Position X="3.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>A2F_i.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="UnitPort" Collapsed="true">
+    <Position X="7.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>A2F_i.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="ParameterCollection" Collapsed="true">
+    <Position X="7.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>A2F_i.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Enum Name="LOGI" Collapsed="true">
+    <Position X="3.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Pantheios_header.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
