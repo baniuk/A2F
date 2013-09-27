@@ -116,6 +116,7 @@
     <None Include="ParameterCollection.rgs">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="A2F.idl">
