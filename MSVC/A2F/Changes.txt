@@ -50,3 +50,6 @@ New features:
 	+ visible under Aspen
 	+ Item finished
 	+ all ports visible!!
+version 0.9	
+New features:
+	+ Validate (not tested)
