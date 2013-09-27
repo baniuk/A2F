@@ -36,6 +36,7 @@ CPortCollection::~CPortCollection()
 * \return   Return S_OK on success or one of the standard error HRESULT values.
 * \retval   status   The program status.
 *                     \li S_OK = Success
+* \warning Number of initialized ports in this function mus equal to PORTS_NUMBER in stdafx.h                    
 */
 HRESULT CPortCollection::FinalConstruct()
 {

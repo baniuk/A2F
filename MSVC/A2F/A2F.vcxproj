@@ -56,6 +56,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;PANTHEIOS_FORCE_AUTO_INIT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -92,6 +93,9 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
       <Command>
       </Command>
     </PreLinkEvent>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -182,6 +186,7 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
     <None Include="A2F.def" />
     <None Include="A2F.rc2" />
     <None Include="A2F.rgs" />
+    <None Include="ClassDiagram.cd" />
     <None Include="ParameterCollection.rgs" />
     <None Include="PortCollection.rgs" />
     <None Include="UnitOperations.rgs" />

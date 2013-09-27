@@ -46,6 +46,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>WIN32;REGISTER_PROXY_DLL;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
       <AdditionalDependencies>kernel32.lib;rpcns4.lib;rpcrt4.lib;oleaut32.lib;uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -60,6 +61,9 @@ Exit 1
 </Command>
       <Message>Checking for required files</Message>
     </PreBuildEvent>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
