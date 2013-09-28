@@ -5,7 +5,7 @@ set CURRENT_DIR=%CD%
 rem set correct names here!!
 set STL_NAME=stlsoft-1.9.117& rem -hdrs.zip
 set PANTH_NAME=pantheios-1.0.1-beta214& rem -src.zip
-set WX_NAME=wxWidgets-2.9.5& rem .zip
+set WX_NAME=wxWidgets-2.8.12& rem .zip
 
 set PATH=%CURRENT_DIR%\tools;%PATH%
 cecho {red}Configure tool for A2F project{\n}{default}
@@ -51,8 +51,9 @@ rem Gtest
 cecho {red on white}Checkingout gtest...{default}{\n}
 svn checkout http://googletest.googlecode.com/svn/trunk/ ..\External_dep\gtest
 rem WxWidgets
-wget -nc http://sourceforge.net/projects/wxwindows/files/2.9.5/wxWidgets-2.9.5.zip/download
-unzip -n %WX_NAME%.zip -d ..\External_dep\%WX_NAME%
+wget -nc http://prdownloads.sourceforge.net/wxwindows/wxWidgets-2.8.12.zip
+unzip -n %WX_NAME%.zip -d ..\External_dep\
+patch ..\External_dep\%WX_NAME%\src\msw\window.cpp ..\Configs\wx_patch.diff
 
 rem ------------- COMPILING -------------------------------
 rem Pantheios 32bit
@@ -64,7 +65,7 @@ cecho {red on white}Compiling %WX_NAME%...{default}{\n}
 cd %CURRENT_DIR%\External_dep\%WX_NAME%\build\msw
 rem ustawienia zgodnie z tabelk¹ wiki.wxwidgets.org/Microsoft_Visual_C%2B%2B_Guide
 nmake -f makefile.vc BUILD=release UNICODE=0
-nmake -f makefile.vc BUILD=debug UNICODE=0 DEBUG_RUNTIME_LIBS=1
+nmake -f makefile.vc BUILD=debug UNICODE=0
 rem cleaning
 cecho {red on white}Cleaning...{default}{\n}
 cd %CURRENT_DIR%
