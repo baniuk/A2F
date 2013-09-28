@@ -189,7 +189,7 @@ STDMETHODIMP CPortCollection::get_moreInfo( BSTR * moreInfo )
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success      
-* \todo Finish          
+* \warning Ports are numbered from 1        
 */
 STDMETHODIMP CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 {

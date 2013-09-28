@@ -203,13 +203,106 @@ STDMETHODIMP CUnitOperations::Calculate()
 STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	// checking unit condition
-//	validationStatus = CAPE_VALID;
-	exValidationStatus = CAPE_VALID;
-	*isValid = VARIANT_TRUE;	// is ok
-	CComBSTR outMessage(L"Unit is valid and ready");
-	*message = outMessage.Copy();
 
+	long count;		// number of ports
+	VARIANT id;	// to hold port number
+	HRESULT err_code;
+	CComPtr<ICapeCollection> ptmpIPortCollection;	// local portcollection interface (addref)
+	CComPtr<IDispatch> lpdisp;
+	CComPtr<ICapeUnitPort> ptmpICapeUnitPort;				// local IUnitPort interface
+	CComBSTR outMessage;	// output message
+	// getting number of ports
+	try
+	{
+		err_code = portCollection->QueryInterface(IID_PPV_ARGS(&ptmpIPortCollection));
+		PANTHEIOS_TRACE_DEBUG(	PSTR("ICapeCollection addres "),
+								pantheios::pointer(ptmpIPortCollection.p,pantheios::fmt::fullHex),
+								PSTR(" Error: "), winstl::error_desc_a(err_code));
+		if(FAILED(err_code)) 
+		{
+			// we ar ehere in case if portCollection is ok but requested interface is not supported
+			PANTHEIOS_TRACE_ERROR(	PSTR("Instance of ICapeCollection not created because: "), 
+									pantheios::integer(err_code,pantheios::fmt::fullHex),
+									PSTR(" Error: "), winstl::error_desc_a(err_code));
+			PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+			return err_code;
+		}		
+		ptmpIPortCollection->Count(&count);	// get number of ports
+		// check if all ports connected by calling IUnitPortMethod
+		VariantInit(&id); // initializa variant var for ICapePortCollection::Item
+		id.vt = VT_I4; // set type to int4
+		for(long p=1; p<=count; ++p)	// ports ar enumbered from 1
+		{
+			id.lVal = p;	// port number
+			err_code = ptmpIPortCollection->Item(id,&lpdisp);	// get IDisp interface
+			if(FAILED(err_code)) 
+			{
+				// we ar ehere in case if portCollection is ok but requested interface is not supported
+				PANTHEIOS_TRACE_ERROR(	PSTR("ptmpIPortCollection->Item failed because: "), 
+										pantheios::integer(err_code,pantheios::fmt::fullHex),
+										PSTR(" Error: "), winstl::error_desc_a(err_code));
+				PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+				return err_code;
+			}		
+			err_code = lpdisp->QueryInterface(IID_PPV_ARGS(&ptmpICapeUnitPort));	// get IUnitPort
+			PANTHEIOS_TRACE_DEBUG(	PSTR("ICapeUnitPort addres "),
+									pantheios::pointer(ptmpICapeUnitPort.p,pantheios::fmt::fullHex),
+									PSTR(" Error: "), winstl::error_desc_a(err_code));
+			if(FAILED(err_code)) 
+			{
+				// we ar ehere in case if portCollection is ok but requested interface is not supported
+				PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IUnitPort not created because: "), 
+										pantheios::integer(err_code,pantheios::fmt::fullHex),
+										PSTR(" Error: "), winstl::error_desc_a(err_code));
+				PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+				return err_code;
+			}	
+			lpdisp = NULL;	// clean for next use
+			PANTHEIOS_TRACE_DEBUG(	PSTR("Testing port: "),
+									pantheios::integer(p),PSTR(" at addres: "),	
+									pantheios::pointer(ptmpICapeUnitPort.p,pantheios::fmt::fullHex));
+			err_code = ptmpICapeUnitPort->get_connectedObject(&lpdisp);
+			if(FAILED(err_code)) 
+			{
+				// we ar ehere in case if portCollection is ok but requested interface is not supported
+				PANTHEIOS_TRACE_ERROR(	PSTR("ptmpIPortCollection->get_connectedObject failed because: "), 
+										pantheios::integer(err_code,pantheios::fmt::fullHex),
+										PSTR(" Error: "), winstl::error_desc_a(err_code));
+				PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+				return err_code;
+			}	
+			if(NULL==lpdisp)
+			{
+				exValidationStatus = CAPE_INVALID;
+				*isValid = VARIANT_FALSE;	// is not ok
+				outMessage = L"Unit is not valid and not ready";
+				break;	// one port is not connected, breaking execution
+			}
+			else
+			{
+				exValidationStatus = CAPE_VALID;
+				*isValid = VARIANT_TRUE;	// is ok
+				outMessage = L"Unit is valid and ready";
+			}
+			lpdisp = NULL; // clean for next use
+			
+		}
+	}
+	catch(_com_error e)	// catching com errors encapsulated in _ccom_error class
+	{
+		// we are here in case of general errors with portCollection pointer and query interface
+		PANTHEIOS_TRACE_ERROR(PSTR("QueryInterface exception: "),e.ErrorMessage());
+		PANTHEIOS_TRACE_ERROR(PSTR("QueryInterface error code: "),pantheios::integer(e.Error(),pantheios::fmt::fullHex));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return e.Error();	// return HRESULT
+	}
+	catch(...)	// unsuported exceptions
+	{
+		PANTHEIOS_TRACE_CRITICAL(PSTR("Unexpected QueryInterface exception"));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return E_FAIL;	// unexpected exception
+	}
+	*message = outMessage.Copy();	// return message to PME
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Unit status: "),
 							pantheios::integer(exValidationStatus));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
@@ -352,7 +445,7 @@ STDMETHODIMP CUnitOperations::get_parameters( LPDISPATCH * parameters )
 	CComPtr<IParameterCollection> ptmpIarameterCollection(parameterCollection);
 	*parameters = ptmpIarameterCollection.Detach();
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
 /**
@@ -402,8 +495,9 @@ STDMETHODIMP CUnitOperations::put_simulationContext( LPDISPATCH rhs)
 STDMETHODIMP CUnitOperations::Edit()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	MessageBox(NULL,L"Read script file again?",L"Warning",MB_OKCANCEL);
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
 STDMETHODIMP CUnitOperations::Terminate()
