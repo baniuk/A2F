@@ -34,7 +34,6 @@
 #include <iostream>
 #include <vector>
 #include <windows.h>
-
 // user definitions
 #define YES TRUE
 #define NO FALSE

@@ -43,8 +43,8 @@
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>true</LinkIncremental>
     <OutDir>i:\Projekty\SharedA2F\$(Configuration)\</OutDir>
-    <LibraryPath>$(SolutionDir)..\External_dep\pantheios-1.0.1-beta214\lib\;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)..\External_dep\pantheios-1.0.1-beta214\include\;$(SolutionDir)..\External_dep\stlsoft-1.9.117\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)..\External_dep\pantheios-1.0.1-beta214\lib\;$(SolutionDir)..\External_dep\wxWidgets-2.9.5\lib\vc_lib\;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)..\External_dep\pantheios-1.0.1-beta214\include\;$(SolutionDir)..\External_dep\stlsoft-1.9.117\include\;$(SolutionDir)..\External_dep\wxWidgets-2.9.5\include\msvc\;$(SolutionDir)..\External_dep\wxWidgets-2.9.5\include\;$(ProjectDir)WX\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
@@ -55,8 +55,9 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;PANTHEIOS_FORCE_AUTO_INIT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;WINVER=0x0400;__WXDEBUG__;_DEBUG;_USRDLL;__WXMSW__;PANTHEIOS_FORCE_AUTO_INIT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BrowseInformation>true</BrowseInformation>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -80,6 +81,7 @@
       <ModuleDefinitionFile>.\A2F.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <RegisterOutput>true</RegisterOutput>
+      <AdditionalDependencies>comctl32.lib;Rpcrt4.lib;wxbase29d.lib;wxmsw29d_core.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>$(ProjectDir)..\..\tools\verbuild.exe $(ProjectDir)VersionNo.h -c
@@ -156,6 +158,12 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
     </ClCompile>
     <ClCompile Include="UnitOperations.cpp" />
     <ClCompile Include="UnitPort.cpp" />
+    <ClCompile Include="WX\auto_CEditWnd.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="WX\EditWndinfo_Dialog.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="A2F_i.h" />
@@ -172,6 +180,8 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
     <ClInclude Include="UnitOperations.h" />
     <ClInclude Include="UnitPort.h" />
     <ClInclude Include="VersionNo.h" />
+    <ClInclude Include="WX\auto_CEditWnd.h" />
+    <ClInclude Include="WX\EditWndinfo_Dialog.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="A2F.rc" />

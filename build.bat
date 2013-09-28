@@ -5,6 +5,7 @@ set CURRENT_DIR=%CD%
 rem set correct names here!!
 set STL_NAME=stlsoft-1.9.117& rem -hdrs.zip
 set PANTH_NAME=pantheios-1.0.1-beta214& rem -src.zip
+set WX_NAME=wxWidgets-2.9.5& rem .zip
 
 set PATH=%CURRENT_DIR%\tools;%PATH%
 cecho {red}Configure tool for A2F project{\n}{default}
@@ -25,11 +26,12 @@ cecho {red}Cleaning everything...{\n}{default}
 rmdir External_dep /s /q
 rmdir temp /s /q
 :SETUP
+rem ------------- DOWNLOADING -------------------------------
 cecho {red}Entering setup...{\n}{default}
 IF NOT EXIST External_dep mkdir External_dep
 mkdir temp
-rem download stlsoft
 cd temp
+rem download stlsoft
 wget -nc http://sourceforge.net/projects/stlsoft/files/latest/download?source=files
 unzip -n %STL_NAME%-hdrs.zip -d ..\External_dep
 IF %ERRORLEVEL% NEQ 0 goto :ERROR
@@ -48,11 +50,21 @@ patch -p0 -f -d..\External_dep\%PANTH_NAME% -i ..\..\temp\PANTH.diff
 rem Gtest
 cecho {red on white}Checkingout gtest...{default}{\n}
 svn checkout http://googletest.googlecode.com/svn/trunk/ ..\External_dep\gtest
-rem kompilacja
+rem WxWidgets
+wget -nc http://sourceforge.net/projects/wxwindows/files/2.9.5/wxWidgets-2.9.5.zip/download
+unzip -n %WX_NAME%.zip -d ..\External_dep\%WX_NAME%
+
+rem ------------- COMPILING -------------------------------
 rem Pantheios 32bit
 cecho {red on white}Compiling %PANTH_NAME%...{default}{\n}
 cd ..\External_dep\%PANTH_NAME%\build\vc11
 nmake
+rem WX 32bit
+cecho {red on white}Compiling %WX_NAME%...{default}{\n}
+cd %CURRENT_DIR%\External_dep\%WX_NAME%\build\msw
+rem ustawienia zgodnie z tabelk¹ wiki.wxwidgets.org/Microsoft_Visual_C%2B%2B_Guide
+nmake -f makefile.vc BUILD=release UNICODE=0
+nmake -f makefile.vc BUILD=debug UNICODE=0 DEBUG_RUNTIME_LIBS=1
 rem cleaning
 cecho {red on white}Cleaning...{default}{\n}
 cd %CURRENT_DIR%

@@ -495,7 +495,7 @@ STDMETHODIMP CUnitOperations::put_simulationContext( LPDISPATCH rhs)
 STDMETHODIMP CUnitOperations::Edit()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	MessageBox(NULL,L"Read script file again?",L"Warning",MB_OKCANCEL);
+	MessageBox(NULL,"Read script file again?","Warning",MB_OKCANCEL);
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
