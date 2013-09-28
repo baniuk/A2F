@@ -16,7 +16,7 @@
 
 CParameterCollection::CParameterCollection()
 {
-
+	parameterCount = 0;	// set to 0 aacording to Cape2Fluent code
 }
 
 CParameterCollection::~CParameterCollection()
@@ -112,11 +112,21 @@ STDMETHODIMP CParameterCollection::get_ComponentName( BSTR * name )
 	return S_OK;
 }
 
+/**
+* \details  Returns number of parameters
+* \param[out]	itemsCount	number of parameters passed to PME
+* \return   CapeError
+* \retval   status   The program status.
+*           \li S_OK		Success   
+* \warning Number of parameters is set to 0 according to old code          
+*/
 STDMETHODIMP CParameterCollection::Count( long * itemsCount )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	*itemsCount = parameterCount;
+	PANTHEIOS_TRACE_DEBUG(PSTR("Number of parameters: "), pantheios::integer(*itemsCount) );
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
 /**
