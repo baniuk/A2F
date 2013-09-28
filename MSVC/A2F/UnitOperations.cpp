@@ -215,6 +215,9 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 	try
 	{
 		err_code = portCollection->QueryInterface(IID_PPV_ARGS(&ptmpIPortCollection));
+		PANTHEIOS_TRACE_DEBUG(	PSTR("ICapeCollection addres "),
+								pantheios::pointer(ptmpIPortCollection.p,pantheios::fmt::fullHex),
+								PSTR(" Error: "), winstl::error_desc_a(err_code));
 		if(FAILED(err_code)) 
 		{
 			// we ar ehere in case if portCollection is ok but requested interface is not supported
@@ -226,9 +229,9 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 		}		
 		ptmpIPortCollection->Count(&count);	// get number of ports
 		// check if all ports connected by calling IUnitPortMethod
-		VariantInit(&id); // initializa variant var
+		VariantInit(&id); // initializa variant var for ICapePortCollection::Item
 		id.vt = VT_I4; // set type to int4
-		for(long p=0; p<count; ++p)
+		for(long p=1; p<=count; ++p)	// ports ar enumbered from 1
 		{
 			id.lVal = p;	// port number
 			err_code = ptmpIPortCollection->Item(id,&lpdisp);	// get IDisp interface
@@ -242,6 +245,9 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 				return err_code;
 			}		
 			err_code = lpdisp->QueryInterface(IID_PPV_ARGS(&ptmpICapeUnitPort));	// get IUnitPort
+			PANTHEIOS_TRACE_DEBUG(	PSTR("ICapeUnitPort addres "),
+									pantheios::pointer(ptmpICapeUnitPort.p,pantheios::fmt::fullHex),
+									PSTR(" Error: "), winstl::error_desc_a(err_code));
 			if(FAILED(err_code)) 
 			{
 				// we ar ehere in case if portCollection is ok but requested interface is not supported
@@ -296,10 +302,7 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return E_FAIL;	// unexpected exception
 	}
-	*message = outMessage.Copy();
-	PANTHEIOS_TRACE_DEBUG(	PSTR("ICapeIdentification addres "),
-							pantheios::pointer(ptmpIPortCollection.p,pantheios::fmt::fullHex),
-							PSTR(" Error: "), winstl::error_desc_a(err_code));
+	*message = outMessage.Copy();	// return message to PME
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Unit status: "),
 							pantheios::integer(exValidationStatus));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
@@ -492,8 +495,9 @@ STDMETHODIMP CUnitOperations::put_simulationContext( LPDISPATCH rhs)
 STDMETHODIMP CUnitOperations::Edit()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	MessageBox(NULL,L"Read script file again?",L"Warning",MB_OKCANCEL);
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
 STDMETHODIMP CUnitOperations::Terminate()
