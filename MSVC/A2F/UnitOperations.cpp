@@ -496,14 +496,10 @@ STDMETHODIMP CUnitOperations::put_simulationContext( LPDISPATCH rhs)
 STDMETHODIMP CUnitOperations::Edit()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	wxInitialize(0,NULL);
+	wxApp::SetInitializerFunction(wxCreateApp);
+	wxEntry(0,NULL);
 //	MessageBox(NULL,"Read script file again","Warning",MB_OKCANCEL);
-	MyApp *MA = new MyApp();
-	wxApp::SetInstance(MA);
-	int argc=0;
-	wxEntryStart( argc, NULL );
 
-	MA->dlg->ShowModal();
 //	dlg->Destroy();
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
@@ -564,3 +560,8 @@ STDMETHODIMP CUnitOperations::LogMessage( BSTR message )
 	return E_NOTIMPL;
 }
 
+static wxAppConsole *wxCreateApp()
+{
+	wxAppConsole::CheckBuildOptions(WX_BUILD_OPTIONS_SIGNATURE, "my app");
+	return new MyApp;
+}

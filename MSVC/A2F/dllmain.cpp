@@ -8,7 +8,6 @@
 /// Log file name and initialization of Pantheios API
 PANTHEIOS_EXTERN_C const PAN_CHAR_T PANTHEIOS_FE_PROCESS_IDENTITY[] = PSTR("A2F");
 
-
 /**
  * \brief Struktura okreœlaj¹ca minimalny poziom b³edu który trafia do danego logu
  *

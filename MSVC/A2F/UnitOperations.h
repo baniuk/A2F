@@ -182,19 +182,15 @@ private:
 	LPDISPATCH simulationContext;
 };
 
-
-
-class MyApp : public wxApp
+class MyApp: public wxApp
 {
 public:
-	EditWndinfo_Dialog* dlg;
-	MyApp()
-	{
-		dlg = new EditWndinfo_Dialog(NULL);
-	}
 	bool OnInit()
 	{
-		
+		wxDialog* dlg = new wxDialog(NULL, -1,
+			"Hello World From Library", wxDefaultPosition, wxDefaultSize,
+			wxDEFAULT_DIALOG_STYLE, wxDialogNameStr);
+		dlg->Show();
 		return true;
 	}
 };
