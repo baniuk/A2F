@@ -10,6 +10,7 @@
 #include "stdafx.h"
 #include "UnitOperations.h"
 
+
 // CUnitOperations
 CapeValidationStatus exValidationStatus = CAPE_NOT_VALIDATED;
 
@@ -495,7 +496,15 @@ STDMETHODIMP CUnitOperations::put_simulationContext( LPDISPATCH rhs)
 STDMETHODIMP CUnitOperations::Edit()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	MessageBox(NULL,"Read script file again?","Warning",MB_OKCANCEL);
+	wxInitialize(0,NULL);
+//	MessageBox(NULL,"Read script file again","Warning",MB_OKCANCEL);
+	MyApp *MA = new MyApp();
+	wxApp::SetInstance(MA);
+	int argc=0;
+	wxEntryStart( argc, NULL );
+
+	MA->dlg->ShowModal();
+//	dlg->Destroy();
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
