@@ -123,11 +123,9 @@ HRESULT CUnitOperations::FinalConstruct()
 void CUnitOperations::FinalRelease()
 {
 	// releases Aspen interfaces
-	ULONG count = simulationContext->Release(); // returns currnet object reference count
+	simulationContext = NULL; // returns currnet object reference count
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Release IDispatch pointer: "), 
-							pantheios::pointer(simulationContext,pantheios::fmt::fullHex),
-							PSTR(" count= "),
-							pantheios::integer(count));
+							pantheios::pointer(simulationContext,pantheios::fmt::fullHex));
 	portCollection.Release(); // release pointer - make sure that all instances will be closed
 	parameterCollection.Release();
 }
@@ -188,6 +186,12 @@ STDMETHODIMP CUnitOperations::Calculate()
 * \details  Called by PME - returns status of PMC after checking PMC condition. Calling the Validate method is expected to set the unit’s
 * status to either CAPE_VALID or CAPE_INVALID, depending on whether the validation tests succeed or fail. Making a change to the unit operation,
 * such as setting a parameter value, or connecting a stream to a port is expected to set the unit’s status to CAPE_NOT_VALIDATED.
+* This function performs the following operations:
+*	\li query ICapeCollection from IportCollection represented by private var CUnitOperations::portCollection
+*	\li calls CPortCollection::Count method from ICapeCollection
+*	\li calls CPortCollection::Item method from ICapeCollection (n-times returned by CPortCollection::Count)
+*	\li for every Item query for ICapeUnitPort and then it calls CUnitPort::get_connectedObject
+*	\li returned object is provided from PME. If it is NULL then port is not connected
 * \return   Return Vbool status of the unit
 * \param[out]	message	Message passed to PME
 * \param[out]   isValid   The PMC status.
@@ -475,19 +479,14 @@ STDMETHODIMP CUnitOperations::Initialize()
 * \retval   status   The program status.
 *           \li S_OK		Success
 * \warning Original definitions does not include rhs parameter??  
-* \todo use CComPtr here as in CUnitPort::Connect()
 */
 STDMETHODIMP CUnitOperations::put_simulationContext( LPDISPATCH rhs)
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	// remembering pointer to Dispatch interface
 	simulationContext = rhs;
-	// increasing counter of references
-	ULONG count = simulationContext->AddRef();
 	PANTHEIOS_TRACE_DEBUG(	PSTR("AddRef IDispatch pointer: "), 
-							pantheios::pointer(simulationContext,pantheios::fmt::fullHex),
-							PSTR(" count= "),
-							pantheios::integer(count));
+							pantheios::pointer(simulationContext.p,pantheios::fmt::fullHex));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
@@ -495,7 +494,7 @@ STDMETHODIMP CUnitOperations::put_simulationContext( LPDISPATCH rhs)
 STDMETHODIMP CUnitOperations::Edit()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	MessageBox(NULL,L"Read script file again?",L"Warning",MB_OKCANCEL);
+	MessageBox(NULL,"Read script file again?","Warning",MB_OKCANCEL);
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
