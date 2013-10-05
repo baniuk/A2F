@@ -53,3 +53,4 @@ New features:
 version 0.9	
 New features:
 	+ Validate (not tested)
+	+ changes in put/get simulationContext
