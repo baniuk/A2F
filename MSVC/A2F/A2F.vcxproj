@@ -158,12 +158,6 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
     </ClCompile>
     <ClCompile Include="UnitOperations.cpp" />
     <ClCompile Include="UnitPort.cpp" />
-    <ClCompile Include="WX\auto_CEditWnd.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="WX\EditWndinfo_Dialog.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="A2F_i.h" />
@@ -180,8 +174,6 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
     <ClInclude Include="UnitOperations.h" />
     <ClInclude Include="UnitPort.h" />
     <ClInclude Include="VersionNo.h" />
-    <ClInclude Include="WX\auto_CEditWnd.h" />
-    <ClInclude Include="WX\EditWndinfo_Dialog.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="A2F.rc" />
