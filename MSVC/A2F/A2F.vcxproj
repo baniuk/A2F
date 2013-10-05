@@ -150,6 +150,7 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="InfoDialog.cpp" />
     <ClCompile Include="ParameterCollection.cpp" />
     <ClCompile Include="PortCollection.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -165,6 +166,7 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
     <ClInclude Include="DOC_MainPage.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="InfoDialog.h" />
     <ClInclude Include="Pantheios_header.h" />
     <ClInclude Include="ParameterCollection.h" />
     <ClInclude Include="PortCollection.h" />
