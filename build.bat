@@ -40,11 +40,16 @@ wget -nc -O PANTH.zip http://sourceforge.net/p/pantheios/patches/_discuss/thread
 wget -nc http://sourceforge.net/projects/pantheios/files/latest/download?source=files
 unzip -n %PANTH_NAME%.zip -d ..\External_dep
 IF %ERRORLEVEL% NEQ 0 goto :ERROR
+rem download config4cpp
+wget -nc http://www.config4star.org/download/config4cpp.zip
+unzip -n config4cpp.zip -d ..\External_dep
+IF %ERRORLEVEL% NEQ 0 goto :ERROR
 rem patching
 cecho {red on white}Applying patches...{default}{\n}
 unzip -u -n PANTH.zip -d ..\External_dep\%PANTH_NAME%\build
 IF %ERRORLEVEL% NEQ 0 goto :ERROR
-patch -p0 -f -d..\External_dep\%PANTH_NAME% -i ..\..\temp\PANTH.diff
+patch -p0 -f -d ..\External_dep\%PANTH_NAME% -i ..\..\temp\PANTH.diff
+patch -p0 -f -d ..\External_dep\config4cpp\src -i ..\..\..\tools\org.dif
 rem Gtest
 cecho {red on white}Checkingout gtest...{default}{\n}
 svn checkout http://googletest.googlecode.com/svn/trunk/ ..\External_dep\gtest
@@ -53,6 +58,11 @@ rem Pantheios 32bit
 cecho {red on white}Compiling %PANTH_NAME%...{default}{\n}
 cd ..\External_dep\%PANTH_NAME%\build\vc11
 nmake
+rem config4cpp
+cecho {red on white}Compiling Config4cpp...{default}{\n}
+cd ..\External_dep\config4cpp
+nmake -f Makefile.win
+
 rem cleaning
 cecho {red on white}Cleaning...{default}{\n}
 cd %CURRENT_DIR%
