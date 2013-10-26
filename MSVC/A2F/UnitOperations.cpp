@@ -502,7 +502,6 @@ STDMETHODIMP CUnitOperations::put_simulationContext( LPDISPATCH rhs)
 STDMETHODIMP CUnitOperations::Edit()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	MessageBox(NULL,"Read script file again","Warning",MB_OKCANCEL);
 	CInfoDialog *dlg = new CInfoDialog();
 	dlg->DoModal();
 	delete dlg;
