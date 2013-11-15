@@ -1,3 +1,11 @@
+rem ***********************************
+rem *         A2F build tool          *
+rem * Set correct names before use    *
+rem * if you need other versions      *
+rem * of tools                        *
+rem * /// \todo Use fork of config4cpp*
+rem ***********************************
+
 echo off
 setlocal enabledelayedexpansion
 rem setting tools to download
