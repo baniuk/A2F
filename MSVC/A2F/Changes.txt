@@ -50,3 +50,4 @@ New features:
 	+ visible under Aspen
 	+ Item finished
 	+ all ports visible!!
+	+ configured for config4cpp
