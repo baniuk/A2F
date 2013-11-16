@@ -10,6 +10,9 @@
 *
 * \section Installation
 * -# Run build.bat on setup. It downloads and compiles all required tools. GTest is only downloaded but not compiled.
+* \dontinclude build.bat
+* \until rem ***********************************
+* \until rem ***********************************
 * \section structure Project structure
 * -# More information are on trac.
 * \section Pantheios
