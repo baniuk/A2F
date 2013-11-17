@@ -41,9 +41,9 @@
 // user definitions
 #define YES TRUE
 #define NO FALSE
-/// number of ports in PMC
+
 #ifndef PORTS_NUMBER
-	#define PORTS_NUMBER 2
+	#define PORTS_NUMBER 2 //!< number of ports in PMC
 #else
 	#error Port number defined!!
 #endif
