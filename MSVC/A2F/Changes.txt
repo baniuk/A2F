@@ -50,3 +50,6 @@ New features:
 	+ visible under Aspen
 	+ Item finished
 	+ all ports visible!!
+Environment	
+	+ configured for config4cpp
+	+ A2F specific settings moved to separate property sheet
