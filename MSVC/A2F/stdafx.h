@@ -31,6 +31,9 @@
 #include <atlcoll.h>
 // adds decoding HRESULT errors (winstl::error_desc_a(err_code))
 #include <winstl/error/error_desc.hpp>
+// add config4cpp headers
+#include <config4cpp/Configuration.h>
+#include <config4cpp/SchemaValidator.h>
 #include <iostream>
 #include <vector>
 #include <windows.h>
@@ -38,9 +41,9 @@
 // user definitions
 #define YES TRUE
 #define NO FALSE
-/// number of ports in PMC
+
 #ifndef PORTS_NUMBER
-	#define PORTS_NUMBER 2
+	#define PORTS_NUMBER 2 //!< number of ports in PMC
 #else
 	#error Port number defined!!
 #endif
