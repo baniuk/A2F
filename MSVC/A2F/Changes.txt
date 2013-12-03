@@ -50,6 +50,10 @@ New features:
 	+ visible under Aspen
 	+ Item finished
 	+ all ports visible!!
+version 0.9	
+New features:
+	+ Validate (not tested)
+	+ changes in put/get simulationContext
 Environment	
 	+ configured for config4cpp
 	+ A2F specific settings moved to separate property sheet

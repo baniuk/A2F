@@ -3,15 +3,17 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <IncludePath>$(SolutionDir)..\External_dep\pantheios-1.0.1-beta214\include\;$(SolutionDir)..\External_dep\stlsoft-1.9.117\include\;$(SolutionDir)..\External_dep\config4cpp\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)..\External_dep\pantheios-1.0.1-beta214\lib\;$(SolutionDir)..\External_dep\config4cpp\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)..\External_dep\pantheios-1.0.1-beta214\include\;$(SolutionDir)..\External_dep\stlsoft-1.9.117\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)..\External_dep\pantheios-1.0.1-beta214\lib\;$(LibraryPath)</LibraryPath>
+    <OutDir>
+    </OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
       <PreprocessorDefinitions>PANTHEIOS_FORCE_AUTO_INIT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>config4cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup />

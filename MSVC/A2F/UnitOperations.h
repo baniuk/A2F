@@ -179,7 +179,7 @@ private:
 	/// description passed from PME
 	CComBSTR componentDescription;
 	/// simulation context used for calling aspen interfaces
-	LPDISPATCH simulationContext;
+	CComPtr<IDispatch> simulationContext;
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(UnitOperations), CUnitOperations)
