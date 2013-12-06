@@ -238,7 +238,7 @@ STDMETHODIMP CUnitPort::get_connectedObject( LPDISPATCH * connectedObject )
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	CComPtr<ICapeThermoMaterialObject> tmpconnextedObject(this->connectedObject);
 	*connectedObject = tmpconnextedObject.Detach();
-	PANTHEIOS_TRACE_DEBUG(	PSTR("IPortCollection pointer passed to PME: "), 
+	PANTHEIOS_TRACE_DEBUG(	PSTR("IID_ICapeThermoMaterialObject object passed to PME: "), 
 							pantheios::pointer(*connectedObject,pantheios::fmt::fullHex));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;

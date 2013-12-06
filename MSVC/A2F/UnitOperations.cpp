@@ -36,6 +36,8 @@ CUnitOperations::~CUnitOperations()
 *			\li http://www.murrayc.com/learning/windows/usecomfromatl.shtml
 *			\li A2f.idl file for additional interfaces definitions made from skratch
 * \warning It seems that after adding model to workspace destructor is also called. Object is created, ask about ports and deleted.	
+* \todo According to https://groups.google.com/forum/#!topic/microsoft.public.win32.programmer.ole/d1Gg2_0F4pU the COM functions 
+* do not throw exceptions 
 */
 HRESULT CUnitOperations::FinalConstruct()
 {
@@ -123,9 +125,14 @@ HRESULT CUnitOperations::FinalConstruct()
 void CUnitOperations::FinalRelease()
 {
 	// releases Aspen interfaces
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Release IDispatch (simulationContext) pointer: "), 
+		pantheios::pointer(simulationContext,pantheios::fmt::fullHex));
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Release IpotCollection (portCollection) pointer: "), 
+		pantheios::pointer(portCollection,pantheios::fmt::fullHex));
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Release IParameterCollection (parameterCollection) pointer: "), 
+		pantheios::pointer(parameterCollection,pantheios::fmt::fullHex));
+
 	simulationContext = NULL; // returns currnet object reference count
-	PANTHEIOS_TRACE_DEBUG(	PSTR("Release IDispatch pointer: "), 
-							pantheios::pointer(simulationContext,pantheios::fmt::fullHex));
 	portCollection.Release(); // release pointer - make sure that all instances will be closed
 	parameterCollection.Release();
 }
@@ -168,7 +175,6 @@ STDMETHODIMP CUnitOperations::get_ports( LPDISPATCH * ports )
 STDMETHODIMP CUnitOperations::get_ValStatus( CapeValidationStatus * ValStatus )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-//	*ValStatus = validationStatus;
 	*ValStatus = exValidationStatus;
 	PANTHEIOS_TRACE_DEBUG(PSTR("Status passed to PME: "),pantheios::integer(*ValStatus));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
@@ -187,7 +193,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 * status to either CAPE_VALID or CAPE_INVALID, depending on whether the validation tests succeed or fail. Making a change to the unit operation,
 * such as setting a parameter value, or connecting a stream to a port is expected to set the unit’s status to CAPE_NOT_VALIDATED.
 * This function performs the following operations:
-*	\li query ICapeCollection from IportCollection represented by private var CUnitOperations::portCollection
+*	\li query ICapeCollection from IPortCollection represented by private var CUnitOperations::portCollection (addRef)
 *	\li calls CPortCollection::Count method from ICapeCollection
 *	\li calls CPortCollection::Item method from ICapeCollection (n-times returned by CPortCollection::Count)
 *	\li for every Item query for ICapeUnitPort and then it calls CUnitPort::get_connectedObject
@@ -201,8 +207,8 @@ STDMETHODIMP CUnitOperations::Calculate()
 *
 * \see
 *			\li AspenPlusUserModelsV8_2-Ref.pdf pp. 274
-* \todo
-*		Finish
+* \todo According to https://groups.google.com/forum/#!topic/microsoft.public.win32.programmer.ole/d1Gg2_0F4pU the COM functions 
+* do not throw exceptions 			
 */
 STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 {
@@ -215,6 +221,7 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 	CComPtr<IDispatch> lpdisp;
 	CComPtr<ICapeUnitPort> ptmpICapeUnitPort;				// local IUnitPort interface
 	CComBSTR outMessage;	// output message
+	outMessage = L"Unit is not valid and not ready"; // by default unit is invalidated
 	// getting number of ports
 	try
 	{
@@ -238,13 +245,14 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 		for(long p=1; p<=count; ++p)	// ports ar enumbered from 1
 		{
 			id.lVal = p;	// port number
-			err_code = ptmpIPortCollection->Item(id,&lpdisp);	// get IDisp interface
+			err_code = ptmpIPortCollection->Item(id,&lpdisp);	// get IDispatch interface for requesting ICapeUnitPort
 			if(FAILED(err_code)) 
 			{
 				// we ar ehere in case if portCollection is ok but requested interface is not supported
 				PANTHEIOS_TRACE_ERROR(	PSTR("ptmpIPortCollection->Item failed because: "), 
 										pantheios::integer(err_code,pantheios::fmt::fullHex),
 										PSTR(" Error: "), winstl::error_desc_a(err_code));
+				lpdisp = NULL;
 				PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 				return err_code;
 			}		
@@ -254,14 +262,17 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 									PSTR(" Error: "), winstl::error_desc_a(err_code));
 			if(FAILED(err_code)) 
 			{
-				// we ar ehere in case if portCollection is ok but requested interface is not supported
+				// we are here in case if portCollection is ok but requested interface is not supported
 				PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IUnitPort not created because: "), 
 										pantheios::integer(err_code,pantheios::fmt::fullHex),
 										PSTR(" Error: "), winstl::error_desc_a(err_code));
+				lpdisp = NULL;
+				ptmpICapeUnitPort = NULL;
 				PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 				return err_code;
 			}	
-			lpdisp = NULL;	// clean for next use
+			// release ICapeUnitPort
+			lpdisp = NULL;	// clean for next use - having ICapeUnitPort we ask for object connected to it
 			PANTHEIOS_TRACE_DEBUG(	PSTR("Testing port: "),
 									pantheios::integer(p),PSTR(" at addres: "),	
 									pantheios::pointer(ptmpICapeUnitPort.p,pantheios::fmt::fullHex));
@@ -272,6 +283,8 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 				PANTHEIOS_TRACE_ERROR(	PSTR("ptmpIPortCollection->get_connectedObject failed because: "), 
 										pantheios::integer(err_code,pantheios::fmt::fullHex),
 										PSTR(" Error: "), winstl::error_desc_a(err_code));
+				lpdisp = NULL;
+				ptmpICapeUnitPort = NULL;
 				PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 				return err_code;
 			}	
@@ -289,6 +302,7 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 				outMessage = L"Unit is valid and ready";
 			}
 			lpdisp = NULL; // clean for next use
+			ptmpICapeUnitPort = NULL;
 			
 		}
 	}
