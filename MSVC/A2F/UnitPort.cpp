@@ -260,8 +260,8 @@ STDMETHODIMP CUnitPort::Connect( LPDISPATCH objectToConnect )
 	HRESULT err_code;
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	// assign PME object to local var
-	CComPtr<IDispatch> tmpconnectedObject;
-	tmpconnectedObject.Attach(objectToConnect);	// taking ownership (probably PME maked AddRef)
+	CComPtr<IDispatch> tmpconnectedObject(objectToConnect);
+//	tmpconnectedObject.Attach(objectToConnect);	// taking ownership (probably PME maked AddRef)
 	// quering to demanded interface (with addref)
 	err_code = tmpconnectedObject->QueryInterface(IID_PPV_ARGS(&connectedObject));
 	if(FAILED(err_code)) 
