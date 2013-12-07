@@ -180,6 +180,7 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 	VARIANT id;	// to hold port number
 	HRESULT err_code;
 	CComPtr<ICapeCollection> ptmpIPortCollection;	// local portcollection interface (addref)
+	LPDISPATCH lpDisp;
 	CComPtr<IDispatch> lpdisp;
 	CComPtr<ICapeUnitPort> ptmpICapeUnitPort;				// local IUnitPort interface
 	CComBSTR outMessage;	// output message
@@ -205,14 +206,16 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 	for(long p=1; p<=count; ++p)	// ports ar enumbered from 1
 	{
 		id.lVal = p;	// port number
-		err_code = ptmpIPortCollection->Item(id,&lpdisp);	// get IDispatch interface for requesting ICapeUnitPort
+		err_code = ptmpIPortCollection->Item(id,&lpDisp);	// get IDispatch interface for requesting ICapeUnitPort
+		lpdisp.Attach(lpDisp);	// taking ownership over IUnitPort returned by CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
+		// (Item Added reference)
 		if(FAILED(err_code)) 
 		{
 			// we ar ehere in case if portCollection is ok but requested interface is not supported
 			PANTHEIOS_TRACE_ERROR(	PSTR("ptmpIPortCollection->Item failed because: "), 
 									pantheios::integer(err_code,pantheios::fmt::fullHex),
 									PSTR(" Error: "), winstl::error_desc_a(err_code));
-			lpdisp = NULL;
+			lpdisp.Release();
 			PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 			return err_code;
 		}		
@@ -226,29 +229,27 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 			PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IUnitPort not created because: "), 
 									pantheios::integer(err_code,pantheios::fmt::fullHex),
 									PSTR(" Error: "), winstl::error_desc_a(err_code));
-			lpdisp = NULL;
-			ptmpICapeUnitPort = NULL;
+			lpdisp.Release();
 			PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 			return err_code;
 		}	
 		// release ICapeUnitPort
-		lpdisp = NULL;	// clean for next use - having ICapeUnitPort we ask for object connected to it
+		lpdisp.Release();	// clean for next use - having ICapeUnitPort we ask for object connected to it
 		PANTHEIOS_TRACE_DEBUG(	PSTR("Testing port: "),
 								pantheios::integer(p),PSTR(" at addres: "),	
 								pantheios::pointer(ptmpICapeUnitPort.p,pantheios::fmt::fullHex));
-		err_code = ptmpICapeUnitPort->get_connectedObject(&lpdisp);
+		
+		err_code = ptmpICapeUnitPort->get_connectedObject(&lpDisp);
 		if(FAILED(err_code)) 
 		{
 			// we ar ehere in case if portCollection is ok but requested interface is not supported
 			PANTHEIOS_TRACE_ERROR(	PSTR("ptmpIPortCollection->get_connectedObject failed because: "), 
 									pantheios::integer(err_code,pantheios::fmt::fullHex),
 									PSTR(" Error: "), winstl::error_desc_a(err_code));
-			lpdisp = NULL;
-			ptmpICapeUnitPort = NULL;
 			PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 			return err_code;
 		}	
-		if(NULL==lpdisp)
+		if(NULL==lpDisp)
 		{
 			exValidationStatus = CAPE_INVALID;
 			*isValid = VARIANT_FALSE;	// is not ok
@@ -261,8 +262,7 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 			*isValid = VARIANT_TRUE;	// is ok
 			outMessage = L"Unit is valid and ready";
 		}
-		lpdisp = NULL; // clean for next use
-		ptmpICapeUnitPort = NULL;
+		ptmpICapeUnitPort.Release();	// clean for nex use in loop
 		
 	}
 	
