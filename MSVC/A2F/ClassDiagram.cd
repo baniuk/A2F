@@ -10,12 +10,12 @@
   <Class Name="CParameterCollection" Collapsed="true">
     <Position X="5.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAgEACAAACAAAIAQBAAAQEABACAABFgBAAAICAAAA=</HashCode>
+      <HashCode>AAIAgEACAAACAAAIAQBAAAQEABACAABFgRAAAICAAAA=</HashCode>
       <FileName>ParameterCollection.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CPortCollection" Collapsed="true">
-    <Position X="7.25" Y="0.75" Width="1.5" />
+  <Class Name="CPortCollection">
+    <Position X="11.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAgkACAAQGABAIAABAABQEABACAABFgAAAAICAAQA=</HashCode>
       <FileName>PortCollection.h</FileName>
@@ -88,14 +88,14 @@
     <Position X="5.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>c:\program files (x86)\windows kits\8.0\include\shared\guiddef.h</FileName>
+      <FileName>A2F_i.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="CLSID" Collapsed="true">
     <Position X="3.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>c:\program files (x86)\windows kits\8.0\include\shared\guiddef.h</FileName>
+      <FileName>A2F_i.c</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="UnitOperations" Collapsed="true">
