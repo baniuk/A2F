@@ -94,7 +94,7 @@ void CUnitOperations::FinalRelease()
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Release IParameterCollection (parameterCollection) pointer: "), 
 		pantheios::pointer(parameterCollection,pantheios::fmt::fullHex));
 	/// \todo make sure that simulationContext should be released (probably AddRef is done on PME side)
-	simulationContext = NULL; // returns currnet object reference count
+	simulationContext.Release(); // returns currnet object reference count, we AddRef makes assignment on put_simlationcontext
 	portCollection.Release(); // release pointer - make sure that all instances will be closed
 	parameterCollection.Release();
 }
@@ -251,6 +251,8 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 		}	
 		if(NULL==lpDisp)
 		{
+			PANTHEIOS_TRACE_WARNING(PSTR("Object conected to port is not present: "),
+									pantheios::pointer(lpDisp,pantheios::fmt::fullHex));
 			exValidationStatus = CAPE_INVALID;
 			*isValid = VARIANT_FALSE;	// is not ok
 			outMessage = L"Unit is not valid and not ready";
@@ -444,7 +446,7 @@ STDMETHODIMP CUnitOperations::put_simulationContext( LPDISPATCH rhs)
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	// remembering pointer to Dispatch interface
-	/// \todo rather attach here (control kept on PME side??) PME counts references, we releases
+	/// \todo rather attach here (control kept on PME side??) PME counts references, we releases?? Probablu PME release ownership to PMC
 	simulationContext = rhs;
 	PANTHEIOS_TRACE_DEBUG(	PSTR("AddRef IDispatch pointer: "), 
 							pantheios::pointer(simulationContext.p,pantheios::fmt::fullHex));
