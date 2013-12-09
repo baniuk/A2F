@@ -179,6 +179,7 @@ STDMETHODIMP CPortCollection::get_moreInfo( BSTR * moreInfo )
 STDMETHODIMP CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	if(!Item) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
 	PANTHEIOS_TRACE_DEBUG(PSTR("Input id: "),id);
 	CComPtr<IUnitPort> ptmpIUnitPort; // port to be returned to PME
 	CComPtr<ICapeIdentification> ptmpICapeIdentification;	// to get to name of the port
@@ -252,6 +253,7 @@ STDMETHODIMP CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 STDMETHODIMP CPortCollection::Count( long * itemsCount )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	if(!itemsCount) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
 	*itemsCount = ports.size();
 	PANTHEIOS_TRACE_DEBUG(PSTR("Returned number of ports: "), pantheios::integer(*itemsCount) );
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
@@ -268,6 +270,7 @@ STDMETHODIMP CPortCollection::Count( long * itemsCount )
 STDMETHODIMP CPortCollection::get_ComponentName( BSTR * name )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	if(!name) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
 	*name = componentName.Copy();
 	PANTHEIOS_TRACE_DEBUG(PSTR("Component name passed to PME: "), PW2M(componentName) );
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
@@ -301,6 +304,7 @@ STDMETHODIMP CPortCollection::put_ComponentName( BSTR name )
 STDMETHODIMP CPortCollection::get_ComponentDescription( BSTR * desc )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	if(!desc) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
 	*desc = componentDescription.Copy();
 	PANTHEIOS_TRACE_DEBUG(PSTR("Component desc passed to PME: "), PW2M(componentDescription) );
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));

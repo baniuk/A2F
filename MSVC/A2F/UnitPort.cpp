@@ -236,6 +236,7 @@ STDMETHODIMP CUnitPort::get_connectedObject( LPDISPATCH * connectedObject )
 {
 	// object to return 
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	if(!connectedObject) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
 	CComPtr<ICapeThermoMaterialObject> tmpconnextedObject(this->connectedObject);
 	*connectedObject = tmpconnextedObject.Detach();
 	PANTHEIOS_TRACE_DEBUG(	PSTR("IID_ICapeThermoMaterialObject object passed to PME: "), 
@@ -257,12 +258,13 @@ STDMETHODIMP CUnitPort::get_connectedObject( LPDISPATCH * connectedObject )
 */
 STDMETHODIMP CUnitPort::Connect( LPDISPATCH objectToConnect )
 {
-	HRESULT err_code;
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	HRESULT err_code;
+	if(!objectToConnect) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
 	// assign PME object to local var
 	CComPtr<IDispatch> tmpconnectedObject(objectToConnect);
 ///	\ remarks tmpconnectedObject.Attach(objectToConnect);	caused problems (probably PME not maked AddRef but only passes ownership)
-	// quering to demanded interface (with addref)
+	// quering for demanded interface (with addref)
 	err_code = tmpconnectedObject->QueryInterface(IID_PPV_ARGS(&connectedObject));
 	if(FAILED(err_code)) 
 	{
@@ -274,7 +276,7 @@ STDMETHODIMP CUnitPort::Connect( LPDISPATCH objectToConnect )
 		tmpconnectedObject.Release();
 		return err_code;
 	}		
-	PANTHEIOS_TRACE_DEBUG(	PSTR("IID_ICapeThermoMaterialObject addres passed from PME"),
+	PANTHEIOS_TRACE_DEBUG(	PSTR("IID_ICapeThermoMaterialObject addres passed from PME: "),
 							pantheios::pointer(connectedObject.p,pantheios::fmt::fullHex),
 							PSTR(" Error: "), winstl::error_desc_a(err_code));
 	

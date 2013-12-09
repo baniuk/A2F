@@ -93,7 +93,7 @@ void CUnitOperations::FinalRelease()
 		pantheios::pointer(portCollection,pantheios::fmt::fullHex));
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Release IParameterCollection (parameterCollection) pointer: "), 
 		pantheios::pointer(parameterCollection,pantheios::fmt::fullHex));
-	/// \todo make sure that simulationContext should be released (probably AddRef is done on PME side)
+
 	simulationContext.Release(); // returns currnet object reference count, we AddRef makes assignment on put_simlationcontext
 	portCollection.Release(); // release pointer - make sure that all instances will be closed
 	parameterCollection.Release();
@@ -115,6 +115,7 @@ void CUnitOperations::FinalRelease()
 STDMETHODIMP CUnitOperations::get_ports( LPDISPATCH * ports )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	if(!ports) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
 	CComPtr<IPortCollection> ptmpIPortCollection(portCollection);	// add reference to portCollection
 	*ports = ptmpIPortCollection.Detach();
 	PANTHEIOS_TRACE_DEBUG(	PSTR("IPortCollection pointer passed to PME: "), 
@@ -137,6 +138,7 @@ STDMETHODIMP CUnitOperations::get_ports( LPDISPATCH * ports )
 STDMETHODIMP CUnitOperations::get_ValStatus( CapeValidationStatus * ValStatus )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	if(!ValStatus) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
 	*ValStatus = exValidationStatus;
 	PANTHEIOS_TRACE_DEBUG(PSTR("Status passed to PME: "),pantheios::integer(*ValStatus));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
@@ -184,6 +186,10 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 	CComPtr<IDispatch> lpdisp;
 	CComPtr<ICapeUnitPort> ptmpICapeUnitPort;				// local IUnitPort interface
 	CComBSTR outMessage;	// output message
+
+	if(!message) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
+	if(!isValid) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
+
 	outMessage = L"Unit is not valid and not ready"; // by default unit is invalidated
 	// getting number of ports
 	err_code = portCollection->QueryInterface(IID_PPV_ARGS(&ptmpIPortCollection));
@@ -335,6 +341,7 @@ STDMETHODIMP CUnitOperations::get_moreInfo( BSTR * moreInfo )
 STDMETHODIMP CUnitOperations::get_ComponentName( BSTR * name )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	if(!name) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
 	*name = componentName.Copy();
 	PANTHEIOS_TRACE_DEBUG(PSTR("Component name passed to PME: "), PW2M(componentName) );
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
@@ -369,6 +376,7 @@ STDMETHODIMP CUnitOperations::put_ComponentName( BSTR name )
 STDMETHODIMP CUnitOperations::get_ComponentDescription( BSTR * desc )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	if(!desc) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
 	*desc = componentDescription.Copy();
 	PANTHEIOS_TRACE_DEBUG(PSTR("Component desc passed to PME: "), PW2M(componentDescription) );
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
@@ -408,8 +416,11 @@ STDMETHODIMP CUnitOperations::put_ComponentDescription( BSTR desc )
 STDMETHODIMP CUnitOperations::get_parameters( LPDISPATCH * parameters )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	if(!parameters) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
 	CComPtr<IParameterCollection> ptmpIarameterCollection(parameterCollection);
 	*parameters = ptmpIarameterCollection.Detach();
+	PANTHEIOS_TRACE_DEBUG(	PSTR("IParameterCollection returned to PME addres: "), 
+							pantheios::pointer(*parameters,pantheios::fmt::fullHex));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
@@ -447,6 +458,7 @@ STDMETHODIMP CUnitOperations::put_simulationContext( LPDISPATCH rhs)
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	// remembering pointer to Dispatch interface
 	/// \todo rather attach here (control kept on PME side??) PME counts references, we releases?? Probablu PME release ownership to PMC
+	simulationContext.Release();	// release old simulation context
 	simulationContext = rhs;
 	PANTHEIOS_TRACE_DEBUG(	PSTR("AddRef IDispatch pointer: "), 
 							pantheios::pointer(simulationContext.p,pantheios::fmt::fullHex));
