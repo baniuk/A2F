@@ -145,11 +145,162 @@ STDMETHODIMP CUnitOperations::get_ValStatus( CapeValidationStatus * ValStatus )
 	return S_OK;
 }
 
+/**
+ * \details Calculate the unit operation. This is the function that performs the actual model calculation.
+ * \return   Return status of the unit
+ * \li S_OK on Success
+ * \sa Calculate()
+ */
 STDMETHODIMP CUnitOperations::Calculate()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	HRESULT err_code;
+	VARIANT id;	// to hold port number
+	LPDISPATCH lpDisp;
+	CComPtr<ICapeCollection> ptmpIPortCollection;	// local portcollection interface (addref)
+	CComPtr<IDispatch> lpdisp;
+	CComPtr<ICapeUnitPort> ptmpInputPort;				// local IUnitPort interface
+	CComPtr<ICapeUnitPort> ptmpOutputPort;				// local IUnitPort interface
+	CComPtr<ICapeThermoMaterialObject> ptmpInputPortMaterial;
+	CComPtr<ICapeThermoMaterialObject> ptmpOutputPortMaterial;
+
+	// ******************* Call ICapeCollection ******************************************************************************************************
+	err_code = portCollection->QueryInterface(IID_PPV_ARGS(&ptmpIPortCollection));
+	PANTHEIOS_TRACE_DEBUG(	PSTR("ICapeCollection addres "),
+							pantheios::pointer(ptmpIPortCollection.p,pantheios::fmt::fullHex),
+							PSTR(" Error: "), winstl::error_desc_a(err_code));
+	if(FAILED(err_code)) 
+	{
+		// we are here in case if portCollection is ok but requested interface is not supported
+		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of ICapeCollection not created because: "), 
+								pantheios::integer(err_code,pantheios::fmt::fullHex),
+								PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}
+	// **************** Get input port for collection ***********************************************************************************************
+	lpdisp.Release();	// release teporary IDispatch pointer
+	VariantInit(&id); // initialize variant var for ICapePortCollection::Item
+	id.vt = VT_I4; // set type to int4
+	id.lVal = 1;	// port number
+	err_code = ptmpIPortCollection->Item(id,&lpDisp);	// get IDispatch interface for requesting ICapeUnitPort
+	if(FAILED(err_code)) 
+	{
+		// we ar ehere in case if portCollection is ok but requested interface is not supported
+		PANTHEIOS_TRACE_ERROR(	PSTR("ptmpIPortCollection->Item failed because: "), 
+								pantheios::integer(err_code,pantheios::fmt::fullHex),
+								PSTR(" Error: "), winstl::error_desc_a(err_code));
+		lpdisp.Release();
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}	
+	lpdisp.Attach(lpDisp);	// taking ownership over IUnitPort returned by CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
+	err_code = lpdisp->QueryInterface(IID_PPV_ARGS(&ptmpInputPort));	// get IUnitPort
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port addres "),
+							pantheios::pointer(ptmpInputPort.p,pantheios::fmt::fullHex),
+							PSTR(" Error: "), winstl::error_desc_a(err_code));
+	if(FAILED(err_code)) 
+	{
+		// we are here in case if portCollection is ok but requested interface is not supported
+		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of Input Port not created because: "), 
+								pantheios::integer(err_code,pantheios::fmt::fullHex),
+								PSTR(" Error: "), winstl::error_desc_a(err_code));
+		lpdisp.Release();
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}	
+
+	// **************** Get output port for collection ***********************************************************************************************
+	lpdisp.Release();	// release teporary IDispatch pointer
+	VariantInit(&id); // initialize variant var for ICapePortCollection::Item
+	id.vt = VT_I4; // set type to int4
+	id.lVal = 2;	// port number
+	err_code = ptmpIPortCollection->Item(id,&lpDisp);	// get IDispatch interface for requesting ICapeUnitPort
+	if(FAILED(err_code)) 
+	{
+		// we ar ehere in case if portCollection is ok but requested interface is not supported
+		PANTHEIOS_TRACE_ERROR(	PSTR("ptmpIPortCollection->Item failed because: "), 
+								pantheios::integer(err_code,pantheios::fmt::fullHex),
+								PSTR(" Error: "), winstl::error_desc_a(err_code));
+		lpdisp.Release();
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}	
+	lpdisp.Attach(lpDisp);	// taking ownership over IUnitPort returned by CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
+	err_code = lpdisp->QueryInterface(IID_PPV_ARGS(&ptmpOutputPort));	// get IUnitPort
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Output port addres "),
+							pantheios::pointer(ptmpOutputPort.p,pantheios::fmt::fullHex),
+							PSTR(" Error: "), winstl::error_desc_a(err_code));
+	if(FAILED(err_code)) 
+	{
+		// we are here in case if portCollection is ok but requested interface is not supported
+		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of Output Port not created because: "), 
+								pantheios::integer(err_code,pantheios::fmt::fullHex),
+								PSTR(" Error: "), winstl::error_desc_a(err_code));
+		lpdisp.Release();
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}	
+	// ************** Get material from port 2 *******************************************************************************************************
+	lpdisp.Release();	// release teporary IDispatch pointer
+	err_code = ptmpOutputPort->get_connectedObject(&lpDisp);
+	PANTHEIOS_TRACE_ERROR(	PSTR("Object connected to port: "), 
+							pantheios::pointer(lpDisp,pantheios::fmt::fullHex));
+	if(FAILED(err_code)) 
+	{
+		// we are here in case if portCollection is ok but requested interface is not supported
+		PANTHEIOS_TRACE_ERROR(	PSTR("get_connectedObject returned: "),	PSTR(" Error: "), winstl::error_desc_a(err_code));
+		lpdisp.Release();
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}	
+	lpdisp.Attach(lpDisp);
+	err_code = lpdisp->QueryInterface(IID_PPV_ARGS(&ptmpOutputPortMaterial));
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Output port material addres "),
+							pantheios::pointer(ptmpOutputPortMaterial.p,pantheios::fmt::fullHex),
+							PSTR(" Error: "), winstl::error_desc_a(err_code));
+	if(FAILED(err_code)) 
+	{
+		// we are here in case if portCollection is ok but requested interface is not supported
+		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of output port material not created because: "), 
+								pantheios::integer(err_code,pantheios::fmt::fullHex),
+								PSTR(" Error: "), winstl::error_desc_a(err_code));
+		lpdisp.Release();
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}	
+	// ************** Get material from port 1 *******************************************************************************************************
+	lpdisp.Release();	// release teporary IDispatch pointer
+	err_code = ptmpOutputPort->get_connectedObject(&lpDisp);
+	PANTHEIOS_TRACE_ERROR(	PSTR("Object connected to port: "), 
+							pantheios::pointer(lpDisp,pantheios::fmt::fullHex));
+	if(FAILED(err_code)) 
+	{
+		// we are here in case if portCollection is ok but requested interface is not supported
+		PANTHEIOS_TRACE_ERROR(	PSTR("get_connectedObject returned: "),	PSTR(" Error: "), winstl::error_desc_a(err_code));
+		lpdisp.Release();
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}	
+	lpdisp.Attach(lpDisp);
+	err_code = lpdisp->QueryInterface(IID_PPV_ARGS(&ptmpOutputPortMaterial));
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Output port material addres "),
+							pantheios::pointer(ptmpOutputPortMaterial.p,pantheios::fmt::fullHex),
+							PSTR(" Error: "), winstl::error_desc_a(err_code));
+	if(FAILED(err_code)) 
+	{
+		// we are here in case if portCollection is ok but requested interface is not supported
+		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of output port material not created because: "), 
+								pantheios::integer(err_code,pantheios::fmt::fullHex),
+								PSTR(" Error: "), winstl::error_desc_a(err_code));
+		lpdisp.Release();
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}	
+
+
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
 /**
@@ -172,7 +323,10 @@ STDMETHODIMP CUnitOperations::Calculate()
 * \see
 *			\li AspenPlusUserModelsV8_2-Ref.pdf pp. 274
 * \remarks According to https://groups.google.com/forum/#!topic/microsoft.public.win32.programmer.ole/d1Gg2_0F4pU the COM functions 
-* do not throw exceptions 			
+* do not throw exceptions 		
+* \todo Compare with example code and add missing features
+* \todo to signal to the simulation environment that the unit is ready or not ready to be calculated, with a textual message describing the problem 
+* in case the unit is not ready
 */
 STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 {
@@ -250,7 +404,6 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 		{
 			// we ar ehere in case if portCollection is ok but requested interface is not supported
 			PANTHEIOS_TRACE_ERROR(	PSTR("ptmpIPortCollection->get_connectedObject failed because: "), 
-									pantheios::integer(err_code,pantheios::fmt::fullHex),
 									PSTR(" Error: "), winstl::error_desc_a(err_code));
 			PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 			return err_code;
