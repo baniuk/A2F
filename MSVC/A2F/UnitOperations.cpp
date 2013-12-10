@@ -241,9 +241,9 @@ STDMETHODIMP CUnitOperations::Calculate()
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return err_code;
 	}	
-	// ************** Get material from port 2 *******************************************************************************************************
+	// ************** Get material from input port ***************************************************************************************************
 	lpdisp.Release();	// release teporary IDispatch pointer
-	err_code = ptmpOutputPort->get_connectedObject(&lpDisp);
+	err_code = ptmpInputPort->get_connectedObject(&lpDisp);
 	PANTHEIOS_TRACE_ERROR(	PSTR("Object connected to port: "), 
 							pantheios::pointer(lpDisp,pantheios::fmt::fullHex));
 	if(FAILED(err_code)) 
@@ -255,21 +255,21 @@ STDMETHODIMP CUnitOperations::Calculate()
 		return err_code;
 	}	
 	lpdisp.Attach(lpDisp);
-	err_code = lpdisp->QueryInterface(IID_PPV_ARGS(&ptmpOutputPortMaterial));
-	PANTHEIOS_TRACE_DEBUG(	PSTR("Output port material addres "),
-							pantheios::pointer(ptmpOutputPortMaterial.p,pantheios::fmt::fullHex),
+	err_code = lpdisp->QueryInterface(IID_PPV_ARGS(&ptmpInputPortMaterial));
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port material addres "),
+							pantheios::pointer(ptmpInputPortMaterial.p,pantheios::fmt::fullHex),
 							PSTR(" Error: "), winstl::error_desc_a(err_code));
 	if(FAILED(err_code)) 
 	{
 		// we are here in case if portCollection is ok but requested interface is not supported
-		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of output port material not created because: "), 
+		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of input port material not created because: "), 
 								pantheios::integer(err_code,pantheios::fmt::fullHex),
 								PSTR(" Error: "), winstl::error_desc_a(err_code));
 		lpdisp.Release();
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return err_code;
 	}	
-	// ************** Get material from port 1 *******************************************************************************************************
+	// ************** Get material from output port **************************************************************************************************
 	lpdisp.Release();	// release teporary IDispatch pointer
 	err_code = ptmpOutputPort->get_connectedObject(&lpDisp);
 	PANTHEIOS_TRACE_ERROR(	PSTR("Object connected to port: "), 
