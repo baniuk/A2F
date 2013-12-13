@@ -50,7 +50,7 @@ New features:
 	+ visible under Aspen
 	+ Item finished
 	+ all ports visible!!
-version 0.9	
+version 1.0	
 New features:
 	+ Validate
 	+ changes in put/get simulationContext
