@@ -106,6 +106,8 @@ private:
 	CComBSTR componentName;
 	// description passed from PME
 	CComBSTR componentDescription;
+	// number of parameters
+	long parameterCount;
 
 };
 

@@ -22,10 +22,6 @@
 
 using namespace ATL;
 
-/// definition of smart pointer for IPortCollection interface
-//_COM_SMARTPTR_TYPEDEF(IPortCollection, __uuidof(IPortCollection));
-//_COM_SMARTPTR_TYPEDEF(IUnitPortEx, __uuidof(IUnitPortEx));
-
 /**
  * \class CUnitOperations
  *
@@ -179,7 +175,7 @@ private:
 	/// description passed from PME
 	CComBSTR componentDescription;
 	/// simulation context used for calling aspen interfaces
-	LPDISPATCH simulationContext;
+	CComPtr<IDispatch> simulationContext;
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(UnitOperations), CUnitOperations)

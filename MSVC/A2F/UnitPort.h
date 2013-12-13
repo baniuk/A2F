@@ -143,7 +143,7 @@ private:
 	*/
 	CapePortDirection portDirection;
 	/// Object connected to port (from outside)
-	CComPtr<ICapeThermoMaterialObject> connectedObject;
+	CComPtr<ICapeThermoMaterialObject> connectedObject; /**< the material object connected to this port, if version 1.0 */
 
 public:
 };

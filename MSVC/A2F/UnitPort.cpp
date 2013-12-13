@@ -236,9 +236,10 @@ STDMETHODIMP CUnitPort::get_connectedObject( LPDISPATCH * connectedObject )
 {
 	// object to return 
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	if(!connectedObject) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
 	CComPtr<ICapeThermoMaterialObject> tmpconnextedObject(this->connectedObject);
 	*connectedObject = tmpconnextedObject.Detach();
-	PANTHEIOS_TRACE_DEBUG(	PSTR("IPortCollection pointer passed to PME: "), 
+	PANTHEIOS_TRACE_DEBUG(	PSTR("IID_ICapeThermoMaterialObject object passed to PME: "), 
 							pantheios::pointer(*connectedObject,pantheios::fmt::fullHex));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
@@ -257,46 +258,31 @@ STDMETHODIMP CUnitPort::get_connectedObject( LPDISPATCH * connectedObject )
 */
 STDMETHODIMP CUnitPort::Connect( LPDISPATCH objectToConnect )
 {
-	HRESULT err_code;
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	HRESULT err_code;
+	if(!objectToConnect) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
 	// assign PME object to local var
 	CComPtr<IDispatch> tmpconnectedObject(objectToConnect);
-	try
-	{
-		// quering to demanded interface (with addref)
-		err_code = tmpconnectedObject->QueryInterface(IID_PPV_ARGS(&connectedObject));
-	}
-	catch(_com_error e)	// catching com errors encapsulated in _ccom_error class
-	{
-		// we are here in case of general errors with portCollection pointer and query interface
-		PANTHEIOS_TRACE_ERROR(PSTR("IID_ICapeThermoMaterialObject QueryInterface exception: "),e.ErrorMessage());
-		PANTHEIOS_TRACE_ERROR(PSTR("IID_ICapeThermoMaterialObject QueryInterface error code: "),pantheios::integer(e.Error(),pantheios::fmt::fullHex));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return e.Error();	// return HRESULT
-	}
-	catch(...)	// unsuported exceptions
-	{
-		PANTHEIOS_TRACE_CRITICAL(PSTR("Unexpected IID_ICapeThermoMaterialObject->QueryInterface exception"));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return E_FAIL;	// unexpected exception
-	}
+///	\ remarks tmpconnectedObject.Attach(objectToConnect);	caused problems (probably PME not maked AddRef but only passes ownership)
+	// quering for demanded interface (with addref)
+	err_code = tmpconnectedObject->QueryInterface(IID_PPV_ARGS(&connectedObject));
 	if(FAILED(err_code)) 
 	{
 		// we ar ehere in case if portCollection is ok but requested interface is not supported
 		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IID_ICapeThermoMaterialObject not created because: "), 
-			pantheios::integer(err_code,pantheios::fmt::fullHex),
-			PSTR(" Error: "), winstl::error_desc_a(err_code));
+								pantheios::integer(err_code,pantheios::fmt::fullHex),
+								PSTR(" Error: "), winstl::error_desc_a(err_code));
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		tmpconnectedObject.Release();
 		return err_code;
 	}		
-	PANTHEIOS_TRACE_DEBUG(	PSTR("IID_ICapeThermoMaterialObject addres "),
+	PANTHEIOS_TRACE_DEBUG(	PSTR("IID_ICapeThermoMaterialObject addres passed from PME: "),
 							pantheios::pointer(connectedObject.p,pantheios::fmt::fullHex),
 							PSTR(" Error: "), winstl::error_desc_a(err_code));
 	
 	// invalidating unit after change of the port
 	exValidationStatus = CAPE_NOT_VALIDATED;
-	PANTHEIOS_TRACE_DEBUG(	PSTR("Unit status: "),
-							pantheios::integer(exValidationStatus));
+
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
@@ -307,12 +293,13 @@ STDMETHODIMP CUnitPort::Connect( LPDISPATCH objectToConnect )
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
+* \todo Add Ref counting          
 */
 STDMETHODIMP CUnitPort::Disconnect()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	// disconect object
-	connectedObject = NULL;
+	connectedObject.Release();
 	exValidationStatus = CAPE_NOT_VALIDATED;
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Unit status: "),
 							pantheios::integer(exValidationStatus));
