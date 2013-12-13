@@ -23,6 +23,7 @@
 #include <atlbase.h>
 #include <atlcom.h>
 #include <atlctl.h>
+#include <atlsafe.h>
 #import "c:\Program Files (x86)\Common Files\CAPE-OPEN\CAPE-OPENv1-0-0.tlb" raw_interfaces_only, raw_native_types, no_namespace, named_guids, auto_search
 
 // user includes
@@ -31,7 +32,7 @@
 #include <atlcoll.h>
 // adds decoding HRESULT errors (winstl::error_desc_a(err_code))
 #include <winstl/error/error_desc.hpp>
-// add config4cpp headers
+/// \todo enable config4cpp headers
 //#include <config4cpp/Configuration.h>
 //#include <config4cpp/SchemaValidator.h>
 #include <iostream>
