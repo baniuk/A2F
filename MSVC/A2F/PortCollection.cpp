@@ -36,7 +36,8 @@ CPortCollection::~CPortCollection()
 * \return   Return S_OK on success or one of the standard error HRESULT values.
 * \retval   status   The program status.
 *                     \li S_OK = Success
-* \warning Number of initialized ports in this function mus equal to PORTS_NUMBER in stdafx.h                    
+* \warning Number of initialized ports in this function mus equal to PORTS_NUMBER in stdafx.h     
+* \todo Check Release on AddPort fail
 */
 HRESULT CPortCollection::FinalConstruct()
 {
@@ -49,38 +50,22 @@ HRESULT CPortCollection::FinalConstruct()
 
 	PANTHEIOS_TRACE_DEBUG(PSTR("Creating "), pantheios::integer(PORTS_NUMBER),PSTR(" ports"));
 	// create instance of CoClass for IUnitPort (IUnitPortEx)	
-	try
+	// create instances of all ports
+	for (int nport=0;nport<PORTS_NUMBER;++nport)
 	{
-		// create instances of all ports
-		for (int nport=0;nport<PORTS_NUMBER;++nport)
+		err_code = tmpIUnitPort.CoCreateInstance(__uuidof(UnitPort));
+		if(FAILED(err_code)) //error
 		{
-			err_code = tmpIUnitPort.CoCreateInstance(__uuidof(UnitPort));
-			if(FAILED(err_code)) //error
-			{
-				PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IUnitPort not created because: "), 
-										pantheios::integer(err_code,pantheios::fmt::fullHex),
-										PSTR(" Error: "), winstl::error_desc_a(err_code));
-				PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-				return err_code;
-			}
-			// add port to vector
-			ports.push_back(tmpIUnitPort.Detach());	// clears also tmpIUnitPort
-			PANTHEIOS_TRACE_DEBUG(PSTR("Added port no: "),pantheios::integer(nport),PSTR(" "),winstl::error_desc_a(err_code));
+			PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IUnitPort not created because: "), 
+									pantheios::integer(err_code,pantheios::fmt::fullHex),
+									PSTR(" Error: "), winstl::error_desc_a(err_code));
+			PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+			return err_code;
 		}
-	}
-	catch(_com_error e)	// catching com errors encapsulated in _ccom_error class
-	{
-		// we are here in case of general errors with portCollection pointer and query interface
-		PANTHEIOS_TRACE_ERROR(PSTR("IUnitPort->CoCreateInstance exception: "),e.ErrorMessage());
-		PANTHEIOS_TRACE_ERROR(PSTR("IUnitPort->CoCreateInstance error code: "),pantheios::integer(e.Error(),pantheios::fmt::fullHex));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return e.Error();	// return HRESULT
-	}
-	catch(...)	// unsuported exceptions
-	{
-		PANTHEIOS_TRACE_CRITICAL(PSTR("Unexpected IUnitPortEx->CoCreateInstance exception"));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return E_FAIL;	// unexpected exception
+		// add port to vector
+		ports.push_back(tmpIUnitPort.Detach());	// clears also tmpIUnitPort Releases ownership of a pointer, sets the CComPtrBase::p data member
+		// variable to NULL, and returns a copy of the pointer.
+		PANTHEIOS_TRACE_DEBUG(PSTR("Added port no: "),pantheios::integer(nport),PSTR(" "),winstl::error_desc_a(err_code));
 	}
 	// sets first free port in array
 	currentPort = ports.begin();
@@ -91,8 +76,8 @@ HRESULT CPortCollection::FinalConstruct()
 	if(FAILED(err_code))
 	{
 		PANTHEIOS_TRACE_ERROR(	PSTR("Port Initialize failed because: "), 
-			pantheios::integer(err_code,pantheios::fmt::fullHex),
-			PSTR(" Error: "), winstl::error_desc_a(err_code));
+								pantheios::integer(err_code,pantheios::fmt::fullHex),
+								PSTR(" Error: "), winstl::error_desc_a(err_code));
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return err_code;
 	}
@@ -189,11 +174,12 @@ STDMETHODIMP CPortCollection::get_moreInfo( BSTR * moreInfo )
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success      
-* \todo Finish          
+* \warning Ports are numbered from 1        
 */
 STDMETHODIMP CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	if(!Item) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
 	PANTHEIOS_TRACE_DEBUG(PSTR("Input id: "),id);
 	CComPtr<IUnitPort> ptmpIUnitPort; // port to be returned to PME
 	CComPtr<ICapeIdentification> ptmpICapeIdentification;	// to get to name of the port
@@ -242,6 +228,7 @@ STDMETHODIMP CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 			break;
 		default:
 			PANTHEIOS_TRACE_CRITICAL(PSTR("Should not be here never"));
+			PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 			return E_FAIL;
 		}
 	}
@@ -250,16 +237,6 @@ STDMETHODIMP CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return E_FAIL;	// return HRESULT
 	}
-	catch(_com_error e)	// catching com errors encapsulated in _ccom_error class
-	{
-		// we are here in case of general errors with portCollection pointer and query interface
-		PANTHEIOS_TRACE_ERROR(PSTR("ICapeIdentification->QueryInterface exception: "),e.ErrorMessage());
-		PANTHEIOS_TRACE_ERROR(PSTR("ICapeIdentification->QueryInterface error code: "),pantheios::integer(e.Error(),pantheios::fmt::fullHex));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return e.Error();	// return HRESULT
-	}
-	
-	
 	PANTHEIOS_TRACE_DEBUG(	PSTR("IUnitPort pointer passed to PME: "), 
 							pantheios::pointer(*Item,pantheios::fmt::fullHex));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
@@ -276,6 +253,7 @@ STDMETHODIMP CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 STDMETHODIMP CPortCollection::Count( long * itemsCount )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	if(!itemsCount) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
 	*itemsCount = ports.size();
 	PANTHEIOS_TRACE_DEBUG(PSTR("Returned number of ports: "), pantheios::integer(*itemsCount) );
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
@@ -292,6 +270,7 @@ STDMETHODIMP CPortCollection::Count( long * itemsCount )
 STDMETHODIMP CPortCollection::get_ComponentName( BSTR * name )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	if(!name) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
 	*name = componentName.Copy();
 	PANTHEIOS_TRACE_DEBUG(PSTR("Component name passed to PME: "), PW2M(componentName) );
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
@@ -325,6 +304,7 @@ STDMETHODIMP CPortCollection::put_ComponentName( BSTR name )
 STDMETHODIMP CPortCollection::get_ComponentDescription( BSTR * desc )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	if(!desc) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
 	*desc = componentDescription.Copy();
 	PANTHEIOS_TRACE_DEBUG(PSTR("Component desc passed to PME: "), PW2M(componentDescription) );
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
@@ -349,7 +329,7 @@ STDMETHODIMP CPortCollection::put_ComponentDescription( BSTR desc )
 }
 
 /**
-* \details  Adds ports to collection. Uses CPortCollection::currentPort iterator as actual position to set
+* \details  Adds ports to collection. Uses CPortCollection::currentPort iterator as actual position to set (set in CPortCollection::FinalConstruct())
 * \return   HRESULT value
 * \param[in] portName Name of the created port
 * \param[in] portDescription description of the port
@@ -359,6 +339,7 @@ STDMETHODIMP CPortCollection::put_ComponentDescription( BSTR desc )
 * \retval   status   The program status.
 *           \li S_OK		Success
 *           \li HRESULT otherwise
+* \todo Port number to add should be passed to function for code clearity          
 */
 HRESULT CPortCollection::AddPort(const WCHAR* portName, const WCHAR* portDescription, CapePortDirection portDirection)
 {
@@ -375,24 +356,10 @@ HRESULT CPortCollection::AddPort(const WCHAR* portName, const WCHAR* portDescrip
 		// get IUnitPortInterface to pass it to PortCollection
 		err_code = (*currentPort)->QueryInterface(IID_PPV_ARGS(&pUnitPortIdentification));
 	}
-	catch(_com_error e)	// catching com errors encapsulated in _ccom_error class
-	{
-		// we are here in case of general errors with portCollection pointer and query interface
-		PANTHEIOS_TRACE_ERROR(PSTR("ICapeIdentification->QueryInterface exception: "),e.ErrorMessage());
-		PANTHEIOS_TRACE_ERROR(PSTR("ICapeIdentification->QueryInterface error code: "),pantheios::integer(e.Error(),pantheios::fmt::fullHex));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return e.Error();	// return HRESULT
-	}
 	catch (const std::out_of_range& oor) {
 		PANTHEIOS_TRACE_ERROR(	PSTR("Out of Range error: "), oor.what());
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return E_FAIL;	// return HRESULT
-	}
-	catch(...)	// unsuported exceptions
-	{
-		PANTHEIOS_TRACE_CRITICAL(PSTR("Unexpected ICapeIdentification->QueryInterface exception"));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return E_FAIL;	// unexpected exception
 	}
 	if(FAILED(err_code)) 
 	{
@@ -436,24 +403,10 @@ HRESULT CPortCollection::AddPort(const WCHAR* portName, const WCHAR* portDescrip
 		// get IUnitPortInterface to pass it to PortCollection
 		err_code = (*currentPort)->QueryInterface(IID_PPV_ARGS(&pUnitPortEx));
 	}
-	catch(_com_error e)	// catching com errors encapsulated in _ccom_error class
-	{
-		// we are here in case of general errors with portCollection pointer and query interface
-		PANTHEIOS_TRACE_ERROR(PSTR("IUnitPortEx->QueryInterface exception: "),e.ErrorMessage());
-		PANTHEIOS_TRACE_ERROR(PSTR("IUnitPortEx->QueryInterface error code: "),pantheios::integer(e.Error(),pantheios::fmt::fullHex));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return e.Error();	// return HRESULT
-	}
 	catch (const std::out_of_range& oor) {
 		PANTHEIOS_TRACE_ERROR(	PSTR("Out of Range error: "), oor.what());
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return E_FAIL;	// return HRESULT
-	}
-	catch(...)	// unsuported exceptions
-	{
-		PANTHEIOS_TRACE_CRITICAL(PSTR("Unexpected IUnitPortEx->QueryInterface exception"));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return E_FAIL;	// unexpected exception
 	}
 	if(FAILED(err_code)) 
 	{
