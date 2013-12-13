@@ -244,7 +244,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 	// ************** Get material from input port ***************************************************************************************************
 	lpdisp.Release();	// release teporary IDispatch pointer
 	err_code = ptmpInputPort->get_connectedObject(&lpDisp);
-	PANTHEIOS_TRACE_ERROR(	PSTR("Object connected to port: "), 
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Object connected to port: "), 
 							pantheios::pointer(lpDisp,pantheios::fmt::fullHex));
 	if(FAILED(err_code)) 
 	{
@@ -272,7 +272,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 	// ************** Get material from output port **************************************************************************************************
 	lpdisp.Release();	// release teporary IDispatch pointer
 	err_code = ptmpOutputPort->get_connectedObject(&lpDisp);
-	PANTHEIOS_TRACE_ERROR(	PSTR("Object connected to port: "), 
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Object connected to port: "), 
 							pantheios::pointer(lpDisp,pantheios::fmt::fullHex));
 	if(FAILED(err_code)) 
 	{
@@ -297,7 +297,158 @@ STDMETHODIMP CUnitOperations::Calculate()
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return err_code;
 	}	
+	lpdisp.Release();
+	// ************* Copy for miput to output ********************************************************************************************************
+	CComSafeArray<double> tmpPTRCF;					// local vales passed from PME, only for logging
+	CComBSTR Liquid(L"Liquid"); CComBSTR Mixture(L"Mixture"); CComBSTR Vapor(L"Vapor");
+	CComBSTR myproperty;
+	CComBSTR myphase;
+	CComBSTR mole;
+	LONG num;		// ilosc zwiazków w strumieniu
 
+	myphase = L"overall";
+	mole = L"mole";
+	VARIANT T;
+	VARIANT P;
+	VARIANT X;
+	VARIANT F;
+	VARIANT compIds;
+	VariantInit(&compIds);
+	err_code = ptmpInputPortMaterial->get_ComponentIds(&compIds);	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port component ID: "), compIds);
+	if(FAILED(err_code)) 
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("Input port component ID not returned because: "), 
+								pantheios::integer(err_code,pantheios::fmt::fullHex),
+								PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}	
+	err_code = ptmpInputPortMaterial->GetNumComponents(&num);
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Number of components in input stram: "), pantheios::integer(num));
+	if(FAILED(err_code)) 
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("GetNumComponents not returned because: "), 
+								pantheios::integer(err_code,pantheios::fmt::fullHex),
+								PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}	
+
+	myproperty = L"Temperature";
+	VariantInit(&T);
+	
+	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,Mixture,L"",&T);
+	tmpPTRCF.Attach(T.parray);	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port T: "), pantheios::real(tmpPTRCF.GetAt(0)), PSTR( "K")); tmpPTRCF.Detach();
+	if(FAILED(err_code)) 
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("GetPropA failed on T: "), 
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}	
+		myproperty = L"Pressure";
+	VariantInit(&P);
+	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,L"",L"",&P);
+	tmpPTRCF.Attach(P.parray);	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port P: "), pantheios::real(tmpPTRCF.GetAt(0)), PSTR( "?")); tmpPTRCF.Detach();
+	if(FAILED(err_code)) 
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("GetPropA failed on P: "), 
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}	
+	myproperty = L"Fraction";
+	VariantInit(&X);
+	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,L"",mole,&X);
+	/// \todo Can be more fractions here - change later
+	tmpPTRCF.Attach(X.parray);	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port X: "), pantheios::real(tmpPTRCF.GetAt(0)), PSTR( "?")); tmpPTRCF.Detach();
+	if(FAILED(err_code)) 
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("GetPropA failed on X: "), 
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}	
+	myproperty = L"TotalFlow";
+	VariantInit(&F);
+	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,L"",mole,&F);
+	tmpPTRCF.Attach(F.parray);	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port F: "), pantheios::real(tmpPTRCF.GetAt(0)), PSTR( "?")); tmpPTRCF.Detach();
+	if(FAILED(err_code)) 
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("GetPropA failed on F: "), 
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}	
+
+
+
+	myproperty = L"Temperature";
+	//		VariantInit(&compIds);
+	err_code = ptmpOutputPortMaterial->SetPropA(myproperty,myphase,compIds,L"",L"",T);
+	if(FAILED(err_code)) 
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("SetPropA failed on T: "), 
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}	
+
+	myproperty = L"Pressure";
+	//		VariantInit(&compIds);
+	err_code = ptmpOutputPortMaterial->SetPropA(myproperty,myphase,compIds,L"",L"",P);
+	if(FAILED(err_code)) 
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("SetPropA failed on P: "), 
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}	
+
+	myproperty = L"Fraction";
+	//		VariantInit(&compIds);
+	err_code = ptmpOutputPortMaterial->SetPropA(myproperty,myphase,compIds,L"",mole,X);
+	if(FAILED(err_code)) 
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("SetPropA failed on X: "), 
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}	
+
+	myproperty = L"TotalFlow";
+	//		VariantInit(&compIds);
+	err_code = ptmpOutputPortMaterial->SetPropA(myproperty,myphase,compIds,L"",mole,F);
+	if(FAILED(err_code)) 
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("SetPropA failed on F: "), 
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}	
+
+	// flash the outlet material (all outlet ports must be flashed by a CAPE-OPEN unit operation)
+	VARIANT props;
+	VariantInit(&props);
+
+	CComBSTR tp = "TP";
+	err_code = ptmpOutputPortMaterial->CalcEquilibrium(tp,props);
+	if(FAILED(err_code)) 
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("CalcEquilibrium failed: "), 
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}	
 
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;

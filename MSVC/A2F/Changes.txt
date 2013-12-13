@@ -52,8 +52,10 @@ New features:
 	+ all ports visible!!
 version 0.9	
 New features:
-	+ Validate (not tested)
+	+ Validate
 	+ changes in put/get simulationContext
+	+ Simple Calculate works
+	+ Simple in-out operation works
 Environment	
 	+ configured for config4cpp
 	+ A2F specific settings moved to separate property sheet
