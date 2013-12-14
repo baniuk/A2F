@@ -94,7 +94,7 @@ HRESULT CPortCollection::FinalConstruct()
 		return err_code;
 	}
 
-	for(CComPtr<IUnitPort> n_port : ports)
+	for(const CComPtr<IUnitPort> &n_port : ports)
 		PANTHEIOS_TRACE_DEBUG(	PSTR("IUnitPort address: "), 
 								pantheios::pointer(n_port.p,pantheios::fmt::fullHex));
 
@@ -195,7 +195,7 @@ STDMETHODIMP CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 			*Item = ptmpIUnitPort.Detach();
 			break;
 		case VT_BSTR:
-			for(CComPtr<IUnitPort> item : ports)	// go through all ports in array
+			for(const CComPtr<IUnitPort> &item : ports)	// go through all ports in array
 			{
 				err_code = item->QueryInterface(IID_PPV_ARGS(&ptmpICapeIdentification));	// query for ICapeIdentification::get_ComponentName
 				if(FAILED(err_code)) 
@@ -351,16 +351,8 @@ HRESULT CPortCollection::AddPort(const WCHAR* portName, const WCHAR* portDescrip
 	// stop if we call AddPort more times than defined PORTS_NUMBER
 	PANTHEIOS_MESSAGE_ASSERT(currentPort!=ports.end(),PSTR("More AddPort calls than defined PORTS_NUMBER"));
 	// query ICapeIdentification interface to set name and description
-	try
-	{
-		// get IUnitPortInterface to pass it to PortCollection
-		err_code = (*currentPort)->QueryInterface(IID_PPV_ARGS(&pUnitPortIdentification));
-	}
-	catch (const std::out_of_range& oor) {
-		PANTHEIOS_TRACE_ERROR(	PSTR("Out of Range error: "), oor.what());
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return E_FAIL;	// return HRESULT
-	}
+    // get IUnitPortInterface to pass it to PortCollection
+	err_code = (*currentPort)->QueryInterface(IID_PPV_ARGS(&pUnitPortIdentification));
 	if(FAILED(err_code)) 
 	{
 		// we ar ehere in case if portCollection is ok but requested interface is not supported
@@ -398,16 +390,8 @@ HRESULT CPortCollection::AddPort(const WCHAR* portName, const WCHAR* portDescrip
 		return err_code;
 	}
 	// calls IUnitPortEx interface method to assign direction of the port
-	try
-	{
-		// get IUnitPortInterface to pass it to PortCollection
-		err_code = (*currentPort)->QueryInterface(IID_PPV_ARGS(&pUnitPortEx));
-	}
-	catch (const std::out_of_range& oor) {
-		PANTHEIOS_TRACE_ERROR(	PSTR("Out of Range error: "), oor.what());
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return E_FAIL;	// return HRESULT
-	}
+	// get IUnitPortInterface to pass it to PortCollection
+	err_code = (*currentPort)->QueryInterface(IID_PPV_ARGS(&pUnitPortEx));
 	if(FAILED(err_code)) 
 	{
 		// we ar ehere in case if portCollection is ok but requested interface is not supported
