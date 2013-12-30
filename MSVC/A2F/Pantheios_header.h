@@ -9,7 +9,7 @@
  *			\li args.hpp
  *			\li m2w.hpp
  *			\li w2m.hpp
- *			Contains also path and name of log file
+ * \warning	Do not contain path and name of log file. Definition PANTHEIOS_LOG_FILE_NAME must be provided in relevan root file 
  * \author  PB
  * \date    2013/09/12
  * \version 0.5
@@ -78,6 +78,4 @@ enum LOGI {
 	toFile = 1,  /**< Logowanie do pliku */
 };
 
-/// Log file name and path
-#define PANTHEIOS_LOG_FILE_NAME	"c:\\A2F.pantlog"
 #endif // Pantheios_header__

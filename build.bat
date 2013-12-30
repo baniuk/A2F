@@ -35,7 +35,7 @@ rmdir temp /s /q
 :SETUP
 cecho {red}Entering setup...{\n}{default}
 IF NOT EXIST External_dep mkdir External_dep
-mkdir temp
+IF NOT EXIST temp mkdir temp
 rem download stlsoft
 cd temp
 wget -nc http://sourceforge.net/projects/stlsoft/files/latest/download?source=files
@@ -70,6 +70,21 @@ rem config4cpp
 cecho {red on white}Compiling Config4cpp...{default}{\n}
 cd ..\External_dep\config4cpp
 nmake -f Makefile.win
+rem gtest
+cd %CURRENT_DIR%\External_dep\gtest
+IF EXIST lib rmdir lib /s /q
+mkdir lib
+mkdir lib\Release
+mkdir lib\Debug
+cd lib\Release
+rem build /MDd version of libs
+cmake -G "NMake Makefiles" -DCMAKE_CXX_FLAGS="-D_VARIADIC_MAX=10" -Dgtest_force_shared_crt=ON -DCMAKE_BUILD_TYPE=Release ..\..\
+nmake
+cd ..\Debug
+cmake -G "NMake Makefiles" -DCMAKE_CXX_FLAGS="-D_VARIADIC_MAX=10" -Dgtest_force_shared_crt=ON -DCMAKE_BUILD_TYPE=Debug ..\..\
+nmake
+
+
 
 rem cleaning
 cecho {red on white}Cleaning...{default}{\n}
