@@ -1,4 +1,11 @@
-// CapeMaterialObject.h : Declaration of the CCapeMaterialObject
+/**
+ * \file    CapeMaterialObject.h
+ * \brief   Holds dummy definitions of all methods from ICapeThermoMaterialObject
+ * \details Holds dummy definitions of all methods from ICapeThermoMaterialObject
+ * \author  PB
+ * \date    2014/01/01
+ * \version 0.5
+ */
 
 #pragma once
 #include "resource.h"       // main symbols
@@ -16,8 +23,19 @@
 using namespace ATL;
 
 
-// CCapeMaterialObject
-
+/**
+ * \class CCapeMaterialObject
+ *
+ * \brief CoClass for ICapeThermoMaterialObject
+ *
+ * Class implements interface of ICapeThermoMaterialObject for testing purposes
+ *
+ * \note Represents basic object for test of Material.cpp class
+ *
+ * \author PB
+ *
+ * \date 2014/01/02
+ */
 class ATL_NO_VTABLE CCapeMaterialObject :
 	public CComObjectRootEx<CComSingleThreadModel>,
 	public CComCoClass<CCapeMaterialObject, &CLSID_CapeMaterialObject>,

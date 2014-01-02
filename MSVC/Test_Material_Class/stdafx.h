@@ -25,3 +25,4 @@
 #include <atlctl.h>
 #import "C:\Program Files (x86)\Common Files\CAPE-OPEN\CAPE-OPENv1-0-0.tlb" raw_interfaces_only, raw_native_types, no_namespace, named_guids, auto_search
 #include "gtest\gtest.h"
+#include "..\Material\Material.h"
