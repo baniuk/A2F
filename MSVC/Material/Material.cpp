@@ -10,14 +10,16 @@
 #include "Material.h"
 
 
-Material::Material(void)
+Material::Material(ICapeThermoMaterialObject *mat)
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-
+	this->mat = mat;
+	mat->AddRef();
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 }
 
 
 Material::~Material(void)
 {
+	mat->Release();
 }

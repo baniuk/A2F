@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {E28C0506-E0BA-4D5C-973A-812141857D46} = s 'CapeMaterialObject Class'
+		{
+			ForceRemove Programmable
+			LocalServer32 = s '%MODULE%'
+			{
+				val ServerExecutable = s '%MODULE_RAW%'
+			}
+			TypeLib = s '{700CC474-6E89-4EBB-A82A-48F930DA7918}'
+			Version = s '1.0'
+		}
+	}
+}
