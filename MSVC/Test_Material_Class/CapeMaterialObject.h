@@ -144,9 +144,16 @@ public:
 	{
 		return E_NOTIMPL;
 	}
+	
+	/**
+	* \brief Implemented for test purposes
+	* \details Used in test _MaterialTest:_COM_method_call 
+	* \see Test_Material_Class.cpp
+	*/
 	STDMETHOD(GetNumComponents)(long * numComp)
 	{
-		return E_NOTIMPL;
+		*numComp = 1;
+		return S_OK;
 	}
 };
 

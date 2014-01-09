@@ -63,5 +63,5 @@
  * 
  * \see AspenPlusUserModelsV8_2-Ref.pdf pp. 274
  * */
-extern CapeValidationStatus exValidationStatus;
+extern CapeValidationStatus exValidationStatus; //!< validation status shred among classes
 extern "C" const GUID ;

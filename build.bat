@@ -83,9 +83,6 @@ nmake
 cd ..\Debug
 cmake -G "NMake Makefiles" -DCMAKE_CXX_FLAGS="-D_VARIADIC_MAX=10" -Dgtest_force_shared_crt=ON -DCMAKE_BUILD_TYPE=Debug ..\..\
 nmake
-
-
-
 rem cleaning
 cecho {red on white}Cleaning...{default}{\n}
 cd %CURRENT_DIR%

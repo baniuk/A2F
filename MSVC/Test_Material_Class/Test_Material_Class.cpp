@@ -40,7 +40,8 @@ PANTHEIOS_EXTERN_C const PAN_CHAR_T PANTHEIOS_FE_PROCESS_IDENTITY[] = PSTR("Test
  * Do konsoli trafi wszystko powy¿ej DEBUG
  */
 pan_fe_N_t PAN_FE_N_SEVERITY_CEILINGS[]  = {
-    { toFile,  PANTHEIOS_SEV_DEBUG },
+    { toFile,  PANTHEIOS_SEV_DEBUG    },
+	{ toConsole,  PANTHEIOS_SEV_ERROR },
     PANTHEIOS_FE_N_TERMINATOR_ENTRY(PANTHEIOS_SEV_CRITICAL)
 };
 
@@ -51,6 +52,7 @@ pan_fe_N_t PAN_FE_N_SEVERITY_CEILINGS[]  = {
  */
 pan_be_N_t PAN_BE_N_BACKEND_LIST[] = {
     PANTHEIOS_BE_N_STDFORM_ENTRY(toFile, pantheios_be_file, 0),
+	PANTHEIOS_BE_N_STDFORM_ENTRY(toConsole, pantheios_be_fprintf, 0),
     PANTHEIOS_BE_N_TERMINATOR_ENTRY
 };
 
@@ -72,12 +74,15 @@ CTest_Material_ClassModule _AtlModule;
 extern "C" int WINAPI _tWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, 
 								LPTSTR /*lpCmdLine*/, int nShowCmd)
 {
-	pantheios_be_file_setFilePath(PSTR(PANTHEIOS_LOG_FILE_NAME), PANTHEIOS_BEID_ALL);
+	HRESULT hr;
+	pantheios_be_file_setFilePath(PSTR(PANTHEIOS_LOG_FILE_NAME), PANTHEIOS_BE_FILE_F_TRUNCATE, PANTHEIOS_BE_FILE_F_TRUNCATE, PANTHEIOS_BEID_ALL);
 	pantheios::log_INFORMATIONAL("Logger enabled!");
-
-	HRESULT hr = CoInitialize(NULL);	// initialize COM interfaces
-	PANTHEIOS_TRACE_DEBUG(PSTR("CoInitialize: "), pantheios::integer(hr,pantheios::fmt::fullHex), PSTR(" Error: "), winstl::error_desc_a(hr));
-	_ASSERT(SUCCEEDED(hr));	// if not initialized
+	hr = _AtlModule.InitializeCom();
+	if(FAILED(hr))
+		PANTHEIOS_TRACE_ERROR(PSTR("InitializeCom: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+	hr = _AtlModule.RegisterClassObjects(CLSCTX_INPROC_SERVER,REGCLS_MULTIPLEUSE); // sam to odkry³em
+	if(FAILED(hr))
+		PANTHEIOS_TRACE_ERROR(PSTR("RegisterClassObjects: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 
 	int argc = 0;
 	char** argv = NULL;
@@ -88,8 +93,7 @@ extern "C" int WINAPI _tWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstan
 	pantheios_be_file_setFilePath(NULL, PANTHEIOS_BEID_ALL);
 	pantheios::pantheios_uninit();
 
-//	_AtlModule.WinMain(nShowCmd);
-	CoUninitialize();
+	_AtlModule.UninitializeCom();
 	return err;
 }
 
@@ -98,6 +102,8 @@ extern "C" int WINAPI _tWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstan
  * \brief Fixture class for testing Material class
  * 
  * Creates environment for testing Material.cpp class. Creates one COM object of ICapeThermoMaterialObject
+ * Choosen methods of ICapeThermoMaterialObject are implemented in CapeMaterialObject.h
+ * Logging to file or console if error
  * \author PB
  * \date 2014/01/06
  *
@@ -108,36 +114,41 @@ extern "C" int WINAPI _tWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstan
 class _MaterialTest : public ::testing::Test
 {
 protected:
-	CComPtr<ICapeMaterialObject> pCapeMaterialObject; // test object
+	CComPtr<ICapeThermoMaterialObject> pCapeMaterialObject; // test object
 	/// creates COM reference of ICapeThermoMaterialObject
 	virtual void SetUp()
 	{
 		HRESULT hr;
-		CLSID clsID;
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-
-//		hr = CoInitialize(NULL);	// initialize COM interfaces
-//		PANTHEIOS_TRACE_DEBUG(PSTR("CoInitialize: "), pantheios::integer(hr,pantheios::fmt::fullHex), PSTR(" Error: "), winstl::error_desc_a(hr));
-//		_ASSERT(SUCCEEDED(hr));	// if not initialized
-		hr = pCapeMaterialObject.CoCreateInstance(CLSID_CapeMaterialObject); // create instance of ICapeThermoMaterialObject
-		PANTHEIOS_TRACE_DEBUG(PSTR("CoCreateInstance: "), pantheios::integer(hr,pantheios::fmt::fullHex),
-			PSTR(" Error: "), winstl::error_desc_a(hr));
-		_ASSERT(SUCCEEDED(hr));	// if not created
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+ 		hr = pCapeMaterialObject.CoCreateInstance(CLSID_CapeMaterialObject); // create instance of ICapeThermoMaterialObject
+		if(FAILED(hr))
+			PANTHEIOS_TRACE_ERROR(PSTR("CoCreateInstance: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 	}
 
-	///cleans up
+	/// cleans up
 	virtual void TearDown()
 	{
-		pCapeMaterialObject = NULL;
-//		CoUninitialize();
+		pCapeMaterialObject.Release();
 	}
 };
 /** 
- * \test Material: Test of constructor
+ * \test _MaterialTest:_COM_method_call Test of COM object calling
+ * Calls GetNumComponents method and expects one component.
+ */
+TEST_F(_MaterialTest, _COM_method_call) {
+	
+	LONG n;
+	HRESULT hr;
+	hr = pCapeMaterialObject->GetNumComponents(&n);
+	if(FAILED(hr))
+		PANTHEIOS_TRACE_ERROR(PSTR("GetNumComponents: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+	EXPECT_HRESULT_SUCCEEDED(hr);
+	EXPECT_EQ(1, n);
+}
+
+/** 
+ * \test _MaterialTest:_constructor_noInitialization Test of constructor
  */
 TEST_F(_MaterialTest, _constructor_noInitialization) {
 	
-	//	Material dummy;
 	EXPECT_EQ(0, 0);
 }
