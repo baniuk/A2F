@@ -145,6 +145,7 @@
   <ItemGroup>
     <None Include="CapeMaterialObject.rgs" />
     <None Include="Test_Material_Class.rgs" />
+    <None Include="xx.rgs" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="Test_Material_Class.idl" />

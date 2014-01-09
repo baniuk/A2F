@@ -1,7 +1,7 @@
 /**
  * \file    CapeMaterialObject.h
  * \brief   Holds dummy definitions of all methods from ICapeThermoMaterialObject
- * \details Holds dummy definitions of all methods from ICapeThermoMaterialObject
+ * \details Holds dummy definitions of all methods from ICapeThermoMaterialObject used for testing purposes
  * \author  PB
  * \date    2014/01/01
  * \version 0.5

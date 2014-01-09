@@ -5,6 +5,7 @@
  * \author  PB
  * \date    2014/01/02
  * \version 0.5
+ * \see CapeMaterialObject.h
  */
 
 
@@ -74,6 +75,10 @@ extern "C" int WINAPI _tWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstan
 	pantheios_be_file_setFilePath(PSTR(PANTHEIOS_LOG_FILE_NAME), PANTHEIOS_BEID_ALL);
 	pantheios::log_INFORMATIONAL("Logger enabled!");
 
+	HRESULT hr = CoInitialize(NULL);	// initialize COM interfaces
+	PANTHEIOS_TRACE_DEBUG(PSTR("CoInitialize: "), pantheios::integer(hr,pantheios::fmt::fullHex), PSTR(" Error: "), winstl::error_desc_a(hr));
+	_ASSERT(SUCCEEDED(hr));	// if not initialized
+
 	int argc = 0;
 	char** argv = NULL;
 	::testing::InitGoogleTest(&argc, argv);
@@ -82,14 +87,56 @@ extern "C" int WINAPI _tWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstan
 	pantheios::log_INFORMATIONAL("Logger disabled!");
 	pantheios_be_file_setFilePath(NULL, PANTHEIOS_BEID_ALL);
 	pantheios::pantheios_uninit();
+
+//	_AtlModule.WinMain(nShowCmd);
+	CoUninitialize();
 	return err;
-	//_AtlModule.WinMain(nShowCmd);
 }
 
+/**
+ * \class MaterialTest
+ * \brief Fixture class for testing Material class
+ * 
+ * Creates environment for testing Material.cpp class. Creates one COM object of ICapeThermoMaterialObject
+ * \author PB
+ * \date 2014/01/06
+ *
+ * \see 
+ * \li Material.cpp
+ * \li CapeMaterialObject.h
+ */
+class _MaterialTest : public ::testing::Test
+{
+protected:
+	CComPtr<ICapeMaterialObject> pCapeMaterialObject; // test object
+	/// creates COM reference of ICapeThermoMaterialObject
+	virtual void SetUp()
+	{
+		HRESULT hr;
+		CLSID clsID;
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+
+//		hr = CoInitialize(NULL);	// initialize COM interfaces
+//		PANTHEIOS_TRACE_DEBUG(PSTR("CoInitialize: "), pantheios::integer(hr,pantheios::fmt::fullHex), PSTR(" Error: "), winstl::error_desc_a(hr));
+//		_ASSERT(SUCCEEDED(hr));	// if not initialized
+		hr = pCapeMaterialObject.CoCreateInstance(CLSID_CapeMaterialObject); // create instance of ICapeThermoMaterialObject
+		PANTHEIOS_TRACE_DEBUG(PSTR("CoCreateInstance: "), pantheios::integer(hr,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(hr));
+		_ASSERT(SUCCEEDED(hr));	// if not created
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	}
+
+	///cleans up
+	virtual void TearDown()
+	{
+		pCapeMaterialObject = NULL;
+//		CoUninitialize();
+	}
+};
 /** 
  * \test Material: Test of constructor
  */
-TEST(_Material, noInitialization) {
+TEST_F(_MaterialTest, _constructor_noInitialization) {
 	
 	//	Material dummy;
 	EXPECT_EQ(0, 0);

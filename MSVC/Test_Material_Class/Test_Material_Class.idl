@@ -17,6 +17,15 @@ import "ocidl.idl";
 interface ICapeMaterialObject : IDispatch{
 };
 [
+	object,
+	uuid(F61A9DA7-98F6-47C2-8749-3013C7490373),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface Ixx : IDispatch{
+};
+[
 	uuid(700CC474-6E89-4EBB-A82A-48F930DA7918),
 	version(1.0),
 ]
@@ -29,6 +38,13 @@ library Test_Material_ClassLib
 	coclass CapeMaterialObject
 	{
 		[default] interface ICapeMaterialObject;
+	};
+	[
+		uuid(96BDEA21-36C7-4323-B361-5682A345B202)		
+	]
+	coclass xx
+	{
+		[default] interface Ixx;
 	};
 };
 

@@ -64,6 +64,9 @@
     <None Include="CapeMaterialObject.rgs">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="xx.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="Test_Material_Class.idl">
