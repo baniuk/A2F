@@ -135,7 +135,6 @@ protected:
  * Calls GetNumComponents method and expects one component.
  */
 TEST_F(_MaterialTest, _COM_method_call) {
-	
 	LONG n;
 	HRESULT hr;
 	hr = pCapeMaterialObject->GetNumComponents(&n);
@@ -150,5 +149,24 @@ TEST_F(_MaterialTest, _COM_method_call) {
  */
 TEST_F(_MaterialTest, _constructor_noInitialization) {
 	
-	EXPECT_EQ(0, 0);
+	/// \note no AddRef here \see http://369o.com/data/books/atl/0321159624/ch03lev1sec4.html The Type-Cast Operator
+	Material testMaterial(pCapeMaterialObject);	// no AddRef here
+}
+
+/**
+ * \test _MaterialTest:_GetMaterialProps Gets material parameters
+ */
+TEST_F(_MaterialTest, _GetMaterialProps) {
+	HRESULT hr;
+	CComSafeArray<double> tmpT;	// holds SAFEARRAY returned in VARIANT by CAPE-OPEN
+	CComBSTR myproperty(L"Temperature");
+	CComBSTR myphase(L"overall");
+	VARIANT compIds;
+	VariantInit(&compIds);
+	CComBSTR Mixture(L"Mixture");
+	VARIANT T;
+	VariantInit(&T);
+	hr = pCapeMaterialObject->GetPropA(myproperty,myphase,compIds,Mixture,L"",&T);
+	tmpT.Attach(T.parray);
+	EXPECT_EQ(20,tmpT.GetAt(0));
 }

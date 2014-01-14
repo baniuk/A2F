@@ -298,7 +298,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 		return err_code;
 	}	
 	lpdisp.Release();
-	// ************* Copy for miput to output ********************************************************************************************************
+	// ************* Copy from input to output ********************************************************************************************************
 	CComSafeArray<double> tmpPTRCF;					// local vales passed from PME, only for logging
 	CComBSTR Liquid(L"Liquid"); CComBSTR Mixture(L"Mixture"); CComBSTR Vapor(L"Vapor");
 	CComBSTR myproperty;
@@ -347,7 +347,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return err_code;
 	}	
-		myproperty = L"Pressure";
+	myproperty = L"Pressure";
 	VariantInit(&P);
 	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,L"",L"",&P);
 	tmpPTRCF.Attach(P.parray);	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port P: "), pantheios::real(tmpPTRCF.GetAt(0)), PSTR( "?")); tmpPTRCF.Detach();
