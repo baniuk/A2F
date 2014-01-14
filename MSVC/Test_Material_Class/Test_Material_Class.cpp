@@ -155,18 +155,28 @@ TEST_F(_MaterialTest, _constructor_noInitialization) {
 
 /**
  * \test _MaterialTest:_GetMaterialProps Gets material parameters
+ * Assumes that:
+ * \li temperatures differ by 10
  */
 TEST_F(_MaterialTest, _GetMaterialProps) {
 	HRESULT hr;
+	LONG index;				// lower and upper bounds of phisical properties array
 	CComSafeArray<double> tmpT;	// holds SAFEARRAY returned in VARIANT by CAPE-OPEN
-	CComBSTR myproperty(L"Temperature");
-	CComBSTR myphase(L"overall");
-	VARIANT compIds;
-	VariantInit(&compIds);
-	CComBSTR Mixture(L"Mixture");
-	VARIANT T;
-	VariantInit(&T);
+	CComBSTR myproperty(L"Temperature");	// physiscal property to get
+	CComBSTR myphase(L"overall");			// not used yet
+	VARIANT compIds;						// not used yet
+	VariantInit(&compIds);					// initialization of VARIANT
+	CComBSTR Mixture(L"Mixture");			// not used yet
+	VARIANT T;								// output data (SAFEARRAY)
+	VariantInit(&T);						// initialization of VARIANT
 	hr = pCapeMaterialObject->GetPropA(myproperty,myphase,compIds,Mixture,L"",&T);
-	tmpT.Attach(T.parray);
-	EXPECT_EQ(20,tmpT.GetAt(0));
+	tmpT.Attach(T.parray);					// attach raw VARIANT Array to CComSafeArray
+	
+	double startT = 20;	// temperatury ró¿ni¹ siê o 10 i startuja z 20
+	for(index=tmpT.GetLowerBound(); index<tmpT.GetUpperBound(); ++index)
+	{	
+		EXPECT_EQ(startT,tmpT.GetAt(index));
+		startT+=10;
+	}
+
 }

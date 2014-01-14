@@ -11,8 +11,8 @@
 * \details Used in test _MaterialTest:_GetMaterialProps 
 * Assumes three components in material:
 * \li T = 20, P = 1000, F = 1, TF = 10
-* \li
-* \li
+* \li T = 30,
+* \li T = 40,
 * \param[in] property
 *	\li \a Temperature
 *	\li \a Pressure
@@ -30,6 +30,7 @@
 *	\li \a mole
 *	\li ""
 * \param[out] results - parameter defined by myproperty	
+* \remarks Teperatures must differ by 10
 * \see Test_Material_Class.cpp numofComp
 */
 STDMETHODIMP CCapeMaterialObject::GetProp( BSTR property, BSTR phase, VARIANT compIds, BSTR calcType, BSTR basis, VARIANT * results )
