@@ -27,7 +27,10 @@
 class Material
 {
 public:
+	/// main constructor
 	Material(ICapeThermoMaterialObject *mat);
+	/// gets four basic material properties for all material's id
+//	HRESULT GetMaterialPropertes()
 	~Material(void);
 protected:
 	ICapeThermoMaterialObject *mat; /*!< reference to the actual underlying version 1.0 Material Object, which is implemented by the simulation environment */

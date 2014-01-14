@@ -21,6 +21,7 @@
 
 #include "resource.h"
 #include <atlbase.h>
+#include <atlsafe.h>
 #include <atlcom.h>
 #include <atlctl.h>
 // adds decoding HRESULT errors (winstl::error_desc_a(err_code))
