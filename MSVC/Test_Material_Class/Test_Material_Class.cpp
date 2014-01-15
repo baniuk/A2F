@@ -115,6 +115,11 @@ class _MaterialTest : public ::testing::Test
 {
 protected:
 	CComPtr<ICapeThermoMaterialObject> pCapeMaterialObject; // test object
+	
+	/// get access to private members of class Material
+	ATL::CComSafeArray<double>& get_private_Material_temperatures(Material& obj) {
+		return obj.temperatures;
+	}
 	/// creates COM reference of ICapeThermoMaterialObject
 	virtual void SetUp()
 	{
@@ -141,7 +146,7 @@ TEST_F(_MaterialTest, _COM_method_call) {
 	if(FAILED(hr))
 		PANTHEIOS_TRACE_ERROR(PSTR("GetNumComponents: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 	EXPECT_HRESULT_SUCCEEDED(hr);
-	EXPECT_EQ(1, n);
+	EXPECT_EQ(3, n);
 }
 
 /** 
@@ -154,29 +159,25 @@ TEST_F(_MaterialTest, _constructor_noInitialization) {
 }
 
 /**
- * \test _MaterialTest:_GetMaterialProps Gets material parameters
+ * \test _MaterialTest:_FlashMaterialObject
  * Assumes that:
  * \li temperatures differ by 10
  */
-TEST_F(_MaterialTest, _GetMaterialProps) {
-	HRESULT hr;
+TEST_F(_MaterialTest, _FlashMaterialObject) {
+
+ 	HRESULT hr;
 	LONG index;				// lower and upper bounds of phisical properties array
-	CComSafeArray<double> tmpT;	// holds SAFEARRAY returned in VARIANT by CAPE-OPEN
-	CComBSTR myproperty(L"Temperature");	// physiscal property to get
-	CComBSTR myphase(L"overall");			// not used yet
-	VARIANT compIds;						// not used yet
-	VariantInit(&compIds);					// initialization of VARIANT
-	CComBSTR Mixture(L"Mixture");			// not used yet
-	VARIANT T;								// output data (SAFEARRAY)
-	VariantInit(&T);						// initialization of VARIANT
-	hr = pCapeMaterialObject->GetPropA(myproperty,myphase,compIds,Mixture,L"",&T);
-	tmpT.Attach(T.parray);					// attach raw VARIANT Array to CComSafeArray
-	
-	double startT = 20;	// temperatury ró¿ni¹ siê o 10 i startuja z 20
-	for(index=tmpT.GetLowerBound(); index<tmpT.GetUpperBound(); ++index)
-	{	
-		EXPECT_EQ(startT,tmpT.GetAt(index));
-		startT+=10;
-	}
+
+	Material testMaterial(pCapeMaterialObject);	// no AddRef here
+	testMaterial.FlashMaterialObject();
+	CComSafeArray<double> temperatures(get_private_Material_temperatures(testMaterial));
+
+ 	// verification of temeratures
+ 	double startT = 20;	// temperatury ró¿ni¹ siê o 10 i startuja z 20
+ 	for(index=temperatures.GetLowerBound(); index<temperatures.GetUpperBound(); ++index)
+ 	{	
+ 		EXPECT_EQ(startT,temperatures.GetAt(index));
+ 		startT+=10;
+ 	}
 
 }

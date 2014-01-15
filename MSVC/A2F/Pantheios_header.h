@@ -81,4 +81,7 @@ enum LOGI {
 	toConsole = 2 /**< Logowanie do konsoli */
 };
 
+// adds decoding HRESULT errors (winstl::error_desc_a(err_code))
+#include <winstl/error/error_desc.hpp>
+
 #endif // Pantheios_header__
