@@ -47,9 +47,20 @@ public:
 	Material(ICapeThermoMaterialObject *mat);
 	/// Flashes Material internal structures
 	HRESULT FlashMaterialObject();
+
+	
+
 	~Material(void);
+private:
+	/// Extract basic information on stram structure
+	HRESULT get_Composition();
+	/// Extract physical properties from materials
+	HRESULT get_PhysicalProp();	
 protected:
 	ICapeThermoMaterialObject *mat; /*!< reference to the actual underlying version 1.0 Material Object, which is implemented by the simulation environment */
+	LONG numComp;			/*< Number of components in stream */
+	ATL::CComSafeArray<BSTR> phases;		/*< Phases in the stream */
+	ATL::CComSafeArray<BSTR> compIds;		/*< Id of components in the stream */
 	ATL::CComSafeArray<double> temperatures; /*< Holds temperatures of all components (all will be the same) */
 private:
 	MaterialStatus isValidated; 

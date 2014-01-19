@@ -117,8 +117,20 @@ protected:
 	CComPtr<ICapeThermoMaterialObject> pCapeMaterialObject; // test object
 	
 	/// get access to private members of class Material
-	ATL::CComSafeArray<double>& get_private_Material_temperatures(Material& obj) {
+	const ATL::CComSafeArray<double>& get_private_Material_temperatures(const Material& obj) {
 		return obj.temperatures;
+	}
+	HRESULT get_private_Material_get_Composition(Material& obj) {
+		return obj.get_Composition();
+	}
+	LONG get_private_Material_numComp(const Material& obj) {
+		return obj.numComp;
+	}
+	const ATL::CComSafeArray<BSTR>& get_private_Material_phases(const Material& obj) {
+		return obj.phases;
+	}
+	const ATL::CComSafeArray<BSTR>& get_private_Material_compIds(const Material& obj) {
+		return obj.compIds;
 	}
 	/// creates COM reference of ICapeThermoMaterialObject
 	virtual void SetUp()
@@ -165,7 +177,6 @@ TEST_F(_MaterialTest, _constructor_noInitialization) {
  */
 TEST_F(_MaterialTest, _FlashMaterialObject) {
 
- 	HRESULT hr;
 	LONG index;				// lower and upper bounds of phisical properties array
 
 	Material testMaterial(pCapeMaterialObject);	// no AddRef here
@@ -180,4 +191,30 @@ TEST_F(_MaterialTest, _FlashMaterialObject) {
  		startT+=10;
  	}
 
+}
+
+/**
+ * \test _MaterialTest:_get_Composition
+ * Assumes that:
+ * \li first component "H20"
+ * \li second component "O2"
+ * \li third component "SiO"
+ * \li one phase "Liquid"
+ */
+TEST_F(_MaterialTest, _get_Composition) {
+
+	LONG index;				// lower and upper bounds of phisical properties array
+	HRESULT hr;
+	Material testMaterial(pCapeMaterialObject);	// no AddRef here
+	hr = get_private_Material_get_Composition(testMaterial);
+	EXPECT_HRESULT_SUCCEEDED(hr);
+	EXPECT_EQ(3,get_private_Material_numComp(testMaterial));
+
+	CComSafeArray<BSTR> phases(get_private_Material_phases(testMaterial));
+	CComSafeArray<BSTR> compIds(get_private_Material_compIds(testMaterial));
+	EXPECT_STREQ(L"Liquid",phases.GetAt(0));
+	
+	EXPECT_STREQ(L"H20",compIds.GetAt(0));
+	EXPECT_STREQ(L"O2",compIds.GetAt(1));
+	EXPECT_STREQ(L"SiO",compIds.GetAt(2));	
 }

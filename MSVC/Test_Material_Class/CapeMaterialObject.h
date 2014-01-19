@@ -76,14 +76,8 @@ private:
 
 	// ICapeThermoMaterialObject Methods
 public:
-	STDMETHOD(get_ComponentIds)(VARIANT * compIds)
-	{
-		return E_NOTIMPL;
-	}
-	STDMETHOD(get_PhaseIds)(VARIANT * PhaseIds)
-	{
-		return E_NOTIMPL;
-	}
+	STDMETHOD(get_ComponentIds)(VARIANT * compIds);
+	STDMETHOD(get_PhaseIds)(VARIANT * PhaseIds);
 	STDMETHOD(GetUniversalConstant)(VARIANT props, VARIANT * propVals)
 	{
 		return E_NOTIMPL;

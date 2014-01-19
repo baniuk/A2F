@@ -51,3 +51,38 @@ STDMETHODIMP CCapeMaterialObject::GetNumComponents( long * numComp )
 	return S_OK;
 }
 
+/**
+* \brief Implemented for test purposes
+* Assume that return CapeArrayString containing names of phases avaiable
+* \li one phase "Liquid"
+* \see Test_Material_Class.cpp
+* \ref CO Thermo Version 1.08.008.pdf
+*/
+STDMETHODIMP CCapeMaterialObject::get_PhaseIds( VARIANT * PhaseIds )
+{
+	CComSafeArray<BSTR> Phases(1);
+	Phases[0] = L"Liquid";
+	CComVariant _PhaseIds(Phases);
+	_PhaseIds.Detach(PhaseIds);
+	return S_OK;
+}
+/**
+* \brief Implemented for test purposes
+* Assume that return CapeArrayString containing names of components avaiable
+* \li first component "H20"
+* \li second component "O2"
+* \li third component "SiO"
+* \see Test_Material_Class.cpp
+* \ref CO Thermo Version 1.08.008.pdf
+*/
+STDMETHODIMP CCapeMaterialObject::get_ComponentIds( VARIANT * compIds )
+{
+	CComSafeArray<BSTR> Components(numofComp);
+	Components[0] = L"H20";
+	Components[1] = L"O2";
+	Components[2] = L"SiO";
+	CComVariant _compIds(Components);
+	_compIds.Detach(compIds);
+	return S_OK;
+}
+
