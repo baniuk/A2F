@@ -10,7 +10,7 @@
 #define Material_h__
 
 // include Pantheios stuff
-#include "..\A2F\Pantheios_header.h"
+#include "..\Common_utilities\Pantheios_header.h"
 #import "c:\Program Files (x86)\Common Files\CAPE-OPEN\CAPE-OPENv1-0-0.tlb" raw_interfaces_only, raw_native_types, no_namespace, named_guids, auto_search
 #include <atlbase.h>
 #include <atlsafe.h>

@@ -1,11 +1,13 @@
 /**
  * \file    Test_Material_Class.cpp
  * \brief   Main file that starts all tests
- * \details This testcase supports ATL and COM classes in order to test Material class propoerties based on ICapeThermoMaterialObject
+ * \details This testcase supports ATL and COM classes in order to test Material class propoerties based on ICapeThermoMaterialObject.
+ * There is also PantheiosLogHelper tested here
  * \author  PB
  * \date    2014/01/02
  * \version 0.5
  * \see CapeMaterialObject.h
+ * \see PantheiosLogHelper.h
  */
 
 
@@ -13,7 +15,8 @@
 #include "resource.h"
 #include "Test_Material_Class_i.h"
 
-#include "..\A2F\Pantheios_header.h"
+#include "..\Common_utilities\Pantheios_header.h"
+#include "..\Common_utilities\PantheiosLogHelper.h"
 
 /// Log file name and initialization of Pantheios API
 PANTHEIOS_EXTERN_C const PAN_CHAR_T PANTHEIOS_FE_PROCESS_IDENTITY[] = PSTR("Test_Material_Class");
@@ -95,6 +98,49 @@ extern "C" int WINAPI _tWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstan
 
 	_AtlModule.UninitializeCom();
 	return err;
+}
+
+/** 
+ * \test PantheiosLogHelper:_LogTest_VT_EMPTY Check VT_EMPTY
+ */
+TEST(PantheiosLogHelper,_LogTest_VT_EMPTY)
+{
+	VARIANT test;
+	VariantInit(&test);
+	dumpVariant(&test,"_LogTest_VT_EMPTY");
+	EXPECT_EQ(1,1);
+}
+
+/** 
+ * \test PantheiosLogHelper:_LogTest_VT_ARRAY_DOUBLE Check array of doubles
+ */
+TEST(PantheiosLogHelper,_LogTest_VT_ARRAY_DOUBLE)
+{
+	VARIANT out;
+	VariantInit(&out);	// output variant
+
+	CComSafeArray<double> tab(3); tab[0] = 20; tab[1] = 30; tab[2] = 40;
+	CComVariant test(tab);	// assign table to CComVariant
+
+	test.Detach(&out);	// copy test tab to out VARIANT
+	dumpVariant(&out,"_LogTest_VT_ARRAY_DOUBLE");
+	EXPECT_EQ(1,1);
+}
+
+/** 
+ * \test PantheiosLogHelper:_LogTest_VT_ARRAY_BSTR Check array of doubles
+ */
+TEST(PantheiosLogHelper,LogTest_VT_ARRAY_BSTR)
+{
+	VARIANT out;
+	VariantInit(&out);	// output variant
+
+	CComSafeArray<BSTR> tab(3); tab[0] = L"raz"; tab[1] = L"dwa"; tab[2] = L"trzy";
+	CComVariant test(tab);	// assign table to CComVariant
+
+	test.Detach(&out);	// copy test tab to out VARIANT
+	dumpVariant(&out,"LogTest_VT_ARRAY_BSTR");
+	EXPECT_EQ(1,1);
 }
 
 /**
@@ -187,7 +233,7 @@ TEST_F(_MaterialTest, _FlashMaterialObject) {
 	testMaterial.FlashMaterialObject();
 	// verification of temeratures
 	double startT = 20;	// temperatury ró¿ni¹ siê o 10 i startuja z 20
- 	for(index=get_private_Material_temperatures(testMaterial).GetLowerBound(); index<get_private_Material_temperatures(testMaterial).GetUpperBound(); ++index)
+ 	for(index=get_private_Material_temperatures(testMaterial).GetLowerBound(); index<=get_private_Material_temperatures(testMaterial).GetUpperBound(); ++index)
  	{	
  		EXPECT_EQ(startT,get_private_Material_temperatures(testMaterial).GetAt(index));
  		startT+=10;
@@ -196,7 +242,7 @@ TEST_F(_MaterialTest, _FlashMaterialObject) {
 	// verification of pressures
 	CComSafeArray<double> pressures(get_private_Material_pressures(testMaterial));
 	double startP = 200;	// ciœnienia ró¿ni¹ siê o 100 i startuja z 200
-	for(index=get_private_Material_pressures(testMaterial).GetLowerBound(); index<get_private_Material_pressures(testMaterial).GetUpperBound(); ++index)
+	for(index=get_private_Material_pressures(testMaterial).GetLowerBound(); index<=get_private_Material_pressures(testMaterial).GetUpperBound(); ++index)
 	{	
 		EXPECT_EQ(startP,get_private_Material_pressures(testMaterial).GetAt(index));
 		startP+=100;
@@ -213,7 +259,6 @@ TEST_F(_MaterialTest, _FlashMaterialObject) {
  */
 TEST_F(_MaterialTest, _get_Composition) {
 
-	LONG index;				// lower and upper bounds of phisical properties array
 	HRESULT hr;
 	Material testMaterial(pCapeMaterialObject);	// no AddRef here
 	hr = get_private_Material_get_Composition(testMaterial);

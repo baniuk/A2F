@@ -160,12 +160,12 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
     <ClCompile Include="UnitPort.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Common_utilities\Pantheios_header.h" />
     <ClInclude Include="A2F_i.h" />
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="DOC_MainPage.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
-    <ClInclude Include="Pantheios_header.h" />
     <ClInclude Include="ParameterCollection.h" />
     <ClInclude Include="PortCollection.h" />
     <ClInclude Include="Resource.h" />
