@@ -59,9 +59,10 @@ private:
 protected:
 	ICapeThermoMaterialObject *mat; /*!< reference to the actual underlying version 1.0 Material Object, which is implemented by the simulation environment */
 	LONG numComp;			/*< Number of components in stream */
-	ATL::CComSafeArray<BSTR> phases;		/*< Phases in the stream */
-	ATL::CComSafeArray<BSTR> compIds;		/*< Id of components in the stream */
-	ATL::CComSafeArray<double> temperatures; /*< Holds temperatures of all components (all will be the same) */
+	ATL::CComSafeArray<BSTR> phases;		/*!< Phases in the stream */
+	ATL::CComSafeArray<BSTR> compIds;		/*!< Id of components in the stream */
+	ATL::CComSafeArray<double> temperatures; /*!< Holds temperatures of all components (all will be the same) */
+	ATL::CComSafeArray<double> pressures; /*!< Holds pressures of all components (all will be the same) */
 private:
 	MaterialStatus isValidated; 
 };

@@ -19,7 +19,7 @@
 * \param[in] calcType: \a Liquid, \a Mixture, \a Vapor, \a ""
 * \param[in] basis: \a mole, \a ""
 * \param[out] results: parameter defined by myproperty	
-* \remarks Teperatures must differ by 10
+* \remarks Teperatures must differ by 10, pressures must differ by 100
 * \see Test_Material_Class.cpp numofComp
 */
 STDMETHODIMP CCapeMaterialObject::GetProp( BSTR property, BSTR phase, VARIANT compIds, BSTR calcType, BSTR basis, VARIANT * results )
@@ -31,12 +31,20 @@ STDMETHODIMP CCapeMaterialObject::GetProp( BSTR property, BSTR phase, VARIANT co
 
 	// initialize parameters
 	CComSafeArray<double> T(numofComp); T[0] = 20; T[1] = 30; T[2] = 40;
-	CComVariant _results(T);
+	CComSafeArray<double> P(numofComp); P[0] = 200; P[1] = 300; P[2] = 400;
 	
+	// output for temperature
  	if(_property == L"Temperature")
  	{
+		CComVariant _results(T);
 		_results.Detach(results);
  	}
+	// output for pressure
+	if(_property == L"Pressure")
+	{
+		CComVariant _results(P);
+		_results.Detach(results);
+	}
 
 	return S_OK;
 }

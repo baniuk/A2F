@@ -120,6 +120,9 @@ protected:
 	const ATL::CComSafeArray<double>& get_private_Material_temperatures(const Material& obj) {
 		return obj.temperatures;
 	}
+	const ATL::CComSafeArray<double>& get_private_Material_pressures(const Material& obj) {
+		return obj.pressures;
+	}
 	HRESULT get_private_Material_get_Composition(Material& obj) {
 		return obj.get_Composition();
 	}
@@ -174,6 +177,7 @@ TEST_F(_MaterialTest, _constructor_noInitialization) {
  * \test _MaterialTest:_FlashMaterialObject
  * Assumes that:
  * \li temperatures differ by 10
+ * \li pressures differ by 100
  */
 TEST_F(_MaterialTest, _FlashMaterialObject) {
 
@@ -181,16 +185,22 @@ TEST_F(_MaterialTest, _FlashMaterialObject) {
 
 	Material testMaterial(pCapeMaterialObject);	// no AddRef here
 	testMaterial.FlashMaterialObject();
-	CComSafeArray<double> temperatures(get_private_Material_temperatures(testMaterial));
-
- 	// verification of temeratures
- 	double startT = 20;	// temperatury ró¿ni¹ siê o 10 i startuja z 20
- 	for(index=temperatures.GetLowerBound(); index<temperatures.GetUpperBound(); ++index)
+	// verification of temeratures
+	double startT = 20;	// temperatury ró¿ni¹ siê o 10 i startuja z 20
+ 	for(index=get_private_Material_temperatures(testMaterial).GetLowerBound(); index<get_private_Material_temperatures(testMaterial).GetUpperBound(); ++index)
  	{	
- 		EXPECT_EQ(startT,temperatures.GetAt(index));
+ 		EXPECT_EQ(startT,get_private_Material_temperatures(testMaterial).GetAt(index));
  		startT+=10;
  	}
 
+	// verification of pressures
+	CComSafeArray<double> pressures(get_private_Material_pressures(testMaterial));
+	double startP = 200;	// ciœnienia ró¿ni¹ siê o 100 i startuja z 200
+	for(index=get_private_Material_pressures(testMaterial).GetLowerBound(); index<get_private_Material_pressures(testMaterial).GetUpperBound(); ++index)
+	{	
+		EXPECT_EQ(startP,get_private_Material_pressures(testMaterial).GetAt(index));
+		startP+=100;
+	}
 }
 
 /**

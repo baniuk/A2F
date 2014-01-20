@@ -113,6 +113,7 @@ HRESULT Material::get_Composition()
 * Fills relevant data in class
 * \remarks Assumes extraction for all components of the stream even if there is the same parameter for all
 * components. It will be duplicated in array.
+* \warning compIds is not initialized - according to doc pp.16
 * \returns Status of the operation
 */
 HRESULT Material::get_PhysicalProp()
@@ -122,7 +123,7 @@ HRESULT Material::get_PhysicalProp()
 	CComBSTR myphase;				// assumes overall
 	CComBSTR Mixture;				// assumes mixture
 	CComBSTR myproperty;			// physiscal property to get
-	VARIANT outputProperty;						// to hold all variant returns from GetProp
+	VARIANT outputProperty;			// to hold all variant returns from GetProp
 	VARIANT compIds;
 	// ask for temperature
 	VariantInit(&outputProperty);				// initialization of VARIANT
@@ -138,6 +139,23 @@ HRESULT Material::get_PhysicalProp()
 		return hr;
 	}
 	temperatures.CopyFrom(outputProperty.parray);
+		
+	// ask for pressure
+	VariantInit(&outputProperty);	// initialization of VARIANT
+	VariantInit(&compIds);
+	myproperty = L"Pressure";		// physiscal property to get
+	myphase = L"overall";			// assumes overall
+	Mixture = L"Mixture";			// assumes mixture
+	hr = mat->GetPropA(myproperty,myphase,compIds,Mixture,L"",&outputProperty);
+	if(FAILED(hr))
+	{	
+		isValidated = INVALIDATED;
+		PANTHEIOS_TRACE_ERROR(PSTR("get_PhysicalProp:GetPressure "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+		return hr;
+	}
+	pressures.CopyFrom(outputProperty.parray);
+
+
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
