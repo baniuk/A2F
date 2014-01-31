@@ -64,11 +64,11 @@ svn checkout http://googletest.googlecode.com/svn/trunk/ ..\External_dep\gtest
 rem kompilacja
 rem Pantheios 32bit
 cecho {red on white}Compiling %PANTH_NAME%...{default}{\n}
-cd ..\External_dep\%PANTH_NAME%\build\vc11
+cd %CURRENT_DIR%\External_dep\%PANTH_NAME%\build\vc11
 nmake
 rem config4cpp
 cecho {red on white}Compiling Config4cpp...{default}{\n}
-cd ..\External_dep\config4cpp
+cd %CURRENT_DIR%\External_dep\config4cpp
 nmake -f Makefile.win
 rem gtest
 cd %CURRENT_DIR%\External_dep\gtest

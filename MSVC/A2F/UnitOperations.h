@@ -176,8 +176,6 @@ private:
 	CComBSTR componentDescription;
 	/// simulation context used for calling aspen interfaces
 	CComPtr<IDispatch> simulationContext;
-	/// dumps VARIANT to logfile
-	void dumpVariant(const VARIANT* data, const OLECHAR *desc);
 
 };
 

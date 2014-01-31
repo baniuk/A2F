@@ -832,31 +832,3 @@ STDMETHODIMP CUnitOperations::LogMessage( BSTR message )
 {
 	return E_NOTIMPL;
 }
-
-/**
-* \details  Dumps any VARIANT variable to logfile
-* \param[in] data variable to be dumped      
-* \param[in] desc Description to be added as prefix to log line
-*/
-void CUnitOperations::dumpVariant( const VARIANT* data, const OLECHAR* desc)
-{
-	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	PANTHEIOS_TRACE_DEBUG(PSTR("VARIANT name: "), desc);
-	switch(data->vt)
-	{
-	case VT_ARRAY | VT_R8:
-		PANTHEIOS_TRACE_DEBUG(PSTR("VARIANT type: "), data->vt,PSTR(" "), PSTR("VT_ARRAY | VT_R8"));
-		break;
-	case VT_ARRAY | VT_BSTR:
-		PANTHEIOS_TRACE_DEBUG(PSTR("VARIANT type: "), data->vt,PSTR(" "), PSTR("VT_ARRAY | VT_BSTR"));
-		break;
-	default:
-		PANTHEIOS_TRACE_DEBUG(PSTR("Unknown VARIANT type: "), data->vt,PSTR(" "));
-	}
-	if(data->vt == VT_ARRAY | VT_R8)
-	{
-		PANTHEIOS_TRACE_DEBUG(PSTR("VARIANT type: "), data->vt,PSTR(" "), PSTR("VT_ARRAY | VT_R8"));
-	}
-	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-}
-

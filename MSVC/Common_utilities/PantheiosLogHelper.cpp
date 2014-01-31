@@ -42,9 +42,5 @@ void dumpVariant( const VARIANT* data, const TCHAR* desc)
 	default:
 		PANTHEIOS_TRACE_DEBUG(PSTR("Unknown VARIANT type: "), pantheios::integer(data->vt,pantheios::fmt::fullHex),PSTR(" "));
 	}
-// 	if(data->vt == (VT_ARRAY | VT_R8))
-// 	{
-// 		PANTHEIOS_TRACE_DEBUG(PSTR("VARIANT type: "), pantheios::integer(data->vt,pantheios::fmt::fullHex) ,PSTR(" "), PSTR("VT_ARRAY | VT_R8"));
-// 	}
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 }
