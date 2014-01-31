@@ -3,6 +3,7 @@ rem Colorizes html file
 rem Requires config file in program dir
 
 rem LogConvert file.pantlog
+@echo off
 
 set current=%cd%
 
