@@ -134,6 +134,7 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Common_utilities\PantheiosLogHelper.cpp" />
     <ClCompile Include="A2F.cpp" />
     <ClCompile Include="A2F_i.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>

@@ -79,6 +79,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <RegisterOutput>true</RegisterOutput>
     </Link>
+    <PostBuildEvent>
+      <Command>cd $(SolutionDir)..\tools
+LogConvert.bat c:\Test_Material_Class.pantlog</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>

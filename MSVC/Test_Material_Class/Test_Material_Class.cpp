@@ -107,7 +107,7 @@ TEST(PantheiosLogHelper,_LogTest_VT_EMPTY)
 {
 	VARIANT test;
 	VariantInit(&test);
-	dumpVariant(&test,"_LogTest_VT_EMPTY");
+	PantheiosHelper::dumpVariant(&test,"_LogTest_VT_EMPTY");
 	EXPECT_EQ(1,1);
 }
 
@@ -123,12 +123,12 @@ TEST(PantheiosLogHelper,_LogTest_VT_ARRAY_DOUBLE)
 	CComVariant test(tab);	// assign table to CComVariant
 
 	test.Detach(&out);	// copy test tab to out VARIANT
-	dumpVariant(&out,"_LogTest_VT_ARRAY_DOUBLE");
+	PantheiosHelper::dumpVariant(&out,"_LogTest_VT_ARRAY_DOUBLE");
 	EXPECT_EQ(1,1);
 }
 
 /** 
- * \test PantheiosLogHelper:_LogTest_VT_ARRAY_BSTR Check array of doubles
+ * \test PantheiosLogHelper:_LogTest_VT_ARRAY_BSTR Check array of bstr
  */
 TEST(PantheiosLogHelper,LogTest_VT_ARRAY_BSTR)
 {
@@ -139,7 +139,7 @@ TEST(PantheiosLogHelper,LogTest_VT_ARRAY_BSTR)
 	CComVariant test(tab);	// assign table to CComVariant
 
 	test.Detach(&out);	// copy test tab to out VARIANT
-	dumpVariant(&out,"LogTest_VT_ARRAY_BSTR");
+	PantheiosHelper::dumpVariant(&out,"LogTest_VT_ARRAY_BSTR");
 	EXPECT_EQ(1,1);
 }
 

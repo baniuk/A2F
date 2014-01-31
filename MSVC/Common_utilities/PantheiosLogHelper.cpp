@@ -15,7 +15,7 @@
 * \param[in] data variable to be dumped      
 * \param[in] desc Description to be added as prefix to log line
 */
-void dumpVariant( const VARIANT* data, const TCHAR* desc)
+void PantheiosHelper::dumpVariant( const VARIANT* data, const TCHAR* desc)
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	ATL::CComSafeArray<double> doubleHolder;	// keep relevant data for VT_ARRAY | VT_R8

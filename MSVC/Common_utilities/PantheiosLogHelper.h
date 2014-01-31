@@ -13,7 +13,19 @@
 #include <comutil.h>
 #include <atlsafe.h>
 
-/// Dumps VARIANT data to log file
-void dumpVariant( const VARIANT* data, const TCHAR* desc);
+/**
+ * \class PantheiosHelper
+ * \brief Class contains helper functions for laooging.
+ * \details all functions are static. This is only conatainer for methods
+ * \author PB
+ * \date 2014/01/31
+*/
+class PantheiosHelper
+{
+public:
+	/// Dumps VARIANT data to log file
+	static void dumpVariant( const VARIANT* data, const TCHAR* desc);
+};
+
 
 #endif // PantheiosLogHelper_h__

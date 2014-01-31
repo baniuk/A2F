@@ -9,6 +9,7 @@
 
 #include "stdafx.h"
 #include "UnitOperations.h"
+#include "..\Common_utilities\PantheiosLogHelper.h"
 
 // CUnitOperations
 CapeValidationStatus exValidationStatus = CAPE_NOT_VALIDATED;
@@ -314,7 +315,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 	VARIANT F;
 	VARIANT compIds;
 	VariantInit(&compIds);
-	err_code = ptmpInputPortMaterial->get_ComponentIds(&compIds);	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port component ID: "), compIds);
+	err_code = ptmpInputPortMaterial->get_ComponentIds(&compIds);	PantheiosHelper::dumpVariant(&compIds, "get_ComponentIds");
 	if(FAILED(err_code)) 
 	{
 		PANTHEIOS_TRACE_ERROR(	PSTR("Input port component ID not returned because: "), 
@@ -323,8 +324,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return err_code;
 	}	
-	err_code = ptmpInputPortMaterial->GetNumComponents(&num);
-	PANTHEIOS_TRACE_DEBUG(	PSTR("Number of components in input stram: "), pantheios::integer(num));
+	err_code = ptmpInputPortMaterial->GetNumComponents(&num); PANTHEIOS_TRACE_DEBUG(PSTR("Number of components in input stram: "), pantheios::integer(num));
 	if(FAILED(err_code)) 
 	{
 		PANTHEIOS_TRACE_ERROR(	PSTR("GetNumComponents not returned because: "), 
@@ -337,8 +337,8 @@ STDMETHODIMP CUnitOperations::Calculate()
 	myproperty = L"Temperature";
 	VariantInit(&T);
 	
-	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,Mixture,L"",&T);
-	tmpPTRCF.Attach(T.parray);	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port T: "), pantheios::real(tmpPTRCF.GetAt(0)), PSTR( "K")); tmpPTRCF.Detach();
+	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,Mixture,L"",&T); PantheiosHelper::dumpVariant(&compIds, "GetPropA: T");
+/*	tmpPTRCF.Attach(T.parray);	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port T: "), pantheios::real(tmpPTRCF.GetAt(0)), PSTR( "K")); tmpPTRCF.Detach();*/
 	if(FAILED(err_code)) 
 	{
 		PANTHEIOS_TRACE_ERROR(	PSTR("GetPropA failed on T: "), 
@@ -349,8 +349,8 @@ STDMETHODIMP CUnitOperations::Calculate()
 	}	
 	myproperty = L"Pressure";
 	VariantInit(&P);
-	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,L"",L"",&P);
-	tmpPTRCF.Attach(P.parray);	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port P: "), pantheios::real(tmpPTRCF.GetAt(0)), PSTR( "?")); tmpPTRCF.Detach();
+	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,L"",L"",&P); PantheiosHelper::dumpVariant(&compIds, "GetPropA: P");
+	/*tmpPTRCF.Attach(P.parray);	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port P: "), pantheios::real(tmpPTRCF.GetAt(0)), PSTR( "?")); tmpPTRCF.Detach();*/
 	if(FAILED(err_code)) 
 	{
 		PANTHEIOS_TRACE_ERROR(	PSTR("GetPropA failed on P: "), 
@@ -361,9 +361,9 @@ STDMETHODIMP CUnitOperations::Calculate()
 	}	
 	myproperty = L"Fraction";
 	VariantInit(&X);
-	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,L"",mole,&X);
+	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,L"",mole,&X); PantheiosHelper::dumpVariant(&compIds, "GetPropA: X");
 	/// \todo Can be more fractions here - change later
-	tmpPTRCF.Attach(X.parray);	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port X: "), pantheios::real(tmpPTRCF.GetAt(0)), PSTR( "?")); tmpPTRCF.Detach();
+/*	tmpPTRCF.Attach(X.parray);	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port X: "), pantheios::real(tmpPTRCF.GetAt(0)), PSTR( "?")); tmpPTRCF.Detach();*/
 	if(FAILED(err_code)) 
 	{
 		PANTHEIOS_TRACE_ERROR(	PSTR("GetPropA failed on X: "), 
@@ -374,8 +374,8 @@ STDMETHODIMP CUnitOperations::Calculate()
 	}	
 	myproperty = L"TotalFlow";
 	VariantInit(&F);
-	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,L"",mole,&F);
-	tmpPTRCF.Attach(F.parray);	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port F: "), pantheios::real(tmpPTRCF.GetAt(0)), PSTR( "?")); tmpPTRCF.Detach();
+	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,L"",mole,&F); PantheiosHelper::dumpVariant(&compIds, "GetPropA: F");
+/*	tmpPTRCF.Attach(F.parray);	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port F: "), pantheios::real(tmpPTRCF.GetAt(0)), PSTR( "?")); tmpPTRCF.Detach();*/
 	if(FAILED(err_code)) 
 	{
 		PANTHEIOS_TRACE_ERROR(	PSTR("GetPropA failed on F: "), 
