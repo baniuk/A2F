@@ -35,11 +35,50 @@ Material::Material( void )
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 }
 
+/**
+ * \brief Copy constructor
+ * \details Makes copy of object together with mat reference. Used in case of passing to methods. Oposite to copyFrom copies also mat reference.
+ * \param[in] src - source material
+ * \author PB
+ * \date 2014/02/01
+ * \see Material::copyFrom
+*/
+Material::Material(const Material& src)
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	this->copyFrom(src);	// copy all arrays
+	this->mat = src.mat;
+	this->mat->AddRef();
+	this->isValidated = src.isValidated;
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+}
+
+/**
+ * \brief Assigment operator
+ * \details Copies rhs object to lhs obiect. Both are the same and references the same mat
+ * \param[in] rhs - right side assigment
+ * \author PB
+ * \date 2014/02/01
+ * \note
+ * \warning
+ * \see Material::copyFrom
+ * \see Material::Material(const Material& src)
+*/
+Material& Material::operator= (const Material& rhs)
+{
+	if(mat) mat->Release();	// release lhs
+	this->copyFrom(rhs);
+	if(rhs.mat)
+	{
+		this->mat = rhs.mat;
+		this->mat->AddRef();
+	}
+	return *this;
+}
 
 Material::~Material(void)
 {
-	if(mat!=NULL)
-		mat->Release();
+	if(mat)	mat->Release();
 }
 
 /**
@@ -308,12 +347,12 @@ HRESULT Material::copyFrom( const Material& src )
 		PANTHEIOS_TRACE_ERROR(PSTR("Source is not validated"));
 		return E_FAIL;
 	}
-	phases.CopyFrom(src.phases);
-	compIds.CopyFrom(src.compIds);
-	temperatures.CopyFrom(src.temperatures);
-	pressures.CopyFrom(src.pressures);
-	flows.CopyFrom(src.flows);
-	fractions.CopyFrom(src.fractions);
+	phases = src.phases;
+	compIds = src.compIds;
+	temperatures = src.temperatures;
+	pressures = src.pressures;
+	flows = src.flows;
+	fractions = src.fractions;
 	numComp = src.numComp;
 	isValidated = VALIDATED;
 	return S_OK;

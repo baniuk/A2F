@@ -49,6 +49,10 @@ public:
 	Material(ICapeThermoMaterialObject *mat);
 	/// helper for tests
 	Material(void);
+	/// copy constructor
+	Material(const Material& src);
+	/// assigment operator
+	Material& operator= (const Material& rhs);
 	/// Flashes Material internal structures
 	HRESULT inFlashMaterialObject();
 	/// Flashes material object
