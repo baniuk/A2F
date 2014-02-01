@@ -113,6 +113,7 @@ TEST(PantheiosLogHelper,_LogTest_VT_EMPTY)
 
 /** 
  * \test PantheiosLogHelper:_LogTest_VT_ARRAY_DOUBLE Check array of doubles
+ * This test will fail without detaching VARIANT in PantheiosHelper::dumpVariant
  */
 TEST(PantheiosLogHelper,_LogTest_VT_ARRAY_DOUBLE)
 {
@@ -124,7 +125,19 @@ TEST(PantheiosLogHelper,_LogTest_VT_ARRAY_DOUBLE)
 
 	test.Detach(&out);	// copy test tab to out VARIANT
 	PantheiosHelper::dumpVariant(&out,"_LogTest_VT_ARRAY_DOUBLE");
-	EXPECT_EQ(1,1);
+	// check if out is still valid after dumpVariant
+	LONG index = 0;
+	double tabval;
+	SafeArrayGetElement(out.parray, &index, &tabval);
+	EXPECT_EQ(20,tabval);
+
+	index = 1;
+	SafeArrayGetElement(out.parray, &index, &tabval);
+	EXPECT_EQ(30,tabval);
+
+	index = 2;
+	SafeArrayGetElement(out.parray, &index, &tabval);
+	EXPECT_EQ(40,tabval);
 }
 
 /** 

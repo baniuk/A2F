@@ -337,7 +337,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 	myproperty = L"Temperature";
 	VariantInit(&T);
 	
-	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,Mixture,L"",&T); PantheiosHelper::dumpVariant(&compIds, "GetPropA: T");
+	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,Mixture,L"",&T); PantheiosHelper::dumpVariant(&T, "GetPropA: T");
 /*	tmpPTRCF.Attach(T.parray);	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port T: "), pantheios::real(tmpPTRCF.GetAt(0)), PSTR( "K")); tmpPTRCF.Detach();*/
 	if(FAILED(err_code)) 
 	{
@@ -349,7 +349,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 	}	
 	myproperty = L"Pressure";
 	VariantInit(&P);
-	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,L"",L"",&P); PantheiosHelper::dumpVariant(&compIds, "GetPropA: P");
+	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,L"",L"",&P); PantheiosHelper::dumpVariant(&P, "GetPropA: P");
 	/*tmpPTRCF.Attach(P.parray);	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port P: "), pantheios::real(tmpPTRCF.GetAt(0)), PSTR( "?")); tmpPTRCF.Detach();*/
 	if(FAILED(err_code)) 
 	{
@@ -361,7 +361,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 	}	
 	myproperty = L"Fraction";
 	VariantInit(&X);
-	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,L"",mole,&X); PantheiosHelper::dumpVariant(&compIds, "GetPropA: X");
+	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,L"",mole,&X); PantheiosHelper::dumpVariant(&X, "GetPropA: X");
 	/// \todo Can be more fractions here - change later
 /*	tmpPTRCF.Attach(X.parray);	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port X: "), pantheios::real(tmpPTRCF.GetAt(0)), PSTR( "?")); tmpPTRCF.Detach();*/
 	if(FAILED(err_code)) 
@@ -374,7 +374,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 	}	
 	myproperty = L"TotalFlow";
 	VariantInit(&F);
-	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,L"",mole,&F); PantheiosHelper::dumpVariant(&compIds, "GetPropA: F");
+	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,L"",mole,&F); PantheiosHelper::dumpVariant(&F, "GetPropA: F");
 /*	tmpPTRCF.Attach(F.parray);	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port F: "), pantheios::real(tmpPTRCF.GetAt(0)), PSTR( "?")); tmpPTRCF.Detach();*/
 	if(FAILED(err_code)) 
 	{
