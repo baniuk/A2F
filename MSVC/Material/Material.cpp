@@ -160,6 +160,54 @@ HRESULT Material::get_PhysicalProp()
 	return S_OK;
 }
 
+/**
+ * \brief Gets catalogue properties of component.
+ * \details Return property of selected pure component.
+ * \param[in] prop - name of property
+ * \param[in] compName - name of the component. It must be in material
+ * \param[in] mat - pointer to material
+ * \param[out] C - numerical value of property
+ * \return HRESULT value
+ * \retval S_OK on success
+ * \retval E_FAIL on error
+ * \author PB
+ * \date 2014/02/01
+ * \see CO_Thermo.pdf pp. 68
+ * \note Can be used before flashing. This is const method.
+*/
+HRESULT Material::getConstant(ICapeThermoMaterialObject *mat, BSTR prop, BSTR compName, double* C )
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	if(NULL==C)
+	{
+		PANTHEIOS_TRACE_CRITICAL(PSTR("NULL pointer"));
+		return E_FAIL;
+	}
+	HRESULT hr;
+	VARIANT _outputConstant;
+	// tworzenie array
+	CComSafeArray<BSTR> proplist(1);
+	CComSafeArray<BSTR> compIds(1);
+	proplist[0] = prop;
+	compIds[0] = compName;
+	// pakowanie w variant
+	CComVariant _proplist(proplist);
+	CComVariant _compIds(compIds);
+
+	VariantInit(&_outputConstant);
+	hr = mat->GetComponentConstant(_proplist, _compIds,&_outputConstant);
+	if(FAILED(hr))
+	{	
+		PANTHEIOS_TRACE_ERROR(PSTR("getConstant "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+		return hr;
+	}
+	CComSafeArray<VARIANT> outputConstant(_outputConstant.parray); // doc - zwraca array of variants
+	*C = outputConstant.GetAt(0).dblVal;
+	PANTHEIOS_TRACE_DEBUG(PSTR("Returned Constant "),pantheios::real(*C),PSTR("Prop: "), PW2M(CComBSTR(prop)), PSTR("Comp: "), PW2M(CComBSTR(compName)));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	return S_OK;
+}
+
 // HRESULT Material::GetTemperature(const VARIANT& compIds, VARIANT* T)
 // {
 // 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));

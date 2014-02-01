@@ -26,6 +26,7 @@ enum MaterialStatus
 	VALIDATED,
 	INVALIDATED
 };
+
 /**
  * \class Material
  *
@@ -33,6 +34,7 @@ enum MaterialStatus
  *
  * Class Class implementing basic tools for managing Cape-Open materials. Holds pointer to ICapePortMaterial directly and can operate on it. 
  * This class AddRefs and Releases this pointer.
+ * FlashMaterialObject() must be called first to initialize and fill internal structures basing on provided material object.
  *
  * \author PB
  * \warning Must be ATL before ATL classes or ATL namespace - it is not added by default
@@ -47,15 +49,16 @@ public:
 	Material(ICapeThermoMaterialObject *mat);
 	/// Flashes Material internal structures
 	HRESULT FlashMaterialObject();
-
-	
+	/// Returns physical property of selected component
+	static HRESULT getConstant(ICapeThermoMaterialObject *mat,BSTR prop, BSTR compName, double *C);
 
 	~Material(void);
 private:
-	/// Extract basic information on stram structure
+	/// Extract basic information on stream structure
 	HRESULT get_Composition();
 	/// Extract physical properties from materials
 	HRESULT get_PhysicalProp();	
+
 protected:
 	ICapeThermoMaterialObject *mat; /*!< reference to the actual underlying version 1.0 Material Object, which is implemented by the simulation environment */
 	LONG numComp;			/*< Number of components in stream */

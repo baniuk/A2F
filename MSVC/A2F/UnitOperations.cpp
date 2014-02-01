@@ -385,7 +385,12 @@ STDMETHODIMP CUnitOperations::Calculate()
 		return err_code;
 	}	
 
-
+	/** \test GetConstant live test
+	 * \code{.cpp}
+	 * double C;
+	 * Material::getConstant(ptmpInputPortMaterial,L"molecularWeight",L"WODA",&C);
+	 * \endcode
+	 */
 
 	myproperty = L"Temperature";
 	//		VariantInit(&compIds);

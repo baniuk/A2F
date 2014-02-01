@@ -36,6 +36,7 @@
 #include <iostream>
 #include <vector>
 #include <windows.h>
+#include "Material.h"
 
 // user definitions
 #define YES TRUE
