@@ -391,6 +391,8 @@ STDMETHODIMP CUnitOperations::Calculate()
 	 * Material::getConstant(ptmpInputPortMaterial,L"molecularWeight",L"WODA",&C);
 	 * \endcode
 	 */
+	double C;
+	Material::getConstant(ptmpInputPortMaterial,L"molecularWeight",L"WODA",&C);
 
 	myproperty = L"Temperature";
 	//		VariantInit(&compIds);

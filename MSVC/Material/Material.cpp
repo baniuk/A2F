@@ -203,7 +203,7 @@ HRESULT Material::getConstant(ICapeThermoMaterialObject *mat, BSTR prop, BSTR co
 	}
 	CComSafeArray<VARIANT> outputConstant(_outputConstant.parray); // doc - zwraca array of variants
 	*C = outputConstant.GetAt(0).dblVal;
-	PANTHEIOS_TRACE_DEBUG(PSTR("Returned Constant "),pantheios::real(*C),PSTR("Prop: "), PW2M(CComBSTR(prop)), PSTR("Comp: "), PW2M(CComBSTR(compName)));
+	PANTHEIOS_TRACE_DEBUG(PSTR("Returned Constant "),pantheios::real(*C),PSTR(" Prop: "), PW2M(CComBSTR(prop)), PSTR(" Comp: "), PW2M(CComBSTR(compName)));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
