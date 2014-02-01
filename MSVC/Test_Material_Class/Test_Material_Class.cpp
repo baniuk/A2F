@@ -243,7 +243,7 @@ TEST_F(_MaterialTest, _FlashMaterialObject) {
 	LONG index;				// lower and upper bounds of phisical properties array
 
 	Material testMaterial(pCapeMaterialObject);	// no AddRef here
-	testMaterial.FlashMaterialObject();
+	testMaterial.inFlashMaterialObject();
 	// verification of temeratures
 	double startT = 20;	// temperatury ró¿ni¹ siê o 10 i startuja z 20
  	for(index=get_private_Material_temperatures(testMaterial).GetLowerBound(); index<=get_private_Material_temperatures(testMaterial).GetUpperBound(); ++index)
@@ -258,6 +258,39 @@ TEST_F(_MaterialTest, _FlashMaterialObject) {
 	for(index=get_private_Material_pressures(testMaterial).GetLowerBound(); index<=get_private_Material_pressures(testMaterial).GetUpperBound(); ++index)
 	{	
 		EXPECT_EQ(startP,get_private_Material_pressures(testMaterial).GetAt(index));
+		startP+=100;
+	}
+}
+
+/**
+ * \test _MaterialTest:_copyFrom
+ * Assumes that:
+ * \li temperatures differ by 10
+ * \li pressures differ by 100
+ */
+TEST_F(_MaterialTest, _copyFrom) {
+
+	LONG index;				// lower and upper bounds of phisical properties array
+
+	Material testMaterial(pCapeMaterialObject);	// no AddRef here
+	Material copied;
+	testMaterial.inFlashMaterialObject();
+	// copying
+	copied.copyFrom(testMaterial);
+	// verification of temeratures
+	double startT = 20;	// temperatury ró¿ni¹ siê o 10 i startuja z 20
+ 	for(index=get_private_Material_temperatures(copied).GetLowerBound(); index<=get_private_Material_temperatures(copied).GetUpperBound(); ++index)
+ 	{	
+ 		EXPECT_EQ(startT,get_private_Material_temperatures(copied).GetAt(index));
+ 		startT+=10;
+ 	}
+
+	// verification of pressures
+	CComSafeArray<double> pressures(get_private_Material_pressures(copied));
+	double startP = 200;	// ciœnienia ró¿ni¹ siê o 100 i startuja z 200
+	for(index=get_private_Material_pressures(copied).GetLowerBound(); index<=get_private_Material_pressures(copied).GetUpperBound(); ++index)
+	{	
+		EXPECT_EQ(startP,get_private_Material_pressures(copied).GetAt(index));
 		startP+=100;
 	}
 }

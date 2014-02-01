@@ -19,18 +19,36 @@ Material::Material(ICapeThermoMaterialObject *mat)
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 }
 
+/**
+ * \brief Helper method
+ * \details Should not be used, only for tests.
+ * \retval 
+ * \author PB
+ * \date 2014/02/01
+*/
+Material::Material( void )
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_WARNING(PSTR("Illegal constructor used - only for tests"));
+	isValidated = INVALIDATED;
+	this->mat = NULL;
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+}
+
 
 Material::~Material(void)
 {
-	mat->Release();
+	if(mat!=NULL)
+		mat->Release();
 }
 
 /**
 * \details Flashes internal structures of Material object by copying properties of 
 * Material:mat to relevant CCom classes
 * \returns Status of the operation
+* \warning Can be used only on input port material
 */
-HRESULT Material::FlashMaterialObject()
+HRESULT Material::inFlashMaterialObject()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	HRESULT hr;
@@ -39,7 +57,7 @@ HRESULT Material::FlashMaterialObject()
 	if(FAILED(hr))
 	{	
 		isValidated = INVALIDATED;
-		PANTHEIOS_TRACE_ERROR(PSTR("FlashMaterialObject:get_Composition "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+		PANTHEIOS_TRACE_ERROR(PSTR("inFlashMaterialObject:get_Composition "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 		return hr;
 	}
 
@@ -47,7 +65,7 @@ HRESULT Material::FlashMaterialObject()
 	if(FAILED(hr))
 	{	
 		isValidated = INVALIDATED;
-		PANTHEIOS_TRACE_ERROR(PSTR("FlashMaterialObject:get_PhysicalProp "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+		PANTHEIOS_TRACE_ERROR(PSTR("inFlashMaterialObject:get_PhysicalProp "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 		return hr;
 	}
 
@@ -110,28 +128,28 @@ HRESULT Material::get_Composition()
 * \li pressure
 * \li fraction
 * \li Flow
-* Fills relevant data in class
+* Fills relevant data in class. It is assumed that every array with data has the size of compIds
 * \remarks Assumes extraction for all components of the stream even if there is the same parameter for all
 * components. It will be duplicated in array.
 * \warning compIds is not initialized - according to doc pp.16
 * \returns Status of the operation
+* \todo Check sizes of arrays if there are more components. Now there is no duplicating
 */
 HRESULT Material::get_PhysicalProp()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	HRESULT hr;
-	CComBSTR myphase;				// assumes overall
-	CComBSTR Mixture;				// assumes mixture
-	CComBSTR myproperty;			// physiscal property to get
+//	CComBSTR myphase;				// assumes overall
+//	CComBSTR Mixture;				// assumes mixture
+//	CComBSTR myproperty;			// physiscal property to get
 	VARIANT outputProperty;			// to hold all variant returns from GetProp
-	VARIANT compIds;
+
 	// ask for temperature
 	VariantInit(&outputProperty);				// initialization of VARIANT
-	VariantInit(&compIds);
-	myproperty = L"Temperature";	// physiscal property to get
-	myphase = L"overall";			// assumes overall
-	Mixture = L"Mixture";			// assumes mixture
-	hr = mat->GetPropA(myproperty,myphase,compIds,Mixture,L"",&outputProperty);
+// 	myproperty = L"Temperature";	// physiscal property to get
+// 	myphase = L"overall";			// assumes overall
+// 	Mixture = L"Mixture";			// assumes mixture
+	hr = mat->GetPropA(L"Temperature",L"overall",CComVariant(compIds),L"Mixture",L"",&outputProperty);
 	if(FAILED(hr))
 	{	
 		isValidated = INVALIDATED;
@@ -142,11 +160,7 @@ HRESULT Material::get_PhysicalProp()
 		
 	// ask for pressure
 	VariantInit(&outputProperty);	// initialization of VARIANT
-	VariantInit(&compIds);
-	myproperty = L"Pressure";		// physiscal property to get
-	myphase = L"overall";			// assumes overall
-	Mixture = L"Mixture";			// assumes mixture
-	hr = mat->GetPropA(myproperty,myphase,compIds,Mixture,L"",&outputProperty);
+	hr = mat->GetPropA(L"Pressure",L"overall",CComVariant(compIds),L"Mixture",L"",&outputProperty);
 	if(FAILED(hr))
 	{	
 		isValidated = INVALIDATED;
@@ -155,6 +169,27 @@ HRESULT Material::get_PhysicalProp()
 	}
 	pressures.CopyFrom(outputProperty.parray);
 
+	// ask fo flow
+	VariantInit(&outputProperty);	// initialization of VARIANT
+	hr = mat->GetPropA(L"TotalFlow",L"overall",CComVariant(compIds),L"",L"mole",&outputProperty);
+	if(FAILED(hr))
+	{	
+		isValidated = INVALIDATED;
+		PANTHEIOS_TRACE_ERROR(PSTR("get_PhysicalProp:GetFlow "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+		return hr;
+	}
+	flows.CopyFrom(outputProperty.parray);
+
+	// ask fo mole
+	VariantInit(&outputProperty);	// initialization of VARIANT
+	hr = mat->GetPropA(L"Fraction",L"overall",CComVariant(compIds),L"",L"mole",&outputProperty);
+	if(FAILED(hr))
+	{	
+		isValidated = INVALIDATED;
+		PANTHEIOS_TRACE_ERROR(PSTR("get_PhysicalProp:GetFlow "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+		return hr;
+	}
+	fractions.CopyFrom(outputProperty.parray);
 
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
@@ -206,6 +241,83 @@ HRESULT Material::getConstant(ICapeThermoMaterialObject *mat, BSTR prop, BSTR co
 	PANTHEIOS_TRACE_DEBUG(PSTR("Returned Constant "),pantheios::real(*C),PSTR(" Prop: "), PW2M(CComBSTR(prop)), PSTR(" Comp: "), PW2M(CComBSTR(compName)));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
+}
+
+/**
+ * \brief Flashes material object hold by class
+ * \details This method copies all properties kept in internal structure of the obiect into mat object that is passed from outside. Used to write data to port
+ * \return Result of the operation
+ * \retval HRESULT
+ * \retval S_OK, E_FAIL
+ * \author PB
+ * \date 2014/02/01
+ * \see inFlashMAterialObject()
+ * \warning Can be used only on output port material
+*/
+HRESULT Material::outFlashMaterialObject()
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	if(isValidated==INVALIDATED)
+	{
+		PANTHEIOS_TRACE_ERROR(PSTR("Cant copy parameters to material if invalidated"));
+		return E_FAIL;
+	}
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	return E_NOTIMPL;
+}
+
+/**
+ * \brief Modify selected component
+ * \details Change value of TPXF for selected component in internal arrays of object. If value is - it is not changed. Component mus exists
+ * \param[in] compName - name of the component
+ * \param[in] T - temperature to set
+ * \param[in] P - pressure to set
+ * \param[in] X - fraction to set
+ * \param[in] F - flow to set
+ * \return Status of the operation
+ * \retval S_OK, E_FAIL
+ * \author PB
+ * \date 2014/02/01
+ * \todo implemet after checking how much data is returned if there are many components in stream
+*/
+HRESULT Material::modifyComponent( BSTR compName, double T, double P, double X, double F )
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	HRESULT hr;
+	
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	return S_OK;
+}
+
+/**
+ * \brief Copy physical properties and structure of material from other material
+ * \details Copy physical properties and structure of material from other material. Can be used for duplicating properties to output material.
+ * \param[in] src - Source material
+ * \return Result of the operation
+ * \retval HRESULT
+ * \li S_OK
+ * \li E_FAIL
+ * \author PB
+ * \date 2014/02/01
+ * \warning Assumes that source material is valid
+*/
+HRESULT Material::copyFrom( const Material& src )
+{
+	if(src.isValidated==INVALIDATED)
+	{
+		PANTHEIOS_TRACE_ERROR(PSTR("Source is not validated"));
+		return E_FAIL;
+	}
+	phases.CopyFrom(src.phases);
+	compIds.CopyFrom(src.compIds);
+	temperatures.CopyFrom(src.temperatures);
+	pressures.CopyFrom(src.pressures);
+	flows.CopyFrom(src.flows);
+	fractions.CopyFrom(src.fractions);
+	numComp = src.numComp;
+	isValidated = VALIDATED;
+	return S_OK;
+
 }
 
 // HRESULT Material::GetTemperature(const VARIANT& compIds, VARIANT* T)

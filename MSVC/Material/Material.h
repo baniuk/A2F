@@ -34,7 +34,7 @@ enum MaterialStatus
  *
  * Class Class implementing basic tools for managing Cape-Open materials. Holds pointer to ICapePortMaterial directly and can operate on it. 
  * This class AddRefs and Releases this pointer.
- * FlashMaterialObject() must be called first to initialize and fill internal structures basing on provided material object.
+ * inFlashMaterialObject() must be called first to initialize and fill internal structures basing on provided material object.
  *
  * \author PB
  * \warning Must be ATL before ATL classes or ATL namespace - it is not added by default
@@ -47,8 +47,16 @@ class Material
 public:
 	/// main constructor
 	Material(ICapeThermoMaterialObject *mat);
+	/// helper for tests
+	Material(void);
 	/// Flashes Material internal structures
-	HRESULT FlashMaterialObject();
+	HRESULT inFlashMaterialObject();
+	/// Flashes material object
+	HRESULT outFlashMaterialObject();
+	/// Modify selected component
+	HRESULT modifyComponent(BSTR compName, double T, double P, double X, double F);
+	/// copy data from other MAterial object
+	HRESULT copyFrom(const Material& src);
 	/// Returns physical property of selected component
 	static HRESULT getConstant(ICapeThermoMaterialObject *mat,BSTR prop, BSTR compName, double *C);
 
@@ -66,6 +74,8 @@ protected:
 	ATL::CComSafeArray<BSTR> compIds;		/*!< Id of components in the stream */
 	ATL::CComSafeArray<double> temperatures; /*!< Holds temperatures of all components (all will be the same) */
 	ATL::CComSafeArray<double> pressures; /*!< Holds pressures of all components (all will be the same) */
+	ATL::CComSafeArray<double> flows; /*!< Holds flows of all components (all will be the same) */
+	ATL::CComSafeArray<double> fractions; /*!< Holds fractions of all components (all will be the same) */
 private:
 	MaterialStatus isValidated; 
 };
