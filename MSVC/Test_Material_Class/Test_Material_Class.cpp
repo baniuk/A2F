@@ -156,6 +156,28 @@ TEST(PantheiosLogHelper,LogTest_VT_ARRAY_BSTR)
 	EXPECT_EQ(1,1);
 }
 
+/** 
+ * \test PantheiosLogHelper:_CComSafeArray_double
+ */
+TEST(PantheiosLogHelper,_CComSafeArray_double)
+{
+	CComSafeArray<double> out(3);
+	out[0] = 1.1;
+	out[1] = 2.2;
+	out[2] = 3.3;
+	PantheiosHelper::dumpCComSafeArray(out,"LogTest_CComSafeArray_double");
+}
+
+/** 
+ * \test PantheiosLogHelper:_CComSafeArray_BSTR
+ */
+TEST(PantheiosLogHelper,_CComSafeArray_BSTR)
+{
+	CComSafeArray<BSTR> out(3); out[0] = L"raz"; out[1] = L"dwa"; out[2] = L"trzy";
+	PantheiosHelper::dumpCComSafeArray(out,"LogTest_CComSafeArray_BSTR");
+	EXPECT_EQ(1,1);
+}
+
 /**
  * \class MaterialTest
  * \brief Fixture class for testing Material class
@@ -181,6 +203,9 @@ protected:
 	}
 	const ATL::CComSafeArray<double>& get_private_Material_pressures(const Material& obj) {
 		return obj.pressures;
+	}
+	const ATL::CComSafeArray<double>& get_private_Material_flows(const Material& obj) {
+		return obj.flows;
 	}
 	HRESULT get_private_Material_get_Composition(Material& obj) {
 		return obj.get_Composition();
@@ -235,8 +260,9 @@ TEST_F(_MaterialTest, _constructor_noInitialization) {
 /**
  * \test _MaterialTest:_FlashMaterialObject
  * Assumes that:
- * \li temperatures differ by 10
- * \li pressures differ by 100
+ * \li temperature is 20
+ * \li pressures is 200
+ * \li flows are 1, 2, 3
  */
 TEST_F(_MaterialTest, _FlashMaterialObject) {
 
@@ -245,28 +271,33 @@ TEST_F(_MaterialTest, _FlashMaterialObject) {
 	Material testMaterial(pCapeMaterialObject);	// no AddRef here
 	testMaterial.inFlashMaterialObject();
 	// verification of temeratures
-	double startT = 20;	// temperatury ró¿ni¹ siê o 10 i startuja z 20
+	double startT = 20;	// temperatura jest jedna ale duplikowana na numofcomp
  	for(index=get_private_Material_temperatures(testMaterial).GetLowerBound(); index<=get_private_Material_temperatures(testMaterial).GetUpperBound(); ++index)
- 	{	
  		EXPECT_EQ(startT,get_private_Material_temperatures(testMaterial).GetAt(index));
- 		startT+=10;
- 	}
 
 	// verification of pressures
 	CComSafeArray<double> pressures(get_private_Material_pressures(testMaterial));
 	double startP = 200;	// ciœnienia ró¿ni¹ siê o 100 i startuja z 200
 	for(index=get_private_Material_pressures(testMaterial).GetLowerBound(); index<=get_private_Material_pressures(testMaterial).GetUpperBound(); ++index)
-	{	
 		EXPECT_EQ(startP,get_private_Material_pressures(testMaterial).GetAt(index));
-		startP+=100;
+
+	// verification of flows
+	CComSafeArray<double> flows(get_private_Material_flows(testMaterial));
+	double startF = 1;	// ciœnienia ró¿ni¹ siê o 100 i startuja z 200
+	for(index=get_private_Material_flows(testMaterial).GetLowerBound(); index<=get_private_Material_flows(testMaterial).GetUpperBound(); ++index)
+	{
+		EXPECT_EQ(startF,get_private_Material_flows(testMaterial).GetAt(index));
+		startF++;
 	}
+
 }
 
 /**
  * \test _MaterialTest:_copyFrom
  * Assumes that:
- * \li temperatures differ by 10
- * \li pressures differ by 100
+ * \li temperature is 20
+ * \li pressures is 200
+ * \li flows are 1, 2, 3
  */
 TEST_F(_MaterialTest, _copyFrom) {
 
@@ -278,28 +309,32 @@ TEST_F(_MaterialTest, _copyFrom) {
 	// copying
 	copied.copyFrom(testMaterial);
 	// verification of temeratures
-	double startT = 20;	// temperatury ró¿ni¹ siê o 10 i startuja z 20
- 	for(index=get_private_Material_temperatures(copied).GetLowerBound(); index<=get_private_Material_temperatures(copied).GetUpperBound(); ++index)
- 	{	
- 		EXPECT_EQ(startT,get_private_Material_temperatures(copied).GetAt(index));
- 		startT+=10;
- 	}
+	double startT = 20;	// temperatura jest jedna ale duplikowana na numofcomp
+	for(index=get_private_Material_temperatures(copied).GetLowerBound(); index<=get_private_Material_temperatures(copied).GetUpperBound(); ++index)
+		EXPECT_EQ(startT,get_private_Material_temperatures(copied).GetAt(index));
 
 	// verification of pressures
 	CComSafeArray<double> pressures(get_private_Material_pressures(copied));
 	double startP = 200;	// ciœnienia ró¿ni¹ siê o 100 i startuja z 200
 	for(index=get_private_Material_pressures(copied).GetLowerBound(); index<=get_private_Material_pressures(copied).GetUpperBound(); ++index)
-	{	
 		EXPECT_EQ(startP,get_private_Material_pressures(copied).GetAt(index));
-		startP+=100;
+
+	// verification of flows
+	CComSafeArray<double> flows(get_private_Material_flows(copied));
+	double startF = 1;	// ciœnienia ró¿ni¹ siê o 100 i startuja z 200
+	for(index=get_private_Material_flows(copied).GetLowerBound(); index<=get_private_Material_flows(copied).GetUpperBound(); ++index)
+	{
+		EXPECT_EQ(startF,get_private_Material_flows(copied).GetAt(index));
+		startF++;
 	}
 }
 
 /**
  * \test _MaterialTest:assigment
  * Assumes that:
- * \li temperatures differ by 10
- * \li pressures differ by 100
+ * \li temperature is 20
+ * \li pressures is 200
+ * \li flows are 1, 2, 3
  */
 TEST_F(_MaterialTest, _assigment) {
 
@@ -311,28 +346,32 @@ TEST_F(_MaterialTest, _assigment) {
 	// copying
 	copied = testMaterial;
 	// verification of temeratures
-	double startT = 20;	// temperatury ró¿ni¹ siê o 10 i startuja z 20
- 	for(index=get_private_Material_temperatures(copied).GetLowerBound(); index<=get_private_Material_temperatures(copied).GetUpperBound(); ++index)
- 	{	
- 		EXPECT_EQ(startT,get_private_Material_temperatures(copied).GetAt(index));
- 		startT+=10;
- 	}
+	double startT = 20;	// temperatura jest jedna ale duplikowana na numofcomp
+	for(index=get_private_Material_temperatures(copied).GetLowerBound(); index<=get_private_Material_temperatures(copied).GetUpperBound(); ++index)
+		EXPECT_EQ(startT,get_private_Material_temperatures(copied).GetAt(index));
 
 	// verification of pressures
 	CComSafeArray<double> pressures(get_private_Material_pressures(copied));
 	double startP = 200;	// ciœnienia ró¿ni¹ siê o 100 i startuja z 200
 	for(index=get_private_Material_pressures(copied).GetLowerBound(); index<=get_private_Material_pressures(copied).GetUpperBound(); ++index)
-	{	
 		EXPECT_EQ(startP,get_private_Material_pressures(copied).GetAt(index));
-		startP+=100;
+
+	// verification of flows
+	CComSafeArray<double> flows(get_private_Material_flows(copied));
+	double startF = 1;	// ciœnienia ró¿ni¹ siê o 100 i startuja z 200
+	for(index=get_private_Material_flows(copied).GetLowerBound(); index<=get_private_Material_flows(copied).GetUpperBound(); ++index)
+	{
+		EXPECT_EQ(startF,get_private_Material_flows(copied).GetAt(index));
+		startF++;
 	}
 }
 
 /**
  * \test _MaterialTest:_copyConstructor
  * Assumes that:
- * \li temperatures differ by 10
- * \li pressures differ by 100
+ * \li temperature is 20
+ * \li pressures is 200
+ * \li flows are 1, 2, 3
  */
 TEST_F(_MaterialTest, _copyConstructor) {
 
@@ -343,20 +382,23 @@ TEST_F(_MaterialTest, _copyConstructor) {
 	// copying
 	Material copied(testMaterial);
 	// verification of temeratures
-	double startT = 20;	// temperatury ró¿ni¹ siê o 10 i startuja z 20
- 	for(index=get_private_Material_temperatures(copied).GetLowerBound(); index<=get_private_Material_temperatures(copied).GetUpperBound(); ++index)
- 	{	
- 		EXPECT_EQ(startT,get_private_Material_temperatures(copied).GetAt(index));
- 		startT+=10;
- 	}
+	double startT = 20;	// temperatura jest jedna ale duplikowana na numofcomp
+	for(index=get_private_Material_temperatures(copied).GetLowerBound(); index<=get_private_Material_temperatures(copied).GetUpperBound(); ++index)
+		EXPECT_EQ(startT,get_private_Material_temperatures(copied).GetAt(index));
 
 	// verification of pressures
 	CComSafeArray<double> pressures(get_private_Material_pressures(copied));
 	double startP = 200;	// ciœnienia ró¿ni¹ siê o 100 i startuja z 200
 	for(index=get_private_Material_pressures(copied).GetLowerBound(); index<=get_private_Material_pressures(copied).GetUpperBound(); ++index)
-	{	
 		EXPECT_EQ(startP,get_private_Material_pressures(copied).GetAt(index));
-		startP+=100;
+
+	// verification of flows
+	CComSafeArray<double> flows(get_private_Material_flows(copied));
+	double startF = 1;	// ciœnienia ró¿ni¹ siê o 100 i startuja z 200
+	for(index=get_private_Material_flows(copied).GetLowerBound(); index<=get_private_Material_flows(copied).GetUpperBound(); ++index)
+	{
+		EXPECT_EQ(startF,get_private_Material_flows(copied).GetAt(index));
+		startF++;
 	}
 }
 

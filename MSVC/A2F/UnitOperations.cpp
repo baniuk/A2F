@@ -164,7 +164,6 @@ STDMETHODIMP CUnitOperations::Calculate()
 	CComPtr<ICapeUnitPort> ptmpOutputPort;				// local IUnitPort interface
 	CComPtr<ICapeThermoMaterialObject> ptmpInputPortMaterial;
 	CComPtr<ICapeThermoMaterialObject> ptmpOutputPortMaterial;
-
 	// ******************* Call ICapeCollection ******************************************************************************************************
 	err_code = portCollection->QueryInterface(IID_PPV_ARGS(&ptmpIPortCollection));
 	PANTHEIOS_TRACE_DEBUG(	PSTR("ICapeCollection addres "),
@@ -270,6 +269,8 @@ STDMETHODIMP CUnitOperations::Calculate()
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return err_code;
 	}	
+	// setting input material
+	Material inputPort(ptmpInputPortMaterial);
 	// ************** Get material from output port **************************************************************************************************
 	lpdisp.Release();	// release teporary IDispatch pointer
 	err_code = ptmpOutputPort->get_connectedObject(&lpDisp);
@@ -299,7 +300,12 @@ STDMETHODIMP CUnitOperations::Calculate()
 		return err_code;
 	}	
 	lpdisp.Release();
+	// setting output material
+	Material outputPort(ptmpOutputPortMaterial);
+
 	// ************* Copy from input to output ********************************************************************************************************
+	inputPort.inFlashMaterialObject(); // fill internal structure of inputPort
+	
 	CComSafeArray<double> tmpPTRCF;					// local vales passed from PME, only for logging
 	CComBSTR Liquid(L"Liquid"); CComBSTR Mixture(L"Mixture"); CComBSTR Vapor(L"Vapor");
 	CComBSTR myproperty;
@@ -372,7 +378,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return err_code;
 	}	
-	myproperty = L"TotalFlow";
+	myproperty = L"Flow";
 	VariantInit(&F);
 	err_code = ptmpInputPortMaterial->GetPropA(myproperty,myphase,compIds,L"",mole,&F); PantheiosHelper::dumpVariant(&F, "GetPropA: F");
 /*	tmpPTRCF.Attach(F.parray);	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port F: "), pantheios::real(tmpPTRCF.GetAt(0)), PSTR( "?")); tmpPTRCF.Detach();*/
@@ -430,7 +436,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 		return err_code;
 	}	
 
-	myproperty = L"TotalFlow";
+	myproperty = L"Flow";
 	//		VariantInit(&compIds);
 	err_code = ptmpOutputPortMaterial->SetPropA(myproperty,myphase,compIds,L"",mole,F);
 	if(FAILED(err_code)) 

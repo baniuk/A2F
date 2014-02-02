@@ -8,6 +8,7 @@
  */
 #include "stdafx.h"
 #include "Material.h"
+#include "..\Common_utilities\PantheiosLogHelper.h"
 
 
 Material::Material(ICapeThermoMaterialObject *mat)
@@ -134,7 +135,8 @@ HRESULT Material::get_Composition()
 		PANTHEIOS_TRACE_ERROR(PSTR("get_Composition:GetNumComponents "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 		return hr;
 	}
-	
+	PANTHEIOS_TRACE_DEBUG(PSTR("Number of components in input stram: "), pantheios::integer(numComp));
+
 	// phases --> copy to phases
 	VARIANT tmpPhases;
 	VariantInit(&tmpPhases);
@@ -145,6 +147,7 @@ HRESULT Material::get_Composition()
 		PANTHEIOS_TRACE_ERROR(PSTR("get_Composition:GetNumComponents "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 		return hr;
 	}
+	PantheiosHelper::dumpVariant(&tmpPhases, "get_ComponentIds");
 	phases.CopyFrom(tmpPhases.parray);
 	
 	// id of componnets --> copy to compIds
@@ -157,6 +160,7 @@ HRESULT Material::get_Composition()
 		PANTHEIOS_TRACE_ERROR(PSTR("get_Composition:GetNumComponents "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 		return hr;
 	}
+	PantheiosHelper::dumpVariant(&tmpCompIds, "get_ComponentIds");
 	compIds.CopyFrom(tmpCompIds.parray);
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
@@ -196,7 +200,13 @@ HRESULT Material::get_PhysicalProp()
 		return hr;
 	}
 	temperatures.CopyFrom(outputProperty.parray);
-		
+	// resize temperatures
+	double dtmp = temperatures[0];
+	temperatures.Resize(numComp,temperatures.GetLowerBound()); 
+	for(UINT16 i=0;i<numComp;++i)
+		temperatures[i] = dtmp;
+	PantheiosHelper::dumpCComSafeArray(temperatures, "Temperatures");
+
 	// ask for pressure
 	VariantInit(&outputProperty);	// initialization of VARIANT
 	hr = mat->GetPropA(L"Pressure",L"overall",CComVariant(compIds),L"Mixture",L"",&outputProperty);
@@ -207,10 +217,16 @@ HRESULT Material::get_PhysicalProp()
 		return hr;
 	}
 	pressures.CopyFrom(outputProperty.parray);
+	// resize pressures
+	dtmp = pressures[0];
+	pressures.Resize(numComp,pressures.GetLowerBound()); 
+	for(UINT16 i=0;i<numComp;++i)
+		pressures[i] = dtmp;
+	PantheiosHelper::dumpCComSafeArray(pressures, "pressures");
 
 	// ask fo flow
 	VariantInit(&outputProperty);	// initialization of VARIANT
-	hr = mat->GetPropA(L"TotalFlow",L"overall",CComVariant(compIds),L"",L"mole",&outputProperty);
+	hr = mat->GetPropA(L"Flow",L"overall",CComVariant(compIds),L"",L"mole",&outputProperty);
 	if(FAILED(hr))
 	{	
 		isValidated = INVALIDATED;
@@ -218,6 +234,7 @@ HRESULT Material::get_PhysicalProp()
 		return hr;
 	}
 	flows.CopyFrom(outputProperty.parray);
+	PantheiosHelper::dumpCComSafeArray(flows, "flows");
 
 	// ask fo mole
 	VariantInit(&outputProperty);	// initialization of VARIANT
@@ -229,6 +246,7 @@ HRESULT Material::get_PhysicalProp()
 		return hr;
 	}
 	fractions.CopyFrom(outputProperty.parray);
+	PantheiosHelper::dumpCComSafeArray(fractions, "fractions");
 
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
@@ -359,21 +377,3 @@ HRESULT Material::copyFrom( const Material& src )
 
 }
 
-// HRESULT Material::GetTemperature(const VARIANT& compIds, VARIANT* T)
-// {
-// 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-// 	HRESULT hr;
-// //	CComSafeArray<double> tmpT;	// holds SAFEARRAY returned in VARIANT by CAPE-OPEN
-// 	CComBSTR myphase(L"overall");			// assumes overall
-// 	CComBSTR Mixture(L"Mixture");			// assumes mixture
-// 	CComBSTR myproperty(L"Temperature");	// physiscal property to get
-// // 	VARIANT vT;								// output data (SAFEARRAY)
-// // 	VariantInit(&vT);						// initialization of VARIANT
-// 	hr = mat->GetPropA(myproperty,myphase,compIds,Mixture,L"",T);
-// 	if(FAILED(hr))
-// 	{	
-// 		PANTHEIOS_TRACE_ERROR(PSTR("GetTemperature: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
-// 		return hr;
-// 	}
-// 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-// }

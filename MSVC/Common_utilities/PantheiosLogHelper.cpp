@@ -43,7 +43,35 @@ void PantheiosHelper::dumpVariant( const VARIANT* data, const TCHAR* desc)
 		PANTHEIOS_TRACE_DEBUG(PSTR("VARIANT type: "), pantheios::integer(data->vt,pantheios::fmt::fullHex),PSTR(" "), PSTR("VT_EMPTY"));
 		break;
 	default:
-		PANTHEIOS_TRACE_DEBUG(PSTR("Unknown VARIANT type: "), pantheios::integer(data->vt,pantheios::fmt::fullHex),PSTR(" "));
+		PANTHEIOS_TRACE_ERROR(PSTR("Unknown VARIANT type: "), pantheios::integer(data->vt,pantheios::fmt::fullHex),PSTR(" "));
 	}
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+}
+
+/**
+* \details  Dumps double array to logfile
+* \param[in] data variable to be dumped      
+* \param[in] desc Description to be added as prefix to log line
+*/
+void PantheiosHelper::dumpCComSafeArray( const ATL::CComSafeArray<double>& data, const TCHAR* desc )
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	LONG index;									// tables indexing
+	for(index = data.GetLowerBound(); index <= data.GetUpperBound(); ++index)
+		PANTHEIOS_TRACE_DEBUG(	PSTR("	CComSafeArray data["),pantheios::integer(index),PSTR("]: "), pantheios::real(data[index]));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+}
+
+/**
+* \details  Dumps BSTR array to logfile
+* \param[in] data variable to be dumped      
+* \param[in] desc Description to be added as prefix to log line
+*/
+void PantheiosHelper::dumpCComSafeArray( const ATL::CComSafeArray<BSTR>& data, const TCHAR* desc )
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	LONG index;		
+	for(index = data.GetLowerBound(); index <= data.GetUpperBound(); ++index)
+		PANTHEIOS_TRACE_DEBUG(	PSTR("	VARIANT data["),pantheios::integer(index),PSTR("]: "), PW2M(data[index]));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 }

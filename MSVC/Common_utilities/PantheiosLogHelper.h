@@ -10,6 +10,8 @@
 #ifndef PantheiosLogHelper_h__
 #define PantheiosLogHelper_h__
 
+// user includes
+#include "Pantheios_header.h"
 #include <comutil.h>
 #include <atlsafe.h>
 
@@ -25,6 +27,10 @@ class PantheiosHelper
 public:
 	/// Dumps VARIANT data to log file
 	static void dumpVariant( const VARIANT* data, const TCHAR* desc);
+	/// Dumps double array
+	static void dumpCComSafeArray( const ATL::CComSafeArray<double>& data, const TCHAR* desc);
+	/// Dumps BSTR array
+	static void dumpCComSafeArray( const ATL::CComSafeArray<BSTR>& data, const TCHAR* desc);
 };
 
 

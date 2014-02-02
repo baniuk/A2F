@@ -30,8 +30,9 @@ STDMETHODIMP CCapeMaterialObject::GetProp( BSTR property, BSTR phase, VARIANT co
 	CComBSTR _basis = basis;
 
 	// initialize parameters
-	CComSafeArray<double> T(numofComp); T[0] = 20; T[1] = 30; T[2] = 40;
-	CComSafeArray<double> P(numofComp); P[0] = 200; P[1] = 300; P[2] = 400;
+	CComSafeArray<double> T(1); T[0] = 20;
+	CComSafeArray<double> P(1); P[0] = 200;
+	CComSafeArray<double> F(numofComp); F[0] = 1; F[1] = 2; F[2] = 3;
 	
 	// output for temperature
  	if(_property == L"Temperature")
@@ -45,7 +46,12 @@ STDMETHODIMP CCapeMaterialObject::GetProp( BSTR property, BSTR phase, VARIANT co
 		CComVariant _results(P);
 		_results.Detach(results);
 	}
-
+	// output for flow
+	if(_property == L"Flow")
+	{
+		CComVariant _results(F);
+		_results.Detach(results);
+	}
 	return S_OK;
 }
 /**
