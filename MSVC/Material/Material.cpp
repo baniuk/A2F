@@ -122,6 +122,7 @@ HRESULT Material::inFlashMaterialObject()
 * \li phases avaiable in stream
 * Fills relevant data in class
 * \returns Status of the operation
+* \warning Allows wrong phasesId returned from PME
 */
 HRESULT Material::get_Composition()
 {
@@ -143,13 +144,16 @@ HRESULT Material::get_Composition()
 	hr = mat->get_PhaseIds(&tmpPhases);
 	if(FAILED(hr))
 	{	
-		isValidated = INVALIDATED;
-		PANTHEIOS_TRACE_ERROR(PSTR("get_Composition:GetNumComponents "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
-		return hr;
+//		isValidated = INVALIDATED;
+		PANTHEIOS_TRACE_WARNING(PSTR("get_Composition:get_PhaseIds "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+//		return hr;
 	}
-	PantheiosHelper::dumpVariant(&tmpPhases, "get_ComponentIds");
-	phases.CopyFrom(tmpPhases.parray);
-	
+	else
+	{
+		PantheiosHelper::dumpVariant(&tmpPhases, "get_PhaseIds");
+		phases.CopyFrom(tmpPhases.parray);
+	}
+		
 	// id of componnets --> copy to compIds
 	VARIANT tmpCompIds;
 	VariantInit(&tmpCompIds);
@@ -157,7 +161,7 @@ HRESULT Material::get_Composition()
 	if(FAILED(hr))
 	{	
 		isValidated = INVALIDATED;
-		PANTHEIOS_TRACE_ERROR(PSTR("get_Composition:GetNumComponents "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+		PANTHEIOS_TRACE_ERROR(PSTR("get_Composition:get_ComponentIds "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 		return hr;
 	}
 	PantheiosHelper::dumpVariant(&tmpCompIds, "get_ComponentIds");
@@ -192,7 +196,7 @@ HRESULT Material::get_PhysicalProp()
 // 	myproperty = L"Temperature";	// physiscal property to get
 // 	myphase = L"overall";			// assumes overall
 // 	Mixture = L"Mixture";			// assumes mixture
-	hr = mat->GetPropA(L"Temperature",L"overall",CComVariant(compIds),L"Mixture",L"",&outputProperty);
+	hr = mat->GetPropA(CComBSTR(L"Temperature"),CComBSTR(L"overall"),CComVariant(compIds),CComBSTR(L"Mixture"),L"",&outputProperty);
 	if(FAILED(hr))
 	{	
 		isValidated = INVALIDATED;
@@ -209,7 +213,7 @@ HRESULT Material::get_PhysicalProp()
 
 	// ask for pressure
 	VariantInit(&outputProperty);	// initialization of VARIANT
-	hr = mat->GetPropA(L"Pressure",L"overall",CComVariant(compIds),L"Mixture",L"",&outputProperty);
+	hr = mat->GetPropA(CComBSTR(L"Pressure"),CComBSTR(L"overall"),CComVariant(compIds),CComBSTR(L"Mixture"),L"",&outputProperty);
 	if(FAILED(hr))
 	{	
 		isValidated = INVALIDATED;
@@ -226,7 +230,7 @@ HRESULT Material::get_PhysicalProp()
 
 	// ask fo flow
 	VariantInit(&outputProperty);	// initialization of VARIANT
-	hr = mat->GetPropA(L"Flow",L"overall",CComVariant(compIds),L"",L"mole",&outputProperty);
+	hr = mat->GetPropA(CComBSTR(L"Flow"),CComBSTR(L"overall"),CComVariant(compIds),L"",CComBSTR(L"mole"),&outputProperty);
 	if(FAILED(hr))
 	{	
 		isValidated = INVALIDATED;
@@ -238,7 +242,7 @@ HRESULT Material::get_PhysicalProp()
 
 	// ask fo mole
 	VariantInit(&outputProperty);	// initialization of VARIANT
-	hr = mat->GetPropA(L"Fraction",L"overall",CComVariant(compIds),L"",L"mole",&outputProperty);
+	hr = mat->GetPropA(CComBSTR(L"Fraction"),CComBSTR(L"overall"),CComVariant(compIds),L"",CComBSTR(L"mole"),&outputProperty);
 	if(FAILED(hr))
 	{	
 		isValidated = INVALIDATED;
@@ -314,13 +318,42 @@ HRESULT Material::getConstant(ICapeThermoMaterialObject *mat, BSTR prop, BSTR co
 HRESULT Material::outFlashMaterialObject()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	HRESULT hr;
 	if(isValidated==INVALIDATED)
 	{
 		PANTHEIOS_TRACE_ERROR(PSTR("Cant copy parameters to material if invalidated"));
 		return E_FAIL;
 	}
+	// temperatures
+	hr = mat->SetPropA(CComBSTR(L"Temperature"),CComBSTR(L"overall"),CComVariant(compIds),L"",L"",CComVariant(temperatures));
+	if(FAILED(hr))
+	{	
+		PANTHEIOS_TRACE_ERROR(PSTR("outFlashMaterialObject:SetTemperature "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+		return hr;
+	}
+	// pressures
+	hr = mat->SetPropA(CComBSTR(L"Pressure"),CComBSTR(L"overall"),CComVariant(compIds),L"",L"",CComVariant(pressures));
+	if(FAILED(hr))
+	{	
+		PANTHEIOS_TRACE_ERROR(PSTR("outFlashMaterialObject:SetPressure "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+		return hr;
+	}
+	// flow
+	hr = mat->SetPropA(CComBSTR(L"Flow"),CComBSTR(L"overall"),CComVariant(compIds),L"",CComBSTR(L"mole"),CComVariant(flows));
+	if(FAILED(hr))
+	{	
+		PANTHEIOS_TRACE_ERROR(PSTR("outFlashMaterialObject:SetFlows "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+		return hr;
+	}
+	// fraction
+	hr = mat->SetPropA(CComBSTR(L"Fraction"),CComBSTR(L"overall"),CComVariant(compIds),L"",CComBSTR(L"mole"),CComVariant(fractions));
+	if(FAILED(hr))
+	{	
+		PANTHEIOS_TRACE_ERROR(PSTR("outFlashMaterialObject:SetFractions "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+		return hr;
+	}
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
 /**
@@ -357,15 +390,18 @@ HRESULT Material::modifyComponent( BSTR compName, double T, double P, double X, 
  * \author PB
  * \date 2014/02/01
  * \warning Assumes that source material is valid
+ * \warning Temporary phases are off
 */
 HRESULT Material::copyFrom( const Material& src )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	if(src.isValidated==INVALIDATED)
 	{
 		PANTHEIOS_TRACE_ERROR(PSTR("Source is not validated"));
 		return E_FAIL;
 	}
-	phases = src.phases;
+//	phases = src.phases;
+	PANTHEIOS_TRACE_WARNING(PSTR("Phases are teporary off"));
 	compIds = src.compIds;
 	temperatures = src.temperatures;
 	pressures = src.pressures;
@@ -373,7 +409,8 @@ HRESULT Material::copyFrom( const Material& src )
 	fractions = src.fractions;
 	numComp = src.numComp;
 	isValidated = VALIDATED;
-	return S_OK;
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 
+	return S_OK;
 }
 

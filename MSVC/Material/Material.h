@@ -40,6 +40,7 @@ enum MaterialStatus
  * \warning Must be ATL before ATL classes or ATL namespace - it is not added by default
  * \cite http://ctrlf5.net/?p=197
  * \date 2013/12/30
+ * \note Phases seems to not be usefull and temptrary they are off. Asking Aspen for phases caused error and this variable was not initialized.
  */
 class Material
 {
