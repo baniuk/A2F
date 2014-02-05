@@ -176,6 +176,7 @@ private:
 	CComBSTR componentDescription;
 	/// simulation context used for calling aspen interfaces
 	CComPtr<IDispatch> simulationContext;
+
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(UnitOperations), CUnitOperations)

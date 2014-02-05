@@ -9,7 +9,7 @@
  *			\li args.hpp
  *			\li m2w.hpp
  *			\li w2m.hpp
- *			Contains also path and name of log file
+ * \warning	Do not contain path and name of log file. Definition PANTHEIOS_LOG_FILE_NAME must be provided in relevan root file 
  * \author  PB
  * \date    2013/09/12
  * \version 0.5
@@ -39,6 +39,7 @@
 #include <pantheios/trace.h>
 #include <pantheios/backends/be.N.h>
 #include <pantheios/backends/bec.file.h>
+#include <pantheios/backends/bec.fprintf.h>
 // simple - chyba tylko w debug, all zawsze ?? http://sourceforge.net/projects/pantheios/forums/forum/475314/topic/2186546
 // N - If you use fe.simple, then all log statements whose severity is less than (=== more severe than, since lower means more severe) the active ceiling will go to all back-ends. 
 // The "active ceiling" defaults to PANTHEIOS_SEV_DEBUG (meaning all statements are emitted) in debug builds, and to PANTHEIOS_SEV_NOTICE (meaning all statements with severity emergency, alert, critical, error, 
@@ -72,12 +73,15 @@
 #include <pantheios/implicit_link/fe.N.h>
 #include <pantheios/implicit_link/be.N.h>
 #include <pantheios/implicit_link/be.file.h>
+#include <pantheios/implicit_link/be.fprintf.h>
 
 /// Typ wyliczeniowy okreslaj¹cy cele logów
 enum LOGI {
 	toFile = 1,  /**< Logowanie do pliku */
+	toConsole = 2 /**< Logowanie do konsoli */
 };
 
-/// Log file name and path
-#define PANTHEIOS_LOG_FILE_NAME	"c:\\A2F.pantlog"
+// adds decoding HRESULT errors (winstl::error_desc_a(err_code))
+#include <winstl/error/error_desc.hpp>
+
 #endif // Pantheios_header__

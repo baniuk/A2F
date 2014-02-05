@@ -30,14 +30,13 @@
 #include "Pantheios_header.h"
 // ads collections
 #include <atlcoll.h>
-// adds decoding HRESULT errors (winstl::error_desc_a(err_code))
-#include <winstl/error/error_desc.hpp>
 /// \todo enable config4cpp headers
 //#include <config4cpp/Configuration.h>
 //#include <config4cpp/SchemaValidator.h>
 #include <iostream>
 #include <vector>
 #include <windows.h>
+#include "Material.h"
 
 // user definitions
 #define YES TRUE
@@ -63,5 +62,5 @@
  * 
  * \see AspenPlusUserModelsV8_2-Ref.pdf pp. 274
  * */
-extern CapeValidationStatus exValidationStatus;
+extern CapeValidationStatus exValidationStatus; //!< validation status shred among classes
 extern "C" const GUID ;
