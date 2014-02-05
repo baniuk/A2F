@@ -43,6 +43,9 @@
     <ClCompile Include="ParameterCollection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Common_utilities\PantheiosLogHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -66,9 +69,6 @@
     <ClInclude Include="VersionNo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Pantheios_header.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DOC_MainPage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -79,6 +79,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ParameterCollection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common_utilities\Pantheios_header.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

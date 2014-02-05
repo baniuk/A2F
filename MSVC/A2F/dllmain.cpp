@@ -7,7 +7,11 @@
 
 /// Log file name and initialization of Pantheios API
 PANTHEIOS_EXTERN_C const PAN_CHAR_T PANTHEIOS_FE_PROCESS_IDENTITY[] = PSTR("A2F");
-
+#ifndef PANTHEIOS_LOG_FILE_NAME
+	#define PANTHEIOS_LOG_FILE_NAME	"c:\\A2F.pantlog"
+#else
+	#error PANTHEIOS_LOG_FILE_NAME already defined!!
+#endif
 
 /**
  * \brief Struktura okreœlaj¹ca minimalny poziom b³edu który trafia do danego logu
@@ -23,7 +27,7 @@ PANTHEIOS_EXTERN_C const PAN_CHAR_T PANTHEIOS_FE_PROCESS_IDENTITY[] = PSTR("A2F"
  * -# ALERT
  * -# EMERGENCY
  * \n
- * Do konsoli trafi wszystko powy¿ej ERROR
+ * Do konsoli trafi wszystko powy¿ej DEBUG
  */
 pan_fe_N_t PAN_FE_N_SEVERITY_CEILINGS[]  = {
     { toFile,  PANTHEIOS_SEV_DEBUG },

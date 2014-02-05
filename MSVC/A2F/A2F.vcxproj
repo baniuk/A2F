@@ -34,7 +34,8 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="A2F.Debug.props" />
+    <Import Project="..\Configs.props\A2F.Debug.props" />
+    <Import Project="..\Configs.props\Pantheios.Debug.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -43,7 +44,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>i:\Projekty\SharedA2F\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
     <LibraryPath>$(LibraryPath)</LibraryPath>
     <IncludePath>$(IncludePath)</IncludePath>
   </PropertyGroup>
@@ -88,8 +89,7 @@
 $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>$(SolutionDir)..\tools\xcopy $(SolutionDir)$(Configuration)\$(TargetFileName) o:\ /F/Y</Command>
     </PostBuildEvent>
     <PreLinkEvent>
       <Command>
@@ -133,6 +133,7 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Common_utilities\PantheiosLogHelper.cpp" />
     <ClCompile Include="A2F.cpp" />
     <ClCompile Include="A2F_i.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
@@ -160,12 +161,12 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
     <ClCompile Include="UnitPort.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Common_utilities\Pantheios_header.h" />
     <ClInclude Include="A2F_i.h" />
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="DOC_MainPage.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClInclude>
-    <ClInclude Include="Pantheios_header.h" />
     <ClInclude Include="ParameterCollection.h" />
     <ClInclude Include="PortCollection.h" />
     <ClInclude Include="Resource.h" />
@@ -197,6 +198,11 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="A2F.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Material\Material.vcxproj">
+      <Project>{0b7b289e-9a11-4275-920c-0e86b5b51271}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

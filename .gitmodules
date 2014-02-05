@@ -1,0 +1,3 @@
+[submodule "tools/PanthLogFormatter"]
+	path = tools/PanthLogFormatter
+	url = ../PanthLogFormatter
