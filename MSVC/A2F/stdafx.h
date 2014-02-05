@@ -37,6 +37,7 @@
 #include <vector>
 #include <windows.h>
 #include "Material.h"
+#include "C_FluentStarter.h"
 
 // user definitions
 #define YES TRUE
