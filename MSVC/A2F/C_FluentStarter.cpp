@@ -165,7 +165,7 @@ HRESULT C_FluentStarter::StartFluent( void )
 //	CComBSTR ff = " 3ddp";
 	//	CComBSTR gg = "g:\\ANSYS Inc\\v120\\fluent\\ntbin\\ntx86\\fluent.exe";
 
-	ret1 = CreateProcess(procname,
+	ret1 = CreateProcess(C_Properties::PAR_PROCNAME,
 		parname,
 		NULL,
 		NULL,
