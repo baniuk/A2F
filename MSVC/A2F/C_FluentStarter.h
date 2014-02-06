@@ -17,8 +17,18 @@
 class C_FluentStarter
 {
 public:
-	C_FluentStarter(void);
-	~C_FluentStarter(void);
+	// Starts fluent
+	static HRESULT StartFluent(void);
+private:
+	/// Private construcror. It is not possible to create instance of this class
+	C_FluentStarter(void) {};
+	~C_FluentStarter(void) {};
+	/// Waits until process starts
+	static HRESULT WaitForStart(const TCHAR* nazwa, unsigned int obrot, unsigned int czas);
+	/// Check if process started
+	static HRESULT CheckProcess(const TCHAR* nazwa);
+	/// Gets list of processes
+	static HRESULT PrintProcessNameAndID(DWORD processID, const TCHAR* nazwa);
 };
 #endif // C_FluentStarter_h__
 
