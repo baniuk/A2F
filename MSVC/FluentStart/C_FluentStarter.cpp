@@ -6,6 +6,7 @@
  */
 #include "stdafx.h"
 #include "C_FluentStarter.h"
+#include "C_Properties.h"
 #include <Psapi.h>
 
 /**
@@ -29,12 +30,12 @@ HRESULT C_FluentStarter::WaitForStart( const TCHAR* nazwa, unsigned int obrot, u
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	// czeka czas sekund na start i pozniej zwraca b³¹d. Proboje "obrot" razy
 	unsigned int licz = 0;
-	BOOL ret;
+	BOOL err;
 
 	while(licz<obrot)
 	{
-		ret = CheckProcess(nazwa);
-		if(ret==E_FAIL)
+		err = CheckProcess(nazwa);
+		if(err==E_FAIL)
 			Sleep(czas*1000);
 		else
 		{
@@ -64,7 +65,7 @@ HRESULT C_FluentStarter::WaitForStart( const TCHAR* nazwa, unsigned int obrot, u
 HRESULT C_FluentStarter::CheckProcess(const TCHAR* nazwa )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	HRESULT ret = E_FAIL;
+	HRESULT err = E_FAIL;
 	DWORD aProcesses[1024], cbNeeded, cProcesses;
 	unsigned int i;
 
@@ -77,14 +78,14 @@ HRESULT C_FluentStarter::CheckProcess(const TCHAR* nazwa )
 
 	for ( i = 0; i < cProcesses; i++ )	{
 		if( aProcesses[i] != 0)	{
-			ret = PrintProcessNameAndID( aProcesses[i], nazwa);
-			if(ret==S_OK)
+			err = PrintProcessNameAndID( aProcesses[i], nazwa);
+			if(err==S_OK)
 				break;
 		}
 	}
-	PANTHEIOS_TRACE_DEBUG(PSTR("Returned value: "), winstl::error_desc_a(ret));
+	PANTHEIOS_TRACE_DEBUG(PSTR("Returned value: "), winstl::error_desc_a(err));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return ret;
+	return err;
 }
 
 /**
@@ -127,8 +128,8 @@ HRESULT C_FluentStarter::PrintProcessNameAndID( DWORD processID, const TCHAR* na
 		}
 	}
 
-
-	if(wcscmp(szProcessName,nazwa)==0)	{
+	// compares two string _tcscmp  is macro that invokes wcscmp or strcmp depending on the type of characters
+	if(_tcscmp(szProcessName,nazwa)==0)	{
 		d = WaitForSingleObject( hProcess, INFINITE );
 		CloseHandle( hProcess );
 		return S_OK;
@@ -152,7 +153,7 @@ HRESULT C_FluentStarter::PrintProcessNameAndID( DWORD processID, const TCHAR* na
 HRESULT C_FluentStarter::StartFluent( void )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	HRESULT ret;
+	HRESULT err;
 	BOOL ret1;
 	STARTUPINFO si;
 	PROCESS_INFORMATION pi;
@@ -166,7 +167,7 @@ HRESULT C_FluentStarter::StartFluent( void )
 	//	CComBSTR gg = "g:\\ANSYS Inc\\v120\\fluent\\ntbin\\ntx86\\fluent.exe";
 
 	ret1 = CreateProcess(C_Properties::PAR_PROCNAME,
-		parname,
+		C_Properties::PAR_PARNAME.GetBuffer(C_Properties::PAR_PARNAME.GetLength()),
 		NULL,
 		NULL,
 		FALSE,
@@ -176,17 +177,12 @@ HRESULT C_FluentStarter::StartFluent( void )
 		&si,
 		&pi);
 
-	if(ret1!=0)	{
-		size_t origsize = strlen(copyparams->bSUBPROCNAME) + 1;
-		const size_t newsize = MAX_STRING;
-		size_t convertedChars = 0;
-		wchar_t wcstring[newsize];
-		mbstowcs_s(&convertedChars, wcstring, origsize, copyparams->bSUBPROCNAME, _TRUNCATE);
-		ret = WaitForStart(wcstring,3, 6);
-	} else
-		ret = E_FAIL;
+	if(ret1!=0)
+		err = WaitForStart(C_Properties::PAR_SUBPROCNAME,3, 6);
+	else
+		err = E_FAIL;
 
-	PANTHEIOS_TRACE_DEBUG(PSTR("Returned value: "), winstl::error_desc_a(ret));
+	PANTHEIOS_TRACE_DEBUG(PSTR("Returned value: "), winstl::error_desc_a(err));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return ret;
+	return err;
 }

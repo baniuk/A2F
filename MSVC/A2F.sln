@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Other files", "Other files"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test_FluentStarter", "Test_FluentStarter\Test_FluentStarter.vcxproj", "{38DB154D-2245-4C69-AD04-284430DCB396}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FluentStart", "FluentStart\FluentStart.vcxproj", "{EE34F085-BC0F-4A8B-921B-3DC198F0FA05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -50,6 +52,10 @@ Global
 		{38DB154D-2245-4C69-AD04-284430DCB396}.Debug|Win32.Build.0 = Debug|Win32
 		{38DB154D-2245-4C69-AD04-284430DCB396}.Release|Win32.ActiveCfg = Release|Win32
 		{38DB154D-2245-4C69-AD04-284430DCB396}.Release|Win32.Build.0 = Release|Win32
+		{EE34F085-BC0F-4A8B-921B-3DC198F0FA05}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EE34F085-BC0F-4A8B-921B-3DC198F0FA05}.Debug|Win32.Build.0 = Debug|Win32
+		{EE34F085-BC0F-4A8B-921B-3DC198F0FA05}.Release|Win32.ActiveCfg = Release|Win32
+		{EE34F085-BC0F-4A8B-921B-3DC198F0FA05}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

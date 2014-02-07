@@ -7,6 +7,12 @@
 #ifndef C_FluentStarter_h__
 #define C_FluentStarter_h__
 
+#include "..\Common_utilities\Pantheios_header.h"
+#include <atlbase.h>
+#include <atlsafe.h>
+#include <atlcom.h>
+#include <atlctl.h>
+
 /**
  * \class C_FluentStarter.h
  * \brief Run fluent process and control it.

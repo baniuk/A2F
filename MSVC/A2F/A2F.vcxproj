@@ -143,8 +143,6 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="C_FluentStarter.cpp" />
-    <ClCompile Include="C_Properties.cpp" />
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -165,8 +163,6 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
   <ItemGroup>
     <ClInclude Include="..\Common_utilities\Pantheios_header.h" />
     <ClInclude Include="A2F_i.h" />
-    <ClInclude Include="C_FluentStarter.h" />
-    <ClInclude Include="C_Properties.h" />
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="DOC_MainPage.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -204,6 +200,9 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
     <Midl Include="A2F.idl" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FluentStart\FluentStart.vcxproj">
+      <Project>{ee34f085-bc0f-4a8b-921b-3dc198f0fa05}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Material\Material.vcxproj">
       <Project>{0b7b289e-9a11-4275-920c-0e86b5b51271}</Project>
     </ProjectReference>
