@@ -304,6 +304,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 	Material outputPort(ptmpOutputPortMaterial);
 
 	// ************* Copy from input to output ********************************************************************************************************
+	/// \todo Add error handling here
 	inputPort.inFlashMaterialObject(); // fill internal structure of inputPort
 	outputPort.copyFrom(inputPort);	// copy physical propertios from input
 	outputPort.outFlashMaterialObject();	// fashing outputs
@@ -456,6 +457,7 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 			outMessage = L"Unit is valid and ready";
 		}
 		ptmpICapeUnitPort.Release();	// clean for nex use in loop
+		lpDisp->Release();	// Release because get_connectedObject makes addref
 		
 	}
 	
