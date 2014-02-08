@@ -190,13 +190,13 @@ HRESULT Material::get_PhysicalProp()
 //	CComBSTR Mixture;				// assumes mixture
 //	CComBSTR myproperty;			// physiscal property to get
 	VARIANT outputProperty;			// to hold all variant returns from GetProp
-
+	VARIANT empty;	empty.vt=VT_EMPTY;	// empty variant
 	// ask for temperature
 	VariantInit(&outputProperty);				// initialization of VARIANT
 // 	myproperty = L"Temperature";	// physiscal property to get
 // 	myphase = L"overall";			// assumes overall
 // 	Mixture = L"Mixture";			// assumes mixture
-	hr = mat->GetPropA(CComBSTR(L"Temperature"),CComBSTR(L"overall"),CComVariant(compIds),CComBSTR(L"Mixture"),L"",&outputProperty);
+	hr = mat->GetPropA(CComBSTR(L"temperature"),CComBSTR(L"overall"),empty,NULL,NULL,&outputProperty);
 	if(FAILED(hr))
 	{	
 		isValidated = INVALIDATED;
@@ -213,7 +213,7 @@ HRESULT Material::get_PhysicalProp()
 
 	// ask for pressure
 	VariantInit(&outputProperty);	// initialization of VARIANT
-	hr = mat->GetPropA(CComBSTR(L"Pressure"),CComBSTR(L"overall"),CComVariant(compIds),CComBSTR(L"Mixture"),L"",&outputProperty);
+	hr = mat->GetPropA(CComBSTR(L"pressure"),CComBSTR(L"overall"),empty,NULL,NULL,&outputProperty);
 	if(FAILED(hr))
 	{	
 		isValidated = INVALIDATED;
@@ -230,7 +230,7 @@ HRESULT Material::get_PhysicalProp()
 
 	// ask fo flow
 	VariantInit(&outputProperty);	// initialization of VARIANT
-	hr = mat->GetPropA(CComBSTR(L"Flow"),CComBSTR(L"overall"),CComVariant(compIds),L"",CComBSTR(L"mole"),&outputProperty);
+	hr = mat->GetPropA(CComBSTR(L"flow"),CComBSTR(L"overall"),CComVariant(compIds),NULL,CComBSTR(L"mole"),&outputProperty);
 	if(FAILED(hr))
 	{	
 		isValidated = INVALIDATED;
@@ -242,7 +242,7 @@ HRESULT Material::get_PhysicalProp()
 
 	// ask fo mole
 	VariantInit(&outputProperty);	// initialization of VARIANT
-	hr = mat->GetPropA(CComBSTR(L"Fraction"),CComBSTR(L"overall"),CComVariant(compIds),L"",CComBSTR(L"mole"),&outputProperty);
+	hr = mat->GetPropA(CComBSTR(L"fraction"),CComBSTR(L"overall"),CComVariant(compIds),NULL,CComBSTR(L"mole"),&outputProperty);
 	if(FAILED(hr))
 	{	
 		isValidated = INVALIDATED;
@@ -319,34 +319,38 @@ HRESULT Material::outFlashMaterialObject()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	HRESULT hr;
+	VARIANT empty;	empty.vt=VT_EMPTY;	// empty variant
+	CComSafeArray<double> scalar(1);	// output for scalars
 	if(isValidated==INVALIDATED)
 	{
 		PANTHEIOS_TRACE_ERROR(PSTR("Cant copy parameters to material if invalidated"));
 		return E_FAIL;
 	}
 	// temperatures
-	hr = mat->SetPropA(CComBSTR(L"Temperature"),CComBSTR(L"overall"),CComVariant(compIds),L"",L"",CComVariant(temperatures));
+	scalar.SetAt(0,temperatures.GetAt(0));
+	hr = mat->SetPropA(CComBSTR(L"temperature"),CComBSTR(L"overall"),empty,NULL,NULL,CComVariant(scalar));
 	if(FAILED(hr))
 	{	
 		PANTHEIOS_TRACE_ERROR(PSTR("outFlashMaterialObject:SetTemperature "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 		return hr;
 	}
 	// pressures
-	hr = mat->SetPropA(CComBSTR(L"Pressure"),CComBSTR(L"overall"),CComVariant(compIds),L"",L"",CComVariant(pressures));
+	scalar.SetAt(0,pressures.GetAt(0));
+	hr = mat->SetPropA(CComBSTR(L"pressure"),CComBSTR(L"overall"),empty,NULL,NULL,CComVariant(scalar));
 	if(FAILED(hr))
 	{	
 		PANTHEIOS_TRACE_ERROR(PSTR("outFlashMaterialObject:SetPressure "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 		return hr;
 	}
 	// flow
-	hr = mat->SetPropA(CComBSTR(L"Flow"),CComBSTR(L"overall"),CComVariant(compIds),L"",CComBSTR(L"mole"),CComVariant(flows));
+	hr = mat->SetPropA(CComBSTR(L"flow"),CComBSTR(L"overall"),CComVariant(compIds),NULL,CComBSTR(L"mole"),CComVariant(flows));
 	if(FAILED(hr))
 	{	
 		PANTHEIOS_TRACE_ERROR(PSTR("outFlashMaterialObject:SetFlows "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 		return hr;
 	}
 	// fraction
-	hr = mat->SetPropA(CComBSTR(L"Fraction"),CComBSTR(L"overall"),CComVariant(compIds),L"",CComBSTR(L"mole"),CComVariant(fractions));
+	hr = mat->SetPropA(CComBSTR(L"fraction"),CComBSTR(L"overall"),CComVariant(compIds),NULL,CComBSTR(L"mole"),CComVariant(fractions));
 	if(FAILED(hr))
 	{	
 		PANTHEIOS_TRACE_ERROR(PSTR("outFlashMaterialObject:SetFractions "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
