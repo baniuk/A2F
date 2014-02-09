@@ -57,8 +57,33 @@ pan_be_N_t PAN_BE_N_BACKEND_LIST[] = {
 int _tmain(int argc, _TCHAR* argv[])
 {
 	int ret = 0;
+	if (pantheios::pantheios_init() < 0)
+	{
+		std::cerr << "Failed to initialise the Pantheios logging libraries!\n" << std::endl;
+		return FALSE;
+	}
+	else
+	{
+		pantheios_be_file_setFilePath(PSTR(PANTHEIOS_LOG_FILE_NAME), PANTHEIOS_BE_FILE_F_TRUNCATE, PANTHEIOS_BE_FILE_F_TRUNCATE, PANTHEIOS_BEID_ALL);
+		pantheios::log_INFORMATIONAL("Logger enabled!");
+	}
 	::testing::InitGoogleTest(&argc, argv);
 	ret = RUN_ALL_TESTS();
+
+	pantheios::log_INFORMATIONAL("Logger disabled!");
+	pantheios_be_file_setFilePath(NULL, PANTHEIOS_BEID_ALL);
+	pantheios::pantheios_uninit();
 	return ret;
 }
 
+/** 
+ * \test FluentStarter:_StartFluent
+ * Try start Fluent. Most parameters set separately in C_Properties
+ * \see C_Properties
+ */
+TEST(FluentStarter,_StartFluent)
+{
+	HRESULT err;
+	err = C_FluentStarter::StartFluent();
+	ASSERT_HRESULT_SUCCEEDED(err);
+}

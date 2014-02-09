@@ -5,6 +5,7 @@
  * \author  PB
  * \date    2013/09/10
  * \version 0.5
+ * \todo Implement error handling by ECapeUser
  */
 
 #include "stdafx.h"

@@ -35,19 +35,19 @@ STDMETHODIMP CCapeMaterialObject::GetProp( BSTR property, BSTR phase, VARIANT co
 	CComSafeArray<double> F(numofComp); F[0] = 1; F[1] = 2; F[2] = 3;
 	
 	// output for temperature
- 	if(_property == L"Temperature")
+ 	if(_property == L"temperature")
  	{
 		CComVariant _results(T);
 		_results.Detach(results);
  	}
 	// output for pressure
-	if(_property == L"Pressure")
+	if(_property == L"pressure")
 	{
 		CComVariant _results(P);
 		_results.Detach(results);
 	}
 	// output for flow
-	if(_property == L"Flow")
+	if(_property == L"flow")
 	{
 		CComVariant _results(F);
 		_results.Detach(results);

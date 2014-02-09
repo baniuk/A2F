@@ -60,7 +60,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>cd $(SolutionDir)..\tools
+      <Command>$(TargetDir)$(TargetFileName)
+cd $(SolutionDir)..\tools
 LogConvert.bat c:\Test_FluentStarter.pantlog</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -96,8 +97,8 @@ LogConvert.bat c:\Test_FluentStarter.pantlog</Command>
     <ClCompile Include="Test_FluentStarter.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Material\Material.vcxproj">
-      <Project>{0b7b289e-9a11-4275-920c-0e86b5b51271}</Project>
+    <ProjectReference Include="..\FluentStart\FluentStart.vcxproj">
+      <Project>{ee34f085-bc0f-4a8b-921b-3dc198f0fa05}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
