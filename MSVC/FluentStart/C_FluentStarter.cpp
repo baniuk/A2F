@@ -9,17 +9,19 @@
 #include "C_Properties.h"
 #include <Psapi.h>
 
-
+using namespace std;
 
 /**
  * \brief Starts fluent process
- * \details Runs fluent
+ * \details Runs fluent. Before run calls CreateSCM to create required journal file and scm. The journal file is passed
+ * as parameter during Fluent start.
  * \return Status of the operation
  * \retval HRESULT
  * - S_OK if Fluent starts
  * - E_FAIL if not started
  * \author PB
  * \date 2014/02/06
+ * \todo Add CreateSCM and append relevan parameters to start options (-g -i journal)
 */
 HRESULT C_FluentStarter::StartFluent( void )
 {
@@ -187,6 +189,50 @@ HRESULT C_FluentStarter::PrintProcessNameAndID( DWORD processID, const TCHAR* na
 		CloseHandle( hProcess );
 		return E_FAIL;
 	}
+}
+
+/**
+ * \details Creates starter file for Fluent. This file is named \bjournal and its only one task is to run other file named /bstarter.scm
+ * Files are created in system TMP directory
+ * \return Status of the operation
+ * \retval HRESULT
+ * - S_OK if roces of given name found
+ * - E_FAIL if not found
+ * \author PB
+ * \date 2014/02/21
+ * \ref http://aerojet.engr.ucdavis.edu/fluenthelp/html/ug/node23.htm
+*/
+HRESULT C_FluentStarter::CreateSCM( void )
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	// create journal file in %TMP%
+	char* tmp_path;	// path to tmp directory
+	size_t buff_size;
+	errno_t err = _dupenv_s(&tmp_path,&buff_size,_T("TMP"));
+	if(err!=NULL)
+	{
+		PANTHEIOS_TRACE_ERROR(PSTR("Cant get TMP path"));
+		return E_FAIL;
+	}
+	string path_to_journal = tmp_path;		// assign const char to sring
+	path_to_journal += _T("\\journal"); // adding file name to TMP path
+	PANTHEIOS_TRACE_DEBUG(PSTR("Trying to open: "), path_to_journal);
+	std::ofstream journal;
+	journal.open(path_to_journal.c_str(),std::ios::out| std::ios::trunc);
+	if(journal.is_open())
+	{
+		journal << "Hello"<<endl;
+		journal.close();
+	}
+	else
+	{
+		PANTHEIOS_TRACE_ERROR(PSTR("Cant open file"));
+		free(tmp_path);	// free memory located by _dumpenv_s
+		return E_FAIL;
+	}
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	free(tmp_path); // free memory located by _dumpenv_s
+	return S_OK;
 }
 
 

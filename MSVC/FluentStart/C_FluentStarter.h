@@ -12,6 +12,8 @@
 #include <atlsafe.h>
 #include <atlcom.h>
 #include <atlctl.h>
+#include <iostream>
+#include <fstream>
 
 /**
  * \class C_FluentStarter.h
@@ -25,6 +27,8 @@ class C_FluentStarter
 public:
 	// Starts fluent
 	static HRESULT StartFluent(void);
+	/// Creates starter file for Fluent
+	static HRESULT CreateSCM(void);
 private:
 	/// Private construcror. It is not possible to create instance of this class
 	C_FluentStarter(void) {};

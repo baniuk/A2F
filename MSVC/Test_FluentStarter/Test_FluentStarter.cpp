@@ -81,9 +81,20 @@ int _tmain(int argc, _TCHAR* argv[])
  * Try start Fluent. Most parameters set separately in C_Properties
  * \see C_Properties
  */
-TEST(FluentStarter,_StartFluent)
+TEST(FluentStarter,DISABLED__StartFluent)
 {
 	HRESULT err;
 	err = C_FluentStarter::StartFluent();
+	ASSERT_HRESULT_SUCCEEDED(err);
+}
+
+/** 
+ * \test FluentStarter:_CreateSCM
+ * Creates journal file and SCM in %TMP% directory
+ */
+TEST(FluentStarter,_CreateSCM)
+{
+	HRESULT err;
+	err = C_FluentStarter::CreateSCM();
 	ASSERT_HRESULT_SUCCEEDED(err);
 }
