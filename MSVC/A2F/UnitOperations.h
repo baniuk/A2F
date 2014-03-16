@@ -176,6 +176,18 @@ private:
 	CComBSTR componentDescription;
 	/// simulation context used for calling aspen interfaces
 	CComPtr<IDispatch> simulationContext;
+	/// Error passed by ECapeUser
+	CComBSTR errDesc;
+	// name of the interface calling error
+	CComBSTR errInterface;
+	/// scope of the error
+	CComBSTR errScope;
+	/// Set error description
+	void SetError(const WCHAR* desc, const WCHAR* itface, const WCHAR* scope, HRESULT err_code);
+	/// Set error description
+	void SetError( const WCHAR* desc, const WCHAR* itface, const WCHAR* scope);
+	/// Creates smf file for Fluent
+	HRESULT CreateScm(void);
 
 };
 

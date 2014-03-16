@@ -89,7 +89,7 @@
 $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>$(SolutionDir)..\tools\xcopy $(SolutionDir)$(Configuration)\$(TargetFileName) o:\ /F/Y</Command>
+      <Command>$(SolutionDir)..\tools\xcopy $(SolutionDir)$(Configuration)\$(TargetFileName) D:\Dokumenty\Dropbox\A2F /F/Y</Command>
     </PostBuildEvent>
     <PreLinkEvent>
       <Command>
@@ -200,6 +200,9 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
     <Midl Include="A2F.idl" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FluentStart\FluentStart.vcxproj">
+      <Project>{ee34f085-bc0f-4a8b-921b-3dc198f0fa05}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Material\Material.vcxproj">
       <Project>{0b7b289e-9a11-4275-920c-0e86b5b51271}</Project>
     </ProjectReference>

@@ -5,6 +5,7 @@
  * \author  PB
  * \date    2013/09/10
  * \version 0.5
+ * \todo Implement error handling by ECapeUser
  */
 
 #include "stdafx.h"
@@ -150,7 +151,9 @@ STDMETHODIMP CUnitOperations::get_ValStatus( CapeValidationStatus * ValStatus )
  * \details Calculate the unit operation. This is the function that performs the actual model calculation.
  * \return   Return status of the unit
  * \li S_OK on Success
- * \sa Calculate()
+ * \li ECapeUnknownHR
+ * \todo Add error handling here (use ECapeUnknownHR and AddError)
+ * \see AddError
  */
 STDMETHODIMP CUnitOperations::Calculate()
 {
@@ -172,11 +175,9 @@ STDMETHODIMP CUnitOperations::Calculate()
 	if(FAILED(err_code)) 
 	{
 		// we are here in case if portCollection is ok but requested interface is not supported
-		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of ICapeCollection not created because: "), 
-								pantheios::integer(err_code,pantheios::fmt::fullHex),
-								PSTR(" Error: "), winstl::error_desc_a(err_code));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return err_code;
+		SetError(L"Instance of ICapeCollection not created", L"IUnitOperation", L"Calculate", err_code);
+		lpdisp.Release();
+		return ECapeUnknownHR;
 	}
 	// **************** Get input port for collection ***********************************************************************************************
 	lpdisp.Release();	// release teporary IDispatch pointer
@@ -187,12 +188,9 @@ STDMETHODIMP CUnitOperations::Calculate()
 	if(FAILED(err_code)) 
 	{
 		// we ar ehere in case if portCollection is ok but requested interface is not supported
-		PANTHEIOS_TRACE_ERROR(	PSTR("ptmpIPortCollection->Item failed because: "), 
-								pantheios::integer(err_code,pantheios::fmt::fullHex),
-								PSTR(" Error: "), winstl::error_desc_a(err_code));
+		SetError(L"ptmpIPortCollection->Item failed", L"IUnitOperation", L"Calculate", err_code);
 		lpdisp.Release();
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return err_code;
+		return ECapeUnknownHR;
 	}	
 	lpdisp.Attach(lpDisp);	// taking ownership over IUnitPort returned by CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 	err_code = lpdisp->QueryInterface(IID_PPV_ARGS(&ptmpInputPort));	// get IUnitPort
@@ -202,12 +200,9 @@ STDMETHODIMP CUnitOperations::Calculate()
 	if(FAILED(err_code)) 
 	{
 		// we are here in case if portCollection is ok but requested interface is not supported
-		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of Input Port not created because: "), 
-								pantheios::integer(err_code,pantheios::fmt::fullHex),
-								PSTR(" Error: "), winstl::error_desc_a(err_code));
+		SetError(L"Instance of Input Port not created", L"IUnitOperation", L"Calculate", err_code);
 		lpdisp.Release();
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return err_code;
+		return ECapeUnknownHR;
 	}	
 
 	// **************** Get output port for collection ***********************************************************************************************
@@ -219,12 +214,9 @@ STDMETHODIMP CUnitOperations::Calculate()
 	if(FAILED(err_code)) 
 	{
 		// we are here in case if portCollection is ok but requested interface is not supported
-		PANTHEIOS_TRACE_ERROR(	PSTR("ptmpIPortCollection->Item failed because: "), 
-								pantheios::integer(err_code,pantheios::fmt::fullHex),
-								PSTR(" Error: "), winstl::error_desc_a(err_code));
+		SetError(L"ptmpIPortCollection->Item failed ", L"IUnitOperation", L"Calculate", err_code);
 		lpdisp.Release();
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return err_code;
+		return ECapeUnknownHR;
 	}	
 	lpdisp.Attach(lpDisp);	// taking ownership over IUnitPort returned by CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 	err_code = lpdisp->QueryInterface(IID_PPV_ARGS(&ptmpOutputPort));	// get IUnitPort
@@ -234,12 +226,9 @@ STDMETHODIMP CUnitOperations::Calculate()
 	if(FAILED(err_code)) 
 	{
 		// we are here in case if portCollection is ok but requested interface is not supported
-		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of Output Port not created because: "), 
-								pantheios::integer(err_code,pantheios::fmt::fullHex),
-								PSTR(" Error: "), winstl::error_desc_a(err_code));
+		SetError(L"Instance of Output Port not created", L"IUnitOperation", L"Calculate", err_code);
 		lpdisp.Release();
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return err_code;
+		return ECapeUnknownHR;
 	}	
 	// ************** Get material from input port ***************************************************************************************************
 	lpdisp.Release();	// release teporary IDispatch pointer
@@ -248,11 +237,9 @@ STDMETHODIMP CUnitOperations::Calculate()
 							pantheios::pointer(lpDisp,pantheios::fmt::fullHex));
 	if(FAILED(err_code)) 
 	{
-		// we are here in case if portCollection is ok but requested interface is not supported
-		PANTHEIOS_TRACE_ERROR(	PSTR("get_connectedObject returned: "),	PSTR(" Error: "), winstl::error_desc_a(err_code));
+		SetError(L"get_connectedObject returned error", L"IUnitOperation", L"Calculate", err_code);
 		lpdisp.Release();
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return err_code;
+		return ECapeUnknownHR;
 	}	
 	lpdisp.Attach(lpDisp);
 	err_code = lpdisp->QueryInterface(IID_PPV_ARGS(&ptmpInputPortMaterial));
@@ -262,12 +249,9 @@ STDMETHODIMP CUnitOperations::Calculate()
 	if(FAILED(err_code)) 
 	{
 		// we are here in case if portCollection is ok but requested interface is not supported
-		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of input port material not created because: "), 
-								pantheios::integer(err_code,pantheios::fmt::fullHex),
-								PSTR(" Error: "), winstl::error_desc_a(err_code));
+		SetError(L"Instance of input port material not created", L"IUnitOperation", L"Calculate", err_code);
 		lpdisp.Release();
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return err_code;
+		return ECapeUnknownHR;
 	}	
 	// setting input material
 	Material inputPort(ptmpInputPortMaterial);
@@ -281,7 +265,6 @@ STDMETHODIMP CUnitOperations::Calculate()
 		// we are here in case if portCollection is ok but requested interface is not supported
 		PANTHEIOS_TRACE_ERROR(	PSTR("get_connectedObject returned: "),	PSTR(" Error: "), winstl::error_desc_a(err_code));
 		lpdisp.Release();
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return err_code;
 	}	
 	lpdisp.Attach(lpDisp);
@@ -292,21 +275,33 @@ STDMETHODIMP CUnitOperations::Calculate()
 	if(FAILED(err_code)) 
 	{
 		// we are here in case if portCollection is ok but requested interface is not supported
-		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of output port material not created because: "), 
-								pantheios::integer(err_code,pantheios::fmt::fullHex),
-								PSTR(" Error: "), winstl::error_desc_a(err_code));
+		SetError(L"Instance of output port material not created", L"IUnitOperation", L"Calculate", err_code);
 		lpdisp.Release();
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return err_code;
+		return ECapeUnknownHR;
 	}	
 	lpdisp.Release();
 	// setting output material
 	Material outputPort(ptmpOutputPortMaterial);
 
 	// ************* Copy from input to output ********************************************************************************************************
-	inputPort.inFlashMaterialObject(); // fill internal structure of inputPort
-	outputPort.copyFrom(inputPort);	// copy physical propertios from input
-	outputPort.outFlashMaterialObject();	// fashing outputs
+	err_code = inputPort.inFlashMaterialObject(); // fill internal structure of inputPort
+	if(FAILED(err_code))
+	{
+		SetError(L"Error returned from inFlashMaterialObject", L"IUnitOperation", L"Calculate", err_code);
+		return ECapeUnknownHR;
+	}
+	err_code = outputPort.copyFrom(inputPort);	// copy physical propertios from input
+	if(FAILED(err_code))
+	{
+		SetError(L"Error returned from copyFrom input to output", L"IUnitOperation", L"Calculate", err_code);
+		return ECapeUnknownHR;
+	}
+	err_code = outputPort.outFlashMaterialObject();	// fashing outputs
+	if(FAILED(err_code))
+	{
+		SetError(L"Error returned from outFlashMaterialObject", L"IUnitOperation", L"Calculate", err_code);
+		return ECapeUnknownHR;
+	}
 	/** \test GetConstant live test
 	 * \code{.cpp}
 	 * double C;
@@ -324,11 +319,8 @@ STDMETHODIMP CUnitOperations::Calculate()
 	err_code = ptmpOutputPortMaterial->CalcEquilibrium(tp,props);
 	if(FAILED(err_code)) 
 	{
-		PANTHEIOS_TRACE_ERROR(	PSTR("CalcEquilibrium failed: "), 
-			pantheios::integer(err_code,pantheios::fmt::fullHex),
-			PSTR(" Error: "), winstl::error_desc_a(err_code));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return err_code;
+		SetError(L"Error returned from CalcEquilibrium", L"IUnitOperation", L"Calculate", err_code);
+		return ECapeUnknownHR;
 	}	
 
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
@@ -456,6 +448,7 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 			outMessage = L"Unit is valid and ready";
 		}
 		ptmpICapeUnitPort.Release();	// clean for nex use in loop
+		lpDisp->Release();	// Release because get_connectedObject makes addref
 		
 	}
 	
@@ -470,36 +463,41 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 STDMETHODIMP CUnitOperations::get_name( BSTR * name )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	*name = errDesc.Copy();
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
 STDMETHODIMP CUnitOperations::get_code( long * code )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	*code = 0;
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
 STDMETHODIMP CUnitOperations::get_description( BSTR * description )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	*description = errDesc.Copy();
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
 STDMETHODIMP CUnitOperations::get_scope( BSTR * scope )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	*scope = errScope.Copy();
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
 STDMETHODIMP CUnitOperations::get_interfaceName( BSTR * interfaceName )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	*interfaceName = errInterface.Copy();
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return E_NOTIMPL;
+	return S_OK;
 }
 
 STDMETHODIMP CUnitOperations::get_operation( BSTR * operation )
@@ -712,4 +710,76 @@ STDMETHODIMP CUnitOperations::PopUpMessage( BSTR message )
 STDMETHODIMP CUnitOperations::LogMessage( BSTR message )
 {
 	return E_NOTIMPL;
+}
+
+/**
+ * \brief Sets error description
+ * \details Fills relevant data with description of the error. These data are used then when caller asks for ECapeRoot interface. Gets also HRESULT 
+ * error code that can be returned by other function because there is logging here.
+ * \param[in] desc - description of the error
+ * \param[in] itface - name of the interface
+ * \param[in] scope - scope of the error
+ * \param[in] err_code - result of the function that returned error
+ * \return nothing
+ * \author PB
+ * \date 2014/02/11
+ * \remarks 
+ * Use in the following way
+ * \code
+ err_code = inputPort.inFlashMaterialObject(); // fill internal structure of inputPort
+ if(FAILED(err_code))
+ {
+ SetError(L"Error returned from inFlashMaterialObject", L"IUnitOperation", L"Calculate", err_code);
+ return ECapeUnknownHR;
+ }
+ * \endcode
+*/
+void CUnitOperations::SetError( const WCHAR* desc, const WCHAR* itface, const WCHAR* scope, HRESULT err_code)
+{
+	
+	PANTHEIOS_TRACE_ERROR(	PSTR("Error code returned by caller "), pantheios::integer(err_code,pantheios::fmt::fullHex),
+		PSTR(" Error: "), winstl::error_desc_a(err_code));
+	SetError(desc, itface, scope);
+}
+
+/**
+ * \brief Sets error description
+ * \details Fills relevant data with description of the error. These data are used then when caller asks for ECapeRoot interface
+ * \param[in] desc - description of the error
+ * \param[in] itface - name of the interface
+ * \param[in] scope - scope of the error
+ * \return nothing
+ * \author PB
+ * \date 2014/02/11
+ * \remarks 
+ * Use in the following way
+ * \code
+ * SetError(L"The name of this object is read-only",L"ICapeIdentification",L"put_ComponentName");
+ * \endcode
+*/
+void CUnitOperations::SetError( const WCHAR* desc, const WCHAR* itface, const WCHAR* scope)
+{
+	PANTHEIOS_TRACE_ERROR(pantheios::w2m(desc),PSTR(" "),pantheios::w2m(itface),PSTR(" "), pantheios::w2m(scope));
+	errDesc = desc;
+	errInterface = itface;
+	errScope = scope;
+}
+
+/**
+ * \brief Creates SCM file for Fluent.
+ * \details The SCM file contains all required calls of Fluent API. 
+ * \param 
+ * \return Status of the method
+ * \retval HRESULT
+ * \li S_OK on success
+ * \li other HRESULT error on fail
+ * \author PB
+ * \date 2014/03/16
+ * \warning The last function must be exit.
+ * \todo Finish
+ * \see http://82.145.77.86:8080/trac/A2F/wiki/Schematy#StartFluenta
+*/
+HRESULT CUnitOperations::CreateScm( void )
+{
+	return S_OK;
 }
