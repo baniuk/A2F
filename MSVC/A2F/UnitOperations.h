@@ -186,6 +186,8 @@ private:
 	void SetError(const WCHAR* desc, const WCHAR* itface, const WCHAR* scope, HRESULT err_code);
 	/// Set error description
 	void SetError( const WCHAR* desc, const WCHAR* itface, const WCHAR* scope);
+	/// Creates smf file for Fluent
+	HRESULT CreateScm(void);
 
 };
 

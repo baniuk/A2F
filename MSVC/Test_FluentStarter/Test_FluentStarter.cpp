@@ -12,6 +12,7 @@
 
 #include "..\Common_utilities\Pantheios_header.h"
 #include "..\Common_utilities\PantheiosLogHelper.h"
+#include "..\FluentStart\C_Properties.h"
 
 /// Log file name and initialization of Pantheios API
 PANTHEIOS_EXTERN_C const PAN_CHAR_T PANTHEIOS_FE_PROCESS_IDENTITY[] = PSTR("Test_FluentStarter");
@@ -54,6 +55,8 @@ pan_be_N_t PAN_BE_N_BACKEND_LIST[] = {
     PANTHEIOS_BE_N_TERMINATOR_ENTRY
 };
 
+using namespace std;
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	int ret = 0;
@@ -89,12 +92,35 @@ TEST(FluentStarter,DISABLED__StartFluent)
 }
 
 /** 
+ * \test Full Fluent path - start, execute, end
+ * Most parameters set separately in C_Properties. Starter file is created here
+ * \see C_Properties
+ */
+TEST(FluentStarter,_StartFluentFull)
+{
+	HRESULT err;
+	err = C_FluentStarter::CreateJournal();	// creates journal
+	ASSERT_HRESULT_SUCCEEDED(err);
+	string path_to_scm = C_Properties::PAR_PATH;		
+	path_to_scm += _T("_starter.scm"); // adding file name to TMP path
+	ofstream _starter;
+	_starter.open(path_to_scm.c_str(),std::ios::out| std::ios::trunc);
+	ASSERT_EQ(_starter.is_open(),true);
+	_starter << "(ti-menu-load-string \"display/open-window 0\")" << endl;
+	_starter.close();
+
+	err = C_FluentStarter::StartFluent();
+	ASSERT_HRESULT_SUCCEEDED(err);
+}
+
+/** 
  * \test FluentStarter:_CreateSCM
  * Creates journal file and SCM in %TMP% directory
  */
-TEST(FluentStarter,_CreateSCM)
+TEST(FluentStarter,_CreateJournal)
 {
 	HRESULT err;
-	err = C_FluentStarter::CreateSCM();
+	err = C_FluentStarter::CreateJournal();
+	std::cerr << "Need to check journal file manually" << std::endl;
 	ASSERT_HRESULT_SUCCEEDED(err);
 }

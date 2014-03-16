@@ -33,6 +33,8 @@ public:
 	static ATL::CString PAR_PARNAME;
 	/// Name of the subprocess
 	static const ATL::CString PAR_SUBPROCNAME;
+	/// PAth to the environment
+	static const ATL::CString PAR_PATH;
 };
 #endif // C_Properties_h__
 

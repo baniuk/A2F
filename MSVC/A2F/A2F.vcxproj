@@ -89,7 +89,7 @@
 $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>$(SolutionDir)..\tools\xcopy $(SolutionDir)$(Configuration)\$(TargetFileName) o:\ /F/Y</Command>
+      <Command>$(SolutionDir)..\tools\xcopy $(SolutionDir)$(Configuration)\$(TargetFileName) D:\Dokumenty\Dropbox\A2F /F/Y</Command>
     </PostBuildEvent>
     <PreLinkEvent>
       <Command>

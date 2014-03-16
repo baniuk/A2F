@@ -764,3 +764,22 @@ void CUnitOperations::SetError( const WCHAR* desc, const WCHAR* itface, const WC
 	errInterface = itface;
 	errScope = scope;
 }
+
+/**
+ * \brief Creates SCM file for Fluent.
+ * \details The SCM file contains all required calls of Fluent API. 
+ * \param 
+ * \return Status of the method
+ * \retval HRESULT
+ * \li S_OK on success
+ * \li other HRESULT error on fail
+ * \author PB
+ * \date 2014/03/16
+ * \warning The last function must be exit.
+ * \todo Finish
+ * \see http://82.145.77.86:8080/trac/A2F/wiki/Schematy#StartFluenta
+*/
+HRESULT CUnitOperations::CreateScm( void )
+{
+	return S_OK;
+}
