@@ -22,10 +22,6 @@
 
 using namespace ATL;
 
-/// definition of smart pointer for IPortCollection interface
-//_COM_SMARTPTR_TYPEDEF(IPortCollection, __uuidof(IPortCollection));
-//_COM_SMARTPTR_TYPEDEF(IUnitPortEx, __uuidof(IUnitPortEx));
-
 /**
  * \class CUnitOperations
  *
@@ -179,7 +175,20 @@ private:
 	/// description passed from PME
 	CComBSTR componentDescription;
 	/// simulation context used for calling aspen interfaces
-	LPDISPATCH simulationContext;
+	CComPtr<IDispatch> simulationContext;
+	/// Error passed by ECapeUser
+	CComBSTR errDesc;
+	// name of the interface calling error
+	CComBSTR errInterface;
+	/// scope of the error
+	CComBSTR errScope;
+	/// Set error description
+	void SetError(const WCHAR* desc, const WCHAR* itface, const WCHAR* scope, HRESULT err_code);
+	/// Set error description
+	void SetError( const WCHAR* desc, const WCHAR* itface, const WCHAR* scope);
+	/// Creates smf file for Fluent
+	HRESULT CreateScm(void);
+
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(UnitOperations), CUnitOperations)
