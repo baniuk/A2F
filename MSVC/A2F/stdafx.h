@@ -30,9 +30,9 @@
 #include "Pantheios_header.h"
 // ads collections
 #include <atlcoll.h>
-/// \todo enable config4cpp headers
-//#include <config4cpp/Configuration.h>
-//#include <config4cpp/SchemaValidator.h>
+
+#include <config4cpp/Configuration.h>
+#include <config4cpp/SchemaValidator.h>
 #include <iostream>
 #include <vector>
 #include <windows.h>
