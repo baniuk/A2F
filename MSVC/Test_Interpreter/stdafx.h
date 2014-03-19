@@ -13,5 +13,8 @@
 
 
 // TODO: reference additional headers your program requires here
+#include <iostream>
 #include "gtest\gtest.h"
-
+#include <config4cpp/Configuration.h>
+#include <config4cpp/SchemaValidator.h>
+#include "..\Interpreter\C_Interpreter.h"

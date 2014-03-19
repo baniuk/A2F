@@ -67,3 +67,24 @@ int _tmain(int argc, _TCHAR* argv[])
 	return ret;
 }
 
+/** 
+ * \test Interpreter:_wrongFile
+ * Try to open nonexistent file. Catch exception thrown by config4cpp
+ */
+TEST(Interpreter,_wrongFile)
+{
+	C_Interpreter* cfg = new C_Interpreter();
+	EXPECT_THROW(cfg->OpenAndValidate("wrongFile","unused"),config4cpp::ConfigurationException);
+	delete cfg;
+}
+
+/** 
+ * \test Interpreter:_correctFile
+ * Try to open existent file. Expect no exception
+ */
+TEST(Interpreter,_correctFile)
+{
+	C_Interpreter* cfg = new C_Interpreter();
+	EXPECT_NO_THROW(cfg->OpenAndValidate("FallbackConfiguration.cfg","unused"));
+	delete cfg;
+}

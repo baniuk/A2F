@@ -6,6 +6,10 @@
     <IncludePath>$(SolutionDir)..\External_dep\config4cpp\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)..\External_dep\config4cpp\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
-  <ItemDefinitionGroup />
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>config4cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemGroup />
 </Project>
