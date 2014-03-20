@@ -109,6 +109,7 @@ LogConvert.bat c:\Test_Interpreter.pantlog</Command>
   <ItemGroup>
     <None Include="A2F.cfg" />
     <None Include="FallbackConfiguration.cfg" />
+    <None Include="Schema.cfg" />
     <None Include="StaticTest.cmd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

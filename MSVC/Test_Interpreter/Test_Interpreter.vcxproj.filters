@@ -49,5 +49,8 @@
     <None Include="A2F.cfg">
       <Filter>Configs</Filter>
     </None>
+    <None Include="Schema.cfg">
+      <Filter>Configs</Filter>
+    </None>
   </ItemGroup>
 </Project>

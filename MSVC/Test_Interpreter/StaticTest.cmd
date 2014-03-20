@@ -12,6 +12,9 @@ IF %ERRORLEVEL% NEQ 0 (goto :ERROR) ELSE %TOOL_DIR%\cecho {green} NONE{\n}{defau
 echo Print informations
 %C4C_DIR%\config4cpp -cfg A2F.cfg print -scope FLUENT -name NUMOFITER 
 IF %ERRORLEVEL% NEQ 0 goto :ERROR
+echo Scheme Validator
+%C4C_DIR%\config4cpp -cfg A2F.cfg validate -scope FLUENT -schemaCfg Schema.cfg -schema A2F.FluentSchema -recursive -types scope_and_vars 
+IF %ERRORLEVEL% NEQ 0 goto :ERROR
 
 goto :EOF
 :ERROR
