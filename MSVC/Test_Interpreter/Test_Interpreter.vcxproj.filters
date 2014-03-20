@@ -16,6 +16,9 @@
     <Filter Include="Configs">
       <UniqueIdentifier>{8fc839f8-af2d-41b9-ac69-0a8d49b2de5c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CMD_Tests">
+      <UniqueIdentifier>{053e5b74-87ba-4ead-ba95-b0ed66432737}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -38,6 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="FallbackConfiguration.cfg">
+      <Filter>Configs</Filter>
+    </None>
+    <None Include="StaticTest.cmd">
+      <Filter>CMD_Tests</Filter>
+    </None>
+    <None Include="A2F.cfg">
       <Filter>Configs</Filter>
     </None>
   </ItemGroup>

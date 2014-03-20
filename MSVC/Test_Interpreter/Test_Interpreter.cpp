@@ -85,6 +85,6 @@ TEST(Interpreter,_wrongFile)
 TEST(Interpreter,_correctFile)
 {
 	C_Interpreter* cfg = new C_Interpreter();
-	EXPECT_NO_THROW(cfg->OpenAndValidate("FallbackConfiguration.cfg","unused"));
+	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg","unused"));
 	delete cfg;
 }
