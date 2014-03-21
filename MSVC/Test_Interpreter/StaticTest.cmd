@@ -14,7 +14,7 @@ echo Print informations
 IF %ERRORLEVEL% NEQ 0 goto :ERROR
 echo Scheme Validator
 %C4C_DIR%\config4cpp -cfg A2F.cfg validate -scope FLUENT -schemaCfg Schema.cfg -schema A2F.FluentSchema -recursive -types scope_and_vars 
-IF %ERRORLEVEL% NEQ 0 goto :ERROR
+IF %ERRORLEVEL% NEQ 0 (goto :ERROR) ELSE %TOOL_DIR%\cecho {green} NONE{\n}{default}
 
 goto :EOF
 :ERROR
