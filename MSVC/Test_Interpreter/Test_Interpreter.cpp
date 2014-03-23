@@ -147,6 +147,34 @@ TEST(Interpreter,_noscopeset)
 }
 
 /**
+ * \test Interpreter:_emptyconfig
+ * \brief Test when empty name of config file is provided
+ * \pre external variable \c application_scope \b{must not be} set 
+ * \post Expect Exception
+ * \author PB
+ * \date 2014/03/22
+ * \see config4cpp documentation
+ * \todo finish
+*/
+TEST(Interpreter,_emptyconfig)
+{
+	application_scope = "FLUENTA";
+	bool exception_thrown = false;
+	C_Interpreter* cfg = new C_Interpreter();
+	try
+	{
+		cfg->OpenAndValidate("");
+	}
+	catch( const Exception& ex)
+	{
+		cerr << ex.what() << endl;
+		exception_thrown = true;
+	}
+	EXPECT_TRUE(exception_thrown);	
+	delete cfg;
+}
+
+/**
  * \test Interpreter:_parseSchema
  * \brief Parses schema file
  * \details Example of parsing schema file using SchemaValidator class. Throw exception if there are errors in scheme or config
@@ -253,12 +281,13 @@ TEST(Interpreter,_lookup4String_wrongask)
 
 /**
  * \test Interpreter:_lookup4String_wrongformat
- * \brief Gets one string parameter from configuration but we ask for param defined as int. In this case method returns regular string that contain number
+ * \brief Gets one string parameter from configuration but we ask for param defined as int. 
  * \pre external variable \c application_scope must be set to FLUENT
  * \post Should not throw exception, returned value not equals \ctest.case
  * \author PB
  * \date 2014/03/23
  * \see config4cpp documentation
+ * \remarks In this case method returns regular string that contain number
 */
 TEST(Interpreter,_lookup4String_wrongformat)
 {
@@ -269,5 +298,27 @@ TEST(Interpreter,_lookup4String_wrongformat)
 	EXPECT_NO_THROW(result = cfg->lookup4String("NUMOFITER"));
 	cerr << result << endl;
 	EXPECT_NE(result.compare("test.case"),0);
+	delete cfg;
+}
+
+/**
+ * \test Interpreter:_lookup4Int_wrongformat
+ * \brief Gets one int parameter from configuration
+ * \pre external variable \c application_scope must be set to FLUENT
+ * \post Should not throw exception, returned value equal 3 
+ * \author PB
+ * \date 2014/03/23
+ * \see config4cpp documentation
+ * \see TEST(Interpreter,_lookup4String_wrongformat)
+ * \remarks In this case it throws exception and output value is not initialized
+ */
+TEST(Interpreter,_lookup4Int_equal)
+{
+	application_scope = "FLUENT";
+	C_Interpreter* cfg = new C_Interpreter();
+	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
+	int result;
+	EXPECT_NO_THROW(result = cfg->lookup4Int("NUMOFITER"));
+	EXPECT_EQ(result, 3);
 	delete cfg;
 }

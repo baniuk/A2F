@@ -53,7 +53,7 @@ C_Interpreter::~C_Interpreter(void)
  * \author PB
  * \date 2014/03/19
  * \exception ConfigurationException - on error in config4cpp
- * \exception std::Exception - on other error
+ * \exception Exception - on other error
  * \see simple-encapsulation example from config4cpp install dir
  * \todo Add exceptions
 */
@@ -67,8 +67,8 @@ void C_Interpreter::OpenAndValidate( const char* cfgInput)
 		m_validator->parseSchema(schema);	// schema file
 		m_validator->validate(cfg,application_scope.c_str(),"");
 	}
-//	else
-//		throw exce
+	else
+		throw Exception("Empty file provided");
 	
 }
 
@@ -88,4 +88,22 @@ const char* C_Interpreter::lookup4String(const char* name)
 {
 	Configuration* cfg = (Configuration*)m_cfg;
 	return cfg->lookupString(application_scope.c_str(), name);
+}
+
+/**
+ * \brief Lookups for int parmaeter
+ * \details Lookups for int parameter of given option. Need extern variable application_scope set to FLUENT of COMSOL dependign o apllication. This is only main scope
+ * other should be given e.g - scope.option.
+ * \param[in] name name of the parameter to get value of
+ * \return value of named parameter
+ * \retval integer value
+ * \author PB
+ * \date 2014/03/23
+ * \exception ConfigurationException - on error in config4cpp
+ * \see encapsulate-lookuo-api example from config4cpp install dir
+*/
+int C_Interpreter::lookup4Int(const char* name)
+{
+	Configuration* cfg = (Configuration*)m_cfg;
+	return cfg->lookupInt(application_scope.c_str(), name);
 }

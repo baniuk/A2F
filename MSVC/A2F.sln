@@ -31,6 +31,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Interpreter", "Interpreter\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test_Interpreter", "Test_Interpreter\Test_Interpreter.vcxproj", "{4959D2DF-D67A-45DD-8AC3-68EAA0E232D5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Exception", "Exception\Exception.vcxproj", "{B19F53B6-4D2E-49CF-9D18-A30C0CBD8C2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -70,6 +72,10 @@ Global
 		{4959D2DF-D67A-45DD-8AC3-68EAA0E232D5}.Debug|Win32.Build.0 = Debug|Win32
 		{4959D2DF-D67A-45DD-8AC3-68EAA0E232D5}.Release|Win32.ActiveCfg = Release|Win32
 		{4959D2DF-D67A-45DD-8AC3-68EAA0E232D5}.Release|Win32.Build.0 = Release|Win32
+		{B19F53B6-4D2E-49CF-9D18-A30C0CBD8C2A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B19F53B6-4D2E-49CF-9D18-A30C0CBD8C2A}.Debug|Win32.Build.0 = Debug|Win32
+		{B19F53B6-4D2E-49CF-9D18-A30C0CBD8C2A}.Release|Win32.ActiveCfg = Release|Win32
+		{B19F53B6-4D2E-49CF-9D18-A30C0CBD8C2A}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

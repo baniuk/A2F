@@ -29,6 +29,8 @@ public:
 	void OpenAndValidate(const char* cfgInput);
 	/// Looks for string value of given parameter
 	const char* lookup4String(const char* name);
+	/// Looks for int value of given parameter
+	int lookup4Int(const char* name);
 private:
 	bool	m_wantDiagnostics;
 	void*	m_cfg;						// opaque pointer to Config4Cpp config object
