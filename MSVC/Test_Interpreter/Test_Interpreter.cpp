@@ -4,6 +4,9 @@
 #include "stdafx.h"
 #include "..\Common_utilities\Pantheios_header.h"
 
+using namespace config4cpp;
+using namespace std;
+
 /// Log file name and initialization of Pantheios API
 PANTHEIOS_EXTERN_C const PAN_CHAR_T PANTHEIOS_FE_PROCESS_IDENTITY[] = PSTR("Test_FluentStarter");
 #ifndef PANTHEIOS_LOG_FILE_NAME
@@ -45,6 +48,9 @@ pan_be_N_t PAN_BE_N_BACKEND_LIST[] = {
     PANTHEIOS_BE_N_TERMINATOR_ENTRY
 };
 
+// set global scope 
+string application_scope;
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	int ret = 0;
@@ -67,24 +73,201 @@ int _tmain(int argc, _TCHAR* argv[])
 	return ret;
 }
 
-/** 
+/**
  * \test Interpreter:_wrongFile
- * Try to open nonexistent file. Catch exception thrown by config4cpp
- */
+ * \brief Try to open nonexistent file.
+ * \details Try to open file with configuration that not exist physically.
+ * \pre external variable \c application_scope must be set to FLUENT
+ * \post Expect exception thrown by config4cpp
+ * \author PB
+ * \date 2014/03/22
+ * \see config4cpp documentation
+*/
 TEST(Interpreter,_wrongFile)
 {
+	application_scope = "FLUENT";
 	C_Interpreter* cfg = new C_Interpreter();
-	EXPECT_THROW(cfg->OpenAndValidate("wrongFile","unused"),config4cpp::ConfigurationException);
+	EXPECT_THROW(cfg->OpenAndValidate("wrongFile"),config4cpp::ConfigurationException);
 	delete cfg;
 }
 
-/** 
+/**
  * \test Interpreter:_correctFile
- * Try to open existent file. Expect no exception
- */
+ * \brief Try to open existent file.
+ * \details Try to open existent file with configuration.
+ * \pre external variable \c application_scope must be set to FLUENT
+ * \post Expect no exception
+ * \author PB
+ * \date 2014/03/22
+ * \see config4cpp documentation
+*/
 TEST(Interpreter,_correctFile)
 {
+	application_scope = "FLUENT";
 	C_Interpreter* cfg = new C_Interpreter();
-	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg","unused"));
+	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
+	delete cfg;
+}
+
+/**
+ * \test Interpreter:_wrongscope
+ * \brief Try to open existent file with wrong scope.
+ * \details Try to open existent file with configuration but the main scope is wrong
+ * \pre external variable \c application_scope must be set to FLUENT
+ * \post Expect exception
+ * \author PB
+ * \date 2014/03/22
+ * \see config4cpp documentation
+*/
+TEST(Interpreter,_wrongscope)
+{
+	application_scope = "FLUENTA";
+	C_Interpreter* cfg = new C_Interpreter();
+	EXPECT_THROW(cfg->OpenAndValidate("A2F.cfg"),config4cpp::ConfigurationException);
+	delete cfg;
+}
+
+/**
+ * \test Interpreter:_noscopeset
+ * \brief Test when no external scope will be set
+ * \details \c application_scope must be set with valid scope. If not set at all (epty string) std Exception is thrown
+ * \pre external variable \c application_scope \b{must not be} set 
+ * \post Expect exception
+ * \author PB
+ * \date 2014/03/22
+ * \see config4cpp documentation
+ * \todo finish
+*/
+TEST(Interpreter,_noscopeset)
+{
+	application_scope = "FLUENTA";
+	C_Interpreter* cfg = new C_Interpreter();
+	EXPECT_THROW(cfg->OpenAndValidate("A2F.cfg"),config4cpp::ConfigurationException);
+	delete cfg;
+}
+
+/**
+ * \test Interpreter:_parseSchema
+ * \brief Parses schema file
+ * \details Example of parsing schema file using SchemaValidator class. Throw exception if there are errors in scheme or config
+ * \pre external variable \c application_scope must be set to FLUENT
+ * \post No exception should be thrown
+ * \author PB
+ * \date 2014/03/22
+ * \see config4cpp documentation
+*/
+TEST(Interpreter,_parseSchema)
+{
+	SchemaValidator* sv = new SchemaValidator();
+	EXPECT_NO_THROW(sv->parseSchema(schema));
+	delete sv;
+}
+
+/**
+ * \test Interpreter:_parseandvalidate
+ * \brief Parses and perform scheme validation.
+ * \details 
+ * Parses and perform scheme validation. Test of the use. Throw if:
+ * \li there is syntax mistake in A2F.cfg
+ * \li there is syntax mistake in schema
+ * \li A2F does not fulfill schema (mispelling, wrong parameter etc)
+ * \pre external variable \c application_scope must be set to FLUENT
+ * \post No exception should be thrown
+ * \author PB
+ * \date 2014/03/22
+ * \see config4cpp documentation
+*/
+TEST(Interpreter,_parseandvalidate)
+{
+	Configuration* cfg = Configuration::create();
+	SchemaValidator* sv = new SchemaValidator();
+	// parse script
+	EXPECT_NO_THROW(cfg->parse("A2F.cfg"));
+	// parse schema
+	EXPECT_NO_THROW(sv->parseSchema(schema));
+	// validate
+	EXPECT_NO_THROW(sv->validate(cfg,"FLUENT",""));
+	delete sv;
+	cfg->destroy();
+}
+
+/**
+ * \test Interpreter:_lookup4String_equal
+ * \brief Gets one string parameter from configuration
+ * \pre external variable \c application_scope must be set to FLUENT
+ * \post No exception should be thrown, returned value equals \ctest.case
+ * \author PB
+ * \date 2014/03/23
+ * \see config4cpp documentation
+*/
+TEST(Interpreter,_lookup4String_equal)
+{
+	application_scope = "FLUENT";
+	C_Interpreter* cfg = new C_Interpreter();
+	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
+	string result;
+	EXPECT_NO_THROW(result = cfg->lookup4String("CASE_NAME"));
+	EXPECT_EQ(result.compare("test.case"),0);
+	delete cfg;
+}
+
+/**
+ * \test Interpreter:_lookup4String_nequal
+ * \brief Gets one string parameter from configuration
+ * \pre external variable \c application_scope must be set to FLUENT
+ * \post No exception should be thrown, returned value not equals \ctest.case
+ * \author PB
+ * \date 2014/03/23
+ * \see config4cpp documentation
+*/
+TEST(Interpreter,_lookup4String_nequal)
+{
+	application_scope = "FLUENT";
+	C_Interpreter* cfg = new C_Interpreter();
+	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
+	string result;
+	EXPECT_NO_THROW(result = cfg->lookup4String("COMMAND_LINE"));
+	EXPECT_NE(result.compare("test.case"),0);
+	delete cfg;
+}
+
+/**
+ * \test Interpreter:_lookup4String_wrongask
+ * \brief Gets one string parameter from configuration but we ask for nonexistent param
+ * \pre external variable \c application_scope must be set to FLUENT
+ * \post Should throw exception, returned value not equals \ctest.case
+ * \author PB
+ * \date 2014/03/23
+ * \see config4cpp documentation
+*/
+TEST(Interpreter,_lookup4String_wrongask)
+{
+	application_scope = "FLUENT";
+	C_Interpreter* cfg = new C_Interpreter();
+	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
+	string result;
+	EXPECT_THROW(result = cfg->lookup4String("COMMAND_LINEEE"),config4cpp::ConfigurationException);
+	EXPECT_NE(result.compare("test.case"),0);
+	delete cfg;
+}
+
+/**
+ * \test Interpreter:_lookup4String_wrongformat
+ * \brief Gets one string parameter from configuration but we ask for param defined as int. In this case method returns regular string that contain number
+ * \pre external variable \c application_scope must be set to FLUENT
+ * \post Should not throw exception, returned value not equals \ctest.case
+ * \author PB
+ * \date 2014/03/23
+ * \see config4cpp documentation
+*/
+TEST(Interpreter,_lookup4String_wrongformat)
+{
+	application_scope = "FLUENT";
+	C_Interpreter* cfg = new C_Interpreter();
+	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
+	string result;
+	EXPECT_NO_THROW(result = cfg->lookup4String("NUMOFITER"));
+	cerr << result << endl;
+	EXPECT_NE(result.compare("test.case"),0);
 	delete cfg;
 }

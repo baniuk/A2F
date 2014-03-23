@@ -26,10 +26,13 @@ public:
 	C_Interpreter(bool wantDiagnostics = false);
 	~C_Interpreter(void);
 	/// Opens config file and validates it
-	void OpenAndValidate(const char* cfgInput, const char* cfgScope);
+	void OpenAndValidate(const char* cfgInput);
+	/// Looks for string value of given parameter
+	const char* lookup4String(const char* name);
 private:
 	bool	m_wantDiagnostics;
 	void*	m_cfg;						// opaque pointer to Config4Cpp config object
+	config4cpp::SchemaValidator*	m_validator;				// pointer to SchemaValidator object
 };
 #endif // C_Interpreter_h__
 

@@ -18,3 +18,4 @@
 #include <config4cpp/Configuration.h>
 #include <config4cpp/SchemaValidator.h>
 #include "..\Interpreter\C_Interpreter.h"
+extern const char* schema[];
