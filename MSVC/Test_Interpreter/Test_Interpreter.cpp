@@ -287,6 +287,7 @@ TEST(Interpreter,_lookup4String_wrongask)
  * \author PB
  * \date 2014/03/23
  * \see config4cpp documentation
+ * \see TEST(Interpreter,_lookup4Int_wrongformat)
  * \remarks In this case method returns regular string that contain number
 */
 TEST(Interpreter,_lookup4String_wrongformat)
@@ -303,14 +304,33 @@ TEST(Interpreter,_lookup4String_wrongformat)
 
 /**
  * \test Interpreter:_lookup4Int_wrongformat
+ * \brief Gets one int parameter from configuration but we ask for param defined as string. 
+ * \pre external variable \c application_scope must be set to FLUENT
+ * \post Should throw exception, returned value not initialized
+ * \author PB
+ * \date 2014/03/23
+ * \see config4cpp documentation
+ * \see TEST(Interpreter,_lookup4String_wrongformat)
+ * \remarks In this case method returns regular string that contain number
+*/
+TEST(Interpreter,_lookup4Int_wrongformat)
+{
+	application_scope = "FLUENT";
+	C_Interpreter* cfg = new C_Interpreter();
+	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
+	int result;
+	EXPECT_THROW(result = cfg->lookup4Int("COMMAND_LINE"),config4cpp::ConfigurationException);
+	delete cfg;
+
+}
+/**
+ * \test Interpreter:_lookup4Int_equal
  * \brief Gets one int parameter from configuration
  * \pre external variable \c application_scope must be set to FLUENT
  * \post Should not throw exception, returned value equal 3 
  * \author PB
  * \date 2014/03/23
  * \see config4cpp documentation
- * \see TEST(Interpreter,_lookup4String_wrongformat)
- * \remarks In this case it throws exception and output value is not initialized
  */
 TEST(Interpreter,_lookup4Int_equal)
 {
@@ -318,6 +338,27 @@ TEST(Interpreter,_lookup4Int_equal)
 	C_Interpreter* cfg = new C_Interpreter();
 	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
 	int result;
+	EXPECT_NO_THROW(result = cfg->lookup4Int("NUMOFITER"));
+	EXPECT_EQ(result, 3);
+	delete cfg;
+}
+
+/**
+ * \test Interpreter:_lookup4Float_equal
+ * \brief Gets one float parameter from configuration
+ * \pre external variable \c application_scope must be set to FLUENT
+ * \post Should not throw exception, returned value equal 3 
+ * \author PB
+ * \date 2014/03/23
+ * \see config4cpp documentation
+ * \remarks In this case int vales can ba read as well
+ */
+TEST(Interpreter,_lookup4Float_equal)
+{
+	application_scope = "FLUENT";
+	C_Interpreter* cfg = new C_Interpreter();
+	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
+	float result;
 	EXPECT_NO_THROW(result = cfg->lookup4Int("NUMOFITER"));
 	EXPECT_EQ(result, 3);
 	delete cfg;

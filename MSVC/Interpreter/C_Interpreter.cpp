@@ -107,3 +107,21 @@ int C_Interpreter::lookup4Int(const char* name)
 	Configuration* cfg = (Configuration*)m_cfg;
 	return cfg->lookupInt(application_scope.c_str(), name);
 }
+
+/**
+ * \brief Lookups for float parmaeter
+ * \details Lookups for float parameter of given option. Need extern variable application_scope set to FLUENT of COMSOL dependign o apllication. This is only main scope
+ * other should be given e.g - scope.option.
+ * \param[in] name name of the parameter to get value of
+ * \return value of named parameter
+ * \retval floating point value
+ * \author PB
+ * \date 2014/03/23
+ * \exception ConfigurationException - on error in config4cpp
+ * \see encapsulate-lookuo-api example from config4cpp install dir
+*/
+float C_Interpreter::lookup4Float(const char* name)
+{
+	Configuration* cfg = (Configuration*)m_cfg;
+	return cfg->lookupFloat(application_scope.c_str(), name);
+}
