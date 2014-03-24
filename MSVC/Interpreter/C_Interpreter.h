@@ -7,6 +7,9 @@
 #ifndef C_Interpreter_h__
 #define C_Interpreter_h__
 
+#include <vector>
+#include <string>
+
 /**
  * \class C_Interpreter
  * \brief Warper class definition for config4cpp parser
@@ -33,6 +36,8 @@ public:
 	int lookup4Int(const char* name);
 	/// Looks for int value of given parameter
 	float lookup4Float(const char* name);
+	/// Looks for List
+	void lookup4List(const char* name, const char **& list, int& listSize);
 private:
 	bool	m_wantDiagnostics;
 	void*	m_cfg;						// opaque pointer to Config4Cpp config object

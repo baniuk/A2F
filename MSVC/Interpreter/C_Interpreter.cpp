@@ -125,3 +125,24 @@ float C_Interpreter::lookup4Float(const char* name)
 	Configuration* cfg = (Configuration*)m_cfg;
 	return cfg->lookupFloat(application_scope.c_str(), name);
 }
+
+/**
+ * \brief Lookups for list of parameters
+ * \details Lookups for list of parameters of given name. Need extern variable application_scope set to FLUENT of COMSOL dependign o apllication.
+ * This is only main scope other should be given e.g - scope.option.
+ * \param[in] name - name of the list (parameter)
+ * \param[out] list - list of parameters
+ * \param[out] listSize - size of the array of strings returned (number of parmaeters in list)
+ * \return array of strings that contains parameters in list
+ * \retval \c void
+ * \author PB
+ * \date 2014/03/24
+ * \exception ConfigurationException - on error in config4cpp
+ * \exception std::exception in other error
+ * \see encapsulate-lookuo-api example from config4cpp install dir
+*/
+void C_Interpreter::lookup4List(const char* name, const char **& list, int& listSize)
+{
+	Configuration* cfg = (Configuration*)m_cfg;
+	cfg->lookupList(application_scope.c_str(), name, list, listSize);
+}

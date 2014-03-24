@@ -18,6 +18,7 @@ const char* schema[] = {
 	"COMMAND_LINE							=	string",
 	"ASSIGNS.uid-ASSIGN						=	_ASSIGNS", 
 	"EXPORTS.uid-EXPORTED_VALUE				=	_EXPORTS",
-	"SURFACES.uid-INPUT						=	list[string]",
-	"SURFACES.uid-OUTPUT					=	list[string]"
+	"SURFACES.INPUT1						=	list[string]",
+	"SURFACES.INPUT2						=	list[string]",
+	"SURFACES.OUTPUT1						=	list[string]"
 };

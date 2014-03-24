@@ -351,7 +351,7 @@ TEST(Interpreter,_lookup4Int_equal)
  * \author PB
  * \date 2014/03/23
  * \see config4cpp documentation
- * \remarks In this case int vales can ba read as well
+ * \remarks In this case int vales can be read as well
  */
 TEST(Interpreter,_lookup4Float_equal)
 {
@@ -361,5 +361,39 @@ TEST(Interpreter,_lookup4Float_equal)
 	float result;
 	EXPECT_NO_THROW(result = static_cast<float>(cfg->lookup4Int("NUMOFITER")));
 	EXPECT_EQ(result, 3);
+	delete cfg;
+}
+
+/**
+ * \test Interpreter:_lookup4List_equal
+ * \brief Gets one list of parameter from configuration
+ * \pre external variable \c application_scope must be set to FLUENT
+ * \post Should not throw exception, returned values equal "wylotpulpy", "0.0113" 
+ * \author PB
+ * \date 2014/03/24
+ * \see config4cpp documentation
+ * \note Numbers in lists are accesible as string but there will be always possible to convert them to number because there was scheme checking before.
+ * Schemes check also list entries types.
+ */
+TEST(Interpreter,_lookup4List_equal)
+{
+	application_scope = "FLUENT";
+	C_Interpreter* cfg = new C_Interpreter();
+	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
+	const char** list;
+	int	listSize;
+	try
+	{
+		cfg->lookup4List("SURFACES.OUTPUT1",list,listSize);
+	}
+	catch(...)
+	{
+		ASSERT_TRUE(true);
+		delete cfg;
+	}
+	EXPECT_STREQ(list[0],"wylotpulpy");
+	EXPECT_STREQ(list[1],"0.0113");
+
+/*	EXPECT_EQ(result, 3);*/
 	delete cfg;
 }

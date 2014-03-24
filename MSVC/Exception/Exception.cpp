@@ -11,7 +11,7 @@
 /**
  * \brief Construct Exception obiect with description
  * \details This class inherites also default constructor with no parmaeters. In this case description is undefined.
- * \param desc - description of the exception
+ * \param[in] desc - description of the exception
  * \author PB
  * \date 2014/03/24
  * \note
