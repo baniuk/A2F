@@ -165,7 +165,7 @@ TEST(Interpreter,_emptyconfig)
 	{
 		cfg->OpenAndValidate("");
 	}
-	catch( const Exception& ex)
+	catch( const exception& ex)
 	{
 		cerr << ex.what() << endl;
 		exception_thrown = true;
@@ -359,7 +359,7 @@ TEST(Interpreter,_lookup4Float_equal)
 	C_Interpreter* cfg = new C_Interpreter();
 	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
 	float result;
-	EXPECT_NO_THROW(result = cfg->lookup4Int("NUMOFITER"));
+	EXPECT_NO_THROW(result = static_cast<float>(cfg->lookup4Int("NUMOFITER")));
 	EXPECT_EQ(result, 3);
 	delete cfg;
 }

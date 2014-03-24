@@ -53,7 +53,7 @@ C_Interpreter::~C_Interpreter(void)
  * \author PB
  * \date 2014/03/19
  * \exception ConfigurationException - on error in config4cpp
- * \exception Exception - on other error
+ * \exception std::exception - on other error. Uses predefined exceptions from std: http://stackoverflow.com/questions/688447/best-practices-for-defining-your-own-exception-classes
  * \see simple-encapsulation example from config4cpp install dir
  * \todo Add exceptions
 */
@@ -68,7 +68,7 @@ void C_Interpreter::OpenAndValidate( const char* cfgInput)
 		m_validator->validate(cfg,application_scope.c_str(),"");
 	}
 	else
-		throw Exception("Empty file provided");
+		throw std::invalid_argument("Empty file provided");
 	
 }
 

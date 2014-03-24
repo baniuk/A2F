@@ -13,7 +13,7 @@
 
 // TODO: reference additional headers your program requires here
 #include <exception>
-#include "..\Exception\Exception.h"
+//#include "..\Exception\Exception.h"
 #include <string>
 #include <config4cpp/Configuration.h>
 #include <config4cpp/SchemaValidator.h>
