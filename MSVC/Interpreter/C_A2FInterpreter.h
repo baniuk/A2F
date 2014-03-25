@@ -1,6 +1,6 @@
 /**
  * \file C_A2FInterpreter.h
- * \brief Hold A2F specific config functions
+ * \brief Holds A2F specific config functions
  * \author PB
  * \date 2014/03/25
  */
@@ -9,6 +9,22 @@
 
 #include "c_interpreter.h"
 #include <string>
+#include <sstream>
+
+/// Enum class for Surfaces
+enum class SurfParams
+{
+	SurfName,		///< Name of the surface
+	SurfArea		///< Area of the surface
+};
+
+/// Enum for Exports
+enum class ExportParams
+{
+	ExpFunction,	///< Name of the export function
+	ExpAspenParam,	///< Name of the Aspen stram parameter
+	ExpComponent	///< Name of the chemical component
+};
 
 /**
  * \class C_A2FInterpreter
@@ -20,6 +36,7 @@
  * \date 2014/03/25
  * \see Script definition for A2F
  * \pre external variable \c application_scope must be set before use
+ * \pre Config script must be validated using OpenAndValidate(const char* cfgInput);
 */
 class C_A2FInterpreter :
 	public C_Interpreter

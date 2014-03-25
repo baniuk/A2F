@@ -397,3 +397,25 @@ TEST(Interpreter,_lookup4List_equal)
 /*	EXPECT_EQ(result, 3);*/
 	delete cfg;
 }
+
+/**
+ * \test _GetSurfaceParams_equal
+ * \brief Test acces to surface list
+ * \pre external variable \c application_scope must be set to FLUENT
+ * \post Expect surface name and its area as float number
+ * \author PB
+ * \date 2014/03/25
+*/
+TEST(A2FInterpreter,_GetSurfaceParams_equal)
+{
+	application_scope = "FLUENT";
+	C_A2FInterpreter* cfg = new C_A2FInterpreter();
+	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
+
+	string surfaceName;
+	float area;
+	EXPECT_NO_THROW(cfg->GetSurfaceParams("SURFACES.OUTPUT1", surfaceName, area));
+	EXPECT_STREQ(surfaceName.c_str(),"wylotpulpy");
+	EXPECT_EQ(area,0.0113f);
+	delete cfg;
+}

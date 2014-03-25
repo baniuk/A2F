@@ -37,11 +37,26 @@ C_A2FInterpreter::~C_A2FInterpreter(void)
  * \retval \c void
  * \author PB
  * \date 2014/03/25
- * \exception std::exception in case of othe error
+ * \exception std::runtime_error in case of other error
  * \excpetion ConfigurationException - on error in config4cpp
  * \pre external variable \c application_scope must be set
+ * \see http://stackoverflow.com/questions/1012571/stdstring-to-float-or-double
 */
 void C_A2FInterpreter::GetSurfaceParams( const std::string& portName, std::string& surf, float& area )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	const char** list;
+	int	listSize;
+	lookup4List(portName.c_str(),list,listSize);
+	// assign list entries to output
+	surf = list[static_cast<UINT>(SurfParams::SurfName)];
+	std::stringstream numberAsString(list[static_cast<UINT>(SurfParams::SurfArea)]);				// number given as string = list[1];
+	numberAsString >> area;
+	if(numberAsString.fail())
+	{
+		PANTHEIOS_TRACE_CRITICAL(PSTR("String not converted to number"));	// should never hit here because of earlier syntax checking
+		throw std::runtime_error("C_A2FInterpreter::GetSurfaceParams:String not converted to number");
+	}
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 
 }
