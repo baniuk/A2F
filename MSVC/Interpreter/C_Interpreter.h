@@ -17,10 +17,14 @@
  * \li opening config
  * \li validating
  * \li parsing
+ * \li getting basic datatypes
+ * It does not perform interpretation of input data. It is general wrapper to config4cpp.
  * \author PB
  * \date 2014/03/19
  * \see simple-encapsulation example from config4cpp install dir
  * \exception ConfigurationException on any error during parsing
+ * \exception std::exception on other errors
+ * \pre external variable \c application_scope must be set before use of any method
 */
 class C_Interpreter
 {
@@ -34,7 +38,7 @@ public:
 	const char* lookup4String(const char* name);
 	/// Looks for int value of given parameter
 	int lookup4Int(const char* name);
-	/// Looks for int value of given parameter
+	/// Looks for float value of given parameter
 	float lookup4Float(const char* name);
 	/// Looks for List
 	void lookup4List(const char* name, const char **& list, int& listSize);

@@ -26,6 +26,7 @@ extern string application_scope; //!< Name of the main application scope (FLUENT
 */
 C_Interpreter::C_Interpreter(bool wantDiagnostics)
 {
+	_ASSERT(!application_scope.empty());
 	m_wantDiagnostics = wantDiagnostics;
 	m_cfg = Configuration::create();			// creation of config2cpp object.
 	m_validator = new SchemaValidator();
@@ -55,7 +56,7 @@ C_Interpreter::~C_Interpreter(void)
  * \exception ConfigurationException - on error in config4cpp
  * \exception std::exception - on other error. Uses predefined exceptions from std: http://stackoverflow.com/questions/688447/best-practices-for-defining-your-own-exception-classes
  * \see simple-encapsulation example from config4cpp install dir
- * \todo Add exceptions
+ * \pre external variable \c application_scope must be set before use
 */
 void C_Interpreter::OpenAndValidate( const char* cfgInput)
 {
@@ -83,6 +84,7 @@ void C_Interpreter::OpenAndValidate( const char* cfgInput)
  * \date 2014/03/23
  * \exception ConfigurationException - on error in config4cpp
  * \see encapsulate-lookuo-api example from config4cpp install dir
+ * \pre external variable \c application_scope must be set before use
 */
 const char* C_Interpreter::lookup4String(const char* name)
 {
@@ -101,6 +103,7 @@ const char* C_Interpreter::lookup4String(const char* name)
  * \date 2014/03/23
  * \exception ConfigurationException - on error in config4cpp
  * \see encapsulate-lookuo-api example from config4cpp install dir
+ * \pre external variable \c application_scope must be set
 */
 int C_Interpreter::lookup4Int(const char* name)
 {
@@ -119,6 +122,7 @@ int C_Interpreter::lookup4Int(const char* name)
  * \date 2014/03/23
  * \exception ConfigurationException - on error in config4cpp
  * \see encapsulate-lookuo-api example from config4cpp install dir
+ * \pre external variable \c application_scope must be set before use
 */
 float C_Interpreter::lookup4Float(const char* name)
 {
@@ -140,6 +144,7 @@ float C_Interpreter::lookup4Float(const char* name)
  * \exception ConfigurationException - on error in config4cpp
  * \exception std::exception in other error
  * \see encapsulate-lookuo-api example from config4cpp install dir
+ * \pre external variable \c application_scope must be set before use
 */
 void C_Interpreter::lookup4List(const char* name, const char **& list, int& listSize)
 {
