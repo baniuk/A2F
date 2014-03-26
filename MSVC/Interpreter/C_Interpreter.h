@@ -9,6 +9,7 @@
 
 #include <vector>
 #include <string>
+#include <cstring>
 
 /**
  * \class C_Interpreter
@@ -42,6 +43,11 @@ public:
 	float lookup4Float(const char* name);
 	/// Looks for List
 	void lookup4List(const char* name, const char **& list, int& listSize);
+	/// Looks for uid-list
+	void lookup4uidNames(const char* name, const char **& list, int& listSize);
+protected:
+	const char** names;		// variable used for holding lookup4uidNames results
+	int listSize;
 private:
 	bool	m_wantDiagnostics;
 	void*	m_cfg;						// opaque pointer to Config4Cpp config object

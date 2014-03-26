@@ -24,7 +24,7 @@ extern string application_scope; //!< Name of the main application scope (FLUENT
  * \date 2014/03/19
  * \see simple-encapsulation example from config4cpp install dir
 */
-C_Interpreter::C_Interpreter(bool wantDiagnostics)
+C_Interpreter::C_Interpreter(bool wantDiagnostics) : listSize(0)
 {
 	_ASSERT(!application_scope.empty());
 	m_wantDiagnostics = wantDiagnostics;
@@ -42,6 +42,12 @@ C_Interpreter::~C_Interpreter(void)
 {
 	delete m_validator;
 	((Configuration *)m_cfg)->destroy();
+	if(listSize>0)
+	{
+		for(int i=0; i<listSize; ++i)
+			delete[] names[i];
+		delete[] names;
+	}
 }
 
 /**
@@ -150,4 +156,45 @@ void C_Interpreter::lookup4List(const char* name, const char **& list, int& list
 {
 	Configuration* cfg = (Configuration*)m_cfg;
 	cfg->lookupList(application_scope.c_str(), name, list, listSize);
+}
+
+
+/**
+ * \brief Looksup for uuid parameters in given scope
+ * \details Returns table with uuid list of parameters in given scope. List conatains only names of the parameters and they mus be later 
+ * decoded by ithe function (these are list in this case so void C_Interpreter::lookup4List(const char* name, const char **& list, int& listSize)
+ * should be used. Examplary output can look as follows:
+ * \code
+ 2>  uid-000000000-EXPORTED_VALUE
+ 2>  uid-000000001-EXPORTED_VALUE
+ \endcode
+ * \param[in] name - name of the scope where uid-params are (sub-scope, not main FLUENT)
+ * \param[out] list - list of parameters in \c name
+ * \param[out] listSize - size of the array of strings returned (number of parmaeters in list)
+ * \return array of strings that contains parameters in \c list scope
+ * \retval \c void
+ * \author PB
+ * \date 2014/03/26
+ * \exception ConfigurationException - on error in config4cpp
+ * \exception std::exception in other error
+ * \pre external variable \c application_scope must be set before use
+ * \note This method fills private fields C_Interpreter::listSize and C_Interpreter::names because it converts config4cpp::StringVector to const char**
+ * StringVector is local but must exist after end of method.
+*/
+void C_Interpreter::lookup4uidNames( const char* name, const char **& list, int& listSize )
+{
+	Configuration* cfg = (Configuration*)m_cfg;
+	config4cpp::StringVector uidNames;	
+	cfg->listLocallyScopedNames(application_scope.c_str(), name, Configuration::CFG_LIST, false, uidNames);
+	this->listSize = listSize = uidNames.length();
+	if(listSize>0)
+	{
+		names = new const char*[uidNames.length()];
+		for(int i=0; i<uidNames.length(); ++i)
+		{
+			names[i] = new char[ strlen(uidNames[i]) + sizeof(char) ];		// extra char for trailing 0 of c-string
+			strcpy_s(const_cast<char*>(names[i]), strlen(uidNames[i]) + sizeof(char), uidNames[i]);
+		}
+		list = names;
+	}
 }

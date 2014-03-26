@@ -175,7 +175,7 @@ TEST(Interpreter,_emptyconfig)
 }
 
 /**
- * \test Interpreter:_parseSchema
+ * \test UseExample:_parseSchema
  * \brief Parses schema file
  * \details Example of parsing schema file using SchemaValidator class. Throw exception if there are errors in scheme or config
  * \pre external variable \c application_scope must be set to FLUENT
@@ -183,8 +183,9 @@ TEST(Interpreter,_emptyconfig)
  * \author PB
  * \date 2014/03/22
  * \see config4cpp documentation
+ * \note This is only example of use of config4cpp
 */
-TEST(Interpreter,_parseSchema)
+TEST(UseExample,_parseSchema)
 {
 	SchemaValidator* sv = new SchemaValidator();
 	EXPECT_NO_THROW(sv->parseSchema(schema));
@@ -192,7 +193,7 @@ TEST(Interpreter,_parseSchema)
 }
 
 /**
- * \test Interpreter:_parseandvalidate
+ * \test UseExample:_parseandvalidate
  * \brief Parses and perform scheme validation.
  * \details 
  * Parses and perform scheme validation. Test of the use. Throw if:
@@ -204,8 +205,9 @@ TEST(Interpreter,_parseSchema)
  * \author PB
  * \date 2014/03/22
  * \see config4cpp documentation
+ * \note This is only example of use of config4cpp
 */
-TEST(Interpreter,_parseandvalidate)
+TEST(UseExample,_parseandvalidate)
 {
 	Configuration* cfg = Configuration::create();
 	SchemaValidator* sv = new SchemaValidator();
@@ -388,7 +390,7 @@ TEST(Interpreter,_lookup4List_equal)
 	}
 	catch(...)
 	{
-		ASSERT_TRUE(true);
+		ASSERT_TRUE(false);
 		delete cfg;
 	}
 	EXPECT_STREQ(list[0],"wylotpulpy");
@@ -397,6 +399,36 @@ TEST(Interpreter,_lookup4List_equal)
 /*	EXPECT_EQ(result, 3);*/
 	delete cfg;
 }
+
+TEST(UseExample, _lookup4uidNames_equal)
+{
+	application_scope = "FLUENT";
+	C_Interpreter* cfg = new C_Interpreter();
+	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
+	const char** list;
+	int	listSize;
+	try
+	{
+		cfg->lookup4uidNames("EXPORTS", list, listSize);
+		cerr << listSize << endl;
+	}
+	catch(ConfigurationException& ex)
+	{
+		cerr << ex.c_str() << endl;
+		ASSERT_TRUE(false);
+		delete cfg;
+	}
+	catch(std::exception& ex)
+	{
+		cerr << ex.what() << endl;
+		ASSERT_TRUE(false);
+		delete cfg;
+	}
+	for (int i = 0; i < listSize; i++) 
+		cerr << list[i] << endl;
+	delete cfg;
+}
+
 
 /**
  * \test _GetSurfaceParams_equal
