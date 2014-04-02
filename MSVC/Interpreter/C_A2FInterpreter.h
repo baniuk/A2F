@@ -26,6 +26,15 @@ enum class ExportParams
 	ExpComponent	///< Name of the chemical component
 };
 
+/// Enum for Assigns
+enum class AssignParams
+{
+	AssComponent,	///< Name of the chemical component
+	AssPMCInput,	///< Input of the PMC
+	AssSurfName		///< Name of the surface
+	
+};
+
 /**
  * \class C_A2FInterpreter
  * \brief Hold specific methods for A2F
@@ -37,6 +46,7 @@ enum class ExportParams
  * \see Script definition for A2F
  * \pre external variable \c application_scope must be set before use
  * \pre Config script must be validated using OpenAndValidate(const char* cfgInput);
+ * \todo add description of script params in \c Getxxx functions
 */
 class C_A2FInterpreter :
 	public C_Interpreter
@@ -46,6 +56,14 @@ public:
 	~C_A2FInterpreter(void);
 	/// Gets params connected with surface of given name
 	void GetSurfaceParams(const std::string& portName, std::string& surf, float& area);
+	/// Gets EXPORTS from params
+	void GetExportsParams(std::vector<std::string>& fluentFcn, std::vector<std::string>& aspenProp, std::vector<std::string>& compName);
+	/// Gets ASSIGNS form params
+	void GetAssignsParams(std::vector<std::string>& compName, std::vector<int>& noInput, std::vector<std::string>& surfName);
+private:
+	/// converts string to number
+	template <typename T>
+	T str2int(const char* str);
 };
 #endif // C_A2FInterpreter_h__
 

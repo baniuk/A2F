@@ -425,7 +425,11 @@ TEST(UseExample, _lookup4uidNames_equal)
 		delete cfg;
 	}
 	for (int i = 0; i < listSize; i++) 
+	{
 		cerr << list[i] << endl;
+	}
+	ASSERT_STREQ(list[0],"uid-000000000-EXPORTED_VALUE");
+	ASSERT_STREQ(list[1],"uid-000000001-EXPORTED_VALUE");
 	delete cfg;
 }
 
@@ -449,5 +453,71 @@ TEST(A2FInterpreter,_GetSurfaceParams_equal)
 	EXPECT_NO_THROW(cfg->GetSurfaceParams("SURFACES.OUTPUT1", surfaceName, area));
 	EXPECT_STREQ(surfaceName.c_str(),"wylotpulpy");
 	EXPECT_EQ(area,0.0113f);
+	delete cfg;
+}
+
+/**
+ * \test _GetExportsParams_equal
+ * \brief Test access to exports lists
+ * \pre external variable \c application_scope must be set to FLUENT
+ * \post Expect three params connected with export and two exports
+ * \author PB
+ * \date 2014/04/02
+*/
+TEST(A2FInterpreter,_GetExportsParams_equal)
+{
+	application_scope = "FLUENT";
+	C_A2FInterpreter* cfg = new C_A2FInterpreter();
+	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
+	vector<string> fluentFcn;
+	vector<string> aspenProp;
+	vector<string> compName;
+
+	EXPECT_NO_THROW(cfg->GetExportsParams(fluentFcn, aspenProp, compName));
+	// check num of lists
+	EXPECT_EQ(fluentFcn.size(),2);
+	EXPECT_EQ(aspenProp.size(),2);
+	EXPECT_EQ(compName.size(),2);
+	// check all params in lists
+	EXPECT_STREQ("h3n-velocity-magnitude",fluentFcn[0].c_str());
+	EXPECT_STREQ("totalflow",aspenProp[0].c_str());
+	EXPECT_STREQ("h3n",compName[0].c_str());
+
+	EXPECT_STREQ("h3po4-velocity-magnitude",fluentFcn[1].c_str());
+	EXPECT_STREQ("totalflow",aspenProp[1].c_str());
+	EXPECT_STREQ("h3po4",compName[1].c_str());
+	delete cfg;
+}
+
+/**
+ * \test _GetAssignsParams_equal
+ * \brief Test access to assign lists
+ * \pre external variable \c application_scope must be set to FLUENT
+ * \post Expect three params connected with assign and two assigns
+ * \author PB
+ * \date 2014/04/02
+*/
+TEST(A2FInterpreter,_GetAssignsParams_equal)
+{
+	application_scope = "FLUENT";
+	C_A2FInterpreter* cfg = new C_A2FInterpreter();
+	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
+	vector<string> compName;
+	vector<int> noInput;
+	vector<string> surfName;
+
+	EXPECT_NO_THROW(cfg->GetAssignsParams(compName, noInput, surfName));
+	// check num of lists
+	EXPECT_EQ(compName.size(),2);
+	EXPECT_EQ(noInput.size(),2);
+	EXPECT_EQ(surfName.size(),2);
+	// check all params in lists
+	EXPECT_STREQ("H3N",compName[0].c_str());
+	EXPECT_EQ(1,noInput[0]);
+	EXPECT_STREQ("wlotnh3",surfName[0].c_str());
+
+	EXPECT_STREQ("H3PO4",compName[1].c_str());
+	EXPECT_EQ(2,noInput[1]);
+	EXPECT_STREQ("wloth3po4",surfName[1].c_str());
 	delete cfg;
 }

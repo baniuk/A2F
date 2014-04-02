@@ -50,13 +50,125 @@ void C_A2FInterpreter::GetSurfaceParams( const std::string& portName, std::strin
 	lookup4List(portName.c_str(),list,listSize);
 	// assign list entries to output
 	surf = list[static_cast<UINT>(SurfParams::SurfName)];
-	std::stringstream numberAsString(list[static_cast<UINT>(SurfParams::SurfArea)]);				// number given as string = list[1];
-	numberAsString >> area;
-	if(numberAsString.fail())
-	{
-		PANTHEIOS_TRACE_CRITICAL(PSTR("String not converted to number"));	// should never hit here because of earlier syntax checking
-		throw std::runtime_error("C_A2FInterpreter::GetSurfaceParams:String not converted to number");
-	}
+	area = str2int<float>(list[static_cast<UINT>(SurfParams::SurfArea)]); // number given as string = list[1];
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 
+}
+
+/**
+ * \brief Gets paramteres associated with EXPORT field
+ * \details Gets paramteres associated with EXPORT field. Those are:
+ * \li name of the Fluent function
+ * \li name of the physical property in Aspen
+ * \li name of the component defined in Aspen
+ * Method returns vectors of strings. Certain index must be applied to all of them, e.g. index 0 means all three properties given in one EXPORT.
+ * \param[out] fluentFcn - vector of names of Fluent functions
+ * \param[out] aspenProp - vector of names of Aspen properties
+ * \param[out] compName - vector of names of Aspen Components
+ * \return Properties of defined exports from Fluent. Connects name of the component with physical property of this component and Fluent
+ * \retval \c void
+ * \author PB
+ * \date 2014/04/02
+ * \see Schema.cfg
+ * \see A2F.cfg
+ * \exception ConfigurationException - on error in config4cpp
+ * \exception std::runtime_error in case of other error
+ * \note Suitable only for EXPORT scope because of predefined variables inside. If structure of cfg changed, this function must change too.
+*/
+void C_A2FInterpreter::GetExportsParams( std::vector<std::string>& fluentFcn, std::vector<std::string>& aspenProp, std::vector<std::string>& compName )
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	const char** list;	// list of EXPORTS names (uid)
+	const char** paramList; // list of parameters in one uid
+	int	listSize, unused;
+	const std::string localScopeName = "EXPORTS";	// local name of the scope where parmas are
+	std::string listNamewithScope;		// name of the list but with local scope 
+	lookup4uidNames(localScopeName.c_str(), list, listSize);
+	if(listSize==0)
+	{
+		PANTHEIOS_TRACE_CRITICAL(PSTR("C_A2FInterpreter::GetExportsParams got empty list from lookup4uidNames - no EXPORT?"));	
+		throw std::invalid_argument("C_A2FInterpreter::GetExportsParams got empty list from lookup4uidNames - no EXPORT?");
+	}
+	// EXPORT fields are now listed in list. Iterate among them and copy data to output
+	PANTHEIOS_TRACE_DEBUG(PSTR("List contains "), pantheios::integer(listSize), PSTR(" entries"));
+	for (int i=0; i<listSize; ++i)
+	{
+		listNamewithScope = localScopeName + ".";	// add local scope to every list name
+		listNamewithScope += list[i];
+		PANTHEIOS_TRACE_DEBUG(PSTR("Looking for list: "), listNamewithScope);
+		lookup4List(listNamewithScope.c_str(), paramList, unused);
+		fluentFcn.push_back(paramList[static_cast<UINT>(ExportParams::ExpFunction)]); // add first param from list to output
+		aspenProp.push_back(paramList[static_cast<UINT>(ExportParams::ExpAspenParam)]);
+		compName.push_back(paramList[static_cast<UINT>(ExportParams::ExpComponent)]);
+	}
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+}
+
+/**
+ * \brief Gets paramteres associated with ASSIGN field
+ * \details Gets lists of ASSIGNS and extract three parameters
+ * \param[out] compName - vector of names of Aspen Components
+ * \param[out] noInput - numbers of inputs of PMC
+ * \param[out] surfName - names of the Fluent Surfaces
+ * \return Properties of defined assigns.
+ * \retval \c void
+ * \author PB
+ * \date 2014/04/02
+ * \see Schema.cfg
+ * \see A2F.cfg
+ * \exception ConfigurationException - on error in config4cpp
+ * \exception std::runtime_error in case of other error
+ * \note Suitable only for EXPORT scope because of predefined variables inside. If structure of cfg changed, this function must change too.
+*/
+void C_A2FInterpreter::GetAssignsParams( std::vector<std::string>& compName, std::vector<int>& noInput, std::vector<std::string>& surfName )
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	const char** list;	// list of ASSIGN names (uid)
+	const char** paramList; // list of parameters in one uid
+	int	listSize, unused;
+	const std::string localScopeName = "ASSIGNS";	// local name of the scope where parmas are
+	std::string listNamewithScope;		// name of the list but with local scope 
+	lookup4uidNames(localScopeName.c_str(), list, listSize);
+	if(listSize==0)
+	{
+		PANTHEIOS_TRACE_CRITICAL(PSTR("C_A2FInterpreter::GetAssignsParams got empty list from lookup4uidNames - no ASSIGN scope?"));	
+		throw std::invalid_argument("C_A2FInterpreter::GetAssignsParams got empty list from lookup4uidNames - no ASSIGN scope?");
+	}
+	// ASSIGN fields are now listed in list. Iterate among them and copy data to output
+	PANTHEIOS_TRACE_DEBUG(PSTR("List contains "), pantheios::integer(listSize), PSTR(" entries"));
+	for (int i=0; i<listSize; ++i)
+	{
+		listNamewithScope = localScopeName + ".";	// add local scope to every list name
+		listNamewithScope += list[i];
+		PANTHEIOS_TRACE_DEBUG(PSTR("Looking for list: "), listNamewithScope);
+		lookup4List(listNamewithScope.c_str(), paramList, unused);
+		compName.push_back(paramList[static_cast<UINT>(AssignParams::AssComponent)]); // add first param from list to output
+		noInput.push_back(str2int<int>(paramList[static_cast<UINT>(AssignParams::AssPMCInput)]));
+		surfName.push_back(paramList[static_cast<UINT>(AssignParams::AssSurfName)]);
+	}
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+}
+
+/**
+ * \brief Converts string to integer or float
+ * \details Converts string to integer. Can throw exceptions in case of fail
+ * \param[in] str - string to convert
+ * \return Converted integer value
+ * \retval \c int
+ * \author PB
+ * \date 2014/04/02
+ * \exception std::invalid_argument on conversion fail
+*/
+template <typename T>
+T C_A2FInterpreter::str2int( const char* str )
+{
+	T converted;
+	std::stringstream numberAsString(str);
+	numberAsString >> converted;
+	if(numberAsString.fail())
+	{
+		PANTHEIOS_TRACE_ERROR(PSTR("String not converted to number"));	// should never hit here because of earlier syntax checking
+		throw std::runtime_error("C_A2FInterpreter::str2int:String not converted to number");
+	}
+	return converted;
 }

@@ -161,8 +161,8 @@ void C_Interpreter::lookup4List(const char* name, const char **& list, int& list
 
 /**
  * \brief Looksup for uuid parameters in given scope
- * \details Returns table with uuid list of parameters in given scope. List conatains only names of the parameters and they mus be later 
- * decoded by ithe function (these are list in this case so void C_Interpreter::lookup4List(const char* name, const char **& list, int& listSize)
+ * \details Returns table with uuid list of parameters in given scope. List conatains only names of the parameters and they must be later 
+ * decoded by the function (these are list in this case so void C_Interpreter::lookup4List(const char* name, const char **& list, int& listSize)
  * should be used. Examplary output can look as follows:
  * \code
  2>  uid-000000000-EXPORTED_VALUE
@@ -171,7 +171,7 @@ void C_Interpreter::lookup4List(const char* name, const char **& list, int& list
  * \param[in] name - name of the scope where uid-params are (sub-scope, not main FLUENT)
  * \param[out] list - list of parameters in \c name
  * \param[out] listSize - size of the array of strings returned (number of parmaeters in list)
- * \return array of strings that contains parameters in \c list scope
+ * \return array of strings that contains parameters in \c list scope. If listSize is zero list is undefined
  * \retval \c void
  * \author PB
  * \date 2014/03/26
