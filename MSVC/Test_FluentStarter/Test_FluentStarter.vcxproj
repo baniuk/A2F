@@ -61,9 +61,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>$(TargetDir)$(TargetFileName)
-cd $(SolutionDir)..\tools
-LogConvert.bat c:\Test_FluentStarter.pantlog</Command>
+      <Command>$(SolutionDir)..\tools\xcopy $(SolutionDir)$(Configuration)\$(TargetFileName) D:\Dokumenty\Dropbox\A2F /F/Y</Command>
+      <Message>Should be run on virtual machine. Auto run disabled</Message>
     </PostBuildEvent>
     <Bscmake>
       <PreserveSbr>true</PreserveSbr>

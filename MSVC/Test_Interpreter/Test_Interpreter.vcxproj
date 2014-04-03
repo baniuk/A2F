@@ -74,7 +74,7 @@ LogConvert.bat c:\Test_Interpreter.pantlog</Command>
     </Bscmake>
     <PreBuildEvent>
       <Command>$(SolutionDir)..\tools\Scheme2Str.exe $(ProjectDir)Schema.cfg $(SolutionDir)Common_utilities\</Command>
-      <Message>generates schema.h file</Message>
+      <Message>generates schema.h file. Must be done if file changes</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

@@ -69,10 +69,11 @@ void C_Interpreter::OpenAndValidate( const char* cfgInput)
 //	if(application_scope.empty())
 //		throw CException
 	Configuration* cfg = (Configuration*)m_cfg;
+	SchemaValidator* validator = (SchemaValidator*)m_validator;
 	if (strcmp(cfgInput, "") != 0) {
 		cfg->parse(cfgInput);				// input config file
-		m_validator->parseSchema(schema);	// schema file
-		m_validator->validate(cfg,application_scope.c_str(),"");
+		validator->parseSchema(schema);	// schema file
+		validator->validate(cfg,application_scope.c_str(),"");
 	}
 	else
 		throw std::invalid_argument("Empty file provided");

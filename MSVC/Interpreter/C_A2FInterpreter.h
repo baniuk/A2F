@@ -1,9 +1,9 @@
 /**
- * \file C_A2FInterpreter.h
- * \brief Holds A2F specific config functions
- * \author PB
- * \date 2014/03/25
- */
+* \file C_A2FInterpreter.h
+* \brief Holds A2F specific config functions
+* \author PB
+* \date 2014/03/25
+*/
 #ifndef C_A2FInterpreter_h__
 #define C_A2FInterpreter_h__
 
@@ -32,21 +32,20 @@ enum class AssignParams
 	AssComponent,	///< Name of the chemical component
 	AssPMCInput,	///< Input of the PMC
 	AssSurfName		///< Name of the surface
-	
 };
 
 /**
- * \class C_A2FInterpreter
- * \brief Hold specific methods for A2F
- * \details Allows to as for specific parameters in lists. Can interpret particular fileds inlists. 
- * This class is strictly connected with script format. Class holds methods for acces to lists of parameters.
- * Assumes that we know format of the list and know which parameter is where.
- * \author PB
- * \date 2014/03/25
- * \see Script definition for A2F
- * \pre external variable \c application_scope must be set before use
- * \pre Config script must be validated using OpenAndValidate(const char* cfgInput);
- * \todo add description of script params in \c Getxxx functions
+* \class C_A2FInterpreter
+* \brief Hold specific methods for A2F
+* \details Allows to as for specific parameters in lists. Can interpret particular fileds inlists.
+* This class is strictly connected with script format. Class holds methods for acces to lists of parameters.
+* Assumes that we know format of the list and know which parameter is where.
+* \author PB
+* \date 2014/03/25
+* \see Script definition for A2F
+* \pre external variable \c application_scope must be set before use
+* \pre Config script must be validated using OpenAndValidate(const char* cfgInput);
+* \todo add description of script params in \c Getxxx functions
 */
 class C_A2FInterpreter :
 	public C_Interpreter
@@ -66,4 +65,3 @@ private:
 	T str2int(const char* str);
 };
 #endif // C_A2FInterpreter_h__
-

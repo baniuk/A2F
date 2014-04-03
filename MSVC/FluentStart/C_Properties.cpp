@@ -18,5 +18,7 @@ const ATL::CString C_Properties::PAR_PROCNAME = _T("f:\\Program Files\\ANSYS Inc
 ATL::CString C_Properties::PAR_PARNAME = _T(" 3ddp -i "); // 3ddp -g -i ";
 /// name of the subprocess: fl12016s.exe
 const ATL::CString C_Properties::PAR_SUBPROCNAME = _T("fl1450s.exe");
-// path to the directory with operational files
+/// path to the directory with operational files
 const ATL::CString C_Properties::PAR_PATH = _T("c:\\TMP\\");
+/// path to the script
+const ATL::CString C_Properties::PAR_SCRIPT_PATH = _T("c:\\A2F.cfg");

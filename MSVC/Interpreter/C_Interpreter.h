@@ -50,8 +50,8 @@ protected:
 	int listSize;
 private:
 	bool	m_wantDiagnostics;
-	void*	m_cfg;						// opaque pointer to Config4Cpp config object
-	config4cpp::SchemaValidator*	m_validator;				// pointer to SchemaValidator object
+	void*	m_cfg;						// opaque pointer to Config4Cpp config object to avoid problems with includes
+	void*	m_validator;				// pointer to SchemaValidator object
 };
 #endif // C_Interpreter_h__
 

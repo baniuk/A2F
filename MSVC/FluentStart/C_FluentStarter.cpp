@@ -11,6 +11,9 @@
 
 using namespace std;
 
+// set global scope 
+const string application_scope = "FLUENT";
+
 /**
  * \brief Starts fluent process
  * \details Runs fluent. Before run calls CreateJournal to create required journal. The journal file is passed
@@ -203,20 +206,17 @@ HRESULT C_FluentStarter::PrintProcessNameAndID( DWORD processID, const TCHAR* na
  * \author PB
  * \date 2014/02/21
  * \ref http://aerojet.engr.ucdavis.edu/fluenthelp/html/ug/node23.htm
+ * \exception ConfigurationException - on error in config4cpp
+ * \exception std::exception - on other error.
 */
 HRESULT C_FluentStarter::CreateJournal( void )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-// 	// create journal file in %TMP%
-// 	char* tmp_path;	// path to tmp directory
-// 	size_t buff_size;
-// 	errno_t err = _dupenv_s(&tmp_path,&buff_size,_T("TMP"));
-// 	if(err!=NULL)
-// 	{
-// 		PANTHEIOS_TRACE_ERROR(PSTR("Cant get TMP path"));
-// 		return E_FAIL;
-// 	}
-	string path_to_journal = C_Properties::PAR_PATH;		// assign const char to string
+	// ask for journal path
+	std::unique_ptr<C_Interpreter> cfg(new C_Interpreter()); // smart pointer in case of exception
+	cfg->OpenAndValidate(C_Properties::PAR_SCRIPT_PATH);	// search for script
+	string path_to_journal(cfg->lookup4String("DATA_PATH")); // gets path
+
 	path_to_journal += _T("journal.jou"); // adding file name to TMP path
 	PANTHEIOS_TRACE_DEBUG(PSTR("Trying to open: "), path_to_journal);
 	std::ofstream journal;
@@ -229,11 +229,9 @@ HRESULT C_FluentStarter::CreateJournal( void )
 	else
 	{
 		PANTHEIOS_TRACE_ERROR(PSTR("Cant open file"));
-//		free(tmp_path);	// free memory located by _dumpenv_s
 		return E_FAIL;
 	}
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-//	free(tmp_path); // free memory located by _dumpenv_s
 	return S_OK;
 }
 
