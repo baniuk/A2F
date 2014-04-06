@@ -5,6 +5,7 @@
  * \pre Nedd fluent installed
  * \author PB
  * \date 2014/02/05
+ * \warning All test should be run on virtual machine A2F.
  */
 
 
@@ -96,7 +97,7 @@ TEST(FluentStarter,DISABLED__StartFluent)
  * Most parameters set separately in C_Properties. Starter file is created here
  * \see C_Properties
  */
-TEST(FluentStarter,_StartFluentFull)
+TEST(FluentStarter,DISABLED__StartFluentFull)
 {
 	HRESULT err;
 	err = C_FluentStarter::CreateJournal();	// creates journal

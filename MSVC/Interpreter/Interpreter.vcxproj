@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{EE34F085-BC0F-4A8B-921B-3DC198F0FA05}</ProjectGuid>
+    <ProjectGuid>{73D12AE7-23B6-405A-A76A-64131740374C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>FluentStart</RootNamespace>
+    <RootNamespace>Interpreter</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -44,7 +44,7 @@
   <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -80,23 +80,18 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C_FluentStarter.h" />
-    <ClInclude Include="C_Properties.h" />
+    <ClInclude Include="C_A2FInterpreter.h" />
+    <ClInclude Include="C_Interpreter.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C_FluentStarter.cpp" />
-    <ClCompile Include="C_Properties.cpp" />
+    <ClCompile Include="C_A2FInterpreter.cpp" />
+    <ClCompile Include="C_Interpreter.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Interpreter\Interpreter.vcxproj">
-      <Project>{73d12ae7-23b6-405a-a76a-64131740374c}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

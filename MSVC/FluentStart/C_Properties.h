@@ -27,6 +27,8 @@ private:
 	C_Properties(void) {};
 	~C_Properties(void) {};
 public:
+	/// Path to script file
+	static const ATL::CString PAR_SCRIPT_PATH;
 	/// Path to Fluent exe
 	static const ATL::CString PAR_PROCNAME;
 	/// Parameter to pass to Fluent
