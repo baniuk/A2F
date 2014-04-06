@@ -11,9 +11,6 @@
 
 using namespace std;
 
-// set global scope 
-const string application_scope = "FLUENT";
-
 /**
  * \brief Starts fluent process
  * \details Runs fluent. Before run calls CreateJournal to create required journal. The journal file is passed

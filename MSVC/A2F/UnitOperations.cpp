@@ -12,8 +12,11 @@
 #include "UnitOperations.h"
 #include "..\Common_utilities\PantheiosLogHelper.h"
 
+// Definition of external variables
 // CUnitOperations
 CapeValidationStatus exValidationStatus = CAPE_NOT_VALIDATED;
+// set global context for script
+std::string application_scope = "FLUENT";
 
 CUnitOperations::CUnitOperations()
 {

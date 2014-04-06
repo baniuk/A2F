@@ -58,6 +58,9 @@ pan_be_N_t PAN_BE_N_BACKEND_LIST[] = {
 
 using namespace std;
 
+// set global context for script
+string application_scope = "FLUENT";
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	int ret = 0;
