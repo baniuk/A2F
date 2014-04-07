@@ -102,8 +102,8 @@ TEST(FluentStarter,DISABLED__StartFluent)
  */
 TEST(FluentStarter,DISABLED__StartFluentFull)
 {
-	HRESULT err;
-	err = C_FluentStarter::CreateJournal();	// creates journal
+	HRESULT err=E_FAIL;
+	EXPECT_NO_THROW(err = C_FluentStarter::CreateJournal());	// creates journal
 	ASSERT_HRESULT_SUCCEEDED(err);
 	string path_to_scm = C_Properties::PAR_PATH;		
 	path_to_scm += _T("_starter.scm"); // adding file name to TMP path
@@ -124,7 +124,15 @@ TEST(FluentStarter,DISABLED__StartFluentFull)
 TEST(FluentStarter,_CreateJournal)
 {
 	HRESULT err;
-	err = C_FluentStarter::CreateJournal();
+	try
+	{
+		err = C_FluentStarter::CreateJournal();
+	}
+	catch(std::exception& ex)
+	{
+		std::cerr << "Caught exception: " << ex.what() << endl;
+		ASSERT_TRUE(false);
+	}
 	std::cerr << "Need to check journal file manually" << std::endl;
 	ASSERT_HRESULT_SUCCEEDED(err);
 }

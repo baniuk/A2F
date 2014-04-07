@@ -433,6 +433,81 @@ TEST(UseExample, _lookup4uidNames_equal)
 	delete cfg;
 }
 
+/**
+ * \test A2FInterpreter:_lookup4Int_wrongformat
+ * \brief Gets one int parameter from configuration but we ask for param defined as string. 
+ * \pre external variable \c application_scope must be set to FLUENT
+ * \post Should throw exception, returned value not initialized
+ * \author PB
+ * \date 2014/03/23
+ * \see config4cpp documentation
+ * \see TEST(Interpreter,_lookup4String_wrongformat)
+ * \remarks In this case method returns regular string that contain number
+*/
+TEST(A2FInterpreter,_lookup4Int_wrongformat)
+{
+	application_scope = "FLUENT";
+	C_A2FInterpreter* cfg = new C_A2FInterpreter();
+	EXPECT_NO_THROW(cfg->A2FOpenAndValidate("A2F.cfg"));
+	int result;
+	EXPECT_THROW(result = cfg->A2Flookup4Int("COMMAND_LINE"),std::invalid_argument);
+	delete cfg;
+
+}
+
+/**
+ * \test A2FInterpreter:_lookup4Int_wrongformat1
+ * \brief Gets one int parameter from configuration but we ask for param defined as string. 
+ * \pre external variable \c application_scope must be set to FLUENT
+ * \post Should throw exception, returned value not initialized. Prints error message on screen
+ * \author PB
+ * \date 2014/03/23
+ * \see config4cpp documentation
+ * \see TEST(Interpreter,_lookup4String_wrongformat)
+ * \remarks In this case method returns regular string that contain number
+*/
+TEST(A2FInterpreter,_lookup4Int_wrongformat1)
+{
+	application_scope = "FLUENT";
+	bool exc = false;
+	C_A2FInterpreter* cfg = new C_A2FInterpreter();
+	EXPECT_NO_THROW(cfg->A2FOpenAndValidate("A2F.cfg"));
+	int result;
+	try
+	{
+		result = cfg->A2Flookup4Int("COMMAND_LINE");
+	}
+	catch(std::exception& ex)
+	{
+		std::cerr << "Exception: " << ex.what() << endl;
+		exc = true;
+//		delete cfg;
+	}
+	EXPECT_TRUE(exc);
+	delete cfg;
+
+}
+
+/**
+ * \test A2FInterpreter:_lookup4Float_equal
+ * \brief Gets one float parameter from configuration
+ * \pre external variable \c application_scope must be set to FLUENT
+ * \post Should not throw exception, returned value equal 3 
+ * \author PB
+ * \date 2014/03/23
+ * \see config4cpp documentation
+ * \remarks In this case int vales can be read as well
+ */
+TEST(A2FInterpreter,_lookup4Float_equal)
+{
+	application_scope = "FLUENT";
+	C_A2FInterpreter* cfg = new C_A2FInterpreter();
+	EXPECT_NO_THROW(cfg->A2FOpenAndValidate("A2F.cfg"));
+	float result;
+	EXPECT_NO_THROW(result = static_cast<float>(cfg->A2Flookup4Int("NUMOFITER")));
+	EXPECT_EQ(result, 3);
+	delete cfg;
+}
 
 /**
  * \test _GetSurfaceParams_equal
@@ -450,7 +525,7 @@ TEST(A2FInterpreter,_GetSurfaceParams_equal)
 
 	string surfaceName;
 	float area;
-	EXPECT_NO_THROW(cfg->GetSurfaceParams("SURFACES.OUTPUT1", surfaceName, area));
+	EXPECT_NO_THROW(cfg->A2FGetSurfaceParams("SURFACES.OUTPUT1", surfaceName, area));
 	EXPECT_STREQ(surfaceName.c_str(),"wylotpulpy");
 	EXPECT_EQ(area,0.0113f);
 	delete cfg;
@@ -473,7 +548,7 @@ TEST(A2FInterpreter,_GetExportsParams_equal)
 	vector<string> aspenProp;
 	vector<string> compName;
 
-	EXPECT_NO_THROW(cfg->GetExportsParams(fluentFcn, aspenProp, compName));
+	EXPECT_NO_THROW(cfg->A2FGetExportsParams(fluentFcn, aspenProp, compName));
 	// check num of lists
 	EXPECT_EQ(fluentFcn.size(),2);
 	EXPECT_EQ(aspenProp.size(),2);
@@ -506,7 +581,7 @@ TEST(A2FInterpreter,_GetAssignsParams_equal)
 	vector<int> noInput;
 	vector<string> surfName;
 
-	EXPECT_NO_THROW(cfg->GetAssignsParams(compName, noInput, surfName));
+	EXPECT_NO_THROW(cfg->A2FGetAssignsParams(compName, noInput, surfName));
 	// check num of lists
 	EXPECT_EQ(compName.size(),2);
 	EXPECT_EQ(noInput.size(),2);

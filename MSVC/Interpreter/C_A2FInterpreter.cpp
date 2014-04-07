@@ -38,16 +38,24 @@ C_A2FInterpreter::~C_A2FInterpreter(void)
  * \author PB
  * \date 2014/03/25
  * \exception std::runtime_error in case of other error
- * \excpetion ConfigurationException - on error in config4cpp
+ * \excpetion std::invalid_argument - on error in config4cpp
  * \pre external variable \c application_scope must be set
  * \see http://stackoverflow.com/questions/1012571/stdstring-to-float-or-double
 */
-void C_A2FInterpreter::GetSurfaceParams( const std::string& portName, std::string& surf, float& area )
+void C_A2FInterpreter::A2FGetSurfaceParams( const std::string& portName, std::string& surf, float& area )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	const char** list;
 	int	listSize;
-	lookup4List(portName.c_str(),list,listSize);
+	try
+	{
+		lookup4List(portName.c_str(),list,listSize);
+	}
+	catch(config4cpp::ConfigurationException& ex) // convert to std::exception
+	{
+		PANTHEIOS_TRACE_CRITICAL(PSTR("C_A2FInterpreter::A2FGetSurfaceParams caught exception"));	
+		throw std::invalid_argument(ex.c_str());
+	}
 	// assign list entries to output
 	surf = list[static_cast<UINT>(SurfParams::SurfName)];
 	area = str2int<float>(list[static_cast<UINT>(SurfParams::SurfArea)]); // number given as string = list[1];
@@ -71,11 +79,11 @@ void C_A2FInterpreter::GetSurfaceParams( const std::string& portName, std::strin
  * \date 2014/04/02
  * \see Schema.cfg
  * \see A2F.cfg
- * \exception ConfigurationException - on error in config4cpp
+ * \excpetion std::invalid_argument - on error in config4cpp
  * \exception std::runtime_error in case of other error
  * \note Suitable only for EXPORT scope because of predefined variables inside. If structure of cfg changed, this function must change too.
 */
-void C_A2FInterpreter::GetExportsParams( std::vector<std::string>& fluentFcn, std::vector<std::string>& aspenProp, std::vector<std::string>& compName )
+void C_A2FInterpreter::A2FGetExportsParams( std::vector<std::string>& fluentFcn, std::vector<std::string>& aspenProp, std::vector<std::string>& compName )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	const char** list;	// list of EXPORTS names (uid)
@@ -83,23 +91,31 @@ void C_A2FInterpreter::GetExportsParams( std::vector<std::string>& fluentFcn, st
 	int	listSize, unused;
 	const std::string localScopeName = "EXPORTS";	// local name of the scope where parmas are
 	std::string listNamewithScope;		// name of the list but with local scope 
-	lookup4uidNames(localScopeName.c_str(), list, listSize);
-	if(listSize==0)
+	try
 	{
-		PANTHEIOS_TRACE_CRITICAL(PSTR("C_A2FInterpreter::GetExportsParams got empty list from lookup4uidNames - no EXPORT?"));	
-		throw std::invalid_argument("C_A2FInterpreter::GetExportsParams got empty list from lookup4uidNames - no EXPORT?");
+		lookup4uidNames(localScopeName.c_str(), list, listSize);
+		if(listSize==0)
+		{
+			PANTHEIOS_TRACE_CRITICAL(PSTR("C_A2FInterpreter::A2FGetExportsParams got empty list from lookup4uidNames - no EXPORT?"));	
+			throw std::invalid_argument("C_A2FInterpreter::A2FGetExportsParams got empty list from lookup4uidNames - no EXPORT?");
+		}
+		// EXPORT fields are now listed in list. Iterate among them and copy data to output
+		PANTHEIOS_TRACE_DEBUG(PSTR("List contains "), pantheios::integer(listSize), PSTR(" entries"));
+		for (int i=0; i<listSize; ++i)
+		{
+			listNamewithScope = localScopeName + ".";	// add local scope to every list name
+			listNamewithScope += list[i];
+			PANTHEIOS_TRACE_DEBUG(PSTR("Looking for list: "), listNamewithScope);
+			lookup4List(listNamewithScope.c_str(), paramList, unused);
+			fluentFcn.push_back(paramList[static_cast<UINT>(ExportParams::ExpFunction)]); // add first param from list to output
+			aspenProp.push_back(paramList[static_cast<UINT>(ExportParams::ExpAspenParam)]);
+			compName.push_back(paramList[static_cast<UINT>(ExportParams::ExpComponent)]);
+		}
 	}
-	// EXPORT fields are now listed in list. Iterate among them and copy data to output
-	PANTHEIOS_TRACE_DEBUG(PSTR("List contains "), pantheios::integer(listSize), PSTR(" entries"));
-	for (int i=0; i<listSize; ++i)
+	catch(config4cpp::ConfigurationException& ex) // convert to std::exception
 	{
-		listNamewithScope = localScopeName + ".";	// add local scope to every list name
-		listNamewithScope += list[i];
-		PANTHEIOS_TRACE_DEBUG(PSTR("Looking for list: "), listNamewithScope);
-		lookup4List(listNamewithScope.c_str(), paramList, unused);
-		fluentFcn.push_back(paramList[static_cast<UINT>(ExportParams::ExpFunction)]); // add first param from list to output
-		aspenProp.push_back(paramList[static_cast<UINT>(ExportParams::ExpAspenParam)]);
-		compName.push_back(paramList[static_cast<UINT>(ExportParams::ExpComponent)]);
+		PANTHEIOS_TRACE_CRITICAL(PSTR("C_A2FInterpreter::A2FGetExportsParams caught exception"));	
+		throw std::invalid_argument(ex.c_str());
 	}
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 }
@@ -116,11 +132,11 @@ void C_A2FInterpreter::GetExportsParams( std::vector<std::string>& fluentFcn, st
  * \date 2014/04/02
  * \see Schema.cfg
  * \see A2F.cfg
- * \exception ConfigurationException - on error in config4cpp
+ * \excpetion std::invalid_argument - on error in config4cpp
  * \exception std::runtime_error in case of other error
  * \note Suitable only for EXPORT scope because of predefined variables inside. If structure of cfg changed, this function must change too.
 */
-void C_A2FInterpreter::GetAssignsParams( std::vector<std::string>& compName, std::vector<int>& noInput, std::vector<std::string>& surfName )
+void C_A2FInterpreter::A2FGetAssignsParams( std::vector<std::string>& compName, std::vector<int>& noInput, std::vector<std::string>& surfName )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	const char** list;	// list of ASSIGN names (uid)
@@ -128,23 +144,31 @@ void C_A2FInterpreter::GetAssignsParams( std::vector<std::string>& compName, std
 	int	listSize, unused;
 	const std::string localScopeName = "ASSIGNS";	// local name of the scope where parmas are
 	std::string listNamewithScope;		// name of the list but with local scope 
-	lookup4uidNames(localScopeName.c_str(), list, listSize);
-	if(listSize==0)
+	try
 	{
-		PANTHEIOS_TRACE_CRITICAL(PSTR("C_A2FInterpreter::GetAssignsParams got empty list from lookup4uidNames - no ASSIGN scope?"));	
-		throw std::invalid_argument("C_A2FInterpreter::GetAssignsParams got empty list from lookup4uidNames - no ASSIGN scope?");
+		lookup4uidNames(localScopeName.c_str(), list, listSize);
+		if(listSize==0)
+		{
+			PANTHEIOS_TRACE_CRITICAL(PSTR("C_A2FInterpreter::A2FGetAssignsParams got empty list from lookup4uidNames - no ASSIGN scope?"));	
+			throw std::invalid_argument("C_A2FInterpreter::A2FGetAssignsParams got empty list from lookup4uidNames - no ASSIGN scope?");
+		}
+		// ASSIGN fields are now listed in list. Iterate among them and copy data to output
+		PANTHEIOS_TRACE_DEBUG(PSTR("List contains "), pantheios::integer(listSize), PSTR(" entries"));
+		for (int i=0; i<listSize; ++i)
+		{
+			listNamewithScope = localScopeName + ".";	// add local scope to every list name
+			listNamewithScope += list[i];
+			PANTHEIOS_TRACE_DEBUG(PSTR("Looking for list: "), listNamewithScope);
+			lookup4List(listNamewithScope.c_str(), paramList, unused);
+			compName.push_back(paramList[static_cast<UINT>(AssignParams::AssComponent)]); // add first param from list to output
+			noInput.push_back(str2int<int>(paramList[static_cast<UINT>(AssignParams::AssPMCInput)]));
+			surfName.push_back(paramList[static_cast<UINT>(AssignParams::AssSurfName)]);
+		}
 	}
-	// ASSIGN fields are now listed in list. Iterate among them and copy data to output
-	PANTHEIOS_TRACE_DEBUG(PSTR("List contains "), pantheios::integer(listSize), PSTR(" entries"));
-	for (int i=0; i<listSize; ++i)
+	catch(config4cpp::ConfigurationException& ex) // convert to std::exception
 	{
-		listNamewithScope = localScopeName + ".";	// add local scope to every list name
-		listNamewithScope += list[i];
-		PANTHEIOS_TRACE_DEBUG(PSTR("Looking for list: "), listNamewithScope);
-		lookup4List(listNamewithScope.c_str(), paramList, unused);
-		compName.push_back(paramList[static_cast<UINT>(AssignParams::AssComponent)]); // add first param from list to output
-		noInput.push_back(str2int<int>(paramList[static_cast<UINT>(AssignParams::AssPMCInput)]));
-		surfName.push_back(paramList[static_cast<UINT>(AssignParams::AssSurfName)]);
+		PANTHEIOS_TRACE_CRITICAL(PSTR("C_A2FInterpreter::A2FGetAssignsParams caught exception"));	
+		throw std::invalid_argument(ex.c_str());
 	}
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 }
@@ -171,4 +195,106 @@ T C_A2FInterpreter::str2int( const char* str )
 		throw std::runtime_error("C_A2FInterpreter::str2int:String not converted to number");
 	}
 	return converted;
+}
+
+/**
+ * \copydoc C_Interpreter::OpenAndValidate
+ * \note This method encapsulate original one and converts exceptions to std::exception. Adds also Pantheios logging
+ */ 
+void C_A2FInterpreter::A2FOpenAndValidate( const char* cfgInput )
+{
+	try
+	{
+		OpenAndValidate(cfgInput);
+	}
+	catch(config4cpp::ConfigurationException& ex) // convert to std::exception
+	{
+		PANTHEIOS_TRACE_CRITICAL(PSTR("C_A2FInterpreter::A2FOpenAndValidate caught exception"));	
+		throw std::invalid_argument(ex.c_str());
+	}
+}
+
+/**
+ * \copydoc C_Interpreter::lookup4String
+ * \note This method encapsulate original one and converts exceptions to std::exception. Adds also Pantheios logging
+ */ 
+const char* C_A2FInterpreter::A2Flookup4String( const char* name )
+{
+	try
+	{
+		return lookup4String(name);
+	}
+	catch(config4cpp::ConfigurationException& ex) // convert to std::exception
+	{
+		PANTHEIOS_TRACE_CRITICAL(PSTR("C_A2FInterpreter::A2Flookup4String caught exception"));	
+		throw std::invalid_argument(ex.c_str());
+	}
+}
+
+/**
+ * \copydoc C_Interpreter::lookup4Int
+ * \note This method encapsulate original one and converts exceptions to std::exception. Adds also Pantheios logging
+ */ 
+int C_A2FInterpreter::A2Flookup4Int( const char* name )
+{
+	try
+	{
+		return lookup4Int(name);
+	}
+	catch(config4cpp::ConfigurationException& ex) // convert to std::exception
+	{
+		PANTHEIOS_TRACE_CRITICAL(PSTR("C_A2FInterpreter::A2Flookup4Int caught exception"));	
+		throw std::invalid_argument(ex.c_str());
+	}
+}
+
+/**
+ * \copydoc C_Interpreter::lookup4Float
+ * \note This method encapsulate original one and converts exceptions to std::exception. Adds also Pantheios logging
+ */ 
+float C_A2FInterpreter::A2Flookup4Float( const char* name )
+{
+	try
+	{
+		return lookup4Float(name);
+	}
+	catch(config4cpp::ConfigurationException& ex) // convert to std::exception
+	{
+		PANTHEIOS_TRACE_CRITICAL(PSTR("C_A2FInterpreter::A2Flookup4Float caught exception"));	
+		throw std::invalid_argument(ex.c_str());
+	}
+}
+
+/**
+ * \copydoc C_Interpreter::lookup4List
+ * \note This method encapsulate original one and converts exceptions to std::exception. Adds also Pantheios logging
+ */ 
+void C_A2FInterpreter::A2Flookup4List( const char* name, const char **& list, int& listSize )
+{
+	try
+	{
+		lookup4List(name, list, listSize);
+	}
+	catch(config4cpp::ConfigurationException& ex) // convert to std::exception
+	{
+		PANTHEIOS_TRACE_CRITICAL(PSTR("C_A2FInterpreter::A2Flookup4List caught exception"));	
+		throw std::invalid_argument(ex.c_str());
+	}
+}
+
+/**
+ * \copydoc C_Interpreter::lookup4uidNames
+ * \note This method encapsulate original one and converts exceptions to std::exception. Adds also Pantheios logging
+ */ 
+void C_A2FInterpreter::A2Flookup4uidNames( const char* name, const char **& list, int& listSize )
+{
+	try
+	{
+		lookup4uidNames(name, list, listSize);
+	}
+	catch(config4cpp::ConfigurationException& ex) // convert to std::exception
+	{
+		PANTHEIOS_TRACE_CRITICAL(PSTR("C_A2FInterpreter::A2Flookup4uidNames caught exception"));	
+		throw std::invalid_argument(ex.c_str());
+	}
 }

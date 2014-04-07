@@ -39,7 +39,7 @@ enum class AssignParams
 * \brief Hold specific methods for A2F
 * \details Allows to as for specific parameters in lists. Can interpret particular fileds inlists.
 * This class is strictly connected with script format. Class holds methods for acces to lists of parameters.
-* Assumes that we know format of the list and know which parameter is where.
+* Assumes that we know format of the list and know which parameter is where. Throws only std exceptions and convert config4cpp exceptions to std
 * \author PB
 * \date 2014/03/25
 * \see Script definition for A2F
@@ -54,11 +54,23 @@ public:
 	C_A2FInterpreter(bool wantDiagnostics = false);
 	~C_A2FInterpreter(void);
 	/// Gets params connected with surface of given name
-	void GetSurfaceParams(const std::string& portName, std::string& surf, float& area);
+	void A2FGetSurfaceParams(const std::string& portName, std::string& surf, float& area);
 	/// Gets EXPORTS from params
-	void GetExportsParams(std::vector<std::string>& fluentFcn, std::vector<std::string>& aspenProp, std::vector<std::string>& compName);
+	void A2FGetExportsParams(std::vector<std::string>& fluentFcn, std::vector<std::string>& aspenProp, std::vector<std::string>& compName);
 	/// Gets ASSIGNS form params
-	void GetAssignsParams(std::vector<std::string>& compName, std::vector<int>& noInput, std::vector<std::string>& surfName);
+	void A2FGetAssignsParams(std::vector<std::string>& compName, std::vector<int>& noInput, std::vector<std::string>& surfName);
+	/// Warper of C_Interpreter::OpenAndValidate
+	void A2FOpenAndValidate(const char* cfgInput);
+	/// Warper of C_Interpreter::lookup4String
+	const char* A2Flookup4String(const char* name);
+	/// Warper of C_Interpreter::lookup4Int
+	int A2Flookup4Int(const char* name);
+	/// Warper of C_Interpreter::lookup4Float
+	float A2Flookup4Float(const char* name);
+	/// Warper of C_Interpreter::lookup4List
+	void A2Flookup4List(const char* name, const char **& list, int& listSize);
+	/// Warper of C_Interpreter::lookup4uidNames
+	void A2Flookup4uidNames(const char* name, const char **& list, int& listSize);
 private:
 	/// converts string to number
 	template <typename T>
