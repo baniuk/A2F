@@ -203,16 +203,15 @@ HRESULT C_FluentStarter::PrintProcessNameAndID( DWORD processID, const TCHAR* na
  * \author PB
  * \date 2014/02/21
  * \ref http://aerojet.engr.ucdavis.edu/fluenthelp/html/ug/node23.htm
- * \exception ConfigurationException - on error in config4cpp
- * \exception std::exception - on other error.
+ * \exception std::exception - on any error.
 */
 HRESULT C_FluentStarter::CreateJournal( void )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	// ask for journal path
-	std::unique_ptr<C_Interpreter> cfg(new C_Interpreter()); // smart pointer in case of exception
-	cfg->OpenAndValidate(C_Properties::PAR_SCRIPT_PATH);	// search for script
-	string path_to_journal(cfg->lookup4String("DATA_PATH")); // gets path
+	std::unique_ptr<C_A2FInterpreter> cfg(new C_A2FInterpreter()); // smart pointer in case of exception
+	cfg->A2FOpenAndValidate(C_Properties::PAR_SCRIPT_PATH);	// search for script
+	string path_to_journal(cfg->A2Flookup4String("DATA_PATH")); // gets path
 
 	path_to_journal += _T("journal.jou"); // adding file name to TMP path
 	PANTHEIOS_TRACE_DEBUG(PSTR("Trying to open: "), path_to_journal);
