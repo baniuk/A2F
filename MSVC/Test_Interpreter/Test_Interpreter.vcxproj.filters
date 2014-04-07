@@ -40,14 +40,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="StaticTest.cmd">
-      <Filter>CMD_Tests</Filter>
-    </None>
     <None Include="A2F.cfg">
       <Filter>Configs</Filter>
     </None>
     <None Include="Schema.cfg">
       <Filter>Configs</Filter>
+    </None>
+    <None Include="StaticTest.bat">
+      <Filter>CMD_Tests</Filter>
     </None>
   </ItemGroup>
 </Project>

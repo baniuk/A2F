@@ -66,6 +66,7 @@
     </Link>
     <PostBuildEvent>
       <Command>$(TargetDir)$(TargetFileName)
+$(SolutionDir)..\tools\xcopy $(SolutionDir)Test_Interpreter\A2F.cfg c:\ /F/Y
 cd $(SolutionDir)..\tools
 LogConvert.bat c:\Test_Interpreter.pantlog</Command>
     </PostBuildEvent>
@@ -116,7 +117,7 @@ LogConvert.bat c:\Test_Interpreter.pantlog</Command>
   <ItemGroup>
     <None Include="A2F.cfg" />
     <None Include="Schema.cfg" />
-    <None Include="StaticTest.cmd" />
+    <None Include="StaticTest.bat" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
