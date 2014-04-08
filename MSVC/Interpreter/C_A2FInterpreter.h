@@ -71,6 +71,8 @@ public:
 	void A2Flookup4List(const char* name, const char **& list, int& listSize);
 	/// Warper of C_Interpreter::lookup4uidNames
 	void A2Flookup4uidNames(const char* name, const char **& list, int& listSize);
+	/// Conversion between strings and wstrings
+	static std::wstring s2ws(const std::string& s);
 private:
 	/// converts string to number
 	template <typename T>

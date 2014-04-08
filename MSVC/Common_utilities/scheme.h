@@ -10,6 +10,7 @@ const char* schema[] = {
 	"@typedef _SURFACES						=	tuple[string,surface, float,area]",
 	"@required DATA_PATH					=	string",																
 	"@required FLUENT_PATH					=	string",
+	"@required PROCESS_NAME					=	string",
 	"ASSIGNS								=	scope",
 	"EXPORTS								=	scope",
 	"SURFACES								=	scope",

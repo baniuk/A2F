@@ -298,3 +298,24 @@ void C_A2FInterpreter::A2Flookup4uidNames( const char* name, const char **& list
 		throw std::invalid_argument(ex.c_str());
 	}
 }
+
+/**
+ * \details Converst strings to wstrings. This is static method because most returns from this class is ASCII strings
+ * \param[in] s - string to convert
+ * \return Converted string
+ * \retval \c std::wstring
+ * \author PB
+ * \date 2014/04/08
+ * \see http://stackoverflow.com/questions/27220/how-to-convert-stdstring-to-lpcwstr-in-c-unicode
+*/
+std::wstring C_A2FInterpreter::s2ws(const std::string& s)
+{
+	int len;
+	int slength = (int)s.length() + 1;
+	len = MultiByteToWideChar(CP_ACP, 0, s.c_str(), slength, 0, 0); 
+	wchar_t* buf = new wchar_t[len];
+	MultiByteToWideChar(CP_ACP, 0, s.c_str(), slength, buf, len);
+	std::wstring r(buf);
+	delete[] buf;
+	return r;
+}

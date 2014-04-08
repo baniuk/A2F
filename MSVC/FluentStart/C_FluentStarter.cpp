@@ -21,6 +21,7 @@ using namespace std;
  * - E_FAIL if not started
  * \author PB
  * \date 2014/02/06
+ * \pre CreateJournal() must be called before to create journal
 */
 HRESULT C_FluentStarter::StartFluent( void )
 {
@@ -35,12 +36,24 @@ HRESULT C_FluentStarter::StartFluent( void )
 
 	si.lpDesktop = NULL;
 
-	ATL::CString par_PARNAME = C_Properties::PAR_PARNAME;	// contains full parameters with journal name and path
-	par_PARNAME += C_Properties::PAR_PATH + "journal.jou";
+	// ask for Fluent path and other params
+	std::unique_ptr<C_A2FInterpreter> cfg(new C_A2FInterpreter()); // smart pointer in case of exception
+	cfg->A2FOpenAndValidate(C_Properties::PAR_SCRIPT_PATH);	// search for script
+	
+	// prepare command line parametrs CString because the need of LPSTR (no const)
+	ATL::CString par_PARNAME(cfg->A2Flookup4String("COMMAND_LINE")); // contains full parameters with journal name and path
+	par_PARNAME += cfg->A2Flookup4String("DATA_PATH");
+	par_PARNAME += "journal.jou";
 
-	PANTHEIOS_TRACE_DEBUG(PSTR("Fluent path: "),C_Properties::PAR_PROCNAME, par_PARNAME);
+	// prepare path to fluent
+	string par_PROCNAME(cfg->A2Flookup4String("FLUENT_PATH"));
 
-	ret1 = CreateProcess(C_Properties::PAR_PROCNAME,
+	// prepare subprocess name
+	string par_SUBPROCNAME(cfg->A2Flookup4String("PROCESS_NAME"));
+
+	PANTHEIOS_TRACE_DEBUG(PSTR("Fluent path: "), par_PARNAME,PSTR("Proc name"), par_SUBPROCNAME);
+
+	ret1 = CreateProcess(par_PROCNAME.c_str(),
 		par_PARNAME.GetBuffer(par_PARNAME.GetLength()),
 		NULL,
 		NULL,
@@ -53,7 +66,7 @@ HRESULT C_FluentStarter::StartFluent( void )
 	PANTHEIOS_TRACE_DEBUG(PSTR("CreateProcess returned: "), pantheios::integer(ret1),PSTR(" Error desc: "), winstl::error_desc(GetLastError()));
 	
 	if(ret1!=0)
-		err = WaitForStart(C_Properties::PAR_SUBPROCNAME,3, 6);
+		err = WaitForStart(par_SUBPROCNAME.c_str(),3, 6);
 	else
 		err = E_FAIL;
 

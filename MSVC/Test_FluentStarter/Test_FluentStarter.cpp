@@ -90,30 +90,8 @@ int _tmain(int argc, _TCHAR* argv[])
  */
 TEST(FluentStarter,DISABLED__StartFluent)
 {
-	HRESULT err;
-	err = C_FluentStarter::StartFluent();
-	ASSERT_HRESULT_SUCCEEDED(err);
-}
-
-/** 
- * \test Full Fluent path - start, execute, end
- * Most parameters set separately in C_Properties. Starter file is created here
- * \see C_Properties
- */
-TEST(FluentStarter,DISABLED__StartFluentFull)
-{
-	HRESULT err=E_FAIL;
-	EXPECT_NO_THROW(err = C_FluentStarter::CreateJournal());	// creates journal
-	ASSERT_HRESULT_SUCCEEDED(err);
-	string path_to_scm = C_Properties::PAR_PATH;		
-	path_to_scm += _T("_starter.scm"); // adding file name to TMP path
-	ofstream _starter;
-	_starter.open(path_to_scm.c_str(),std::ios::out| std::ios::trunc);
-	ASSERT_EQ(_starter.is_open(),true);
-	_starter << "(ti-menu-load-string \"display/open-window 0\")" << endl;
-	_starter.close();
-
-	err = C_FluentStarter::StartFluent();
+	HRESULT err = E_FAIL;
+	ASSERT_NO_THROW(err = C_FluentStarter::StartFluent());
 	ASSERT_HRESULT_SUCCEEDED(err);
 }
 
