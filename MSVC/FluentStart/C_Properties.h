@@ -17,7 +17,6 @@
  * \details In future this class will be replaced by config4*. All strings are static, cont or nonconst, it depends on the function where they are used
  * \author PB
  * \date 2014/02/07
- * \todo Konwesje - _T wybiera odpowiedni¹ funkcjê - opisaæ C_Properties::PAR_PARNAME.GetBuffer(C_Properties::PAR_PARNAME.GetLength()), 
  * \note Initialization of static string in main object *.cpp but in correct namespace. Must be C_Properties::
  * \see http://stackoverflow.com/questions/2605520/c-where-to-initialize-static-const
 */

@@ -154,7 +154,6 @@ TEST(Interpreter,DISABLED_noscopeset)
  * \author PB
  * \date 2014/03/22
  * \see config4cpp documentation
- * \todo finish
 */
 TEST(Interpreter,_emptyconfig)
 {
