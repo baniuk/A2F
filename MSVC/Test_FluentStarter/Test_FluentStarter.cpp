@@ -88,7 +88,7 @@ int _tmain(int argc, _TCHAR* argv[])
  * Try start Fluent. Most parameters set separately in C_Properties
  * \see C_Properties
  */
-TEST(FluentStarter,DISABLED__StartFluent)
+TEST(FluentStarter,_StartFluent)
 {
 	HRESULT err = E_FAIL;
 	ASSERT_NO_THROW(err = C_FluentStarter::StartFluent());

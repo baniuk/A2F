@@ -52,7 +52,7 @@ HRESULT C_FluentStarter::StartFluent( void )
 	// prepare subprocess name
 	string par_SUBPROCNAME(cfg->A2Flookup4String("PROCESS_NAME"));
 
-	PANTHEIOS_TRACE_DEBUG(PSTR("Fluent path: "), par_PARNAME,PSTR("Proc name"), par_SUBPROCNAME);
+	PANTHEIOS_TRACE_DEBUG(PSTR("Fluent path: "), par_PARNAME,PSTR(" Proc name"), par_SUBPROCNAME);
 
 	ret1 = CreateProcess(par_PROCNAME.c_str(),
 		par_PARNAME.GetBuffer(par_PARNAME.GetLength()),
