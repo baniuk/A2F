@@ -101,10 +101,9 @@ TEST(FluentStarter,DISABLED__StartFluent)
  */
 TEST(FluentStarter,_CreateJournal)
 {
-	HRESULT err;
 	try
 	{
-		err = C_FluentStarter::CreateJournal();
+		C_FluentStarter::CreateJournal();
 	}
 	catch(std::exception& ex)
 	{
@@ -112,5 +111,4 @@ TEST(FluentStarter,_CreateJournal)
 		ASSERT_TRUE(false);
 	}
 	std::cerr << "Need to check journal file manually" << std::endl;
-	ASSERT_HRESULT_SUCCEEDED(err);
 }

@@ -28,7 +28,7 @@ public:
 	/// Starts fluent
 	static HRESULT StartFluent(void);
 	/// Creates starter file for Fluent
-	static HRESULT CreateJournal(void);
+	static void CreateJournal(void);
 private:
 	/// Private construcror. It is not possible to create instance of this class
 	C_FluentStarter(void) {};

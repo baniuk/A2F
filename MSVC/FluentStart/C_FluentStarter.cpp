@@ -22,6 +22,7 @@ using namespace std;
  * \author PB
  * \date 2014/02/06
  * \pre CreateJournal() must be called before to create journal
+ * \exceptions std::exception from C_A2FInterpreter class
 */
 HRESULT C_FluentStarter::StartFluent( void )
 {
@@ -209,16 +210,15 @@ HRESULT C_FluentStarter::PrintProcessNameAndID( DWORD processID, const TCHAR* na
 /**
  * \details Creates starter file for Fluent. This file is named \b<journal> and its only one task is to run other file named \b<starter.scm>
  * Files are created in C_Properties::PAR_PATH directory. This method crates only \b<journal> file.
- * \return Status of the operation
- * \retval HRESULT
- * - S_OK if roces of given name found
- * - E_FAIL if not found
+ * \return nothing
+ * \retval \c void
  * \author PB
  * \date 2014/02/21
  * \ref http://aerojet.engr.ucdavis.edu/fluenthelp/html/ug/node23.htm
- * \exception std::exception - on any error.
+ * \exception std::exception from C_A2FInterpreter class.
+ * \exception std::invalid_argument on wrong path in cfg file for storing scm
 */
-HRESULT C_FluentStarter::CreateJournal( void )
+void C_FluentStarter::CreateJournal( void )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	// ask for journal path
@@ -237,11 +237,10 @@ HRESULT C_FluentStarter::CreateJournal( void )
 	}
 	else
 	{
-		PANTHEIOS_TRACE_ERROR(PSTR("Cant open file"));
-		return E_FAIL;
+		PANTHEIOS_TRACE_ERROR(PSTR("Cant open file, check if DATA_PATH is correct in cfg file"));
+		throw std::invalid_argument("FluentStarter::CreateJournal Cant open file, check if DATA_PATH is correct in cfg file");
 	}
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return S_OK;
 }
 
 
