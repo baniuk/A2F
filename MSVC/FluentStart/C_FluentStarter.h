@@ -30,7 +30,7 @@ public:
 	/// Creates starter file for Fluent
 	static void CreateJournal(void);
 private:
-	/// Private construcror. It is not possible to create instance of this class
+	/// Private constructor. It is not possible to create instance of this class
 	C_FluentStarter(void) {};
 	~C_FluentStarter(void) {};
 	/// Waits until process starts

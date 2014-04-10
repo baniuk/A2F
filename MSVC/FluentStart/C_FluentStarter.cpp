@@ -88,8 +88,6 @@ HRESULT C_FluentStarter::StartFluent( void )
  * - E_FAIL otherwise
  * \author PB
  * \date 2014/02/06
- * \note
- * \warning
  * \see StartFluent
 */
 HRESULT C_FluentStarter::WaitForStart( const TCHAR* nazwa, unsigned int obrot, unsigned int czas )

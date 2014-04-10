@@ -163,7 +163,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	HRESULT err_code;
 	VARIANT id;	// to hold port number
-	LPDISPATCH lpDisp;
+	LPDISPATCH rawlpDisp;
 	CComPtr<ICapeCollection> ptmpIPortCollection;	// local portcollection interface (addref)
 	CComPtr<IDispatch> lpdisp;
 	CComPtr<ICapeUnitPort> ptmpInputPort;				// local IUnitPort interface
@@ -187,7 +187,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 	VariantInit(&id); // initialize variant var for ICapePortCollection::Item
 	id.vt = VT_I4; // set type to int4
 	id.lVal = 1;	// port number
-	err_code = ptmpIPortCollection->Item(id,&lpDisp);	// get IDispatch interface for requesting ICapeUnitPort
+	err_code = ptmpIPortCollection->Item(id,&rawlpDisp);	// get IDispatch interface for requesting ICapeUnitPort
 	if(FAILED(err_code)) 
 	{
 		// we ar ehere in case if portCollection is ok but requested interface is not supported
@@ -195,7 +195,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 		lpdisp.Release();
 		return ECapeUnknownHR;
 	}	
-	lpdisp.Attach(lpDisp);	// taking ownership over IUnitPort returned by CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
+	lpdisp.Attach(rawlpDisp);	// taking ownership over IUnitPort returned by CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 	err_code = lpdisp->QueryInterface(IID_PPV_ARGS(&ptmpInputPort));	// get IUnitPort
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port addres "),
 							pantheios::pointer(ptmpInputPort.p,pantheios::fmt::fullHex),
@@ -213,7 +213,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 	VariantInit(&id); // initialize variant var for ICapePortCollection::Item
 	id.vt = VT_I4; // set type to int4
 	id.lVal = 2;	// port number
-	err_code = ptmpIPortCollection->Item(id,&lpDisp);	// get IDispatch interface for requesting ICapeUnitPort
+	err_code = ptmpIPortCollection->Item(id,&rawlpDisp);	// get IDispatch interface for requesting ICapeUnitPort
 	if(FAILED(err_code)) 
 	{
 		// we are here in case if portCollection is ok but requested interface is not supported
@@ -221,7 +221,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 		lpdisp.Release();
 		return ECapeUnknownHR;
 	}	
-	lpdisp.Attach(lpDisp);	// taking ownership over IUnitPort returned by CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
+	lpdisp.Attach(rawlpDisp);	// taking ownership over IUnitPort returned by CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 	err_code = lpdisp->QueryInterface(IID_PPV_ARGS(&ptmpOutputPort));	// get IUnitPort
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Output port addres "),
 							pantheios::pointer(ptmpOutputPort.p,pantheios::fmt::fullHex),
@@ -235,16 +235,16 @@ STDMETHODIMP CUnitOperations::Calculate()
 	}	
 	// ************** Get material from input port ***************************************************************************************************
 	lpdisp.Release();	// release teporary IDispatch pointer
-	err_code = ptmpInputPort->get_connectedObject(&lpDisp);
+	err_code = ptmpInputPort->get_connectedObject(&rawlpDisp);
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Object connected to port: "), 
-							pantheios::pointer(lpDisp,pantheios::fmt::fullHex));
+							pantheios::pointer(rawlpDisp,pantheios::fmt::fullHex));
 	if(FAILED(err_code)) 
 	{
 		SetError(L"get_connectedObject returned error", L"IUnitOperation", L"Calculate", err_code);
 		lpdisp.Release();
 		return ECapeUnknownHR;
 	}	
-	lpdisp.Attach(lpDisp);
+	lpdisp.Attach(rawlpDisp);
 	err_code = lpdisp->QueryInterface(IID_PPV_ARGS(&ptmpInputPortMaterial));
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port material addres "),
 							pantheios::pointer(ptmpInputPortMaterial.p,pantheios::fmt::fullHex),
@@ -260,9 +260,9 @@ STDMETHODIMP CUnitOperations::Calculate()
 	Material inputPort(ptmpInputPortMaterial);
 	// ************** Get material from output port **************************************************************************************************
 	lpdisp.Release();	// release teporary IDispatch pointer
-	err_code = ptmpOutputPort->get_connectedObject(&lpDisp);
+	err_code = ptmpOutputPort->get_connectedObject(&rawlpDisp);
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Object connected to port: "), 
-							pantheios::pointer(lpDisp,pantheios::fmt::fullHex));
+							pantheios::pointer(rawlpDisp,pantheios::fmt::fullHex));
 	if(FAILED(err_code)) 
 	{
 		// we are here in case if portCollection is ok but requested interface is not supported
@@ -270,7 +270,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 		lpdisp.Release();
 		return err_code;
 	}	
-	lpdisp.Attach(lpDisp);
+	lpdisp.Attach(rawlpDisp);
 	err_code = lpdisp->QueryInterface(IID_PPV_ARGS(&ptmpOutputPortMaterial));
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Output port material addres "),
 							pantheios::pointer(ptmpOutputPortMaterial.p,pantheios::fmt::fullHex),
