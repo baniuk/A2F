@@ -48,7 +48,6 @@ using namespace ATL;
  * \li Methods&Tools_Integrated_Guidelines.pdf
  *
  * \todo 
- *		\li Finish documentation - add methods descriptions
  *		\li move input port to array
  * 
  */
