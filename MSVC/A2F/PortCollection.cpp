@@ -72,7 +72,7 @@ HRESULT CPortCollection::FinalConstruct()
 	/************************************************************************/
 	/* Add first port: INLET                                                */
 	/************************************************************************/
-	err_code = AddPort(L"IN_1",L"Inlet port 1", CAPE_INLET);
+	err_code = AddPort(L"REFOR",L"Inlet port 1", CAPE_INLET);
 	if(FAILED(err_code))
 	{
 		PANTHEIOS_TRACE_ERROR(	PSTR("Port Initialize failed because: "), 
@@ -82,7 +82,19 @@ HRESULT CPortCollection::FinalConstruct()
 		return err_code;
 	}
 	/************************************************************************/
-	/* Add second port: OUTLET                                              */
+	/* Add second port: INLET                                                */
+	/************************************************************************/
+	err_code = AddPort(L"O2",L"Inlet port 2", CAPE_INLET);
+	if(FAILED(err_code))
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("Port Initialize failed because: "), 
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}
+	/************************************************************************/
+	/* Add third port: OUTLET                                              */
 	/************************************************************************/
 	err_code = AddPort(L"OUT_1",L"Output port 1", CAPE_OUTLET);
 	if(FAILED(err_code))
@@ -185,6 +197,7 @@ STDMETHODIMP CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 	CComPtr<ICapeIdentification> ptmpICapeIdentification;	// to get to name of the port
 	CComBSTR componentName;
 	HRESULT err_code;
+	BOOL found = FALSE;	// if port of given name found?
 
 	try
 	{
@@ -195,7 +208,7 @@ STDMETHODIMP CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 			*Item = ptmpIUnitPort.Detach();
 			break;
 		case VT_BSTR:
-			for(const CComPtr<IUnitPort> &item : ports)	// go through all ports in array
+			for(const CComPtr<IUnitPort>& item : ports)	// go through all ports in array
 			{
 				err_code = item->QueryInterface(IID_PPV_ARGS(&ptmpICapeIdentification));	// query for ICapeIdentification::get_ComponentName
 				if(FAILED(err_code)) 
@@ -219,11 +232,24 @@ STDMETHODIMP CPortCollection::Item( VARIANT id, LPDISPATCH * Item )
 					PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 					return err_code;
 				}		
+				PANTHEIOS_TRACE_DEBUG(PSTR("componentName is: "),PW2M(componentName));
 				if(componentName==id.bstrVal)
 				{
+					PANTHEIOS_TRACE_DEBUG(PSTR("Port of name: "),id, PSTR(" found in collection"));
+					PANTHEIOS_TRACE_DEBUG(PSTR("item addres: "),pantheios::pointer(item.p,pantheios::fmt::fullHex));
 					ptmpIUnitPort = item;	// add reference to IUnitPort
+					PANTHEIOS_TRACE_DEBUG(PSTR("ptmpIUnitPort addres: "),pantheios::pointer(ptmpIUnitPort.p,pantheios::fmt::fullHex));
 					*Item = ptmpIUnitPort.Detach();
+					found = TRUE;
+					break;
 				}
+				ptmpICapeIdentification.Release(); // release for next loop
+			}
+			// check if found
+			if(FALSE==found)
+			{
+				PANTHEIOS_TRACE_ERROR(	PSTR("Port of name: "),id, PSTR(" not found"));
+				return E_FAIL;
 			}
 			break;
 		default:

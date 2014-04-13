@@ -157,6 +157,8 @@ STDMETHODIMP CUnitOperations::get_ValStatus( CapeValidationStatus * ValStatus )
  * \li ECapeUnknownHR
  * \todo Add error handling here (use ECapeUnknownHR and AddError)
  * \see AddError
+ * \warning Here ports are recognized by ID not good way because if we change number of ports it can happen that output port (2) will be input Numbers
+ * are given as ports are created in CPortCollection::FinalConstruct()
  */
 STDMETHODIMP CUnitOperations::Calculate()
 {
@@ -182,8 +184,9 @@ STDMETHODIMP CUnitOperations::Calculate()
 	}
 	// **************** Get input port for collection ***********************************************************************************************
 	VariantInit(&id); // initialize variant var for ICapePortCollection::Item
-	id.vt = VT_I4; // set type to int4
-	id.lVal = 1;	// port number
+	CComBSTR portName = _T("REFOR");
+	id.vt = VT_BSTR; // set type to BSTR
+	id.bstrVal = portName;	// port name
 	err_code = ptmpIPortCollection->Item(id,&rawlpDisp);	// get IDispatch interface for requesting ICapeUnitPort
 	if(FAILED(err_code)) 
 	{
@@ -206,8 +209,9 @@ STDMETHODIMP CUnitOperations::Calculate()
 	rawlpDisp->Release();	// release teporary IDispatch pointer
 	// **************** Get output port for collection ***********************************************************************************************
 	VariantInit(&id); // initialize variant var for ICapePortCollection::Item
-	id.vt = VT_I4; // set type to int4
-	id.lVal = 2;	// port number
+	portName = _T("OUT_1");
+	id.vt = VT_BSTR; // set type to BSTR
+	id.bstrVal = portName;	// port name
 	err_code = ptmpIPortCollection->Item(id,&rawlpDisp);	// get IDispatch interface for requesting ICapeUnitPort
 	if(FAILED(err_code)) 
 	{
@@ -305,7 +309,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 	 * \endcode
 	 */
 	double C;
-	Material::getConstant(ptmpInputPortMaterial,L"molecularWeight",L"WODA",&C);
+//	Material::getConstant(ptmpInputPortMaterial,L"molecularWeight",L"WODA",&C);
 
 		// flash the outlet material (all outlet ports must be flashed by a CAPE-OPEN unit operation)
 	VARIANT props;

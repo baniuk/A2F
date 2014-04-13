@@ -44,7 +44,7 @@
 #define NO FALSE
 
 #ifndef PORTS_NUMBER
-	#define PORTS_NUMBER 2 //!< number of ports in PMC
+	#define PORTS_NUMBER 3 //!< number of ports in PMC
 #else
 	#error Port number defined!!
 #endif

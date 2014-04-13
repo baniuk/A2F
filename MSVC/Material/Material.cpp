@@ -413,7 +413,7 @@ HRESULT Material::copyFrom( const Material& src )
 	fractions = src.fractions;
 	numComp = src.numComp;
 	isValidated = VALIDATED;
-	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 
 	return S_OK;
 }
