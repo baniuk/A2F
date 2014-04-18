@@ -70,7 +70,7 @@ HRESULT CPortCollection::FinalConstruct()
 	// sets first free port in array
 	currentPort = ports.begin();
 	/************************************************************************/
-	/* Add first port: INLET                                                */
+	/* Add first port: INLET REFOR                                          */
 	/************************************************************************/
 	err_code = AddPort(L"REFOR",L"Inlet port 1", CAPE_INLET, CAPE_MATERIAL);
 	if(FAILED(err_code))
@@ -82,7 +82,7 @@ HRESULT CPortCollection::FinalConstruct()
 		return err_code;
 	}
 	/************************************************************************/
-	/* Add second port: INLET                                                */
+	/* Add second port: INLET O2                                            */
 	/************************************************************************/
 	err_code = AddPort(L"O2",L"Inlet port 2", CAPE_INLET, CAPE_MATERIAL);
 	if(FAILED(err_code))
@@ -105,6 +105,19 @@ HRESULT CPortCollection::FinalConstruct()
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return err_code;
 	}
+	/************************************************************************/
+	/* Add fourth port: OUTLET ENERGY                                       */
+	/************************************************************************/
+	err_code = AddPort(L"OUT_E",L"Output port 2", CAPE_OUTLET, CAPE_ENERGY);
+	if(FAILED(err_code))
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("Port Initialize failed because: "), 
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return err_code;
+	}
+
 
 	for(const CComPtr<IUnitPort> &n_port : ports)
 		PANTHEIOS_TRACE_DEBUG(	PSTR("IUnitPort address: "), 

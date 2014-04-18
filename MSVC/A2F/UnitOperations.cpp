@@ -164,142 +164,63 @@ STDMETHODIMP CUnitOperations::Calculate()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	HRESULT err_code;
-	VARIANT id;	// to hold port number
-	LPDISPATCH rawlpDisp;
-	CComPtr<ICapeCollection> ptmpIPortCollection;	// local portcollection interface (addref)
-	CComPtr<ICapeUnitPort> ptmpInputPort;				// local IUnitPort interface
-	CComPtr<ICapeUnitPort> ptmpOutputPort;				// local IUnitPort interface
-	CComPtr<ICapeThermoMaterialObject> ptmpInputPortMaterial;
-	CComPtr<ICapeThermoMaterialObject> ptmpOutputPortMaterial;
+	CComPtr<ICapeCollection> ptmpICapePortCollection;	// local portcollection interface (addref)
+	Material* inputPort;
+	Material* outputPort;
 	// ******************* Call ICapeCollection ******************************************************************************************************
-	err_code = portCollection->QueryInterface(IID_PPV_ARGS(&ptmpIPortCollection));
+	err_code = portCollection->QueryInterface(IID_PPV_ARGS(&ptmpICapePortCollection));
 	PANTHEIOS_TRACE_DEBUG(	PSTR("ICapeCollection addres "),
-							pantheios::pointer(ptmpIPortCollection.p,pantheios::fmt::fullHex),
-							PSTR(" Error: "), winstl::error_desc_a(err_code));
+		pantheios::pointer(ptmpICapePortCollection.p,pantheios::fmt::fullHex),
+		PSTR(" Error: "), winstl::error_desc_a(err_code));
 	if(FAILED(err_code)) 
 	{
 		// we are here in case if portCollection is ok but requested interface is not supported
 		SetError(L"Instance of ICapeCollection not created", L"IUnitOperation", L"Calculate", err_code);
 		return ECapeUnknownHR;
 	}
+	
 	// **************** Get input port for collection ***********************************************************************************************
-	VariantInit(&id); // initialize variant var for ICapePortCollection::Item
-	CComBSTR portName = _T("REFOR");
-	id.vt = VT_BSTR; // set type to BSTR
-	id.bstrVal = portName;	// port name
-	err_code = ptmpIPortCollection->Item(id,&rawlpDisp);	// get IDispatch interface for requesting ICapeUnitPort
-	if(FAILED(err_code)) 
-	{
-		// we ar ehere in case if portCollection is ok but requested interface is not supported
-		SetError(L"ptmpIPortCollection->Item failed", L"IUnitOperation", L"Calculate", err_code);
-		rawlpDisp->Release();
-		return ECapeUnknownHR;
-	}	
-	err_code = rawlpDisp->QueryInterface(IID_PPV_ARGS(&ptmpInputPort));	// get IUnitPort
-	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port addres "),
-							pantheios::pointer(ptmpInputPort.p,pantheios::fmt::fullHex),
-							PSTR(" Error: "), winstl::error_desc_a(err_code));
+	err_code = Material::Create(CComBSTR(L"REFOR"),ptmpICapePortCollection, inputPort);
 	if(FAILED(err_code)) 
 	{
 		// we are here in case if portCollection is ok but requested interface is not supported
-		SetError(L"Instance of Input Port not created", L"IUnitOperation", L"Calculate", err_code);
-		rawlpDisp->Release();
+		SetError(L"Material::Create failed", L"IUnitOperation", L"Calculate", err_code);
 		return ECapeUnknownHR;
-	}	
-	rawlpDisp->Release();	// release teporary IDispatch pointer
+	}
+
 	// **************** Get output port for collection ***********************************************************************************************
-	VariantInit(&id); // initialize variant var for ICapePortCollection::Item
-	portName = _T("OUT_1");
-	id.vt = VT_BSTR; // set type to BSTR
-	id.bstrVal = portName;	// port name
-	err_code = ptmpIPortCollection->Item(id,&rawlpDisp);	// get IDispatch interface for requesting ICapeUnitPort
+	err_code = Material::Create(CComBSTR(L"OUT_1"), ptmpICapePortCollection, outputPort);
 	if(FAILED(err_code)) 
 	{
 		// we are here in case if portCollection is ok but requested interface is not supported
-		SetError(L"ptmpIPortCollection->Item failed ", L"IUnitOperation", L"Calculate", err_code);
-		rawlpDisp->Release();
+		SetError(L"Material::Create failed", L"IUnitOperation", L"Calculate", err_code);
+		delete inputPort;
 		return ECapeUnknownHR;
-	}	
-	err_code = rawlpDisp->QueryInterface(IID_PPV_ARGS(&ptmpOutputPort));	// get IUnitPort
-	PANTHEIOS_TRACE_DEBUG(	PSTR("Output port addres "),
-							pantheios::pointer(ptmpOutputPort.p,pantheios::fmt::fullHex),
-							PSTR(" Error: "), winstl::error_desc_a(err_code));
-	if(FAILED(err_code)) 
-	{
-		// we are here in case if portCollection is ok but requested interface is not supported
-		SetError(L"Instance of Output Port not created", L"IUnitOperation", L"Calculate", err_code);
-		rawlpDisp->Release();
-		return ECapeUnknownHR;
-	}	
-	rawlpDisp->Release();	// release teporary IDispatch pointer
-	// ************** Get material from input port ***************************************************************************************************
-	err_code = ptmpInputPort->get_connectedObject(&rawlpDisp);
-	PANTHEIOS_TRACE_DEBUG(	PSTR("Object connected to port: "), 
-							pantheios::pointer(rawlpDisp,pantheios::fmt::fullHex));
-	if(FAILED(err_code)) 
-	{
-		SetError(L"get_connectedObject returned error", L"IUnitOperation", L"Calculate", err_code);
-		rawlpDisp->Release();
-		return ECapeUnknownHR;
-	}	
-	err_code = rawlpDisp->QueryInterface(IID_PPV_ARGS(&ptmpInputPortMaterial));
-	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port material addres "),
-							pantheios::pointer(ptmpInputPortMaterial.p,pantheios::fmt::fullHex),
-							PSTR(" Error: "), winstl::error_desc_a(err_code));
-	if(FAILED(err_code)) 
-	{
-		// we are here in case if portCollection is ok but requested interface is not supported
-		SetError(L"Instance of input port material not created", L"IUnitOperation", L"Calculate", err_code);
-		rawlpDisp->Release();
-		return ECapeUnknownHR;
-	}	
-	rawlpDisp->Release();	// release teporary IDispatch pointer
-	// setting input material
-	Material inputPort(ptmpInputPortMaterial);
-
-	// ************** Get material from output port **************************************************************************************************
-	err_code = ptmpOutputPort->get_connectedObject(&rawlpDisp);
-	PANTHEIOS_TRACE_DEBUG(	PSTR("Object connected to port: "), 
-							pantheios::pointer(rawlpDisp,pantheios::fmt::fullHex));
-	if(FAILED(err_code)) 
-	{
-		// we are here in case if portCollection is ok but requested interface is not supported
-		PANTHEIOS_TRACE_ERROR(	PSTR("get_connectedObject returned: "),	PSTR(" Error: "), winstl::error_desc_a(err_code));
-		rawlpDisp->Release();
-		return err_code;
-	}	
-	err_code = rawlpDisp->QueryInterface(IID_PPV_ARGS(&ptmpOutputPortMaterial));
-	PANTHEIOS_TRACE_DEBUG(	PSTR("Output port material addres "),
-							pantheios::pointer(ptmpOutputPortMaterial.p,pantheios::fmt::fullHex),
-							PSTR(" Error: "), winstl::error_desc_a(err_code));
-	if(FAILED(err_code)) 
-	{
-		// we are here in case if portCollection is ok but requested interface is not supported
-		SetError(L"Instance of output port material not created", L"IUnitOperation", L"Calculate", err_code);
-		rawlpDisp->Release();
-		return ECapeUnknownHR;
-	}	
-	rawlpDisp->Release();
-	// setting output material
-	Material outputPort(ptmpOutputPortMaterial);
-
+	}
+	
 	// ************* Copy from input to output ********************************************************************************************************
-	err_code = inputPort.inFlashMaterialObject(); // fill internal structure of inputPort
+	err_code = inputPort->inFlashMaterialObject(); // fill internal structure of inputPort
 	if(FAILED(err_code))
 	{
 		SetError(L"Error returned from inFlashMaterialObject", L"IUnitOperation", L"Calculate", err_code);
+		delete inputPort;
+		delete outputPort;
 		return ECapeUnknownHR;
 	}
-	err_code = outputPort.copyFrom(inputPort);	// copy physical propertios from input
+	err_code = outputPort->copyFrom(*inputPort);	// copy physical propertios from input
 	if(FAILED(err_code))
 	{
 		SetError(L"Error returned from copyFrom input to output", L"IUnitOperation", L"Calculate", err_code);
+		delete inputPort;
+		delete outputPort;
 		return ECapeUnknownHR;
 	}
-	err_code = outputPort.outFlashMaterialObject();	// fashing outputs
+	err_code = outputPort->outFlashMaterialObject();	// fashing outputs
 	if(FAILED(err_code))
 	{
 		SetError(L"Error returned from outFlashMaterialObject", L"IUnitOperation", L"Calculate", err_code);
+		delete inputPort;
+		delete outputPort;
 		return ECapeUnknownHR;
 	}
 	/** \test GetConstant live test
@@ -316,13 +237,18 @@ STDMETHODIMP CUnitOperations::Calculate()
 	VariantInit(&props);
 
 	CComBSTR tp = "TP";
+	ICapeThermoMaterialObject* ptmpOutputPortMaterial = outputPort->get_MaterialRef(); // local copy of pointer kept by Material class
 	err_code = ptmpOutputPortMaterial->CalcEquilibrium(tp,props);
+	ptmpOutputPortMaterial->Release();	// must release here
 	if(FAILED(err_code)) 
 	{
 		SetError(L"Error returned from CalcEquilibrium", L"IUnitOperation", L"Calculate", err_code);
+		delete inputPort;
+		delete outputPort;
 		return ECapeUnknownHR;
 	}	
-
+	delete inputPort;
+	delete outputPort;
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }

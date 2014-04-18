@@ -62,8 +62,12 @@ public:
 	HRESULT modifyComponent(BSTR compName, double T, double P, double X, double F);
 	/// copy data from other MAterial object
 	HRESULT copyFrom(const Material& src);
+	/// Returns reference to mat
+	ICapeThermoMaterialObject* get_MaterialRef(void);
 	/// Returns physical property of selected component
 	static HRESULT getConstant(ICapeThermoMaterialObject *mat,BSTR prop, BSTR compName, double *C);
+	/// Creates material object from ICapeCollection
+	static HRESULT Create(BSTR _portName, ATL::CComPtr<ICapeCollection> portCollection, Material* &ob);
 
 	~Material(void);
 private:

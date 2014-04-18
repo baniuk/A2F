@@ -11,6 +11,14 @@
 #include "..\Common_utilities\PantheiosLogHelper.h"
 
 
+/**
+ * \brief Contructor
+ * \details Construct material object basing on ICapeThermoMaterialObject interface. In other case use Material::Create method
+ * \param[in] mat pointer to interface
+ * \author PB
+ * \date 2014/04/18
+ * \see Material::Create
+*/
 Material::Material(ICapeThermoMaterialObject *mat)
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
@@ -416,5 +424,113 @@ HRESULT Material::copyFrom( const Material& src )
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 
 	return S_OK;
+}
+
+/**
+ * \brief Creates material object
+ * \details Creates material object basing on raw ICapeCollection Interface. It makes all steps required to get final material object. It creates obejct of 
+ * Material class
+ * \param[in] _portName name of the port to create material from. Must exist in ASPEN
+ * \param[in] portCollection pointer to ICapeCollection interface
+ * \param[out] ob pointer to Material class object
+ * \return returns pointer to object of Material class
+ * \retval \c HRESULT
+ * \author PB
+ * \date 2014/04/18
+ * \example
+ * \code{.cpp}
+ err_code = portCollection->QueryInterface(IID_PPV_ARGS(&ptmpICapePortCollection));
+ PANTHEIOS_TRACE_DEBUG(	PSTR("ICapeCollection addres "),
+ pantheios::pointer(ptmpICapePortCollection.p,pantheios::fmt::fullHex),
+ PSTR(" Error: "), winstl::error_desc_a(err_code));
+ if(FAILED(err_code)) 
+ {
+ // we are here in case if portCollection is ok but requested interface is not supported
+ SetError(L"Instance of ICapeCollection not created", L"IUnitOperation", L"Calculate", err_code);
+ return ECapeUnknownHR;
+ }
+
+ // **************** Get input port for collection ***********************************************************************************************
+ err_code = Material::Create(CComBSTR(L"REFOR"),ptmpICapePortCollection, inputPort);
+ if(FAILED(err_code)) 
+ {
+ // we are here in case if portCollection is ok but requested interface is not supported
+ SetError(L"Material::Create failed", L"IUnitOperation", L"Calculate", err_code);
+ return ECapeUnknownHR;
+ }
+ /endcode
+*/
+HRESULT Material::Create( BSTR _portName, CComPtr<ICapeCollection> portCollection, Material* &ob )
+{
+	HRESULT err_code;
+	VARIANT id;	// to hold port number
+	LPDISPATCH rawlpDisp;
+	CComPtr<ICapeUnitPort> ptmpInputPort;				// local IUnitPort interface
+	CComPtr<ICapeThermoMaterialObject> ptmpInputPortMaterial;
+
+	// **************** Get input port for collection ***********************************************************************************************
+	VariantInit(&id); // initialize variant var for ICapePortCollection::Item
+	CComBSTR portName(_portName);
+	id.vt = VT_BSTR; // set type to BSTR
+	id.bstrVal = portName;	// port name
+	err_code = portCollection->Item(id,&rawlpDisp);	// get IDispatch interface for requesting ICapeUnitPort
+	if(FAILED(err_code)) 
+	{
+		// we ar ehere in case if portCollection is ok but requested interface is not supported
+		rawlpDisp->Release();
+		return ECapeUnknownHR;
+	}	
+	err_code = rawlpDisp->QueryInterface(IID_PPV_ARGS(&ptmpInputPort));	// get IUnitPort
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port addres "),
+		pantheios::pointer(ptmpInputPort.p,pantheios::fmt::fullHex),
+		PSTR(" Error: "), winstl::error_desc_a(err_code));
+	if(FAILED(err_code)) 
+	{
+		// we are here in case if portCollection is ok but requested interface is not supported
+		rawlpDisp->Release();
+		return ECapeUnknownHR;
+	}	
+	rawlpDisp->Release();	// release teporary IDispatch pointer
+	
+	// ************** Get material from input port ***************************************************************************************************
+	err_code = ptmpInputPort->get_connectedObject(&rawlpDisp);
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Object connected to port: "), 
+		pantheios::pointer(rawlpDisp,pantheios::fmt::fullHex));
+	if(FAILED(err_code)) 
+	{
+		rawlpDisp->Release();
+		return ECapeUnknownHR;
+	}	
+	err_code = rawlpDisp->QueryInterface(IID_PPV_ARGS(&ptmpInputPortMaterial));
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Input port material addres "),
+		pantheios::pointer(ptmpInputPortMaterial.p,pantheios::fmt::fullHex),
+		PSTR(" Error: "), winstl::error_desc_a(err_code));
+	if(FAILED(err_code)) 
+	{
+		// we are here in case if portCollection is ok but requested interface is not supported
+		rawlpDisp->Release();
+		return ECapeUnknownHR;
+	}	
+	rawlpDisp->Release();	// release teporary IDispatch pointer
+	// setting input material
+	ob = new Material(ptmpInputPortMaterial);
+	return S_OK;
+}
+
+/**
+ * \brief Returns pointer to material object (ICapeThermoMaterialObject)
+ * \details Returns pointer of material warped by this class. Can be used to call other methods from ICapeThermoMaterialObject interface.
+ * Use if Material created by MAterial::Create method.
+ * \return pointer kept in object
+ * \retval \c ICapeThermoMaterialObject*
+ * \author PB
+ * \note This methods makes AddRef. Caller must Release
+ * \date 2014/04/18
+ * \see Material::Create
+*/
+ICapeThermoMaterialObject* Material::get_MaterialRef( void )
+{
+	mat->AddRef();
+	return mat;
 }
 
