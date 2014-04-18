@@ -52,6 +52,7 @@ interface IParameterCollection : IDispatch{
 ]
 interface IUnitPortEx : IUnknown{
 	HRESULT put_direction([in] int portDirection);
+	HRESULT put_portType([in] int portType);
 };
 [
 	uuid(E304CE16-F539-4DCA-BEF1-A77F6C1E447F),

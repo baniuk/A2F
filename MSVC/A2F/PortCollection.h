@@ -134,7 +134,7 @@ private:
 	// status of the PMC unit referenced from CUnitOperations::validationStatus 
 	CapeValidationStatus* pvalidationStatus;
 	// adds one port to collection
-	HRESULT AddPort(const WCHAR* portName, const WCHAR* portDescription, CapePortDirection portDirection);
+	HRESULT AddPort(const WCHAR* portName, const WCHAR* portDescription, CapePortDirection portDirection, CapePortType portType);
 	// keeps first free location in ports
 	std::vector<CComPtr<IUnitPort>>::iterator currentPort;
 

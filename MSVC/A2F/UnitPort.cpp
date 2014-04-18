@@ -180,7 +180,8 @@ STDMETHODIMP CUnitPort::put_ComponentDescription( BSTR desc )
 STDMETHODIMP CUnitPort::get_portType( CapePortType * portType )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	*portType = CAPE_MATERIAL;
+	*portType = this->portType;
+	PANTHEIOS_TRACE_DEBUG(PSTR("Port type passed to PME: "), pantheios::integer(this->portType) );
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
@@ -220,6 +221,25 @@ STDMETHODIMP CUnitPort::put_direction(int portDirection)
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	this->portDirection = static_cast<CapePortDirection>(portDirection);
 	PANTHEIOS_TRACE_DEBUG(PSTR("Port direction passed to PMC: "), pantheios::integer(this->portDirection) );
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	return S_OK;
+}
+
+/**
+* \details  Allows to put type of port. This method is used during port initialize and allows to put any type form outside.
+* \interface IUnitPortEX
+* \param[in]	portType	type of the port	
+* 			\li CAPE_MATERIAL
+*			\li CAPE_ENERGY
+* \return   CapeError
+* \retval   status   The program status.
+*           \li S_OK		Success
+*/
+STDMETHODIMP CUnitPort::put_portType( int portType )
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	this->portType = static_cast<CapePortType>(portType);
+	PANTHEIOS_TRACE_DEBUG(PSTR("Port type passed to PMC: "), pantheios::integer(this->portType) );
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
@@ -306,4 +326,6 @@ STDMETHODIMP CUnitPort::Disconnect()
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
+
+
 

@@ -72,7 +72,7 @@ HRESULT CPortCollection::FinalConstruct()
 	/************************************************************************/
 	/* Add first port: INLET                                                */
 	/************************************************************************/
-	err_code = AddPort(L"REFOR",L"Inlet port 1", CAPE_INLET);
+	err_code = AddPort(L"REFOR",L"Inlet port 1", CAPE_INLET, CAPE_MATERIAL);
 	if(FAILED(err_code))
 	{
 		PANTHEIOS_TRACE_ERROR(	PSTR("Port Initialize failed because: "), 
@@ -84,7 +84,7 @@ HRESULT CPortCollection::FinalConstruct()
 	/************************************************************************/
 	/* Add second port: INLET                                                */
 	/************************************************************************/
-	err_code = AddPort(L"O2",L"Inlet port 2", CAPE_INLET);
+	err_code = AddPort(L"O2",L"Inlet port 2", CAPE_INLET, CAPE_MATERIAL);
 	if(FAILED(err_code))
 	{
 		PANTHEIOS_TRACE_ERROR(	PSTR("Port Initialize failed because: "), 
@@ -96,7 +96,7 @@ HRESULT CPortCollection::FinalConstruct()
 	/************************************************************************/
 	/* Add third port: OUTLET                                              */
 	/************************************************************************/
-	err_code = AddPort(L"OUT_1",L"Output port 1", CAPE_OUTLET);
+	err_code = AddPort(L"OUT_1",L"Output port 1", CAPE_OUTLET, CAPE_MATERIAL);
 	if(FAILED(err_code))
 	{
 		PANTHEIOS_TRACE_ERROR(	PSTR("Port Initialize failed because: "), 
@@ -362,12 +362,15 @@ STDMETHODIMP CPortCollection::put_ComponentDescription( BSTR desc )
 * \param[in] portDirection direction of the port
 *			\li CAPE_INLET
 *			\li CAPE_OUTLET
+* \param[in] portType Type of the port
+*			\li CAPE_MATERIAL for material ports
+*			\li CAPE_ENERGY for energy streams
 * \retval   status   The program status.
 *           \li S_OK		Success
 *           \li HRESULT otherwise
 * \todo Port number to add should be passed to function for code clearity          
 */
-HRESULT CPortCollection::AddPort(const WCHAR* portName, const WCHAR* portDescription, CapePortDirection portDirection)
+HRESULT CPortCollection::AddPort(const WCHAR* portName, const WCHAR* portDescription, CapePortDirection portDirection, CapePortType portType)
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	CComPtr<ICapeIdentification> pUnitPortIdentification;	// temporary pointer to IUnitPort->ICapeIdentification interface to set name of port and description
@@ -432,6 +435,8 @@ HRESULT CPortCollection::AddPort(const WCHAR* portName, const WCHAR* portDescrip
 							PSTR(" Error: "), winstl::error_desc_a(err_code));
 	// set port direction
 	pUnitPortEx->put_direction(static_cast<int>(portDirection));
+	// set port type
+	pUnitPortEx->put_portType(static_cast<int>(portType));
 	PANTHEIOS_TRACE_DEBUG(PSTR("Port created: "),PW2M(name),PSTR(" "), PW2M(desc),PSTR(" "),pantheios::integer(portDirection));
 	// increasing iterator 
 	currentPort++;

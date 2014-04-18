@@ -91,7 +91,7 @@
 $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>$(SolutionDir)..\tools\xcopy $(SolutionDir)$(Configuration)\$(TargetFileName) D:\Dokumenty\Dropbox\A2F /F/Y
+      <Command>$(SolutionDir)..\tools\xcopy $(SolutionDir)$(Configuration)\$(TargetFileName) f:\Dokumenty\Dropbox\A2F /F/Y
 $(SolutionDir)..\tools\xcopy $(SolutionDir)Test_Interpreter\A2F.cfg $(SolutionDir)A2F_Files\Scripts /F/Y</Command>
       <Message>Kopiuje target do maszyny wirtualnej oraz kopiuje A2F.cfg testowy do końcowego</Message>
     </PostBuildEvent>

@@ -126,6 +126,8 @@ public:
 	STDMETHOD(Disconnect)();
 	/// ICapeUnitPortEx Methods - own extension
 	STDMETHOD(put_direction)(int portDirection);
+	STDMETHOD(put_portType)(int portType);
+
 
 private:
 	/// name of te component passed by PME
@@ -142,6 +144,12 @@ private:
 	* \see CO_Unit_Operations_v6.25.pdf pp. 280
 	*/
 	CapePortDirection portDirection;
+	/// Type of the port
+	/**
+	* \detail Allows to define port type: \s CapeMaterial, \s CapeEnergy, \s CapeInformation, or \s CapeAny. 
+	* \see AspenPlus User models.pdf pp. 281
+	*/ 
+	CapePortType portType;
 	/// Object connected to port (from outside)
 	CComPtr<ICapeThermoMaterialObject> connectedObject; /**< the material object connected to this port, if version 1.0 */
 
