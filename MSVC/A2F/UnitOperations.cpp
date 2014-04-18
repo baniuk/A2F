@@ -165,90 +165,86 @@ STDMETHODIMP CUnitOperations::Calculate()
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	HRESULT err_code;
 	CComPtr<ICapeCollection> ptmpICapePortCollection;	// local portcollection interface (addref)
-	Material* inputPort;
-	Material* outputPort;
-	// ******************* Call ICapeCollection ******************************************************************************************************
-	err_code = portCollection->QueryInterface(IID_PPV_ARGS(&ptmpICapePortCollection));
-	PANTHEIOS_TRACE_DEBUG(	PSTR("ICapeCollection addres "),
-		pantheios::pointer(ptmpICapePortCollection.p,pantheios::fmt::fullHex),
-		PSTR(" Error: "), winstl::error_desc_a(err_code));
-	if(FAILED(err_code)) 
+	Material* inputPort_REFOR = NULL;
+	Material* inputPort_O2 = NULL;
+	Material* outputPort_11 = NULL;
+	Material* outputPort_Q = NULL;
+	try
 	{
-		// we are here in case if portCollection is ok but requested interface is not supported
-		SetError(L"Instance of ICapeCollection not created", L"IUnitOperation", L"Calculate", err_code);
-		return ECapeUnknownHR;
-	}
+		// ******************* Call ICapeCollection ******************************************************************************************************
+		err_code = portCollection->QueryInterface(IID_PPV_ARGS(&ptmpICapePortCollection));
+		PANTHEIOS_TRACE_DEBUG(	PSTR("ICapeCollection addres "),
+			pantheios::pointer(ptmpICapePortCollection.p,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		if(FAILED(err_code)) 
+			throw std::runtime_error("Instance of ICapeCollection not created");
 	
-	// **************** Get input port for collection ***********************************************************************************************
-	err_code = Material::Create(CComBSTR(L"REFOR"),ptmpICapePortCollection, inputPort);
-	if(FAILED(err_code)) 
-	{
-		// we are here in case if portCollection is ok but requested interface is not supported
-		SetError(L"Material::Create failed", L"IUnitOperation", L"Calculate", err_code);
-		return ECapeUnknownHR;
-	}
+		// **************** Get input port for collection ***********************************************************************************************
+		err_code = Material::Create(CComBSTR(L"REFOR"),ptmpICapePortCollection, inputPort_REFOR);
+		if(FAILED(err_code)) 
+			throw std::runtime_error("Material::Create failed");
+			
+		// **************** Get output port for collection ***********************************************************************************************
+		err_code = Material::Create(CComBSTR(L"OUT_11"), ptmpICapePortCollection, outputPort_11);
+		if(FAILED(err_code)) 
+			throw std::runtime_error("Material::Create failed");
+		
+		// **************** Get input port for collection ***********************************************************************************************
+		err_code = Material::Create(CComBSTR(L"O2"), ptmpICapePortCollection, inputPort_O2);
+		if(FAILED(err_code)) 
+			throw std::runtime_error("Material::Create failed");
 
-	// **************** Get output port for collection ***********************************************************************************************
-	err_code = Material::Create(CComBSTR(L"OUT_1"), ptmpICapePortCollection, outputPort);
-	if(FAILED(err_code)) 
-	{
-		// we are here in case if portCollection is ok but requested interface is not supported
-		SetError(L"Material::Create failed", L"IUnitOperation", L"Calculate", err_code);
-		delete inputPort;
-		return ECapeUnknownHR;
-	}
-	
-	// ************* Copy from input to output ********************************************************************************************************
-	err_code = inputPort->inFlashMaterialObject(); // fill internal structure of inputPort
-	if(FAILED(err_code))
-	{
-		SetError(L"Error returned from inFlashMaterialObject", L"IUnitOperation", L"Calculate", err_code);
-		delete inputPort;
-		delete outputPort;
-		return ECapeUnknownHR;
-	}
-	err_code = outputPort->copyFrom(*inputPort);	// copy physical propertios from input
-	if(FAILED(err_code))
-	{
-		SetError(L"Error returned from copyFrom input to output", L"IUnitOperation", L"Calculate", err_code);
-		delete inputPort;
-		delete outputPort;
-		return ECapeUnknownHR;
-	}
-	err_code = outputPort->outFlashMaterialObject();	// fashing outputs
-	if(FAILED(err_code))
-	{
-		SetError(L"Error returned from outFlashMaterialObject", L"IUnitOperation", L"Calculate", err_code);
-		delete inputPort;
-		delete outputPort;
-		return ECapeUnknownHR;
-	}
-	/** \test GetConstant live test
-	 * \code{.cpp}
-	 * double C;
-	 * Material::getConstant(ptmpInputPortMaterial,L"molecularWeight",L"WODA",&C);
-	 * \endcode
-	 */
-	double C;
-//	Material::getConstant(ptmpInputPortMaterial,L"molecularWeight",L"WODA",&C);
+		// **************** Get output port for collection ***********************************************************************************************
+		err_code = Material::Create(CComBSTR(L"OUT_Q"), ptmpICapePortCollection, outputPort_Q);
+		if(FAILED(err_code)) 
+			throw std::runtime_error("Material::Create failed");
 
-		// flash the outlet material (all outlet ports must be flashed by a CAPE-OPEN unit operation)
-	VARIANT props;
-	VariantInit(&props);
+		// ************* Copy from input to output ********************************************************************************************************
+		err_code = inputPort_REFOR->inFlashMaterialObject(); // fill internal structure of inputPort
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from inFlashMaterialObject");
 
-	CComBSTR tp = "TP";
-	ICapeThermoMaterialObject* ptmpOutputPortMaterial = outputPort->get_MaterialRef(); // local copy of pointer kept by Material class
-	err_code = ptmpOutputPortMaterial->CalcEquilibrium(tp,props);
-	ptmpOutputPortMaterial->Release();	// must release here
-	if(FAILED(err_code)) 
+		err_code = outputPort_11->copyFrom(*inputPort_REFOR);	// copy physical propertios from input
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from copyFrom input to output");
+
+		err_code = outputPort_11->outFlashMaterialObject();	// fashing outputs
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from outFlashMaterialObject");
+		
+		/** \test GetConstant live test
+		 * \code{.cpp}
+		 * double C;
+		 * Material::getConstant(ptmpInputPortMaterial,L"molecularWeight",L"WODA",&C);
+		 * \endcode
+		 */
+		double C;
+	//	Material::getConstant(ptmpInputPortMaterial,L"molecularWeight",L"WODA",&C);
+
+			// flash the outlet material (all outlet ports must be flashed by a CAPE-OPEN unit operation)
+		VARIANT props;
+		VariantInit(&props);
+
+		CComBSTR tp = "TP";
+		ICapeThermoMaterialObject* ptmpOutputPortMaterial = outputPort_11->get_MaterialRef(); // local copy of pointer kept by Material class
+		err_code = ptmpOutputPortMaterial->CalcEquilibrium(tp,props);
+		ptmpOutputPortMaterial->Release();	// must release here
+		if(FAILED(err_code)) 
+			throw std::runtime_error("Error returned from CalcEquilibrium");
+	}
+	catch(std::exception& ex)
 	{
-		SetError(L"Error returned from CalcEquilibrium", L"IUnitOperation", L"Calculate", err_code);
-		delete inputPort;
-		delete outputPort;
+		PANTHEIOS_TRACE_ERROR(	PSTR("Exception caught in Calculate: "), ex.what() );
+		std::string str(ex.what());	// convert char* to wchar required by SetError
+		std::wstring wstr = C_A2FInterpreter::s2ws(str);
+		SetError(wstr.c_str(), L"IUnitOperation", L"Calculate", err_code);
+		SAFE_DELETE(inputPort_REFOR);
+		SAFE_DELETE(outputPort_11);
 		return ECapeUnknownHR;
-	}	
-	delete inputPort;
-	delete outputPort;
+	}
+	// normal quit
+	SAFE_DELETE(inputPort_REFOR);
+	SAFE_DELETE(outputPort_11);
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }

@@ -31,14 +31,13 @@
 // ads collections
 #include <atlcoll.h>
 
-#include <config4cpp/Configuration.h>
-#include <config4cpp/SchemaValidator.h>
 #include <iostream>
 #include <vector>
 #include <windows.h>
 #include "Material.h"
 #include "C_FluentStarter.h"
 #include "C_Properties.h"
+#include "..\Interpreter\C_A2FInterpreter.h"
 // user definitions
 #define YES TRUE
 #define NO FALSE
@@ -48,6 +47,9 @@
 #else
 	#error Port number defined!!
 #endif
+
+#define SAFE_DELETE(p) { if(p) { delete (p);   (p)=NULL; } }
+
 /**
  * Status of the unit shared among interfaces
  * \details Thi vaiable is modified by:
@@ -63,5 +65,5 @@
  * 
  * \see AspenPlusUserModelsV8_2-Ref.pdf pp. 274
  * */
-extern CapeValidationStatus exValidationStatus; //!< validation status shred among classes
+extern CapeValidationStatus exValidationStatus; //!< validation status shared among classes
 extern "C" const GUID ;

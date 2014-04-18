@@ -96,7 +96,7 @@ HRESULT CPortCollection::FinalConstruct()
 	/************************************************************************/
 	/* Add third port: OUTLET                                              */
 	/************************************************************************/
-	err_code = AddPort(L"OUT_1",L"Output port 1", CAPE_OUTLET, CAPE_MATERIAL);
+	err_code = AddPort(L"OUT_11",L"Output port 1", CAPE_OUTLET, CAPE_MATERIAL);
 	if(FAILED(err_code))
 	{
 		PANTHEIOS_TRACE_ERROR(	PSTR("Port Initialize failed because: "), 
@@ -108,7 +108,7 @@ HRESULT CPortCollection::FinalConstruct()
 	/************************************************************************/
 	/* Add fourth port: OUTLET ENERGY                                       */
 	/************************************************************************/
-	err_code = AddPort(L"OUT_E",L"Output port 2", CAPE_OUTLET, CAPE_ENERGY);
+	err_code = AddPort(L"OUT_Q",L"Output port 2", CAPE_OUTLET, CAPE_ENERGY);
 	if(FAILED(err_code))
 	{
 		PANTHEIOS_TRACE_ERROR(	PSTR("Port Initialize failed because: "), 

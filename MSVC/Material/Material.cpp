@@ -430,7 +430,7 @@ HRESULT Material::copyFrom( const Material& src )
  * \brief Creates material object
  * \details Creates material object basing on raw ICapeCollection Interface. It makes all steps required to get final material object. It creates obejct of 
  * Material class
- * \param[in] _portName name of the port to create material from. Must exist in ASPEN
+ * \param[in] _portName name of the port to create material from. Must exist in ASPEN and be the same as defined in CPortCollection::FinalConstruct()
  * \param[in] portCollection pointer to ICapeCollection interface
  * \param[out] ob pointer to Material class object
  * \return returns pointer to object of Material class
