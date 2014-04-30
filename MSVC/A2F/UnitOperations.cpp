@@ -323,14 +323,14 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 			PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 			return err_code;
 		}		
-		err_code = rawlpDisp->QueryInterface(IID_PPV_ARGS(&ptmpICapeUnitPort));	// get IUnitPort
+		err_code = rawlpDisp->QueryInterface(IID_PPV_ARGS(&ptmpICapeUnitPort));	// get ICapeUnitPort
 		PANTHEIOS_TRACE_DEBUG(	PSTR("ICapeUnitPort addres "),
 								pantheios::pointer(ptmpICapeUnitPort.p,pantheios::fmt::fullHex),
 								PSTR(" Error: "), winstl::error_desc_a(err_code));
 		if(FAILED(err_code)) 
 		{
 			// we are here in case if portCollection is ok but requested interface is not supported
-			PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IUnitPort not created because: "), 
+			PANTHEIOS_TRACE_ERROR(	PSTR("Instance of ICapeUnitPort not created because: "), 
 									pantheios::integer(err_code,pantheios::fmt::fullHex),
 									PSTR(" Error: "), winstl::error_desc_a(err_code));
 			rawlpDisp->Release();

@@ -118,10 +118,42 @@ HRESULT CPortCollection::FinalConstruct()
 		return err_code;
 	}
 
-
+	/************************************************************************/
+	/* Logging								                                */
+	/************************************************************************/
+#ifdef DEBUG
+	CComPtr<ICapeUnitPort> ptmpICapeUnitPort;				// local IUnitPort interface
+	CComPtr<ICapeIdentification> ptmpICapeIdentification;	// to get to name of the port
+	CComBSTR componentName;	// name of the port
 	for(const CComPtr<IUnitPort> &n_port : ports)
+	{
+		err_code = n_port->QueryInterface(IID_PPV_ARGS(&ptmpICapeUnitPort));	// get ICapeUnitPort
+		if (FAILED(err_code))
+			PANTHEIOS_TRACE_ERROR(	PSTR("Instance of ICapeUnitPort not created because: "), 
+				pantheios::integer(err_code,pantheios::fmt::fullHex),
+				PSTR(" Error: "), winstl::error_desc_a(err_code));
+		
+		err_code = n_port->QueryInterface(IID_PPV_ARGS(&ptmpICapeIdentification));	// query for ICapeIdentification::get_ComponentName
+		if (FAILED(err_code))
+			PANTHEIOS_TRACE_ERROR(	PSTR("Instance of ICapeIdentification not created because: "), 
+				pantheios::integer(err_code,pantheios::fmt::fullHex),
+				PSTR(" Error: "), winstl::error_desc_a(err_code));
+		err_code = ptmpICapeIdentification->get_ComponentName(&componentName); // get name of the component
+		if (FAILED(err_code))
+			PANTHEIOS_TRACE_ERROR(	PSTR("get_ComponentName failed because: "), 
+				pantheios::integer(err_code,pantheios::fmt::fullHex),
+				PSTR(" Error: "), winstl::error_desc_a(err_code));
+
 		PANTHEIOS_TRACE_DEBUG(	PSTR("IUnitPort address: "), 
-								pantheios::pointer(n_port.p,pantheios::fmt::fullHex));
+			pantheios::pointer(n_port.p,pantheios::fmt::fullHex), PSTR(" ICapeUnit port address: "),
+			pantheios::pointer(ptmpICapeUnitPort.p,pantheios::fmt::fullHex),
+			PSTR(" name: "),PW2M(componentName));
+
+		ptmpICapeUnitPort.Release();
+		ptmpICapeIdentification.Release();
+	}
+		
+#endif // DEBUG
 
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
