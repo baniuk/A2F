@@ -199,8 +199,11 @@ STDMETHODIMP CUnitOperations::Calculate()
 		if(FAILED(err_code)) 
 			throw std::runtime_error("Material::Create failed");
 
-		// ************* Copy from input to output ********************************************************************************************************
+		// ************* Filling structures ********************************************************************************************************
+		PANTHEIOS_TRACE_DEBUG(	PSTR("Flashing MAterial obiect for REFOR"));
 		err_code = inputPort_REFOR->inFlashMaterialObject(); // fill internal structure of inputPort
+		PANTHEIOS_TRACE_DEBUG(	PSTR("Flashing MAterial obiect for O2"));
+		err_code = inputPort_O2->inFlashMaterialObject();
 		if(FAILED(err_code))
 			throw std::runtime_error("Error returned from inFlashMaterialObject");
 

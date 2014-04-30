@@ -152,7 +152,6 @@ HRESULT CPortCollection::FinalConstruct()
 		ptmpICapeUnitPort.Release();
 		ptmpICapeIdentification.Release();
 	}
-		
 #endif // DEBUG
 
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
