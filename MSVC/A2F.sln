@@ -24,6 +24,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Other files", "Other files", "{FF30E356-F816-43BC-9461-1B604E3255F1}"
 	ProjectSection(SolutionItems) = preProject
 		A2F_Files\Scripts\A2F.cfg = A2F_Files\Scripts\A2F.cfg
+		..\agent.sh = ..\agent.sh
 		..\build.bat = ..\build.bat
 		..\tools\LogConvert.bat = ..\tools\LogConvert.bat
 	EndProjectSection

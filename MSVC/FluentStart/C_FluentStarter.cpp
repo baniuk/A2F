@@ -230,8 +230,9 @@ void C_FluentStarter::CreateJournal( void )
 	journal.open(path_to_journal.c_str(),std::ios::out| std::ios::trunc);
 	if(journal.is_open())
 	{
-		journal << "(load \"" << C_Properties::PAR_PATH << "_starter.scm\")" << endl;
+		journal << "(load \"" << cfg->A2Flookup4String("DATA_PATH") << "_starter.scm\")" << endl;
 		journal.close();
+		PANTHEIOS_TRACE_DEBUG(path_to_journal,PSTR(" openned and created!"));
 	}
 	else
 	{
