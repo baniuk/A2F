@@ -10,7 +10,7 @@ using namespace std;
 /// Log file name and initialization of Pantheios API
 PANTHEIOS_EXTERN_C const PAN_CHAR_T PANTHEIOS_FE_PROCESS_IDENTITY[] = PSTR("Test_FluentStarter");
 #ifndef PANTHEIOS_LOG_FILE_NAME
-	#define PANTHEIOS_LOG_FILE_NAME	"d:\\Test_Interpreter.pantlog"
+	#define PANTHEIOS_LOG_FILE_NAME	"c:\\Test_Interpreter.pantlog"
 #else
 	#error PANTHEIOS_LOG_FILE_NAME already defined!!
 #endif

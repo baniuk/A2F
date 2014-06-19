@@ -23,6 +23,24 @@
 using namespace ATL;
 
 /**
+ * \class StreamNumber
+ * \brief Defines correct order of streams in Materials vector
+ * \details Streams are kept in Materials vector. Order of enmu defines order of materials in vector
+ * \author PB
+ * \date 2014/06/19
+ * \see UnitOperations::Calculate()
+ * \see http://82.145.77.86:8080/trac/A2F/wiki/Schematy
+ * \see http://82.145.77.86:8080/trac/A2F/wiki/A2F_Fit_1
+*/
+enum class StreamNumber : unsigned int
+{
+	inputPort_REFOR=0,	///< input port REFOR from ASPEN
+	inputPort_P1,	///< input port P1 from ASPEN
+	outputPort_ANODOFF,	///< output port ANODOFF from ASPEN
+	outputPort_EXHAUST ///< output port EXHAUST from ASPEN
+};
+
+/**
  * \class CUnitOperations
  *
  * \brief CoClass for basic interfaces implementing Unit Operations
@@ -188,6 +206,8 @@ private:
 	void SetError( const WCHAR* desc, const WCHAR* itface, const WCHAR* scope);
 	/// Creates smf file for Fluent
 	HRESULT CreateScm(void);
+	/// collection of materials provided by ports in PMC
+	std::vector<Material*> Materials;
 
 };
 

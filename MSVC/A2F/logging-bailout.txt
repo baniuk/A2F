@@ -1,2 +1,4 @@
 20130917-120415.582: could not create log file: : d:\A2F.mylog
 20130917-120415.594: failed to set file for back-end: 1
+20140619-153826.817: could not create log file: : c:\A2F.pantlog
+20140619-153826.820: failed to set file for back-end: 1
