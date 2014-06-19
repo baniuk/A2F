@@ -55,10 +55,12 @@ public:
 	~C_A2FInterpreter(void);
 	/// Gets params connected with surface of given name
 	void A2FGetSurfaceParams(const std::string& portName, std::string& surf, float& area);
+	/// Overload member of A2FGetSurfaceParams
+	void A2FGetSurfaceParams( std::vector<std::string>& SurfName, std::vector<float>& SurfArea);
 	/// Gets EXPORTS from params
 	void A2FGetExportsParams(std::vector<std::string>& fluentFcn, std::vector<std::string>& aspenProp, std::vector<std::string>& compName);
 	/// Gets ASSIGNS form params
-	void A2FGetAssignsParams(std::vector<std::string>& compName, std::vector<int>& noInput, std::vector<std::string>& surfName);
+	void A2FGetAssignsParams(std::vector<std::string>& compName, std::vector<std::string>& PMC_stream_name, std::vector<std::string>& surfName);
 	/// Warper of C_Interpreter::OpenAndValidate
 	void A2FOpenAndValidate(const char* cfgInput);
 	/// Warper of C_Interpreter::lookup4String

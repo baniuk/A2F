@@ -5,7 +5,7 @@
 */
 const char* schema[] = {
 	"@typedef _AspenProp					=	enum[temperature, totalflow, pressure, fraction]",
-	"@typedef _ASSIGNS						=	tuple[string,component, int,PMC_input, string,surface]",				
+	"@typedef _ASSIGNS						=	tuple[string,component, string,PMC_stream_name, string,surface]",				
 	"@typedef _EXPORTS						=	tuple[string,Fluent_Func, _AspenProp,Aspen_Prop, string,Component]",	
 	"@typedef _SURFACES						=	tuple[string,surface, float,area]",
 	"@required DATA_PATH					=	string",																
@@ -20,7 +20,5 @@ const char* schema[] = {
 	"COMMAND_LINE							=	string",
 	"ASSIGNS.uid-ASSIGN						=	_ASSIGNS", 
 	"EXPORTS.uid-EXPORTED_VALUE				=	_EXPORTS",
-	"SURFACES.INPUT1						=	_SURFACES",
-	"SURFACES.INPUT2						=	_SURFACES",
-	"SURFACES.OUTPUT1						=	_SURFACES"
+	"SURFACES.uid-SURFACE					=	_SURFACES",
 };

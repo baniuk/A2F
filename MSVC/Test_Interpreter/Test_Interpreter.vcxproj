@@ -66,9 +66,9 @@
     </Link>
     <PostBuildEvent>
       <Command>$(TargetDir)$(TargetFileName)
-$(SolutionDir)..\tools\xcopy $(SolutionDir)Test_Interpreter\A2F.cfg c:\ /F/Y
+$(SolutionDir)..\tools\xcopy $(SolutionDir)Test_Interpreter\A2F.cfg d:\ /F/Y
 cd $(SolutionDir)..\tools
-LogConvert.bat c:\Test_Interpreter.pantlog</Command>
+LogConvert.bat d:\Test_Interpreter.pantlog</Command>
     </PostBuildEvent>
     <Bscmake>
       <PreserveSbr>true</PreserveSbr>
