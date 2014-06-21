@@ -1,24 +1,19 @@
 /**
- * \file Test_FluentStarter.cpp
+ * \file Test_FluentInterface.cpp
  * \brief Main file that starts all tests
- * \details Tests Fluent starter
- * \pre Need fluent installed
+ * \details Tests Fluent Interface static class
  * \author PB
- * \date 2014/02/05
- * \warning All test should be run on virtual machine A2F.
+ * \date 2014/06/22
  */
-
 
 #include "stdafx.h"
 
 #include "..\Common_utilities\Pantheios_header.h"
-#include "..\Common_utilities\PantheiosLogHelper.h"
-#include "..\FluentStart\C_Properties.h"
 
 /// Log file name and initialization of Pantheios API
-PANTHEIOS_EXTERN_C const PAN_CHAR_T PANTHEIOS_FE_PROCESS_IDENTITY[] = PSTR("Test_FluentStarter");
+PANTHEIOS_EXTERN_C const PAN_CHAR_T PANTHEIOS_FE_PROCESS_IDENTITY[] = PSTR("Test_FluentInterface");
 #ifndef PANTHEIOS_LOG_FILE_NAME
-	#define PANTHEIOS_LOG_FILE_NAME	"c:\\Test_FluentStarter.pantlog"
+	#define PANTHEIOS_LOG_FILE_NAME	"c:\\Test_FluentInterface.pantlog"
 #else
 	#error PANTHEIOS_LOG_FILE_NAME already defined!!
 #endif
@@ -58,9 +53,6 @@ pan_be_N_t PAN_BE_N_BACKEND_LIST[] = {
 
 using namespace std;
 
-// set global context for script
-string application_scope = "FLUENT";
-
 int _tmain(int argc, _TCHAR* argv[])
 {
 	int ret = 0;
@@ -83,32 +75,3 @@ int _tmain(int argc, _TCHAR* argv[])
 	return ret;
 }
 
-/** 
- * \test FluentStarter:_StartFluent
- * Try start Fluent. Most parameters set separately in C_Properties
- * \see C_Properties
- */
-TEST(FluentStarter,_StartFluent)
-{
-	HRESULT err = E_FAIL;
-	ASSERT_NO_THROW(err = C_FluentStarter::StartFluent());
-	ASSERT_HRESULT_SUCCEEDED(err);
-}
-
-/** 
- * \test FluentStarter:_CreateSCM
- * Creates journal file and SCM in %TMP% directory
- */
-TEST(FluentStarter,_CreateJournal)
-{
-	try
-	{
-		C_FluentStarter::CreateJournal();
-	}
-	catch(std::exception& ex)
-	{
-		std::cerr << "Caught exception: " << ex.what() << endl;
-		ASSERT_TRUE(false);
-	}
-	std::cerr << "Need to check journal file manually" << std::endl;
-}

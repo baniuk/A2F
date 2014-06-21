@@ -40,6 +40,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Exception", "Exception\Exce
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FluentInterface", "FluentInterface\FluentInterface.vcxproj", "{AB11B615-6E8C-4A61-9266-57862887499A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test_FluentInterface", "Test_FluentInterface\Test_FluentInterface.vcxproj", "{0285AA00-050F-47BE-AD21-DA1816CF5AA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -87,6 +89,10 @@ Global
 		{AB11B615-6E8C-4A61-9266-57862887499A}.Debug|Win32.Build.0 = Debug|Win32
 		{AB11B615-6E8C-4A61-9266-57862887499A}.Release|Win32.ActiveCfg = Release|Win32
 		{AB11B615-6E8C-4A61-9266-57862887499A}.Release|Win32.Build.0 = Release|Win32
+		{0285AA00-050F-47BE-AD21-DA1816CF5AA2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0285AA00-050F-47BE-AD21-DA1816CF5AA2}.Debug|Win32.Build.0 = Debug|Win32
+		{0285AA00-050F-47BE-AD21-DA1816CF5AA2}.Release|Win32.ActiveCfg = Release|Win32
+		{0285AA00-050F-47BE-AD21-DA1816CF5AA2}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

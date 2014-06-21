@@ -35,7 +35,7 @@
 #include <vector>
 #include <windows.h>
 #include "Material.h"
-#include "C_FluentStarter.h"
+#include "C_FluentStarter.h" // nie maj¹ scie¿ek bo sa dodane w A2F.Debug
 #include "C_Properties.h"
 #include "..\Interpreter\C_A2FInterpreter.h"
 #include "..\FluentInterface\C_FluentInterface.h"

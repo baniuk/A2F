@@ -12,19 +12,16 @@
 /**
  * \class C_FluentInterface
  * \brief Supports input/output operations between Fluent and PMC
- * \details Allows compositions of scm files and reads out data files. Has full access to provate members of CUnitOperations class.
+ * \detail Contains static method of low-level operations on output files. Defined for testing purposes mainly
  * \author PB
  * \date 2014/06/21
  * \see CUnitOperations
- * \note It is a friend class to CUnitOperations
 */
 class C_FluentInterface
 {
 public:
 	C_FluentInterface(void);
 	~C_FluentInterface(void);
-	/// Creates smc file for Fluent
-	void CreateScm(void);
 };
 
 #endif // C_FluentInterface_h__
