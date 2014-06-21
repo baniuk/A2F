@@ -38,6 +38,7 @@
 #include "C_FluentStarter.h"
 #include "C_Properties.h"
 #include "..\Interpreter\C_A2FInterpreter.h"
+#include "..\FluentInterface\C_FluentInterface.h"
 // user definitions
 #define YES TRUE
 #define NO FALSE

@@ -204,6 +204,9 @@ $(SolutionDir)..\tools\xcopy $(SolutionDir)Test_Interpreter\A2F.cfg $(SolutionDi
     <Midl Include="A2F.idl" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FluentInterface\FluentInterface.vcxproj">
+      <Project>{ab11b615-6e8c-4a61-9266-57862887499a}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\FluentStart\FluentStart.vcxproj">
       <Project>{ee34f085-bc0f-4a8b-921b-3dc198f0fa05}</Project>
     </ProjectReference>
