@@ -60,7 +60,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>$(TargetDir)$(TargetFileName)</Command>
+      <Command>$(TargetDir)$(TargetFileName)
+cd $(SolutionDir)..\tools
+LogConvert.bat c:\Test_FluentInterface.pantlog</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

@@ -75,3 +75,132 @@ int _tmain(int argc, _TCHAR* argv[])
 	return ret;
 }
 
+/**
+ * \test FluentInterface,_wrongFile
+ * \brief Try to open nonexistent file.
+ * \post Expect exception std::ios_base::failure
+ * \author PB
+ * \date 2014/06/22
+*/
+TEST(FluentInterface,_wrongFile)
+{
+	EXPECT_THROW(C_FluentInterface test("notfile.prof"),std::ios_base::failure);
+}
+
+/**
+ * \test FluentInterface,_goodFile
+ * \brief Try to open existent file.
+ * \post Expect no exception 
+ * \author PB
+ * \date 2014/06/22
+*/
+TEST(FluentInterface,_goodFile)
+{
+	EXPECT_NO_THROW(C_FluentInterface test("example_profile.prof"));
+}
+
+class _FluentInterface : public ::testing::Test
+{
+	virtual void SetUp()
+	{
+	}
+	virtual void TearDown()
+	{
+	}
+};
+
+/**
+ * \test _FluentInterface,_getSurfaceOffset
+ * \brief Finds offset of line in prof file where surface starts
+ * \pre file must exist
+ * \post offset 26547 - number of bytes from beginig of file with LFCR on every line
+ * \author PB
+ * \date 2014/06/22
+*/
+TEST_F(_FluentInterface,_getSurfaceOffset)
+{
+	bool exception_thrown = false;
+	try
+	{
+		C_FluentInterface test("example_profile.prof");
+		EXPECT_EQ(26547,test.getSurfaceOffset("cathode-outlet"));
+	}
+	catch( const exception& ex)
+	{
+		cerr << ex.what() << endl;
+		exception_thrown = true;
+	}
+	EXPECT_FALSE(exception_thrown);	
+}
+
+/**
+ * \test _FluentInterface,_getSurfaceOffsetWrong
+ * \brief Try to find nonexistent surface
+ * \pre file must exist
+ * \post throw exception std::logic_error
+ * \author PB
+ * \date 2014/06/22
+*/
+TEST_F(_FluentInterface,_getSurfaceOffsetWrong)
+{
+	bool exception_thrown = false;
+	try
+	{
+		C_FluentInterface test("example_profile.prof");
+		test.getSurfaceOffset("cathode-outlety");
+	}
+	catch( const exception& ex)
+	{
+		cerr << ex.what() << endl;
+		exception_thrown = true;
+	}
+	EXPECT_TRUE(exception_thrown);	
+}
+
+/**
+ * \test _FluentInterface,_getSurfaceOffset
+ * \brief Finds offset of line in prof file where function starts
+ * \pre file must exist
+ * \post offset 39226 - number of bytes from beginig of file with LFCR on every line
+ * \author PB
+ * \date 2014/06/22
+*/
+TEST_F(_FluentInterface,_getFunctionOffset)
+{
+	bool exception_thrown = false;
+	try
+	{
+		C_FluentInterface test("example_profile.prof");
+		EXPECT_EQ(39226,test.getFunctionOffset("velocity-magnitude",test.getSurfaceOffset("cathode-outlet")));
+	}
+	catch( const exception& ex)
+	{
+		cerr << ex.what() << endl;
+		exception_thrown = true;
+	}
+	EXPECT_FALSE(exception_thrown);	
+}
+
+/**
+ * \test _FluentInterface,_getSurfaceOffsetWrong
+ * \brief Try to find nonexistent function
+ * \pre file must exist
+ * \post throw exception std::logic_error or can throw std::ios_base
+ * \author PB
+ * \date 
+ */
+TEST_F(_FluentInterface,_getFunctionOffsetWrong)
+{
+	bool exception_thrown = false;
+	try
+	{
+		C_FluentInterface test("example_profile.prof");
+		test.getFunctionOffset("velocity-magnitudey",test.getSurfaceOffset("cathode-outlet"));
+	}
+	catch( const exception& ex)
+	{
+		cerr << ex.what() << endl;
+		exception_thrown = true;
+	}
+	EXPECT_TRUE(exception_thrown);	
+}
