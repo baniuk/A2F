@@ -67,14 +67,31 @@ C_FluentInterface::~C_FluentInterface(void)
  * \retval \c double
  * \author PB
  * \date 2014/06/22
- * \exception Throw exception on any error
+ * \see http://en.cppreference.com/w/cpp/io/ios_base/iostate
+ * \exception Throw std::ios_base on any error
 */
 double C_FluentInterface::GetMean( const char* fluentSurface, const char* fluentFunc )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	streampos funcOffset;
+	string line = "";
+	double data, mean = 0.0;
+	unsigned int numoflines = 0;
+	funcOffset = getFunctionOffset(fluentFunc, getSurfaceOffset(fluentSurface));
+	profileFileHandle.seekg(funcOffset); // startOffset points to line with funcname
+	getline(profileFileHandle,line);	  // we read this line to remove it, next lines are with data
 
+	while(getline(profileFileHandle, line), line!=")")
+	{
+		stringstream str(line);
+		str >> data;
+		mean += data;
+		numoflines++;
+	}
+	PANTHEIOS_TRACE_DEBUG(PSTR("Mean returned: "),pantheios::real(mean/numoflines));
+	profileFileHandle.exceptions(profileFileHandle.failbit|profileFileHandle.badbit); // will throw exceptions of these errors
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return 0.0;
+	return mean/numoflines;
 }
 
 
@@ -102,7 +119,7 @@ streampos C_FluentInterface::getSurfaceOffset( const char* fluentSurface)
 		{
 			if(line.find(fluentSurface)!=string::npos)
 			{
-				PANTHEIOS_TRACE_DEBUG(PSTR("Found surface: "),fluentSurface,PSTR(" at "),pantheios::integer(offset));
+				PANTHEIOS_TRACE_DEBUG(PSTR("Found surface: "),fluentSurface,PSTR(" at "),pantheios::integer(offset), PSTR(" line "), line);
 				PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 				return offset;
 			}
@@ -121,7 +138,7 @@ streampos C_FluentInterface::getSurfaceOffset( const char* fluentSurface)
 	PANTHEIOS_TRACE_EMERGENCY(PSTR("should be never here because getline throws exception on eof (set in constructor)"));
 	return 0;	// should be never here because getline throws exception on eof (set in constructor);
 }
-// can throw exception (badbit)
+
 /**
  * \brief Finds offset of line in prof file where function starts
  * \details Returns offset in bytes (with LFCR) to point the line where function starts
@@ -143,6 +160,7 @@ streampos C_FluentInterface::getFunctionOffset( const char* fluentFunc, streampo
 	{
 		profileFileHandle.seekg(startOffset); // startOffset points to line with surface name
 		getline(profileFileHandle,line);	  // we read this line to remove ((
+		offset+=(line.length() + 2);	 // and add offset after reading
 		while(!profileFileHandle.eof())
 		{
 			getline(profileFileHandle,line);
@@ -150,7 +168,7 @@ streampos C_FluentInterface::getFunctionOffset( const char* fluentFunc, streampo
 				throw std::logic_error("Function not found - end of surface!!");
 			if(line.find(fluentFunc)!=string::npos)	// function found found
 			{
-				PANTHEIOS_TRACE_DEBUG(PSTR("Found function: "),fluentFunc,PSTR(" at "),pantheios::integer(offset));
+				PANTHEIOS_TRACE_DEBUG(PSTR("Found function: "),fluentFunc,PSTR(" at "),pantheios::integer(offset), PSTR(" line "), line);
 				PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 				return offset;
 			}

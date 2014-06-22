@@ -28,6 +28,7 @@ class C_FluentInterface
 	FRIEND_TEST(_FluentInterface,_getFunctionOffset);
 	FRIEND_TEST(_FluentInterface,_getFunctionOffsetWrong);
 	FRIEND_TEST(_FluentInterface,_getSurfaceOffsetWrong);
+	FRIEND_TEST(_FluentInterface,_getMean);
 public:
 	C_FluentInterface(const char* profileName );
 	~C_FluentInterface(void);

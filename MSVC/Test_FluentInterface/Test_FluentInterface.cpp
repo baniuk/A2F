@@ -171,7 +171,7 @@ TEST_F(_FluentInterface,_getFunctionOffset)
 	try
 	{
 		C_FluentInterface test("example_profile.prof");
-		EXPECT_EQ(39226,test.getFunctionOffset("velocity-magnitude",test.getSurfaceOffset("cathode-outlet")));
+		EXPECT_EQ(39255,test.getFunctionOffset("velocity-magnitude",test.getSurfaceOffset("cathode-outlet")));
 	}
 	catch( const exception& ex)
 	{
@@ -203,4 +203,28 @@ TEST_F(_FluentInterface,_getFunctionOffsetWrong)
 		exception_thrown = true;
 	}
 	EXPECT_TRUE(exception_thrown);	
+}
+
+/**
+ * \test _FluentInterface,_getMean
+ * \brief Finds returns mean of \e cathode-outlet -> \e velocity-magnitude
+ * \pre file must exist
+ * \post offset 39226 - number of bytes from beginig of file with LFCR on every line
+ * \author PB
+ * \date 2014/06/22
+*/
+TEST_F(_FluentInterface,_getMean)
+{
+	bool exception_thrown = false;
+	try
+	{
+		C_FluentInterface test("example_profile.prof");
+		EXPECT_NEAR(0.214899,test.GetMean("cathode-outlet", "velocity-magnitude"),0.000000999999999999);
+	}
+	catch( const exception& ex)
+	{
+		cerr << ex.what() << endl;
+		exception_thrown = true;
+	}
+	EXPECT_FALSE(exception_thrown);	
 }
