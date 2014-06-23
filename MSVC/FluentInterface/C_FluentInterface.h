@@ -15,7 +15,7 @@ using namespace std;
 /**
  * \class C_FluentInterface
  * \brief Supports input/output operations between Fluent and PMC
- * \detail Contains methods of low-level operations on output files. Defined for testing purposes mainly. It opens given profile fila and then allows to perform
+ * \details Contains methods of low-level operations on output files. Defined for testing purposes mainly. It opens given profile fila and then allows to perform
  * several operations on it according to its content. Class can read selected data on demand.
  * \author PB
  * \date 2014/06/21

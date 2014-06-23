@@ -224,7 +224,7 @@ TEST(UseExample,_parseandvalidate)
  * \test Interpreter:_lookup4String_equal
  * \brief Gets one string parameter from configuration
  * \pre external variable \c application_scope must be set to FLUENT
- * \post No exception should be thrown, returned value equals \ctest.case
+ * \post No exception should be thrown, returned value equals \c test.case
  * \author PB
  * \date 2014/03/23
  * \see config4cpp documentation
@@ -244,7 +244,7 @@ TEST(Interpreter,_lookup4String_equal)
  * \test Interpreter:_lookup4String_nequal
  * \brief Gets one string parameter from configuration
  * \pre external variable \c application_scope must be set to FLUENT
- * \post No exception should be thrown, returned value not equals \ctest.case
+ * \post No exception should be thrown, returned value not equals \c test.case
  * \author PB
  * \date 2014/03/23
  * \see config4cpp documentation
@@ -264,7 +264,7 @@ TEST(Interpreter,_lookup4String_nequal)
  * \test Interpreter:_lookup4String_wrongask
  * \brief Gets one string parameter from configuration but we ask for nonexistent param
  * \pre external variable \c application_scope must be set to FLUENT
- * \post Should throw exception, returned value not equals \ctest.case
+ * \post Should throw exception, returned value not equals \c test.case
  * \author PB
  * \date 2014/03/23
  * \see config4cpp documentation
@@ -284,7 +284,7 @@ TEST(Interpreter,_lookup4String_wrongask)
  * \test Interpreter:_lookup4String_wrongformat
  * \brief Gets one string parameter from configuration but we ask for param defined as int. 
  * \pre external variable \c application_scope must be set to FLUENT
- * \post Should not throw exception, returned value not equals \ctest.case
+ * \post Should not throw exception, returned value not equals \c test.case
  * \author PB
  * \date 2014/03/23
  * \see config4cpp documentation
