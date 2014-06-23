@@ -25,6 +25,7 @@ class C_FluentInterface
 {
 	friend class _FluentInterface; 
 	FRIEND_TEST(_FluentInterface,_getSurfaceOffset);
+	FRIEND_TEST(_FluentInterface,_getSurfaceOffset1);
 	FRIEND_TEST(_FluentInterface,_getFunctionOffset);
 	FRIEND_TEST(_FluentInterface,_getFunctionOffsetWrong);
 	FRIEND_TEST(_FluentInterface,_getSurfaceOffsetWrong);

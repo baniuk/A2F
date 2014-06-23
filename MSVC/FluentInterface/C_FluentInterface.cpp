@@ -89,12 +89,9 @@ double C_FluentInterface::GetMean( const char* fluentSurface, const char* fluent
 		numoflines++;
 	}
 	PANTHEIOS_TRACE_DEBUG(PSTR("Mean returned: "),pantheios::real(mean/numoflines));
-	profileFileHandle.exceptions(profileFileHandle.failbit|profileFileHandle.badbit); // will throw exceptions of these errors
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return mean/numoflines;
 }
-
-
 
 /**
  * \brief Finds offset of line in prof file where surface starts
@@ -113,11 +110,12 @@ streampos C_FluentInterface::getSurfaceOffset( const char* fluentSurface)
 	streampos offset = 0;
 	string line = "";
 	profileFileHandle.seekg(0);	// od pocz¹tku
+	string regexString = "(\\b" + string(fluentSurface) + "\\b)";
 	try
 	{
 		while (getline(profileFileHandle, line))	// all lines
 		{
-			if(line.find(fluentSurface)!=string::npos)
+			if(regex_search(line, regex(regexString)))
 			{
 				PANTHEIOS_TRACE_DEBUG(PSTR("Found surface: "),fluentSurface,PSTR(" at "),pantheios::integer(offset), PSTR(" line "), line);
 				PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
@@ -125,7 +123,6 @@ streampos C_FluentInterface::getSurfaceOffset( const char* fluentSurface)
 			}
 			offset+=(line.length() + 2);					// offset po przeczytaniu + CRLF na koñcu linii - offset pokazuje pocz¹tek kolejnej liniii
 		}
-		profileFileHandle.exceptions(profileFileHandle.failbit|profileFileHandle.badbit); // will throw exceptions of these errors
 	}
 	//If the function (getline) extracts no elements, it calls setstate(failbit). In any case, it returns _Istr.
 	// setstate -> Note that changing the state may throw an exception, depending on the latest settings passed to member exceptions.
@@ -156,6 +153,7 @@ streampos C_FluentInterface::getFunctionOffset( const char* fluentFunc, streampo
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	string line = "";
 	streampos offset = startOffset;
+	string regexString = "(\\b" + string(fluentFunc) + "\\b)";
 	try
 	{
 		profileFileHandle.seekg(startOffset); // startOffset points to line with surface name
@@ -166,7 +164,7 @@ streampos C_FluentInterface::getFunctionOffset( const char* fluentFunc, streampo
 			getline(profileFileHandle,line);
 			if(line.find("((")!=string::npos)	// znaleŸliœmy pocz¹tek kolejnej surface!
 				throw std::logic_error("Function not found - end of surface!!");
-			if(line.find(fluentFunc)!=string::npos)	// function found found
+			if(regex_search(line, regex(regexString)))	// function found found
 			{
 				PANTHEIOS_TRACE_DEBUG(PSTR("Found function: "),fluentFunc,PSTR(" at "),pantheios::integer(offset), PSTR(" line "), line);
 				PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
@@ -174,7 +172,6 @@ streampos C_FluentInterface::getFunctionOffset( const char* fluentFunc, streampo
 			}
 			offset+=(line.length() + 2);					// offset po przeczytaniu + CRLF na koñcu linii - offset pokazuje pocz¹tek kolejnej liniii
 		}
-		profileFileHandle.exceptions(profileFileHandle.failbit|profileFileHandle.badbit); // will throw exceptions of these errors
 	}
 	//If the function (getline) extracts no elements, it calls setstate(failbit). In any case, it returns _Istr.
 	// setstate -> Note that changing the state may throw an exception, depending on the latest settings passed to member exceptions.

@@ -134,6 +134,31 @@ TEST_F(_FluentInterface,_getSurfaceOffset)
 }
 
 /**
+ * \test _FluentInterface,_getSurfaceOffset1
+ * \brief Finds offset of line in prof file where surface starts
+ * \details Check situation when only substring matches. This test should fail
+ * \pre file must exist
+ * \post Should fail
+ * \author PB
+ * \date 2014/06/22
+*/
+TEST_F(_FluentInterface,_getSurfaceOffset1)
+{
+	bool exception_thrown = false;
+	try
+	{
+		C_FluentInterface test("example_profile.prof");
+		EXPECT_THROW(test.getSurfaceOffset("cathode-outle"),std::logic_error);
+	}
+	catch( const exception& ex)
+	{
+		cerr << ex.what() << endl;
+		exception_thrown = true;
+	}
+	EXPECT_FALSE(exception_thrown);
+}
+
+/**
  * \test _FluentInterface,_getSurfaceOffsetWrong
  * \brief Try to find nonexistent surface
  * \pre file must exist
