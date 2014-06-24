@@ -27,6 +27,7 @@ extern string application_scope; //!< Name of the main application scope (FLUENT
 C_Interpreter::C_Interpreter(bool wantDiagnostics) : listSize(0)
 {
 	_ASSERT(!application_scope.empty());
+	names = nullptr;
 	m_wantDiagnostics = wantDiagnostics;
 	m_cfg = Configuration::create();			// creation of config2cpp object.
 	m_validator = new SchemaValidator();
@@ -34,7 +35,7 @@ C_Interpreter::C_Interpreter(bool wantDiagnostics) : listSize(0)
 
 
 /**
- * \brief Destroyes the config4cpp object
+ * \brief Destroys the config4cpp object
  * \author PB
  * \date 2014/03/19
 */
