@@ -38,7 +38,7 @@ C_A2FInterpreter::~C_A2FInterpreter(void)
  * \author PB
  * \date 2014/03/25
  * \exception std::runtime_error in case of other error
- * \excpetion std::invalid_argument - on error in config4cpp
+ * \exception std::invalid_argument - on error in config4cpp
  * \pre external variable \c application_scope must be set
  * \see http://stackoverflow.com/questions/1012571/stdstring-to-float-or-double
  * \deprecated Assumes that surfaces are normal lists
@@ -68,14 +68,14 @@ void C_A2FInterpreter::A2FGetSurfaceParams( const std::string& portName, std::st
  * \brief Gets parameters connected with SURFACE field
  * \details Return several params connected with surfaces. Params are specified for A2F project.
  * Encapsulates also const char* to string as general output.
- * \param[out] surf - name of the surcae in Fluent connected with specified port
- * \param[out] area - area of the surface inFluent
+ * \param[out] SurfName - name of the surcae in Fluent connected with specified port
+ * \param[out] SurfArea - area of the surface inFluent
  * \return Returns area and name of the surface in fluent read from the script.
  * \retval \c void
  * \author PB
  * \date 2014/03/25
  * \exception std::runtime_error in case of other error
- * \excpetion std::invalid_argument - on error in config4cpp
+ * \exception std::invalid_argument - on error in config4cpp
  * \pre external variable \c application_scope must be set
  * \see http://stackoverflow.com/questions/1012571/stdstring-to-float-or-double
 */
@@ -133,7 +133,7 @@ void C_A2FInterpreter::A2FGetSurfaceParams( std::vector<std::string>& SurfName, 
  * \date 2014/04/02
  * \see Schema.cfg
  * \see A2F.cfg
- * \excpetion std::invalid_argument - on error in config4cpp
+ * \exception std::invalid_argument - on error in config4cpp
  * \exception std::runtime_error in case of other error
  * \note Suitable only for EXPORT scope because of predefined variables inside. If structure of cfg changed, this function must change too.
 */
@@ -186,7 +186,7 @@ void C_A2FInterpreter::A2FGetExportsParams( std::vector<std::string>& fluentFcn,
  * \date 2014/04/02
  * \see Schema.cfg
  * \see A2F.cfg
- * \excpetion std::invalid_argument - on error in config4cpp
+ * \exception std::invalid_argument - on error in config4cpp
  * \exception std::runtime_error in case of other error
  * \note Suitable only for EXPORT scope because of predefined variables inside. If structure of cfg changed, this function must change too.
 */

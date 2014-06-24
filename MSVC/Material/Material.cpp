@@ -458,7 +458,7 @@ HRESULT Material::copyFrom( const Material& src )
  SetError(L"Material::Create failed", L"IUnitOperation", L"Calculate", err_code);
  return ECapeUnknownHR;
  }
- /endcode
+ \endcode
 */
 HRESULT Material::Create( BSTR _portName, CComPtr<ICapeCollection> portCollection, Material* &ob )
 {
