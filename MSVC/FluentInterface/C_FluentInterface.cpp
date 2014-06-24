@@ -32,6 +32,7 @@
  * ... <- function values
  * )
  * ) <- end of the surface
+ * \endcode
  * \param[in] profileName - profile file name and path
  * \author PB
  * \date 2014/06/22

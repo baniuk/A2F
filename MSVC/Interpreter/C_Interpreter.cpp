@@ -54,7 +54,6 @@ C_Interpreter::~C_Interpreter(void)
  * \brief Opens and validate configuration file
  * \details Opens and perform SchemeValidation on configuration file. Throw exception on any error.
  * \param[in] cfgInput file name with configuration to open
- * \param[in] cfgScope Context of configuration file to check. Should be main context
  * \return nothing
  * \retval void
  * \author PB

@@ -131,7 +131,7 @@ TEST(Interpreter,_wrongscope)
  * \test Interpreter:_noscopeset
  * \brief Test when no external scope will be set
  * \details \c application_scope must be set with valid scope. If not set at all (empty string) std Exception is thrown
- * \pre external variable \c application_scope \b{must not be} set 
+ * \pre external variable \c application_scope \b must not be set 
  * \post Expect exception
  * \author PB
  * \date 2014/03/22

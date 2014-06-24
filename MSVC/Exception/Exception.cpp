@@ -3,7 +3,7 @@
  * \brief Implementation of Exception class
  * \author PB
  * \date 2014/03/24
- * \obsolete Not used in project
+ * \deprecated Not used in project
  */
 #include "stdafx.h"
 #include "Exception.h"

@@ -207,7 +207,7 @@ HRESULT C_FluentStarter::PrintProcessNameAndID( DWORD processID, const TCHAR* na
 
 /**
  * \details Creates starter file for Fluent. This file is named \b<journal> and its only one task is to run other file named \b<starter.scm>
- * Files are created in C_Properties::PAR_PATH directory. This method crates only \b<journal> file.
+ * Files are created in C_Properties::PAR_PATH directory. This method crates only \b journal file.
  * \return nothing
  * \retval \c void
  * \author PB
