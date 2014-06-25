@@ -9,7 +9,7 @@
 
 
 /**
- * \brief Assign profile file to obiect
+ * \brief Assign profile file to object
  * \details Allow to perform operations on selected profile file. The structure of profile file is as follows: \n
  * It contains selected parameters for selected surfaces. All parameters are the same for all surfaces. It is assumed to be not possible to 
  * have different sets of parameters for surfaces. The structure of the file:
@@ -47,7 +47,7 @@ C_FluentInterface::C_FluentInterface(const char* profileName )
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	profileFileName = profileName;
 	profileFileHandle.open(profileName,std::ifstream::in);
-	profileFileHandle.exceptions(profileFileHandle.failbit|profileFileHandle.badbit); // will throw exceptions of these errors
+	profileFileHandle.exceptions(profileFileHandle.failbit|profileFileHandle.badbit|profileFileHandle.eofbit); // will throw exceptions of these errors
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 }
 
@@ -103,7 +103,7 @@ double C_FluentInterface::GetMean( const char* fluentSurface, const char* fluent
  * \author PB
  * \date 2014/06/22
  * \warning Can be problem with find method - if names will be similar (finds substring, eg fluentSurface=xxx will find xxx1 xxx2 ...)
- * \exception std::logic_error if surface not found
+ * \exception std::logic_error if surface not found 
 */
 streampos C_FluentInterface::getSurfaceOffset( const char* fluentSurface)
 {
@@ -114,7 +114,11 @@ streampos C_FluentInterface::getSurfaceOffset( const char* fluentSurface)
 	string regexString = "(\\b" + string(fluentSurface) + "\\b)";
 	try
 	{
-		while (getline(profileFileHandle, line))	// all lines
+		// all lines will throw exception on eof because of getline(). 
+		// This is why there is no stop in while. We need to know that surface was not found. It should throw eof but there are prioryties
+		// and failbit is thrown first. After removing failbit from exceptions, eof is thrown
+		// http://en.cppreference.com/w/cpp/io/ios_base/iostate
+		while (getline(profileFileHandle, line))	
 		{
 			if(regex_search(line, regex(regexString)))
 			{
@@ -134,7 +138,7 @@ streampos C_FluentInterface::getSurfaceOffset( const char* fluentSurface)
 		throw std::logic_error("Surface not found");
 	}
 	PANTHEIOS_TRACE_EMERGENCY(PSTR("should be never here because getline throws exception on eof (set in constructor)"));
-	return 0;	// should be never here because getline throws exception on eof (set in constructor);
+	return 0;	// should be never here because getline throws exception on eof 
 }
 
 /**
@@ -147,7 +151,7 @@ streampos C_FluentInterface::getSurfaceOffset( const char* fluentSurface)
  * \author PB
  * \date 2014/06/22
  * \warning Can be problem with find method - if names will be similar (finds substring, eg fluentSurface=xxx will find xxx1 xxx2 ...)
- * \exception std::logic_error if surface not found or std::ios_base
+ * \exception std::logic_error if function not found or std::ios_base
 */
 streampos C_FluentInterface::getFunctionOffset( const char* fluentFunc, streampos startOffset )
 {
@@ -160,9 +164,12 @@ streampos C_FluentInterface::getFunctionOffset( const char* fluentFunc, streampo
 		profileFileHandle.seekg(startOffset); // startOffset points to line with surface name
 		getline(profileFileHandle,line);	  // we read this line to remove ((
 		offset+=(line.length() + 2);	 // and add offset after reading
-		while(!profileFileHandle.eof())
+		// all lines will throw exception on eof because of getline(). 
+		// This is why there is no stop in while. We need to know that surface was not found. It should throw eof but there are prioryties
+		// and failbit is thrown first. After removing failbit from exceptions, eof is thrown
+		// http://en.cppreference.com/w/cpp/io/ios_base/iostate
+		while(getline(profileFileHandle,line))
 		{
-			getline(profileFileHandle,line);
 			if(line.find("((")!=string::npos)	// znaleüliúmy poczπtek kolejnej surface!
 				throw std::logic_error("Function not found - end of surface!!");
 			if(regex_search(line, regex(regexString)))	// function found found
