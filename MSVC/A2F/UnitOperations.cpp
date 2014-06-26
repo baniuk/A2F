@@ -80,6 +80,10 @@ HRESULT CUnitOperations::FinalConstruct()
 	
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Unit status: "),
 							pantheios::integer(exValidationStatus));
+
+	// looking for dir in registry
+
+
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
