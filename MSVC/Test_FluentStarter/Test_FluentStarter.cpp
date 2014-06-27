@@ -2,7 +2,7 @@
  * \file Test_FluentStarter.cpp
  * \brief Main file that starts all tests
  * \details Tests Fluent starter
- * \pre Nedd fluent installed
+ * \pre Need fluent installed
  * \author PB
  * \date 2014/02/05
  * \warning All test should be run on virtual machine A2F.

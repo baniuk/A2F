@@ -38,6 +38,7 @@ CPortCollection::~CPortCollection()
 *                     \li S_OK = Success
 * \warning Number of initialized ports in this function mus equal to PORTS_NUMBER in stdafx.h     
 * \todo Check Release on AddPort fail
+* \see http://82.145.77.86:8080/trac/A2F/wiki/A2F_Fit_1
 */
 HRESULT CPortCollection::FinalConstruct()
 {
@@ -82,9 +83,9 @@ HRESULT CPortCollection::FinalConstruct()
 		return err_code;
 	}
 	/************************************************************************/
-	/* Add second port: INLET O2                                            */
+	/* Add second port: INLET P1                                            */
 	/************************************************************************/
-	err_code = AddPort(L"O2",L"Inlet port 2", CAPE_INLET, CAPE_MATERIAL);
+	err_code = AddPort(L"P1",L"Inlet port 2", CAPE_INLET, CAPE_MATERIAL);
 	if(FAILED(err_code))
 	{
 		PANTHEIOS_TRACE_ERROR(	PSTR("Port Initialize failed because: "), 
@@ -94,9 +95,9 @@ HRESULT CPortCollection::FinalConstruct()
 		return err_code;
 	}
 	/************************************************************************/
-	/* Add third port: OUTLET                                              */
+	/* Add third port: OUTLET ANODOFF                                      */
 	/************************************************************************/
-	err_code = AddPort(L"OUT_11",L"Output port 1", CAPE_OUTLET, CAPE_MATERIAL);
+	err_code = AddPort(L"ANODOFF",L"Output port 1", CAPE_OUTLET, CAPE_MATERIAL);
 	if(FAILED(err_code))
 	{
 		PANTHEIOS_TRACE_ERROR(	PSTR("Port Initialize failed because: "), 
@@ -106,9 +107,9 @@ HRESULT CPortCollection::FinalConstruct()
 		return err_code;
 	}
 	/************************************************************************/
-	/* Add fourth port: OUTLET ENERGY                                       */
+	/* Add fourth port: OUTLET EXHAUST                                      */
 	/************************************************************************/
-	err_code = AddPort(L"OUT_Q",L"Output port 2", CAPE_OUTLET, CAPE_ENERGY);
+	err_code = AddPort(L"EXHAUST",L"Output port 2", CAPE_OUTLET, CAPE_MATERIAL);
 	if(FAILED(err_code))
 	{
 		PANTHEIOS_TRACE_ERROR(	PSTR("Port Initialize failed because: "), 

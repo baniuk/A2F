@@ -80,6 +80,17 @@ HRESULT CUnitOperations::FinalConstruct()
 	
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Unit status: "),
 							pantheios::integer(exValidationStatus));
+
+	// looking for dir in registry
+	if (ERROR_SUCCESS!=C_RegistrySupport::GetStringforKey(HKEY_CURRENT_USER,_T("Software\\A2F"),_T("InstallDir"),configPath))
+	{
+		// key not found, exiting
+		PANTHEIOS_TRACE_ERROR(PSTR("Key not found, exiting"));
+		MessageBox(NULL,"Registry key not found. Install A2F again","ERROR",MB_OK);
+		SetError(L"Registry key not found. Install A2F again",L"ICapeUnitOperation",L"FinalConstruct");
+		return ECapeUnknownHR;
+	}
+
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
@@ -151,24 +162,21 @@ STDMETHODIMP CUnitOperations::get_ValStatus( CapeValidationStatus * ValStatus )
 }
 
 /**
- * \details Calculate the unit operation. This is the function that performs the actual model calculation.
+ * \details Calculate the unit operation. This is the function that performs the actual model calculation. It copies materials from ports to provate member of
+ * CUnitOperations::Materials. This member keeps objects of Material class that is initialized from materials from streams. This class is helper to materials.
  * \return   Return status of the unit
  * \li S_OK on Success
  * \li ECapeUnknownHR
  * \todo Add error handling here (use ECapeUnknownHR and AddError)
  * \see AddError
- * \warning Here ports are recognized by ID not good way because if we change number of ports it can happen that output port (2) will be input Numbers
- * are given as ports are created in CPortCollection::FinalConstruct()
+ * \warning It clears always CUnitOperations::Materials member on leave or on error.
  */
 STDMETHODIMP CUnitOperations::Calculate()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	HRESULT err_code;
 	CComPtr<ICapeCollection> ptmpICapePortCollection;	// local portcollection interface (addref)
-	Material* inputPort_REFOR = NULL;
-	Material* inputPort_O2 = NULL;
-	Material* outputPort_11 = NULL;
-	Material* outputPort_Q = NULL;
+	Materials.resize(PORTS_NUMBER);
 	try
 	{
 		// ******************* Call ICapeCollection ******************************************************************************************************
@@ -180,38 +188,44 @@ STDMETHODIMP CUnitOperations::Calculate()
 			throw std::runtime_error("Instance of ICapeCollection not created");
 	
 		// **************** Get input port for collection ***********************************************************************************************
-		err_code = Material::Create(CComBSTR(L"REFOR"),ptmpICapePortCollection, inputPort_REFOR);
+		err_code = Material::Create(CComBSTR(L"REFOR"),ptmpICapePortCollection, Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]);
 		if(FAILED(err_code)) 
 			throw std::runtime_error("Material::Create failed");
 			
 		// **************** Get output port for collection ***********************************************************************************************
-		err_code = Material::Create(CComBSTR(L"OUT_11"), ptmpICapePortCollection, outputPort_11);
+		err_code = Material::Create(CComBSTR(L"ANODOFF"), ptmpICapePortCollection, Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]);
 		if(FAILED(err_code)) 
 			throw std::runtime_error("Material::Create failed");
 		
 		// **************** Get input port for collection ***********************************************************************************************
-		err_code = Material::Create(CComBSTR(L"O2"), ptmpICapePortCollection, inputPort_O2);
+		err_code = Material::Create(CComBSTR(L"P1"), ptmpICapePortCollection, Materials[static_cast< std::size_t >(StreamNumber::inputPort_P1)]);
 		if(FAILED(err_code)) 
 			throw std::runtime_error("Material::Create failed");
 
 		// **************** Get output port for collection ***********************************************************************************************
-		err_code = Material::Create(CComBSTR(L"OUT_Q"), ptmpICapePortCollection, outputPort_Q);
+		err_code = Material::Create(CComBSTR(L"EXHAUST"), ptmpICapePortCollection, Materials[static_cast< std::size_t >(StreamNumber::outputPort_EXHAUST)]);
 		if(FAILED(err_code)) 
 			throw std::runtime_error("Material::Create failed");
 
 		// ************* Filling structures ********************************************************************************************************
 		PANTHEIOS_TRACE_DEBUG(	PSTR("Flashing MAterial obiect for REFOR"));
-		err_code = inputPort_REFOR->inFlashMaterialObject(); // fill internal structure of inputPort
-		PANTHEIOS_TRACE_DEBUG(	PSTR("Flashing MAterial obiect for O2"));
-		err_code = inputPort_O2->inFlashMaterialObject();
+		err_code = Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]->inFlashMaterialObject(); // fill internal structure of inputPort
+		PANTHEIOS_TRACE_DEBUG(	PSTR("Flashing MAterial obiect for P1"));
+		err_code = Materials[static_cast< std::size_t >(StreamNumber::inputPort_P1)]->inFlashMaterialObject();
 		if(FAILED(err_code))
 			throw std::runtime_error("Error returned from inFlashMaterialObject");
 
-		err_code = outputPort_11->copyFrom(*inputPort_REFOR);	// copy physical propertios from input
+		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]);	// copy physical propertios from input
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from copyFrom input to output");
+		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_EXHAUST)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]);	// copy physical propertios from input
 		if(FAILED(err_code))
 			throw std::runtime_error("Error returned from copyFrom input to output");
 
-		err_code = outputPort_11->outFlashMaterialObject();	// fashing outputs
+		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->outFlashMaterialObject();	// fashing outputs
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from outFlashMaterialObject");
+		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_EXHAUST)]->outFlashMaterialObject();	// fashing outputs
 		if(FAILED(err_code))
 			throw std::runtime_error("Error returned from outFlashMaterialObject");
 		
@@ -224,16 +238,24 @@ STDMETHODIMP CUnitOperations::Calculate()
 		double C;
 	//	Material::getConstant(ptmpInputPortMaterial,L"molecularWeight",L"WODA",&C);
 
-			// flash the outlet material (all outlet ports must be flashed by a CAPE-OPEN unit operation)
+		// flash the outlet material (all outlet ports must be flashed by a CAPE-OPEN unit operation)
 		VARIANT props;
 		VariantInit(&props);
 
 		CComBSTR tp = "TP";
-		ICapeThermoMaterialObject* ptmpOutputPortMaterial = outputPort_11->get_MaterialRef(); // local copy of pointer kept by Material class
+		ICapeThermoMaterialObject* ptmpOutputPortMaterial;
+		ptmpOutputPortMaterial = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->get_MaterialRef(); // local copy of pointer kept by Material class
 		err_code = ptmpOutputPortMaterial->CalcEquilibrium(tp,props);
 		ptmpOutputPortMaterial->Release();	// must release here
 		if(FAILED(err_code)) 
 			throw std::runtime_error("Error returned from CalcEquilibrium");
+
+		ptmpOutputPortMaterial = Materials[static_cast< std::size_t >(StreamNumber::outputPort_EXHAUST)]->get_MaterialRef(); // local copy of pointer kept by Material class
+		err_code = ptmpOutputPortMaterial->CalcEquilibrium(tp,props);
+		ptmpOutputPortMaterial->Release();	// must release here
+		if(FAILED(err_code)) 
+			throw std::runtime_error("Error returned from CalcEquilibrium");
+
 	}
 	catch(std::exception& ex)
 	{
@@ -241,13 +263,15 @@ STDMETHODIMP CUnitOperations::Calculate()
 		std::string str(ex.what());	// convert char* to wchar required by SetError
 		std::wstring wstr = C_A2FInterpreter::s2ws(str);
 		SetError(wstr.c_str(), L"IUnitOperation", L"Calculate", err_code);
-		SAFE_DELETE(inputPort_REFOR);
-		SAFE_DELETE(outputPort_11);
+		for(Material *mat : Materials)
+			SAFE_DELETE(mat);
+		Materials.clear();
 		return ECapeUnknownHR;
 	}
 	// normal quit
-	SAFE_DELETE(inputPort_REFOR);
-	SAFE_DELETE(outputPort_11);
+	for(Material *mat : Materials)
+		SAFE_DELETE(mat);
+	Materials.clear();
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
@@ -705,5 +729,6 @@ void CUnitOperations::SetError( const WCHAR* desc, const WCHAR* itface, const WC
 */
 HRESULT CUnitOperations::CreateScm( void )
 {
+	// use Materials
 	return S_OK;
 }

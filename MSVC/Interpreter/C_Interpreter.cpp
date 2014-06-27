@@ -27,6 +27,7 @@ extern string application_scope; //!< Name of the main application scope (FLUENT
 C_Interpreter::C_Interpreter(bool wantDiagnostics) : listSize(0)
 {
 	_ASSERT(!application_scope.empty());
+	names = nullptr;
 	m_wantDiagnostics = wantDiagnostics;
 	m_cfg = Configuration::create();			// creation of config2cpp object.
 	m_validator = new SchemaValidator();
@@ -34,7 +35,7 @@ C_Interpreter::C_Interpreter(bool wantDiagnostics) : listSize(0)
 
 
 /**
- * \brief Destroyes the config4cpp object
+ * \brief Destroys the config4cpp object
  * \author PB
  * \date 2014/03/19
 */
@@ -54,7 +55,6 @@ C_Interpreter::~C_Interpreter(void)
  * \brief Opens and validate configuration file
  * \details Opens and perform SchemeValidation on configuration file. Throw exception on any error.
  * \param[in] cfgInput file name with configuration to open
- * \param[in] cfgScope Context of configuration file to check. Should be main context
  * \return nothing
  * \retval void
  * \author PB

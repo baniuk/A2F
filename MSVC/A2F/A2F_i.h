@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 8.00.0595 */
-/* at Wed Apr 30 12:28:54 2014
+/* at Fri Jun 27 18:35:33 2014
  */
 /* Compiler settings for A2F.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.00.0595 

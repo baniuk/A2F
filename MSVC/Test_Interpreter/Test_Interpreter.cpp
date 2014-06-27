@@ -1,5 +1,10 @@
-// Test_Interpreter.cpp : Defines the entry point for the console application.
-//
+/**
+ * \file Test_Interpreter.cpp
+ * \brief Test environment
+ * \author PB
+ * \date 2014/06/26
+ */
+
 
 #include "stdafx.h"
 #include "..\Common_utilities\Pantheios_header.h"
@@ -131,7 +136,7 @@ TEST(Interpreter,_wrongscope)
  * \test Interpreter:_noscopeset
  * \brief Test when no external scope will be set
  * \details \c application_scope must be set with valid scope. If not set at all (empty string) std Exception is thrown
- * \pre external variable \c application_scope \b{must not be} set 
+ * \pre external variable \c application_scope \b must not be set 
  * \post Expect exception
  * \author PB
  * \date 2014/03/22
@@ -224,7 +229,7 @@ TEST(UseExample,_parseandvalidate)
  * \test Interpreter:_lookup4String_equal
  * \brief Gets one string parameter from configuration
  * \pre external variable \c application_scope must be set to FLUENT
- * \post No exception should be thrown, returned value equals \ctest.case
+ * \post No exception should be thrown, returned value equals \c test.case
  * \author PB
  * \date 2014/03/23
  * \see config4cpp documentation
@@ -244,7 +249,7 @@ TEST(Interpreter,_lookup4String_equal)
  * \test Interpreter:_lookup4String_nequal
  * \brief Gets one string parameter from configuration
  * \pre external variable \c application_scope must be set to FLUENT
- * \post No exception should be thrown, returned value not equals \ctest.case
+ * \post No exception should be thrown, returned value not equals \c test.case
  * \author PB
  * \date 2014/03/23
  * \see config4cpp documentation
@@ -264,7 +269,7 @@ TEST(Interpreter,_lookup4String_nequal)
  * \test Interpreter:_lookup4String_wrongask
  * \brief Gets one string parameter from configuration but we ask for nonexistent param
  * \pre external variable \c application_scope must be set to FLUENT
- * \post Should throw exception, returned value not equals \ctest.case
+ * \post Should throw exception, returned value not equals \c test.case
  * \author PB
  * \date 2014/03/23
  * \see config4cpp documentation
@@ -284,7 +289,7 @@ TEST(Interpreter,_lookup4String_wrongask)
  * \test Interpreter:_lookup4String_wrongformat
  * \brief Gets one string parameter from configuration but we ask for param defined as int. 
  * \pre external variable \c application_scope must be set to FLUENT
- * \post Should not throw exception, returned value not equals \ctest.case
+ * \post Should not throw exception, returned value not equals \c test.case
  * \author PB
  * \date 2014/03/23
  * \see config4cpp documentation
@@ -375,8 +380,9 @@ TEST(Interpreter,_lookup4Float_equal)
  * \see config4cpp documentation
  * \note Numbers in lists are accesible as string but there will be always possible to convert them to number because there was scheme checking before.
  * Schemes check also list entries types.
+ * \note Test disabled becaue there are no lists in cfg.
  */
-TEST(Interpreter,_lookup4List_equal)
+TEST(Interpreter,DISABLED_lookup4List_equal)
 {
 	application_scope = "FLUENT";
 	C_Interpreter* cfg = new C_Interpreter();
@@ -518,15 +524,36 @@ TEST(A2FInterpreter,_lookup4Float_equal)
 */
 TEST(A2FInterpreter,_GetSurfaceParams_equal)
 {
+// 	application_scope = "FLUENT";
+// 	C_A2FInterpreter* cfg = new C_A2FInterpreter();
+// 	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
+// 
+// 	string surfaceName;
+// 	float area;
+// 	EXPECT_NO_THROW(cfg->A2FGetSurfaceParams("SURFACES.OUTPUT1", surfaceName, area));
+// 	EXPECT_STREQ(surfaceName.c_str(),"wylotpulpy");
+// 	EXPECT_EQ(area,0.0113f);
+// 	delete cfg;
+
 	application_scope = "FLUENT";
 	C_A2FInterpreter* cfg = new C_A2FInterpreter();
 	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
+	vector<string> SurfName;
+	vector<float> SurfArea;
 
-	string surfaceName;
-	float area;
-	EXPECT_NO_THROW(cfg->A2FGetSurfaceParams("SURFACES.OUTPUT1", surfaceName, area));
-	EXPECT_STREQ(surfaceName.c_str(),"wylotpulpy");
-	EXPECT_EQ(area,0.0113f);
+	EXPECT_NO_THROW(cfg->A2FGetSurfaceParams(SurfName, SurfArea));
+	// check num of lists
+	EXPECT_EQ(SurfName.size(),3);
+	EXPECT_EQ(SurfArea.size(),3);
+	// check all params in lists
+	EXPECT_STREQ("wloth3po4",SurfName[0].c_str());
+	EXPECT_EQ(0.004f,SurfArea[0]);
+
+	EXPECT_STREQ("wlotnh3",SurfName[1].c_str());
+	EXPECT_EQ(0.002f,SurfArea[1]);
+
+	EXPECT_STREQ("wylotpulpy",SurfName[2].c_str());
+	EXPECT_EQ(0.0113f,SurfArea[2]);
 	delete cfg;
 }
 
@@ -577,7 +604,7 @@ TEST(A2FInterpreter,_GetAssignsParams_equal)
 	C_A2FInterpreter* cfg = new C_A2FInterpreter();
 	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
 	vector<string> compName;
-	vector<int> noInput;
+	vector<string> noInput;
 	vector<string> surfName;
 
 	EXPECT_NO_THROW(cfg->A2FGetAssignsParams(compName, noInput, surfName));
@@ -587,11 +614,11 @@ TEST(A2FInterpreter,_GetAssignsParams_equal)
 	EXPECT_EQ(surfName.size(),2);
 	// check all params in lists
 	EXPECT_STREQ("H3N",compName[0].c_str());
-	EXPECT_EQ(1,noInput[0]);
+	EXPECT_STREQ("REFOR",noInput[0].c_str());
 	EXPECT_STREQ("wlotnh3",surfName[0].c_str());
 
 	EXPECT_STREQ("H3PO4",compName[1].c_str());
-	EXPECT_EQ(2,noInput[1]);
+	EXPECT_STREQ("P1",noInput[1].c_str());
 	EXPECT_STREQ("wloth3po4",surfName[1].c_str());
 	delete cfg;
 }

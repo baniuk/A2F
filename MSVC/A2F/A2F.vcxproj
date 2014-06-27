@@ -35,6 +35,7 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\Configs.props\config4star.Debug.props" />
+    <Import Project="..\Configs.props\GTest.Debug.props" />
     <Import Project="..\Configs.props\A2F.Debug.props" />
     <Import Project="..\Configs.props\Pantheios.Debug.props" />
   </ImportGroup>
@@ -91,7 +92,7 @@
 $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>$(SolutionDir)..\tools\xcopy $(SolutionDir)$(Configuration)\$(TargetFileName) d:\Dokumenty\Dropbox\A2F /F/Y
+      <Command>$(SolutionDir)..\tools\xcopy $(SolutionDir)$(Configuration)\$(TargetFileName) d:\Dokumenty\Dropbox\Shares\A2F /F/Y
 $(SolutionDir)..\tools\xcopy $(SolutionDir)Test_Interpreter\A2F.cfg $(SolutionDir)A2F_Files\Scripts /F/Y</Command>
       <Message>Kopiuje target do maszyny wirtualnej oraz kopiuje A2F.cfg testowy do końcowego</Message>
     </PostBuildEvent>
@@ -204,6 +205,9 @@ $(SolutionDir)..\tools\xcopy $(SolutionDir)Test_Interpreter\A2F.cfg $(SolutionDi
     <Midl Include="A2F.idl" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FluentInterface\FluentInterface.vcxproj">
+      <Project>{ab11b615-6e8c-4a61-9266-57862887499a}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\FluentStart\FluentStart.vcxproj">
       <Project>{ee34f085-bc0f-4a8b-921b-3dc198f0fa05}</Project>
     </ProjectReference>
@@ -212,6 +216,9 @@ $(SolutionDir)..\tools\xcopy $(SolutionDir)Test_Interpreter\A2F.cfg $(SolutionDi
     </ProjectReference>
     <ProjectReference Include="..\Material\Material.vcxproj">
       <Project>{0b7b289e-9a11-4275-920c-0e86b5b51271}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\registrySupport\registrySupport.vcxproj">
+      <Project>{05ad2c7d-b827-41c6-b1f7-3cbe5e34efbf}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

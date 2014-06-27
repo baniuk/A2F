@@ -24,7 +24,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Other files", "Other files", "{FF30E356-F816-43BC-9461-1B604E3255F1}"
 	ProjectSection(SolutionItems) = preProject
 		A2F_Files\Scripts\A2F.cfg = A2F_Files\Scripts\A2F.cfg
-		..\agent.sh = ..\agent.sh
 		..\build.bat = ..\build.bat
 		..\tools\LogConvert.bat = ..\tools\LogConvert.bat
 	EndProjectSection
@@ -38,6 +37,14 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test_Interpreter", "Test_Interpreter\Test_Interpreter.vcxproj", "{4959D2DF-D67A-45DD-8AC3-68EAA0E232D5}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Exception", "Exception\Exception.vcxproj", "{B19F53B6-4D2E-49CF-9D18-A30C0CBD8C2A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FluentInterface", "FluentInterface\FluentInterface.vcxproj", "{AB11B615-6E8C-4A61-9266-57862887499A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test_FluentInterface", "Test_FluentInterface\Test_FluentInterface.vcxproj", "{0285AA00-050F-47BE-AD21-DA1816CF5AA2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "registrySupport", "registrySupport\registrySupport.vcxproj", "{05AD2C7D-B827-41C6-B1F7-3CBE5E34EFBF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test_registrySupport", "Test_registrySupport\Test_registrySupport.vcxproj", "{113DB0E2-894D-41BE-AD97-6C5098AA0821}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -82,6 +89,22 @@ Global
 		{B19F53B6-4D2E-49CF-9D18-A30C0CBD8C2A}.Debug|Win32.Build.0 = Debug|Win32
 		{B19F53B6-4D2E-49CF-9D18-A30C0CBD8C2A}.Release|Win32.ActiveCfg = Release|Win32
 		{B19F53B6-4D2E-49CF-9D18-A30C0CBD8C2A}.Release|Win32.Build.0 = Release|Win32
+		{AB11B615-6E8C-4A61-9266-57862887499A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AB11B615-6E8C-4A61-9266-57862887499A}.Debug|Win32.Build.0 = Debug|Win32
+		{AB11B615-6E8C-4A61-9266-57862887499A}.Release|Win32.ActiveCfg = Release|Win32
+		{AB11B615-6E8C-4A61-9266-57862887499A}.Release|Win32.Build.0 = Release|Win32
+		{0285AA00-050F-47BE-AD21-DA1816CF5AA2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0285AA00-050F-47BE-AD21-DA1816CF5AA2}.Debug|Win32.Build.0 = Debug|Win32
+		{0285AA00-050F-47BE-AD21-DA1816CF5AA2}.Release|Win32.ActiveCfg = Release|Win32
+		{0285AA00-050F-47BE-AD21-DA1816CF5AA2}.Release|Win32.Build.0 = Release|Win32
+		{05AD2C7D-B827-41C6-B1F7-3CBE5E34EFBF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{05AD2C7D-B827-41C6-B1F7-3CBE5E34EFBF}.Debug|Win32.Build.0 = Debug|Win32
+		{05AD2C7D-B827-41C6-B1F7-3CBE5E34EFBF}.Release|Win32.ActiveCfg = Release|Win32
+		{05AD2C7D-B827-41C6-B1F7-3CBE5E34EFBF}.Release|Win32.Build.0 = Release|Win32
+		{113DB0E2-894D-41BE-AD97-6C5098AA0821}.Debug|Win32.ActiveCfg = Debug|Win32
+		{113DB0E2-894D-41BE-AD97-6C5098AA0821}.Debug|Win32.Build.0 = Debug|Win32
+		{113DB0E2-894D-41BE-AD97-6C5098AA0821}.Release|Win32.ActiveCfg = Release|Win32
+		{113DB0E2-894D-41BE-AD97-6C5098AA0821}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 8.00.0595 */
-/* at Fri Jan 31 11:27:40 2014
+/* at Sun Jun 22 21:43:44 2014
  */
 /* Compiler settings for Test_Material_Class.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.00.0595 

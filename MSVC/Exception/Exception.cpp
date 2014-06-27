@@ -3,7 +3,7 @@
  * \brief Implementation of Exception class
  * \author PB
  * \date 2014/03/24
- * \obsolete Not used in project
+ * \deprecated Not used in project
  */
 #include "stdafx.h"
 #include "Exception.h"
@@ -17,7 +17,7 @@
  * \note
  * \warning In case of default constructor \c desc is undefined
  * \see std::exception
- * \obsolete Not used in project
+ * \deprecated Not used in project
  * \remarks Excption class defined by MS differs from std:exception. It has parametrized constructor and allows to provide error message. 
  * http://msdn.microsoft.com/en-us/library/c4ts6d5a.aspx. But in general every exception should be defined separatelly without providing error message
  * as in this example: http://www.cplusplus.com/doc/tutorial/exceptions/ or 

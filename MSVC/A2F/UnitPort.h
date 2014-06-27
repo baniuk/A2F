@@ -146,7 +146,7 @@ private:
 	CapePortDirection portDirection;
 	/// Type of the port
 	/**
-	* \detail Allows to define port type: \s CapeMaterial, \s CapeEnergy, \s CapeInformation, or \s CapeAny. 
+	* \details Allows to define port type: \c CapeMaterial, \c CapeEnergy, \c CapeInformation, or \c CapeAny. 
 	* \see AspenPlus User models.pdf pp. 281
 	*/ 
 	CapePortType portType;
