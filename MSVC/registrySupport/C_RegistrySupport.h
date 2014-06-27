@@ -20,11 +20,12 @@
 */
 class C_RegistrySupport
 {
-public:
+private:
 	C_RegistrySupport(void);
 	~C_RegistrySupport(void);
+public:
 	/// Opens string form given key
-	LONG GetStringforKey(HKEY key, const TCHAR* subKey, const TCHAR* value, std::string& outval);
+	static LONG GetStringforKey(HKEY key, const TCHAR* subKey, const TCHAR* value, std::string& outval);
 };
 #endif // C_RegistrySupport_h__
 

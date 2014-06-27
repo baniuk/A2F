@@ -26,7 +26,7 @@ C_RegistrySupport::~C_RegistrySupport(void)
  * \param[out] outval - string from subKey.
  * \return If the function succeeds, the return value is ERROR_SUCCESS.
  * If the function fails, the return value is a nonzero error code defined in Winerror.h. You can use the FormatMessage function with the FORMAT_MESSAGE_FROM_SYSTEM flag to get a generic description of the error.
- * \retval \c LONG
+ * \retval LONG
  * \author PB
  * \date 2014/06/26
  * \note On error outval can be undefined

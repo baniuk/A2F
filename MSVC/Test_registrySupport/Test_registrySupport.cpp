@@ -80,10 +80,9 @@ int _tmain(int argc, _TCHAR* argv[])
 */
 TEST(registrySupport,_wrongKey)
 {
-	C_RegistrySupport regObj;
 	LONG ret;
 	std::string out;
-	ret = regObj.GetStringforKey(HKEY_CURRENT_USER,_T("Software\\Cape2Fluent"),_T("InstallDir"),out);
+	ret = C_RegistrySupport::GetStringforKey(HKEY_CURRENT_USER,_T("Software\\Cape2Fluent"),_T("InstallDir"),out);
 	EXPECT_NE(ERROR_SUCCESS,ret);
 }
 
@@ -98,10 +97,9 @@ TEST(registrySupport,_wrongKey)
 */
 TEST(registrySupport,_wrongvalue)
 {
-	C_RegistrySupport regObj;
 	LONG ret;
 	std::string out;
-	ret = regObj.GetStringforKey(HKEY_CURRENT_USER,_T("Software\\A2F"),_T("InstallDi"),out);
+	ret = C_RegistrySupport::GetStringforKey(HKEY_CURRENT_USER,_T("Software\\A2F"),_T("InstallDi"),out);
 	EXPECT_NE(ERROR_SUCCESS,ret);
 }
 
@@ -116,10 +114,9 @@ TEST(registrySupport,_wrongvalue)
 */
 TEST(registrySupport,_openKey)
 {
-	C_RegistrySupport regObj;
 	LONG ret;
 	std::string out;
-	ret = regObj.GetStringforKey(HKEY_CURRENT_USER,_T("Software\\A2F"),_T("InstallDir"),out);
+	ret = C_RegistrySupport::GetStringforKey(HKEY_CURRENT_USER,_T("Software\\A2F"),_T("InstallDir"),out);
 	cout << "Opened key: " << out << endl;
 	EXPECT_EQ(ERROR_SUCCESS,ret);
 }
