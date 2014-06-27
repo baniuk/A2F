@@ -35,6 +35,7 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\Configs.props\config4star.Debug.props" />
+    <Import Project="..\Configs.props\GTest.Debug.props" />
     <Import Project="..\Configs.props\A2F.Debug.props" />
     <Import Project="..\Configs.props\Pantheios.Debug.props" />
   </ImportGroup>
@@ -215,6 +216,9 @@ $(SolutionDir)..\tools\xcopy $(SolutionDir)Test_Interpreter\A2F.cfg $(SolutionDi
     </ProjectReference>
     <ProjectReference Include="..\Material\Material.vcxproj">
       <Project>{0b7b289e-9a11-4275-920c-0e86b5b51271}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\registrySupport\registrySupport.vcxproj">
+      <Project>{05ad2c7d-b827-41c6-b1f7-3cbe5e34efbf}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

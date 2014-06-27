@@ -80,6 +80,17 @@ HRESULT CUnitOperations::FinalConstruct()
 	
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Unit status: "),
 							pantheios::integer(exValidationStatus));
+
+	// looking for dir in registry
+	if (ERROR_SUCCESS!=C_RegistrySupport::GetStringforKey(HKEY_CURRENT_USER,_T("Software\\A2F"),_T("InstallDir"),configPath))
+	{
+		// key not found, exiting
+		PANTHEIOS_TRACE_ERROR(PSTR("Key not found, exiting"));
+		MessageBox(NULL,"Registry key not found. Install A2F again","ERROR",MB_OK);
+		SetError(L"Registry key not found. Install A2F again",L"ICapeUnitOperation",L"FinalConstruct");
+		return ECapeUnknownHR;
+	}
+
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }

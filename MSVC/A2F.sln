@@ -42,6 +42,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FluentInterface", "FluentIn
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test_FluentInterface", "Test_FluentInterface\Test_FluentInterface.vcxproj", "{0285AA00-050F-47BE-AD21-DA1816CF5AA2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "registrySupport", "registrySupport\registrySupport.vcxproj", "{05AD2C7D-B827-41C6-B1F7-3CBE5E34EFBF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test_registrySupport", "Test_registrySupport\Test_registrySupport.vcxproj", "{113DB0E2-894D-41BE-AD97-6C5098AA0821}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -93,6 +97,14 @@ Global
 		{0285AA00-050F-47BE-AD21-DA1816CF5AA2}.Debug|Win32.Build.0 = Debug|Win32
 		{0285AA00-050F-47BE-AD21-DA1816CF5AA2}.Release|Win32.ActiveCfg = Release|Win32
 		{0285AA00-050F-47BE-AD21-DA1816CF5AA2}.Release|Win32.Build.0 = Release|Win32
+		{05AD2C7D-B827-41C6-B1F7-3CBE5E34EFBF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{05AD2C7D-B827-41C6-B1F7-3CBE5E34EFBF}.Debug|Win32.Build.0 = Debug|Win32
+		{05AD2C7D-B827-41C6-B1F7-3CBE5E34EFBF}.Release|Win32.ActiveCfg = Release|Win32
+		{05AD2C7D-B827-41C6-B1F7-3CBE5E34EFBF}.Release|Win32.Build.0 = Release|Win32
+		{113DB0E2-894D-41BE-AD97-6C5098AA0821}.Debug|Win32.ActiveCfg = Debug|Win32
+		{113DB0E2-894D-41BE-AD97-6C5098AA0821}.Debug|Win32.Build.0 = Debug|Win32
+		{113DB0E2-894D-41BE-AD97-6C5098AA0821}.Release|Win32.ActiveCfg = Release|Win32
+		{113DB0E2-894D-41BE-AD97-6C5098AA0821}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

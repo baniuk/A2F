@@ -208,6 +208,8 @@ private:
 	HRESULT CreateScm(void);
 	/// collection of materials provided by ports in PMC
 	std::vector<Material*> Materials;
+	/// path and name of config file
+	std::string configPath;
 
 };
 
