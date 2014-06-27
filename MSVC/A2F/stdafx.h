@@ -39,6 +39,7 @@
 #include "C_Properties.h"
 #include "..\Interpreter\C_A2FInterpreter.h"
 #include "..\FluentInterface\C_FluentInterface.h"
+#include "..\registrySupport\C_RegistrySupport.h"
 // user definitions
 #define YES TRUE
 #define NO FALSE

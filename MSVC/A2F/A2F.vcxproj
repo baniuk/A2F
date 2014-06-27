@@ -35,6 +35,7 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\Configs.props\config4star.Debug.props" />
+    <Import Project="..\Configs.props\GTest.Debug.props" />
     <Import Project="..\Configs.props\A2F.Debug.props" />
     <Import Project="..\Configs.props\Pantheios.Debug.props" />
   </ImportGroup>
