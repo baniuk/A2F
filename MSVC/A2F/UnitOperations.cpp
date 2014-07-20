@@ -232,11 +232,14 @@ STDMETHODIMP CUnitOperations::Calculate()
 		/** \test GetConstant live test
 		 * \code{.cpp}
 		 * double C;
-		 * Material::getConstant(ptmpInputPortMaterial,L"molecularWeight",L"WODA",&C);
+		 * Material::Create(CComBSTR(L"P1"), ptmpICapePortCollection, Materials[static_cast< std::size_t >(StreamNumber::inputPort_P1)]); // must be created
+		 * Material.inFlashMaterialObject(); // must be flashed
+		 * Material.getMolarWeight(C); 
 		 * \endcode
 		 */
+
 		double C;
-	//	Material::getConstant(ptmpInputPortMaterial,L"molecularWeight",L"WODA",&C);
+		err_code = Materials[static_cast<std::size_t>(StreamNumber::inputPort_REFOR)]->getMolarWeight(C);
 
 		// flash the outlet material (all outlet ports must be flashed by a CAPE-OPEN unit operation)
 		VARIANT props;

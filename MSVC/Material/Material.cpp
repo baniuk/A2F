@@ -462,6 +462,7 @@ HRESULT Material::copyFrom( const Material& src )
 */
 HRESULT Material::Create( BSTR _portName, CComPtr<ICapeCollection> portCollection, Material* &ob )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	HRESULT err_code;
 	VARIANT id;	// to hold port number
 	LPDISPATCH rawlpDisp;
@@ -514,6 +515,7 @@ HRESULT Material::Create( BSTR _portName, CComPtr<ICapeCollection> portCollectio
 	rawlpDisp->Release();	// release teporary IDispatch pointer
 	// setting input material
 	ob = new Material(ptmpInputPortMaterial);
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
 
@@ -532,5 +534,37 @@ ICapeThermoMaterialObject* Material::get_MaterialRef( void )
 {
 	mat->AddRef();
 	return mat;
+}
+
+
+/**
+ * \brief Returns molar weight oh whole material
+ * \details Sums all molar wieghts of all components in material
+ * \param[out] m molar weight
+ * \return Error code
+ * \retval \c HRESULT
+ * \author PB
+ * \date 2014/07/20
+ * \warning Matrial must be flased
+*/
+HRESULT Material::getMolarWeight( double &m )
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	double C;
+	m = 0.0;
+	HRESULT hr;
+	for(LONG i = compIds.GetLowerBound(); i < compIds.GetUpperBound(); ++i) // po wszystkich komponentach
+	{
+		hr = Material::getConstant(this->mat, L"molecularWeight", compIds[i], &C);
+		if(FAILED(hr))
+		{
+			PANTHEIOS_TRACE_ERROR(PSTR("getMolarWeight "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+			return hr;
+		}
+		m += C;
+	}
+	PANTHEIOS_TRACE_DEBUG(PSTR("Molar weight: "),pantheios::real(m));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	return S_OK;
 }
 

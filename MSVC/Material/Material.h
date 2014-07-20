@@ -64,6 +64,8 @@ public:
 	HRESULT copyFrom(const Material& src);
 	/// Returns reference to mat
 	ICapeThermoMaterialObject* get_MaterialRef(void);
+	/// Return molar weight of whole material
+	HRESULT getMolarWeight(double &m);
 	/// Returns physical property of selected component
 	static HRESULT getConstant(ICapeThermoMaterialObject *mat,BSTR prop, BSTR compName, double *C);
 	/// Creates material object from ICapeCollection
