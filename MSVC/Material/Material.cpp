@@ -236,7 +236,7 @@ HRESULT Material::get_PhysicalProp()
 		pressures[i] = dtmp;
 	PantheiosHelper::dumpCComSafeArray(pressures, "pressures");
 
-	// ask fo flow
+	// ask for flow
 	VariantInit(&outputProperty);	// initialization of VARIANT
 	hr = mat->GetPropA(CComBSTR(L"flow"),CComBSTR(L"overall"),CComVariant(compIds),NULL,CComBSTR(L"mole"),&outputProperty);
 	if(FAILED(hr))
@@ -248,7 +248,7 @@ HRESULT Material::get_PhysicalProp()
 	flows.CopyFrom(outputProperty.parray);
 	PantheiosHelper::dumpCComSafeArray(flows, "flows");
 
-	// ask fo mole
+	// ask for mole
 	VariantInit(&outputProperty);	// initialization of VARIANT
 	hr = mat->GetPropA(CComBSTR(L"fraction"),CComBSTR(L"overall"),CComVariant(compIds),NULL,CComBSTR(L"mole"),&outputProperty);
 	if(FAILED(hr))
@@ -539,7 +539,8 @@ ICapeThermoMaterialObject* Material::get_MaterialRef( void )
 
 /**
  * \brief Returns molar weight oh whole material
- * \details Sums all molar wieghts of all components in material
+ * \details Sums all molar wieghts of all components in material. Takes into account only components with nonzero fraction. By default \c compIds contains all components defined
+ * in stream
  * \param[out] m molar weight
  * \return Error code
  * \retval \c HRESULT
@@ -553,7 +554,7 @@ HRESULT Material::getMolarWeight( double &m )
 	double C;
 	m = 0.0;
 	HRESULT hr;
-	for(LONG i = compIds.GetLowerBound(); i < compIds.GetUpperBound(); ++i) // po wszystkich komponentach
+	for(LONG i = compIds.GetLowerBound(); i <= compIds.GetUpperBound(); ++i) // po wszystkich komponentach
 	{
 		hr = Material::getConstant(this->mat, L"molecularWeight", compIds[i], &C);
 		if(FAILED(hr))
@@ -561,7 +562,8 @@ HRESULT Material::getMolarWeight( double &m )
 			PANTHEIOS_TRACE_ERROR(PSTR("getMolarWeight "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 			return hr;
 		}
-		m += C;
+		if(fractions[i]!=0)
+			m += C;
 	}
 	PANTHEIOS_TRACE_DEBUG(PSTR("Molar weight: "),pantheios::real(m));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
