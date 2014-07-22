@@ -91,7 +91,7 @@ int _tmain(int argc, _TCHAR* argv[])
 TEST(FluentStarter,_StartFluent)
 {
 	HRESULT err = E_FAIL;
-	ASSERT_NO_THROW(err = C_FluentStarter::StartFluent());
+	ASSERT_NO_THROW(err = C_FluentStarter::StartFluent("c:\\A2F.cfg"));
 	ASSERT_HRESULT_SUCCEEDED(err);
 }
 
@@ -103,7 +103,7 @@ TEST(FluentStarter,_CreateJournal)
 {
 	try
 	{
-		C_FluentStarter::CreateJournal();
+		C_FluentStarter::CreateJournal("c:\\A2F.cfg");
 	}
 	catch(std::exception& ex)
 	{

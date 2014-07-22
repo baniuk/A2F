@@ -33,6 +33,7 @@ CUnitOperations::~CUnitOperations()
 *			\li Set names of component and descriptions
 *			\li create instance of IPortCollection
 *			\li create instance of IParameterCollection
+* \c configDir contains config script file. jou file and outputs from Fluent will be in directory given in script \b DATA_PATH 
 * \return   Return S_OK on success or one of the standard error HRESULT values.
 * \retval   status   The CreateInstance status  - http://msdn.microsoft.com/en-us/library/windows/desktop/ms686615(v=vs.85).aspx
 *                     \li S_OK		Success
@@ -81,8 +82,8 @@ HRESULT CUnitOperations::FinalConstruct()
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Unit status: "),
 							pantheios::integer(exValidationStatus));
 
-	// looking for dir in registry
-	if (ERROR_SUCCESS!=C_RegistrySupport::GetStringforKey(HKEY_CURRENT_USER,_T("Software\\A2F"),_T("InstallDir"),configPath))
+	// looking for working dir in registry
+	if (ERROR_SUCCESS!=C_RegistrySupport::GetStringforKey(HKEY_CURRENT_USER,_T("Software\\A2F"),_T("InstallDir"),configDir))
 	{
 		// key not found, exiting
 		PANTHEIOS_TRACE_ERROR(PSTR("Key not found, exiting"));
@@ -215,6 +216,18 @@ STDMETHODIMP CUnitOperations::Calculate()
 		if(FAILED(err_code))
 			throw std::runtime_error("Error returned from inFlashMaterialObject");
 
+		/** \test GetConstant live test
+		 * \code{.cpp}
+		 * double C;
+		 * Material::Create(CComBSTR(L"P1"), ptmpICapePortCollection, Materials[static_cast< std::size_t >(StreamNumber::inputPort_P1)]); // must be created
+		 * Material.inFlashMaterialObject(); // must be flashed
+		 * Material.getMolarWeight(C); 
+		 * \endcode
+		 */
+		double C;
+		err_code = Materials[static_cast<std::size_t>(StreamNumber::inputPort_REFOR)]->getMolarWeight(C);
+		// other staff here, createScm and start Fluent and read results
+
 		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]);	// copy physical propertios from input
 		if(FAILED(err_code))
 			throw std::runtime_error("Error returned from copyFrom input to output");
@@ -229,18 +242,6 @@ STDMETHODIMP CUnitOperations::Calculate()
 		if(FAILED(err_code))
 			throw std::runtime_error("Error returned from outFlashMaterialObject");
 		
-		/** \test GetConstant live test
-		 * \code{.cpp}
-		 * double C;
-		 * Material::Create(CComBSTR(L"P1"), ptmpICapePortCollection, Materials[static_cast< std::size_t >(StreamNumber::inputPort_P1)]); // must be created
-		 * Material.inFlashMaterialObject(); // must be flashed
-		 * Material.getMolarWeight(C); 
-		 * \endcode
-		 */
-
-		double C;
-		err_code = Materials[static_cast<std::size_t>(StreamNumber::inputPort_REFOR)]->getMolarWeight(C);
-
 		// flash the outlet material (all outlet ports must be flashed by a CAPE-OPEN unit operation)
 		VARIANT props;
 		VariantInit(&props);
@@ -259,6 +260,17 @@ STDMETHODIMP CUnitOperations::Calculate()
 		if(FAILED(err_code)) 
 			throw std::runtime_error("Error returned from CalcEquilibrium");
 
+	}
+	catch(std::ios_base::failure& ex)	// on file opening error in createScm. No transfering exceptions
+	{
+		PANTHEIOS_TRACE_ERROR(PSTR("Cant open scm file, check if DATA_PATH is correct in cfg file "), PSTR("Error returned: "), ex.what());
+		std::string str(ex.what());	// convert char* to wchar required by SetError
+		std::wstring wstr = C_A2FInterpreter::s2ws(str);
+		SetError(wstr.c_str(), L"IUnitOperation", L"Calculate", err_code);
+		for(Material *mat : Materials)
+			SAFE_DELETE(mat);
+		Materials.clear();
+		return ECapeUnknownHR;
 	}
 	catch(std::exception& ex)
 	{
@@ -603,7 +615,7 @@ STDMETHODIMP CUnitOperations::put_simulationContext( LPDISPATCH rhs)
 STDMETHODIMP CUnitOperations::Edit()
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	MessageBox(NULL,"Read script file again?","Warning",MB_OKCANCEL);
+	MessageBox(NULL,"Nothing to see here","Warning",MB_OKCANCEL);
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
@@ -727,11 +739,32 @@ void CUnitOperations::SetError( const WCHAR* desc, const WCHAR* itface, const WC
  * \author PB
  * \date 2014/03/16
  * \warning The last function must be exit.
+ * \exception Throw exception from C_A2FInterpreter class and std::ios_base::failure on file fail open
  * \todo Finish
  * \see http://82.145.77.86:8080/trac/A2F/wiki/Schematy#StartFluenta
+ * \see http://www.cplusplus.com/reference/ios/ios/exceptions/
+ * \see http://www.cplusplus.com/reference/ios/ios/setstate/
+ * \see http://msdn.microsoft.com/query/dev11.query?appId=Dev11IDEF1&l=EN-US&k=k(string%2Fstd%3A%3Agetline);k(std%3A%3Agetline);k(getline);k(DevLang-C%2B%2B);k(TargetOS-Windows)&rd=true
 */
 HRESULT CUnitOperations::CreateScm( void )
 {
 	// use Materials
+	// use working dir configDir
+	// 
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	std::unique_ptr<C_A2FInterpreter> cfg(new C_A2FInterpreter()); // smart pointer in case of exception
+	cfg->A2FOpenAndValidate(configDir.c_str());	// search for script
+	string workingDir(cfg->A2Flookup4String("DATA_PATH")); // gets path for working dir from script
+	string scm_file = workingDir + _T("starter.scm");		// define name of scm and path in working dir
+	PANTHEIOS_TRACE_DEBUG(PSTR("Creating scm: "), scm_file);
+	std::ofstream starter;	// scm file handle
+	starter.exceptions(starter.failbit|starter.badbit|starter.eofbit);	// will throw exceptions on all errors
+	starter.open(scm_file.c_str(),std::ios::out| std::ios::trunc); // can throw exception here
+	// creating scm file
+	starter << ";; File generated automatically" << endl;
+
+
+	starter.close();
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }

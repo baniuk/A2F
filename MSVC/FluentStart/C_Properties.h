@@ -4,6 +4,7 @@
  * \details This properties will be later moved to external file
  * \author PB
  * \date 2014/02/06
+ * \deprecated This class is no longer used
  */
 
 #ifndef C_Properties_h__
@@ -19,6 +20,7 @@
  * \date 2014/02/07
  * \note Initialization of static string in main object *.cpp but in correct namespace. Must be C_Properties::
  * \see http://stackoverflow.com/questions/2605520/c-where-to-initialize-static-const
+ * \deprecated This class is no longer used
 */
 class C_Properties
 {

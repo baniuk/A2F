@@ -14,6 +14,7 @@
 #include <atlctl.h>
 #include <iostream>
 #include <fstream>
+#include <string.h>
 
 /**
  * \class C_FluentStarter.h
@@ -26,9 +27,9 @@ class C_FluentStarter
 {
 public:
 	/// Starts fluent
-	static HRESULT StartFluent(void);
+	static HRESULT StartFluent(const std::string& configDir);
 	/// Creates starter file for Fluent
-	static void CreateJournal(void);
+	static void CreateJournal(const std::string& configDir);
 private:
 	/// Private constructor. It is not possible to create instance of this class
 	C_FluentStarter(void) {};

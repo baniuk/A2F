@@ -6,7 +6,7 @@
  */
 #include "stdafx.h"
 #include "C_FluentStarter.h"
-#include "C_Properties.h"
+#include <atlstr.h>
 #include <Psapi.h>
 
 using namespace std;
@@ -15,6 +15,7 @@ using namespace std;
  * \brief Starts fluent process
  * \details Runs fluent. Before run calls CreateJournal to create required journal. The journal file is passed
  * as parameter during Fluent start.
+ * param[in] configDir - path of the config script. Typically read from registry
  * \return Status of the operation
  * \retval HRESULT
  * - S_OK if Fluent starts
@@ -24,7 +25,7 @@ using namespace std;
  * \pre CreateJournal() must be called before to create journal
  * \exception std::exception from C_A2FInterpreter class
 */
-HRESULT C_FluentStarter::StartFluent( void )
+HRESULT C_FluentStarter::StartFluent( const std::string& configDir )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	HRESULT err;
@@ -39,7 +40,7 @@ HRESULT C_FluentStarter::StartFluent( void )
 
 	// ask for Fluent path and other params
 	std::unique_ptr<C_A2FInterpreter> cfg(new C_A2FInterpreter()); // smart pointer in case of exception
-	cfg->A2FOpenAndValidate(C_Properties::PAR_SCRIPT_PATH);	// search for script
+	cfg->A2FOpenAndValidate(configDir.c_str());	// search for script
 	
 	// prepare command line parametrs CString because the need of LPSTR (no const)
 	ATL::CString par_PARNAME(cfg->A2Flookup4String("COMMAND_LINE")); // contains full parameters with journal name and path
@@ -79,9 +80,9 @@ HRESULT C_FluentStarter::StartFluent( void )
 /**
  * \brief Waits as process start
  * \details Wait specified time until process starts. Important to left some time to load program. Total time is czas*obrot
- * \param nazwa
- * \param obrot How many times wait
- * \param czas How many seconds to wai
+ * \param[in] nazwa
+ * \param[in] obrot How many times wait
+ * \param[in] czas How many seconds to wai
  * \return Status of teh operation
  * \retval HRESULT:
  * - S_OK if process started
@@ -207,7 +208,8 @@ HRESULT C_FluentStarter::PrintProcessNameAndID( DWORD processID, const TCHAR* na
 
 /**
  * \details Creates starter file for Fluent. This file is named \b<journal> and its only one task is to run other file named \b<starter.scm>
- * Files are created in C_Properties::PAR_PATH directory. This method crates only \b journal file.
+ * Files are created in \c configDir directory. This method crates only \b journal file.
+ * param[in] configDir - path of the config script. Typically read from registry. This is also working dir
  * \return nothing
  * \retval \c void
  * \author PB
@@ -216,12 +218,12 @@ HRESULT C_FluentStarter::PrintProcessNameAndID( DWORD processID, const TCHAR* na
  * \exception std::exception from C_A2FInterpreter class.
  * \exception std::invalid_argument on wrong path in cfg file for storing scm
 */
-void C_FluentStarter::CreateJournal( void )
+void C_FluentStarter::CreateJournal( const std::string& configDir )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	// ask for journal path
 	std::unique_ptr<C_A2FInterpreter> cfg(new C_A2FInterpreter()); // smart pointer in case of exception
-	cfg->A2FOpenAndValidate(C_Properties::PAR_SCRIPT_PATH);	// search for script
+	cfg->A2FOpenAndValidate(configDir.c_str());	// search for script
 	string path_to_journal(cfg->A2Flookup4String("DATA_PATH")); // gets path
 
 	path_to_journal += _T("journal.jou"); // adding file name to TMP path
