@@ -15,8 +15,10 @@
 // Definition of external variables
 // CUnitOperations
 CapeValidationStatus exValidationStatus = CAPE_NOT_VALIDATED;
-// set global context for script
+/// set global context for script
 std::string application_scope = "FLUENT";
+/// set global and default name of script
+std::string script_name = "A2F.cfg";
 
 CUnitOperations::CUnitOperations()
 {
@@ -91,7 +93,10 @@ HRESULT CUnitOperations::FinalConstruct()
 		SetError(L"Registry key not found. Install A2F again",L"ICapeUnitOperation",L"FinalConstruct");
 		return ECapeUnknownHR;
 	}
-
+/**
+	\todo Add call for C_FluentStarter::CreateJournal( const std::string& configDir ) here or in Calculate method
+*/	
+	
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
@@ -168,7 +173,6 @@ STDMETHODIMP CUnitOperations::get_ValStatus( CapeValidationStatus * ValStatus )
  * \return   Return status of the unit
  * \li S_OK on Success
  * \li ECapeUnknownHR
- * \todo Add error handling here (use ECapeUnknownHR and AddError)
  * \see AddError
  * \warning It clears always CUnitOperations::Materials member on leave or on error.
  */
@@ -753,7 +757,7 @@ HRESULT CUnitOperations::CreateScm( void )
 	// 
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	std::unique_ptr<C_A2FInterpreter> cfg(new C_A2FInterpreter()); // smart pointer in case of exception
-	cfg->A2FOpenAndValidate(configDir.c_str());	// search for script
+	cfg->A2FOpenAndValidate( (configDir+script_name).c_str() );	// search for script in install dir
 	string workingDir(cfg->A2Flookup4String("DATA_PATH")); // gets path for working dir from script
 	string scm_file = workingDir + _T("starter.scm");		// define name of scm and path in working dir
 	PANTHEIOS_TRACE_DEBUG(PSTR("Creating scm: "), scm_file);

@@ -18,4 +18,5 @@
 * \section Pantheios
 * -# All pantheios settings are in Panheios_header.h file. there is also name and path to the log file.
 * \section General
+* -# UnitOperations.cpp contains some global settings.
 */
