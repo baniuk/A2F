@@ -17,7 +17,7 @@
 #include <string.h>
 
 /**
- * \class C_FluentStarter.h
+ * \class C_FluentStarter
  * \brief Run fluent process and control it.
  * \details Contains various method for starting fluent process.
  * \author PB
