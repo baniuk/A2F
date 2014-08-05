@@ -1,5 +1,5 @@
 rem Static test based on config4cpp
-rem Example: Test_Interpreter>StaticTest.cmd ..\..\External_dep\config4cpp\bin ..\..\tools
+rem Example: Test_Interpreter>StaticTest.bat ..\..\External_dep\config4cpp\bin ..\..\tools
 rem UWAGA: Dla systemów polskich narzedzie config4cpp zwraca blad zwiazany z przecinkiem ktorego oczekuje w skrypcie (a jest kropka)
 
 echo off

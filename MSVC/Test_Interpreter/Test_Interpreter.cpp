@@ -346,6 +346,8 @@ TEST(Interpreter,_lookup4Int_equal)
 	int result;
 	EXPECT_NO_THROW(result = cfg->lookup4Int("NUMOFITER"));
 	EXPECT_EQ(result, 3);
+	EXPECT_NO_THROW(result = cfg->lookup4Int("STACK_NUM"));
+	EXPECT_EQ(result, 4);
 	delete cfg;
 }
 
