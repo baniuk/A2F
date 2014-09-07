@@ -572,22 +572,22 @@ TEST(A2FInterpreter,_GetExportsParams_equal)
 	application_scope = "FLUENT";
 	C_A2FInterpreter* cfg = new C_A2FInterpreter();
 	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
-	vector<string> fluentFcn;
-	vector<string> aspenProp;
+	vector<string> surface;
+	vector<string> variable;
 	vector<string> compName;
 
-	EXPECT_NO_THROW(cfg->A2FGetExportsParams(fluentFcn, aspenProp, compName));
+	EXPECT_NO_THROW(cfg->A2FGetExportsParams(surface, variable, compName));
 	// check num of lists
-	EXPECT_EQ(fluentFcn.size(),2);
-	EXPECT_EQ(aspenProp.size(),2);
+	EXPECT_EQ(surface.size(),2);
+	EXPECT_EQ(variable.size(),2);
 	EXPECT_EQ(compName.size(),2);
 	// check all params in lists
-	EXPECT_STREQ("h3n-velocity-magnitude",fluentFcn[0].c_str());
-	EXPECT_STREQ("totalflow",aspenProp[0].c_str());
+	EXPECT_STREQ("h3n-velocity-magnitude",surface[0].c_str());
+	EXPECT_STREQ("totalflow",variable[0].c_str());
 	EXPECT_STREQ("h3n",compName[0].c_str());
 
-	EXPECT_STREQ("h3po4-velocity-magnitude",fluentFcn[1].c_str());
-	EXPECT_STREQ("totalflow",aspenProp[1].c_str());
+	EXPECT_STREQ("h3po4-velocity-magnitude",surface[1].c_str());
+	EXPECT_STREQ("totalflow",variable[1].c_str());
 	EXPECT_STREQ("h3po4",compName[1].c_str());
 	delete cfg;
 }

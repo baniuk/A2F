@@ -4,9 +4,8 @@
 * \details Generated on basis Scheme.cfg file which is used with config4cpp tool
 */
 const char* schema[] = {
-	"@typedef _AspenProp					=	enum[temperature, totalflow, pressure, fraction]",
 	"@typedef _ASSIGNS						=	tuple[string,component, string,PMC_stream_name, string,surface]",				
-	"@typedef _EXPORTS						=	tuple[string,Fluent_Func, _AspenProp,Aspen_Prop, string,Component]",	
+	"@typedef _EXPORTS						=	tuple[string,surface, string,variable, string,Component]",	
 	"@typedef _SURFACES						=	tuple[string,surface, float,area]",
 	"@required DATA_PATH					=	string",																
 	"@required FLUENT_PATH					=	string",

@@ -124,8 +124,8 @@ void C_A2FInterpreter::A2FGetSurfaceParams( std::vector<std::string>& SurfName, 
  * \li name of the physical property in Aspen
  * \li name of the component defined in Aspen
  * Method returns vectors of strings. Certain index must be applied to all of them, e.g. index 0 means all three properties given in one EXPORT.
- * \param[out] fluentFcn - vector of names of Fluent functions
- * \param[out] aspenProp - vector of names of Aspen properties
+ * \param[out] surface - vector of names of Fluent surfaces to read variables from them for certain components
+ * \param[out] variable - vector of names of Fluent variables
  * \param[out] compName - vector of names of Aspen Components
  * \return Properties of defined exports from Fluent. Connects name of the component with physical property of this component and Fluent
  * \retval \c void
@@ -137,7 +137,7 @@ void C_A2FInterpreter::A2FGetSurfaceParams( std::vector<std::string>& SurfName, 
  * \exception std::runtime_error in case of other error
  * \note Suitable only for EXPORT scope because of predefined variables inside. If structure of cfg changed, this function must change too.
 */
-void C_A2FInterpreter::A2FGetExportsParams( std::vector<std::string>& fluentFcn, std::vector<std::string>& aspenProp, std::vector<std::string>& compName )
+void C_A2FInterpreter::A2FGetExportsParams( std::vector<std::string>& surface, std::vector<std::string>& variable, std::vector<std::string>& compName )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	const char** list;	// list of EXPORTS names (uid)
@@ -161,8 +161,8 @@ void C_A2FInterpreter::A2FGetExportsParams( std::vector<std::string>& fluentFcn,
 			listNamewithScope += list[i];
 			PANTHEIOS_TRACE_DEBUG(PSTR("Looking for list: "), listNamewithScope);
 			lookup4List(listNamewithScope.c_str(), paramList, unused);
-			fluentFcn.push_back(paramList[static_cast<UINT>(ExportParams::ExpFunction)]); // add first param from list to output
-			aspenProp.push_back(paramList[static_cast<UINT>(ExportParams::ExpAspenParam)]);
+			surface.push_back(paramList[static_cast<UINT>(ExportParams::ExpSurface)]); // add first param from list to output
+			variable.push_back(paramList[static_cast<UINT>(ExportParams::ExpVariable)]);
 			compName.push_back(paramList[static_cast<UINT>(ExportParams::ExpComponent)]);
 		}
 	}

@@ -21,8 +21,8 @@ enum class SurfParams
 /// Enum for Exports
 enum class ExportParams
 {
-	ExpFunction,	///< Name of the export function
-	ExpAspenParam,	///< Name of the Aspen stram parameter
+	ExpSurface,		///< Name of the exported surface
+	ExpVariable,	///< Name of the Fluent variable to export
 	ExpComponent	///< Name of the chemical component
 };
 
@@ -58,7 +58,7 @@ public:
 	/// Overload member of A2FGetSurfaceParams
 	void A2FGetSurfaceParams( std::vector<std::string>& SurfName, std::vector<float>& SurfArea);
 	/// Gets EXPORTS from params
-	void A2FGetExportsParams(std::vector<std::string>& fluentFcn, std::vector<std::string>& aspenProp, std::vector<std::string>& compName);
+	void A2FGetExportsParams(std::vector<std::string>& surface, std::vector<std::string>& variable, std::vector<std::string>& compName);
 	/// Gets ASSIGNS form params
 	void A2FGetAssignsParams(std::vector<std::string>& compName, std::vector<std::string>& PMC_stream_name, std::vector<std::string>& surfName);
 	/// Warper of C_Interpreter::OpenAndValidate

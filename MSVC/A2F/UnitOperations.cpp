@@ -744,7 +744,6 @@ void CUnitOperations::SetError( const WCHAR* desc, const WCHAR* itface, const WC
  * \date 2014/03/16
  * \warning The last function must be exit.
  * \exception Throw exception from C_A2FInterpreter class and std::ios_base::failure on file fail open
- * \todo Finish
  * \see http://82.145.77.86:8080/trac/A2F/wiki/Schematy#StartFluenta
  * \see http://www.cplusplus.com/reference/ios/ios/exceptions/
  * \see http://www.cplusplus.com/reference/ios/ios/setstate/
@@ -760,12 +759,81 @@ HRESULT CUnitOperations::CreateScm( void )
 	cfg->A2FOpenAndValidate( (configDir+script_name).c_str() );	// search for script in install dir
 	string workingDir(cfg->A2Flookup4String("DATA_PATH")); // gets path for working dir from script
 	string scm_file = workingDir + _T("starter.scm");		// define name of scm and path in working dir
+	string cfg_file = workingDir + _T("A2F.cfg");			// path to cfg file
 	PANTHEIOS_TRACE_DEBUG(PSTR("Creating scm: "), scm_file);
 	std::ofstream starter;	// scm file handle
 	starter.exceptions(starter.failbit|starter.badbit|starter.eofbit);	// will throw exceptions on all errors
-	starter.open(scm_file.c_str(),std::ios::out| std::ios::trunc); // can throw exception here
-	// creating scm file
-	starter << ";; File generated automatically" << endl;
+	C_A2FInterpreter* cfg = new C_A2FInterpreter();
+	try
+	{
+		// initialize scm file and cfg
+		starter.open(scm_file.c_str(),std::ios::out| std::ios::trunc); // can throw exception here
+		cfg->OpenAndValidate(cfg_file.c_str());							// can throw std exception here
+		// define place to keep EXPORT params: surf_name, fluent_function)name, component name 
+		vector<string> surface;
+		vector<string> variable;
+		vector<string> compName;
+		// read EXPORT params
+		cfg->A2FGetExportsParams(surface, variable, compName);
+
+		// creating scm file
+		starter << ";; File generated automatically" << endl;
+		starter << ";; Load main project file - full path must be provided" << endl;
+		starter << ";; possible problem - file name must be without spaces and always with full patch, use / switch for directories" << endl;
+		starter << ";; delete previous" << endl;
+		// delete all output files (assiged to surfaces - we iterate along surfaces)
+		for ( auto &surf : surface )
+			starter << "(ti-menu-load-string \"!del F:\Dropbox\Shares\A2F\Fluent\_name_" << surf << ".prof \")" << endl;
+ 		starter <<	";; load project" << endl;
+		starter << "(ti-menu-load-string \"file/read-case-data " << cfg->lookup4String("DATA_PATH") << cfg->lookup4String("CASE_NAME") << "\")" << endl;
+		starter << ";; Setting inputs" << endl;
+// 			(ti-menu-load-string "define/boundary-conditions/mass-flow-inlet anode-inlet yes yes no 1.5551e-04 no 973.15 no 0 no yes no no 0 no 0 no 0.0154 yes no 0")
+// 
+// 			;; setting 1 input
+// 			;; http://www.evernote.com/shard/s97/sh/73c5396c-29d8-44d2-b3b2-59eb026137c8/39640cfc27aff79bb69c77b9b9644125
+// 		;; Aspen settings:
+// 		;; T = 680.468 C						-> 953.618 K (pozycja 7)
+// 			;; P = 1.01325 bar						-> not used
+// 			;; Nmol_H20 = 0.00872 kmol/hr			-> 0.0024 mol/s			M_H2O = 18.01528 g/mol		Nkg_H2O = 4.3237e-05 kg/s
+// 			;; Nmol_CO2 = 0.00654 kmol/hr			-> 0.0018 mol/s			M_CO2 = 44.0095 g/mol		Nkg_CO2 = 7.9217e-05 kg/s
+// 			;; Nmol_O2 = 0.0742074 kmol/hr			-> 0.0206 mol/s			M_O2 = 31.99880 g/mol		Nkg_O2 = 6.5918e-04 kg/s
+// 			;; Nmol_N2 = 0.308688 kmol/hr			-> 0.0857 mol/s			M_N2 = 28.01340 g/mol		Nkg_N2 = 0.0024 kg/s
+// 
+// 			;; Strumieñ masowy ca³kowity - suma strumieni masowych zwi¹zków (pozycja 5)
+// 			;; Ncalk = Nkg_H2O+Nkg_CO2+Nkg_O2+Nkg_N2 = 0.0032 kg/s
+// 			;; Mass fractions:
+// 		;; H20 = 0 (pozycja 14)
+// 			;; O2 = Nkg_O2/Ncalk = 6.5918e-04/0.0032 = 0.2060 (pozycja 16)
+// 			;; H = 0 (pozycja 18)
+// 			5     	7                         14   16   	 18 
+// 			(ti-menu-load-string "define/boundary-conditions/mass-flow-inlet cathode-inlet yes yes no 0.0032 no 953.618 no 0 no yes no no 0 no 0.2060 no 0 yes no 0")
+		starter << ";; --------------------------------------------------------------" << endl;
+ 		starter << "(ti-menu-load-string \"solve/iterate " << cfg->lookup4Int("NUMOFITER") << "\")" << endl;
+		starter << ";; --------------------------------------------------------------" << endl;
+ 		starter << ";; setting outputs" << endl;
+			
+		for( std::size_t i = 0; i < surface.size(); i++)
+ 			starter << "(ti-menu-load-string \"file/write-profile " << cfg->lookup4String("DATA_PATH") << "_name_" << surface[i] << ".prof" << variable[i] << "," << compName[i]\")" << endl;
+ 
+ 		starter << ";; --------------------------------------------------------------" << endl;
+ 		starter << "(ti-menu-load-string \"/\")" << endl;
+// 			;;(ti-menu-load-string "exit yes")
+
+
+		/// \todo Fisnish
+	}
+	catch(std::ios_base::failure& ex)	// on file opening error in createScm. No transfering exceptions
+	{
+		PANTHEIOS_TRACE_ERROR(PSTR("Cant create scm file. "), PSTR("Error returned: "), ex.what());
+		std::string str(ex.what());	// convert char* to wchar required by SetError
+		std::wstring wstr = C_A2FInterpreter::s2ws(str);
+		SetError(wstr.c_str(), L"IUnitOperation", L"CreateScm", E_FAIL);
+		return ECapeUnknownHR;
+	}
+	catch(std::exception& ex)
+	{
+		/// \todo other error (interpreter, material, etc)
+	}
 
 
 	starter.close();
