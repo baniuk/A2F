@@ -783,11 +783,39 @@ HRESULT CUnitOperations::CreateScm( void )
 		starter << ";; delete previous" << endl;
 		// delete all output files (assiged to surfaces - we iterate along surfaces)
 		for ( auto &surf : surface )
-			starter << "(ti-menu-load-string \"!del F:\Dropbox\Shares\A2F\Fluent\_name_" << surf << ".prof \")" << endl;
+			starter << "(ti-menu-load-string \"!del" << cfg->lookup4String("DATA_PATH") << "_name_" << surf << ".prof \")" << endl;
  		starter <<	";; load project" << endl;
 		starter << "(ti-menu-load-string \"file/read-case-data " << cfg->lookup4String("DATA_PATH") << cfg->lookup4String("CASE_NAME") << "\")" << endl;
 		starter << ";; Setting inputs" << endl;
-// 			(ti-menu-load-string "define/boundary-conditions/mass-flow-inlet anode-inlet yes yes no 1.5551e-04 no 973.15 no 0 no yes no no 0 no 0 no 0.0154 yes no 0")
+		// ---------------------------------- REFOR ------------------------------------------------------
+		// prepare for setting Fluent input REFOR - collecting required params from REFOR stream from ASPEN
+
+		// setting correct surface in FLuent
+		starter << "(ti-menu-load-string \""			// opening quota " 
+			"define/boundary-conditions/" <<			// command
+			cfg->lookup4String("BOUND_COND") <<			// type of boundary
+			"anode-inlet"								// surface
+			"yes"
+			"yes"
+			"no"
+			"1.5551e-04"								// total mass flux (5)
+			"no"
+			"973.15"									// temperature (7)
+			"no"
+			"0"
+			"no"
+			"yes"
+			"no"
+			"no"
+			"0"											// mass fraction of h20 (14)
+			"no"
+			"0"											// mass fraction of o2 (16)
+			"no"
+			"0.0154"									// mass fraction of h2 (18)
+			"yes"
+			"no"
+			"0"
+			"\")" << endl;
 // 
 // 			;; setting 1 input
 // 			;; http://www.evernote.com/shard/s97/sh/73c5396c-29d8-44d2-b3b2-59eb026137c8/39640cfc27aff79bb69c77b9b9644125
@@ -817,7 +845,7 @@ HRESULT CUnitOperations::CreateScm( void )
  
  		starter << ";; --------------------------------------------------------------" << endl;
  		starter << "(ti-menu-load-string \"/\")" << endl;
-// 			;;(ti-menu-load-string "exit yes")
+ 		starter << "(ti-menu-load-string \"exit yes\")" << endl;
 
 
 		/// \todo Fisnish
