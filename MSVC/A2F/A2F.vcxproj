@@ -167,6 +167,7 @@ $(ProjectDir)Version.bat ..\..\tools\ $(ProjectDir)VersionNo.h</Command>
   <ItemGroup>
     <ClInclude Include="..\Common_utilities\Pantheios_header.h" />
     <ClInclude Include="A2F_i.h" />
+    <ClInclude Include="Common_definitions.hpp" />
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="DOC_MainPage.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>

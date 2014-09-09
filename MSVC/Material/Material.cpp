@@ -369,29 +369,6 @@ HRESULT Material::outFlashMaterialObject()
 }
 
 /**
- * \brief Modify selected component
- * \details Change value of TPXF for selected component in internal arrays of object. If value is - it is not changed. Component mus exists
- * \param[in] compName - name of the component
- * \param[in] T - temperature to set
- * \param[in] P - pressure to set
- * \param[in] X - fraction to set
- * \param[in] F - flow to set
- * \return Status of the operation
- * \retval S_OK, E_FAIL
- * \author PB
- * \date 2014/02/01
- * \todo implemet after checking how much data is returned if there are many components in stream
-*/
-HRESULT Material::modifyComponent( BSTR compName, double T, double P, double X, double F )
-{
-	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	HRESULT hr;
-	
-	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return S_OK;
-}
-
-/**
  * \brief Copy physical properties and structure of material from other material
  * \details Copy physical properties and structure of material from other material. Can be used for duplicating properties to output material.
  * \param[in] src - Source material
@@ -566,6 +543,124 @@ HRESULT Material::getMolarWeight( double &m )
 			m += C;
 	}
 	PANTHEIOS_TRACE_DEBUG(PSTR("Molar weight: "),pantheios::real(m));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	return S_OK;
+}
+
+/**
+ * \brief Sets \c propertyName of value \c val to component name \c compName
+ * \details In facts it modifies internal tables of material properties \c temperatures, \c pressures, \c flows, \c fractions 
+ * \param[in] compName name of the component the same as in Aspen
+ * \param[in] propertyName name of the property to change 
+ * \param[in] val value to set
+ * \return Error code in case of problem (if compName does not exists)
+ * \retval \c HRESULT
+ * \author PB
+ * \date 2014/09/09
+ * \see Common_definitions.hpp
+*/
+HRESULT Material::setProp( std::string compName, PropertyName propertyName, double val )
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	LONG i, indexOfComp = -1;
+	CComBSTR bcompName(compName.c_str());	// create BSTR from string
+	// find index of component
+	for(i = compIds.GetLowerBound(); i <= compIds.GetUpperBound(); ++i)
+		if(compIds[i] == bcompName)
+			indexOfComp = i;
+	if(indexOfComp<0)	// not found
+	{
+		PANTHEIOS_TRACE_ERROR(PSTR("Component of name: "),compName,PSTR(" not found"));
+		return E_FAIL;
+	}
+	// indexOfComp keeps index of given component in data tables \c temperatures, \c pressures, \c flows, \c fractions
+
+	// modify selected property
+	switch(propertyName)
+	{
+	case PropertyName::Temperature:
+		PANTHEIOS_TRACE_DEBUG(PSTR("Setting temperature of component no "),pantheios::integer(indexOfComp),PSTR(" ("),compName,PSTR(") to "),
+			pantheios::real(val));
+		temperatures[indexOfComp] = val;
+		break;
+	case PropertyName::Pressure:
+		PANTHEIOS_TRACE_DEBUG(PSTR("Setting pressure of component no "),pantheios::integer(indexOfComp),PSTR(" ("),compName,PSTR(") to "),
+			pantheios::real(val));
+		pressures[indexOfComp] = val;
+		break;
+	case PropertyName::Fraction:
+		PANTHEIOS_TRACE_DEBUG(PSTR("Setting fraction of component no "),pantheios::integer(indexOfComp),PSTR(" ("),compName,PSTR(") to "),
+			pantheios::real(val));
+		fractions[indexOfComp] = val;
+		break;
+	case PropertyName::Flow:
+		PANTHEIOS_TRACE_DEBUG(PSTR("Setting flow of component no "),pantheios::integer(indexOfComp),PSTR(" ("),compName,PSTR(") to "),
+			pantheios::real(val));
+		flows[indexOfComp] = val;
+		break;
+	default:
+		PANTHEIOS_TRACE_ERROR(PSTR("Wrong property name"));
+		return E_FAIL;
+	}
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	return S_OK;
+}
+
+/**
+ * \brief Gets \c propertyName of value \c val to component name \c compName
+ * \details In facts it reads internal tables of material properties \c temperatures, \c pressures, \c flows, \c fractions 
+ * \param[in] compName name of the component the same as in Aspen
+ * \param[in] propertyName name of the property to change 
+ * \param[out] val value to read
+ * \return Error code in case of problem (if compName does not exists)
+ * \retval \c HRESULT
+ * \author PB
+ * \date 2014/09/09
+ * \see Common_definitions.hpp
+*/
+HRESULT Material::getProp( std::string compName, PropertyName propertyName, double& val )
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	LONG i, indexOfComp = -1;
+	CComBSTR bcompName(compName.c_str());	// create BSTR from string
+	// find index of component
+	for(i = compIds.GetLowerBound(); i <= compIds.GetUpperBound(); ++i)
+		if(compIds[i] == bcompName)
+			indexOfComp = i;
+	if(indexOfComp<0)	// not found
+	{
+		PANTHEIOS_TRACE_ERROR(PSTR("Component of name: "),compName,PSTR(" not found"));
+		return E_FAIL;
+	}
+	// indexOfComp keeps index of given component in data tables \c temperatures, \c pressures, \c flows, \c fractions
+
+	// modify selected property
+	switch(propertyName)
+	{
+	case PropertyName::Temperature:
+		val = temperatures[indexOfComp];
+		PANTHEIOS_TRACE_DEBUG(PSTR("Reading temperature of component no "),pantheios::integer(indexOfComp),PSTR(" ("),compName,PSTR(") as "),
+			pantheios::real(val));
+		break;
+	case PropertyName::Pressure:
+		val = pressures[indexOfComp];
+		PANTHEIOS_TRACE_DEBUG(PSTR("Reading pressure of component no "),pantheios::integer(indexOfComp),PSTR(" ("),compName,PSTR(") as "),
+			pantheios::real(val));
+		break;
+	case PropertyName::Fraction:
+		val = fractions[indexOfComp];
+		PANTHEIOS_TRACE_DEBUG(PSTR("Reading fraction of component no "),pantheios::integer(indexOfComp),PSTR(" ("),compName,PSTR(") as "),
+			pantheios::real(val));
+		break;
+	case PropertyName::Flow:
+		val = flows[indexOfComp];
+		PANTHEIOS_TRACE_DEBUG(PSTR("Reading flow of component no "),pantheios::integer(indexOfComp),PSTR(" ("),compName,PSTR(") as "),
+			pantheios::real(val));
+		break;
+	default:
+		PANTHEIOS_TRACE_ERROR(PSTR("Wrong property name"));
+		return E_FAIL;
+	}
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }

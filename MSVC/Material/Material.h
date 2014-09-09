@@ -16,7 +16,7 @@
 #include <atlsafe.h>
 #include <atlcom.h>
 #include <atlctl.h>
-
+#include "..\A2F\Common_definitions.hpp"
 /**
  * Status of the material object.
  * VALIDATED after use of the MaterialFlash method INVALIDATED othervise
@@ -58,8 +58,6 @@ public:
 	HRESULT inFlashMaterialObject();
 	/// Flashes material object
 	HRESULT outFlashMaterialObject();
-	/// Modify selected component
-	HRESULT modifyComponent(BSTR compName, double T, double P, double X, double F);
 	/// copy data from other MAterial object
 	HRESULT copyFrom(const Material& src);
 	/// Returns reference to mat
@@ -70,6 +68,10 @@ public:
 	static HRESULT getConstant(ICapeThermoMaterialObject *mat,BSTR prop, BSTR compName, double *C);
 	/// Creates material object from ICapeCollection
 	static HRESULT Create(BSTR _portName, ATL::CComPtr<ICapeCollection> portCollection, Material* &ob);
+	/// Set property value for given component
+	HRESULT setProp(std::string compName, PropertyName propertyName, double val);
+	/// Get property value for given component
+	HRESULT getProp(std::string compName, PropertyName propertyName, double& val);
 
 	~Material(void);
 private:

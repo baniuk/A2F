@@ -32,7 +32,7 @@ using namespace ATL;
  * \see http://82.145.77.86:8080/trac/A2F/wiki/Schematy
  * \see http://82.145.77.86:8080/trac/A2F/wiki/A2F_Fit_1
 */
-enum class StreamNumber : unsigned int
+enum class StreamNumber : std::size_t
 {
 	inputPort_REFOR=0,	///< input port REFOR from ASPEN
 	inputPort_P1,	///< input port P1 from ASPEN
