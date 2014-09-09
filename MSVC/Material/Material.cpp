@@ -665,3 +665,45 @@ HRESULT Material::getProp( std::string compName, PropertyName propertyName, doub
 	return S_OK;
 }
 
+/**
+ * \brief Gets list of components associated with material object
+ * \details Wraper giving access to internal table \c compIds
+ * \param[out] compList table with names of components
+ * \return error code \c S_OK or \c E_FAIL
+ * \retval \c HRESULT
+ * \author PB
+ * \date 2014/09/09
+ * \warning Because string conversion method this method can fail if national chars will be used
+*/
+HRESULT Material::getCompList( std::vector<std::string>& compList )
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	LONG i,ii;	// index of elements in internal compIds and external compList
+	std::wstring tmp;	// for conversion BSTR->string purposes
+	for(ii = 0, i = compIds.GetLowerBound(); i <= compIds.GetUpperBound(); ++i,++ii)
+	{
+		tmp.clear();
+		tmp = compIds[i];	// conversion for wstring
+		compList[ii] = ws2s(tmp);
+	}
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	return S_OK;
+}
+
+/**
+ * \brief Converst between wstring and strin
+ * \param[in] wstr \c wstring to convert
+ * \return Converted string
+ * \retval \c std::string
+ * \author PB
+ * \date 2014/09/09
+ * \todo Move thos method to common tools
+ * \see http://stackoverflow.com/questions/4804298/how-to-convert-wstring-into-string
+*/
+std::string Material::ws2s(const std::wstring& wstr)
+{
+	typedef std::codecvt_utf8<wchar_t> convert_typeX;
+	std::wstring_convert<convert_typeX, wchar_t> converterX;
+
+	return converterX.to_bytes(wstr);
+}

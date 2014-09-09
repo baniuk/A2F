@@ -360,6 +360,7 @@ void C_A2FInterpreter::A2Flookup4uidNames( const char* name, const char **& list
  * \retval \c std::wstring
  * \author PB
  * \date 2014/04/08
+ * \todo Move thos method to common tools
  * \see http://stackoverflow.com/questions/27220/how-to-convert-stdstring-to-lpcwstr-in-c-unicode
 */
 std::wstring C_A2FInterpreter::s2ws(const std::string& s)

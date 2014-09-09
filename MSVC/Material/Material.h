@@ -16,6 +16,8 @@
 #include <atlsafe.h>
 #include <atlcom.h>
 #include <atlctl.h>
+#include <vector>
+#include <codecvt>
 #include "..\A2F\Common_definitions.hpp"
 /**
  * Status of the material object.
@@ -72,7 +74,10 @@ public:
 	HRESULT setProp(std::string compName, PropertyName propertyName, double val);
 	/// Get property value for given component
 	HRESULT getProp(std::string compName, PropertyName propertyName, double& val);
-
+	/// Get list of components associated with material
+	HRESULT getCompList(std::vector<std::string>& compList);
+	/// conversion between wstring and string
+	static std::string ws2s(const std::wstring& wstr);
 	~Material(void);
 private:
 	/// Extract basic information on stream structure

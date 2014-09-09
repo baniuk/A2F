@@ -23,6 +23,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test_Material_ClassPS", "Te
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Other files", "Other files", "{FF30E356-F816-43BC-9461-1B604E3255F1}"
 	ProjectSection(SolutionItems) = preProject
+		A2F_Files\Scripts\_starter_example.scm = A2F_Files\Scripts\_starter_example.scm
 		A2F_Files\Scripts\A2F.cfg = A2F_Files\Scripts\A2F.cfg
 		..\build.bat = ..\build.bat
 		..\tools\LogConvert.bat = ..\tools\LogConvert.bat
