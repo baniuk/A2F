@@ -758,9 +758,9 @@ HRESULT CUnitOperations::CreateScm( void )
 	HRESULT err_code;
 	std::unique_ptr<C_A2FInterpreter> cfg(new C_A2FInterpreter()); // smart pointer in case of exception
 	cfg->A2FOpenAndValidate( (configDir+script_name).c_str() );	// search for script in install dir
-	string workingDir(cfg->A2Flookup4String("DATA_PATH")); // gets path for working dir from script
-	string scm_file = workingDir + _T("starter.scm");		// define name of scm and path in working dir
-	string cfg_file = workingDir + _T("A2F.cfg");			// path to cfg file
+	std::string workingDir(cfg->A2Flookup4String("DATA_PATH")); // gets path for working dir from script
+	std::string scm_file = workingDir + _T("starter.scm");		// define name of scm and path in working dir
+	std::string cfg_file = workingDir + _T("A2F.cfg");			// path to cfg file
 	PANTHEIOS_TRACE_DEBUG(PSTR("Creating scm: "), scm_file);
 	std::ofstream starter;	// scm file handle
 	starter.exceptions(starter.failbit|starter.badbit|starter.eofbit);	// will throw exceptions on all errors
@@ -770,9 +770,9 @@ HRESULT CUnitOperations::CreateScm( void )
 		starter.open(scm_file.c_str(),std::ios::out| std::ios::trunc); // can throw exception here
 		cfg->OpenAndValidate(cfg_file.c_str());							// can throw std exception here
 		// define place to keep EXPORT params: surf_name, fluent_function)name, component name 
-		vector<string> surface;
-		vector<string> variable;
-		vector<string> compName;
+		std::vector<string> surface;
+		std::vector<string> variable;
+		std::vector<string> compName;
 		// temprary variables for properties
 		double T, P, X, F;
 		std::vector<std::string> compList;	// list of components in material
@@ -793,8 +793,7 @@ HRESULT CUnitOperations::CreateScm( void )
 		// ---------------------------------- REFOR ------------------------------------------------------
 		// prepare for setting Fluent input REFOR - collecting required params from REFOR stream from ASPEN
 		Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]->getCompList(compList);
-		err_code = Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]->getProp(
-			compList[0], PropertyName::Temperature, T); // temperature of first component (all shoud be the same)
+		err_code = Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]->getProp(compList[0], PropertyName::Temperature, T); // temperature of first component (all shoud be the same)
 		// setting correct surface in FLuent
 		starter << "(ti-menu-load-string \""			// opening quota " 
 			"define/boundary-conditions/ " <<			// command
@@ -805,16 +804,16 @@ HRESULT CUnitOperations::CreateScm( void )
 			" no"
 			" 1.5551e-04"								// total mass flux (5)
 			" no " <<
-			 T <<									// temperature (7)
+			 T <<										// temperature (7)
 			" no"
 			" 0"
 			" no"
 			" yes"
 			" no"
 			" no"
-			" 0"											// mass fraction of h20 (14)
+			" 0"										// mass fraction of h20 (14)
 			" no"
-			" 0"											// mass fraction of o2 (16)
+			" 0"										// mass fraction of o2 (16)
 			" no"
 			" 0.0154"									// mass fraction of h2 (18)
 			" yes"
