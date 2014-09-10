@@ -93,7 +93,21 @@ HRESULT CUnitOperations::FinalConstruct()
 		SetError(L"Registry key not found. Install A2F again",L"ICapeUnitOperation",L"FinalConstruct");
 		return ECapeUnknownHR;
 	}
-	// \todo createjournal here with error checking and exception handling
+	// createjournal here with error checking and exception handling
+	try
+	{
+		C_FluentStarter::CreateJournal( configDir );
+	}
+	catch (std::exception& ex)
+	{
+		PANTHEIOS_TRACE_ERROR(PSTR("Cant create journal file, check if script is correct "), PSTR("Error returned: "), ex.what());
+		std::string str(ex.what());	// convert char* to wchar required by SetError
+		std::wstring wstr = C_A2FInterpreter::s2ws(str);
+		SetError(wstr.c_str(), L"IUnitOperation", L"FinalConstruct", err_code);
+		MessageBox(NULL,"Journal can not be created. Check script","ERROR",MB_OK);
+		return ECapeUnknownHR;
+	}
+
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
@@ -230,10 +244,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 		err_code = Materials[static_cast<std::size_t>(StreamNumber::inputPort_REFOR)]->getMolarWeight(C);
 		// ---- end tests ---------------------------------------
 		
-		/**
-		* \todo Add call for C_FluentStarter::CreateJournal( const std::string& configDir ) here or in FinalConstruct (better finalconstruct, but this 
-		* method can throw exceptions and validate script
-		*/	
+
 		// other staff here, createScm and start Fluent and read results
 		CreateScm();	// can throw exception on error which should be handled here 
 

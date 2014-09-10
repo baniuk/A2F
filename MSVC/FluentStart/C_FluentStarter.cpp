@@ -209,7 +209,7 @@ HRESULT C_FluentStarter::PrintProcessNameAndID( DWORD processID, const TCHAR* na
 /**
  * \details Creates starter file for Fluent. This file is named \b<journal> and its only one task is to run other file named \b<starter.scm>
  * Files are created in \c configScript directory. This method crates only \b journal file.
- * \param[in] configScript - path of the config script. Typically read from registry. This is also working dir
+ * \param[in] configScript - path of the config script. Typically read from registry. This is not working dir
  * \return nothing
  * \retval \c void
  * \author PB
@@ -217,6 +217,7 @@ HRESULT C_FluentStarter::PrintProcessNameAndID( DWORD processID, const TCHAR* na
  * \see http://aerojet.engr.ucdavis.edu/fluenthelp/html/ug/node23.htm
  * \exception std::exception from C_A2FInterpreter class.
  * \exception std::invalid_argument on wrong path in cfg file for storing scm
+ * \warning Path must end with \
 */
 void C_FluentStarter::CreateJournal( const std::string& configScript )
 {
