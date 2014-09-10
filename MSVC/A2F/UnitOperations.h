@@ -205,7 +205,7 @@ private:
 	/// Set error description
 	void SetError( const WCHAR* desc, const WCHAR* itface, const WCHAR* scope);
 	/// Creates smf file for Fluent
-	HRESULT CreateScm(void);
+	void CreateScm(void);
 	/// collection of materials provided by ports in PMC
 	std::vector<Material*> Materials;
 	/// path and name of config file

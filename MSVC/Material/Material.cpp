@@ -126,7 +126,7 @@ HRESULT Material::inFlashMaterialObject()
 * \details Extract information on stream structure from material:
 * \li number of components
 * \li names of components
-* \li ids of components
+* \li ids of components (stored as UPPER CASE)
 * \li phases avaiable in stream
 * Fills relevant data in class
 * \returns Status of the operation
@@ -174,6 +174,16 @@ HRESULT Material::get_Composition()
 	}
 	PantheiosHelper::dumpVariant(&tmpCompIds, "get_ComponentIds");
 	compIds.CopyFrom(tmpCompIds.parray);
+	// change all components to uppercase
+	CComBSTR tmp;
+	for(LONG i = compIds.GetLowerBound(); i<=compIds.GetUpperBound(); ++i)
+	{
+		tmp = compIds[i];		// convrsion to CComBSTR http://msdn.microsoft.com/en-us/library/xc68523x.aspx
+		tmp.ToUpper();			// to upper case
+		compIds[i] = tmp.Copy();	// changed case back to the table
+		tmp.Empty();
+	}
+	PantheiosHelper::dumpCComSafeArray(compIds, "get_ComponentIds_upper");
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
@@ -515,7 +525,7 @@ ICapeThermoMaterialObject* Material::get_MaterialRef( void )
 
 
 /**
- * \brief Returns molar weight oh whole material
+ * \brief Returns molar weight of whole material
  * \details Sums all molar wieghts of all components in material. Takes into account only components with nonzero fraction. By default \c compIds contains all components defined
  * in stream
  * \param[out] m molar weight
@@ -556,6 +566,7 @@ HRESULT Material::getMolarWeight( double &m )
  * \return Error code in case of problem (if compName does not exists)
  * \retval \c HRESULT
  * \author PB
+ * \note \c compName is not case sensitive
  * \date 2014/09/09
  * \see Common_definitions.hpp
 */
@@ -564,9 +575,10 @@ HRESULT Material::setProp( std::string compName, PropertyName propertyName, doub
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	LONG i, indexOfComp = -1;
 	CComBSTR bcompName(compName.c_str());	// create BSTR from string
+	bcompName.ToUpper();					// change to upper case
 	// find index of component
 	for(i = compIds.GetLowerBound(); i <= compIds.GetUpperBound(); ++i)
-		if(compIds[i] == bcompName)
+		if(compIds[i] == bcompName)	// compIds is in UPPER (HRESULT Material::get_Composition())
 			indexOfComp = i;
 	if(indexOfComp<0)	// not found
 	{
@@ -615,6 +627,7 @@ HRESULT Material::setProp( std::string compName, PropertyName propertyName, doub
  * \return Error code in case of problem (if compName does not exists)
  * \retval \c HRESULT
  * \author PB
+ * \note \c compName is not case sensitive
  * \date 2014/09/09
  * \see Common_definitions.hpp
 */
@@ -623,9 +636,10 @@ HRESULT Material::getProp( std::string compName, PropertyName propertyName, doub
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	LONG i, indexOfComp = -1;
 	CComBSTR bcompName(compName.c_str());	// create BSTR from string
+	bcompName.ToUpper();					// change to upper case
 	// find index of component
 	for(i = compIds.GetLowerBound(); i <= compIds.GetUpperBound(); ++i)
-		if(compIds[i] == bcompName)
+		if(compIds[i] == bcompName) // compIds is in UPPER (HRESULT Material::get_Composition())
 			indexOfComp = i;
 	if(indexOfComp<0)	// not found
 	{
@@ -667,13 +681,13 @@ HRESULT Material::getProp( std::string compName, PropertyName propertyName, doub
 
 /**
  * \brief Gets list of components associated with material object
- * \details Wraper giving access to internal table \c compIds
+ * \details Wraper giving access to internal table \c compIds. Returns always in uppercase
  * \param[out] compList table with names of components
  * \return error code \c S_OK or \c E_FAIL
  * \retval \c HRESULT
  * \author PB
  * \date 2014/09/09
- * \warning Because string conversion method this method can fail if national chars will be used
+ * \warning Returns all components in stream also those with 0 flux
 */
 HRESULT Material::getCompList( std::vector<std::string>& compList )
 {
@@ -697,7 +711,8 @@ HRESULT Material::getCompList( std::vector<std::string>& compList )
  * \retval \c std::string
  * \author PB
  * \date 2014/09/09
- * \todo Move thos method to common tools
+ * \todo Move those method to common tools
+ * 
  * \see http://stackoverflow.com/questions/4804298/how-to-convert-wstring-into-string
 */
 std::string Material::ws2s(const std::wstring& wstr)
@@ -706,4 +721,73 @@ std::string Material::ws2s(const std::wstring& wstr)
 	std::wstring_convert<convert_typeX, wchar_t> converterX;
 
 	return converterX.to_bytes(wstr);
+}
+
+/**
+ * \brief Gets mass flow of selected component [g/s]
+ * \details Calculates mass flow of given component of stream \c compName using its molar flow provided by Aspen and its molar weight [g/s]
+ * \param[in] compName Aspen name of the component of stream 
+ * \param[out] flow Mass flow of component in [g/s]
+ * \return error code \c S_OK, \c E_FAIL
+ * \retval \c HRESULT
+ * \author PB
+ * \date 2014/09/10
+*/
+HRESULT Material::getMassFlow( std::string compName, double& flow)
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	double flux, C;
+	HRESULT hr;
+	hr = getProp(compName,PropertyName::Flow,flux);	// gets flow of component [mol/s]
+	if(FAILED(hr))
+	{
+		PANTHEIOS_TRACE_ERROR(PSTR("getMassFlow: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+		return hr;
+	}
+	hr = Material::getConstant(this->mat, L"molecularWeight", CComBSTR(compName.c_str()), &C);	// molar weight of component
+	if(FAILED(hr))
+	{
+		PANTHEIOS_TRACE_ERROR(PSTR("getMassFlow: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+		return hr;
+	}
+	flow = flux * C;
+	PANTHEIOS_TRACE_DEBUG(PSTR("Mass flow of "), compName, PSTR(" is "), pantheios::real(flow));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	return S_OK;
+}
+
+/**
+ * \brief Gets total mass flow of all components [g/s]
+ * \details Calculates mass flow of all components of stream \c compName using its molar flow provided by Aspen and its molar weight [g/s]
+ * \param[out] totalFlux Mass flow of component in [g/s]
+ * \return error code \c S_OK, \c E_FAIL
+ * \retval \c HRESULT
+ * \author PB
+ * \date 2014/09/10
+*/
+HRESULT Material::getTotalMassFlow( double& totalFlux )
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	HRESULT hr;
+	std::vector<std::string> components;
+	double tmp;
+	totalFlux = 0;
+	hr = getCompList(components);	// get list of all components in string format
+	if(FAILED(hr))
+	{
+		PANTHEIOS_TRACE_ERROR(PSTR("getTotalMassFlow: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+		return hr;
+	}
+	for(const auto &c : components)
+	{
+		if(FAILED(hr = getMassFlow(c, tmp)))
+		{
+			PANTHEIOS_TRACE_ERROR(PSTR("getTotalMassFlow: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+			return hr;
+		}
+		totalFlux+=tmp;
+	}
+	PANTHEIOS_TRACE_DEBUG(PSTR("Total mass flow is "), pantheios::real(totalFlux));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	return S_OK;
 }

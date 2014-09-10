@@ -93,10 +93,7 @@ HRESULT CUnitOperations::FinalConstruct()
 		SetError(L"Registry key not found. Install A2F again",L"ICapeUnitOperation",L"FinalConstruct");
 		return ECapeUnknownHR;
 	}
-/**
-	\todo Add call for C_FluentStarter::CreateJournal( const std::string& configDir ) here or in Calculate method
-*/	
-	
+	// \todo createjournal here with error checking and exception handling
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
@@ -219,7 +216,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 		err_code = Materials[static_cast< std::size_t >(StreamNumber::inputPort_P1)]->inFlashMaterialObject();
 		if(FAILED(err_code))
 			throw std::runtime_error("Error returned from inFlashMaterialObject");
-
+		// ---- tests ---------------------------------------
 		/** \test GetConstant live test
 		 * \code{.cpp}
 		 * double C;
@@ -228,9 +225,17 @@ STDMETHODIMP CUnitOperations::Calculate()
 		 * Material.getMolarWeight(C); 
 		 * \endcode
 		 */
+		// testing purposes only
 		double C;
 		err_code = Materials[static_cast<std::size_t>(StreamNumber::inputPort_REFOR)]->getMolarWeight(C);
+		// ---- end tests ---------------------------------------
+		
+		/**
+		* \todo Add call for C_FluentStarter::CreateJournal( const std::string& configDir ) here or in FinalConstruct (better finalconstruct, but this 
+		* method can throw exceptions and validate script
+		*/	
 		// other staff here, createScm and start Fluent and read results
+		CreateScm();	// can throw exception on error which should be handled here 
 
 		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]);	// copy physical propertios from input
 		if(FAILED(err_code))
@@ -736,21 +741,89 @@ void CUnitOperations::SetError( const WCHAR* desc, const WCHAR* itface, const WC
  * \brief Creates SCM file for Fluent.
  * \details The SCM file contains all required calls of Fluent API. 
  * \param 
- * \return Status of the method
- * \retval HRESULT
+ * \return Nothing
+ * \retval void
  * \li S_OK on success
  * \li other HRESULT error on fail
  * \author PB
  * \date 2014/03/16
  * \warning The last function must be exit.
- * \exception Throw exception from C_A2FInterpreter class and std::ios_base::failure on file fail open
+ * \exception Throw exception from C_A2FInterpreter class and std::ios_base::failure on file fail open or errors in Material class.
  * \see http://82.145.77.86:8080/trac/A2F/wiki/Schematy#StartFluenta
  * \see http://www.cplusplus.com/reference/ios/ios/exceptions/
  * \see http://www.cplusplus.com/reference/ios/ios/setstate/
  * \see http://msdn.microsoft.com/query/dev11.query?appId=Dev11IDEF1&l=EN-US&k=k(string%2Fstd%3A%3Agetline);k(std%3A%3Agetline);k(getline);k(DevLang-C%2B%2B);k(TargetOS-Windows)&rd=true
+ * \see Examplary log of MAterial
+ * \code{.unparsed}
+ * [A2F.1142340, 7/21/2014 1:28:16.189 PM; Informational]: (101): Material::inFlashMaterialObject: Entering
+ * |	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Informational]: (137): Material::get_Composition: Entering
+ * |	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (147): Material::get_Composition: Number of components in input stram: 8
+ * |	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Informational]: (21): PantheiosHelper::dumpVariant: Entering
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (25): PantheiosHelper::dumpVariant: VARIANT name: get_PhaseIds
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (36): PantheiosHelper::dumpVariant: VARIANT type: 0x2008 VT_ARRAY | VT_BSTR
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (39): PantheiosHelper::dumpVariant: 	VARIANT data[0]: Vapor
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (39): PantheiosHelper::dumpVariant: 	VARIANT data[1]: Liquid
+ * |	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Informational]: (48): PantheiosHelper::dumpVariant: Leaving
+ * |	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Informational]: (21): PantheiosHelper::dumpVariant: Entering
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (25): PantheiosHelper::dumpVariant: VARIANT name: get_ComponentIds
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (36): PantheiosHelper::dumpVariant: VARIANT type: 0x2008 VT_ARRAY | VT_BSTR
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (39): PantheiosHelper::dumpVariant: 	VARIANT data[0]: METHANE
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (39): PantheiosHelper::dumpVariant: 	VARIANT data[1]: HYDROGEN
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (39): PantheiosHelper::dumpVariant: 	VARIANT data[2]: WATER
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (39): PantheiosHelper::dumpVariant: 	VARIANT data[3]: CO
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (39): PantheiosHelper::dumpVariant: 	VARIANT data[4]: CO2
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (39): PantheiosHelper::dumpVariant: 	VARIANT data[5]: O2
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (39): PantheiosHelper::dumpVariant: 	VARIANT data[6]: PROPANE
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (39): PantheiosHelper::dumpVariant: 	VARIANT data[7]: N2
+ * |	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Informational]: (48): PantheiosHelper::dumpVariant: Leaving
+ * |	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Informational]: (177): Material::get_Composition: Leaving
+ * |	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Informational]: (195): Material::get_PhysicalProp: Entering
+ * |	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Informational]: (58): PantheiosHelper::dumpCComSafeArray: Entering
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[0]: 973.15
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[1]: 973.15
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[2]: 973.15
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[3]: 973.15
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[4]: 973.15
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[5]: 973.15
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[6]: 973.15
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[7]: 973.15
+ * |	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Informational]: (62): PantheiosHelper::dumpCComSafeArray: Leaving
+ * |	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Informational]: (58): PantheiosHelper::dumpCComSafeArray: Entering
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[0]: 101325
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[1]: 101325
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[2]: 101325
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[3]: 101325
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[4]: 101325
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[5]: 101325
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[6]: 101325
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[7]: 101325
+ * |	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Informational]: (62): PantheiosHelper::dumpCComSafeArray: Leaving
+ * |	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Informational]: (58): PantheiosHelper::dumpCComSafeArray: Entering
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[0]: 0
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[1]: 0.0023765
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[2]: 4.61319e-005
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[3]: 0.00177054
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[4]: 4.61319e-005
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[5]: 0
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[6]: 0
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[7]: 0.00359314
+ * |	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Informational]: (62): PantheiosHelper::dumpCComSafeArray: Leaving
+ * |	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Informational]: (58): PantheiosHelper::dumpCComSafeArray: Entering
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[0]: 0
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[1]: 0.303417
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[2]: 0.00588986
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[3]: 0.226052
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[4]: 0.00588986
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[5]: 0
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[6]: 0
+ * |	|	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Debug]: (61): PantheiosHelper::dumpCComSafeArray: 	CComSafeArray data[7]: 0.458751
+ * |	|	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Informational]: (62): PantheiosHelper::dumpCComSafeArray: Leaving
+ * |	|	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Informational]: (263): Material::get_PhysicalProp: Leaving
+ * |	[A2F.1142340, 7/21/2014 1:28:16.189 PM; Informational]: (121): Material::inFlashMaterialObject: Leaving
+ * \endcode
 */
-HRESULT CUnitOperations::CreateScm( void )
-{
+ void CUnitOperations::CreateScm( void )
+ {
 	// use Materials
 	// use working dir configDir
 	// 
@@ -774,7 +847,7 @@ HRESULT CUnitOperations::CreateScm( void )
 		std::vector<string> variable;
 		std::vector<string> compName;
 		// temprary variables for properties
-		double T, P, X, F;
+		double T, X, F;
 		std::vector<std::string> compList;	// list of components in material
 		// read EXPORT params
 		cfg->A2FGetExportsParams(surface, variable, compName);
@@ -792,8 +865,18 @@ HRESULT CUnitOperations::CreateScm( void )
 		starter << ";; Setting inputs" << endl;
 		// ---------------------------------- REFOR ------------------------------------------------------
 		// prepare for setting Fluent input REFOR - collecting required params from REFOR stream from ASPEN
-		Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]->getCompList(compList);
+		err_code = Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]->getCompList(compList);	// list of all components
+		if(FAILED(err_code))
+			throw std::runtime_error("CUnitOperations::CreateScm found error in Material::getCompList call");
 		err_code = Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]->getProp(compList[0], PropertyName::Temperature, T); // temperature of first component (all shoud be the same)
+		if(FAILED(err_code))
+			throw std::runtime_error("CUnitOperations::CreateScm found error in Material::getProp call");
+		err_code = Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]->getTotalMassFlow(F);	// get total mass flow
+		if(FAILED(err_code))
+			throw std::runtime_error("CUnitOperations::CreateScm found error in Material::getTotalMassFlow call");
+		err_code = Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]->getProp("HYDROGEN", PropertyName::Fraction, X); // fraction of H2
+		if(FAILED(err_code))
+			throw std::runtime_error("CUnitOperations::CreateScm found error in Material::getProp call");
 		// setting correct surface in FLuent
 		starter << "(ti-menu-load-string \""			// opening quota " 
 			"define/boundary-conditions/ " <<			// command
@@ -801,8 +884,8 @@ HRESULT CUnitOperations::CreateScm( void )
 			" anode-inlet"								// surface
 			" yes"
 			" yes"
-			" no"
-			" 1.5551e-04"								// total mass flux (5)
+			" no " <<
+			F <<										// total mass flux (5)
 			" no " <<
 			 T <<										// temperature (7)
 			" no"
@@ -810,34 +893,54 @@ HRESULT CUnitOperations::CreateScm( void )
 			" no"
 			" yes"
 			" no"
-			" no"
-			" 0"										// mass fraction of h20 (14)
-			" no"
-			" 0"										// mass fraction of o2 (16)
-			" no"
-			" 0.0154"									// mass fraction of h2 (18)
+			" no " <<
+			0 <<										// mass fraction of h20 (14)
+			" no " <<
+			0 <<										// mass fraction of o2 (16)
+			" no " <<
+			X <<										// mass fraction of h2 (18)
 			" yes"
 			" no"
 			" 0"
 			"\")" << endl;
-// 			;; setting 1 input
-// 			;; http://www.evernote.com/shard/s97/sh/73c5396c-29d8-44d2-b3b2-59eb026137c8/39640cfc27aff79bb69c77b9b9644125
-// 		;; Aspen settings:
-// 		;; T = 680.468 C						-> 953.618 K (pozycja 7)
-// 			;; P = 1.01325 bar						-> not used
-// 			;; Nmol_H20 = 0.00872 kmol/hr			-> 0.0024 mol/s			M_H2O = 18.01528 g/mol		Nkg_H2O = 4.3237e-05 kg/s
-// 			;; Nmol_CO2 = 0.00654 kmol/hr			-> 0.0018 mol/s			M_CO2 = 44.0095 g/mol		Nkg_CO2 = 7.9217e-05 kg/s
-// 			;; Nmol_O2 = 0.0742074 kmol/hr			-> 0.0206 mol/s			M_O2 = 31.99880 g/mol		Nkg_O2 = 6.5918e-04 kg/s
-// 			;; Nmol_N2 = 0.308688 kmol/hr			-> 0.0857 mol/s			M_N2 = 28.01340 g/mol		Nkg_N2 = 0.0024 kg/s
-// 
-// 			;; Strumieñ masowy ca³kowity - suma strumieni masowych zwi¹zków (pozycja 5)
-// 			;; Ncalk = Nkg_H2O+Nkg_CO2+Nkg_O2+Nkg_N2 = 0.0032 kg/s
-// 			;; Mass fractions:
-// 		;; H20 = 0 (pozycja 14)
-// 			;; O2 = Nkg_O2/Ncalk = 6.5918e-04/0.0032 = 0.2060 (pozycja 16)
-// 			;; H = 0 (pozycja 18)
-// 			5     	7                         14   16   	 18 
-// 			(ti-menu-load-string "define/boundary-conditions/mass-flow-inlet cathode-inlet yes yes no 0.0032 no 953.618 no 0 no yes no no 0 no 0.2060 no 0 yes no 0")
+		// ---------------------------------- 1 ------------------------------------------------------
+		// prepare for setting Fluent input REFOR - collecting required params from REFOR stream from ASPEN
+		err_code = Materials[static_cast< std::size_t >(StreamNumber::inputPort_P1)]->getProp(compList[0], PropertyName::Temperature, T); // temperature of first component (all shoud be the same)
+		if(FAILED(err_code))
+			throw std::runtime_error("CUnitOperations::CreateScm found error in Material::getProp call");
+		err_code = Materials[static_cast< std::size_t >(StreamNumber::inputPort_P1)]->getTotalMassFlow(F);	// get total mass flow
+		if(FAILED(err_code))
+			throw std::runtime_error("CUnitOperations::CreateScm found error in Material::getTotalMassFlow call");
+		err_code = Materials[static_cast< std::size_t >(StreamNumber::inputPort_P1)]->getProp("O2", PropertyName::Fraction, X); // fraction of H2
+		if(FAILED(err_code))
+			throw std::runtime_error("CUnitOperations::CreateScm found error in Material::getProp call");
+		// setting correct surface in FLuent
+		starter << "(ti-menu-load-string \""			// opening quota " 
+			"define/boundary-conditions/ " <<			// command
+			cfg->lookup4String("BOUND_COND") <<			// type of boundary
+			" cathode-inlet"								// surface
+			" yes"
+			" yes"
+			" no " <<
+			F <<										// total mass flux (5)
+			" no " <<
+			T <<										// temperature (7)
+			" no"
+			" 0"
+			" no"
+			" yes"
+			" no"
+			" no " <<
+			0 <<										// mass fraction of h20 (14)
+			" no " <<
+			X <<										// mass fraction of o2 (16)
+			" no " <<
+			0 <<										// mass fraction of h2 (18)
+			" yes"
+			" no"
+			" 0"
+			"\")" << endl;
+
 		starter << ";; --------------------------------------------------------------" << endl;
  		starter << "(ti-menu-load-string \"solve/iterate " << cfg->lookup4Int("NUMOFITER") << "\")" << endl;
 		starter << ";; --------------------------------------------------------------" << endl;
@@ -849,25 +952,20 @@ HRESULT CUnitOperations::CreateScm( void )
  		starter << ";; --------------------------------------------------------------" << endl;
  		starter << "(ti-menu-load-string \"/\")" << endl;
  		starter << "(ti-menu-load-string \"exit yes\")" << endl;
-
-
-		/// \todo Fisnish
 	}
 	catch(std::ios_base::failure& ex)	// on file opening error in createScm. No transfering exceptions
 	{
 		PANTHEIOS_TRACE_ERROR(PSTR("Cant create scm file. "), PSTR("Error returned: "), ex.what());
-		std::string str(ex.what());	// convert char* to wchar required by SetError
-		std::wstring wstr = C_A2FInterpreter::s2ws(str);
-		SetError(wstr.c_str(), L"IUnitOperation", L"CreateScm", E_FAIL);
-		return ECapeUnknownHR;
+		throw;	// rethrowing
 	}
 	catch(std::exception& ex)
 	{
-		/// \todo other error (interpreter, material, etc)
+		PANTHEIOS_TRACE_ERROR(PSTR("Cant create scm file. "), PSTR("Error returned: "), ex.what());
+		starter.close();
+		throw; // rethrowing
 	}
 
 
 	starter.close();
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return S_OK;
 }

@@ -78,6 +78,10 @@ public:
 	HRESULT getCompList(std::vector<std::string>& compList);
 	/// conversion between wstring and string
 	static std::string ws2s(const std::wstring& wstr);
+	/// Gets total mass flux of all active components
+	HRESULT getTotalMassFlow(double& totalFlux);
+	/// Gets mass flux of selected component
+	HRESULT getMassFlow(std::string compName, double& flow);
 	~Material(void);
 private:
 	/// Extract basic information on stream structure

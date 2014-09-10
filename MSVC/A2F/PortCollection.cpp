@@ -37,7 +37,6 @@ CPortCollection::~CPortCollection()
 * \retval   status   The program status.
 *                     \li S_OK = Success
 * \warning Number of initialized ports in this function mus equal to PORTS_NUMBER in stdafx.h     
-* \todo Check Release on AddPort fail
 * \see http://82.145.77.86:8080/trac/A2F/wiki/A2F_Fit_1
 */
 HRESULT CPortCollection::FinalConstruct()

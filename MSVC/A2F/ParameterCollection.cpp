@@ -153,7 +153,7 @@ STDMETHODIMP CParameterCollection::Item( VARIANT id, LPDISPATCH * Item )
 // 	PANTHEIOS_TRACE_DEBUG(	PSTR("IUnitPort pointer passed to PME: "), 
 // 		pantheios::pointer(*Item,pantheios::fmt::fullHex));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-	return S_OK;
+	return E_NOTIMPL;
 }
 
 STDMETHODIMP CParameterCollection::get_moreInfo( BSTR * moreInfo )
