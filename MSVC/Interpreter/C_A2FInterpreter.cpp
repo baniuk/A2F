@@ -257,6 +257,7 @@ T C_A2FInterpreter::str2int( const char* str )
  */ 
 void C_A2FInterpreter::A2FOpenAndValidate( const char* cfgInput )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	try
 	{
 		OpenAndValidate(cfgInput);
@@ -266,6 +267,7 @@ void C_A2FInterpreter::A2FOpenAndValidate( const char* cfgInput )
 		PANTHEIOS_TRACE_CRITICAL(PSTR("C_A2FInterpreter::A2FOpenAndValidate caught exception "),ex.c_str());	
 		throw std::invalid_argument(ex.c_str());
 	}
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 }
 
 /**
@@ -280,7 +282,7 @@ const char* C_A2FInterpreter::A2Flookup4String( const char* name )
 	}
 	catch(config4cpp::ConfigurationException& ex) // convert to std::exception
 	{
-		PANTHEIOS_TRACE_CRITICAL(PSTR("C_A2FInterpreter::A2Flookup4String caught exception" ),ex.c_str());	
+		PANTHEIOS_TRACE_CRITICAL(PSTR("C_A2FInterpreter::A2Flookup4String caught exception " ),ex.c_str());	
 		throw std::invalid_argument(ex.c_str());
 	}
 }

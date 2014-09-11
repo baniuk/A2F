@@ -35,7 +35,7 @@ CUnitOperations::~CUnitOperations()
 *			\li Set names of component and descriptions
 *			\li create instance of IPortCollection
 *			\li create instance of IParameterCollection
-* \c configDir contains config script file. jou file and outputs from Fluent will be in directory given in script \b DATA_PATH 
+* \c installDir contains config script file. jou file and outputs from Fluent will be in directory given in script \b DATA_PATH 
 * \return   Return S_OK on success or one of the standard error HRESULT values.
 * \retval   status   The CreateInstance status  - http://msdn.microsoft.com/en-us/library/windows/desktop/ms686615(v=vs.85).aspx
 *                     \li S_OK		Success
@@ -85,7 +85,7 @@ HRESULT CUnitOperations::FinalConstruct()
 							pantheios::integer(exValidationStatus));
 
 	// looking for working dir in registry
-	if (ERROR_SUCCESS!=C_RegistrySupport::GetStringforKey(HKEY_CURRENT_USER,_T("Software\\A2F"),_T("InstallDir"),configDir))
+	if (ERROR_SUCCESS!=C_RegistrySupport::GetStringforKey(HKEY_CURRENT_USER,_T("Software\\A2F"),_T("InstallDir"),installDir))
 	{
 		// key not found, exiting
 		PANTHEIOS_TRACE_ERROR(PSTR("Key not found, exiting"));
@@ -96,7 +96,7 @@ HRESULT CUnitOperations::FinalConstruct()
 	// createjournal here with error checking and exception handling
 	try
 	{
-		C_FluentStarter::CreateJournal( configDir );
+		C_FluentStarter::CreateJournal( installDir+script_name );
 	}
 	catch (std::exception& ex)
 	{
@@ -836,23 +836,25 @@ void CUnitOperations::SetError( const WCHAR* desc, const WCHAR* itface, const WC
  void CUnitOperations::CreateScm( void )
  {
 	// use Materials
-	// use working dir configDir
+	// use working dir installDir
 	// 
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	HRESULT err_code;
 	std::unique_ptr<C_A2FInterpreter> cfg(new C_A2FInterpreter()); // smart pointer in case of exception
-	cfg->A2FOpenAndValidate( (configDir+script_name).c_str() );	// search for script in install dir
-	std::string workingDir(cfg->A2Flookup4String("DATA_PATH")); // gets path for working dir from script
-	std::string scm_file = workingDir + _T("starter.scm");		// define name of scm and path in working dir
-	std::string cfg_file = workingDir + _T("A2F.cfg");			// path to cfg file
-	PANTHEIOS_TRACE_DEBUG(PSTR("Creating scm: "), scm_file);
+	std::string cfg_file = installDir + script_name;			// path to cfg file
 	std::ofstream starter;	// scm file handle
-	starter.exceptions(starter.failbit|starter.badbit|starter.eofbit);	// will throw exceptions on all errors
 	try
 	{
-		// initialize scm file and cfg
+		
+		cfg->A2FOpenAndValidate( cfg_file.c_str() );	// validate config script in install dir
+		
+		std::string workingDir(cfg->A2Flookup4String("DATA_PATH")); // gets path for working dir from script
+		std::string scm_file = workingDir + _T("starter.scm");		// define name of scm and path in working dir
+		// initialize scm file
+		PANTHEIOS_TRACE_DEBUG(PSTR("Creating scm: "), scm_file);
+		starter.exceptions(starter.failbit|starter.badbit|starter.eofbit);	// will throw exceptions on all errors
 		starter.open(scm_file.c_str(),std::ios::out| std::ios::trunc); // can throw exception here
-		cfg->OpenAndValidate(cfg_file.c_str());							// can throw std exception here
+
 		// define place to keep EXPORT params: surf_name, fluent_function)name, component name 
 		std::vector<string> surface;
 		std::vector<string> variable;
@@ -974,6 +976,12 @@ void CUnitOperations::SetError( const WCHAR* desc, const WCHAR* itface, const WC
 		PANTHEIOS_TRACE_ERROR(PSTR("Cant create scm file. "), PSTR("Error returned: "), ex.what());
 		starter.close();
 		throw; // rethrowing
+	}
+	catch(...)
+	{
+		PANTHEIOS_TRACE_CRITICAL(PSTR("Unexpected exception"));
+		starter.close();
+		throw;
 	}
 
 

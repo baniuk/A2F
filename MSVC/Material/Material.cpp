@@ -687,18 +687,20 @@ HRESULT Material::getProp( std::string compName, PropertyName propertyName, doub
  * \retval \c HRESULT
  * \author PB
  * \date 2014/09/09
- * \warning Returns all components in stream also those with 0 flux
+ * \warning Returns all components in stream also those with 0 flow
 */
 HRESULT Material::getCompList( std::vector<std::string>& compList )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	LONG i,ii;	// index of elements in internal compIds and external compList
+	LONG i;	// index of elements in internal compIds 
 	std::wstring tmp;	// for conversion BSTR->string purposes
-	for(ii = 0, i = compIds.GetLowerBound(); i <= compIds.GetUpperBound(); ++i,++ii)
+	compList.clear();	// remove all elements from vector
+	PANTHEIOS_TRACE_DEBUG("Bounds of compIds: [", pantheios::integer(compIds.GetLowerBound()),PSTR(" "), pantheios::integer(compIds.GetUpperBound()),PSTR("]"));
+	for(i = compIds.GetLowerBound(); i <= compIds.GetUpperBound(); ++i)
 	{
 		tmp.clear();
 		tmp = compIds[i];	// conversion for wstring
-		compList[ii] = ws2s(tmp);
+		compList.push_back(ws2s(tmp));
 	}
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
@@ -717,9 +719,11 @@ HRESULT Material::getCompList( std::vector<std::string>& compList )
 */
 std::string Material::ws2s(const std::wstring& wstr)
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	typedef std::codecvt_utf8<wchar_t> convert_typeX;
 	std::wstring_convert<convert_typeX, wchar_t> converterX;
 
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return converterX.to_bytes(wstr);
 }
 
