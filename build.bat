@@ -14,14 +14,15 @@ setlocal enabledelayedexpansion
 rem setting tools to download
 set CURRENT_DIR=%CD%
 rem Checking tools
-svn --version
-IF %ERRORLEVEL% NEQ 0 goto :TOOL_ERROR
 cmake --version
 IF %ERRORLEVEL% NEQ 0 goto :TOOL_ERROR
 rem set correct names here!!
 set PANTH_NAME=pantheios-1.0.1-beta214& rem -src.zip
 
+rem For tools
 set PATH=%CURRENT_DIR%\tools;%PATH%
+rem For svn
+set PATH=%CURRENT_DIR%\tools\svn-win32-1.8.10\bin;%PATH%
 cecho {red}Configure tool for A2F project{\n}{default}
 cecho {green}{\t}USAGE: build - download and compiles all required tools.{\n}{default}
 cecho {green}{\t\t}Updates existing instalation{\n}{default}
