@@ -3,6 +3,9 @@ rem *         A2F build tool          *
 rem * Set correct names before use    *
 rem * if you need other versions      *
 rem * of tools                        *
+rem * Prerequirements:                *
+rem * 	cmake                         *
+rem *	svn                           *
 rem * /// \todo Use fork of config4cpp*
 rem ***********************************
 
@@ -10,8 +13,12 @@ echo off
 setlocal enabledelayedexpansion
 rem setting tools to download
 set CURRENT_DIR=%CD%
+rem Checking tools
+svn --version
+IF %ERRORLEVEL% NEQ 0 goto :TOOL_ERROR
+cmake --version
+IF %ERRORLEVEL% NEQ 0 goto :TOOL_ERROR
 rem set correct names here!!
-set STL_NAME=stlsoft-1.9.117& rem -hdrs.zip
 set PANTH_NAME=pantheios-1.0.1-beta214& rem -src.zip
 
 set PATH=%CURRENT_DIR%\tools;%PATH%
@@ -36,20 +43,32 @@ rmdir temp /s /q
 cecho {red}Entering setup...{\n}{default}
 IF NOT EXIST External_dep mkdir External_dep
 IF NOT EXIST temp mkdir temp
-rem download stlsoft
+rem download stlsoft - always latest version
 cd temp
 wget -nc http://sourceforge.net/projects/stlsoft/files/latest/download?source=files
-unzip -n %STL_NAME%-hdrs.zip -d ..\External_dep
+IF %ERRORLEVEL% NEQ 0 goto :WGET_ERROR
+rem we assume naming pattern: stlsoft* and try to obtain full name of file
+rem setting variable as result of operation
+dir /B | grep stlsoft > temp.file
+set /p STL_NAME_ZIP= < temp.file
+unzip -n %STL_NAME_ZIP% -d ..\External_dep
 IF %ERRORLEVEL% NEQ 0 goto :ERROR
+rem extraction name of directory with stlsoft
+dir /AD /B ..\External_dep\ | grep "^stlsoft" > temp.file
+set /p STL_NAME= < temp.file
 set STLSOFT=%CURRENT_DIR%\External_dep\%STL_NAME%
 rem download Pantheios and patches for vc11
 wget -nc -O PANTH.diff http://sourceforge.net/p/pantheios/patches/_discuss/thread/832a5759/5540/attachment/pantheios-1_0_1-beta214-MSVC2012-patch.diff
+IF %ERRORLEVEL% NEQ 0 goto :WGET_ERROR
 wget -nc -O PANTH.zip http://sourceforge.net/p/pantheios/patches/_discuss/thread/832a5759/5a65/attachment/vc11.zip
+IF %ERRORLEVEL% NEQ 0 goto :WGET_ERROR
 wget -nc http://sourceforge.net/projects/pantheios/files/latest/download?source=files
+IF %ERRORLEVEL% NEQ 0 goto :WGET_ERROR
 unzip -n %PANTH_NAME%.zip -d ..\External_dep
 IF %ERRORLEVEL% NEQ 0 goto :ERROR
 rem download config4cpp
 wget -nc http://www.config4star.org/download/config4cpp.zip
+IF %ERRORLEVEL% NEQ 0 goto :WGET_ERROR
 unzip -n config4cpp.zip -d ..\External_dep
 IF %ERRORLEVEL% NEQ 0 goto :ERROR
 rem patching
@@ -89,4 +108,11 @@ cd %CURRENT_DIR%
 rmdir temp /s /q
 goto :EOF
 :ERROR
-cecho {blue}Error occured{\n}{default}
+cecho {red}Error occured{\n}{default}
+goto :EOF
+:WGET_ERROR
+cecho {red}Wget cannot download file{\n}{default}
+goto :EOF
+:TOOL_ERROR
+cecho {red}Cannot find tool{\n}{default}
+goto :EOF
