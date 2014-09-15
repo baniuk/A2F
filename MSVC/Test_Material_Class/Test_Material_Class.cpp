@@ -1,15 +1,14 @@
 /**
- * \file    Test_Material_Class.cpp
- * \brief   Main file that starts all tests
- * \details This testcase supports ATL and COM classes in order to test Material class propoerties based on ICapeThermoMaterialObject.
- * There is also PantheiosLogHelper tested here
- * \author  PB
- * \date    2014/01/02
- * \version 0.5
- * \see CapeMaterialObject.h
- * \see PantheiosLogHelper.h
- */
-
+* \file    Test_Material_Class.cpp
+* \brief   Main file that starts all tests
+* \details This testcase supports ATL and COM classes in order to test Material class propoerties based on ICapeThermoMaterialObject.
+* There is also PantheiosLogHelper tested here
+* \author  PB
+* \date    2014/01/02
+* \version 0.5
+* \see CapeMaterialObject.h
+* \see PantheiosLogHelper.h
+*/
 
 #include "stdafx.h"
 #include "resource.h"
@@ -21,60 +20,57 @@
 /// Log file name and initialization of Pantheios API
 PANTHEIOS_EXTERN_C const PAN_CHAR_T PANTHEIOS_FE_PROCESS_IDENTITY[] = PSTR("Test_Material_Class");
 #ifndef PANTHEIOS_LOG_FILE_NAME
-	#define PANTHEIOS_LOG_FILE_NAME	"c:\\Test_Material_Class.pantlog"
+#define PANTHEIOS_LOG_FILE_NAME	"c:\\Test_Material_Class.pantlog"
 #else
-	#error PANTHEIOS_LOG_FILE_NAME already defined!!
+#error PANTHEIOS_LOG_FILE_NAME already defined!!
 #endif
 
 /**
- * \brief Struktura okreœlaj¹ca minimalny poziom b³edu który trafia do danego logu
- *
- * DEBUG jest poziomem najni¿szym, co znaczy ¿e do pliku trafi wszystko. Ta struktura dzia³a
- * jedynie gdy linkuje siê do biblioteki be.N. Kolejnoœæ b³êdów:
- * -# DEBUG
- * -# INFORMATIONAL
- * -# NOTICE
- * -# WARNING
- * -# ERROR
- * -# CRITICAL
- * -# ALERT
- * -# EMERGENCY
- * \n
- * Do konsoli trafi wszystko powy¿ej DEBUG
- */
+* \brief Struktura okreœlaj¹ca minimalny poziom b³edu który trafia do danego logu
+*
+* DEBUG jest poziomem najni¿szym, co znaczy ¿e do pliku trafi wszystko. Ta struktura dzia³a
+* jedynie gdy linkuje siê do biblioteki be.N. Kolejnoœæ b³êdów:
+* -# DEBUG
+* -# INFORMATIONAL
+* -# NOTICE
+* -# WARNING
+* -# ERROR
+* -# CRITICAL
+* -# ALERT
+* -# EMERGENCY
+* \n
+* Do konsoli trafi wszystko powy¿ej DEBUG
+*/
 pan_fe_N_t PAN_FE_N_SEVERITY_CEILINGS[]  = {
-    { toFile,  PANTHEIOS_SEV_DEBUG    },
+	{ toFile,  PANTHEIOS_SEV_DEBUG    },
 	{ toConsole,  PANTHEIOS_SEV_ERROR },
-    PANTHEIOS_FE_N_TERMINATOR_ENTRY(PANTHEIOS_SEV_CRITICAL)
+	PANTHEIOS_FE_N_TERMINATOR_ENTRY(PANTHEIOS_SEV_CRITICAL)
 };
 
 /**
- * \brief Struktura ³¹cz¹ca poziom b³edu z konkretnym wyjœciem
- *
- * LOGI::File i LOGI::Console ³¹cz¹ siê z pozycjami w PAN_FE_N_SEVERITY_CEILINGS
- */
+* \brief Struktura ³¹cz¹ca poziom b³edu z konkretnym wyjœciem
+*
+* LOGI::File i LOGI::Console ³¹cz¹ siê z pozycjami w PAN_FE_N_SEVERITY_CEILINGS
+*/
 pan_be_N_t PAN_BE_N_BACKEND_LIST[] = {
-    PANTHEIOS_BE_N_STDFORM_ENTRY(toFile, pantheios_be_file, 0),
+	PANTHEIOS_BE_N_STDFORM_ENTRY(toFile, pantheios_be_file, 0),
 	PANTHEIOS_BE_N_STDFORM_ENTRY(toConsole, pantheios_be_fprintf, 0),
-    PANTHEIOS_BE_N_TERMINATOR_ENTRY
+	PANTHEIOS_BE_N_TERMINATOR_ENTRY
 };
 
 using namespace ATL;
-
 
 class CTest_Material_ClassModule : public ATL::CAtlExeModuleT< CTest_Material_ClassModule >
 {
 public :
 	DECLARE_LIBID(LIBID_Test_Material_ClassLib)
 	DECLARE_REGISTRY_APPID_RESOURCEID(IDR_TEST_MATERIAL_CLASS, "{AFC204D5-5779-4FF5-9778-FE0B4E967C8C}")
-	};
+};
 
 CTest_Material_ClassModule _AtlModule;
 
-
-
 //
-extern "C" int WINAPI _tWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, 
+extern "C" int WINAPI _tWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/,
 								LPTSTR /*lpCmdLine*/, int nShowCmd)
 {
 	HRESULT hr;
@@ -100,9 +96,9 @@ extern "C" int WINAPI _tWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstan
 	return err;
 }
 
-/** 
- * \test PantheiosLogHelper:_LogTest_VT_EMPTY Check VT_EMPTY
- */
+/**
+* \test PantheiosLogHelper:_LogTest_VT_EMPTY Check VT_EMPTY
+*/
 TEST(PantheiosLogHelper,_LogTest_VT_EMPTY)
 {
 	VARIANT test;
@@ -111,10 +107,10 @@ TEST(PantheiosLogHelper,_LogTest_VT_EMPTY)
 	EXPECT_EQ(1,1);
 }
 
-/** 
- * \test PantheiosLogHelper:_LogTest_VT_ARRAY_DOUBLE Check array of doubles
- * This test will fail without detaching VARIANT in PantheiosHelper::dumpVariant
- */
+/**
+* \test PantheiosLogHelper:_LogTest_VT_ARRAY_DOUBLE Check array of doubles
+* This test will fail without detaching VARIANT in PantheiosHelper::dumpVariant
+*/
 TEST(PantheiosLogHelper,_LogTest_VT_ARRAY_DOUBLE)
 {
 	VARIANT out;
@@ -140,9 +136,9 @@ TEST(PantheiosLogHelper,_LogTest_VT_ARRAY_DOUBLE)
 	EXPECT_EQ(40,tabval);
 }
 
-/** 
- * \test PantheiosLogHelper:_LogTest_VT_ARRAY_BSTR Check array of bstr
- */
+/**
+* \test PantheiosLogHelper:_LogTest_VT_ARRAY_BSTR Check array of bstr
+*/
 TEST(PantheiosLogHelper,LogTest_VT_ARRAY_BSTR)
 {
 	VARIANT out;
@@ -156,9 +152,9 @@ TEST(PantheiosLogHelper,LogTest_VT_ARRAY_BSTR)
 	EXPECT_EQ(1,1);
 }
 
-/** 
- * \test PantheiosLogHelper:_CComSafeArray_double
- */
+/**
+* \test PantheiosLogHelper:_CComSafeArray_double
+*/
 TEST(PantheiosLogHelper,_CComSafeArray_double)
 {
 	CComSafeArray<double> out(3);
@@ -168,9 +164,9 @@ TEST(PantheiosLogHelper,_CComSafeArray_double)
 	PantheiosHelper::dumpCComSafeArray(out,"LogTest_CComSafeArray_double");
 }
 
-/** 
- * \test PantheiosLogHelper:_CComSafeArray_BSTR
- */
+/**
+* \test PantheiosLogHelper:_CComSafeArray_BSTR
+*/
 TEST(PantheiosLogHelper,_CComSafeArray_BSTR)
 {
 	CComSafeArray<BSTR> out(3); out[0] = L"raz"; out[1] = L"dwa"; out[2] = L"trzy";
@@ -179,24 +175,24 @@ TEST(PantheiosLogHelper,_CComSafeArray_BSTR)
 }
 
 /**
- * \class MaterialTest
- * \brief Fixture class for testing Material class
- * 
- * Creates environment for testing Material.cpp class. Creates one COM object of ICapeThermoMaterialObject
- * Choosen methods of ICapeThermoMaterialObject are implemented in CapeMaterialObject.h
- * Logging to file or console if error
- * \author PB
- * \date 2014/01/06
- *
- * \see 
- * \li Material.cpp
- * \li CapeMaterialObject.h
- */
+* \class MaterialTest
+* \brief Fixture class for testing Material class
+*
+* Creates environment for testing Material.cpp class. Creates one COM object of ICapeThermoMaterialObject
+* Choosen methods of ICapeThermoMaterialObject are implemented in CapeMaterialObject.h
+* Logging to file or console if error
+* \author PB
+* \date 2014/01/06
+*
+* \see
+* \li Material.cpp
+* \li CapeMaterialObject.h
+*/
 class _MaterialTest : public ::testing::Test
 {
 protected:
 	CComPtr<ICapeThermoMaterialObject> pCapeMaterialObject; // test object
-	
+
 	/// get access to private members of class Material
 	const ATL::CComSafeArray<double>& get_private_Material_temperatures(const Material& obj) {
 		return obj.temperatures;
@@ -223,7 +219,7 @@ protected:
 	virtual void SetUp()
 	{
 		HRESULT hr;
- 		hr = pCapeMaterialObject.CoCreateInstance(CLSID_CapeMaterialObject); // create instance of ICapeThermoMaterialObject
+		hr = pCapeMaterialObject.CoCreateInstance(CLSID_CapeMaterialObject); // create instance of ICapeThermoMaterialObject
 		if(FAILED(hr))
 			PANTHEIOS_TRACE_ERROR(PSTR("CoCreateInstance: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 	}
@@ -234,10 +230,10 @@ protected:
 		pCapeMaterialObject.Release();
 	}
 };
-/** 
- * \test _MaterialTest:_COM_method_call Test of COM object calling
- * Calls GetNumComponents method and expects one component.
- */
+/**
+* \test _MaterialTest:_COM_method_call Test of COM object calling
+* Calls GetNumComponents method and expects one component.
+*/
 TEST_F(_MaterialTest, _COM_method_call) {
 	LONG n;
 	HRESULT hr;
@@ -248,32 +244,30 @@ TEST_F(_MaterialTest, _COM_method_call) {
 	EXPECT_EQ(3, n);
 }
 
-/** 
- * \test _MaterialTest:_constructor_noInitialization Test of constructor
- */
+/**
+* \test _MaterialTest:_constructor_noInitialization Test of constructor
+*/
 TEST_F(_MaterialTest, _constructor_noInitialization) {
-	
 	/// \note no AddRef here \see http://369o.com/data/books/atl/0321159624/ch03lev1sec4.html The Type-Cast Operator
 	Material testMaterial(pCapeMaterialObject);	// no AddRef here
 }
 
 /**
- * \test _MaterialTest:_FlashMaterialObject
- * Assumes that:
- * \li temperature is 20
- * \li pressures is 200
- * \li flows are 1, 2, 3
- */
+* \test _MaterialTest:_FlashMaterialObject
+* Assumes that:
+* \li temperature is 20
+* \li pressures is 200
+* \li flows are 1, 2, 3
+*/
 TEST_F(_MaterialTest, _FlashMaterialObject) {
-
 	LONG index;				// lower and upper bounds of phisical properties array
 
 	Material testMaterial(pCapeMaterialObject);	// no AddRef here
 	testMaterial.inFlashMaterialObject();
 	// verification of temeratures
 	double startT = 20;	// temperatura jest jedna ale duplikowana na numofcomp
- 	for(index=get_private_Material_temperatures(testMaterial).GetLowerBound(); index<=get_private_Material_temperatures(testMaterial).GetUpperBound(); ++index)
- 		EXPECT_EQ(startT,get_private_Material_temperatures(testMaterial).GetAt(index));
+	for(index=get_private_Material_temperatures(testMaterial).GetLowerBound(); index<=get_private_Material_temperatures(testMaterial).GetUpperBound(); ++index)
+		EXPECT_EQ(startT,get_private_Material_temperatures(testMaterial).GetAt(index));
 
 	// verification of pressures
 	CComSafeArray<double> pressures(get_private_Material_pressures(testMaterial));
@@ -289,18 +283,16 @@ TEST_F(_MaterialTest, _FlashMaterialObject) {
 		EXPECT_EQ(startF,get_private_Material_flows(testMaterial).GetAt(index));
 		startF++;
 	}
-
 }
 
 /**
- * \test _MaterialTest:_copyFrom
- * Assumes that:
- * \li temperature is 20
- * \li pressures is 200
- * \li flows are 1, 2, 3
- */
+* \test _MaterialTest:_copyFrom
+* Assumes that:
+* \li temperature is 20
+* \li pressures is 200
+* \li flows are 1, 2, 3
+*/
 TEST_F(_MaterialTest, _copyFrom) {
-
 	LONG index;				// lower and upper bounds of phisical properties array
 
 	Material testMaterial(pCapeMaterialObject);	// no AddRef here
@@ -330,14 +322,13 @@ TEST_F(_MaterialTest, _copyFrom) {
 }
 
 /**
- * \test _MaterialTest:assigment
- * Assumes that:
- * \li temperature is 20
- * \li pressures is 200
- * \li flows are 1, 2, 3
- */
+* \test _MaterialTest:assigment
+* Assumes that:
+* \li temperature is 20
+* \li pressures is 200
+* \li flows are 1, 2, 3
+*/
 TEST_F(_MaterialTest, _assigment) {
-
 	LONG index;				// lower and upper bounds of phisical properties array
 
 	Material testMaterial(pCapeMaterialObject);	// no AddRef here
@@ -367,14 +358,13 @@ TEST_F(_MaterialTest, _assigment) {
 }
 
 /**
- * \test _MaterialTest:_copyConstructor
- * Assumes that:
- * \li temperature is 20
- * \li pressures is 200
- * \li flows are 1, 2, 3
- */
+* \test _MaterialTest:_copyConstructor
+* Assumes that:
+* \li temperature is 20
+* \li pressures is 200
+* \li flows are 1, 2, 3
+*/
 TEST_F(_MaterialTest, _copyConstructor) {
-
 	LONG index;				// lower and upper bounds of phisical properties array
 
 	Material testMaterial(pCapeMaterialObject);	// no AddRef here
@@ -403,15 +393,14 @@ TEST_F(_MaterialTest, _copyConstructor) {
 }
 
 /**
- * \test _MaterialTest:_get_Composition
- * Assumes that:
- * \li first component "H20"
- * \li second component "O2"
- * \li third component "SiO"
- * \li one phase "Liquid"
- */
+* \test _MaterialTest:_get_Composition
+* Assumes that:
+* \li first component "H20"
+* \li second component "O2"
+* \li third component "SiO"
+* \li one phase "Liquid"
+*/
 TEST_F(_MaterialTest, _get_Composition) {
-
 	HRESULT hr;
 	Material testMaterial(pCapeMaterialObject);	// no AddRef here
 	hr = get_private_Material_get_Composition(testMaterial);
@@ -421,8 +410,8 @@ TEST_F(_MaterialTest, _get_Composition) {
 	CComSafeArray<BSTR> phases(get_private_Material_phases(testMaterial));
 	CComSafeArray<BSTR> compIds(get_private_Material_compIds(testMaterial));
 	EXPECT_STREQ(L"Liquid",phases.GetAt(0));
-	
+
 	EXPECT_STREQ(L"H20",compIds.GetAt(0));
 	EXPECT_STREQ(L"O2",compIds.GetAt(1));
-	EXPECT_STREQ(L"SiO",compIds.GetAt(2));	
+	EXPECT_STREQ(L"SiO",compIds.GetAt(2));
 }

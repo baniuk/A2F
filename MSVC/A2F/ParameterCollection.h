@@ -1,29 +1,24 @@
 /**
- * \file    ParameterCollection.h
- * \brief   COClass header for PortCollection interface
- * \details The aim of the Collection interface is to give a CAPE-OPEN component the possibility to expose a list of objects to any client
- * of the component. The client will not be able to modify the collection, i.e. removing, replacing or adding elements. However, since the client
- * will have access to any CAPE-OPEN interface exposed by the items of the collection, it will be able to modify the state of any element.
- * \author  PB
- * \date    2013/09/19
- * \version 0.5
- */
+* \file    ParameterCollection.h
+* \brief   COClass header for PortCollection interface
+* \details The aim of the Collection interface is to give a CAPE-OPEN component the possibility to expose a list of objects to any client
+* of the component. The client will not be able to modify the collection, i.e. removing, replacing or adding elements. However, since the client
+* will have access to any CAPE-OPEN interface exposed by the items of the collection, it will be able to modify the state of any element.
+* \author  PB
+* \date    2013/09/19
+* \version 0.5
+*/
 
 #pragma once
 #include "resource.h"       // main symbols
 
-
-
 #include "A2F_i.h"
-
-
 
 #if defined(_WIN32_WCE) && !defined(_CE_DCOM) && !defined(_CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA)
 #error "Single-threaded COM objects are not properly supported on Windows CE platform, such as the Windows Mobile platforms that do not include full DCOM support. Define _CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA to force ATL to support creating single-thread COM object's and allow use of it's single-threaded COM object implementations. The threading model in your rgs file was set to 'Free' as that is the only threading model supported in non DCOM Windows CE platforms."
 #endif
 
 using namespace ATL;
-
 
 // CParameterCollection
 
@@ -43,7 +38,6 @@ public:
 
 	DECLARE_REGISTRY_RESOURCEID(IDR_PARAMETERCOLLECTION)
 
-
 	BEGIN_COM_MAP(CParameterCollection)
 		COM_INTERFACE_ENTRY(IParameterCollection)
 		COM_INTERFACE_ENTRY2(IDispatch, ECapeRoot)
@@ -56,7 +50,7 @@ public:
 
 	DECLARE_PROTECT_FINAL_CONSTRUCT()
 
-	/// Initializing method called after constructor 
+	/// Initializing method called after constructor
 	HRESULT FinalConstruct();
 
 	/// Cleaning-up before destructor
@@ -108,7 +102,6 @@ private:
 	CComBSTR componentDescription;
 	// number of parameters
 	long parameterCount;
-
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(ParameterCollection), CParameterCollection)

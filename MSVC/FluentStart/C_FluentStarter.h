@@ -1,8 +1,8 @@
 /**
- * \file C_FluentStarter.h
- * \brief C_FluentStarterClass headers
- * \author PB
- * \date 2014/02/05
+* \file C_FluentStarter.h
+* \brief C_FluentStarterClass headers
+* \author PB
+* \date 2014/02/05
 */
 #ifndef C_FluentStarter_h__
 #define C_FluentStarter_h__
@@ -17,11 +17,11 @@
 #include <string.h>
 
 /**
- * \class C_FluentStarter
- * \brief Run fluent process and control it.
- * \details Contains various method for starting fluent process.
- * \author PB
- * \date 2014/02/05
+* \class C_FluentStarter
+* \brief Run fluent process and control it.
+* \details Contains various method for starting fluent process.
+* \author PB
+* \date 2014/02/05
 */
 class C_FluentStarter
 {
@@ -42,4 +42,3 @@ private:
 	static HRESULT PrintProcessNameAndID(DWORD processID, const TCHAR* nazwa);
 };
 #endif // C_FluentStarter_h__
-

@@ -1,15 +1,14 @@
 /**
- * \file    CapeMaterialObject.h
- * \brief   Holds dummy definitions of all methods from ICapeThermoMaterialObject
- * \details Holds dummy definitions of all methods from ICapeThermoMaterialObject used for testing purposes
- * \author  PB
- * \date    2014/01/01
- * \version 0.5
- */
+* \file    CapeMaterialObject.h
+* \brief   Holds dummy definitions of all methods from ICapeThermoMaterialObject
+* \details Holds dummy definitions of all methods from ICapeThermoMaterialObject used for testing purposes
+* \author  PB
+* \date    2014/01/01
+* \version 0.5
+*/
 
 #pragma once
 #include "resource.h"       // main symbols
-
 
 #include "Test_Material_Class_i.h"
 
@@ -21,20 +20,19 @@
 
 using namespace ATL;
 
-
 /**
- * \class CCapeMaterialObject
- *
- * \brief CoClass for ICapeThermoMaterialObject
- *
- * Class implements interface of ICapeThermoMaterialObject for testing purposes
- *
- * \note Represents basic object for test of Material.cpp class
- *
- * \author PB
- *
- * \date 2014/01/02
- */
+* \class CCapeMaterialObject
+*
+* \brief CoClass for ICapeThermoMaterialObject
+*
+* Class implements interface of ICapeThermoMaterialObject for testing purposes
+*
+* \note Represents basic object for test of Material.cpp class
+*
+* \author PB
+*
+* \date 2014/01/02
+*/
 class ATL_NO_VTABLE CCapeMaterialObject :
 	public CComObjectRootEx<CComSingleThreadModel>,
 	public CComCoClass<CCapeMaterialObject, &CLSID_CapeMaterialObject>,
@@ -48,14 +46,11 @@ public:
 
 	DECLARE_REGISTRY_RESOURCEID(IDR_CAPEMATERIALOBJECT)
 
-
 	BEGIN_COM_MAP(CCapeMaterialObject)
 		COM_INTERFACE_ENTRY(ICapeMaterialObject)
 		COM_INTERFACE_ENTRY2(IDispatch, ICapeThermoMaterialObject)
 		COM_INTERFACE_ENTRY(ICapeThermoMaterialObject)
 	END_COM_MAP()
-
-
 
 	DECLARE_PROTECT_FINAL_CONSTRUCT()
 
@@ -69,10 +64,6 @@ public:
 	}
 
 private:
-
-
-
-
 
 	// ICapeThermoMaterialObject Methods
 public:

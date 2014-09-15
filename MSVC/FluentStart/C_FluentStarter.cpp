@@ -1,9 +1,9 @@
 /**
- * \file C_FluentStarter.cpp
- * \brief C_FluentStarter class definitions
- * \author PB
- * \date 2014/02/05
- */
+* \file C_FluentStarter.cpp
+* \brief C_FluentStarter class definitions
+* \author PB
+* \date 2014/02/05
+*/
 #include "stdafx.h"
 #include "C_FluentStarter.h"
 #include <atlstr.h>
@@ -12,18 +12,18 @@
 using namespace std;
 
 /**
- * \brief Starts fluent process
- * \details Runs fluent. Before run calls CreateJournal to create required journal. The journal file is passed
- * as parameter during Fluent start.
- * \param[in] configScript - full path of the config script. Typically read from registry
- * \return Status of the operation
- * \retval HRESULT
- * - S_OK if Fluent starts
- * - E_FAIL if not started
- * \author PB
- * \date 2014/02/06
- * \pre CreateJournal() must be called before to create journal
- * \exception std::exception from C_A2FInterpreter class
+* \brief Starts fluent process
+* \details Runs fluent. Before run calls CreateJournal to create required journal. The journal file is passed
+* as parameter during Fluent start.
+* \param[in] configScript - full path of the config script. Typically read from registry
+* \return Status of the operation
+* \retval HRESULT
+* - S_OK if Fluent starts
+* - E_FAIL if not started
+* \author PB
+* \date 2014/02/06
+* \pre CreateJournal() must be called before to create journal
+* \exception std::exception from C_A2FInterpreter class
 */
 HRESULT C_FluentStarter::StartFluent( const std::string& configScript )
 {
@@ -41,7 +41,7 @@ HRESULT C_FluentStarter::StartFluent( const std::string& configScript )
 	// ask for Fluent path and other params
 	std::unique_ptr<C_A2FInterpreter> cfg(new C_A2FInterpreter()); // smart pointer in case of exception
 	cfg->A2FOpenAndValidate(configScript.c_str());	// search for script
-	
+
 	// prepare command line parametrs CString because the need of LPSTR (no const)
 	ATL::CString par_PARNAME(cfg->A2Flookup4String("COMMAND_LINE")); // contains full parameters with journal name and path
 	par_PARNAME += cfg->A2Flookup4String("DATA_PATH");
@@ -66,7 +66,7 @@ HRESULT C_FluentStarter::StartFluent( const std::string& configScript )
 		&si,
 		&pi);
 	PANTHEIOS_TRACE_DEBUG(PSTR("CreateProcess returned: "), pantheios::integer(ret1),PSTR(" Error desc: "), winstl::error_desc(GetLastError()));
-	
+
 	if(ret1!=0)
 		err = WaitForStart(par_SUBPROCNAME.c_str(),3, 6);
 	else
@@ -78,18 +78,18 @@ HRESULT C_FluentStarter::StartFluent( const std::string& configScript )
 }
 
 /**
- * \brief Waits as process start
- * \details Wait specified time until process starts. Important to left some time to load program. Total time is czas*obrot
- * \param[in] nazwa
- * \param[in] obrot How many times wait
- * \param[in] czas How many seconds to wai
- * \return Status of teh operation
- * \retval HRESULT:
- * - S_OK if process started
- * - E_FAIL otherwise
- * \author PB
- * \date 2014/02/06
- * \see StartFluent
+* \brief Waits as process start
+* \details Wait specified time until process starts. Important to left some time to load program. Total time is czas*obrot
+* \param[in] nazwa
+* \param[in] obrot How many times wait
+* \param[in] czas How many seconds to wai
+* \return Status of teh operation
+* \retval HRESULT:
+* - S_OK if process started
+* - E_FAIL otherwise
+* \author PB
+* \date 2014/02/06
+* \see StartFluent
 */
 HRESULT C_FluentStarter::WaitForStart( const TCHAR* nazwa, unsigned int obrot, unsigned int czas )
 {
@@ -115,18 +115,18 @@ HRESULT C_FluentStarter::WaitForStart( const TCHAR* nazwa, unsigned int obrot, u
 }
 
 /**
- * \brief Verify if process started
- * \details Check in windows processes if selected process is on list. Gets only the list of processes and then use PrintProcessNameAndID to check names of 
- * the processes.
- * \param nazwa Name of the process to check
- * \return Status of the operation
- * \retval HRESULT
- * - S_OK if process started
- * - E_FAIL if not started
- * \author PB
- * \date 2014/02/06
- * \note Name of the process with extension
- * \see WaitForStart
+* \brief Verify if process started
+* \details Check in windows processes if selected process is on list. Gets only the list of processes and then use PrintProcessNameAndID to check names of
+* the processes.
+* \param nazwa Name of the process to check
+* \return Status of the operation
+* \retval HRESULT
+* - S_OK if process started
+* - E_FAIL if not started
+* \author PB
+* \date 2014/02/06
+* \note Name of the process with extension
+* \see WaitForStart
 */
 HRESULT C_FluentStarter::CheckProcess(const TCHAR* nazwa )
 {
@@ -155,17 +155,17 @@ HRESULT C_FluentStarter::CheckProcess(const TCHAR* nazwa )
 }
 
 /**
- * \brief Check if process of given id is on list
- * \details Prints details of the process. For given id comapre if this process has releval name.
- * \param processID ID of process to check
- * \param nazwa Name of the process
- * \return Status of the operation
- * \retval HRESULT
- * - S_OK if roces of given name found
- * - E_FAIL if not found
- * \author PB
- * \date 2014/02/06
- * \see CheckProcess
+* \brief Check if process of given id is on list
+* \details Prints details of the process. For given id comapre if this process has releval name.
+* \param processID ID of process to check
+* \param nazwa Name of the process
+* \return Status of the operation
+* \retval HRESULT
+* - S_OK if roces of given name found
+* - E_FAIL if not found
+* \author PB
+* \date 2014/02/06
+* \see CheckProcess
 */
 HRESULT C_FluentStarter::PrintProcessNameAndID( DWORD processID, const TCHAR* nazwa )
 {
@@ -186,10 +186,10 @@ HRESULT C_FluentStarter::PrintProcessNameAndID( DWORD processID, const TCHAR* na
 		HMODULE hMod;
 		DWORD cbNeeded;
 
-		if ( EnumProcessModules( hProcess, &hMod, sizeof(hMod), 
+		if ( EnumProcessModules( hProcess, &hMod, sizeof(hMod),
 			&cbNeeded) )
 		{
-			GetModuleBaseName( hProcess, hMod, szProcessName, 
+			GetModuleBaseName( hProcess, hMod, szProcessName,
 				sizeof(szProcessName)/sizeof(TCHAR) );
 		}
 	}
@@ -207,17 +207,17 @@ HRESULT C_FluentStarter::PrintProcessNameAndID( DWORD processID, const TCHAR* na
 }
 
 /**
- * \details Creates starter file for Fluent. This file is named \b<journal> and its only one task is to run other file named \b<starter.scm>
- * Files are created in \c configScript directory. This method crates only \b journal file.
- * \param[in] configScript - path of the config script. Typically read from registry. This is not working dir
- * \return nothing
- * \retval \c void
- * \author PB
- * \date 2014/02/21
- * \see http://aerojet.engr.ucdavis.edu/fluenthelp/html/ug/node23.htm
- * \exception std::exception from C_A2FInterpreter class.
- * \exception std::invalid_argument on wrong path in cfg file for storing scm
- * \warning Path must end with \
+* \details Creates starter file for Fluent. This file is named \b<journal> and its only one task is to run other file named \b<starter.scm>
+* Files are created in \c configScript directory. This method crates only \b journal file.
+* \param[in] configScript - path of the config script. Typically read from registry. This is not working dir
+* \return nothing
+* \retval \c void
+* \author PB
+* \date 2014/02/21
+* \see http://aerojet.engr.ucdavis.edu/fluenthelp/html/ug/node23.htm
+* \exception std::exception from C_A2FInterpreter class.
+* \exception std::invalid_argument on wrong path in cfg file for storing scm
+* \warning Path must end with \
 */
 void C_FluentStarter::CreateJournal( const std::string& configScript )
 {
@@ -244,5 +244,3 @@ void C_FluentStarter::CreateJournal( const std::string& configScript )
 	}
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 }
-
-

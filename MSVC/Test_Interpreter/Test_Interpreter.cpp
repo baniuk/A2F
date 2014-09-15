@@ -1,10 +1,9 @@
 /**
- * \file Test_Interpreter.cpp
- * \brief Test environment
- * \author PB
- * \date 2014/06/26
- */
-
+* \file Test_Interpreter.cpp
+* \brief Test environment
+* \author PB
+* \date 2014/06/26
+*/
 
 #include "stdafx.h"
 #include "..\Common_utilities\Pantheios_header.h"
@@ -15,45 +14,45 @@ using namespace std;
 /// Log file name and initialization of Pantheios API
 PANTHEIOS_EXTERN_C const PAN_CHAR_T PANTHEIOS_FE_PROCESS_IDENTITY[] = PSTR("Test_FluentStarter");
 #ifndef PANTHEIOS_LOG_FILE_NAME
-	#define PANTHEIOS_LOG_FILE_NAME	"c:\\Test_Interpreter.pantlog"
+#define PANTHEIOS_LOG_FILE_NAME	"c:\\Test_Interpreter.pantlog"
 #else
-	#error PANTHEIOS_LOG_FILE_NAME already defined!!
+#error PANTHEIOS_LOG_FILE_NAME already defined!!
 #endif
 
 /**
- * \brief Struktura okreœlaj¹ca minimalny poziom b³edu który trafia do danego logu
- *
- * DEBUG jest poziomem najni¿szym, co znaczy ¿e do pliku trafi wszystko. Ta struktura dzia³a
- * jedynie gdy linkuje siê do biblioteki be.N. Kolejnoœæ b³êdów:
- * -# DEBUG
- * -# INFORMATIONAL
- * -# NOTICE
- * -# WARNING
- * -# ERROR
- * -# CRITICAL
- * -# ALERT
- * -# EMERGENCY
- * \n
- * Do konsoli trafi wszystko powy¿ej DEBUG
- */
+* \brief Struktura okreœlaj¹ca minimalny poziom b³edu który trafia do danego logu
+*
+* DEBUG jest poziomem najni¿szym, co znaczy ¿e do pliku trafi wszystko. Ta struktura dzia³a
+* jedynie gdy linkuje siê do biblioteki be.N. Kolejnoœæ b³êdów:
+* -# DEBUG
+* -# INFORMATIONAL
+* -# NOTICE
+* -# WARNING
+* -# ERROR
+* -# CRITICAL
+* -# ALERT
+* -# EMERGENCY
+* \n
+* Do konsoli trafi wszystko powy¿ej DEBUG
+*/
 pan_fe_N_t PAN_FE_N_SEVERITY_CEILINGS[]  = {
-    { toFile,  PANTHEIOS_SEV_DEBUG    },
+	{ toFile,  PANTHEIOS_SEV_DEBUG    },
 	{ toConsole,  PANTHEIOS_SEV_ERROR },
-    PANTHEIOS_FE_N_TERMINATOR_ENTRY(PANTHEIOS_SEV_CRITICAL)
+	PANTHEIOS_FE_N_TERMINATOR_ENTRY(PANTHEIOS_SEV_CRITICAL)
 };
 
 /**
- * \brief Struktura ³¹cz¹ca poziom b³edu z konkretnym wyjœciem
- *
- * LOGI::File i LOGI::Console ³¹cz¹ siê z pozycjami w PAN_FE_N_SEVERITY_CEILINGS
- */
+* \brief Struktura ³¹cz¹ca poziom b³edu z konkretnym wyjœciem
+*
+* LOGI::File i LOGI::Console ³¹cz¹ siê z pozycjami w PAN_FE_N_SEVERITY_CEILINGS
+*/
 pan_be_N_t PAN_BE_N_BACKEND_LIST[] = {
-    PANTHEIOS_BE_N_STDFORM_ENTRY(toFile, pantheios_be_file, 0),
+	PANTHEIOS_BE_N_STDFORM_ENTRY(toFile, pantheios_be_file, 0),
 	PANTHEIOS_BE_N_STDFORM_ENTRY(toConsole, pantheios_be_fprintf, 0),
-    PANTHEIOS_BE_N_TERMINATOR_ENTRY
+	PANTHEIOS_BE_N_TERMINATOR_ENTRY
 };
 
-// set global scope 
+// set global scope
 string application_scope;
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -79,14 +78,14 @@ int _tmain(int argc, _TCHAR* argv[])
 }
 
 /**
- * \test Interpreter:_wrongFile
- * \brief Try to open nonexistent file.
- * \details Try to open file with configuration that not exist physically.
- * \pre external variable \c application_scope must be set to FLUENT
- * \post Expect exception thrown by config4cpp
- * \author PB
- * \date 2014/03/22
- * \see config4cpp documentation
+* \test Interpreter:_wrongFile
+* \brief Try to open nonexistent file.
+* \details Try to open file with configuration that not exist physically.
+* \pre external variable \c application_scope must be set to FLUENT
+* \post Expect exception thrown by config4cpp
+* \author PB
+* \date 2014/03/22
+* \see config4cpp documentation
 */
 TEST(Interpreter,_wrongFile)
 {
@@ -97,14 +96,14 @@ TEST(Interpreter,_wrongFile)
 }
 
 /**
- * \test Interpreter:_correctFile
- * \brief Try to open existent file.
- * \details Try to open existent file with configuration.
- * \pre external variable \c application_scope must be set to FLUENT
- * \post Expect no exception
- * \author PB
- * \date 2014/03/22
- * \see config4cpp documentation
+* \test Interpreter:_correctFile
+* \brief Try to open existent file.
+* \details Try to open existent file with configuration.
+* \pre external variable \c application_scope must be set to FLUENT
+* \post Expect no exception
+* \author PB
+* \date 2014/03/22
+* \see config4cpp documentation
 */
 TEST(Interpreter,_correctFile)
 {
@@ -115,14 +114,14 @@ TEST(Interpreter,_correctFile)
 }
 
 /**
- * \test Interpreter:_wrongscope
- * \brief Try to open existent file with wrong scope.
- * \details Try to open existent file with configuration but the main scope is wrong
- * \pre external variable \c application_scope must be set to FLUENT
- * \post Expect exception
- * \author PB
- * \date 2014/03/22
- * \see config4cpp documentation
+* \test Interpreter:_wrongscope
+* \brief Try to open existent file with wrong scope.
+* \details Try to open existent file with configuration but the main scope is wrong
+* \pre external variable \c application_scope must be set to FLUENT
+* \post Expect exception
+* \author PB
+* \date 2014/03/22
+* \see config4cpp documentation
 */
 TEST(Interpreter,_wrongscope)
 {
@@ -133,15 +132,15 @@ TEST(Interpreter,_wrongscope)
 }
 
 /**
- * \test Interpreter:_noscopeset
- * \brief Test when no external scope will be set
- * \details \c application_scope must be set with valid scope. If not set at all (empty string) std Exception is thrown
- * \pre external variable \c application_scope \b must not be set 
- * \post Expect exception
- * \author PB
- * \date 2014/03/22
- * \see config4cpp documentation
- * \note Disbled in nirmal because causes assertion
+* \test Interpreter:_noscopeset
+* \brief Test when no external scope will be set
+* \details \c application_scope must be set with valid scope. If not set at all (empty string) std Exception is thrown
+* \pre external variable \c application_scope \b must not be set
+* \post Expect exception
+* \author PB
+* \date 2014/03/22
+* \see config4cpp documentation
+* \note Disbled in nirmal because causes assertion
 */
 TEST(Interpreter,DISABLED_noscopeset)
 {
@@ -152,13 +151,13 @@ TEST(Interpreter,DISABLED_noscopeset)
 }
 
 /**
- * \test Interpreter:_emptyconfig
- * \brief Test when empty name of config file is provided
- * \pre external variable \c application_scope \b{must not be} set 
- * \post Expect Exception
- * \author PB
- * \date 2014/03/22
- * \see config4cpp documentation
+* \test Interpreter:_emptyconfig
+* \brief Test when empty name of config file is provided
+* \pre external variable \c application_scope \b{must not be} set
+* \post Expect Exception
+* \author PB
+* \date 2014/03/22
+* \see config4cpp documentation
 */
 TEST(Interpreter,_emptyconfig)
 {
@@ -174,20 +173,20 @@ TEST(Interpreter,_emptyconfig)
 		cerr << ex.what() << endl;
 		exception_thrown = true;
 	}
-	EXPECT_TRUE(exception_thrown);	
+	EXPECT_TRUE(exception_thrown);
 	delete cfg;
 }
 
 /**
- * \test UseExample:_parseSchema
- * \brief Parses schema file
- * \details Example of parsing schema file using SchemaValidator class. Throw exception if there are errors in scheme or config
- * \pre external variable \c application_scope must be set to FLUENT
- * \post No exception should be thrown
- * \author PB
- * \date 2014/03/22
- * \see config4cpp documentation
- * \note This is only example of use of config4cpp
+* \test UseExample:_parseSchema
+* \brief Parses schema file
+* \details Example of parsing schema file using SchemaValidator class. Throw exception if there are errors in scheme or config
+* \pre external variable \c application_scope must be set to FLUENT
+* \post No exception should be thrown
+* \author PB
+* \date 2014/03/22
+* \see config4cpp documentation
+* \note This is only example of use of config4cpp
 */
 TEST(UseExample,_parseSchema)
 {
@@ -197,19 +196,19 @@ TEST(UseExample,_parseSchema)
 }
 
 /**
- * \test UseExample:_parseandvalidate
- * \brief Parses and perform scheme validation.
- * \details 
- * Parses and perform scheme validation. Test of the use. Throw if:
- * \li there is syntax mistake in A2F.cfg
- * \li there is syntax mistake in schema
- * \li A2F does not fulfill schema (mispelling, wrong parameter etc)
- * \pre external variable \c application_scope must be set to FLUENT
- * \post No exception should be thrown
- * \author PB
- * \date 2014/03/22
- * \see config4cpp documentation
- * \note This is only example of use of config4cpp
+* \test UseExample:_parseandvalidate
+* \brief Parses and perform scheme validation.
+* \details
+* Parses and perform scheme validation. Test of the use. Throw if:
+* \li there is syntax mistake in A2F.cfg
+* \li there is syntax mistake in schema
+* \li A2F does not fulfill schema (mispelling, wrong parameter etc)
+* \pre external variable \c application_scope must be set to FLUENT
+* \post No exception should be thrown
+* \author PB
+* \date 2014/03/22
+* \see config4cpp documentation
+* \note This is only example of use of config4cpp
 */
 TEST(UseExample,_parseandvalidate)
 {
@@ -226,13 +225,13 @@ TEST(UseExample,_parseandvalidate)
 }
 
 /**
- * \test Interpreter:_lookup4String_equal
- * \brief Gets one string parameter from configuration
- * \pre external variable \c application_scope must be set to FLUENT
- * \post No exception should be thrown, returned value equals \c test.case
- * \author PB
- * \date 2014/03/23
- * \see config4cpp documentation
+* \test Interpreter:_lookup4String_equal
+* \brief Gets one string parameter from configuration
+* \pre external variable \c application_scope must be set to FLUENT
+* \post No exception should be thrown, returned value equals \c test.case
+* \author PB
+* \date 2014/03/23
+* \see config4cpp documentation
 */
 TEST(Interpreter,_lookup4String_equal)
 {
@@ -246,13 +245,13 @@ TEST(Interpreter,_lookup4String_equal)
 }
 
 /**
- * \test Interpreter:_lookup4String_nequal
- * \brief Gets one string parameter from configuration
- * \pre external variable \c application_scope must be set to FLUENT
- * \post No exception should be thrown, returned value not equals \c test.case
- * \author PB
- * \date 2014/03/23
- * \see config4cpp documentation
+* \test Interpreter:_lookup4String_nequal
+* \brief Gets one string parameter from configuration
+* \pre external variable \c application_scope must be set to FLUENT
+* \post No exception should be thrown, returned value not equals \c test.case
+* \author PB
+* \date 2014/03/23
+* \see config4cpp documentation
 */
 TEST(Interpreter,_lookup4String_nequal)
 {
@@ -266,13 +265,13 @@ TEST(Interpreter,_lookup4String_nequal)
 }
 
 /**
- * \test Interpreter:_lookup4String_wrongask
- * \brief Gets one string parameter from configuration but we ask for nonexistent param
- * \pre external variable \c application_scope must be set to FLUENT
- * \post Should throw exception, returned value not equals \c test.case
- * \author PB
- * \date 2014/03/23
- * \see config4cpp documentation
+* \test Interpreter:_lookup4String_wrongask
+* \brief Gets one string parameter from configuration but we ask for nonexistent param
+* \pre external variable \c application_scope must be set to FLUENT
+* \post Should throw exception, returned value not equals \c test.case
+* \author PB
+* \date 2014/03/23
+* \see config4cpp documentation
 */
 TEST(Interpreter,_lookup4String_wrongask)
 {
@@ -286,15 +285,15 @@ TEST(Interpreter,_lookup4String_wrongask)
 }
 
 /**
- * \test Interpreter:_lookup4String_wrongformat
- * \brief Gets one string parameter from configuration but we ask for param defined as int. 
- * \pre external variable \c application_scope must be set to FLUENT
- * \post Should not throw exception, returned value not equals \c test.case
- * \author PB
- * \date 2014/03/23
- * \see config4cpp documentation
- * \see TEST(Interpreter,_lookup4Int_wrongformat)
- * \remarks In this case method returns regular string that contain number
+* \test Interpreter:_lookup4String_wrongformat
+* \brief Gets one string parameter from configuration but we ask for param defined as int.
+* \pre external variable \c application_scope must be set to FLUENT
+* \post Should not throw exception, returned value not equals \c test.case
+* \author PB
+* \date 2014/03/23
+* \see config4cpp documentation
+* \see TEST(Interpreter,_lookup4Int_wrongformat)
+* \remarks In this case method returns regular string that contain number
 */
 TEST(Interpreter,_lookup4String_wrongformat)
 {
@@ -309,15 +308,15 @@ TEST(Interpreter,_lookup4String_wrongformat)
 }
 
 /**
- * \test Interpreter:_lookup4Int_wrongformat
- * \brief Gets one int parameter from configuration but we ask for param defined as string. 
- * \pre external variable \c application_scope must be set to FLUENT
- * \post Should throw exception, returned value not initialized
- * \author PB
- * \date 2014/03/23
- * \see config4cpp documentation
- * \see TEST(Interpreter,_lookup4String_wrongformat)
- * \remarks In this case method returns regular string that contain number
+* \test Interpreter:_lookup4Int_wrongformat
+* \brief Gets one int parameter from configuration but we ask for param defined as string.
+* \pre external variable \c application_scope must be set to FLUENT
+* \post Should throw exception, returned value not initialized
+* \author PB
+* \date 2014/03/23
+* \see config4cpp documentation
+* \see TEST(Interpreter,_lookup4String_wrongformat)
+* \remarks In this case method returns regular string that contain number
 */
 TEST(Interpreter,_lookup4Int_wrongformat)
 {
@@ -327,17 +326,16 @@ TEST(Interpreter,_lookup4Int_wrongformat)
 	int result;
 	EXPECT_THROW(result = cfg->lookup4Int("COMMAND_LINE"),config4cpp::ConfigurationException);
 	delete cfg;
-
 }
 /**
- * \test Interpreter:_lookup4Int_equal
- * \brief Gets one int parameter from configuration
- * \pre external variable \c application_scope must be set to FLUENT
- * \post Should not throw exception, returned value equal 3 
- * \author PB
- * \date 2014/03/23
- * \see config4cpp documentation
- */
+* \test Interpreter:_lookup4Int_equal
+* \brief Gets one int parameter from configuration
+* \pre external variable \c application_scope must be set to FLUENT
+* \post Should not throw exception, returned value equal 3
+* \author PB
+* \date 2014/03/23
+* \see config4cpp documentation
+*/
 TEST(Interpreter,_lookup4Int_equal)
 {
 	application_scope = "FLUENT";
@@ -352,15 +350,15 @@ TEST(Interpreter,_lookup4Int_equal)
 }
 
 /**
- * \test Interpreter:_lookup4Float_equal
- * \brief Gets one float parameter from configuration
- * \pre external variable \c application_scope must be set to FLUENT
- * \post Should not throw exception, returned value equal 3 
- * \author PB
- * \date 2014/03/23
- * \see config4cpp documentation
- * \remarks In this case int vales can be read as well
- */
+* \test Interpreter:_lookup4Float_equal
+* \brief Gets one float parameter from configuration
+* \pre external variable \c application_scope must be set to FLUENT
+* \post Should not throw exception, returned value equal 3
+* \author PB
+* \date 2014/03/23
+* \see config4cpp documentation
+* \remarks In this case int vales can be read as well
+*/
 TEST(Interpreter,_lookup4Float_equal)
 {
 	application_scope = "FLUENT";
@@ -373,17 +371,17 @@ TEST(Interpreter,_lookup4Float_equal)
 }
 
 /**
- * \test Interpreter:_lookup4List_equal
- * \brief Gets one list of parameter from configuration
- * \pre external variable \c application_scope must be set to FLUENT
- * \post Should not throw exception, returned values equal "wylotpulpy", "0.0113" 
- * \author PB
- * \date 2014/03/24
- * \see config4cpp documentation
- * \note Numbers in lists are accesible as string but there will be always possible to convert them to number because there was scheme checking before.
- * Schemes check also list entries types.
- * \note Test disabled becaue there are no lists in cfg.
- */
+* \test Interpreter:_lookup4List_equal
+* \brief Gets one list of parameter from configuration
+* \pre external variable \c application_scope must be set to FLUENT
+* \post Should not throw exception, returned values equal "wylotpulpy", "0.0113"
+* \author PB
+* \date 2014/03/24
+* \see config4cpp documentation
+* \note Numbers in lists are accesible as string but there will be always possible to convert them to number because there was scheme checking before.
+* Schemes check also list entries types.
+* \note Test disabled becaue there are no lists in cfg.
+*/
 TEST(Interpreter,DISABLED_lookup4List_equal)
 {
 	application_scope = "FLUENT";
@@ -403,7 +401,7 @@ TEST(Interpreter,DISABLED_lookup4List_equal)
 	EXPECT_STREQ(list[0],"wylotpulpy");
 	EXPECT_STREQ(list[1],"0.0113");
 
-/*	EXPECT_EQ(result, 3);*/
+	/*	EXPECT_EQ(result, 3);*/
 	delete cfg;
 }
 
@@ -431,7 +429,7 @@ TEST(UseExample, _lookup4uidNames_equal)
 		ASSERT_TRUE(false);
 		delete cfg;
 	}
-	for (int i = 0; i < listSize; i++) 
+	for (int i = 0; i < listSize; i++)
 	{
 		cerr << list[i] << endl;
 	}
@@ -441,15 +439,15 @@ TEST(UseExample, _lookup4uidNames_equal)
 }
 
 /**
- * \test A2FInterpreter:_lookup4Int_wrongformat
- * \brief Gets one int parameter from configuration but we ask for param defined as string. 
- * \pre external variable \c application_scope must be set to FLUENT
- * \post Should throw exception, returned value not initialized
- * \author PB
- * \date 2014/03/23
- * \see config4cpp documentation
- * \see TEST(Interpreter,_lookup4String_wrongformat)
- * \remarks In this case method returns regular string that contain number
+* \test A2FInterpreter:_lookup4Int_wrongformat
+* \brief Gets one int parameter from configuration but we ask for param defined as string.
+* \pre external variable \c application_scope must be set to FLUENT
+* \post Should throw exception, returned value not initialized
+* \author PB
+* \date 2014/03/23
+* \see config4cpp documentation
+* \see TEST(Interpreter,_lookup4String_wrongformat)
+* \remarks In this case method returns regular string that contain number
 */
 TEST(A2FInterpreter,_lookup4Int_wrongformat)
 {
@@ -459,19 +457,18 @@ TEST(A2FInterpreter,_lookup4Int_wrongformat)
 	int result;
 	EXPECT_THROW(result = cfg->A2Flookup4Int("COMMAND_LINE"),std::invalid_argument);
 	delete cfg;
-
 }
 
 /**
- * \test A2FInterpreter:_lookup4Int_wrongformat1
- * \brief Gets one int parameter from configuration but we ask for param defined as string. 
- * \pre external variable \c application_scope must be set to FLUENT
- * \post Should throw exception, returned value not initialized. Prints error message on screen
- * \author PB
- * \date 2014/03/23
- * \see config4cpp documentation
- * \see TEST(Interpreter,_lookup4String_wrongformat)
- * \remarks In this case method returns regular string that contain number
+* \test A2FInterpreter:_lookup4Int_wrongformat1
+* \brief Gets one int parameter from configuration but we ask for param defined as string.
+* \pre external variable \c application_scope must be set to FLUENT
+* \post Should throw exception, returned value not initialized. Prints error message on screen
+* \author PB
+* \date 2014/03/23
+* \see config4cpp documentation
+* \see TEST(Interpreter,_lookup4String_wrongformat)
+* \remarks In this case method returns regular string that contain number
 */
 TEST(A2FInterpreter,_lookup4Int_wrongformat1)
 {
@@ -488,23 +485,22 @@ TEST(A2FInterpreter,_lookup4Int_wrongformat1)
 	{
 		std::cerr << "Exception: " << ex.what() << endl;
 		exc = true;
-//		delete cfg;
+		//		delete cfg;
 	}
 	EXPECT_TRUE(exc);
 	delete cfg;
-
 }
 
 /**
- * \test A2FInterpreter:_lookup4Float_equal
- * \brief Gets one float parameter from configuration
- * \pre external variable \c application_scope must be set to FLUENT
- * \post Should not throw exception, returned value equal 3 
- * \author PB
- * \date 2014/03/23
- * \see config4cpp documentation
- * \remarks In this case int vales can be read as well
- */
+* \test A2FInterpreter:_lookup4Float_equal
+* \brief Gets one float parameter from configuration
+* \pre external variable \c application_scope must be set to FLUENT
+* \post Should not throw exception, returned value equal 3
+* \author PB
+* \date 2014/03/23
+* \see config4cpp documentation
+* \remarks In this case int vales can be read as well
+*/
 TEST(A2FInterpreter,_lookup4Float_equal)
 {
 	application_scope = "FLUENT";
@@ -517,25 +513,25 @@ TEST(A2FInterpreter,_lookup4Float_equal)
 }
 
 /**
- * \test _GetSurfaceParams_equal
- * \brief Test acces to surface list
- * \pre external variable \c application_scope must be set to FLUENT
- * \post Expect surface name and its area as float number
- * \author PB
- * \date 2014/03/25
+* \test _GetSurfaceParams_equal
+* \brief Test acces to surface list
+* \pre external variable \c application_scope must be set to FLUENT
+* \post Expect surface name and its area as float number
+* \author PB
+* \date 2014/03/25
 */
 TEST(A2FInterpreter,_GetSurfaceParams_equal)
 {
-// 	application_scope = "FLUENT";
-// 	C_A2FInterpreter* cfg = new C_A2FInterpreter();
-// 	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
-// 
-// 	string surfaceName;
-// 	float area;
-// 	EXPECT_NO_THROW(cfg->A2FGetSurfaceParams("SURFACES.OUTPUT1", surfaceName, area));
-// 	EXPECT_STREQ(surfaceName.c_str(),"wylotpulpy");
-// 	EXPECT_EQ(area,0.0113f);
-// 	delete cfg;
+	// 	application_scope = "FLUENT";
+	// 	C_A2FInterpreter* cfg = new C_A2FInterpreter();
+	// 	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
+	//
+	// 	string surfaceName;
+	// 	float area;
+	// 	EXPECT_NO_THROW(cfg->A2FGetSurfaceParams("SURFACES.OUTPUT1", surfaceName, area));
+	// 	EXPECT_STREQ(surfaceName.c_str(),"wylotpulpy");
+	// 	EXPECT_EQ(area,0.0113f);
+	// 	delete cfg;
 
 	application_scope = "FLUENT";
 	C_A2FInterpreter* cfg = new C_A2FInterpreter();
@@ -560,12 +556,12 @@ TEST(A2FInterpreter,_GetSurfaceParams_equal)
 }
 
 /**
- * \test _GetExportsParams_equal
- * \brief Test access to exports lists
- * \pre external variable \c application_scope must be set to FLUENT
- * \post Expect three params connected with export and two exports
- * \author PB
- * \date 2014/04/02
+* \test _GetExportsParams_equal
+* \brief Test access to exports lists
+* \pre external variable \c application_scope must be set to FLUENT
+* \post Expect three params connected with export and two exports
+* \author PB
+* \date 2014/04/02
 */
 TEST(A2FInterpreter,_GetExportsParams_equal)
 {
@@ -593,12 +589,12 @@ TEST(A2FInterpreter,_GetExportsParams_equal)
 }
 
 /**
- * \test _GetAssignsParams_equal
- * \brief Test access to assign lists
- * \pre external variable \c application_scope must be set to FLUENT
- * \post Expect three params connected with assign and two assigns
- * \author PB
- * \date 2014/04/02
+* \test _GetAssignsParams_equal
+* \brief Test access to assign lists
+* \pre external variable \c application_scope must be set to FLUENT
+* \post Expect three params connected with assign and two assigns
+* \author PB
+* \date 2014/04/02
 */
 TEST(A2FInterpreter,_GetAssignsParams_equal)
 {

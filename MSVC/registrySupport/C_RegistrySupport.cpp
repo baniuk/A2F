@@ -1,35 +1,33 @@
 /**
- * \file C_RegistrySupport.cpp
- * \brief Body of C_RegistryClass
- * \author PB
- * \date 2014/06/26
- */
+* \file C_RegistrySupport.cpp
+* \brief Body of C_RegistryClass
+* \author PB
+* \date 2014/06/26
+*/
 #include "stdafx.h"
 #include "C_RegistrySupport.h"
-
 
 C_RegistrySupport::C_RegistrySupport(void)
 {
 }
-
 
 C_RegistrySupport::~C_RegistrySupport(void)
 {
 }
 
 /**
- * \brief Read text key from registry
- * \details Open and reads \c subKey from registry \c key. The \c subKey must be text
- * \param[in] key - name of the key to read from, e.g. \a HKEY_CURRENT_USER
- * \param[in] subKey - name of the subkey to read from, e.g. \a "Software\\Cape2Fluent"
- * \param[in] value - name of the value to read from, e.g. \a InstallDir
- * \param[out] outval - string from subKey.
- * \return If the function succeeds, the return value is ERROR_SUCCESS.
- * If the function fails, the return value is a nonzero error code defined in Winerror.h. You can use the FormatMessage function with the FORMAT_MESSAGE_FROM_SYSTEM flag to get a generic description of the error.
- * \retval LONG
- * \author PB
- * \date 2014/06/26
- * \note On error outval can be undefined
+* \brief Read text key from registry
+* \details Open and reads \c subKey from registry \c key. The \c subKey must be text
+* \param[in] key - name of the key to read from, e.g. \a HKEY_CURRENT_USER
+* \param[in] subKey - name of the subkey to read from, e.g. \a "Software\\Cape2Fluent"
+* \param[in] value - name of the value to read from, e.g. \a InstallDir
+* \param[out] outval - string from subKey.
+* \return If the function succeeds, the return value is ERROR_SUCCESS.
+* If the function fails, the return value is a nonzero error code defined in Winerror.h. You can use the FormatMessage function with the FORMAT_MESSAGE_FROM_SYSTEM flag to get a generic description of the error.
+* \retval LONG
+* \author PB
+* \date 2014/06/26
+* \note On error outval can be undefined
 */
 LONG C_RegistrySupport::GetStringforKey( HKEY key, const TCHAR* subKey, const TCHAR* value, std::string& outval )
 {

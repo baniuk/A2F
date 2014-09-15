@@ -1,11 +1,9 @@
 // A2F.cpp : Implementation of DLL Exports.
 
-
 #include "stdafx.h"
 #include "resource.h"
 #include "A2F_i.h"
 #include "dllmain.h"
-
 
 using namespace ATL;
 
@@ -26,14 +24,14 @@ STDAPI DllRegisterServer(void)
 {
 	// registers object, typelib and all interfaces in typelib
 	HRESULT hr = _AtlModule.DllRegisterServer();
-		return hr;
+	return hr;
 }
 
 // DllUnregisterServer - Removes entries from the system registry.
 STDAPI DllUnregisterServer(void)
 {
 	HRESULT hr = _AtlModule.DllUnregisterServer();
-		return hr;
+	return hr;
 }
 
 // DllInstall - Adds/Removes entries to the system registry per user per machine.
@@ -51,7 +49,7 @@ STDAPI DllInstall(BOOL bInstall, _In_opt_  LPCWSTR pszCmdLine)
 	}
 
 	if (bInstall)
-	{	
+	{
 		hr = DllRegisterServer();
 		if (FAILED(hr))
 		{
@@ -65,5 +63,3 @@ STDAPI DllInstall(BOOL bInstall, _In_opt_  LPCWSTR pszCmdLine)
 
 	return hr;
 }
-
-

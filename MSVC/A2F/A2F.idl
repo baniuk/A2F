@@ -62,32 +62,31 @@ library A2FLib
 {
 	importlib("stdole2.tlb");
 	[
-		uuid(A9129436-FB2C-4D26-B88D-A61E4D594BCB)		
+		uuid(A9129436-FB2C-4D26-B88D-A61E4D594BCB)
 	]
 	coclass UnitOperations
 	{
 		[default] interface IUnitOperations;
 	};
 	[
-		uuid(B837F485-6A5A-4B3C-A6CA-2D5A0440060F)		
+		uuid(B837F485-6A5A-4B3C-A6CA-2D5A0440060F)
 	]
 	coclass PortCollection
 	{
 		[default] interface IPortCollection;
 	};
 	[
-		uuid(323340E4-D19F-44F4-AF0E-A051D407FC45)		
+		uuid(323340E4-D19F-44F4-AF0E-A051D407FC45)
 	]
 	coclass UnitPort
 	{
 		[default] interface IUnitPort;
 	};
 	[
-		uuid(517833D9-2895-4588-AE54-2D3F4473A3C5)		
+		uuid(517833D9-2895-4588-AE54-2D3F4473A3C5)
 	]
 	coclass ParameterCollection
 	{
 		[default] interface IParameterCollection;
 	};
 };
-

@@ -1,18 +1,18 @@
 /**
- * \file    PantheiosLogHelper.cpp
- * \brief   Helps in logging
- * \author  PB
- * \date    2014/01/20
- * \version 0.5
- * \remarks Requires "Pantheios_header.h" and <comutil.h>
- */
+* \file    PantheiosLogHelper.cpp
+* \brief   Helps in logging
+* \author  PB
+* \date    2014/01/20
+* \version 0.5
+* \remarks Requires "Pantheios_header.h" and <comutil.h>
+*/
 
 #include "stdafx.h"
 #include "PantheiosLogHelper.h"
 
 /**
 * \details  Dumps any VARIANT variable to logfile
-* \param[in] data variable to be dumped      
+* \param[in] data variable to be dumped
 * \param[in] desc Description to be added as prefix to log line
 * \note See Detach() used on CComSafeArray. If not used destructor destroys also VARIANT passed from caller!!
 */
@@ -32,13 +32,13 @@ void PantheiosHelper::dumpVariant( const VARIANT* data, const TCHAR* desc)
 			PANTHEIOS_TRACE_DEBUG(	PSTR("	VARIANT data["),pantheios::integer(index),PSTR("]: "), pantheios::real(doubleHolder[index]));
 		doubleHolder.Detach();
 		break;
- 	case VT_ARRAY | VT_BSTR:
- 		PANTHEIOS_TRACE_DEBUG(PSTR("VARIANT type: "), pantheios::integer(data->vt,pantheios::fmt::fullHex),PSTR(" "), PSTR("VT_ARRAY | VT_BSTR"));
+	case VT_ARRAY | VT_BSTR:
+		PANTHEIOS_TRACE_DEBUG(PSTR("VARIANT type: "), pantheios::integer(data->vt,pantheios::fmt::fullHex),PSTR(" "), PSTR("VT_ARRAY | VT_BSTR"));
 		bstrHolder.Attach(data->parray);
 		for(index = bstrHolder.GetLowerBound(); index <= bstrHolder.GetUpperBound(); ++index)
 			PANTHEIOS_TRACE_DEBUG(	PSTR("	VARIANT data["),pantheios::integer(index),PSTR("]: "), PW2M(bstrHolder[index]));
 		bstrHolder.Detach();
- 		break;
+		break;
 	case VT_EMPTY:
 		PANTHEIOS_TRACE_DEBUG(PSTR("VARIANT type: "), pantheios::integer(data->vt,pantheios::fmt::fullHex),PSTR(" "), PSTR("VT_EMPTY"));
 		break;
@@ -50,7 +50,7 @@ void PantheiosHelper::dumpVariant( const VARIANT* data, const TCHAR* desc)
 
 /**
 * \details  Dumps double array to logfile
-* \param[in] data variable to be dumped      
+* \param[in] data variable to be dumped
 * \param[in] desc Description to be added as prefix to log line
 */
 void PantheiosHelper::dumpCComSafeArray( const ATL::CComSafeArray<double>& data, const TCHAR* desc )
@@ -64,13 +64,13 @@ void PantheiosHelper::dumpCComSafeArray( const ATL::CComSafeArray<double>& data,
 
 /**
 * \details  Dumps BSTR array to logfile
-* \param[in] data variable to be dumped      
+* \param[in] data variable to be dumped
 * \param[in] desc Description to be added as prefix to log line
 */
 void PantheiosHelper::dumpCComSafeArray( const ATL::CComSafeArray<BSTR>& data, const TCHAR* desc )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	LONG index;		
+	LONG index;
 	for(index = data.GetLowerBound(); index <= data.GetUpperBound(); ++index)
 		PANTHEIOS_TRACE_DEBUG(	PSTR("	VARIANT data["),pantheios::integer(index),PSTR("]: "), PW2M(data[index]));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));

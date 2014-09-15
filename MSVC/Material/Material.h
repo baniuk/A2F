@@ -1,11 +1,11 @@
 /**
- * \file    Material.h
- * \brief   Includes and definitions for Material class
- * \details Provides tools for handling Cape-Open materials
- * \author  PB
- * \date    2013/12/30
- * \version 0.5
- */
+* \file    Material.h
+* \brief   Includes and definitions for Material class
+* \details Provides tools for handling Cape-Open materials
+* \author  PB
+* \date    2013/12/30
+* \version 0.5
+*/
 #ifndef Material_h__
 #define Material_h__
 
@@ -20,9 +20,9 @@
 #include <codecvt>
 #include "..\A2F\Common_definitions.hpp"
 /**
- * Status of the material object.
- * VALIDATED after use of the MaterialFlash method INVALIDATED othervise
- */ 
+* Status of the material object.
+* VALIDATED after use of the MaterialFlash method INVALIDATED othervise
+*/
 enum MaterialStatus
 {
 	VALIDATED,
@@ -30,20 +30,20 @@ enum MaterialStatus
 };
 
 /**
- * \class Material
- *
- * \brief Class implementing basic tools for managing Cape-Open materials
- *
- * Class Class implementing basic tools for managing Cape-Open materials. Holds pointer to ICapePortMaterial directly and can operate on it. 
- * This class AddRefs and Releases this pointer.
- * inFlashMaterialObject() must be called first to initialize and fill internal structures basing on provided material object.
- *
- * \author PB
- * \warning Must be ATL before ATL classes or ATL namespace - it is not added by default
- * \see http://ctrlf5.net/?p=197
- * \date 2013/12/30
- * \note Phases seems to not be usefull and temptrary they are off. Asking Aspen for phases caused error and this variable was not initialized.
- */
+* \class Material
+*
+* \brief Class implementing basic tools for managing Cape-Open materials
+*
+* Class Class implementing basic tools for managing Cape-Open materials. Holds pointer to ICapePortMaterial directly and can operate on it.
+* This class AddRefs and Releases this pointer.
+* inFlashMaterialObject() must be called first to initialize and fill internal structures basing on provided material object.
+*
+* \author PB
+* \warning Must be ATL before ATL classes or ATL namespace - it is not added by default
+* \see http://ctrlf5.net/?p=197
+* \date 2013/12/30
+* \note Phases seems to not be usefull and temptrary they are off. Asking Aspen for phases caused error and this variable was not initialized.
+*/
 class Material
 {
 	friend class _MaterialTest;
@@ -87,7 +87,7 @@ private:
 	/// Extract basic information on stream structure
 	HRESULT get_Composition();
 	/// Extract physical properties from materials
-	HRESULT get_PhysicalProp();	
+	HRESULT get_PhysicalProp();
 
 protected:
 	ICapeThermoMaterialObject *mat; /*!< reference to the actual underlying version 1.0 Material Object, which is implemented by the simulation environment */
@@ -99,7 +99,6 @@ protected:
 	ATL::CComSafeArray<double> flows; /*!< Holds flows of all components (all will be the same) */
 	ATL::CComSafeArray<double> fractions; /*!< Holds fractions of all components (all will be the same) */
 private:
-	MaterialStatus isValidated; 
+	MaterialStatus isValidated;
 };
 #endif // Material_h__
-

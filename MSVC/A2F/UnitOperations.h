@@ -1,20 +1,16 @@
 /**
- * \file    UnitOperations.h
- * \brief   COClass header for unit operations
- * \details Implements basic interfaces required by CAPE-OPEN
- * \author  PB
- * \date    2013/09/10
- * \version 0.5
- */
+* \file    UnitOperations.h
+* \brief   COClass header for unit operations
+* \details Implements basic interfaces required by CAPE-OPEN
+* \author  PB
+* \date    2013/09/10
+* \version 0.5
+*/
 
 #pragma once
 #include "resource.h"       // main symbols
 
-
-
 #include "A2F_i.h"
-
-
 
 #if defined(_WIN32_WCE) && !defined(_CE_DCOM) && !defined(_CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA)
 #error "Single-threaded COM objects are not properly supported on Windows CE platform, such as the Windows Mobile platforms that do not include full DCOM support. Define _CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA to force ATL to support creating single-thread COM object's and allow use of it's single-threaded COM object implementations. The threading model in your rgs file was set to 'Free' as that is the only threading model supported in non DCOM Windows CE platforms."
@@ -23,14 +19,14 @@
 using namespace ATL;
 
 /**
- * \class StreamNumber
- * \brief Defines correct order of streams in Materials vector
- * \details Streams are kept in Materials vector. Order of enmu defines order of materials in vector
- * \author PB
- * \date 2014/06/19
- * \see UnitOperations::Calculate()
- * \see http://82.145.77.86:8080/trac/A2F/wiki/Schematy
- * \see http://82.145.77.86:8080/trac/A2F/wiki/A2F_Fit_1
+* \class StreamNumber
+* \brief Defines correct order of streams in Materials vector
+* \details Streams are kept in Materials vector. Order of enmu defines order of materials in vector
+* \author PB
+* \date 2014/06/19
+* \see UnitOperations::Calculate()
+* \see http://82.145.77.86:8080/trac/A2F/wiki/Schematy
+* \see http://82.145.77.86:8080/trac/A2F/wiki/A2F_Fit_1
 */
 enum class StreamNumber : std::size_t
 {
@@ -41,36 +37,36 @@ enum class StreamNumber : std::size_t
 };
 
 /**
- * \class CUnitOperations
- *
- * \brief CoClass for basic interfaces implementing Unit Operations
- *
- * Class implements basic interfaces for Unit Operations according to documentation. Implemented interfaces:
- * \li ICapeUnit
- * \li ECapeRoot
- * \li ECapeUser
- * \li ICapeIdentification
- * \li ICapeUtilities
- * \li ECapeUnknown
- * \li ICapeUnitReport
- * \li ICapeDiagnostic - no implementation on PMC side. Only to use on PME side.
- *
- * \note Represents basic object initiated at the beginning
- *
- * \author PB
- *
- * \date 2013/09/10
- *
- * \see 
- * \li AspenPlusUserModelsV8_2-Ref.pdf
- * \li CO_Unit_Operations_v6.25.pdf
- * \li Methods&Tools_Integrated_Guidelines.pdf
- *
- * \todo Finish documentation - add methods descriptions
- * 
- * \warning ICapeDiagnostic - likely not neccessary to implement. Should be found correct tlb in registry? The same situation in case of
- * ICapeParameter interface witch is not implemented here but called by IID
- */
+* \class CUnitOperations
+*
+* \brief CoClass for basic interfaces implementing Unit Operations
+*
+* Class implements basic interfaces for Unit Operations according to documentation. Implemented interfaces:
+* \li ICapeUnit
+* \li ECapeRoot
+* \li ECapeUser
+* \li ICapeIdentification
+* \li ICapeUtilities
+* \li ECapeUnknown
+* \li ICapeUnitReport
+* \li ICapeDiagnostic - no implementation on PMC side. Only to use on PME side.
+*
+* \note Represents basic object initiated at the beginning
+*
+* \author PB
+*
+* \date 2013/09/10
+*
+* \see
+* \li AspenPlusUserModelsV8_2-Ref.pdf
+* \li CO_Unit_Operations_v6.25.pdf
+* \li Methods&Tools_Integrated_Guidelines.pdf
+*
+* \todo Finish documentation - add methods descriptions
+*
+* \warning ICapeDiagnostic - likely not neccessary to implement. Should be found correct tlb in registry? The same situation in case of
+* ICapeParameter interface witch is not implemented here but called by IID
+*/
 class ATL_NO_VTABLE CUnitOperations :
 	public CComObjectRootEx<CComSingleThreadModel>,
 	public CComCoClass<CUnitOperations, &CLSID_UnitOperations>,
@@ -90,7 +86,6 @@ public:
 
 	DECLARE_REGISTRY_RESOURCEID(IDR_UNITOPERATIONS)
 
-
 	BEGIN_COM_MAP(CUnitOperations)
 		COM_INTERFACE_ENTRY(IUnitOperations)
 		COM_INTERFACE_ENTRY2(IDispatch, ICapeUnit)
@@ -104,11 +99,9 @@ public:
 		COM_INTERFACE_ENTRY(ICapeDiagnostic)
 	END_COM_MAP()
 
-
-
 	DECLARE_PROTECT_FINAL_CONSTRUCT()
 
-	/// Initializing method called after constructor 
+	/// Initializing method called after constructor
 	HRESULT FinalConstruct();
 
 	/// Cleaning-up before destructor
@@ -210,7 +203,6 @@ private:
 	std::vector<Material*> Materials;
 	/// path and name of config file
 	std::string installDir;
-
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(UnitOperations), CUnitOperations)

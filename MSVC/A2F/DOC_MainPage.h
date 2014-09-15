@@ -1,11 +1,11 @@
 /**
- * \file    DOC_MainPage.h
- * \brief   Main page of Doxygen documentation
- * \details This file contains main page for doc and some todos
- * \author  PB
- * \date    2013/09/13
- * \version 0.5
- */
+* \file    DOC_MainPage.h
+* \brief   Main page of Doxygen documentation
+* \details This file contains main page for doc and some todos
+* \author  PB
+* \date    2013/09/13
+* \version 0.5
+*/
 /** \mainpage A2F port
 *
 * \section Installation
