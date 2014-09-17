@@ -11,6 +11,9 @@ echo off
 setlocal enabledelayedexpansion
 rem setting tools to download
 set CURRENT_DIR=%CD%
+rem Checking for external tools required
+git --version
+IF %ERRORLEVEL% NEQ 0 goto :TOOL_ERROR
 rem set correct names here!!
 set PANTH_NAME=pantheios-1.0.1-beta214& rem -src.zip
 rem For tools
