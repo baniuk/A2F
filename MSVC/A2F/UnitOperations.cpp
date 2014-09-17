@@ -864,7 +864,7 @@ void CUnitOperations::CreateScm( void )
 		starter << ";; delete previous" << endl;
 		// delete all output files (assiged to surfaces - we iterate along surfaces)
 		for (const auto &surf : surface )
-			starter << "(ti-menu-load-string \"!del" << cfg->lookup4String("DATA_PATH") << "_name_" << surf << ".prof \")" << endl;
+			starter << "(ti-menu-load-string \"!del " << cfg->lookup4String("DATA_PATH") << "_name_" << surf << ".prof \")" << endl;
 		starter <<	";; load project" << endl;
 		starter << "(ti-menu-load-string \"file/read-case-data " << cfg->lookup4String("DATA_PATH") << cfg->lookup4String("CASE_NAME") << "\")" << endl;
 		starter << ";; Setting inputs" << endl;
