@@ -24,11 +24,10 @@ library Test_Material_ClassLib
 {
 	importlib("stdole2.tlb");
 	[
-		uuid(E28C0506-E0BA-4D5C-973A-812141857D46)		
+		uuid(E28C0506-E0BA-4D5C-973A-812141857D46)
 	]
 	coclass CapeMaterialObject
 	{
 		[default] interface ICapeMaterialObject;
 	};
 };
-

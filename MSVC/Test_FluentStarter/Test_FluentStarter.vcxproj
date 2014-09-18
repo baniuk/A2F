@@ -62,7 +62,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>$(SolutionDir)..\tools\xcopy $(SolutionDir)$(Configuration)\$(TargetFileName) D:\Dokumenty\Dropbox\Shares\A2F /F/Y</Command>
+      <Command>$(SolutionDir)..\tools\xcopy $(SolutionDir)$(Configuration)\$(TargetFileName) f:\Dokumenty\Dropbox\Shares\A2F /F/Y</Command>
       <Message>Should be run on virtual machine. Auto run disabled</Message>
     </PostBuildEvent>
     <Bscmake>

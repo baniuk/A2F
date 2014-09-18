@@ -1,17 +1,15 @@
 /**
- * \file    UnitPort.cpp
- * \brief   COClass for ICapeUnitPort interface
- * \author  PB
- * \date    2013/09/17
- * \version 0.5
- */
+* \file    UnitPort.cpp
+* \brief   COClass for ICapeUnitPort interface
+* \author  PB
+* \date    2013/09/17
+* \version 0.5
+*/
 
 #include "stdafx.h"
 #include "UnitPort.h"
 
-
 // CUnitPort
-
 
 CUnitPort::CUnitPort()
 {
@@ -21,14 +19,13 @@ CUnitPort::CUnitPort()
 
 CUnitPort::~CUnitPort()
 {
-
 }
 
 /**
 * \details  COM initialization method called after construction of the object. Other interfaces should be created here.
-*			\li Set names of component and descriptions	
+*			\li Set names of component and descriptions
 * \return   Return S_OK on success or one of the standard error HRESULT values.
-* \retval   status   
+* \retval   status
 *           \li S_OK		Success
 */
 HRESULT CUnitPort::FinalConstruct()
@@ -105,7 +102,7 @@ STDMETHODIMP CUnitPort::get_moreInfo( BSTR * moreInfo )
 
 /**
 * \details  Returns component name from PMC. Default name is set in CPortCollection::FinalConstruct()
-* \param[out]	name	name of the component returned to PME	
+* \param[out]	name	name of the component returned to PME
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
@@ -120,7 +117,7 @@ STDMETHODIMP CUnitPort::get_ComponentName( BSTR * name )
 }
 
 /**
-* \details  Allows to save name of the component given by PME. This name can be later passed to other PMES that use this control. 
+* \details  Allows to save name of the component given by PME. This name can be later passed to other PMES that use this control.
 * \param[in]	name	name of the component passed from PME.
 * \return   CapeError
 * \retval   status   The program status.
@@ -138,7 +135,7 @@ STDMETHODIMP CUnitPort::put_ComponentName( BSTR name )
 
 /**
 * \details  Returns component desc from PMC. Default desc is set in CPortCollection::FinalConstruct()
-* \param[out]	desc	desc of the component returned to PME	
+* \param[out]	desc	desc of the component returned to PME
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
@@ -171,8 +168,8 @@ STDMETHODIMP CUnitPort::put_ComponentDescription( BSTR desc )
 
 /**
 * \details  Returns type of the port to PME
-* \param[out]	portType	type of the port	
-* 			\li CAPE_MATERIAL		
+* \param[out]	portType	type of the port
+* 			\li CAPE_MATERIAL
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
@@ -188,10 +185,10 @@ STDMETHODIMP CUnitPort::get_portType( CapePortType * portType )
 
 /**
 * \details  Returns direction of the port to PME
-* \param[out]	portDirection	direction of the port	
+* \param[out]	portDirection	direction of the port
 * 			\li CAPE_INLET - default
 *			\li CAPE_OUTLET
-*			\li CAPE_INLET_OUTLET - should not be used	
+*			\li CAPE_INLET_OUTLET - should not be used
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
@@ -208,10 +205,10 @@ STDMETHODIMP CUnitPort::get_direction( CapePortDirection * portDirection )
 /**
 * \details  Allows to put direction to port. This method is used during port initialize and allows to put any direction form outside.
 * \interface IUnitPortEX
-* \param[in]	portDirection	direction of the port	
+* \param[in]	portDirection	direction of the port
 * 			\li CAPE_INLET
 *			\li CAPE_OUTLET
-*			\li CAPE_INLET_OUTLET - should not be used	
+*			\li CAPE_INLET_OUTLET - should not be used
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
@@ -228,7 +225,7 @@ STDMETHODIMP CUnitPort::put_direction(int portDirection)
 /**
 * \details  Allows to put type of port. This method is used during port initialize and allows to put any type form outside.
 * \interface IUnitPortEX
-* \param[in]	portType	type of the port	
+* \param[in]	portType	type of the port
 * 			\li CAPE_MATERIAL
 *			\li CAPE_ENERGY
 * \return   CapeError
@@ -254,13 +251,13 @@ STDMETHODIMP CUnitPort::put_portType( int portType )
 */
 STDMETHODIMP CUnitPort::get_connectedObject( LPDISPATCH * connectedObject )
 {
-	// object to return 
+	// object to return
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	if(!connectedObject) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
 	CComPtr<ICapeThermoMaterialObject> tmpconnextedObject(this->connectedObject);
 	*connectedObject = tmpconnextedObject.Detach();
-	PANTHEIOS_TRACE_DEBUG(	PSTR("IID_ICapeThermoMaterialObject object passed to PME: "), 
-							pantheios::pointer(*connectedObject,pantheios::fmt::fullHex));
+	PANTHEIOS_TRACE_DEBUG(	PSTR("IID_ICapeThermoMaterialObject object passed to PME: "),
+		pantheios::pointer(*connectedObject,pantheios::fmt::fullHex));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
@@ -268,10 +265,10 @@ STDMETHODIMP CUnitPort::get_connectedObject( LPDISPATCH * connectedObject )
 /**
 * \details  Connect connects a stream to a port. The port validates the type of the object being passed. Aspen Plus creates a material object
 * when it connects a stream to a port that belongs to a CAPE-OPEN unit. It then calls the port’s Connect method passing in the material object's
-* IDispatch interface. Aspen Plus gives the new material object the same name as stream that was connected to the port. Material objects are 
+* IDispatch interface. Aspen Plus gives the new material object the same name as stream that was connected to the port. Material objects are
 * described in CAPE-OPEN COM Thermodynamic Interfaces, Chapter 27.
 * This method invalidate unit
-* \param[in]	objectToConnect	object from PME to connect to	
+* \param[in]	objectToConnect	object from PME to connect to
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
@@ -283,23 +280,23 @@ STDMETHODIMP CUnitPort::Connect( LPDISPATCH objectToConnect )
 	if(!objectToConnect) { PANTHEIOS_TRACE_CRITICAL(PSTR("Wrong pointer!")); return E_POINTER;}
 	// assign PME object to local var
 	CComPtr<IDispatch> tmpconnectedObject(objectToConnect);
-///	\ remarks tmpconnectedObject.Attach(objectToConnect);	caused problems (probably PME not maked AddRef but only passes ownership)
+	///	\ remarks tmpconnectedObject.Attach(objectToConnect);	caused problems (probably PME not maked AddRef but only passes ownership)
 	// quering for demanded interface (with addref)
 	err_code = tmpconnectedObject->QueryInterface(IID_PPV_ARGS(&connectedObject));
-	if(FAILED(err_code)) 
+	if(FAILED(err_code))
 	{
 		// we ar ehere in case if portCollection is ok but requested interface is not supported
-		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IID_ICapeThermoMaterialObject not created because: "), 
-								pantheios::integer(err_code,pantheios::fmt::fullHex),
-								PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IID_ICapeThermoMaterialObject not created because: "),
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
 		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		tmpconnectedObject.Release();
 		return err_code;
-	}		
+	}
 	PANTHEIOS_TRACE_DEBUG(	PSTR("IID_ICapeThermoMaterialObject addres passed from PME: "),
-							pantheios::pointer(connectedObject.p,pantheios::fmt::fullHex),
-							PSTR(" Error: "), winstl::error_desc_a(err_code));
-	
+		pantheios::pointer(connectedObject.p,pantheios::fmt::fullHex),
+		PSTR(" Error: "), winstl::error_desc_a(err_code));
+
 	// invalidating unit after change of the port
 	exValidationStatus = CAPE_NOT_VALIDATED;
 
@@ -313,7 +310,7 @@ STDMETHODIMP CUnitPort::Connect( LPDISPATCH objectToConnect )
 * \return   CapeError
 * \retval   status   The program status.
 *           \li S_OK		Success
-* \todo Add Ref counting          
+* \todo Add Ref counting
 */
 STDMETHODIMP CUnitPort::Disconnect()
 {
@@ -322,10 +319,7 @@ STDMETHODIMP CUnitPort::Disconnect()
 	connectedObject.Release();
 	exValidationStatus = CAPE_NOT_VALIDATED;
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Unit status: "),
-							pantheios::integer(exValidationStatus));
+		pantheios::integer(exValidationStatus));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
-
-
-

@@ -1,22 +1,18 @@
 /**
- * \file    PortCollection.h
- * \brief   COClass header for PortCollection interface
- * \details The aim of the Collection interface is to give a CAPE-OPEN component the possibility to expose a list of objects to any client
- * of the component. The client will not be able to modify the collection, i.e. removing, replacing or adding elements. However, since the client
- * will have access to any CAPE-OPEN interface exposed by the items of the collection, it will be able to modify the state of any element.
- * \author  PB
- * \date    2013/09/17
- * \version 0.5
- */
+* \file    PortCollection.h
+* \brief   COClass header for PortCollection interface
+* \details The aim of the Collection interface is to give a CAPE-OPEN component the possibility to expose a list of objects to any client
+* of the component. The client will not be able to modify the collection, i.e. removing, replacing or adding elements. However, since the client
+* will have access to any CAPE-OPEN interface exposed by the items of the collection, it will be able to modify the state of any element.
+* \author  PB
+* \date    2013/09/17
+* \version 0.5
+*/
 
 #pragma once
 #include "resource.h"       // main symbols
 
-
-
 #include "A2F_i.h"
-
-
 
 #if defined(_WIN32_WCE) && !defined(_CE_DCOM) && !defined(_CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA)
 #error "Single-threaded COM objects are not properly supported on Windows CE platform, such as the Windows Mobile platforms that do not include full DCOM support. Define _CE_ALLOW_SINGLE_THREADED_OBJECTS_IN_MTA to force ATL to support creating single-thread COM object's and allow use of it's single-threaded COM object implementations. The threading model in your rgs file was set to 'Free' as that is the only threading model supported in non DCOM Windows CE platforms."
@@ -24,33 +20,32 @@
 
 using namespace ATL;
 
-
 /**
- * \class CPortCollection
- *
- * \brief CoClass implementing ICapeCollection interface
- *
- * Class implements basic interfaces for objects collection and some additional interfaces. Collection is provided to PME by
- * CUnitOperations::get_ports( LPDISPATCH * ports ) method. In this case collection contains ports that will be avaiable in PMC.
- * \li ICapeCollection
- * \li ECapeRoot
- * \li ECapeUser
- * \li ICapeIdentification
- * \li ECapeUnknown
- *
- * \author PB
- *
- * \date 2013/09/16
- *
- * \see 
- * \li AspenPlusUserModelsV8_2-Ref.pdf pp. 271
- * \li Identification Common Interface.pdf
- * \li Methods&Tools_Integrated_Guidelines.pdf
- *
- * \todo 
- *		\li move input port to array
- * 
- */
+* \class CPortCollection
+*
+* \brief CoClass implementing ICapeCollection interface
+*
+* Class implements basic interfaces for objects collection and some additional interfaces. Collection is provided to PME by
+* CUnitOperations::get_ports( LPDISPATCH * ports ) method. In this case collection contains ports that will be avaiable in PMC.
+* \li ICapeCollection
+* \li ECapeRoot
+* \li ECapeUser
+* \li ICapeIdentification
+* \li ECapeUnknown
+*
+* \author PB
+*
+* \date 2013/09/16
+*
+* \see
+* \li AspenPlusUserModelsV8_2-Ref.pdf pp. 271
+* \li Identification Common Interface.pdf
+* \li Methods&Tools_Integrated_Guidelines.pdf
+*
+* \todo
+*		\li move input port to array
+*
+*/
 class ATL_NO_VTABLE CPortCollection :
 	public CComObjectRootEx<CComSingleThreadModel>,
 	public CComCoClass<CPortCollection, &CLSID_PortCollection>,
@@ -67,7 +62,6 @@ public:
 
 	DECLARE_REGISTRY_RESOURCEID(IDR_PORTCOLLECTION)
 
-
 	BEGIN_COM_MAP(CPortCollection)
 		COM_INTERFACE_ENTRY(IPortCollection)
 		COM_INTERFACE_ENTRY2(IDispatch, ECapeRoot)
@@ -78,11 +72,9 @@ public:
 		COM_INTERFACE_ENTRY(ICapeIdentification)
 	END_COM_MAP()
 
-
-
 	DECLARE_PROTECT_FINAL_CONSTRUCT()
 
-	/// Initializing method called after constructor 
+	/// Initializing method called after constructor
 	HRESULT FinalConstruct();
 
 	/// Cleaning-up before destructor
@@ -131,14 +123,12 @@ private:
 	CComBSTR componentDescription;
 	// list of ports
 	std::vector<CComPtr<IUnitPort>> ports;
-	// status of the PMC unit referenced from CUnitOperations::validationStatus 
+	// status of the PMC unit referenced from CUnitOperations::validationStatus
 	CapeValidationStatus* pvalidationStatus;
 	// adds one port to collection
 	HRESULT AddPort(const WCHAR* portName, const WCHAR* portDescription, CapePortDirection portDirection, CapePortType portType);
 	// keeps first free location in ports
 	std::vector<CComPtr<IUnitPort>>::iterator currentPort;
-
-
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(PortCollection), CPortCollection)

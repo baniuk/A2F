@@ -1,10 +1,10 @@
 /**
- * \file Test_FluentInterface.cpp
- * \brief Main file that starts all tests
- * \details Tests Fluent Interface static class
- * \author PB
- * \date 2014/06/22
- */
+* \file Test_FluentInterface.cpp
+* \brief Main file that starts all tests
+* \details Tests Fluent Interface static class
+* \author PB
+* \date 2014/06/22
+*/
 
 #include "stdafx.h"
 
@@ -13,42 +13,42 @@
 /// Log file name and initialization of Pantheios API
 PANTHEIOS_EXTERN_C const PAN_CHAR_T PANTHEIOS_FE_PROCESS_IDENTITY[] = PSTR("Test_FluentInterface");
 #ifndef PANTHEIOS_LOG_FILE_NAME
-	#define PANTHEIOS_LOG_FILE_NAME	"c:\\Test_FluentInterface.pantlog"
+#define PANTHEIOS_LOG_FILE_NAME	"c:\\Test_FluentInterface.pantlog"
 #else
-	#error PANTHEIOS_LOG_FILE_NAME already defined!!
+#error PANTHEIOS_LOG_FILE_NAME already defined!!
 #endif
 
 /**
- * \brief Struktura okreœlaj¹ca minimalny poziom b³edu który trafia do danego logu
- *
- * DEBUG jest poziomem najni¿szym, co znaczy ¿e do pliku trafi wszystko. Ta struktura dzia³a
- * jedynie gdy linkuje siê do biblioteki be.N. Kolejnoœæ b³êdów:
- * -# DEBUG
- * -# INFORMATIONAL
- * -# NOTICE
- * -# WARNING
- * -# ERROR
- * -# CRITICAL
- * -# ALERT
- * -# EMERGENCY
- * \n
- * Do konsoli trafi wszystko powy¿ej DEBUG
- */
+* \brief Struktura okreœlaj¹ca minimalny poziom b³edu który trafia do danego logu
+*
+* DEBUG jest poziomem najni¿szym, co znaczy ¿e do pliku trafi wszystko. Ta struktura dzia³a
+* jedynie gdy linkuje siê do biblioteki be.N. Kolejnoœæ b³êdów:
+* -# DEBUG
+* -# INFORMATIONAL
+* -# NOTICE
+* -# WARNING
+* -# ERROR
+* -# CRITICAL
+* -# ALERT
+* -# EMERGENCY
+* \n
+* Do konsoli trafi wszystko powy¿ej DEBUG
+*/
 pan_fe_N_t PAN_FE_N_SEVERITY_CEILINGS[]  = {
-    { toFile,  PANTHEIOS_SEV_DEBUG    },
+	{ toFile,  PANTHEIOS_SEV_DEBUG    },
 	{ toConsole,  PANTHEIOS_SEV_ERROR },
-    PANTHEIOS_FE_N_TERMINATOR_ENTRY(PANTHEIOS_SEV_CRITICAL)
+	PANTHEIOS_FE_N_TERMINATOR_ENTRY(PANTHEIOS_SEV_CRITICAL)
 };
 
 /**
- * \brief Struktura ³¹cz¹ca poziom b³edu z konkretnym wyjœciem
- *
- * LOGI::File i LOGI::Console ³¹cz¹ siê z pozycjami w PAN_FE_N_SEVERITY_CEILINGS
- */
+* \brief Struktura ³¹cz¹ca poziom b³edu z konkretnym wyjœciem
+*
+* LOGI::File i LOGI::Console ³¹cz¹ siê z pozycjami w PAN_FE_N_SEVERITY_CEILINGS
+*/
 pan_be_N_t PAN_BE_N_BACKEND_LIST[] = {
-    PANTHEIOS_BE_N_STDFORM_ENTRY(toFile, pantheios_be_file, 0),
+	PANTHEIOS_BE_N_STDFORM_ENTRY(toFile, pantheios_be_file, 0),
 	PANTHEIOS_BE_N_STDFORM_ENTRY(toConsole, pantheios_be_fprintf, 0),
-    PANTHEIOS_BE_N_TERMINATOR_ENTRY
+	PANTHEIOS_BE_N_TERMINATOR_ENTRY
 };
 
 using namespace std;
@@ -76,11 +76,11 @@ int _tmain(int argc, _TCHAR* argv[])
 }
 
 /**
- * \test FluentInterface,_wrongFile
- * \brief Try to open nonexistent file.
- * \post Expect exception std::ios_base::failure
- * \author PB
- * \date 2014/06/22
+* \test FluentInterface,_wrongFile
+* \brief Try to open nonexistent file.
+* \post Expect exception std::ios_base::failure
+* \author PB
+* \date 2014/06/22
 */
 TEST(FluentInterface,_wrongFile)
 {
@@ -88,11 +88,11 @@ TEST(FluentInterface,_wrongFile)
 }
 
 /**
- * \test FluentInterface,_goodFile
- * \brief Try to open existent file.
- * \post Expect no exception 
- * \author PB
- * \date 2014/06/22
+* \test FluentInterface,_goodFile
+* \brief Try to open existent file.
+* \post Expect no exception
+* \author PB
+* \date 2014/06/22
 */
 TEST(FluentInterface,_goodFile)
 {
@@ -110,12 +110,12 @@ class _FluentInterface : public ::testing::Test
 };
 
 /**
- * \test _FluentInterface,_getSurfaceOffset
- * \brief Finds offset of line in prof file where surface starts
- * \pre file must exist
- * \post offset 26547 - number of bytes from beginig of file with LFCR on every line
- * \author PB
- * \date 2014/06/22
+* \test _FluentInterface,_getSurfaceOffset
+* \brief Finds offset of line in prof file where surface starts
+* \pre file must exist
+* \post offset 26547 - number of bytes from beginig of file with LFCR on every line
+* \author PB
+* \date 2014/06/22
 */
 TEST_F(_FluentInterface,_getSurfaceOffset)
 {
@@ -130,17 +130,17 @@ TEST_F(_FluentInterface,_getSurfaceOffset)
 		cerr << ex.what() << endl;
 		exception_thrown = true;
 	}
-	EXPECT_FALSE(exception_thrown);	
+	EXPECT_FALSE(exception_thrown);
 }
 
 /**
- * \test _FluentInterface,_getSurfaceOffset1
- * \brief Finds offset of line in prof file where surface starts
- * \details Check situation when only substring matches. This test should fail
- * \pre file must exist
- * \post Should fail
- * \author PB
- * \date 2014/06/22
+* \test _FluentInterface,_getSurfaceOffset1
+* \brief Finds offset of line in prof file where surface starts
+* \details Check situation when only substring matches. This test should fail
+* \pre file must exist
+* \post Should fail
+* \author PB
+* \date 2014/06/22
 */
 TEST_F(_FluentInterface,_getSurfaceOffset1)
 {
@@ -159,12 +159,12 @@ TEST_F(_FluentInterface,_getSurfaceOffset1)
 }
 
 /**
- * \test _FluentInterface,_getSurfaceOffsetWrong
- * \brief Try to find nonexistent surface
- * \pre file must exist
- * \post throw exception std::logic_error
- * \author PB
- * \date 2014/06/22
+* \test _FluentInterface,_getSurfaceOffsetWrong
+* \brief Try to find nonexistent surface
+* \pre file must exist
+* \post throw exception std::logic_error
+* \author PB
+* \date 2014/06/22
 */
 TEST_F(_FluentInterface,_getSurfaceOffsetWrong)
 {
@@ -179,16 +179,16 @@ TEST_F(_FluentInterface,_getSurfaceOffsetWrong)
 		cerr << ex.what() << endl;
 		exception_thrown = true;
 	}
-	EXPECT_TRUE(exception_thrown);	
+	EXPECT_TRUE(exception_thrown);
 }
 
 /**
- * \test _FluentInterface,_getSurfaceOffset
- * \brief Finds offset of line in prof file where function starts
- * \pre file must exist
- * \post offset 39226 - number of bytes from beginig of file with LFCR on every line
- * \author PB
- * \date 2014/06/22
+* \test _FluentInterface,_getSurfaceOffset
+* \brief Finds offset of line in prof file where function starts
+* \pre file must exist
+* \post offset 39226 - number of bytes from beginig of file with LFCR on every line
+* \author PB
+* \date 2014/06/22
 */
 TEST_F(_FluentInterface,_getFunctionOffset)
 {
@@ -203,17 +203,17 @@ TEST_F(_FluentInterface,_getFunctionOffset)
 		cerr << ex.what() << endl;
 		exception_thrown = true;
 	}
-	EXPECT_FALSE(exception_thrown);	
+	EXPECT_FALSE(exception_thrown);
 }
 
 /**
- * \test _FluentInterface,_getSurfaceOffsetWrong
- * \brief Try to find nonexistent function
- * \pre file must exist
- * \post throw exception std::logic_error or can throw std::ios_base
- * \author PB
- * \date 
- */
+* \test _FluentInterface,_getSurfaceOffsetWrong
+* \brief Try to find nonexistent function
+* \pre file must exist
+* \post throw exception std::logic_error or can throw std::ios_base
+* \author PB
+* \date
+*/
 TEST_F(_FluentInterface,_getFunctionOffsetWrong)
 {
 	bool exception_thrown = false;
@@ -227,16 +227,16 @@ TEST_F(_FluentInterface,_getFunctionOffsetWrong)
 		cerr << ex.what() << endl;
 		exception_thrown = true;
 	}
-	EXPECT_TRUE(exception_thrown);	
+	EXPECT_TRUE(exception_thrown);
 }
 
 /**
- * \test _FluentInterface,_getMean
- * \brief Finds returns mean of \e cathode-outlet -> \e velocity-magnitude
- * \pre file must exist
- * \post offset 39226 - number of bytes from beginig of file with LFCR on every line
- * \author PB
- * \date 2014/06/22
+* \test _FluentInterface,_getMean
+* \brief Finds returns mean of \e cathode-outlet -> \e velocity-magnitude
+* \pre file must exist
+* \post offset 39226 - number of bytes from beginig of file with LFCR on every line
+* \author PB
+* \date 2014/06/22
 */
 TEST_F(_FluentInterface,_getMean)
 {
@@ -251,5 +251,5 @@ TEST_F(_FluentInterface,_getMean)
 		cerr << ex.what() << endl;
 		exception_thrown = true;
 	}
-	EXPECT_FALSE(exception_thrown);	
+	EXPECT_FALSE(exception_thrown);
 }

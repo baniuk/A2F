@@ -3,22 +3,21 @@
 #include "stdafx.h"
 #include "CapeMaterialObject.h"
 
-
 // CCapeMaterialObject
 
 /**
 * \brief Implemented for test purposes
-* \details Used in test _MaterialTest:_GetMaterialProps 
+* \details Used in test _MaterialTest:_GetMaterialProps
 * Assumes three components in material:
 * \li T = 20, P = 1000, F = 1, TF = 10
 * \li T = 30,
 * \li T = 40,
 * \param[in] property: \a Temperature,\a Pressure,\a Fraction,\a TotalFlow
 * \param[in] phase: \a overall
-* \param[in] compIds: obtained from ICapeThermoMaterialObject::get_ComponentIds	
+* \param[in] compIds: obtained from ICapeThermoMaterialObject::get_ComponentIds
 * \param[in] calcType: \a Liquid, \a Mixture, \a Vapor, \a ""
 * \param[in] basis: \a mole, \a ""
-* \param[out] results: parameter defined by myproperty	
+* \param[out] results: parameter defined by myproperty
 * \remarks Teperatures must differ by 10, pressures must differ by 100
 * \see Test_Material_Class.cpp numofComp
 */
@@ -33,13 +32,13 @@ STDMETHODIMP CCapeMaterialObject::GetProp( BSTR property, BSTR phase, VARIANT co
 	CComSafeArray<double> T(1); T[0] = 20;
 	CComSafeArray<double> P(1); P[0] = 200;
 	CComSafeArray<double> F(numofComp); F[0] = 1; F[1] = 2; F[2] = 3;
-	
+
 	// output for temperature
- 	if(_property == L"temperature")
- 	{
+	if(_property == L"temperature")
+	{
 		CComVariant _results(T);
 		_results.Detach(results);
- 	}
+	}
 	// output for pressure
 	if(_property == L"pressure")
 	{
@@ -56,7 +55,7 @@ STDMETHODIMP CCapeMaterialObject::GetProp( BSTR property, BSTR phase, VARIANT co
 }
 /**
 * \brief Implemented for test purposes
-* \details Used in test _MaterialTest:_COM_method_call 
+* \details Used in test _MaterialTest:_COM_method_call
 * \see Test_Material_Class.cpp
 */
 STDMETHODIMP CCapeMaterialObject::GetNumComponents( long * numComp )
@@ -99,4 +98,3 @@ STDMETHODIMP CCapeMaterialObject::get_ComponentIds( VARIANT * compIds )
 	_compIds.Detach(compIds);
 	return S_OK;
 }
-

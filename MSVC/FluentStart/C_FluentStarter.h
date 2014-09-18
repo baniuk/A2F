@@ -1,8 +1,8 @@
 /**
- * \file C_FluentStarter.h
- * \brief C_FluentStarterClass headers
- * \author PB
- * \date 2014/02/05
+* \file C_FluentStarter.h
+* \brief C_FluentStarterClass headers
+* \author PB
+* \date 2014/02/05
 */
 #ifndef C_FluentStarter_h__
 #define C_FluentStarter_h__
@@ -14,21 +14,22 @@
 #include <atlctl.h>
 #include <iostream>
 #include <fstream>
+#include <string.h>
 
 /**
- * \class C_FluentStarter.h
- * \brief Run fluent process and control it.
- * \details Contains various method for starting fluent process.
- * \author PB
- * \date 2014/02/05
+* \class C_FluentStarter
+* \brief Run fluent process and control it.
+* \details Contains various method for starting fluent process.
+* \author PB
+* \date 2014/02/05
 */
 class C_FluentStarter
 {
 public:
 	/// Starts fluent
-	static HRESULT StartFluent(void);
+	static HRESULT StartFluent(const std::string& configDir);
 	/// Creates starter file for Fluent
-	static void CreateJournal(void);
+	static void CreateJournal(const std::string& configDir);
 private:
 	/// Private constructor. It is not possible to create instance of this class
 	C_FluentStarter(void) {};
@@ -41,4 +42,3 @@ private:
 	static HRESULT PrintProcessNameAndID(DWORD processID, const TCHAR* nazwa);
 };
 #endif // C_FluentStarter_h__
-
