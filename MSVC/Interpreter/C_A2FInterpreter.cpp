@@ -133,7 +133,7 @@ void C_A2FInterpreter::A2FGetSurfaceParams( std::vector<std::string>& SurfName, 
 * \exception std::runtime_error in case of other error
 * \note Suitable only for EXPORT scope because of predefined variables inside. If structure of cfg changed, this function must change too.
 */
-void C_A2FInterpreter::A2FGetExportsParams( std::vector<std::string>& surface, std::vector<std::string>& variable, std::vector<std::string>& compName )
+void C_A2FInterpreter::A2FGetExportsParams( std::vector<std::string>& surface, std::vector<std::string>& variable )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	const char** list;	// list of EXPORTS names (uid)
@@ -159,7 +159,6 @@ void C_A2FInterpreter::A2FGetExportsParams( std::vector<std::string>& surface, s
 			lookup4List(listNamewithScope.c_str(), paramList, unused);
 			surface.push_back(paramList[static_cast<UINT>(ExportParams::ExpSurface)]); // add first param from list to output
 			variable.push_back(paramList[static_cast<UINT>(ExportParams::ExpVariable)]);
-			compName.push_back(paramList[static_cast<UINT>(ExportParams::ExpComponent)]);
 		}
 	}
 	catch(config4cpp::ConfigurationException& ex) // convert to std::exception

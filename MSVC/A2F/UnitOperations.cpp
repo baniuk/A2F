@@ -848,14 +848,13 @@ void CUnitOperations::CreateScm( void )
 		starter.open(scm_file.c_str(),std::ios::out| std::ios::trunc); // can throw exception here
 
 		// define place to keep EXPORT params: surf_name, fluent_function)name, component name
-		std::vector<string> surface;
-		std::vector<string> variable;
-		std::vector<string> compName;
+		std::vector<string> surface;	// name of the surface for parameters to export from (Fluent)
+		std::vector<string> variable;	// name of exported variable (Fluent)
 		// temprary variables for properties
 		double T, X, F;
 		std::vector<std::string> compList;	// list of components in material
 		// read EXPORT params
-		cfg->A2FGetExportsParams(surface, variable, compName);
+		cfg->A2FGetExportsParams(surface, variable);
 
 		// creating scm file
 		starter << ";; File generated automatically" << endl;
@@ -952,7 +951,7 @@ void CUnitOperations::CreateScm( void )
 		starter << ";; setting outputs" << endl;
 
 		for( std::size_t i = 0; i < surface.size(); i++)
-			starter << "(ti-menu-load-string \"file/write-profile " << cfg->lookup4String("DATA_PATH") << "_name_" << surface[i] << ".prof" << variable[i] << "," << compName[i] << "\")" << endl;
+			starter << "(ti-menu-load-string \"file/write-profile " << cfg->lookup4String("DATA_PATH") << "_name_" << surface[i] << ".prof" << surface[i] << "," << variable[i] << "\")" << endl;
 
 		starter << ";; --------------------------------------------------------------" << endl;
 		starter << "(ti-menu-load-string \"/\")" << endl;
