@@ -5,7 +5,7 @@
 */
 const char* schema[] = {
 	"@typedef _ASSIGNS						=	tuple[string,component, string,PMC_stream_name, string,surface]",				
-	"@typedef _EXPORTS						=	tuple[string,surface, string,variable, string,Component]",	
+	"@typedef _EXPORTS						=	tuple[string,surface, string,variable]",	
 	"@typedef _SURFACES						=	tuple[string,surface, float,area]",
 	"@required DATA_PATH					=	string",																
 	"@required FLUENT_PATH					=	string",

@@ -413,7 +413,8 @@ STDMETHODIMP CUnitOperations::Validate( BSTR * message, VARIANT_BOOL * isValid )
 		}
 		if(NULL==rawlpDisp)
 		{
-			PANTHEIOS_TRACE_WARNING(PSTR("Object conected to port is not present: "),
+			PANTHEIOS_TRACE_WARNING(PSTR("Object conected to port: "),
+				pantheios::integer(p), PSTR("is not present: "),
 				pantheios::pointer(rawlpDisp,pantheios::fmt::fullHex));
 			exValidationStatus = CAPE_INVALID;
 			*isValid = VARIANT_FALSE;	// is not ok
@@ -951,7 +952,7 @@ void CUnitOperations::CreateScm( void )
 		starter << ";; setting outputs" << endl;
 
 		for( std::size_t i = 0; i < surface.size(); i++)
-			starter << "(ti-menu-load-string \"file/write-profile " << cfg->lookup4String("DATA_PATH") << "_name_" << surface[i] << ".prof" << surface[i] << "," << variable[i] << "\")" << endl;
+			starter << "(ti-menu-load-string \"file/write-profile " << cfg->lookup4String("DATA_PATH") << "_name_" << surface[i] << ".prof " << surface[i] << "," << variable[i] << "\")" << endl;
 
 		starter << ";; --------------------------------------------------------------" << endl;
 		starter << "(ti-menu-load-string \"/\")" << endl;

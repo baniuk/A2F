@@ -570,21 +570,17 @@ TEST(A2FInterpreter,_GetExportsParams_equal)
 	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
 	vector<string> surface;
 	vector<string> variable;
-	vector<string> compName;
 
-	EXPECT_NO_THROW(cfg->A2FGetExportsParams(surface, variable, compName));
+	EXPECT_NO_THROW(cfg->A2FGetExportsParams(surface, variable));
 	// check num of lists
 	EXPECT_EQ(surface.size(),2);
 	EXPECT_EQ(variable.size(),2);
-	EXPECT_EQ(compName.size(),2);
 	// check all params in lists
 	EXPECT_STREQ("h3n-velocity-magnitude",surface[0].c_str());
 	EXPECT_STREQ("totalflow",variable[0].c_str());
-	EXPECT_STREQ("h3n",compName[0].c_str());
 
 	EXPECT_STREQ("h3po4-velocity-magnitude",surface[1].c_str());
 	EXPECT_STREQ("totalflow",variable[1].c_str());
-	EXPECT_STREQ("h3po4",compName[1].c_str());
 	delete cfg;
 }
 
