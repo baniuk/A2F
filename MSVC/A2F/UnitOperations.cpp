@@ -125,7 +125,8 @@ void CUnitOperations::FinalRelease()
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Release IParameterCollection (parameterCollection) pointer: "),
 		pantheios::pointer(parameterCollection,pantheios::fmt::fullHex));
 
-	simulationContext.Release(); // returns currnet object reference count, we AddRef makes assignment on put_simlationcontext
+	if(simulationContext!=NULL)
+		simulationContext.Release(); // returns currnet object reference count, we AddRef makes assignment on put_simlationcontext
 	portCollection.Release(); // release pointer - make sure that all instances will be closed
 	parameterCollection.Release();
 }
