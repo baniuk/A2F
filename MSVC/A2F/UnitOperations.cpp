@@ -125,7 +125,8 @@ void CUnitOperations::FinalRelease()
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Release IParameterCollection (parameterCollection) pointer: "),
 		pantheios::pointer(parameterCollection,pantheios::fmt::fullHex));
 
-	simulationContext.Release(); // returns currnet object reference count, we AddRef makes assignment on put_simlationcontext
+	if(simulationContext!=NULL)
+		simulationContext.Release(); // returns currnet object reference count, we AddRef makes assignment on put_simlationcontext
 	portCollection.Release(); // release pointer - make sure that all instances will be closed
 	parameterCollection.Release();
 }
@@ -879,9 +880,9 @@ void CUnitOperations::CreateScm( void )
 		err_code = Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]->getTotalMassFlow(F);	// get total mass flow
 		if(FAILED(err_code))
 			throw std::runtime_error("CUnitOperations::CreateScm found error in Material::getTotalMassFlow call");
-		err_code = Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]->getProp("HYDROGEN", PropertyName::Fraction, X); // fraction of H2
+		err_code = Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]->getMassFlow("HYDROGEN", X);
 		if(FAILED(err_code))
-			throw std::runtime_error("CUnitOperations::CreateScm found error in Material::getProp call");
+			throw std::runtime_error("CUnitOperations::CreateScm found error in Material::getMassFlow call");
 		// setting correct surface in FLuent
 		starter << "(ti-menu-load-string \""			// opening quota "
 			"define/boundary-conditions/ " <<			// command
@@ -903,22 +904,22 @@ void CUnitOperations::CreateScm( void )
 			" no " <<
 			0 <<										// mass fraction of o2 (16)
 			" no " <<
-			X <<										// mass fraction of h2 (18)
+			X/F <<										// mass fraction of h2 (18)
 			" yes"
 			" no"
 			" 0"
 			"\")" << endl;
 		// ---------------------------------- 1 ------------------------------------------------------
-		// prepare for setting Fluent input REFOR - collecting required params from REFOR stream from ASPEN
+		// prepare for setting Fluent input 1 - collecting required params from 1 stream from ASPEN
 		err_code = Materials[static_cast< std::size_t >(StreamNumber::inputPort_P1)]->getProp(compList[0], PropertyName::Temperature, T); // temperature of first component (all shoud be the same)
 		if(FAILED(err_code))
 			throw std::runtime_error("CUnitOperations::CreateScm found error in Material::getProp call");
 		err_code = Materials[static_cast< std::size_t >(StreamNumber::inputPort_P1)]->getTotalMassFlow(F);	// get total mass flow
 		if(FAILED(err_code))
 			throw std::runtime_error("CUnitOperations::CreateScm found error in Material::getTotalMassFlow call");
-		err_code = Materials[static_cast< std::size_t >(StreamNumber::inputPort_P1)]->getProp("O2", PropertyName::Fraction, X); // fraction of H2
+		err_code = Materials[static_cast< std::size_t >(StreamNumber::inputPort_P1)]->getMassFlow("O2", X);
 		if(FAILED(err_code))
-			throw std::runtime_error("CUnitOperations::CreateScm found error in Material::getProp call");
+			throw std::runtime_error("CUnitOperations::CreateScm found error in Material::getMassFlow call");
 		// setting correct surface in FLuent
 		starter << "(ti-menu-load-string \""			// opening quota "
 			"define/boundary-conditions/ " <<			// command
@@ -938,7 +939,7 @@ void CUnitOperations::CreateScm( void )
 			" no " <<
 			0 <<										// mass fraction of h20 (14)
 			" no " <<
-			X <<										// mass fraction of o2 (16)
+			X/F <<										// mass fraction of o2 (16)
 			" no " <<
 			0 <<										// mass fraction of h2 (18)
 			" yes"
