@@ -726,10 +726,10 @@ std::string Material::ws2s(const std::wstring& wstr)
 }
 
 /**
-* \brief Gets mass flow of selected component [g/s]
+* \brief Gets mass flow of selected component [kg/s]
 * \details Calculates mass flow of given component of stream \c compName using its molar flow provided by Aspen and its molar weight [g/s]
 * \param[in] compName Aspen name of the component of stream
-* \param[out] flow Mass flow of component in [g/s]
+* \param[out] flow Mass flow of component in [kg/s]
 * \return error code \c S_OK, \c E_FAIL
 * \retval \c HRESULT
 * \author PB
@@ -746,34 +746,34 @@ HRESULT Material::getMassFlow( std::string compName, double& flow)
 		PANTHEIOS_TRACE_ERROR(PSTR("getMassFlow: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 		return hr;
 	}
-	hr = Material::getConstant(this->mat, L"molecularWeight", CComBSTR(compName.c_str()), &C);	// molar weight of component
+	hr = Material::getConstant(this->mat, L"molecularWeight", CComBSTR(compName.c_str()), &C);	// molar weight of component [g/mol]
 	if(FAILED(hr))
 	{
 		PANTHEIOS_TRACE_ERROR(PSTR("getMassFlow: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 		return hr;
 	}
-	flow = flux * C;
+	flow = flux * C/1000;	// converting to [kg/s	// ]
 	PANTHEIOS_TRACE_DEBUG(PSTR("Mass flow of "), compName, PSTR(" is "), pantheios::real(flow));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
 
 /**
-* \brief Gets total mass flow of all components [g/s]
+* \brief Gets total mass flow of all components [kg/s]
 * \details Calculates mass flow of all components of stream \c compName using its molar flow provided by Aspen and its molar weight [g/s]
-* \param[out] totalFlux Mass flow of component in [g/s]
+* \param[out] totalFlow Mass flow of component in [kg/s]
 * \return error code \c S_OK, \c E_FAIL
 * \retval \c HRESULT
 * \author PB
 * \date 2014/09/10
 */
-HRESULT Material::getTotalMassFlow( double& totalFlux )
+HRESULT Material::getTotalMassFlow( double& totalFlow )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	HRESULT hr;
 	std::vector<std::string> components;
 	double tmp;
-	totalFlux = 0;
+	totalFlow = 0;
 	hr = getCompList(components);	// get list of all components in string format
 	if(FAILED(hr))
 	{
@@ -787,9 +787,9 @@ HRESULT Material::getTotalMassFlow( double& totalFlux )
 			PANTHEIOS_TRACE_ERROR(PSTR("getTotalMassFlow: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 			return hr;
 		}
-		totalFlux+=tmp;
+		totalFlow+=tmp;
 	}
-	PANTHEIOS_TRACE_DEBUG(PSTR("Total mass flow is "), pantheios::real(totalFlux));
+	PANTHEIOS_TRACE_DEBUG(PSTR("Total mass flow is "), pantheios::real(totalFlow));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
