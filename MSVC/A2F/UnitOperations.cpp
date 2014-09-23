@@ -193,6 +193,13 @@ STDMETHODIMP CUnitOperations::Calculate()
 	Materials.resize(PORTS_NUMBER);
 	try
 	{
+		// Preleminary settings
+		std::unique_ptr<C_A2FInterpreter> cfg(new C_A2FInterpreter()); // smart pointer in case of exception
+		cfg->A2FOpenAndValidate((installDir+script_name).c_str()); // search for script
+		std::string workingDir(cfg->A2Flookup4String("DATA_PATH")); // gets path for working dir from script
+		// read EXPORT params
+		cfg->A2FGetExportsParams(surface, variable);		
+
 		// ******************* Call ICapeCollection ******************************************************************************************************
 		err_code = portCollection->QueryInterface(IID_PPV_ARGS(&ptmpICapePortCollection));
 		PANTHEIOS_TRACE_DEBUG(	PSTR("ICapeCollection addres "),
@@ -238,12 +245,15 @@ STDMETHODIMP CUnitOperations::Calculate()
 		* \endcode
 		*/
 		// testing purposes only
-		double C;
-		err_code = Materials[static_cast<std::size_t>(StreamNumber::inputPort_REFOR)]->getMolarWeight(C);
+//		double C;
+//		err_code = Materials[static_cast<std::size_t>(StreamNumber::inputPort_REFOR)]->getMolarWeight(C);
 		// ---- end tests ---------------------------------------
 
-		// other staff here, createScm and start Fluent and read results
 		CreateScm();	// can throw exception on error which should be handled here
+//		C_FluentStarter::StartFluent(installDir + script_name);
+
+//		Reading components from first prof file
+		std::unique_ptr<C_FluentInterface> pFluentInterface(new C_FluentInterface((workingDir + std::string("_name_") + surface[0] + std::string(".prof")).c_str()));
 
 		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]);	// copy physical propertios from input
 		if(FAILED(err_code))
