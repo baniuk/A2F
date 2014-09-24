@@ -248,7 +248,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 		//		err_code = Materials[static_cast<std::size_t>(StreamNumber::inputPort_REFOR)]->getMolarWeight(C);
 		// ---- end tests ---------------------------------------
 
-		CreateScm();	// can throw exception on error which should be handled here
+		//		CreateScm();	// can throw exception on error which should be handled here
 		//		C_FluentStarter::StartFluent(installDir + script_name);
 
 		//		Reading components from first prof file
