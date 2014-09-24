@@ -249,7 +249,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 		// ---- end tests ---------------------------------------
 
 		//		CreateScm();	// can throw exception on error which should be handled here
-		//		C_FluentStarter::StartFluent(installDir + script_name);
+		C_FluentStarter::StartFluent(installDir + script_name);
 
 		//		Reading components from first prof file
 		//		std::unique_ptr<C_FluentInterface> pFluentInterface(new C_FluentInterface((workingDir + std::string("_name_") + surface[0] + std::string(".prof")).c_str()));
