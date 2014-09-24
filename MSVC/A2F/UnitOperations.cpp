@@ -851,7 +851,7 @@ void CUnitOperations::CreateScm( void )
 		cfg->A2FOpenAndValidate( cfg_file.c_str() );	// validate config script in install dir
 
 		std::string workingDir(cfg->A2Flookup4String("DATA_PATH")); // gets path for working dir from script
-		std::string scm_file = workingDir + _T("starter.scm");		// define name of scm and path in working dir
+		std::string scm_file = workingDir + _T("_starter.scm");		// define name of scm and path in working dir
 		// initialize scm file
 		PANTHEIOS_TRACE_DEBUG(PSTR("Creating scm: "), scm_file);
 		starter.exceptions(starter.failbit|starter.badbit|starter.eofbit);	// will throw exceptions on all errors
