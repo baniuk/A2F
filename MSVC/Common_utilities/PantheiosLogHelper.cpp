@@ -56,6 +56,7 @@ void PantheiosHelper::dumpVariant( const VARIANT* data, const TCHAR* desc)
 void PantheiosHelper::dumpCComSafeArray( const ATL::CComSafeArray<double>& data, const TCHAR* desc )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_DEBUG(PSTR("CComSafeArray name: "), desc);
 	LONG index;									// tables indexing
 	for(index = data.GetLowerBound(); index <= data.GetUpperBound(); ++index)
 		PANTHEIOS_TRACE_DEBUG(	PSTR("	CComSafeArray data["),pantheios::integer(index),PSTR("]: "), pantheios::real(data[index]));
@@ -70,6 +71,7 @@ void PantheiosHelper::dumpCComSafeArray( const ATL::CComSafeArray<double>& data,
 void PantheiosHelper::dumpCComSafeArray( const ATL::CComSafeArray<BSTR>& data, const TCHAR* desc )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_DEBUG(PSTR("CComSafeArray name: "), desc);
 	LONG index;
 	for(index = data.GetLowerBound(); index <= data.GetUpperBound(); ++index)
 		PANTHEIOS_TRACE_DEBUG(	PSTR("	VARIANT data["),pantheios::integer(index),PSTR("]: "), PW2M(data[index]));
