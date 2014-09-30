@@ -244,15 +244,12 @@ STDMETHODIMP CUnitOperations::Calculate()
 		* Material::Create(CComBSTR(L"P1"), ptmpICapePortCollection, Materials[static_cast< std::size_t >(StreamNumber::inputPort_P1)]); // must be created
 		* Material.inFlashMaterialObject(); // must be flashed
 		* Material.getMolarWeight(C);
+		* double C;
+		* err_code = Materials[static_cast<std::size_t>(StreamNumber::inputPort_REFOR)]->getMolarWeight(C);
 		* \endcode
 		*/
-		// testing purposes only
-		//		double C;
-		//		err_code = Materials[static_cast<std::size_t>(StreamNumber::inputPort_REFOR)]->getMolarWeight(C);
-		// ---- end tests ---------------------------------------
-
 		CreateScm();	// can throw exception on error which should be handled here
-		//		C_FluentStarter::StartFluent(installDir + script_name);
+		C_FluentStarter::StartFluent(installDir + script_name);
 
 		// ************* Reading form Anode ********************************************************************************************************
 		std::unique_ptr<C_FluentInterface> pFluentInterface(new C_FluentInterface((workingDir + "_name_" + "anode-outlet" + ".prof").c_str())); // mazwy na sztywno z powodu http://baniukpblin.linkpc.net:8080/trac/A2F/ticket/53
@@ -878,7 +875,7 @@ void CUnitOperations::CreateScm( void )
 		cfg->A2FOpenAndValidate( cfg_file.c_str() );	// validate config script in install dir
 
 		std::string workingDir(cfg->A2Flookup4String("DATA_PATH")); // gets path for working dir from script
-		std::string scm_file = workingDir + _T("starter.scm");		// define name of scm and path in working dir
+		std::string scm_file = workingDir + _T("_starter.scm");		// define name of scm and path in working dir
 		// initialize scm file
 		PANTHEIOS_TRACE_DEBUG(PSTR("Creating scm: "), scm_file);
 		starter.exceptions(starter.failbit|starter.badbit|starter.eofbit);	// will throw exceptions on all errors
