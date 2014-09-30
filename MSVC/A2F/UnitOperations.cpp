@@ -250,7 +250,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 		*/
 		CreateScm();	// can throw exception on error which should be handled here
 		C_FluentStarter::StartFluent(installDir + script_name);
-
+		/// \remarks Sum of flow rates for all species are the total flow rate.
 		// ************* Reading form Anode ********************************************************************************************************
 		std::unique_ptr<C_FluentInterface> pFluentInterface(new C_FluentInterface((workingDir + "_name_" + "anode-outlet" + ".prof").c_str())); // mazwy na sztywno z powodu http://baniukpblin.linkpc.net:8080/trac/A2F/ticket/53
 		/** \todo Export powinien zawierac eksportowalne parametry ale jako odzielne pozycje a nie odzielone spacjami.
@@ -889,7 +889,7 @@ void CUnitOperations::CreateScm( void )
 		std::vector<std::string> compList;	// list of components in material
 		// read EXPORT params
 		cfg->A2FGetExportsParams(surface, variable);
-
+		/// \remarks Sum of flow rates for all species are the total flow rate.
 		// creating scm file
 		starter << ";; File generated automatically" << endl;
 		starter << ";; Load main project file - full path must be provided" << endl;
