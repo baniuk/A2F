@@ -191,6 +191,17 @@ streampos C_FluentInterface::getFunctionOffset( const char* fluentFunc, streampo
 	return 0;	// should be never here because getline throws exception on eof (set in constructor);
 }
 
+/**
+* \brief Gets values from Fluent report files
+* \details Analysys and extracts selected value from Fluent report file. Report contains one value for many surfaces. This method search report file
+* for surface name and then read numerical value. Type of this value is not validated. Caller must know how to interpret it.
+* \param[in] fluentSurface - name of the fluent surface used to generate report
+* \return Numerical value
+* \retval \c double
+* \author PB
+* \date 2014/09/30
+* \warning By default Fluent writes reports in append mode. Make sure to delete old files.
+*/
 double C_FluentInterface::GetReport( const char* fluentSurface )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
