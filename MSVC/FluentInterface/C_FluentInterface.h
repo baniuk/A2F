@@ -30,12 +30,14 @@ class C_FluentInterface
 	FRIEND_TEST(_FluentInterface,_getFunctionOffsetWrong);
 	FRIEND_TEST(_FluentInterface,_getSurfaceOffsetWrong);
 	FRIEND_TEST(_FluentInterface,_getMean);
+	FRIEND_TEST(_FluentInterface,_getReport);
 public:
 	C_FluentInterface(const char* profileName );
 	~C_FluentInterface(void);
 	/// Gets mean value of fluentFunc of given fluentSurface
 	double GetMean(const char* fluentSurface, const char* fluentFunc);
-
+	/// Gets value from report files
+	double GetReport(const char* fluentSurface);
 private:
 	string profileFileName; // keep name of the file to open
 	std::ifstream profileFileHandle; // handle of file

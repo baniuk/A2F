@@ -194,6 +194,14 @@ STDMETHODIMP CUnitOperations::Calculate()
 	Materials.resize(PORTS_NUMBER);
 	try
 	{
+		// Preleminary settings
+		std::unique_ptr<C_A2FInterpreter> cfg(new C_A2FInterpreter()); // smart pointer in case of exception
+		cfg->A2FOpenAndValidate((installDir+script_name).c_str()); // search for script
+		std::string workingDir(cfg->A2Flookup4String("DATA_PATH")); // gets path for working dir from script
+		std::vector<string> surface;	// name of the surface for parameters to export from (Fluent)
+		std::vector<string> variable;	// name of exported variable (Fluent)
+		// read EXPORT params
+		cfg->A2FGetExportsParams(surface, variable);
 		// ******************* Call ICapeCollection ******************************************************************************************************
 		err_code = portCollection->QueryInterface(IID_PPV_ARGS(&ptmpICapePortCollection));
 		PANTHEIOS_TRACE_DEBUG(	PSTR("ICapeCollection addres "),
@@ -239,13 +247,40 @@ STDMETHODIMP CUnitOperations::Calculate()
 		* \endcode
 		*/
 		// testing purposes only
-		double C;
-		err_code = Materials[static_cast<std::size_t>(StreamNumber::inputPort_REFOR)]->getMolarWeight(C);
+		//		double C;
+		//		err_code = Materials[static_cast<std::size_t>(StreamNumber::inputPort_REFOR)]->getMolarWeight(C);
 		// ---- end tests ---------------------------------------
 
-		// other staff here, createScm and start Fluent and read results
 		CreateScm();	// can throw exception on error which should be handled here
+		//		C_FluentStarter::StartFluent(installDir + script_name);
 
+		// ************* Reading form Anode ********************************************************************************************************
+		std::unique_ptr<C_FluentInterface> pFluentInterface(new C_FluentInterface((workingDir + "_name_" + "anode-outlet" + ".prof").c_str())); // mazwy na sztywno z powodu http://baniukpblin.linkpc.net:8080/trac/A2F/ticket/53
+		/** \todo Export powinien zawierac eksportowalne parametry ale jako odzielne pozycje a nie odzielone spacjami.
+		* Naleza³o by u¿yæ informacji w ASSIGNS ale ni ema po³¹czenia pomiêdzy nazwami parametrów w Fluencie (z EXPORTS) a nazwami w Aspenie
+		* (np H2o i WATER)
+		* 	ASSIGNS {
+		* uid-ASSIGN = ["WATER", "ANOD-OFF", "anode-outlet"];
+		* uid-ASSIGN = ["O2", "ANOD-OFF", "anode-outlet"];
+		* uid-ASSIGN = ["HYDROGEN", "ANOD-OFF", "anode-outlet"];
+		* uid-ASSIGN = ["HYDROGEN", "ANOD-OFF", "anode-outlet"];
+		* uid-ASSIGN = ["WATER", "EXHAUST", "cathode-outlet"];
+		* uid-ASSIGN = ["O2", "EXHAUST", "cathode-outlet"];
+		* uid-ASSIGN = ["HYDROGEN", "EXHAUST", "cathode-outlet"];
+		* uid-ASSIGN = ["HYDROGEN", "EXHAUST", "cathode-outlet"];
+		* }
+		* }
+		*/
+		double T = pFluentInterface->GetMean("anode-outlet","total-temperature");		// prevent multiple evaluation GetMean
+		double P = pFluentInterface->GetMean("anode-outlet","total-pressure");		// prevent multiple evaluation GetMean
+		double T = pFluentInterface->GetMean("anode-outlet","velocity-magnitude");		// prevent multiple evaluation GetMean ???
+		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_ANODOFF)]->setProp("WATER",
+			PropertyName::Temperature,
+			T);
+		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_ANODOFF)]->setProp("WATER",
+			PropertyName::Pressure,
+			P);
+		/// \todo use get report to get flow and fractions
 		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]);	// copy physical propertios from input
 		if(FAILED(err_code))
 			throw std::runtime_error("Error returned from copyFrom input to output");

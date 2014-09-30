@@ -253,3 +253,97 @@ TEST_F(_FluentInterface,_getMean)
 	}
 	EXPECT_FALSE(exception_thrown);
 }
+
+TEST_F(_FluentInterface,_getReport)
+{
+	bool exception_thrown = false;
+	try
+	{
+		C_FluentInterface test("test.rep");
+		EXPECT_EQ(1.3742136e-08, test.GetReport("anode-inlet"));
+		EXPECT_EQ(-1.2734746e-07,test.GetReport("cathode-outlet"));
+	}
+	catch( const exception& ex)
+	{
+		cerr << ex.what() << endl;
+		exception_thrown = true;
+	}
+	EXPECT_FALSE(exception_thrown);
+}
+
+TEST_F(_FluentInterface,_getReportnoSurf)
+{
+	bool exception_thrown = false;
+	try
+	{
+		C_FluentInterface test("test.rep");
+		EXPECT_EQ(1.3742136e-08, test.GetReport("anod-inlet"));
+	}
+	catch( const exception& ex)
+	{
+		cerr << ex.what() << endl;
+		exception_thrown = true;
+	}
+	EXPECT_TRUE(exception_thrown);
+}
+
+/**
+* \test _FluentInterface,_getMean Real tests
+* \brief Test of real Fluent output according to Ticket#49
+* \details Performs test on real data obtained during tests of CUnitOperations::CreateScm(void) method
+* \pre Files must exist:
+* \li _name_anode-outlet.prof
+* \li _name_cathode-outlet.prof
+* Those files are avaiable in attachment: http://baniukpblin.linkpc.net:8080/trac/A2F/wiki/TEST%20Import%20to%20Aspen
+* \post Results avaiable in file anode-cathode-outlets.xlsx (see attachments)
+* \author PB
+* \date 2014/09/24
+* \see http://baniukpblin.linkpc.net:8080/trac/A2F/wiki/TEST%20Import%20to%20Aspen
+* \see http://baniukpblin.linkpc.net:8080/trac/A2F/wiki/TEST%20Create%20SCM
+*/
+TEST_F(_FluentInterface,_getMean_real_test)
+{
+	bool exception_thrown = false;
+	try
+	{
+		C_FluentInterface anode("_name_anode-outlet.prof");
+		double h2o = anode.GetMean("anode-outlet", "h2o");
+		cout << "h20 " << h2o << endl;
+		EXPECT_NEAR(0.709853181,h2o,0.000000000999999999);
+
+		double o2 = anode.GetMean("anode-outlet", "o2");
+		cout << "o2 " << o2 << endl;
+		EXPECT_NEAR(0.0,o2,0.000000000999999999);
+
+		double h2 = anode.GetMean("anode-outlet", "h2");
+		cout << "h2 " << h2 << endl;
+		EXPECT_NEAR(0.284831876,h2,0.000000000999999999);
+
+		double n2 = anode.GetMean("anode-outlet", "n2");
+		cout << "n2 " << n2 << endl;
+		EXPECT_NEAR(0.005314944,n2,0.000000000999999999);
+
+		C_FluentInterface cathode("_name_cathode-outlet.prof");
+		h2o = cathode.GetMean("cathode-outlet", "h2o");
+		cout << "h20 " << h2o << endl;
+		EXPECT_NEAR(0,h2o,0.000000000999999999);
+
+		o2 = cathode.GetMean("cathode-outlet", "o2");
+		cout << "o2 " << o2 << endl;
+		EXPECT_NEAR(0.226223048,o2,0.000000000999999999);
+
+		h2 = cathode.GetMean("cathode-outlet", "h2");
+		cout << "h2 " << h2 << endl;
+		EXPECT_NEAR(0,h2,0.000000000999999999);
+
+		n2 = cathode.GetMean("cathode-outlet", "n2");
+		cout << "n2 " << n2 << endl;
+		EXPECT_NEAR(0.773776948,n2,0.000000000999999999);
+	}
+	catch( const exception& ex)
+	{
+		cerr << ex.what() << endl;
+		exception_thrown = true;
+	}
+	EXPECT_FALSE(exception_thrown);
+}

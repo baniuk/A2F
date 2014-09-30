@@ -190,3 +190,34 @@ streampos C_FluentInterface::getFunctionOffset( const char* fluentFunc, streampo
 	PANTHEIOS_TRACE_EMERGENCY(PSTR("should be never here because getline throws exception on eof (set in constructor)"));
 	return 0;	// should be never here because getline throws exception on eof (set in constructor);
 }
+
+double C_FluentInterface::GetReport( const char* fluentSurface )
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	double data;
+	string line = "";
+	try
+	{
+		while(getline(profileFileHandle, line), line.find(fluentSurface)==string::npos);	// move to separator line,
+		// spacja przed liczb¹
+		string::size_type lastSpace = line.find_last_of(" ");
+		if (string::npos == lastSpace || line.length()-1 == lastSpace)
+		{
+			PANTHEIOS_TRACE_ERROR(PSTR("Somethig wrong with report file"));
+			throw std::logic_error("Wrong report file");
+		}
+		// cutting the string
+		string number = line.substr(lastSpace);
+		PANTHEIOS_TRACE_DEBUG(PSTR("String po cieciu "),number);
+		stringstream str(number);
+		str >> data;
+	}
+	catch(std::ios_base::failure& ex)
+	{
+		PANTHEIOS_TRACE_CRITICAL(PSTR("C_FluentInterface::GetReport caught exception: "),ex.what());
+		throw std::logic_error("Function not found");
+	}
+	profileFileHandle.seekg(ios_base::beg);		// set beginig of file in case of next search
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	return data;
+}
