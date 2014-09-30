@@ -200,8 +200,9 @@ STDMETHODIMP CUnitOperations::Calculate()
 		std::string workingDir(cfg->A2Flookup4String("DATA_PATH")); // gets path for working dir from script
 		std::vector<string> surface;	// name of the surface for parameters to export from (Fluent)
 		std::vector<string> variable;	// name of exported variable (Fluent)
+		std::vector<string> reportType;	// type of the report
 		// read EXPORT params
-		cfg->A2FGetExportsParams(surface, variable);
+		cfg->A2FGetExportsParams(reportType, surface, variable);
 		// ******************* Call ICapeCollection ******************************************************************************************************
 		err_code = portCollection->QueryInterface(IID_PPV_ARGS(&ptmpICapePortCollection));
 		PANTHEIOS_TRACE_DEBUG(	PSTR("ICapeCollection addres "),
@@ -268,15 +269,16 @@ STDMETHODIMP CUnitOperations::Calculate()
 		* }
 		* }
 		*/
-		double T = pFluentInterface->GetMean("anode-outlet","total-temperature");		// prevent multiple evaluation GetMean
+		/*		double T = pFluentInterface->GetMean("anode-outlet","total-temperature");		// prevent multiple evaluation GetMean
 		double P = pFluentInterface->GetMean("anode-outlet","total-pressure");		// prevent multiple evaluation GetMean
 		double T = pFluentInterface->GetMean("anode-outlet","velocity-magnitude");		// prevent multiple evaluation GetMean ???
 		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_ANODOFF)]->setProp("WATER",
-			PropertyName::Temperature,
-			T);
+		PropertyName::Temperature,
+		T);
 		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_ANODOFF)]->setProp("WATER",
-			PropertyName::Pressure,
-			P);
+		PropertyName::Pressure,
+		P);
+		*/
 		/// \todo use get report to get flow and fractions
 		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]);	// copy physical propertios from input
 		if(FAILED(err_code))
@@ -884,11 +886,12 @@ void CUnitOperations::CreateScm( void )
 		// define place to keep EXPORT params: surf_name, fluent_function)name, component name
 		std::vector<string> surface;	// name of the surface for parameters to export from (Fluent)
 		std::vector<string> variable;	// name of exported variable (Fluent)
+		std::vector<string> reportType;	// type of the report
 		// temprary variables for properties
 		double T, X, F;
 		std::vector<std::string> compList;	// list of components in material
 		// read EXPORT params
-		cfg->A2FGetExportsParams(surface, variable);
+		cfg->A2FGetExportsParams(reportType, surface, variable);
 		/// \remarks Sum of flow rates for all species are the total flow rate.
 		// creating scm file
 		starter << ";; File generated automatically" << endl;
@@ -896,8 +899,8 @@ void CUnitOperations::CreateScm( void )
 		starter << ";; possible problem - file name must be without spaces and always with full patch, use / switch for directories" << endl;
 		starter << ";; delete previous" << endl;
 		// delete all output files (assiged to surfaces - we iterate along surfaces)
-		for (const auto &surf : surface )
-			starter << "(ti-menu-load-string \"!del " << cfg->lookup4String("DATA_PATH") << "_name_" << surf << ".prof \")" << endl;
+		for (const auto &var : variable )
+			starter << "(ti-menu-load-string \"!del " << cfg->lookup4String("DATA_PATH") << "_name_" << var << ".rep \")" << endl;
 		starter <<	";; load project" << endl;
 		starter << "(ti-menu-load-string \"file/read-case-data " << cfg->lookup4String("DATA_PATH") << cfg->lookup4String("CASE_NAME") << "\")" << endl;
 		starter << ";; Setting inputs" << endl;
@@ -985,7 +988,7 @@ void CUnitOperations::CreateScm( void )
 		starter << ";; setting outputs" << endl;
 
 		for( std::size_t i = 0; i < surface.size(); i++)
-			starter << "(ti-menu-load-string \"file/write-profile " << cfg->lookup4String("DATA_PATH") << "_name_" << surface[i] << ".prof " << surface[i] << "," << variable[i] << "\")" << endl;
+			starter << "(ti-menu-load-string \"report/surface-integrals " << reportType[i] << " " << surface[i] << "," << variable[i] << " yes " << cfg->lookup4String("DATA_PATH") << "_name_" << variable[i] << ".rep " << "\")" << endl;
 
 		starter << ";; --------------------------------------------------------------" << endl;
 		starter << "(ti-menu-load-string \"/\")" << endl;
