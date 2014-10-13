@@ -131,7 +131,7 @@ void CUnitOperations::FinalRelease()
 }
 
 /**
-* \details  Ports returns an ICapeCollection interface that provides access to the unit’s list of ports. Each element accessed through
+* \details  Ports returns an ICapeCollection interface that provides access to the unitâ€™s list of ports. Each element accessed through
 * the returned interface must support the ICapeUnitPort interface. It is called by PME just after initialization.
 * Query interface returns error code if requested interface is not supported. In case more general errors, exception _com_error is thrown.
 * \param[out]	ports	pointer to IPortCollection
@@ -256,7 +256,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 		// ************* Reading form Anode ********************************************************************************************************
 		std::unique_ptr<C_FluentInterface> pFluentInterface(new C_FluentInterface((workingDir + "_name_" + "anode-outlet" + ".prof").c_str())); // mazwy na sztywno z powodu http://baniukpblin.linkpc.net:8080/trac/A2F/ticket/53
 		/** \todo Export powinien zawierac eksportowalne parametry ale jako odzielne pozycje a nie odzielone spacjami.
-		* Naleza³o by u¿yæ informacji w ASSIGNS ale ni ema po³¹czenia pomiêdzy nazwami parametrów w Fluencie (z EXPORTS) a nazwami w Aspenie
+		* NalezaÂ³o by uÂ¿yÃ¦ informacji w ASSIGNS ale ni ema poÂ³Â¹czenia pomiÃªdzy nazwami parametrÃ³w w Fluencie (z EXPORTS) a nazwami w Aspenie
 		* (np H2o i WATER)
 		* 	ASSIGNS {
 		* uid-ASSIGN = ["WATER", "ANOD-OFF", "anode-outlet"];
@@ -270,6 +270,9 @@ STDMETHODIMP CUnitOperations::Calculate()
 		* }
 		* }
 		*/
+
+		// pamiÄ™taÄ‡ o jednostkach !!!
+		
 		double T = pFluentInterface->GetMean("anode-outlet","total-temperature");		// prevent multiple evaluation GetMean
 		double P = pFluentInterface->GetMean("anode-outlet","total-pressure");		// prevent multiple evaluation GetMean
 		double T = pFluentInterface->GetMean("anode-outlet","velocity-magnitude");		// prevent multiple evaluation GetMean ???
@@ -343,9 +346,9 @@ STDMETHODIMP CUnitOperations::Calculate()
 }
 
 /**
-* \details  Called by PME - returns status of PMC after checking PMC condition. Calling the Validate method is expected to set the unit’s
+* \details  Called by PME - returns status of PMC after checking PMC condition. Calling the Validate method is expected to set the unitâ€™s
 * status to either CAPE_VALID or CAPE_INVALID, depending on whether the validation tests succeed or fail. Making a change to the unit operation,
-* such as setting a parameter value, or connecting a stream to a port is expected to set the unit’s status to CAPE_NOT_VALIDATED.
+* such as setting a parameter value, or connecting a stream to a port is expected to set the unitâ€™s status to CAPE_NOT_VALIDATED.
 * This function performs the following operations:
 *	\li query ICapeCollection from IPortCollection represented by private var CUnitOperations::portCollection (addRef)
 *	\li calls CPortCollection::Count method from ICapeCollection
@@ -596,7 +599,7 @@ STDMETHODIMP CUnitOperations::put_ComponentDescription( BSTR desc )
 }
 
 /**
-* \details  Parameters returns an ICapeCollection interface that provides access to the unit’s list of parameters. Each element accessed
+* \details  Parameters returns an ICapeCollection interface that provides access to the unitâ€™s list of parameters. Each element accessed
 * through the returned interface must support the ICapeParameter interface.
 * Query interface returns error code if requested interface is not supported. In case more general errors, exception _com_error is thrown.
 * \param[out]	parameters	pointer to IParameterCollection
