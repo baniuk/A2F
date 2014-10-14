@@ -258,6 +258,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 		string reportName;
 		std::unique_ptr<C_FluentInterface> pFluentInterface;
 		double val;
+		StreamNumber outStreamNumber;
 		for(std::size_t i=0; i<AspenCompName.size(); i++)
 		{
 			// nazwy raportów zawierają w sobie nazwę komponentu z Fluenta
@@ -265,41 +266,30 @@ STDMETHODIMP CUnitOperations::Calculate()
 			pFluentInterface.reset(new C_FluentInterface( (workingDir+reportName).c_str() ));	// wczytanie reportu
 			val = pFluentInterface->GetReport(FluentSurfName[i].c_str()); // odczytanie z reportu danej powierzchni - w każdym reporcie są zawarte wszystkie powierzchnie
 			PANTHEIOS_TRACE_DEBUG(PSTR("Read report name: "), reportName, PSTR(" surface "), FluentSurfName[i], PSTR(" value: "), pantheios::real(val));
-			// w val jes tmass flow rate
+			// w val jest mass flow rate
+			// kopiowanie val do aspena
+			getStreamNumber(AspenStreamName[i], outStreamNumber);
+			err_code = Materials[static_cast<std::size_t>(outStreamNumber)]->setProp(AspenCompName[i], PropertyName::Flow, val);
+			if(FAILED(err_code))
+				throw std::runtime_error("Error returned from setProp");
 		}
 		pFluentInterface.reset(nullptr);	// cleans last report
 
-		// ************* Reading form Anode ********************************************************************************************************
-		std::unique_ptr<C_FluentInterface> pFluentInterface(new C_FluentInterface((workingDir + "_name_" + "anode-outlet" + ".prof").c_str())); // mazwy na sztywno z powodu http://baniukpblin.linkpc.net:8080/trac/A2F/ticket/53
+		// pamiętać o jednostkach !!! oraz o Fraction
 
+		//err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]);	// copy physical propertios from input
+		//if(FAILED(err_code))
+		//	throw std::runtime_error("Error returned from copyFrom input to output");
+		//err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_EXHAUST)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]);	// copy physical propertios from input
+		//if(FAILED(err_code))
+		//	throw std::runtime_error("Error returned from copyFrom input to output");
 
-		// pamiętać o jednostkach !!!
-
-		double T = pFluentInterface->GetMean("anode-outlet","total-temperature");		// prevent multiple evaluation GetMean
-
-		double P = pFluentInterface->GetMean("anode-outlet","total-pressure");		// prevent multiple evaluation GetMean
-		double T = pFluentInterface->GetMean("anode-outlet","velocity-magnitude");		// prevent multiple evaluation GetMean ???
-		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_ANODOFF)]->setProp("WATER",
-		PropertyName::Temperature,
-		T);
-		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_ANODOFF)]->setProp("WATER",
-		PropertyName::Pressure,
-		P);
-		*/
-		/// \todo use get report to get flow and fractions
-		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]);	// copy physical propertios from input
-		if(FAILED(err_code))
-			throw std::runtime_error("Error returned from copyFrom input to output");
-		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_EXHAUST)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]);	// copy physical propertios from input
-		if(FAILED(err_code))
-			throw std::runtime_error("Error returned from copyFrom input to output");
-
-		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->outFlashMaterialObject();	// fashing outputs
-		if(FAILED(err_code))
-			throw std::runtime_error("Error returned from outFlashMaterialObject");
-		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_EXHAUST)]->outFlashMaterialObject();	// fashing outputs
-		if(FAILED(err_code))
-			throw std::runtime_error("Error returned from outFlashMaterialObject");
+		//err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->outFlashMaterialObject();	// fashing outputs
+		//if(FAILED(err_code))
+		//	throw std::runtime_error("Error returned from outFlashMaterialObject");
+		//err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_EXHAUST)]->outFlashMaterialObject();	// fashing outputs
+		//if(FAILED(err_code))
+		//	throw std::runtime_error("Error returned from outFlashMaterialObject");
 
 		// flash the outlet material (all outlet ports must be flashed by a CAPE-OPEN unit operation)
 		VARIANT props;
