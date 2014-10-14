@@ -27,6 +27,7 @@ using namespace ATL;
 * \see UnitOperations::Calculate()
 * \see http://82.145.77.86:8080/trac/A2F/wiki/Schematy
 * \see http://82.145.77.86:8080/trac/A2F/wiki/A2F_Fit_1
+* \warning On change look at HRESULT getStreamNumber(const std::string& input, StreamNumber& outNumber );
 */
 enum class StreamNumber : std::size_t
 {
@@ -203,6 +204,8 @@ private:
 	std::vector<Material*> Materials;
 	/// path and name of config file
 	std::string installDir;
+	/// Maps stream name from cfg file to StreamNumber
+	HRESULT getStreamNumber(const std::string& input, StreamNumber& outNumber );
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(UnitOperations), CUnitOperations)

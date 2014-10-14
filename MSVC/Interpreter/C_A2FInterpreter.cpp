@@ -173,9 +173,10 @@ void C_A2FInterpreter::A2FGetExportsParams(std::vector<std::string>& reportType,
 /**
 * \brief Gets paramteres associated with ASSIGN field
 * \details Gets lists of ASSIGNS and extract three parameters
-* \param[out] compName - vector of names of Aspen Components
-* \param[out] PMC_stream_name - numbers of inputs of PMC
-* \param[out] surfName - names of the Fluent Surfaces
+* \param[out] AspenCompName - vector of names of Aspen Components
+* \param[out] AspenStreamName - numbers of inputs of PMC
+* \param[out] FluentCompmName - name of component in Fluent (equivalent of AspenCompName)
+* \param[out] FluentSurfName - names of the Fluent Surfaces
 * \return Properties of defined assigns.
 * \retval \c void
 * \author PB
@@ -186,7 +187,10 @@ void C_A2FInterpreter::A2FGetExportsParams(std::vector<std::string>& reportType,
 * \exception std::runtime_error in case of other error
 * \note Suitable only for EXPORT scope because of predefined variables inside. If structure of cfg changed, this function must change too.
 */
-void C_A2FInterpreter::A2FGetAssignsParams( std::vector<std::string>& compName, std::vector<std::string>& PMC_stream_name, std::vector<std::string>& surfName )
+void C_A2FInterpreter::A2FGetAssignsParams(std::vector<std::string>& AspenCompName,
+										   std::vector<std::string>& AspenStreamName,
+										   std::vector<std::string>& FluentCompName,
+										   std::vector<std::string>& FluentSurfName )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	const char** list;	// list of ASSIGN names (uid)
@@ -210,9 +214,10 @@ void C_A2FInterpreter::A2FGetAssignsParams( std::vector<std::string>& compName, 
 			listNamewithScope += list[i];
 			PANTHEIOS_TRACE_DEBUG(PSTR("Looking for list: "), listNamewithScope);
 			lookup4List(listNamewithScope.c_str(), paramList, unused);
-			compName.push_back(paramList[static_cast<UINT>(AssignParams::AssComponent)]); // add first param from list to output
-			PMC_stream_name.push_back(paramList[static_cast<UINT>(AssignParams::AssPMCInput)]);
-			surfName.push_back(paramList[static_cast<UINT>(AssignParams::AssSurfName)]);
+			AspenCompName.push_back(paramList[static_cast<UINT>(AssignParams::AssAspenCompName)]); // add first param from list to output
+			AspenStreamName.push_back(paramList[static_cast<UINT>(AssignParams::AssAspenStreamName)]);
+			FluentCompName.push_back(paramList[static_cast<UINT>(AssignParams::AssFluentCompName)]);
+			FluentSurfName.push_back(paramList[static_cast<UINT>(AssignParams::AssFluentSurfName)]);
 		}
 	}
 	catch(config4cpp::ConfigurationException& ex) // convert to std::exception

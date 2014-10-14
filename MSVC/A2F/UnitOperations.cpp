@@ -198,11 +198,13 @@ STDMETHODIMP CUnitOperations::Calculate()
 		std::unique_ptr<C_A2FInterpreter> cfg(new C_A2FInterpreter()); // smart pointer in case of exception
 		cfg->A2FOpenAndValidate((installDir+script_name).c_str()); // search for script
 		std::string workingDir(cfg->A2Flookup4String("DATA_PATH")); // gets path for working dir from script
-		std::vector<string> surface;	// name of the surface for parameters to export from (Fluent)
-		std::vector<string> variable;	// name of exported variable (Fluent)
-		std::vector<string> reportType;	// type of the report
+		std::vector<string> AspenCompName;
+		std::vector<string> AspenStreamName;
+		std::vector<string> FluentCompName;
+		std::vector<string> FluentSurfName;
+
 		// read EXPORT params
-		cfg->A2FGetExportsParams(reportType, surface, variable);
+		cfg->A2FGetAssignsParams(AspenCompName, AspenStreamName, FluentCompName, FluentSurfName);
 		// ******************* Call ICapeCollection ******************************************************************************************************
 		err_code = portCollection->QueryInterface(IID_PPV_ARGS(&ptmpICapePortCollection));
 		PANTHEIOS_TRACE_DEBUG(	PSTR("ICapeCollection addres "),
@@ -251,28 +253,28 @@ STDMETHODIMP CUnitOperations::Calculate()
 		*/
 		CreateScm();	// can throw exception on error which should be handled here
 		C_FluentStarter::StartFluent(installDir + script_name);
-		/// \remarks Sum of flow rates for all species are the total flow rate.
+
+		// po wszystkich ASSIGNS
+		string reportName;
+		std::unique_ptr<C_FluentInterface> pFluentInterface;
+		double val;
+		for(std::size_t i=0; i<AspenCompName.size(); i++)
+		{
+			// nazwy raportów zawierają w sobie nazwę komponentu z Fluenta
+			reportName = "_name_" + FluentCompName[i] + ".var";
+			pFluentInterface.reset(new C_FluentInterface( (workingDir+reportName).c_str() ));	// wczytanie reportu
+			val = pFluentInterface->GetReport(FluentSurfName[i].c_str()); // odczytanie z reportu danej powierzchni - w każdym reporcie są zawarte wszystkie powierzchnie
+			PANTHEIOS_TRACE_DEBUG(PSTR("Read report name: "), reportName, PSTR(" surface "), FluentSurfName[i], PSTR(" value: "), pantheios::real(val));
+			// w val jes tmass flow rate
+		}
+		pFluentInterface.reset(nullptr);	// cleans last report
+
 		// ************* Reading form Anode ********************************************************************************************************
 		std::unique_ptr<C_FluentInterface> pFluentInterface(new C_FluentInterface((workingDir + "_name_" + "anode-outlet" + ".prof").c_str())); // mazwy na sztywno z powodu http://baniukpblin.linkpc.net:8080/trac/A2F/ticket/53
-		/** \todo Export powinien zawierac eksportowalne parametry ale jako odzielne pozycje a nie odzielone spacjami.
-		* Naleza³o by u¿yæ informacji w ASSIGNS ale ni ema po³¹czenia pomiêdzy nazwami parametrów w Fluencie (z EXPORTS) a nazwami w Aspenie
-		* (np H2o i WATER)
-		* 	ASSIGNS {
-		* uid-ASSIGN = ["WATER", "ANOD-OFF", "anode-outlet"];
-		* uid-ASSIGN = ["O2", "ANOD-OFF", "anode-outlet"];
-		* uid-ASSIGN = ["HYDROGEN", "ANOD-OFF", "anode-outlet"];
-		* uid-ASSIGN = ["HYDROGEN", "ANOD-OFF", "anode-outlet"];
-		* uid-ASSIGN = ["WATER", "EXHAUST", "cathode-outlet"];
-		* uid-ASSIGN = ["O2", "EXHAUST", "cathode-outlet"];
-		* uid-ASSIGN = ["HYDROGEN", "EXHAUST", "cathode-outlet"];
-		* uid-ASSIGN = ["HYDROGEN", "EXHAUST", "cathode-outlet"];
-		* }
-		* }
-		*/
 
 
 		// pamiętać o jednostkach !!!
-		
+
 		double T = pFluentInterface->GetMean("anode-outlet","total-temperature");		// prevent multiple evaluation GetMean
 
 		double P = pFluentInterface->GetMean("anode-outlet","total-pressure");		// prevent multiple evaluation GetMean
@@ -1019,4 +1021,28 @@ void CUnitOperations::CreateScm( void )
 
 	starter.close();
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+}
+
+/**
+* \brief Maps stream name from cfg file to StreamNumber
+* \param[in] input - parameter read from ASSIGN
+* \param[out] outNumber - mapped StreamNumber
+* \return Error code, S_OK or E_FAIL
+* \retval \c HRESULT
+* \author PB
+* \date 2014/10/14
+*/
+HRESULT CUnitOperations::getStreamNumber(const std::string& input, StreamNumber& outNumber )
+{
+	if(input == string("ANOD-OFF") || input == string("anod-off"))
+	{
+		outNumber = StreamNumber::outputPort_ANODOFF;
+		return S_OK;
+	}
+	if(input == string("EXHAUST") || input == string("exhaust"))
+	{
+		outNumber = StreamNumber::outputPort_EXHAUST;
+		return S_OK;
+	}
+	return E_FAIL;
 }
