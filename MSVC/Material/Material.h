@@ -80,8 +80,10 @@ public:
 	static std::string ws2s(const std::wstring& wstr);
 	/// Gets total mass flux of all active components
 	HRESULT getTotalMassFlow(double& totalFlux);
-	/// Gets mass flux of selected component
+	/// Gets mass flux for Fluent of selected component (recalculates units)
 	HRESULT getMassFlow(std::string compName, double& flow);
+	/// Set mass flux for material (recalculates units)
+	HRESULT setMassFlow( std::string compName, double flow)
 	~Material(void);
 private:
 	/// Extract basic information on stream structure

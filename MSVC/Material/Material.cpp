@@ -726,8 +726,8 @@ std::string Material::ws2s(const std::wstring& wstr)
 }
 
 /**
-* \brief Gets mass flow of selected component [kg/s]
-* \details Calculates mass flow of given component of stream \c compName using its molar flow provided by Aspen and its molar weight [g/s]
+* \brief Gets mass flow of selected component [g/s]
+* \details Calculates mass flow for Fluent of given component of stream \c compName using its molar flow provided by Aspen and its molar weight [g/s]
 * \param[in] compName Aspen name of the component of stream
 * \param[out] flow Mass flow of component in [kg/s]
 * \return error code \c S_OK, \c E_FAIL
@@ -752,14 +752,33 @@ HRESULT Material::getMassFlow( std::string compName, double& flow)
 		PANTHEIOS_TRACE_ERROR(PSTR("getMassFlow: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 		return hr;
 	}
-	flow = flux * C/1000;	// converting to [kg/s	// ]
+	flow = flux * C;	// converting to [kg/s	// ]
 	PANTHEIOS_TRACE_DEBUG(PSTR("Mass flow of "), compName, PSTR(" is "), pantheios::real(flow));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
 
 /**
-* \brief Gets total mass flow of all components [kg/s]
+* \brief Sets mass flow of selected component [g/s]
+* \details Sets mass flow of given component of stream \c compName using its molar flow provided by Aspen and its molar weight [g/s]
+* \param[in] compName Aspen name of the component of stream
+* \param[in] flow Mass flow of component in [g/s]
+* \return error code \c S_OK, \c E_FAIL
+* \retval \c HRESULT
+* \author PB
+* \date 2014/09/10
+*/
+HRESULT Material::setMassFlow( std::string compName, double flow)
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	
+	PANTHEIOS_TRACE_DEBUG(PSTR("Mass flow of "), compName, PSTR(" is "), pantheios::real(flow));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	return S_OK;
+}
+
+/**
+* \brief Gets total mass flow of all components [g/s]
 * \details Calculates mass flow of all components of stream \c compName using its molar flow provided by Aspen and its molar weight [g/s]
 * \param[out] totalFlow Mass flow of component in [kg/s]
 * \return error code \c S_OK, \c E_FAIL
