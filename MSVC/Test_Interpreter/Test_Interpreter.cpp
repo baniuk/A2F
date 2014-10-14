@@ -601,22 +601,26 @@ TEST(A2FInterpreter,_GetAssignsParams_equal)
 	application_scope = "FLUENT";
 	C_A2FInterpreter* cfg = new C_A2FInterpreter();
 	EXPECT_NO_THROW(cfg->OpenAndValidate("A2F.cfg"));
-	vector<string> compName;
-	vector<string> noInput;
-	vector<string> surfName;
+	vector<string> AspenCompName;
+	vector<string> AspenStreamName;
+	vector<string> FluentCompName;
+	vector<string> FluentSurfName;
 
-	EXPECT_NO_THROW(cfg->A2FGetAssignsParams(compName, noInput, surfName));
+	EXPECT_NO_THROW(cfg->A2FGetAssignsParams(AspenCompName, AspenStreamName, FluentCompName,FluentSurfName));
 	// check num of lists
-	EXPECT_EQ(compName.size(),2);
-	EXPECT_EQ(noInput.size(),2);
-	EXPECT_EQ(surfName.size(),2);
+	EXPECT_EQ(AspenCompName.size(),2);
+	EXPECT_EQ(AspenStreamName.size(),2);
+	EXPECT_EQ(FluentCompName.size(),2);
+	EXPECT_EQ(FluentSurfName.size(),2);
 	// check all params in lists
-	EXPECT_STREQ("H3N",compName[0].c_str());
-	EXPECT_STREQ("REFOR",noInput[0].c_str());
-	EXPECT_STREQ("wlotnh3",surfName[0].c_str());
+	EXPECT_STREQ("H3N",AspenCompName[0].c_str());
+	EXPECT_STREQ("REFOR",AspenStreamName[0].c_str());
+	EXPECT_STREQ("wlotnh3",FluentSurfName[0].c_str());
+	EXPECT_STREQ("h3n",FluentCompName[0].c_str());
 
-	EXPECT_STREQ("H3PO4",compName[1].c_str());
-	EXPECT_STREQ("P1",noInput[1].c_str());
-	EXPECT_STREQ("wloth3po4",surfName[1].c_str());
+	EXPECT_STREQ("H3PO4",AspenCompName[1].c_str());
+	EXPECT_STREQ("P1",AspenStreamName[1].c_str());
+	EXPECT_STREQ("wloth3po4",FluentSurfName[1].c_str());
+	EXPECT_STREQ("h3po4",FluentCompName[1].c_str());
 	delete cfg;
 }
