@@ -45,6 +45,7 @@ C_FluentInterface::C_FluentInterface(const char* profileName )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	profileFileName = profileName;
+	PANTHEIOS_TRACE_DEBUG(PSTR("File name to read: "), profileFileName);
 	profileFileHandle.open(profileName,std::ifstream::in);
 	profileFileHandle.exceptions(profileFileHandle.failbit|profileFileHandle.badbit|profileFileHandle.eofbit); // will throw exceptions of these errors
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
@@ -205,6 +206,7 @@ streampos C_FluentInterface::getFunctionOffset( const char* fluentFunc, streampo
 double C_FluentInterface::GetReport( const char* fluentSurface )
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_DEBUG(PSTR("Reading report for: "), profileFileName, PSTR(" "), fluentSurface);
 	double data;
 	string line = "";
 	try

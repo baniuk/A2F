@@ -717,17 +717,17 @@ HRESULT Material::getCompList( std::vector<std::string>& compList )
 */
 std::string Material::ws2s(const std::wstring& wstr)
 {
-	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	//	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	typedef std::codecvt_utf8<wchar_t> convert_typeX;
 	std::wstring_convert<convert_typeX, wchar_t> converterX;
 
-	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	//	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return converterX.to_bytes(wstr);
 }
 
 /**
-* \brief Gets mass flow of selected component [g/s]
-* \details Calculates mass flow for Fluent of given component of stream \c compName using its molar flow provided by Aspen and its molar weight [g/s]
+* \brief Gets mass flow of selected component [kg/s] and converts from aspen units
+* \details Calculates mass flow for Fluent of given component of stream \c compName using its molar flow provided by Aspen and its molar weight [g/mol]
 * \param[in] compName Aspen name of the component of stream
 * \param[out] flow Mass flow of component in [kg/s]
 * \return error code \c S_OK, \c E_FAIL
@@ -752,17 +752,17 @@ HRESULT Material::getMassFlow( std::string compName, double& flow)
 		PANTHEIOS_TRACE_ERROR(PSTR("getMassFlow: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 		return hr;
 	}
-	flow = flux * C;	// converting to [kg/s	// ]
+	flow = flux * C/1000;	// converting to [kg/s	// ]
 	PANTHEIOS_TRACE_DEBUG(PSTR("Mass flow of "), compName, PSTR(" is "), pantheios::real(flow));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
 
 /**
-* \brief Sets mass flow of selected component [g/s]
-* \details Sets mass flow of given component of stream \c compName using its molar flow provided by Aspen and its molar weight [g/s]
+* \brief Sets mass flow to selected component [mol/s] and convererts from fluent units
+* \details Sets mass flow of given component of stream \c compName using its molar flow provided by Aspen and its molar weight [g/mol]
 * \param[in] compName Aspen name of the component of stream
-* \param[in] flow Mass flow of component in [g/s]
+* \param[in] flow Mass flow of component in [kg/s]
 * \return error code \c S_OK, \c E_FAIL
 * \retval \c HRESULT
 * \author PB
@@ -771,15 +771,29 @@ HRESULT Material::getMassFlow( std::string compName, double& flow)
 HRESULT Material::setMassFlow( std::string compName, double flow)
 {
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
-	
+	double C;
+	HRESULT hr;
+	hr = Material::getConstant(this->mat, L"molecularWeight", CComBSTR(compName.c_str()), &C);	// molar weight of component [g/mol]
+	if(FAILED(hr))
+	{
+		PANTHEIOS_TRACE_ERROR(PSTR("setMassFlow: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+		return hr;
+	}
+	flow = (flow *1000)/C;	// kg/s -> mol/s
+	hr = setProp(compName, PropertyName::Flow, flow);
+	if(FAILED(hr))
+	{
+		PANTHEIOS_TRACE_ERROR(PSTR("setMassFlow: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+		return hr;
+	}
 	PANTHEIOS_TRACE_DEBUG(PSTR("Mass flow of "), compName, PSTR(" is "), pantheios::real(flow));
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
 
 /**
-* \brief Gets total mass flow of all components [g/s]
-* \details Calculates mass flow of all components of stream \c compName using its molar flow provided by Aspen and its molar weight [g/s]
+* \brief Gets total mass flow of all components [kg/s]
+* \details Calculates mass flow of all components of stream \c compName using its molar flow provided by Aspen and its molar weight [g/mol]
 * \param[out] totalFlow Mass flow of component in [kg/s]
 * \return error code \c S_OK, \c E_FAIL
 * \retval \c HRESULT
@@ -809,6 +823,126 @@ HRESULT Material::getTotalMassFlow( double& totalFlow )
 		totalFlow+=tmp;
 	}
 	PANTHEIOS_TRACE_DEBUG(PSTR("Total mass flow is "), pantheios::real(totalFlow));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	return S_OK;
+}
+
+/**
+* \brief Calculates fractions of material's compoents basing on flows of components
+* \details Property \c fraction is a ratio of every component in total flow
+* \return error code \c S_OK, \c E_FAIL
+* \retval \c HRESULT
+* \author PB
+* \date 2014/10/15
+* \remarks Must be calles when flows of allcomponents are set
+*/
+HRESULT Material::setFractions()
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	HRESULT hr;
+	double totalFlow, tmp;
+	std::vector<std::string> components;
+	hr = getCompList(components);
+	if(FAILED(hr))
+	{
+		PANTHEIOS_TRACE_ERROR(PSTR("setFractions: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+		return hr;
+	}
+	hr = getTotalMassFlow(totalFlow);
+	if(FAILED(hr))
+	{
+		PANTHEIOS_TRACE_ERROR(PSTR("setFractions: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+		return hr;
+	}
+	// po wszystkich komponentach
+	for(const auto &c : components)
+	{
+		if(FAILED(hr = getMassFlow(c, tmp)))
+		{
+			PANTHEIOS_TRACE_ERROR(PSTR("getTotalMassFlow: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+			return hr;
+		}
+		if(FAILED(hr = setProp(c, PropertyName::Fraction, tmp/totalFlow))) // ustawianie fraction dla komponentu
+		{
+			PANTHEIOS_TRACE_ERROR(PSTR("getTotalMassFlow: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+			return hr;
+		}
+	}
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	return S_OK;
+}
+
+/**
+* \brief Cleans material properties
+* \details Sets fraction, flow, pressure and temperature to 0 for all components
+* \return error code \c S_OK, \c E_FAIL
+* \retval \c HRESULT
+* \author PB
+* \date 2014/10/15
+*/
+HRESULT Material::Clean()
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	std::vector<std::string> components;
+	HRESULT hr;
+	hr = getCompList(components);
+	for(const auto &c : components)
+	{
+		if(FAILED(hr = setProp(c, PropertyName::Fraction, 0.0))) // ustawianie fraction dla komponentu
+		{
+			PANTHEIOS_TRACE_ERROR(PSTR("Clean: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+			return hr;
+		}
+		if(FAILED(hr = setProp(c, PropertyName::Flow, 0.0))) // ustawianie fraction dla komponentu
+		{
+			PANTHEIOS_TRACE_ERROR(PSTR("Clean: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+			return hr;
+		}
+		if(FAILED(hr = setProp(c, PropertyName::Temperature, 0.0))) // ustawianie fraction dla komponentu
+		{
+			PANTHEIOS_TRACE_ERROR(PSTR("Clean: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+			return hr;
+		}
+		if(FAILED(hr = setProp(c, PropertyName::Pressure, 0.0))) // ustawianie fraction dla komponentu
+		{
+			PANTHEIOS_TRACE_ERROR(PSTR("Clean: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+			return hr;
+		}
+	}
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+	return S_OK;
+}
+
+/**
+* \brief Sets pressure and temeperature for all components in material
+* \details Assumes that all components have the same pressure and tepertature (even those with 0 flow). Fluent reports return pressure in pascals
+*  It must be converted to bar
+* \param[in] P - pressure to set [pascal]
+* \param[in] T - temperature to set [K]
+* \return error code \c S_OK, \c E_FAIL
+* \retval \c HRESULT
+* \author PB
+* \date 2014/10/15
+*/
+HRESULT Material::setPT( double P, double T )
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	std::vector<std::string> components;
+	HRESULT hr;
+	hr = getCompList(components);
+	for(const auto &c : components)
+	{
+		if(FAILED(hr = setProp(c, PropertyName::Temperature, T))) // ustawianie temperatury komponentu
+		{
+			PANTHEIOS_TRACE_ERROR(PSTR("Clean: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+			return hr;
+		}
+		if(FAILED(hr = setProp(c, PropertyName::Pressure, P * 1e-5))) // ustawianie ciœnienia  dla komponentu (przeliczenie pascal->bar
+		{
+			PANTHEIOS_TRACE_ERROR(PSTR("Clean: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
+			return hr;
+		}
+	}
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }

@@ -192,6 +192,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 	HRESULT err_code;
 	CComPtr<ICapeCollection> ptmpICapePortCollection;	// local portcollection interface (addref)
 	Materials.resize(PORTS_NUMBER);
+	double T, P;
 	try
 	{
 		// Preleminary settings
@@ -202,6 +203,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 		std::vector<string> AspenStreamName;
 		std::vector<string> FluentCompName;
 		std::vector<string> FluentSurfName;
+		std::vector<string> reforCompList;
 
 		// read EXPORT params
 		cfg->A2FGetAssignsParams(AspenCompName, AspenStreamName, FluentCompName, FluentSurfName);
@@ -251,10 +253,26 @@ STDMETHODIMP CUnitOperations::Calculate()
 		* err_code = Materials[static_cast<std::size_t>(StreamNumber::inputPort_REFOR)]->getMolarWeight(C);
 		* \endcode
 		*/
+		// kopiowanie z wejscia na wyjcie materiałów - zeby komponenty były
+		/// \todo można tworzyć własne związki w materiałach ale musza miec nazwy z aspena a fluent może zwracać inne. Jakoś trzeba to pogodzić. Związek w aspenie jest opisany tylko nazwą która chyba musi być rozpoznawana (see copyFrom)
+		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]);	// copy physical propertios from input
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from copyFrom input to output");
+		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_EXHAUST)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_P1)]);	// copy physical propertios from input
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from copyFrom input to output");
+
 		CreateScm();	// can throw exception on error which should be handled here
 		C_FluentStarter::StartFluent(installDir + script_name);
 
-		// po wszystkich ASSIGNS
+		// czyszczenie materiałów wyjściowych
+		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_ANODOFF)]->Clean();
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from clean");
+		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_EXHAUST)]->Clean();
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from clean");
+		// po wszystkich ASSIGNS - ustawianie Flow
 		string reportName;
 		std::unique_ptr<C_FluentInterface> pFluentInterface;
 		double val;
@@ -262,20 +280,41 @@ STDMETHODIMP CUnitOperations::Calculate()
 		for(std::size_t i=0; i<AspenCompName.size(); i++)
 		{
 			// nazwy raportów zawierają w sobie nazwę komponentu z Fluenta
-			reportName = "_name_" + FluentCompName[i] + ".var";
+			reportName = "_name_" + FluentCompName[i] + ".rep";
 			pFluentInterface.reset(new C_FluentInterface( (workingDir+reportName).c_str() ));	// wczytanie reportu
-			val = pFluentInterface->GetReport(FluentSurfName[i].c_str()); // odczytanie z reportu danej powierzchni - w każdym reporcie są zawarte wszystkie powierzchnie
+			val = pFluentInterface->GetReport(FluentSurfName[i].c_str()); // odczytanie z reportu danej powierzchni - w każdym reporcie są zawarte wszystkie powierzchnie, przpływy w kg/s
 			PANTHEIOS_TRACE_DEBUG(PSTR("Read report name: "), reportName, PSTR(" surface "), FluentSurfName[i], PSTR(" value: "), pantheios::real(val));
 			// w val jest mass flow rate
 			// kopiowanie val do aspena
 			getStreamNumber(AspenStreamName[i], outStreamNumber);
-			err_code = Materials[static_cast<std::size_t>(outStreamNumber)]->setProp(AspenCompName[i], PropertyName::Flow, val);
+			err_code = Materials[static_cast<std::size_t>(outStreamNumber)]->setMassFlow(AspenCompName[i], val);
 			if(FAILED(err_code))
 				throw std::runtime_error("Error returned from setProp");
 		}
 		pFluentInterface.reset(nullptr);	// cleans last report
-
-		// pamiętać o jednostkach !!! oraz o Fraction
+		// ustawianie fractions dla portów wyjściowych (z ASSIGNS)
+		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_ANODOFF)]->setFractions();
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from setFraction");
+		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_EXHAUST)]->setFractions();
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from setFraction");
+		// ustawienie temperatury
+		/// \todo Zrobić konfigurację w cfg (dotyczy także CreateSCM, czyli wejścia
+		// temperature i cisnienie bierzemy z refor z dowolnego komponentu (dla wszystkich takei same)
+		err_code = Materials[static_cast<size_t>(StreamNumber::inputPort_REFOR)]->getCompList(reforCompList);
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from getCompList");
+		err_code = Materials[static_cast<size_t>(StreamNumber::inputPort_REFOR)]->getProp(reforCompList[0], PropertyName::Temperature, T);
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from getProp");
+		err_code = Materials[static_cast<size_t>(StreamNumber::inputPort_REFOR)]->getProp(reforCompList[0], PropertyName::Pressure, P);
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from getProp");
+		// ustawiamy na wyjścia
+		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_ANODOFF)]->setPT(P, T);
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from setPT");
 
 		//err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]);	// copy physical propertios from input
 		//if(FAILED(err_code))
@@ -284,12 +323,12 @@ STDMETHODIMP CUnitOperations::Calculate()
 		//if(FAILED(err_code))
 		//	throw std::runtime_error("Error returned from copyFrom input to output");
 
-		//err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->outFlashMaterialObject();	// fashing outputs
-		//if(FAILED(err_code))
-		//	throw std::runtime_error("Error returned from outFlashMaterialObject");
-		//err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_EXHAUST)]->outFlashMaterialObject();	// fashing outputs
-		//if(FAILED(err_code))
-		//	throw std::runtime_error("Error returned from outFlashMaterialObject");
+		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->outFlashMaterialObject();	// fashing outputs
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from outFlashMaterialObject");
+		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_EXHAUST)]->outFlashMaterialObject();	// fashing outputs
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from outFlashMaterialObject");
 
 		// flash the outlet material (all outlet ports must be flashed by a CAPE-OPEN unit operation)
 		VARIANT props;
@@ -311,7 +350,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 	}
 	catch(std::ios_base::failure& ex)	// on file opening error in createScm. No transfering exceptions
 	{
-		PANTHEIOS_TRACE_ERROR(PSTR("Cant open scm file, check if DATA_PATH is correct in cfg file "), PSTR("Error returned: "), ex.what());
+		PANTHEIOS_TRACE_ERROR(PSTR("Cant open scm file or report, check if DATA_PATH is correct in cfg file "), PSTR("Error returned: "), ex.what());
 		std::string str(ex.what());	// convert char* to wchar required by SetError
 		std::wstring wstr = C_A2FInterpreter::s2ws(str);
 		SetError(wstr.c_str(), L"IUnitOperation", L"Calculate", err_code);
@@ -980,7 +1019,7 @@ void CUnitOperations::CreateScm( void )
 			"\")" << endl;
 
 		starter << ";; --------------------------------------------------------------" << endl;
-		starter << "(ti-menu-load-string \"solve/iterate " << cfg->lookup4Int("NUMOFITER") << "\")" << endl;
+		starter << ";; (ti-menu-load-string \"solve/iterate " << cfg->lookup4Int("NUMOFITER") << "\")" << endl;
 		starter << ";; --------------------------------------------------------------" << endl;
 		starter << ";; setting outputs" << endl;
 
@@ -1024,15 +1063,19 @@ void CUnitOperations::CreateScm( void )
 */
 HRESULT CUnitOperations::getStreamNumber(const std::string& input, StreamNumber& outNumber )
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	if(input == string("ANOD-OFF") || input == string("anod-off"))
 	{
 		outNumber = StreamNumber::outputPort_ANODOFF;
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return S_OK;
 	}
 	if(input == string("EXHAUST") || input == string("exhaust"))
 	{
 		outNumber = StreamNumber::outputPort_EXHAUST;
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 		return S_OK;
 	}
+	PANTHEIOS_TRACE_ERROR(PSTR("Leaving with fail"));
 	return E_FAIL;
 }

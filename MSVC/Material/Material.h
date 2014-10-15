@@ -83,7 +83,13 @@ public:
 	/// Gets mass flux for Fluent of selected component (recalculates units)
 	HRESULT getMassFlow(std::string compName, double& flow);
 	/// Set mass flux for material (recalculates units)
-	HRESULT setMassFlow( std::string compName, double flow)
+	HRESULT setMassFlow( std::string compName, double flow);
+	/// Calculates fractions basing on flows of components
+	HRESULT setFractions();
+	/// Cleans all properties from material
+	HRESULT Clean();
+	/// Sets pressure and temperature for all components
+	HRESULT setPT(double P, double T);
 	~Material(void);
 private:
 	/// Extract basic information on stream structure
@@ -98,8 +104,8 @@ protected:
 	ATL::CComSafeArray<BSTR> compIds;		/*!< Id of components in the stream */
 	ATL::CComSafeArray<double> temperatures; /*!< Holds temperatures of all components (all will be the same) */
 	ATL::CComSafeArray<double> pressures; /*!< Holds pressures of all components (all will be the same) */
-	ATL::CComSafeArray<double> flows; /*!< Holds flows of all components (all will be the same) */
-	ATL::CComSafeArray<double> fractions; /*!< Holds fractions of all components (all will be the same) */
+	ATL::CComSafeArray<double> flows; /*!< Holds flows of all components */
+	ATL::CComSafeArray<double> fractions; /*!< Holds fractions of all components */
 private:
 	MaterialStatus isValidated;
 };
