@@ -254,6 +254,14 @@ TEST_F(_FluentInterface,_getMean)
 	EXPECT_FALSE(exception_thrown);
 }
 
+/**
+* \test _FluentInterface,_getReport
+* \brief Find numerical values associated with surfaces in report file
+* \pre Report file must be generated: (ti-menu-load-string "report/surface-integrals flow-rate anode-outlet,n2 yes F:\Dropbox\Shares\A2F\Fluent\_name_n2.var ")
+* \post numerical values
+* \author PB
+* \date 2014/09/30
+*/
 TEST_F(_FluentInterface,_getReport)
 {
 	bool exception_thrown = false;
@@ -271,6 +279,15 @@ TEST_F(_FluentInterface,_getReport)
 	EXPECT_FALSE(exception_thrown);
 }
 
+/**
+* \test _FluentInterface,_getReportnoSurf
+* \brief Test behaviour for wrong surface name
+* \pre Surface must not exist in report file
+* \post Exception thrown
+* \author PB
+* \date 2014/09/30
+* \warning Some wrong names may be accepted according to string::find function
+*/
 TEST_F(_FluentInterface,_getReportnoSurf)
 {
 	bool exception_thrown = false;

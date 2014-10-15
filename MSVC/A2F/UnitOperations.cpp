@@ -132,7 +132,7 @@ void CUnitOperations::FinalRelease()
 }
 
 /**
-* \details  Ports returns an ICapeCollection interface that provides access to the unit�s list of ports. Each element accessed through
+* \details  Ports returns an ICapeCollection interface that provides access to the unit’s list of ports. Each element accessed through
 * the returned interface must support the ICapeUnitPort interface. It is called by PME just after initialization.
 * Query interface returns error code if requested interface is not supported. In case more general errors, exception _com_error is thrown.
 * \param[out]	ports	pointer to IPortCollection
@@ -192,16 +192,21 @@ STDMETHODIMP CUnitOperations::Calculate()
 	HRESULT err_code;
 	CComPtr<ICapeCollection> ptmpICapePortCollection;	// local portcollection interface (addref)
 	Materials.resize(PORTS_NUMBER);
+	double T, P;
 	try
 	{
 		// Preleminary settings
 		std::unique_ptr<C_A2FInterpreter> cfg(new C_A2FInterpreter()); // smart pointer in case of exception
 		cfg->A2FOpenAndValidate((installDir+script_name).c_str()); // search for script
 		std::string workingDir(cfg->A2Flookup4String("DATA_PATH")); // gets path for working dir from script
-		std::vector<string> surface;	// name of the surface for parameters to export from (Fluent)
-		std::vector<string> variable;	// name of exported variable (Fluent)
+		std::vector<string> AspenCompName;
+		std::vector<string> AspenStreamName;
+		std::vector<string> FluentCompName;
+		std::vector<string> FluentSurfName;
+		std::vector<string> reforCompList;
+
 		// read EXPORT params
-		cfg->A2FGetExportsParams(surface, variable);
+		cfg->A2FGetAssignsParams(AspenCompName, AspenStreamName, FluentCompName, FluentSurfName);
 		// ******************* Call ICapeCollection ******************************************************************************************************
 		err_code = portCollection->QueryInterface(IID_PPV_ARGS(&ptmpICapePortCollection));
 		PANTHEIOS_TRACE_DEBUG(	PSTR("ICapeCollection addres "),
@@ -248,42 +253,86 @@ STDMETHODIMP CUnitOperations::Calculate()
 		* err_code = Materials[static_cast<std::size_t>(StreamNumber::inputPort_REFOR)]->getMolarWeight(C);
 		* \endcode
 		*/
-		CreateScm();	// can throw exception on error which should be handled here
-		C_FluentStarter::StartFluent(installDir + script_name);
-
-		// ************* Reading form Anode ********************************************************************************************************
-		std::unique_ptr<C_FluentInterface> pFluentInterface(new C_FluentInterface((workingDir + "_name_" + "anode-outlet" + ".prof").c_str())); // mazwy na sztywno z powodu http://baniukpblin.linkpc.net:8080/trac/A2F/ticket/53
-		/** \todo Export powinien zawierac eksportowalne parametry ale jako odzielne pozycje a nie odzielone spacjami.
-		* Naleza�o by u�y� informacji w ASSIGNS ale ni ema po��czenia pomi�dzy nazwami parametr�w w Fluencie (z EXPORTS) a nazwami w Aspenie
-		* (np H2o i WATER)
-		* 	ASSIGNS {
-		* uid-ASSIGN = ["WATER", "ANOD-OFF", "anode-outlet"];
-		* uid-ASSIGN = ["O2", "ANOD-OFF", "anode-outlet"];
-		* uid-ASSIGN = ["HYDROGEN", "ANOD-OFF", "anode-outlet"];
-		* uid-ASSIGN = ["HYDROGEN", "ANOD-OFF", "anode-outlet"];
-		* uid-ASSIGN = ["WATER", "EXHAUST", "cathode-outlet"];
-		* uid-ASSIGN = ["O2", "EXHAUST", "cathode-outlet"];
-		* uid-ASSIGN = ["HYDROGEN", "EXHAUST", "cathode-outlet"];
-		* uid-ASSIGN = ["HYDROGEN", "EXHAUST", "cathode-outlet"];
-		* }
-		* }
-		*/
-		double T = pFluentInterface->GetMean("anode-outlet","total-temperature");		// prevent multiple evaluation GetMean
-		double P = pFluentInterface->GetMean("anode-outlet","total-pressure");		// prevent multiple evaluation GetMean
-		double T = pFluentInterface->GetMean("anode-outlet","velocity-magnitude");		// prevent multiple evaluation GetMean ???
-		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_ANODOFF)]->setProp("WATER",
-			PropertyName::Temperature,
-			T);
-		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_ANODOFF)]->setProp("WATER",
-			PropertyName::Pressure,
-			P);
-		/// \todo use get report to get flow and fractions
+		// kopiowanie z wejscia na wyjcie materiałów - zeby komponenty były
+		/// \todo można tworzyć własne związki w materiałach ale musza miec nazwy z aspena a fluent może zwracać inne. Jakoś trzeba to pogodzić. Związek w aspenie jest opisany tylko nazwą która chyba musi być rozpoznawana (see copyFrom)
 		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]);	// copy physical propertios from input
 		if(FAILED(err_code))
 			throw std::runtime_error("Error returned from copyFrom input to output");
-		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_EXHAUST)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]);	// copy physical propertios from input
+		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_EXHAUST)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_P1)]);	// copy physical propertios from input
 		if(FAILED(err_code))
 			throw std::runtime_error("Error returned from copyFrom input to output");
+
+		CreateScm();	// can throw exception on error which should be handled here
+		C_FluentStarter::StartFluent(installDir + script_name);
+
+		// czyszczenie materiałów wyjściowych
+		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_ANODOFF)]->Clean();
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from clean");
+		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_EXHAUST)]->Clean();
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from clean");
+		// po wszystkich ASSIGNS - ustawianie Flow
+		string reportName;
+		std::unique_ptr<C_FluentInterface> pFluentInterface;
+		double val;
+		StreamNumber outStreamNumber;
+		for(std::size_t i=0; i<AspenCompName.size(); i++)
+		{
+			// nazwy raportów zawierają w sobie nazwę komponentu z Fluenta
+			reportName = "_name_" + FluentCompName[i] + ".rep";
+			pFluentInterface.reset(new C_FluentInterface( (workingDir+reportName).c_str() ));	// wczytanie reportu
+			val = pFluentInterface->GetReport(FluentSurfName[i].c_str()); // odczytanie z reportu danej powierzchni - w każdym reporcie są zawarte wszystkie powierzchnie, przpływy w kg/s
+			PANTHEIOS_TRACE_DEBUG(PSTR("Read report name: "), reportName, PSTR(" surface "), FluentSurfName[i], PSTR(" value: "), pantheios::real(val));
+			// w val jest mass flow rate
+			// kopiowanie val do aspena
+			getStreamNumber(AspenStreamName[i], outStreamNumber);
+			err_code = Materials[static_cast<std::size_t>(outStreamNumber)]->setMassFlow(AspenCompName[i], val);
+			if(FAILED(err_code))
+				throw std::runtime_error("Error returned from setProp");
+		}
+		pFluentInterface.reset(nullptr);	// cleans last report
+		// ustawianie fractions dla portów wyjściowych (z ASSIGNS)
+		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_ANODOFF)]->setFractions();
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from setFraction");
+		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_EXHAUST)]->setFractions();
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from setFraction");
+		// ustawienie temperatury
+		/// \todo Zrobić konfigurację w cfg (dotyczy także CreateSCM, czyli wejścia
+		// temperature i cisnienie bierzemy z refor z dowolnego komponentu (dla wszystkich takei same)
+		err_code = Materials[static_cast<size_t>(StreamNumber::inputPort_REFOR)]->getCompList(reforCompList);
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from getCompList");
+		err_code = Materials[static_cast<size_t>(StreamNumber::inputPort_REFOR)]->getProp(reforCompList[0], PropertyName::Temperature, T);
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from getProp");
+		err_code = Materials[static_cast<size_t>(StreamNumber::inputPort_REFOR)]->getProp(reforCompList[0], PropertyName::Pressure, P);
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from getProp");
+		// ustawiamy na wyjścia
+		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_ANODOFF)]->setPT(P, T);
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from setPT");
+		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_EXHAUST)]->setPT(P, T);
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from setPT");
+
+		// dump data to check
+		Materials[static_cast<size_t>(StreamNumber::outputPort_ANODOFF)]->Dump("ANOD_OFF");
+		Materials[static_cast<size_t>(StreamNumber::outputPort_EXHAUST)]->Dump("EXHAUST");
+		//err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]);	// copy physical propertios from input
+		//if(FAILED(err_code))
+		//	throw std::runtime_error("Error returned from copyFrom input to output");
+		//err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_EXHAUST)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]);	// copy physical propertios from input
+		//if(FAILED(err_code))
+		//	throw std::runtime_error("Error returned from copyFrom input to output");
+
+		// tymczasowe kopiowanie bo na calcequilibrium sie wywala na tym materiale
+		//	err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_EXHAUST)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_P1)]);	// copy physical propertios from input
+		//	if(FAILED(err_code))
+		//		throw std::runtime_error("Error returned from copyFrom input to output");
 
 		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->outFlashMaterialObject();	// fashing outputs
 		if(FAILED(err_code))
@@ -312,7 +361,7 @@ STDMETHODIMP CUnitOperations::Calculate()
 	}
 	catch(std::ios_base::failure& ex)	// on file opening error in createScm. No transfering exceptions
 	{
-		PANTHEIOS_TRACE_ERROR(PSTR("Cant open scm file, check if DATA_PATH is correct in cfg file "), PSTR("Error returned: "), ex.what());
+		PANTHEIOS_TRACE_ERROR(PSTR("Cant open scm file or report, check if DATA_PATH is correct in cfg file "), PSTR("Error returned: "), ex.what());
 		std::string str(ex.what());	// convert char* to wchar required by SetError
 		std::wstring wstr = C_A2FInterpreter::s2ws(str);
 		SetError(wstr.c_str(), L"IUnitOperation", L"Calculate", err_code);
@@ -341,9 +390,9 @@ STDMETHODIMP CUnitOperations::Calculate()
 }
 
 /**
-* \details  Called by PME - returns status of PMC after checking PMC condition. Calling the Validate method is expected to set the unit�s
+* \details  Called by PME - returns status of PMC after checking PMC condition. Calling the Validate method is expected to set the unit’s
 * status to either CAPE_VALID or CAPE_INVALID, depending on whether the validation tests succeed or fail. Making a change to the unit operation,
-* such as setting a parameter value, or connecting a stream to a port is expected to set the unit�s status to CAPE_NOT_VALIDATED.
+* such as setting a parameter value, or connecting a stream to a port is expected to set the unit’s status to CAPE_NOT_VALIDATED.
 * This function performs the following operations:
 *	\li query ICapeCollection from IPortCollection represented by private var CUnitOperations::portCollection (addRef)
 *	\li calls CPortCollection::Count method from ICapeCollection
@@ -595,7 +644,7 @@ STDMETHODIMP CUnitOperations::put_ComponentDescription( BSTR desc )
 }
 
 /**
-* \details  Parameters returns an ICapeCollection interface that provides access to the unit�s list of parameters. Each element accessed
+* \details  Parameters returns an ICapeCollection interface that provides access to the unit’s list of parameters. Each element accessed
 * through the returned interface must support the ICapeParameter interface.
 * Query interface returns error code if requested interface is not supported. In case more general errors, exception _com_error is thrown.
 * \param[out]	parameters	pointer to IParameterCollection
@@ -884,20 +933,21 @@ void CUnitOperations::CreateScm( void )
 		// define place to keep EXPORT params: surf_name, fluent_function)name, component name
 		std::vector<string> surface;	// name of the surface for parameters to export from (Fluent)
 		std::vector<string> variable;	// name of exported variable (Fluent)
+		std::vector<string> reportType;	// type of the report
 		// temprary variables for properties
 		double T, X, F;
 		std::vector<std::string> compList;	// list of components in material
 		// read EXPORT params
-		cfg->A2FGetExportsParams(surface, variable);
-
+		cfg->A2FGetExportsParams(reportType, surface, variable);
+		/// \remarks Sum of flow rates for all species are the total flow rate.
 		// creating scm file
 		starter << ";; File generated automatically" << endl;
 		starter << ";; Load main project file - full path must be provided" << endl;
 		starter << ";; possible problem - file name must be without spaces and always with full patch, use / switch for directories" << endl;
 		starter << ";; delete previous" << endl;
 		// delete all output files (assiged to surfaces - we iterate along surfaces)
-		for (const auto &surf : surface )
-			starter << "(ti-menu-load-string \"!del " << cfg->lookup4String("DATA_PATH") << "_name_" << surf << ".prof \")" << endl;
+		for (const auto &var : variable )
+			starter << "(ti-menu-load-string \"!del " << cfg->lookup4String("DATA_PATH") << "_name_" << var << ".rep \")" << endl;
 		starter <<	";; load project" << endl;
 		starter << "(ti-menu-load-string \"file/read-case-data " << cfg->lookup4String("DATA_PATH") << cfg->lookup4String("CASE_NAME") << "\")" << endl;
 		starter << ";; Setting inputs" << endl;
@@ -980,12 +1030,12 @@ void CUnitOperations::CreateScm( void )
 			"\")" << endl;
 
 		starter << ";; --------------------------------------------------------------" << endl;
-		starter << "(ti-menu-load-string \"solve/iterate " << cfg->lookup4Int("NUMOFITER") << "\")" << endl;
+		starter << ";; (ti-menu-load-string \"solve/iterate " << cfg->lookup4Int("NUMOFITER") << "\")" << endl;
 		starter << ";; --------------------------------------------------------------" << endl;
 		starter << ";; setting outputs" << endl;
 
 		for( std::size_t i = 0; i < surface.size(); i++)
-			starter << "(ti-menu-load-string \"file/write-profile " << cfg->lookup4String("DATA_PATH") << "_name_" << surface[i] << ".prof " << surface[i] << "," << variable[i] << "\")" << endl;
+			starter << "(ti-menu-load-string \"report/surface-integrals " << reportType[i] << " " << surface[i] << "," << variable[i] << " yes " << cfg->lookup4String("DATA_PATH") << "_name_" << variable[i] << ".rep " << "\")" << endl;
 
 		starter << ";; --------------------------------------------------------------" << endl;
 		starter << "(ti-menu-load-string \"/\")" << endl;
@@ -1011,4 +1061,32 @@ void CUnitOperations::CreateScm( void )
 
 	starter.close();
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+}
+
+/**
+* \brief Maps stream name from cfg file to StreamNumber
+* \param[in] input - parameter read from ASSIGN
+* \param[out] outNumber - mapped StreamNumber
+* \return Error code, S_OK or E_FAIL
+* \retval \c HRESULT
+* \author PB
+* \date 2014/10/14
+*/
+HRESULT CUnitOperations::getStreamNumber(const std::string& input, StreamNumber& outNumber )
+{
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	if(input == string("ANOD-OFF") || input == string("anod-off"))
+	{
+		outNumber = StreamNumber::outputPort_ANODOFF;
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return S_OK;
+	}
+	if(input == string("EXHAUST") || input == string("exhaust"))
+	{
+		outNumber = StreamNumber::outputPort_EXHAUST;
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		return S_OK;
+	}
+	PANTHEIOS_TRACE_ERROR(PSTR("Leaving with fail"));
+	return E_FAIL;
 }

@@ -21,16 +21,18 @@ enum class SurfParams
 /// Enum for Exports
 enum class ExportParams
 {
+	ExpReportType,	///< Type of the report from Fluent
 	ExpSurface,		///< Name of the exported surface
-	ExpVariable,	///< Name of the Fluent variable to export
+	ExpVariable,	///< Name of the Fluent report variable to export
 };
 
 /// Enum for Assigns
 enum class AssignParams
 {
-	AssComponent,	///< Name of the chemical component
-	AssPMCInput,	///< Input of the PMC
-	AssSurfName		///< Name of the surface
+	AssAspenCompName,	///< Name of the chemical component in Aspen
+	AssAspenStreamName,	///< Input of the PMC
+	AssFluentCompName, ///< Name of the component in Fluent
+	AssFluentSurfName		///< Name of the surface
 };
 
 /**
@@ -57,9 +59,9 @@ public:
 	/// Overload member of A2FGetSurfaceParams
 	void A2FGetSurfaceParams( std::vector<std::string>& SurfName, std::vector<float>& SurfArea);
 	/// Gets EXPORTS from params
-	void A2FGetExportsParams(std::vector<std::string>& surface, std::vector<std::string>& variable);
+	void A2FGetExportsParams(std::vector<std::string>& reportType, std::vector<std::string>& surface, std::vector<std::string>& variable);
 	/// Gets ASSIGNS form params
-	void A2FGetAssignsParams(std::vector<std::string>& compName, std::vector<std::string>& PMC_stream_name, std::vector<std::string>& surfName);
+	void C_A2FInterpreter::A2FGetAssignsParams(std::vector<std::string>& AspenCompName,	std::vector<std::string>& AspenStreamName, std::vector<std::string>& FluentCompName, std::vector<std::string>& FluentSurfName );
 	/// Warper of C_Interpreter::OpenAndValidate
 	void A2FOpenAndValidate(const char* cfgInput);
 	/// Warper of C_Interpreter::lookup4String

@@ -193,7 +193,7 @@ HRESULT C_FluentStarter::PrintProcessNameAndID( DWORD processID, const TCHAR* na
 				sizeof(szProcessName)/sizeof(TCHAR) );
 		}
 	}
-	PANTHEIOS_TRACE_DEBUG(PSTR("EnumProcess: "),szProcessName);
+	//	PANTHEIOS_TRACE_DEBUG(PSTR("EnumProcess: "),szProcessName);
 	// compares two string _tcscmp  is macro that invokes wcscmp or strcmp depending on the type of characters
 	if(_tcscmp(szProcessName,nazwa)==0)	{
 		d = WaitForSingleObject( hProcess, INFINITE );
