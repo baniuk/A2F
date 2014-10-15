@@ -315,13 +315,24 @@ STDMETHODIMP CUnitOperations::Calculate()
 		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_ANODOFF)]->setPT(P, T);
 		if(FAILED(err_code))
 			throw std::runtime_error("Error returned from setPT");
+		err_code = Materials[static_cast<std::size_t>(StreamNumber::outputPort_EXHAUST)]->setPT(P, T);
+		if(FAILED(err_code))
+			throw std::runtime_error("Error returned from setPT");
 
+		// dump data to check
+		Materials[static_cast<size_t>(StreamNumber::outputPort_ANODOFF)]->Dump("ANOD_OFF");
+		Materials[static_cast<size_t>(StreamNumber::outputPort_EXHAUST)]->Dump("EXHAUST");
 		//err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]);	// copy physical propertios from input
 		//if(FAILED(err_code))
 		//	throw std::runtime_error("Error returned from copyFrom input to output");
 		//err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_EXHAUST)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_REFOR)]);	// copy physical propertios from input
 		//if(FAILED(err_code))
 		//	throw std::runtime_error("Error returned from copyFrom input to output");
+
+		// tymczasowe kopiowanie bo na calcequilibrium sie wywala na tym materiale
+		//	err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_EXHAUST)]->copyFrom(*Materials[static_cast< std::size_t >(StreamNumber::inputPort_P1)]);	// copy physical propertios from input
+		//	if(FAILED(err_code))
+		//		throw std::runtime_error("Error returned from copyFrom input to output");
 
 		err_code = Materials[static_cast< std::size_t >(StreamNumber::outputPort_ANODOFF)]->outFlashMaterialObject();	// fashing outputs
 		if(FAILED(err_code))

@@ -182,7 +182,7 @@ HRESULT Material::get_Composition()
 		compIds[i] = tmp.Copy();	// changed case back to the table
 		tmp.Empty();
 	}
-	PantheiosHelper::dumpCComSafeArray(compIds, "get_ComponentIds_upper");
+	PantheiosHelper::dumpCComSafeArray(compIds, "ComponentIds");
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
@@ -779,7 +779,7 @@ HRESULT Material::setMassFlow( std::string compName, double flow)
 		PANTHEIOS_TRACE_ERROR(PSTR("setMassFlow: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 		return hr;
 	}
-	flow = (flow *1000)/C;	// kg/s -> mol/s
+	flow = abs((flow *1000)/C);	// kg/s -> mol/s
 	hr = setProp(compName, PropertyName::Flow, flow);
 	if(FAILED(hr))
 	{
@@ -823,7 +823,7 @@ HRESULT Material::getTotalMassFlow( double& totalFlow )
 		totalFlow+=tmp;
 	}
 	PANTHEIOS_TRACE_DEBUG(PSTR("Total mass flow is "), pantheios::real(totalFlow));
-	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
 
@@ -868,7 +868,7 @@ HRESULT Material::setFractions()
 			return hr;
 		}
 	}
-	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
 }
 
@@ -917,12 +917,13 @@ HRESULT Material::Clean()
 * \brief Sets pressure and temeperature for all components in material
 * \details Assumes that all components have the same pressure and tepertature (even those with 0 flow). Fluent reports return pressure in pascals
 *  It must be converted to bar
-* \param[in] P - pressure to set [pascal]
+* \param[in] P - pressure to set [bar]
 * \param[in] T - temperature to set [K]
 * \return error code \c S_OK, \c E_FAIL
 * \retval \c HRESULT
 * \author PB
 * \date 2014/10/15
+* \warning ta funkcja ustawia TP przy za³o¿eniu ¿e pochodzaone z inneg ostrumiena (czyli z aspena) Jeœli bêda z fluenta to nalezy przkonwertowac jednstki
 */
 HRESULT Material::setPT( double P, double T )
 {
@@ -937,7 +938,7 @@ HRESULT Material::setPT( double P, double T )
 			PANTHEIOS_TRACE_ERROR(PSTR("Clean: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 			return hr;
 		}
-		if(FAILED(hr = setProp(c, PropertyName::Pressure, P * 1e-5))) // ustawianie ciœnienia  dla komponentu (przeliczenie pascal->bar
+		if(FAILED(hr = setProp(c, PropertyName::Pressure, P))) // ustawianie ciœnienia  dla komponentu
 		{
 			PANTHEIOS_TRACE_ERROR(PSTR("Clean: "), pantheios::integer(hr,pantheios::fmt::fullHex),PSTR(" Error: "), winstl::error_desc_a(hr));
 			return hr;
@@ -945,4 +946,21 @@ HRESULT Material::setPT( double P, double T )
 	}
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 	return S_OK;
+}
+
+/**
+* \brief Dumps all properties to file
+* \param[in] name header in the logfile
+* \retval \c void
+* \author PB
+* \date 2014/10/15
+*/
+void Material::Dump( std::string name )
+{
+	PANTHEIOS_TRACE_DEBUG(name);
+	PantheiosHelper::dumpCComSafeArray(compIds, std::string(name + " compIds").c_str());
+	PantheiosHelper::dumpCComSafeArray(temperatures, std::string(name + " temperatures").c_str());
+	PantheiosHelper::dumpCComSafeArray(pressures, std::string(name + " pressures").c_str());
+	PantheiosHelper::dumpCComSafeArray(fractions, std::string(name + " fractions").c_str());
+	PantheiosHelper::dumpCComSafeArray(flows, std::string(name + " flows").c_str());
 }

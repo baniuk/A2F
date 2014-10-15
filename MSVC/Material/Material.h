@@ -90,6 +90,8 @@ public:
 	HRESULT Clean();
 	/// Sets pressure and temperature for all components
 	HRESULT setPT(double P, double T);
+	/// Dumps material to log
+	void Dump(std::string name);
 	~Material(void);
 private:
 	/// Extract basic information on stream structure
