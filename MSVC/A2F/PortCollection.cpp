@@ -15,6 +15,81 @@
 
 CPortCollection::CPortCollection()
 {
+	HRESULT err_code;	// cede returned by COM functions used below
+	// set name and description of the PMC
+	componentName = L"A2FPortCollection";
+	componentDescription = L"Collection of ports";
+	CComPtr<IUnitPort> tmpIUnitPort;	// temporary IUnitPort interface
+
+	PANTHEIOS_TRACE_DEBUG(PSTR("Creating "), pantheios::integer(PORTS_NUMBER),PSTR(" ports"));
+	// create instance of CoClass for IUnitPort (IUnitPortEx)
+	// create instances of all ports
+	for (int nport=0;nport<PORTS_NUMBER;++nport)
+	{
+		err_code = tmpIUnitPort.CoCreateInstance(__uuidof(UnitPort));
+		if(FAILED(err_code)) //error
+		{
+			PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IUnitPort not created because: "),
+				pantheios::integer(err_code,pantheios::fmt::fullHex),
+				PSTR(" Error: "), winstl::error_desc_a(err_code));
+			PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+			throw std::runtime_error("CPort collection error");
+		}
+		// add port to vector
+		ports.push_back(tmpIUnitPort.Detach());	// clears also tmpIUnitPort Releases ownership of a pointer, sets the CComPtrBase::p data member
+		// variable to NULL, and returns a copy of the pointer.
+		PANTHEIOS_TRACE_DEBUG(PSTR("Added port no: "),pantheios::integer(nport),PSTR(" "),winstl::error_desc_a(err_code));
+	}
+	// sets first free port in array
+	currentPort = ports.begin();
+	/************************************************************************/
+	/* Add first port: INLET REFOR                                          */
+	/************************************************************************/
+	err_code = AddPort(L"REFOR",L"Inlet port 1", CAPE_INLET, CAPE_MATERIAL);
+	if(FAILED(err_code))
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("Port Initialize failed because: "),
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		throw std::runtime_error("CPort collection error");
+	}
+	/************************************************************************/
+	/* Add second port: INLET P1                                            */
+	/************************************************************************/
+	err_code = AddPort(L"P1",L"Inlet port 2", CAPE_INLET, CAPE_MATERIAL);
+	if(FAILED(err_code))
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("Port Initialize failed because: "),
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		throw std::runtime_error("CPort collection error");
+	}
+	/************************************************************************/
+	/* Add third port: OUTLET ANODOFF                                       */
+	/************************************************************************/
+	err_code = AddPort(L"ANODOFF",L"Output port 1", CAPE_OUTLET, CAPE_MATERIAL);
+	if(FAILED(err_code))
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("Port Initialize failed because: "),
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		throw std::runtime_error("CPort collection error");
+	}
+	/************************************************************************/
+	/* Add fourth port: OUTLET EXHAUST                                      */
+	/************************************************************************/
+	err_code = AddPort(L"EXHAUST",L"Output port 2", CAPE_OUTLET, CAPE_MATERIAL);
+	if(FAILED(err_code))
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("Port Initialize failed because: "),
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		throw std::runtime_error("CPort collection error");
+	}
 }
 
 CPortCollection::~CPortCollection()
@@ -39,79 +114,6 @@ HRESULT CPortCollection::FinalConstruct()
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	HRESULT err_code;	// cede returned by COM functions used below
 	// set name and description of the PMC
-	componentName = L"A2FPortCollection";
-	componentDescription = L"Collection of ports";
-	CComPtr<IUnitPort> tmpIUnitPort;	// temporary IUnitPort interface
-
-	PANTHEIOS_TRACE_DEBUG(PSTR("Creating "), pantheios::integer(PORTS_NUMBER),PSTR(" ports"));
-	// create instance of CoClass for IUnitPort (IUnitPortEx)
-	// create instances of all ports
-	for (int nport=0;nport<PORTS_NUMBER;++nport)
-	{
-		err_code = tmpIUnitPort.CoCreateInstance(__uuidof(UnitPort));
-		if(FAILED(err_code)) //error
-		{
-			PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IUnitPort not created because: "),
-				pantheios::integer(err_code,pantheios::fmt::fullHex),
-				PSTR(" Error: "), winstl::error_desc_a(err_code));
-			PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-			return err_code;
-		}
-		// add port to vector
-		ports.push_back(tmpIUnitPort.Detach());	// clears also tmpIUnitPort Releases ownership of a pointer, sets the CComPtrBase::p data member
-		// variable to NULL, and returns a copy of the pointer.
-		PANTHEIOS_TRACE_DEBUG(PSTR("Added port no: "),pantheios::integer(nport),PSTR(" "),winstl::error_desc_a(err_code));
-	}
-	// sets first free port in array
-	currentPort = ports.begin();
-	/************************************************************************/
-	/* Add first port: INLET REFOR                                          */
-	/************************************************************************/
-	err_code = AddPort(L"REFOR",L"Inlet port 1", CAPE_INLET, CAPE_MATERIAL);
-	if(FAILED(err_code))
-	{
-		PANTHEIOS_TRACE_ERROR(	PSTR("Port Initialize failed because: "),
-			pantheios::integer(err_code,pantheios::fmt::fullHex),
-			PSTR(" Error: "), winstl::error_desc_a(err_code));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return err_code;
-	}
-	/************************************************************************/
-	/* Add second port: INLET P1                                            */
-	/************************************************************************/
-	err_code = AddPort(L"P1",L"Inlet port 2", CAPE_INLET, CAPE_MATERIAL);
-	if(FAILED(err_code))
-	{
-		PANTHEIOS_TRACE_ERROR(	PSTR("Port Initialize failed because: "),
-			pantheios::integer(err_code,pantheios::fmt::fullHex),
-			PSTR(" Error: "), winstl::error_desc_a(err_code));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return err_code;
-	}
-	/************************************************************************/
-	/* Add third port: OUTLET ANODOFF                                       */
-	/************************************************************************/
-	err_code = AddPort(L"ANODOFF",L"Output port 1", CAPE_OUTLET, CAPE_MATERIAL);
-	if(FAILED(err_code))
-	{
-		PANTHEIOS_TRACE_ERROR(	PSTR("Port Initialize failed because: "),
-			pantheios::integer(err_code,pantheios::fmt::fullHex),
-			PSTR(" Error: "), winstl::error_desc_a(err_code));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return err_code;
-	}
-	/************************************************************************/
-	/* Add fourth port: OUTLET EXHAUST                                      */
-	/************************************************************************/
-	err_code = AddPort(L"EXHAUST",L"Output port 2", CAPE_OUTLET, CAPE_MATERIAL);
-	if(FAILED(err_code))
-	{
-		PANTHEIOS_TRACE_ERROR(	PSTR("Port Initialize failed because: "),
-			pantheios::integer(err_code,pantheios::fmt::fullHex),
-			PSTR(" Error: "), winstl::error_desc_a(err_code));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return err_code;
-	}
 
 	/************************************************************************/
 	/* Logging								                                */
