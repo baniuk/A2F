@@ -22,10 +22,45 @@ std::string script_name = "A2F.cfg";
 
 CUnitOperations::CUnitOperations()
 {
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
+	HRESULT err_code;	// cede returned by COM functions used below
+	// set name and description of the PMC
+	componentName = L"A2F";
+	componentDescription = L"FLUENT CAPE-OPEN unit operation implemented in CPP";
+
+	// create instance of CoClass for ICapePortCollection
+	err_code = portCollection.CoCreateInstance(__uuidof(PortCollection));
+	if(FAILED(err_code))	// error
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of PortCollection not created because: "),
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		throw std::runtime_error("Failed Instance of PortCollection");
+	}
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Instance of PortCollection created on IPortCollection addres: "),
+		pantheios::pointer(portCollection.p,pantheios::fmt::fullHex));
+	// create instance of CoClass for ICapeParameterCollection
+	err_code = parameterCollection.CoCreateInstance(__uuidof(ParameterCollection));
+	if(FAILED(err_code))	// error
+	{
+		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IParameterCollection not created because: "),
+			pantheios::integer(err_code,pantheios::fmt::fullHex),
+			PSTR(" Error: "), winstl::error_desc_a(err_code));
+		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
+		throw std::runtime_error("Failed Instance of IParameterCollection");;
+	}
+	PANTHEIOS_TRACE_DEBUG(	PSTR("Instance of IParameterCollection created on IParameterCollection addres: "),
+		pantheios::pointer(parameterCollection.p,pantheios::fmt::fullHex));
+	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
 }
 
 CUnitOperations::~CUnitOperations()
 {
+	if(simulationContext!=NULL)
+		simulationContext.Release(); // returns currnet object reference count, we AddRef makes assignment on put_simlationcontext
+	portCollection.Release(); // release pointer - make sure that all instances will be closed
+	parameterCollection.Release();
 }
 
 /**
@@ -50,50 +85,20 @@ HRESULT CUnitOperations::FinalConstruct()
 	PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Entering"));
 	HRESULT err_code;	// cede returned by COM functions used below
 	// set name and description of the PMC
-	componentName = L"A2F";
-	componentDescription = L"FLUENT CAPE-OPEN unit operation implemented in CPP";
-
-	// create instance of CoClass for ICapePortCollection
-	err_code = portCollection.CoCreateInstance(__uuidof(PortCollection));
-	if(FAILED(err_code))	// error
-	{
-		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of PortCollection not created because: "),
-			pantheios::integer(err_code,pantheios::fmt::fullHex),
-			PSTR(" Error: "), winstl::error_desc_a(err_code));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return err_code;
-	}
-	PANTHEIOS_TRACE_DEBUG(	PSTR("Instance of PortCollection created on IPortCollection addres: "),
-		pantheios::pointer(portCollection.p,pantheios::fmt::fullHex));
-
-	// create instance of CoClass for ICapeParameterCollection
-	err_code = parameterCollection.CoCreateInstance(__uuidof(ParameterCollection));
-	if(FAILED(err_code))	// error
-	{
-		PANTHEIOS_TRACE_ERROR(	PSTR("Instance of IParameterCollection not created because: "),
-			pantheios::integer(err_code,pantheios::fmt::fullHex),
-			PSTR(" Error: "), winstl::error_desc_a(err_code));
-		PANTHEIOS_TRACE_INFORMATIONAL(PSTR("Leaving"));
-		return err_code;
-	}
-	PANTHEIOS_TRACE_DEBUG(	PSTR("Instance of IParameterCollection created on IParameterCollection addres: "),
-		pantheios::pointer(parameterCollection.p,pantheios::fmt::fullHex));
-
-	PANTHEIOS_TRACE_DEBUG(	PSTR("Unit status: "),
-		pantheios::integer(exValidationStatus));
-
-	// looking for working dir in registry
-	if (ERROR_SUCCESS!=C_RegistrySupport::GetStringforKey(HKEY_CURRENT_USER,_T("Software\\A2F"),_T("InstallDir"),installDir))
-	{
-		// key not found, exiting
-		PANTHEIOS_TRACE_ERROR(PSTR("Key not found, exiting"));
-		MessageBox(NULL,"Registry key not found. Install A2F again","ERROR",MB_OK);
-		SetError(L"Registry key not found. Install A2F again",L"ICapeUnitOperation",L"FinalConstruct");
-		return ECapeUnknownHR;
-	}
 	// createjournal here with error checking and exception handling
 	try
 	{
+		PANTHEIOS_TRACE_DEBUG(	PSTR("Unit status: "),
+			pantheios::integer(exValidationStatus));
+		// looking for working dir in registry
+		if (ERROR_SUCCESS!=C_RegistrySupport::GetStringforKey(HKEY_CURRENT_USER,_T("Software\\A2F"),_T("InstallDir"),installDir))
+		{
+			// key not found, exiting
+			PANTHEIOS_TRACE_ERROR(PSTR("Key not found, exiting"));
+			MessageBox(NULL,"Registry key not found. Install A2F again","ERROR",MB_OK);
+			SetError(L"Registry key not found. Install A2F again",L"ICapeUnitOperation",L"FinalConstruct");
+			return ECapeUnknownHR;
+		}
 		C_FluentStarter::CreateJournal( installDir+script_name );
 	}
 	catch (std::exception& ex)
@@ -101,7 +106,7 @@ HRESULT CUnitOperations::FinalConstruct()
 		PANTHEIOS_TRACE_ERROR(PSTR("Cant create journal file, check if script is correct "), PSTR("Error returned: "), ex.what());
 		std::string str(ex.what());	// convert char* to wchar required by SetError
 		std::wstring wstr = C_A2FInterpreter::s2ws(str);
-		SetError(wstr.c_str(), L"IUnitOperation", L"FinalConstruct", err_code);
+		SetError(wstr.c_str(), L"IUnitOperation", L"FinalConstruct", E_FAIL);
 		MessageBox(NULL,"Journal can not be created. Check script","ERROR",MB_OK);
 		return ECapeUnknownHR;
 	}
@@ -124,11 +129,6 @@ void CUnitOperations::FinalRelease()
 		pantheios::pointer(portCollection,pantheios::fmt::fullHex));
 	PANTHEIOS_TRACE_DEBUG(	PSTR("Release IParameterCollection (parameterCollection) pointer: "),
 		pantheios::pointer(parameterCollection,pantheios::fmt::fullHex));
-
-	if(simulationContext!=NULL)
-		simulationContext.Release(); // returns currnet object reference count, we AddRef makes assignment on put_simlationcontext
-	portCollection.Release(); // release pointer - make sure that all instances will be closed
-	parameterCollection.Release();
 }
 
 /**
