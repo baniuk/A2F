@@ -30,7 +30,7 @@ Section "A2F"
 	
 	writeUninstaller $INSTDIR\uninstall.exe
 	
-	WriteRegStr HKCU "Software\A2F" "InstallDir" "$INSTDIR"
+	WriteRegStr HKCU "Software\A2F" "InstallDir" "$INSTDIR\"
 	WriteRegStr HKCR "CLSID\{A9129436-FB2C-4D26-B88D-A61E4D594BCB}\CapeDescription" "Name" "A2F"
 	WriteRegStr HKCR "CLSID\{A9129436-FB2C-4D26-B88D-A61E4D594BCB}\CapeDescription" "Description" "Cape-Open 2 Fluent port"
 	WriteRegStr HKCR "CLSID\{A9129436-FB2C-4D26-B88D-A61E4D594BCB}\CapeDescription" "CapeVersion" "1.0"
@@ -54,12 +54,11 @@ Section "Uninstall"
  
 # Always delete uninstaller first
 	delete "$INSTDIR\uninstall.exe"
-
+	UnRegDLL a2f.dll
     delete "$SMPROGRAMS\A2F\A2F.cfg"
 	delete "$SMPROGRAMS\A2F\uninstall.lnk"
 	RMDir "$SMPROGRAMS\A2F"
-	UnRegDLL a2f.dll
-	DeleteRegKey HKCU "Software\Cape2Fluent"
+	DeleteRegKey HKCU "Software\A2F"
 	DeleteRegKey HKCR "CLSID\{A9129436-FB2C-4D26-B88D-A61E4D594BCB}\CapeDescription"
 	DeleteRegKey HKCR "CLSID\{A9129436-FB2C-4D26-B88D-A61E4D594BCB}\Implemented Categories"
 	DeleteRegKey HKCR "CLSID\{A9129436-FB2C-4D26-B88D-A61E4D594BCB}"
