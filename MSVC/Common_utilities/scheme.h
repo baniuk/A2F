@@ -21,4 +21,5 @@ const char* schema[] = {
 	"ASSIGNS.uid-ASSIGN						=	_ASSIGNS", 
 	"EXPORTS.uid-EXPORTED_VALUE				=	_EXPORTS",
 	"SURFACES.uid-SURFACE					=	_SURFACES",
+	'\0'
 };
