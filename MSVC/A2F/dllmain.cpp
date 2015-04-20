@@ -8,7 +8,7 @@
 /// Log file name and initialization of Pantheios API
 PANTHEIOS_EXTERN_C const PAN_CHAR_T PANTHEIOS_FE_PROCESS_IDENTITY[] = PSTR("A2F");
 #ifndef PANTHEIOS_LOG_FILE_NAME
-#define PANTHEIOS_LOG_FILE_NAME	"c:\\A2F.pantlog"
+#define PANTHEIOS_LOG_FILE_NAME	"A2F.pantlog"
 #else
 #error PANTHEIOS_LOG_FILE_NAME already defined!!
 #endif
@@ -49,6 +49,7 @@ CA2FModule _AtlModule;
 // DLL Entry Point
 extern "C" BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 {
+	std::string logpath;
 	if (dwReason == DLL_PROCESS_ATTACH)
 	{
 		// Logging API initialization
@@ -59,7 +60,20 @@ extern "C" BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpRes
 		}
 		else
 		{
-			pantheios_be_file_setFilePath(PSTR(PANTHEIOS_LOG_FILE_NAME), PANTHEIOS_BEID_ALL);
+			// get %TMP% variable
+			char* tmp = getenv("TMP");
+			if(tmp==nullptr)
+				tmp = getenv("TEMP");
+			if(tmp==nullptr)
+				logpath = string("c:\\") + string(PANTHEIOS_LOG_FILE_NAME);
+			else
+			{
+				logpath = tmp;
+				if(logpath.back()!='\\')
+					logpath+='\\';
+				logpath+=PANTHEIOS_LOG_FILE_NAME;
+			}
+			pantheios_be_file_setFilePath(logpath.c_str(), PANTHEIOS_BEID_ALL);
 			pantheios::log_INFORMATIONAL("Logger enabled!");
 		}
 	}

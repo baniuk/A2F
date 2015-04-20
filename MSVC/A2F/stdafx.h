@@ -34,6 +34,7 @@
 #include <iostream>
 #include <vector>
 #include <windows.h>
+#include <cstdlib>
 #include "Material.h"
 #include "C_FluentStarter.h" // nie maj¹ scie¿ek bo sa dodane w A2F.Debug
 #include "C_Properties.h"
