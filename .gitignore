@@ -2,3 +2,6 @@
 /External_dep/
 /temp/
 !Readme
+**/*.sdf
+**/.zip
+**/ipch
